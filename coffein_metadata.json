@@ -1,0 +1,322 @@
+{
+    "151": {
+        "name": "Cuba Sierra Maestra (200 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 8.9
+    },
+    "123": {
+        "name": "Brasil Cerrado Diamond (200 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 7.1
+    },
+    "115": {
+        "name": "COFFEEIN Elite - espresso zmes (200 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 7.1
+    },
+    "649": {
+        "name": "Honduras Jerusal\u00e9n GEISHA NATURAL - tmav\u00e9 pra\u017eenie (200 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 12.0
+    },
+    "668": {
+        "name": "Vietnam Lang Biang EXTENDED NATURAL - stredn\u00e9 pra\u017eenie (200 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 12.0
+    },
+    "456": {
+        "name": "COFFEEIN Italy - espresso zmes (200 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 7.1
+    },
+    "318": {
+        "name": "Cascara - su\u0161en\u00e9 k\u00e1vovn\u00edkov\u00e9 \u010dere\u0161ne (75 g)",
+        "price": 3.5
+    },
+    "402": {
+        "name": "Cascara - su\u0161en\u00e9 k\u00e1vovn\u00edkov\u00e9 \u010dere\u0161ne (150 g)",
+        "price": 6.0
+    },
+    "725": {
+        "name": "Brut\u00e1lne siln\u00e1 k\u00e1va (200 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 7.1
+    },
+    "444": {
+        "name": "Peru El Palto (200 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 7.1
+    },
+    "346": {
+        "name": "COFFEEIN Espresso Moderna - espresso zmes (200 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 7.1
+    },
+    "244": {
+        "name": "COFFEEIN Nov\u00fd Standard - espresso zmes (200 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 7.1
+    },
+    "162": {
+        "name": "India Kaapi Royal - 100 % Robusta (200 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 7.1
+    },
+    "161": {
+        "name": "El Salvador Santa Ana (200 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 7.1
+    },
+    "129": {
+        "name": "Nicaragua Jinotega (200 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 7.1
+    },
+    "64": {
+        "name": "Honduras Santa Rosa (200 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 7.1
+    },
+    "63": {
+        "name": "Guatemala Huehuetenango (200 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 7.1
+    },
+    "36": {
+        "name": "Mexico Chiapas (200 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 7.1
+    },
+    "29": {
+        "name": "Columbia Risaralda - La Celia (200 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 7.1
+    },
+    "843": {
+        "name": "K\u00e1va \u010fakujem (200 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 7.5
+    },
+    "840": {
+        "name": "K\u00e1va pre pani u\u010dite\u013eku (200 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 7.5
+    },
+    "835": {
+        "name": "K\u00e1va 200g l\u00e1sky (200 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 7.5
+    },
+    "834": {
+        "name": "K\u00e1va v\u0161etko najlep\u0161ie (200 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 7.5
+    },
+    "833": {
+        "name": "K\u00e1va \u010fakujem \u017ee si (200 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 7.5
+    },
+    "832": {
+        "name": "K\u00e1va pre super ocka (200 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 7.5
+    },
+    "730": {
+        "name": "K\u00e1va pre mami\u010dku (200 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 7.5
+    },
+    "150": {
+        "name": "Dominik\u00e1nska republika (200 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 7.6
+    },
+    "127": {
+        "name": "Sumatra Mandheling (200 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 7.6
+    },
+    "65": {
+        "name": "Papua New Guinea Sigri (200 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 7.6
+    },
+    "30": {
+        "name": "Costa Rica Tarrazu (200 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 7.6
+    },
+    "165": {
+        "name": "Bezkofe\u00ednov\u00e1 k\u00e1va Etiopia Yirgacheffe (200 g, zrnkov\u00e1)",
+        "price": 8.0
+    },
+    "529": {
+        "name": "Kenya Kirinyaga Kii - SVETL\u00c9 pra\u017eenie (200 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 9.0
+    },
+    "528": {
+        "name": "Etiopia Yirgacheffe - SVETL\u00c9 pra\u017eenie (200 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 9.0
+    },
+    "34": {
+        "name": "Kenya Kirinyaga Kii (200 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 9.0
+    },
+    "31": {
+        "name": "Etiopia Yirgacheffe (200 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 9.0
+    },
+    "788": {
+        "name": "J\u00e1va Argopuro Natural - svetl\u00e9 pra\u017eenie (200 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 10.0
+    },
+    "787": {
+        "name": "J\u00e1va Argopuro Natural - stredn\u00e9 pra\u017eenie (200 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 10.0
+    },
+    "695": {
+        "name": "LIBERICA (200 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 10.0
+    },
+    "683": {
+        "name": "Sumatra Aceh NATURAL - SVETL\u00c9 pra\u017eenie (200 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 12.0
+    },
+    "682": {
+        "name": "Sumatra Aceh NATURAL - stredn\u00e9 pra\u017eenie (200 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 12.0
+    },
+    "681": {
+        "name": "Sumatra Aceh WASHED - stredn\u00e9 pra\u017eenie (200 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 12.0
+    },
+    "680": {
+        "name": "Sumatra Aceh WASHED - SVETL\u00c9 pra\u017eenie (200 g, zrnkov\u00e1 k\u00e1va) S\u00fa\u0165a\u017en\u00e1 k\u00e1va Aeropress Championship",
+        "price": 12.0
+    },
+    "669": {
+        "name": "Vietnam Lang Biang EXTENDED NATURAL - SVETL\u00c9 pra\u017eenie (200 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 12.0
+    },
+    "587": {
+        "name": "Vietnam Lang Biang DOUBLE WASHED - stredn\u00e9 pra\u017eenie (200 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 12.0
+    },
+    "586": {
+        "name": "Vietnam Lang Biang DOUBLE WASHED - SVETL\u00c9 pra\u017eenie (200 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 12.0
+    },
+    "580": {
+        "name": "Four pack BLEND (4 x 100 g zrnkov\u00e1 k\u00e1va)",
+        "price": 14.5
+    },
+    "581": {
+        "name": "Four pack AMERIKA (4 x 100 g zrnkov\u00e1 k\u00e1va)",
+        "price": 14.9
+    },
+    "845": {
+        "name": "PINK KONG - svetl\u00e9 pra\u017eenie (200 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 15.0
+    },
+    "844": {
+        "name": "PINK KONG - stredn\u00e9 pra\u017eenie (200 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 15.0
+    },
+    "768": {
+        "name": "POPEACHY k\u00e1va v3.0 - stredn\u00e9 pra\u017eenie (200 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 15.0
+    },
+    "767": {
+        "name": "POPEACHY k\u00e1va v3.0 - SVETL\u00c9 pra\u017eenie (200 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 15.0
+    },
+    "762": {
+        "name": "Costa Rica Corazon de Jesus - stredn\u00e9 pra\u017eenie (200 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 15.0
+    },
+    "761": {
+        "name": "Costa Rica Corazon de Jesus - SVETL\u00c9 pra\u017eenie (200 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 15.0
+    },
+    "582": {
+        "name": "Four pack AFR\u00c1ZIA (4 x 100 g zrnkov\u00e1 k\u00e1va)",
+        "price": 16.5
+    },
+    "715": {
+        "name": "ZRNKO POMOCI (1000 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 19.9
+    },
+    "583": {
+        "name": "Six pack AMERIKA (6 x 100 g zrnkov\u00e1 k\u00e1va)",
+        "price": 21.9
+    },
+    "737": {
+        "name": "BRUT\u00c1LNE SILN\u00c1 K\u00c1VA (1000 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 31.5
+    },
+    "527": {
+        "name": "GUATEMALA HUEHUETENANGO (1000 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 31.5
+    },
+    "526": {
+        "name": "COLUMBIA RISARALDA - LA CELIA (1000 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 31.5
+    },
+    "522": {
+        "name": "MEXICO CHIAPAS (1000 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 31.5
+    },
+    "521": {
+        "name": "HONDURAS SANTA ROSA (1000 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 31.5
+    },
+    "518": {
+        "name": "BRASIL CERRADO DIAMOND (1000 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 31.5
+    },
+    "516": {
+        "name": "NICARAGUA JINOTEGA (1000 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 31.5
+    },
+    "515": {
+        "name": "EL SALVADOR SANTA ANA (1000 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 31.5
+    },
+    "514": {
+        "name": "INDIA KAAPI ROYAL - 100 % Robusta (1000 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 31.5
+    },
+    "512": {
+        "name": "COFFEEIN Nov\u00fd Standard - espresso zmes (1000 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 31.5
+    },
+    "511": {
+        "name": "COFFEEIN ESPRESSO MODERNA - espresso zmes (1000 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 31.5
+    },
+    "510": {
+        "name": "PERU EL PALTO (1000 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 31.5
+    },
+    "509": {
+        "name": "COFFEEIN ITALY - espresso zmes (1000 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 31.5
+    },
+    "508": {
+        "name": "COFFEEIN ELITE - espresso zmes (1000 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 31.5
+    },
+    "749": {
+        "name": "DOMINIK\u00c1NSKA REPUBLIKA (1000 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 34.9
+    },
+    "525": {
+        "name": "COSTA RICA TARRAZU (1000 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 34.9
+    },
+    "519": {
+        "name": "PAPUA NEW GUINEA SIGRI (1000 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 34.9
+    },
+    "517": {
+        "name": "SUMATRA MANDHELING (1000 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 34.9
+    },
+    "513": {
+        "name": "BEZKOFEINOV\u00c1 K\u00c1VA ETIOPIA YIRGACHEFFE (1000 g, zrnkov\u00e1)",
+        "price": 36.9
+    },
+    "724": {
+        "name": "KENYA KIRINYAGA KII-SVETL\u00c9 PRA\u017dENIE (1000 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 39.0
+    },
+    "723": {
+        "name": "ETIOPIA YIRGACHEFFE-SVETL\u00c9 PRA\u017dENIE (1000 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 39.0
+    },
+    "524": {
+        "name": "ETIOPIA YIRGACHEFFE (1000 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 39.0
+    },
+    "523": {
+        "name": "KENYA KIRINYAGA KII (1000 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 39.0
+    },
+    "520": {
+        "name": "CUBA SIERRA MAESTRA (1000 g, zrnkov\u00e1 k\u00e1va)",
+        "price": 40.5
+    }
+}
