@@ -1,10 +1,13 @@
+import json
+import re
+import unidecode
 from collections import defaultdict
+
 import requests
 from bs4 import BeautifulSoup
-import re
-import json
 
 from metadata import Metadata
+
 
 def find_metadata(output:str,filter = None)->bool:
     page_exists = True
@@ -20,7 +23,7 @@ def find_metadata(output:str,filter = None)->bool:
         if response.status_code == 200:
             soup = BeautifulSoup(response.text, features="html.parser")
             scripts = soup.find_all('script')
-            
+                       
             for script in scripts:
                 if 'view_item_list' in script.text:
                     # Use regex to extract the 'items' array
@@ -34,10 +37,15 @@ def find_metadata(output:str,filter = None)->bool:
                         try:
                             items = json.loads(f'[{items_str}]')  # Wrap in [] to make it a list
                             for item in items:
+                                name_unfiltered = item.get('item_name')
+                                decoded_name = name_unfiltered.encode('utf-8').decode('unicode_escape')
+                                #TODO : fix the link
+                                link = unidecode.unidecode(name_unfiltered)
                                 metadata = Metadata(
                                     id=item.get('item_id'),
-                                    name=item.get('item_name'),
-                                    price=float(item.get('price'))  
+                                    link=link,
+                                    name = decoded_name,
+                                    price=float(item.get('price'))
                                 )
                                 
                                 if metadata.id in product_data:
@@ -46,13 +54,14 @@ def find_metadata(output:str,filter = None)->bool:
                                     break
                                 product_details = {
                                     'name': metadata.name,
-                                    'price': metadata.price
+                                    'price': metadata.price,
+                                    'link': metadata.link
                                 }
                                 if filter:
-                                    if filter.lower() in metadata.name.lower():
+                                    if filter.lower() in metadata.link.lower():
                                         pass
                                     else:
-                                       product_data[metadata.id] = product_details 
+                                        product_data[metadata.id] = product_details 
                                 else:
                                     product_data[metadata.id] = product_details
                             print(f"Currently found {len(product_data)}")
