@@ -5,7 +5,7 @@ from collections import defaultdict
 import logging
 import requests
 from bs4 import BeautifulSoup
-from metadata import Metadata
+from data_models import Metadata
 from urllib.parse import urljoin
 
 
@@ -164,14 +164,14 @@ class CoffeeinCrawler:
         return True
     
     def generate_specific_page_url(self,link,item_id):
-        return urljoin(self.base_url, f'detail{link}/{item_id}')
+        return urljoin(self.base_url, f'detail/{link}/{item_id}')
 
     def find_coffee_details(self,metadata=None):
         if not metadata:
             metadata = self.product_metadata 
         if metadata is None:
             raise ValueError("Metadata is not present")
-        for item_id, item_data in metadata.values():
+        for item_id, item_data in metadata.items():
             detail_url = self.generate_specific_page_url(item_id,item_data.get('link'))
             response = requests.get(detail_url, timeout=self.timeout)
             if response.status_code == 200:
@@ -194,6 +194,7 @@ def main():
         output="coffein_metadata.json",
     )
     cc.find_metadata()
+    cc.find_coffee_details()
 
 
 if __name__ == "__main__":
