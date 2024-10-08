@@ -6,6 +6,8 @@ import logging
 import requests
 from bs4 import BeautifulSoup
 from metadata import Metadata
+from urllib.parse import urljoin
+
 
 logging.basicConfig(filename="scraper.log", level=logging.ERROR)
 
@@ -58,6 +60,7 @@ class CoffeeinCrawler:
         self.retries = retries
         self.timeout = timeout
         self.max_pages = max_pages
+        self.base_metadata_url = urljoin(base_url, "kategoria/2/cerstvo-prazena-zrnkova-kava/")
 
     def get_items(self, match: str):
         items_str = match.group(1)
@@ -141,7 +144,7 @@ class CoffeeinCrawler:
         iterator = 1
 
         while page_exists and iterator <= self.max_pages:
-            url = f"{self.base_url}{iterator}/"
+            url = urljoin(self.base_metadata_url, f"{iterator}/")
             iterator = iterator + 1
             response = requests.get(url, timeout=self.timeout)
 
@@ -159,11 +162,32 @@ class CoffeeinCrawler:
         with open(self.output, "w") as json_file:
             json.dump(self.product_metadata, json_file, indent=4)
         return True
+    
+    def generate_specific_page_url(self,link,item_id):
+        return urljoin(self.base_url, f'detail{link}/{item_id}')
+
+    def find_coffee_details(self,metadata=None):
+        if not metadata:
+            metadata = self.product_metadata 
+        if metadata is None:
+            raise ValueError("Metadata is not present")
+        for item_id, item_data in metadata.values():
+            detail_url = self.generate_specific_page_url(item_id,item_data.get('link'))
+            response = requests.get(detail_url, timeout=self.timeout)
+            if response.status_code == 200:
+                soup = BeautifulSoup(response.text, features="html.parser")
+                self.filter_soup(soup, detail_url)
+            else:
+                print(
+                    f"Failed to retrieve the page. Status code: {response.status_code}"
+                )
+                page_exists = False
+        
 
 
 def main():
     cc = CoffeeinCrawler(
-        base_url="https://www.coffeein.sk/kategoria/2/cerstvo-prazena-zrnkova-kava/",
+        base_url="https://www.coffeein.sk/",
         timeout=15,
         retries=3,
         ignore_words=["tasting pack"],
