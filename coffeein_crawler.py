@@ -166,23 +166,85 @@ class CoffeeinCrawler:
     def generate_specific_page_url(self,link,item_id):
         return urljoin(self.base_url, f'detail/{link}/{item_id}')
 
-    def find_coffee_details(self,metadata=None):
+    def find_coffee_details(self, metadata=None):
         if not metadata:
             metadata = self.product_metadata 
         if metadata is None:
             raise ValueError("Metadata is not present")
+            
+        coffee_details = {}
+        
         for item_id, item_data in metadata.items():
-            detail_url = self.generate_specific_page_url(item_id,item_data.get('link'))
+            detail_url = self.generate_specific_page_url(item_id, item_data.get('link'))
             response = requests.get(detail_url, timeout=self.timeout)
+            
             if response.status_code == 200:
                 soup = BeautifulSoup(response.text, features="html.parser")
-                self.filter_soup(soup, detail_url)
+                coffee_data = self.extract_coffee_details(soup, detail_url, item_id)
+                coffee_details[item_id] = coffee_data
             else:
-                print(
-                    f"Failed to retrieve the page. Status code: {response.status_code}"
-                )
-                page_exists = False
-        
+                logging.error(f"Failed to retrieve page {detail_url}: {response.status_code}")
+                
+        return coffee_details
+
+    def extract_coffee_details(self, soup: BeautifulSoup, url: str, item_id: str) -> dict:
+        try:
+            # Find the product details section
+            details_section = soup.find('div', class_='product-detail')
+            
+            # Extract title with error handling
+            title_element = soup.find('h1', class_='product-title')
+            name = title_element.text.strip() if title_element else 'N/A'
+            
+            # Find all parameter rows with error handling
+            params = {}
+            param_rows = soup.find_all('div', class_='parameter-row') if details_section else []
+            for row in param_rows:
+                label_elem = row.find('div', class_='parameter-label')
+                value_elem = row.find('div', class_='parameter-value')
+                if label_elem and value_elem:
+                    params[label_elem.text.strip()] = value_elem.text.strip()
+            
+            # Extract flavor profile with error handling
+            flavor_profile = []
+            flavor_section = soup.find('div', class_='taste-profile')
+            if flavor_section:
+                flavors = flavor_section.find_all('span', class_='taste-tag')
+                flavor_profile = [flavor.text.strip() for flavor in flavors if flavor.text]
+            
+            # Create Coffee object with default values
+            coffee_data = {
+                'id': item_id,
+                'page': url,
+                'name': name,
+                'roast_shade': params.get('Praženie', 'N/A'),
+                'package_size': params.get('Balenie', 'N/A'),
+                'label_material': params.get('Obal', 'N/A'),
+                'flavor_profile': flavor_profile,
+                'body': params.get('Telo', 'N/A'),
+                'bitterness': params.get('Horkosť', 'N/A'),
+                'acidity': params.get('Kyslosť', 'N/A'),
+                'sweetness': params.get('Sladkosť', 'N/A'),
+                'region': params.get('Región', 'N/A'),
+                'farm': params.get('Farma', 'N/A'),
+                'variety': [v.strip() for v in params.get('Odroda', 'N/A').split(',') if v.strip()],
+                'processing': params.get('Spracovanie', 'N/A'),
+                'altitude': params.get('Nadmorská výška', 'N/A'),
+                'reviews': [],
+                'review_score': 0.0
+            }
+            
+            return coffee_data
+            
+        except Exception as e:
+            logging.error(f"Error extracting coffee details from {url}: {str(e)}")
+            # Return a default object instead of raising an error
+            return {
+                'id': item_id,
+                'page': url,
+                'name': 'N/A',
+                'error': str(e)
+            }
 
 
 def main():
