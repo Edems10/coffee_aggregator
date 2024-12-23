@@ -1,11 +1,12 @@
 import json
 import re
+import chompjs
 import unidecode
 from collections import defaultdict
 import logging
 import requests
 from bs4 import BeautifulSoup
-from data_models import Metadata
+from data_models import Metadata,Coffee
 from urllib.parse import urljoin
 
 
@@ -187,64 +188,66 @@ class CoffeeinCrawler:
                 
         return coffee_details
 
-    def extract_coffee_details(self, soup: BeautifulSoup, url: str, item_id: str) -> dict:
+
+
+    def extract_coffee_details(self, soup: BeautifulSoup, url: str, item_id: str) -> Coffee:
         try:
-            # Find the product details section
-            details_section = soup.find('div', class_='product-detail')
+            # Find the script containing gtag event data
+            script_content = soup.find('script', text=lambda t: t and 'gtag(\'event\', \'view_item\'' in t)
             
-            # Extract title with error handling
-            title_element = soup.find('h1', class_='product-title')
-            name = title_element.text.strip() if title_element else 'N/A'
-            
-            # Find all parameter rows with error handling
-            params = {}
-            param_rows = soup.find_all('div', class_='parameter-row') if details_section else []
-            for row in param_rows:
-                label_elem = row.find('div', class_='parameter-label')
-                value_elem = row.find('div', class_='parameter-value')
-                if label_elem and value_elem:
-                    params[label_elem.text.strip()] = value_elem.text.strip()
-            
-            # Extract flavor profile with error handling
-            flavor_profile = []
-            flavor_section = soup.find('div', class_='taste-profile')
-            if flavor_section:
-                flavors = flavor_section.find_all('span', class_='taste-tag')
-                flavor_profile = [flavor.text.strip() for flavor in flavors if flavor.text]
-            
-            # Create Coffee object with default values
-            coffee_data = {
-                'id': item_id,
-                'page': url,
-                'name': name,
-                'roast_shade': params.get('Praženie', 'N/A'),
-                'package_size': params.get('Balenie', 'N/A'),
-                'label_material': params.get('Obal', 'N/A'),
-                'flavor_profile': flavor_profile,
-                'body': params.get('Telo', 'N/A'),
-                'bitterness': params.get('Horkosť', 'N/A'),
-                'acidity': params.get('Kyslosť', 'N/A'),
-                'sweetness': params.get('Sladkosť', 'N/A'),
-                'region': params.get('Región', 'N/A'),
-                'farm': params.get('Farma', 'N/A'),
-                'variety': [v.strip() for v in params.get('Odroda', 'N/A').split(',') if v.strip()],
-                'processing': params.get('Spracovanie', 'N/A'),
-                'altitude': params.get('Nadmorská výška', 'N/A'),
-                'reviews': [],
-                'review_score': 0.0
-            }
-            
-            return coffee_data
-            
+            if script_content:
+                # Parse the JavaScript object directly using chompjs
+                parsed_data = chompjs.parse_js_objects(script_content.string)[0]
+                
+                # Extract the first item from the items array
+                product_info = parsed_data['items'][0]
+                
+                return Coffee(
+                    id=int(item_id),
+                    page=url,
+                    name=product_info.get('item_name', ''),
+                    roast_shade='',
+                    package_size='',
+                    label_material='',
+                    flavor_profile=[],
+                    body='',
+                    bitterness='',
+                    acidity='',
+                    sweetness='',
+                    region='',
+                    farm='',
+                    variety=[],
+                    processing='',
+                    altitude='',
+                    reviews=[],
+                    review_score=0.0
+                )
+                
         except Exception as e:
             logging.error(f"Error extracting coffee details from {url}: {str(e)}")
-            # Return a default object instead of raising an error
-            return {
-                'id': item_id,
-                'page': url,
-                'name': 'N/A',
-                'error': str(e)
-            }
+            return Coffee(
+                id=int(item_id),
+                page=url,
+                name='N/A',
+                roast_shade='',
+                package_size='',
+                label_material='',
+                flavor_profile=[],
+                body='',
+                bitterness='',
+                acidity='',
+                sweetness='',
+                region='',
+                farm='',
+                variety=[],
+                processing='',
+                altitude='',
+                reviews=[],
+                review_score=0.0
+            )
+
+
+
 
 
 def main():
