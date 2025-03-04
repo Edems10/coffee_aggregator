@@ -25,7 +25,6 @@ class ScraperError(Exception):
 
 
 class CoffeeinCrawler:
-
     def __init__(
         self,
         base_url: str,
@@ -42,7 +41,9 @@ class CoffeeinCrawler:
         self.retries = retries
         self.timeout = timeout
         self.max_pages = max_pages
-        self.base_metadata_url = urljoin(base_url, "kategoria/2/cerstvo-prazena-zrnkova-kava/")
+        self.base_metadata_url = urljoin(
+            base_url, "kategoria/2/cerstvo-prazena-zrnkova-kava/"
+        )
 
     def get_items(self, match: str):
         items_str = match.group(1)
@@ -65,7 +66,7 @@ class CoffeeinCrawler:
 
             link = (
                 unidecode.unidecode(name_unfiltered)
-                .replace(" % ","-")
+                .replace(" % ", "-")
                 .replace(" - ", "-")
                 .replace(" (", "-")
                 .replace(") ", "-")
@@ -142,91 +143,92 @@ class CoffeeinCrawler:
         with open(self.output, "w") as json_file:
             json.dump(self.product_metadata, json_file, indent=4)
         return True
-    
-    def generate_specific_page_url(self,link,item_id):
-        return urljoin(self.base_url, f'detail/{link}/{item_id}')
+
+    def generate_specific_page_url(self, link, item_id):
+        return urljoin(self.base_url, f"detail/{link}/{item_id}")
 
     def find_coffee_details(self, metadata=None):
         if not metadata:
-            metadata = self.product_metadata 
+            metadata = self.product_metadata
         if metadata is None:
             raise ValueError("Metadata is not present")
-            
+
         coffee_details = {}
-        
+
         for item_id, item_data in metadata.items():
-            detail_url = self.generate_specific_page_url(item_id, item_data.get('link'))
+            detail_url = self.generate_specific_page_url(item_id, item_data.get("link"))
             response = requests.get(detail_url, timeout=self.timeout)
-            
+
             if response.status_code == 200:
                 soup = BeautifulSoup(response.text, features="html.parser")
                 coffee_data = self.extract_coffee_details(soup, detail_url, item_id)
                 coffee_details[item_id] = coffee_data
             else:
-                logging.error(f"Failed to retrieve page {detail_url}: {response.status_code}")
-                
+                logging.error(
+                    f"Failed to retrieve page {detail_url}: {response.status_code}"
+                )
+
         return coffee_details
 
-
-
-    def extract_coffee_details(self, soup: BeautifulSoup, url: str, item_id: str) -> Coffee:
+    def extract_coffee_details(
+        self, soup: BeautifulSoup, url: str, item_id: str
+    ) -> Coffee:
         try:
             # Find the script containing gtag event data
-            script_content = soup.find('script', text=lambda t: t and 'gtag(\'event\', \'view_item\'' in t)
-            
+            script_content = soup.find(
+                "script", text=lambda t: t and "gtag('event', 'view_item'" in t
+            )
+
             if script_content:
                 # Parse the JavaScript object directly using chompjs
                 parsed_data = chompjs.parse_js_objects(script_content.string)[0]
-                
+
                 # Extract the first item from the items array
-                product_info = parsed_data['items'][0]
-                
+                product_info = parsed_data["items"][0]
+
                 return Coffee(
                     id=int(item_id),
                     page=url,
-                    name=product_info.get('item_name', ''),
-                    roast_shade='',
-                    package_size='',
-                    label_material='',
+                    name=product_info.get("item_name", ""),
+                    roast_shade="",
+                    package_size="",
+                    label_material="",
                     flavor_profile=[],
-                    body='',
-                    bitterness='',
-                    acidity='',
-                    sweetness='',
-                    region='',
-                    farm='',
+                    body="",
+                    bitterness="",
+                    acidity="",
+                    sweetness="",
+                    region="",
+                    farm="",
                     variety=[],
-                    processing='',
-                    altitude='',
+                    processing="",
+                    altitude="",
                     reviews=[],
-                    review_score=0.0
+                    review_score=0.0,
                 )
-                
+
         except Exception as e:
             logging.error(f"Error extracting coffee details from {url}: {str(e)}")
             return Coffee(
                 id=int(item_id),
                 page=url,
-                name='N/A',
-                roast_shade='',
-                package_size='',
-                label_material='',
+                name="N/A",
+                roast_shade="",
+                package_size="",
+                label_material="",
                 flavor_profile=[],
-                body='',
-                bitterness='',
-                acidity='',
-                sweetness='',
-                region='',
-                farm='',
+                body="",
+                bitterness="",
+                acidity="",
+                sweetness="",
+                region="",
+                farm="",
                 variety=[],
-                processing='',
-                altitude='',
+                processing="",
+                altitude="",
                 reviews=[],
-                review_score=0.0
+                review_score=0.0,
             )
-
-
-
 
 
 def main():

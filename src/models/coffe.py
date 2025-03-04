@@ -1,12 +1,14 @@
 from dataclasses import dataclass
 from typing import Optional
 
-@dataclass 
+
+@dataclass
 class Origin:
     farm: Optional[str] = None
     region: str
-    altitude: Optional[str] = None 
-    
+    altitude: Optional[str] = None
+
+
 @dataclass
 class Taste:
     body: str
@@ -17,16 +19,19 @@ class Taste:
     processing: Optional[str] = None
     flavor_profile: Optional[list] = None
     variety: Optional[list] = None
-    
-@dataclass 
+
+
+@dataclass
 class PackageInformation:
     package_size: str
     label_material: Optional[str] = None
-    
+
+
 @dataclass
 class Review:
     reviews: list[str]
     review_score: float
+
 
 @dataclass
 class Coffee:
@@ -38,5 +43,3 @@ class Coffee:
     taste: Taste
     package_info: Optional[PackageInformation]
     review: Optional[Review]
-    
-
