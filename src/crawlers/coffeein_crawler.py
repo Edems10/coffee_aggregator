@@ -6,7 +6,9 @@ from collections import defaultdict
 import logging
 import requests
 from bs4 import BeautifulSoup
-from data_models import Metadata,Coffee
+from src.models.coffe import Coffee
+from src.models.metadata import Metadata
+
 from urllib.parse import urljoin
 
 
@@ -23,27 +25,6 @@ class ScraperError(Exception):
 
 
 class CoffeeinCrawler:
-    """
-    A web scraper class that extracts product data from a specific website.
-
-    Attributes:
-        base_url (str): The base URL of the website to scrape.
-        output (str): The file path to save the scraped product metadata.
-        retries (int): The number of retries for failed HTTP requests. Defaults to 3.
-        timeout (int): The timeout for HTTP requests in seconds. Defaults to 15.
-        max_pages (int): The maximum number of pages to scrape. Defaults to 1000.
-        ignored_words (list): A list of words to ignore in product names. Defaults to None.
-
-    Methods:
-        get_items(match: str): Extracts a list of items from a regex match and converts it to a JSON list.
-        check_ignored_words(string: str): Checks if a given string contains any of the ignored words.
-        filter_items(items: list): Filters scraped items based on existing metadata and ignored words.
-        filter_soup(soup: BeautifulSoup, url: str): Extracts product data from a BeautifulSoup object.
-        find_metadata(): Finds all metadata from the pages and saves it to the output file.
-
-    Raises:
-        ScraperError: If an error occurs during the scraping process.
-    """
 
     def __init__(
         self,
@@ -66,9 +47,9 @@ class CoffeeinCrawler:
     def get_items(self, match: str):
         items_str = match.group(1)
         items_str = items_str.replace("'", '"')
-        items_str = re.sub(r",\s*}", "}", items_str)  # Remove trailing commas
-        items_str = re.sub(r",\s*]", "]", items_str)  # Remove trailing commas
-        return json.loads(f"[{items_str}]")  # Wrap in [] to make it a list
+        items_str = re.sub(r",\s*}", "}", items_str)
+        items_str = re.sub(r",\s*]", "]", items_str)
+        return json.loads(f"[{items_str}]")
 
     def check_ignored_words(self, string) -> bool:
         if self.ignored_words:
@@ -158,8 +139,6 @@ class CoffeeinCrawler:
                     f"Failed to retrieve the page. Status code: {response.status_code}"
                 )
                 page_exists = False
-        # TODO add upload to database
-        # TODO create comparison between databse and found
         with open(self.output, "w") as json_file:
             json.dump(self.product_metadata, json_file, indent=4)
         return True
