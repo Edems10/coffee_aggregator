@@ -4,8 +4,8 @@ from typing import Optional
 
 @dataclass
 class Origin:
-    farm: Optional[str] = None
     region: str
+    farm: Optional[str] = None
     altitude: Optional[str] = None
 
 
