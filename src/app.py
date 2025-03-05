@@ -1,21 +1,17 @@
-from crawlers.crawler_factory import CrawlerFactory
+from factory.crawler_factory import CrawlerFactory
 from models.page import PageType
-
+from assets.constants import COFFEIN_MAIN_COFFE_PAGE
+from factory.processor_factory import ProcessorFactory
 
 def main():
-    # Create a CoffeeinCrawler using the factory
-    crawler = CrawlerFactory.create_crawler(
-        PageType.COFFEEIN,
-    )
 
-    # Use the crawler
-    metadata_list = crawler.find_metadata("kategoria/2/cerstvo-prazena-zrnkova-kava/")
-
-    for metadata in metadata_list:
-        coffee_link = crawler.link_coffe_details(metadata)
-        coffee = crawler.find_coffee(coffee_link)
-        # Process the coffee data as needed
-
+    crawler = CrawlerFactory.create_crawler(PageType.COFFEEIN)
+    processor = ProcessorFactory.create_processor(PageType.COFFEEIN, ignored_coffes = ["tasting pack"])
+    
+    metadata_set = set()
+    for metadata_soup in crawler.find_metadata(COFFEIN_MAIN_COFFE_PAGE):
+        metadata_batch = processor.process_metadata(metadata_soup)
+        metadata_set.update(metadata_batch)
 
 if __name__ == "__main__":
     main()
