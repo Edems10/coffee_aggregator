@@ -1,1 +1,0 @@
-ERROR:root:Error extracting coffee details from https://www.coffeein.sk/detail/151/cuba-sierra-maestra-200-g-zrnkova-kava: 'NoneType' object has no attribute 'text'
