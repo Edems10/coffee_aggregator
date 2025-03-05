@@ -1,49 +1,31 @@
 import json
 import re
-import chompjs
-import unidecode
-from collections import defaultdict
-import logging
+from typing import Union
 import requests
-from bs4 import BeautifulSoup
-from src.models.coffe import Coffee
-from src.models.metadata import Metadata
+import unidecode
 
+from collections import defaultdict
 from urllib.parse import urljoin
+from bs4 import BeautifulSoup
+
+from models.metadata import Metadata
+from crawlers.base_crawler import Crawler
+from errors.crawler_error import ScraperError
 
 
-logging.basicConfig(filename="scraper.log", level=logging.ERROR)
-
-
-class ScraperError(Exception):
-    """Custom exception for scraper errors."""
-
-    def __init__(self, url, message):
-        self.url = url
-        self.status_code = message
-        super().__init__(f"Error scraping {url}: {message}")
-
-
-class CoffeeinCrawler:
+class CoffeeinCrawler(Crawler):
     def __init__(
-        self,
-        base_url: str,
-        output: str,
-        retries=3,
-        timeout=15,
-        max_pages=1000,
-        ignore_words=None,
+        self, retries=3, timeout=15, max_pages=1000, ignore_words=None
     ) -> None:
-        self.base_url = base_url
-        self.output = output
+        self.base_url = "https://www.coffeein.sk/"
         self.product_metadata = defaultdict(dict)
-        self.ignored_words = ignore_words
         self.retries = retries
         self.timeout = timeout
         self.max_pages = max_pages
-        self.base_metadata_url = urljoin(
-            base_url, "kategoria/2/cerstvo-prazena-zrnkova-kava/"
-        )
+        self.ignore_words = ignore_words or ["tasting pack"]
+
+    def find_coffee(self, coffe_url_base):
+        pass
 
     def get_items(self, match: str):
         items_str = match.group(1)
@@ -52,18 +34,20 @@ class CoffeeinCrawler:
         items_str = re.sub(r",\s*]", "]", items_str)
         return json.loads(f"[{items_str}]")
 
-    def check_ignored_words(self, string) -> bool:
-        if self.ignored_words:
-            for ignored_word in self.ignored_words:
-                if ignored_word.lower() in string.lower():
+    def check_ignore_words(self, string) -> bool:
+        if self.ignore_words:
+            for ignore_word in self.ignore_words:
+                if ignore_word.lower() in string.lower():
                     return True
         return False
 
-    def filter_items(self, items) -> bool:
+    def filter_items(self, items) -> Union[dict, bool]:
+        product_metadata = defaultdict(dict)
         for item in items:
             name_unfiltered = item.get("item_name")
             decoded_name = name_unfiltered.encode("utf-8").decode("unicode_escape")
 
+            link = self.create_link(name_unfiltered)
             link = (
                 unidecode.unidecode(name_unfiltered)
                 .replace(" % ", "-")
@@ -83,33 +67,27 @@ class CoffeeinCrawler:
                 price=float(item.get("price")),
             )
 
-            if metadata.id in self.product_metadata:
-                print("Found the same product twice. Ending...")
-                return False
-
             product_details = {
                 "name": metadata.name,
                 "price": metadata.price,
                 "link": metadata.link,
             }
 
-            if not self.check_ignored_words(metadata.name):
+            if not self.check_ignore_words(metadata.name):
                 self.product_metadata[metadata.id] = product_details
 
         print(f"Currently found {len(self.product_metadata)} products")
         return True
 
+    # Look into the view_item_list if there is a better way
     def filter_soup(self, soup: BeautifulSoup, url: str) -> bool:
         scripts = soup.find_all("script")
         for script in scripts:
             if "view_item_list" not in script.text:
                 continue
-            # Use regex to extract the 'items' array
+
             match = re.search(r'"items":\s*\[(.*?)\]\s*\}', script.text, re.DOTALL)
             if not match:
-                # Raise custom error if the match is not found
-                error_msg = "Failed to find product data in script tags"
-                logging.error(error_msg)
                 raise ScraperError(
                     url=url, message="Failed to find product data in script tags"
                 )
@@ -118,28 +96,32 @@ class CoffeeinCrawler:
                 return self.filter_items(items)
 
             except json.JSONDecodeError as e:
-                error_msg = f"JSON decode error: {e}"
-                logging.error(error_msg)
                 raise ScraperError(url=url, message=f"JSON decode error: {e}") from e
 
-    def find_metadata(self) -> bool:
-        page_exists = True
-        iterator = 1
+    def is_rerouted(self, requested_url: str, response_url: str) -> bool:
+        return requested_url != response_url
 
-        while page_exists and iterator <= self.max_pages:
-            url = urljoin(self.base_metadata_url, f"{iterator}/")
-            iterator = iterator + 1
+    def find_metadata(self, metadata_url_base: str) -> dict:
+        base_metadata_url = urljoin(self.base_url, metadata_url_base)
+        page_iterator = 1
+
+        for page_iterator in range(1, self.max_pages):
+            url = urljoin(base_metadata_url, f"{page_iterator}/")
+            page_iterator = page_iterator + 1
             response = requests.get(url, timeout=self.timeout)
 
             if response.status_code == 200:
-                soup = BeautifulSoup(response.text, features="html.parser")
-                if not self.filter_soup(soup, url):
-                    page_exists = False
+                if self.is_rerouted(url, response.url):
+                    break
+
+                soup_response = BeautifulSoup(response.text, features="html.parser")
+                if not self.filter_soup(soup_response, url):
+                    break
             else:
                 print(
                     f"Failed to retrieve the page. Status code: {response.status_code}"
                 )
-                page_exists = False
+                break
         with open(self.output, "w") as json_file:
             json.dump(self.product_metadata, json_file, indent=4)
         return True
@@ -164,84 +146,6 @@ class CoffeeinCrawler:
                 coffee_data = self.extract_coffee_details(soup, detail_url, item_id)
                 coffee_details[item_id] = coffee_data
             else:
-                logging.error(
-                    f"Failed to retrieve page {detail_url}: {response.status_code}"
-                )
+                print(f"Failed to retrieve page {detail_url}: {response.status_code}")
 
         return coffee_details
-
-    def extract_coffee_details(
-        self, soup: BeautifulSoup, url: str, item_id: str
-    ) -> Coffee:
-        try:
-            # Find the script containing gtag event data
-            script_content = soup.find(
-                "script", text=lambda t: t and "gtag('event', 'view_item'" in t
-            )
-
-            if script_content:
-                # Parse the JavaScript object directly using chompjs
-                parsed_data = chompjs.parse_js_objects(script_content.string)[0]
-
-                # Extract the first item from the items array
-                product_info = parsed_data["items"][0]
-
-                return Coffee(
-                    id=int(item_id),
-                    page=url,
-                    name=product_info.get("item_name", ""),
-                    roast_shade="",
-                    package_size="",
-                    label_material="",
-                    flavor_profile=[],
-                    body="",
-                    bitterness="",
-                    acidity="",
-                    sweetness="",
-                    region="",
-                    farm="",
-                    variety=[],
-                    processing="",
-                    altitude="",
-                    reviews=[],
-                    review_score=0.0,
-                )
-
-        except Exception as e:
-            logging.error(f"Error extracting coffee details from {url}: {str(e)}")
-            return Coffee(
-                id=int(item_id),
-                page=url,
-                name="N/A",
-                roast_shade="",
-                package_size="",
-                label_material="",
-                flavor_profile=[],
-                body="",
-                bitterness="",
-                acidity="",
-                sweetness="",
-                region="",
-                farm="",
-                variety=[],
-                processing="",
-                altitude="",
-                reviews=[],
-                review_score=0.0,
-            )
-
-
-def main():
-    cc = CoffeeinCrawler(
-        base_url="https://www.coffeein.sk/",
-        timeout=15,
-        retries=3,
-        ignore_words=["tasting pack"],
-        output="coffein_metadata.json",
-    )
-    cc.find_metadata()
-    cc.find_coffee_details()
-
-
-if __name__ == "__main__":
-    main()
