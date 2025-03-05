@@ -1,4 +1,4 @@
-from crawlers.coffein_crawler import CoffeeinCrawler
+from crawlers.coffeein_crawler import CoffeeinCrawler
 from models.page import PageType
 from crawlers.base_crawler import Crawler
 
