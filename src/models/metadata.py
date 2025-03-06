@@ -1,12 +1,15 @@
 from dataclasses import dataclass
-
+from typing import Optional
+from models.page import PageType
 
 @dataclass
 class Metadata:
     id: str
-    link: str
+    origin:PageType
     name: str
     price: float
+    detail_link: str
+    image_link: Optional[str] = None
 
     def __eq__(self, other):
         if not isinstance(other, Metadata):
