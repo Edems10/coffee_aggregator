@@ -1,6 +1,6 @@
 from typing import List
 from models.page import PageType
-from processors.base_processor import Processor
+from processors.processor_interface import Processor
 from processors.coffein_processor import CoffeeinProcessor
 
 

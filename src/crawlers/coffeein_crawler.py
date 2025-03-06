@@ -5,7 +5,7 @@ from collections import defaultdict
 from urllib.parse import urljoin
 from bs4 import BeautifulSoup
 
-from crawlers.base_crawler import Crawler
+from crawlers.crawler_interface import Crawler
 
 
 class CoffeeinCrawler(Crawler):

@@ -1,6 +1,6 @@
 from crawlers.coffeein_crawler import CoffeeinCrawler
 from models.page import PageType
-from crawlers.base_crawler import Crawler
+from crawlers.crawler_interface import Crawler
 
 
 class CrawlerFactory:

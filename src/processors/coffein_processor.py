@@ -1,12 +1,13 @@
 from bs4 import BeautifulSoup
 import re
 from typing import List, Union
-from processors.base_processor import Processor
+from processors.processor_interface import Processor
 from errors.crawler_error import ProcessorError
 import unidecode
 from models.metadata import Metadata
 from models.coffee import Coffee
 import json
+from models.page import PageType
 
 
 class CoffeeinProcessor(Processor):
@@ -48,23 +49,12 @@ class CoffeeinProcessor(Processor):
             name_unfiltered = item.get("item_name")
             decoded_name = name_unfiltered.encode("utf-8").decode("unicode_escape")
 
-            link = (
-                unidecode.unidecode(name_unfiltered)
-                .replace(" % ", "-")
-                .replace(" - ", "-")
-                .replace(" (", "-")
-                .replace(") ", "-")
-                .replace(",", "")
-                .replace(" ", "-")
-                .replace("(", "")
-                .replace(")", "")
-                .lower()
-            )
-            metadata = Metadata(
-                id=item.get("item_id"),
-                link=link,
+            link = re.sub(r'[ %(),.-]+', '-', unidecode.unidecode(name_unfiltered)).strip('-').lower()
+            metadata = Metadata(item.get("item_id"),
+                detail_link=link,
                 name=decoded_name,
-                price=float(item.get("price")),
+                origin=PageType.COFFEEIN.name,
+                price=float(item.get("price"))
             )
 
             if metadata not in metadata_list and not self.is_ignored_coffee(
