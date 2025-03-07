@@ -50,7 +50,7 @@ class CoffeeinProcessor(Processor):
             decoded_name = name_unfiltered.encode("utf-8").decode("unicode_escape")
 
             link = re.sub(r'[ %(),.-]+', '-', unidecode.unidecode(name_unfiltered)).strip('-').lower()
-            metadata = Metadata(item.get("item_id"),
+            metadata = Metadata(int(item.get("item_id")),
                 detail_link=link,
                 name=decoded_name,
                 origin=PageType.COFFEEIN.name,

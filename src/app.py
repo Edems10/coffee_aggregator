@@ -15,8 +15,8 @@ def main():
         metadata_set.update(metadata_batch)
     
     
-    supabase.update_metadata(metadata_list=list(metadata_set))
-        
+    supabase.update_metadata(list(metadata_set))
+    supabase.delete_old_metadata(list(metadata_set))
     
     
     

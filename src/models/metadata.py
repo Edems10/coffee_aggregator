@@ -4,7 +4,7 @@ from models.page import PageType
 
 @dataclass
 class Metadata:
-    id: str
+    page_id: int
     origin:PageType
     name: str
     price: float
@@ -14,7 +14,7 @@ class Metadata:
     def __eq__(self, other):
         if not isinstance(other, Metadata):
             return NotImplemented
-        return self.id == other.id
+        return self.page_id == other.page_id
 
     def __hash__(self):
-        return hash(self.id)
+        return hash(self.page_id)
