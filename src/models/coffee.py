@@ -18,13 +18,7 @@ class Taste:
     roast_shade: str
     processing: Optional[str] = None
     flavor_profile: Optional[list] = None
-    variety: Optional[list] = None
-
-
-@dataclass
-class PackageInformation:
-    package_size: str
-    label_material: Optional[str] = None
+    variety: Optional[str] = None
 
 
 @dataclass
@@ -41,5 +35,6 @@ class Coffee:
     price: float
     origin: Origin
     taste: Taste
-    package_info: Optional[PackageInformation]
+    weight: int
     review: Optional[Review]
+    decaf: Optional[bool] = False
