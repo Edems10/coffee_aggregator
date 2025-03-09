@@ -162,19 +162,55 @@ class CoffeeinProcessor(Processor):
         )
 
         
-    def handle_variety(self,coffee_soup:BeautifulSoup)->Variety:
-        description = coffee_soup.find('p', itemprop=DESCRIPTION)
+    def handle_variety(self, coffee_soup: BeautifulSoup) -> dict:
+        """Extract coffee variety information from the product page"""
+        
+        # First check for 100% Arabica or Bezkofeinová
+        description = coffee_soup.find('p', itemprop='description')
         if description:
-            arabica_match = re.search(r'(\d+)\s*%\s*Arabica', description.text)
-            robusta_match = re.search(r'(\d+)\s*%\s*Robusta', description.text)
-            #TODO fix
-            if arabica_match and robusta_match:
-                return Variety.Mixed
-            if ARABICA_COFFEEIN in description.text:
-                return Variety.Arabica
-            if ROBUSTA_COFFEEIN in description.text:
-                return Variety.Robusta
-        return Variety.Unknown
+            if "100 % Arabica" in description.text or "100% Arabica" in description.text:
+                return {"Arabica":100,"Robusta":0}
+        if description:
+            if "100 % Robusta" in description.text or "100% Robusta" in description.text:
+                return {"Arabica":0,"Robusta":100}
+            
+        
+        # Look for percentage patterns in strong tags or general description
+        arabica_percent = None
+        robusta_percent = None
+        
+        # First check strong tags in description
+        if description:
+            strong_tags = description.find_all('strong')
+            for strong in strong_tags:
+                strong_text = strong.text.strip().lower()
+                arabica_match = re.search(r'(\d+)\s*%\s*(arabika|arabica)', strong_text)
+                robusta_match = re.search(r'(\d+)\s*%\s*robusta', strong_text)
+                
+                if arabica_match:
+                    arabica_percent = int(arabica_match.group(1))
+                if robusta_match:
+                    robusta_percent = int(robusta_match.group(1))
+        
+        # If not found in strong tags, check general description
+        if arabica_percent is None and robusta_percent is None and description:
+            arabica_match = re.search(r'(\d+)\s*%\s*(arabika|arabica)', description.text.lower())
+            robusta_match = re.search(r'(\d+)\s*%\s*robusta', description.text.lower())
+            
+            if arabica_match:
+                arabica_percent = int(arabica_match.group(1))
+            if robusta_match:
+                robusta_percent = int(robusta_match.group(1))
+        
+        # Apply the logic: if we know one percentage, we can calculate the other
+        if arabica_percent is not None and robusta_percent is None:
+            robusta_percent = 100 - arabica_percent
+        elif robusta_percent is not None and arabica_percent is None:
+            arabica_percent = 100 - robusta_percent
+        
+        
+        return {"Arabica":arabica_percent,"Robusta":robusta_percent}
+
     
     def handle_origin(self,coffee_soup:BeautifulSoup)->Origin:
         origin_region = ""
