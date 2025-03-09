@@ -4,7 +4,7 @@ from typing import Dict, List
 from assets.constants import TABLE_METADATA,NAME,PAGE_ID,PRICE,DETAIL_LINK,ORIGIN,ID
 from database.db_interface import Database
 from models.metadata import Metadata
-from models.coffee import Coffee, Origin, Taste, Review
+from models.coffee import Coffee, Origin, Taste, Popularity
 
 
 class SupabaseDB(Database):
