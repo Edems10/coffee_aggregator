@@ -14,12 +14,14 @@ class Origin:
 class Popularity:
     reviews: list[str]
     review_score: float
-    buy_count:int
+    buy_count: int
+
 
 @dataclass
-class Species():
-    arabica:int
-    robusta:int 
+class Species:
+    arabica: int
+    robusta: int
+
 
 @dataclass
 class Taste:
@@ -31,6 +33,7 @@ class Taste:
     species: Species
     processing: Optional[str] = None
     flavor_profile: Optional[list] = None
+
 
 @dataclass
 class Coffee:

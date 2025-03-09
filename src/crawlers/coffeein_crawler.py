@@ -17,13 +17,12 @@ class CoffeeinCrawler(Crawler):
         self.timeout = timeout
         self.max_pages = max_pages
 
-    def find_coffee(self, metadata_list: list[Metadata])->Generator[BeautifulSoup, None, None]:
-        
-        
+    def find_coffee(
+        self, metadata_list: list[Metadata]
+    ) -> Generator[BeautifulSoup, None, None]:
         for metadata in metadata_list:
-            
             relative_path = f"detail/{metadata.page_id}/{metadata.detail_link}"
-            base_coffe_url = urljoin(self.base_url,relative_path)
+            base_coffe_url = urljoin(self.base_url, relative_path)
             try:
                 response = requests.get(base_coffe_url, timeout=self.timeout)
                 response.raise_for_status()
@@ -31,7 +30,9 @@ class CoffeeinCrawler(Crawler):
             except requests.exceptions.HTTPError as e:
                 print(f"HTTP Error: {e}")
             except requests.exceptions.ConnectionError:
-                print("A connection error occurred. Please check your internet connection.")
+                print(
+                    "A connection error occurred. Please check your internet connection."
+                )
             except requests.exceptions.Timeout:
                 print("The request timed out.")
             except requests.exceptions.RequestException as e:
@@ -51,7 +52,7 @@ class CoffeeinCrawler(Crawler):
         for page_iterator in range(1, self.max_pages):
             url = urljoin(base_metadata_url, f"{page_iterator}/")
             page_iterator = page_iterator + 1
-            
+
             try:
                 response = requests.get(url, timeout=self.timeout)
                 response.raise_for_status()
@@ -61,7 +62,9 @@ class CoffeeinCrawler(Crawler):
             except requests.exceptions.HTTPError as e:
                 print(f"HTTP Error: {e}")
             except requests.exceptions.ConnectionError:
-                print("A connection error occurred. Please check your internet connection.")
+                print(
+                    "A connection error occurred. Please check your internet connection."
+                )
             except requests.exceptions.Timeout:
                 print("The request timed out.")
             except requests.exceptions.RequestException as e:

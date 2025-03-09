@@ -2,10 +2,11 @@ from dataclasses import dataclass
 from typing import Optional
 from models.page import PageType
 
+
 @dataclass
 class Metadata:
     page_id: int
-    origin:PageType
+    origin: PageType
     name: str
     price: float
     detail_link: str

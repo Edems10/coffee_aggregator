@@ -8,7 +8,19 @@ from models.metadata import Metadata
 from models.coffee import Coffee, Origin, Popularity, Taste, Species
 import json
 from models.page import PageType
-from assets.constants import DIV,SPAN,SCRIPT,UNKNONW,H1,DESCRIPTION,COFFEE_ORIGIN,SWEETNEST_COFFEEIN,ACIDITY_COFFEEIN,BITTERNESS_COFFEEIN,BODY_COFFEIN
+from assets.constants import (
+    DIV,
+    SPAN,
+    SCRIPT,
+    UNKNONW,
+    H1,
+    DESCRIPTION,
+    SWEETNEST_COFFEEIN,
+    ACIDITY_COFFEEIN,
+    BITTERNESS_COFFEEIN,
+    BODY_COFFEIN,
+)
+
 
 class CoffeeinProcessor(Processor):
     ignored_coffees = None
@@ -49,12 +61,17 @@ class CoffeeinProcessor(Processor):
             name_unfiltered = item.get("item_name")
             decoded_name = name_unfiltered.encode("utf-8").decode("unicode_escape")
 
-            link = re.sub(r'[ %(),.-]+', '-', unidecode.unidecode(name_unfiltered)).strip('-').lower()
-            metadata = Metadata(int(item.get("item_id")),
+            link = (
+                re.sub(r"[ %(),.-]+", "-", unidecode.unidecode(name_unfiltered))
+                .strip("-")
+                .lower()
+            )
+            metadata = Metadata(
+                int(item.get("item_id")),
                 detail_link=link,
                 name=decoded_name,
                 origin=PageType.COFFEEIN.name,
-                price=float(item.get("price"))
+                price=float(item.get("price")),
             )
 
             if metadata not in metadata_list and not self.is_ignored_coffee(
@@ -73,12 +90,12 @@ class CoffeeinProcessor(Processor):
     def process_coffee(self, coffee_soup: BeautifulSoup) -> Coffee:
         """Process unstructured coffee details to model Coffee"""
         # Extract basic information
-        name = coffee_soup.find(H1, itemprop='name').text.strip()
-        price = float(coffee_soup.find(SPAN, class_='product_price').get('content'))
+        name = coffee_soup.find(H1, itemprop="name").text.strip()
+        price = float(coffee_soup.find(SPAN, class_="product_price").get("content"))
         ## DECAF, NORMAL, BLEND
-        #TODO handle MIXED :)
+        # TODO handle MIXED :)
         species = self.handle_species(coffee_soup)
-        if species.arabica==100 or species.robusta ==100:
+        if species.arabica == 100 or species.robusta == 100:
             print(100)
         else:
             return
@@ -86,10 +103,9 @@ class CoffeeinProcessor(Processor):
         page_id = self.handle_page_id(coffee_soup)
         origin = self.handle_origin(coffee_soup)
         taste = self.handle_taste(coffee_soup)
-        weight = self.handle_size(name,coffee_soup)
+        weight = self.handle_size(name, coffee_soup)
         popularity = self.handle_popularity(coffee_soup)
-        decaf = self.handle_decaf(name,coffee_soup)
-        
+        decaf = self.handle_decaf(name, coffee_soup)
 
         # Create and return Coffee object
         return Coffee(
@@ -104,7 +120,7 @@ class CoffeeinProcessor(Processor):
             decaf=decaf,
         )
 
-    def handle_page_id(self, coffee_soup:BeautifulSoup)->int|None:
+    def handle_page_id(self, coffee_soup: BeautifulSoup) -> int | None:
         page_id = None
         scripts = coffee_soup.find_all(SCRIPT)
         for script in scripts:
@@ -122,13 +138,11 @@ class CoffeeinProcessor(Processor):
         return page_id
 
     def handle_taste(self, coffee_soup: BeautifulSoup) -> Taste:
-        
-        
         taste_ratings = self.handle_taste_ratings(coffee_soup)
         roast_shade = self.handle_roast_shade(coffee_soup)
         flavor_profile = self.handle_flavor_profile(coffee_soup)
         processing = self.handel_processing(coffee_soup)
-        
+
         return Taste(
             body=taste_ratings[BODY_COFFEIN],
             bitterness=taste_ratings[BITTERNESS_COFFEEIN],
@@ -137,147 +151,156 @@ class CoffeeinProcessor(Processor):
             roast_shade=roast_shade,
             processing=processing,
             flavor_profile=flavor_profile,
-            species=self.handle_species(coffee_soup)
+            species=self.handle_species(coffee_soup),
         )
-    
-    def handel_processing(self, coffee_soup:BeautifulSoup)->str|None:
+
+    def handel_processing(self, coffee_soup: BeautifulSoup) -> str | None:
         processing = None
-        if match := re.search(r'SPRACOVANIE:\s*(.+)', coffee_soup.text):
+        if match := re.search(r"SPRACOVANIE:\s*(.+)", coffee_soup.text):
             processing = match.group(1).strip()
         return processing
-    
-    def handle_flavor_profile(self, coffee_soup:BeautifulSoup)->list:
+
+    def handle_flavor_profile(self, coffee_soup: BeautifulSoup) -> list:
         flavor_profile = []
-        for div in coffee_soup.find_all(DIV, class_='recommended_preparation'):
+        for div in coffee_soup.find_all(DIV, class_="recommended_preparation"):
             spans = div.find_all(SPAN, recursive=False)
             for span in spans:
                 text = span.get_text().strip()
                 if text:
                     flavor_profile.append(text)
         return flavor_profile
-    
-    def handle_roast_shade(self, coffee_soup:BeautifulSoup)->int:
+
+    def handle_roast_shade(self, coffee_soup: BeautifulSoup) -> int:
         roast_shade = -1
-        description = coffee_soup.find('p', itemprop=DESCRIPTION)
-        if description and (match := re.search(r'Odtieň praženia:\s*([^<\n]+)', description.text)):
+        description = coffee_soup.find("p", itemprop=DESCRIPTION)
+        if description and (
+            match := re.search(r"Odtieň praženia:\s*([^<\n]+)", description.text)
+        ):
             roast_shade = match.group(1).strip()
             roast_shade = roast_shade.split("Metóda")[0].strip()
         return roast_shade
 
-    def handle_taste_ratings(self, coffee_soup: BeautifulSoup)->dict:
-        taste_ratings = {"telo": UNKNONW, "horkosť": UNKNONW, 
-                        "acidita": UNKNONW, "sladkosť": UNKNONW}
-        
-        for param in coffee_soup.find_all(DIV, class_='speci_param'):
-            param_name = param.find(DIV, class_='speci_param_name')
+    def handle_taste_ratings(self, coffee_soup: BeautifulSoup) -> dict:
+        taste_ratings = {
+            "telo": UNKNONW,
+            "horkosť": UNKNONW,
+            "acidita": UNKNONW,
+            "sladkosť": UNKNONW,
+        }
+
+        for param in coffee_soup.find_all(DIV, class_="speci_param"):
+            param_name = param.find(DIV, class_="speci_param_name")
             if param_name:
                 name = param_name.text.strip().lower()
                 if name in taste_ratings:
-                    points_full = len(param.find_all(SPAN, class_='point_full'))
-                    points_total = points_full + len(param.find_all(SPAN, class_='point_empty'))
-                    
+                    points_full = len(param.find_all(SPAN, class_="point_full"))
+                    points_total = points_full + len(
+                        param.find_all(SPAN, class_="point_empty")
+                    )
+
                     if points_total > 0:
                         percentage = int((points_full / points_total) * 100)
                         taste_ratings[name] = percentage
         return taste_ratings
-    
+
     def handle_species(self, coffee_soup: BeautifulSoup) -> Species:
-        
-        description = coffee_soup.find('p', itemprop='description')
-        
+        description = coffee_soup.find("p", itemprop="description")
+
         species = self.handle_species_description(description)
-        if species: return species
+        if species:
+            return species
 
-        species = self.handle_species_tags(description)    
-        if species: return species
-        
-        return Species(arabica=0,robusta=0)
-    
+        species = self.handle_species_tags(description)
+        if species:
+            return species
 
-    def handle_species_description(self, description)->Species|None:
-        
+        return Species(arabica=0, robusta=0)
+
+    def handle_species_description(self, description) -> Species | None:
         arabica_percent = None
         robusta_percent = None
-        arabica_match = re.search(r'(\d+)\s*%\s*(arabika|arabica)', description.text.lower())
-        robusta_match = re.search(r'(\d+)\s*%\s*robusta', description.text.lower())
-            
+        arabica_match = re.search(
+            r"(\d+)\s*%\s*(arabika|arabica)", description.text.lower()
+        )
+        robusta_match = re.search(r"(\d+)\s*%\s*robusta", description.text.lower())
+
         if arabica_match:
             arabica_percent = int(arabica_match.group(1))
         if robusta_match:
             robusta_percent = int(robusta_match.group(1))
-        
-        if arabica_percent and  not robusta_percent:
+
+        if arabica_percent and not robusta_percent:
             robusta_percent = 100 - arabica_percent
         elif robusta_percent and not arabica_percent:
             arabica_percent = 100 - robusta_percent
-            
-        return Species(arabica=arabica_percent,robusta=robusta_percent)
-    
-    def handle_species_tags(self,description)->Species|None:
+
+        return Species(arabica=arabica_percent, robusta=robusta_percent)
+
+    def handle_species_tags(self, description) -> Species | None:
         arabica_percent = None
         robusta_percent = None
-        
+
         if description:
-            strong_tags = description.find_all('strong')
+            strong_tags = description.find_all("strong")
             for strong in strong_tags:
                 strong_text = strong.text.strip().lower()
-                arabica_match = re.search(r'(\d+)\s*%\s*(arabika|arabica)', strong_text)
-                robusta_match = re.search(r'(\d+)\s*%\s*robusta', strong_text)
-                
+                arabica_match = re.search(r"(\d+)\s*%\s*(arabika|arabica)", strong_text)
+                robusta_match = re.search(r"(\d+)\s*%\s*robusta", strong_text)
+
                 if arabica_match:
                     arabica_percent = int(arabica_match.group(1))
                 if robusta_match:
                     robusta_percent = int(robusta_match.group(1))
         if arabica_percent and robusta_percent:
-            return Species(arabica=arabica_percent,robusta=robusta_percent)
+            return Species(arabica=arabica_percent, robusta=robusta_percent)
         else:
             return None
-    
-    def handle_origin(self,coffee_soup:BeautifulSoup)->Origin:
+
+    def handle_origin(self, coffee_soup: BeautifulSoup) -> Origin:
         origin_region = None
         origin_farm = None
         origin_altitude = None
         origin_variety = None
-        
-        additional_info = coffee_soup.find('div', class_='long_desc_desc')
+
+        additional_info = coffee_soup.find("div", class_="long_desc_desc")
         if additional_info:
             additional_text = additional_info.text
-            
-            origin_match = re.search(r'ODRODA:\s*(.+)', additional_text)
+
+            origin_match = re.search(r"ODRODA:\s*(.+)", additional_text)
             if origin_match:
                 origin_variety = origin_match.group(1).strip()
-            
-            region_match = re.search(r'REGIÓN:\s*(.+)', additional_text)
+
+            region_match = re.search(r"REGIÓN:\s*(.+)", additional_text)
             if region_match:
                 origin_region = region_match.group(1).strip()
-            
-            farm_match = re.search(r'FARMA:\s*(.+)', additional_text)
+
+            farm_match = re.search(r"FARMA:\s*(.+)", additional_text)
             if farm_match:
                 origin_farm = farm_match.group(1).strip()
-            
-            altitude_match = re.search(r'NADMORSKÁ VÝŠKA:\s*(.+)', additional_text)
+
+            altitude_match = re.search(r"NADMORSKÁ VÝŠKA:\s*(.+)", additional_text)
             if altitude_match:
                 origin_altitude = altitude_match.group(1).strip()
-        
+
         return Origin(
             region=origin_region,
             farm=origin_farm,
             altitude=origin_altitude,
-            variety=origin_variety
+            variety=origin_variety,
         )
-    
-    def extract_weight_in_grams(self,text):
-        number_str = re.findall(r'\d+\.?\d*', text)[0]
+
+    def extract_weight_in_grams(self, text):
+        number_str = re.findall(r"\d+\.?\d*", text)[0]
         number = float(number_str)
-        
+
         if "kg" in text.lower():
             return int(number * 1000)
         elif "g" in text.lower():
             return int(number)
         else:
-            return int(number) 
-    
-    def handle_size(self, name:str,coffee_soup:BeautifulSoup)->int:
+            return int(number)
+
+    def handle_size(self, name: str, coffee_soup: BeautifulSoup) -> int:
         if "(1000 g" in name:
             return 1000
         elif "(500 g" in name:
@@ -286,53 +309,58 @@ class CoffeeinProcessor(Processor):
             return 200
         elif "(100 g" in name:
             return 100
-        description = coffee_soup.find('p', itemprop=DESCRIPTION)
+        description = coffee_soup.find("p", itemprop=DESCRIPTION)
         if description:
-            size_match = re.search(r'Veľkosť balenia:\s*([^<\n]+)', description.text)
+            size_match = re.search(r"Veľkosť balenia:\s*([^<\n]+)", description.text)
             if size_match:
                 return self.extract_weight_in_grams(size_match.group(1).strip())
-        
+
     def handle_popularity(self, coffee_soup: BeautifulSoup) -> Popularity:
         reviews = []
         review_score = 0.0
         buy_count = 0
-        
-        review_section = coffee_soup.find(DIV, id='ranks_box')
+
+        review_section = coffee_soup.find(DIV, id="ranks_box")
         if review_section:
-            for review_item in review_section.find_all('li', itemprop='review'):
-                review_text_div = review_item.find(DIV, class_='rank_right')
+            for review_item in review_section.find_all("li", itemprop="review"):
+                review_text_div = review_item.find(DIV, class_="rank_right")
                 if review_text_div and review_text_div.text.strip():
                     reviews.append(review_text_div.text.strip())
-            
-            rating_value = review_section.find('meta', itemprop='ratingValue')
+
+            rating_value = review_section.find("meta", itemprop="ratingValue")
             if rating_value:
-                review_score = float(rating_value.get('content', '0'))
-        
-        popis_date_data = coffee_soup.find(DIV, class_='popis_date_data')
+                review_score = float(rating_value.get("content", "0"))
+
+        popis_date_data = coffee_soup.find(DIV, class_="popis_date_data")
         if popis_date_data:
             popularity_text = popis_date_data.text
-            popularity_match = re.search(r'Upražené a vypité:\s*(\d+)x', popularity_text)
+            popularity_match = re.search(
+                r"Upražené a vypité:\s*(\d+)x", popularity_text
+            )
             if popularity_match:
                 buy_count = int(popularity_match.group(1))
-        
+
         return Popularity(
-            reviews=reviews,
-            review_score=review_score,
-            buy_count=buy_count
+            reviews=reviews, review_score=review_score, buy_count=buy_count
         )
-        
-    def handle_decaf(self,name:str,coffee_soup:BeautifulSoup)->bool:
-        
-        description = coffee_soup.find('p', itemprop=DESCRIPTION)
+
+    def handle_decaf(self, name: str, coffee_soup: BeautifulSoup) -> bool:
+        description = coffee_soup.find("p", itemprop=DESCRIPTION)
         is_decaf = False
         if "BEZKOFEINOVÁ" in name.upper() or "BEZKOFEÍNOVÁ" in name.upper():
             is_decaf = True
         else:
-            if description and ("bezkofeinová" in description.text.lower() or "bezkofeínová" in description.text.lower()):
+            if description and (
+                "bezkofeinová" in description.text.lower()
+                or "bezkofeínová" in description.text.lower()
+            ):
                 is_decaf = True
-        
-        if is_decaf and "bezkofeinová" not in name.lower() and "bezkofeínová" not in name.lower():
+
+        if (
+            is_decaf
+            and "bezkofeinová" not in name.lower()
+            and "bezkofeínová" not in name.lower()
+        ):
             name = f"BEZKOFEÍNOVÁ {name}"
-        
+
         return is_decaf
-        

@@ -1,7 +1,7 @@
 # CRAWLER
 COFFEIN_MAIN_COFFE_PAGE = "kategoria/2/cerstvo-prazena-zrnkova-kava/"
 
-## DATABASE 
+## DATABASE
 TABLE_METADATA = "metadata"
 TABLE_COFFEE = "coffee"
 
@@ -17,12 +17,12 @@ DETAIL_LINK = "detail_link"
 IMAGE_LINK = "image_link"
 
 
-# BEAUTIFUL SOUP 
-DIV = 'div'
-SPAN = 'span'
-SCRIPT = 'script'
+# BEAUTIFUL SOUP
+DIV = "div"
+SPAN = "span"
+SCRIPT = "script"
 
-H1 = 'h1'
+H1 = "h1"
 
 # COFFEEIN EXTRAS
 ARABICA_COFFEEIN = "100 % Arabica"
@@ -32,8 +32,8 @@ DECAF_MISSTYPE = "bezkofeínová"
 PRICE = "price"
 ITEM_NAME = "item_name"
 UNKNONW = "Unknown"
-DESCRIPTION = 'description'
-COFFEE_ORIGIN = 'coffee_origin'
+DESCRIPTION = "description"
+COFFEE_ORIGIN = "coffee_origin"
 SWEETNEST_COFFEEIN = "sladkosť"
 ACIDITY_COFFEEIN = "acidita"
 BITTERNESS_COFFEEIN = "horkosť"
