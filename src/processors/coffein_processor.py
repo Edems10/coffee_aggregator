@@ -87,7 +87,7 @@ class CoffeeinProcessor(Processor):
                 return True
         return False
 
-    def process_coffee(self, coffee_soup: BeautifulSoup) -> Coffee:
+    def process_coffee(self, coffee_soup: BeautifulSoup) -> Coffee|None:
 
         name = coffee_soup.find(H1, itemprop="name").text.strip()
         price = float(coffee_soup.find(SPAN, class_="product_price").get("content"))
@@ -101,9 +101,9 @@ class CoffeeinProcessor(Processor):
             origin = self.handle_origin(coffee_soup)
             taste = self.handle_taste(coffee_soup)
         else:
-            return
-            origin = self.handle_mixed_origin(coffee_soup)
-            taste = self.handle_mixed_taste(coffee_soup)
+            return None
+            # origin = self.handle_mixed_origin(coffee_soup)
+            # taste = self.handle_mixed_taste(coffee_soup)
         # Extract page_id from script tags
         
 
