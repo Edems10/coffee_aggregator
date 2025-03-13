@@ -88,24 +88,24 @@ class CoffeeinProcessor(Processor):
         return False
 
     def process_coffee(self, coffee_soup: BeautifulSoup) -> Coffee:
-        """Process unstructured coffee details to model Coffee"""
-        # Extract basic information
+
         name = coffee_soup.find(H1, itemprop="name").text.strip()
         price = float(coffee_soup.find(SPAN, class_="product_price").get("content"))
-        ## DECAF, NORMAL, BLEND
-        # TODO handle MIXED :)
+
         species = self.handle_species(coffee_soup)
-        if species.arabica == 100 or species.robusta == 100:
-            print(100)
-        else:
-            return
-        # Extract page_id from script tags
         page_id = self.handle_page_id(coffee_soup)
-        origin = self.handle_origin(coffee_soup)
-        taste = self.handle_taste(coffee_soup)
         weight = self.handle_size(name, coffee_soup)
         popularity = self.handle_popularity(coffee_soup)
         decaf = self.handle_decaf(name, coffee_soup)
+        if species.arabica == 100 or species.robusta == 100:
+            origin = self.handle_origin(coffee_soup)
+            taste = self.handle_taste(coffee_soup)
+        else:
+            return
+            origin = self.handle_mixed_origin(coffee_soup)
+            taste = self.handle_mixed_taste(coffee_soup)
+        # Extract page_id from script tags
+        
 
         # Create and return Coffee object
         return Coffee(
@@ -170,13 +170,15 @@ class CoffeeinProcessor(Processor):
                     flavor_profile.append(text)
         return flavor_profile
 
-    def handle_roast_shade(self, coffee_soup: BeautifulSoup) -> int:
-        roast_shade = -1
+    def handle_roast_shade(self, coffee_soup: BeautifulSoup) -> str:
+        roast_shade = None
         description = coffee_soup.find("p", itemprop=DESCRIPTION)
         if description and (
             match := re.search(r"Odtieň praženia:\s*([^<\n]+)", description.text)
         ):
-            roast_shade = match.group(1).strip()
+            roast_shade_text = match.group(1).strip()
+            # Extract just the roast shade by splitting at common delimiters
+            roast_shade = roast_shade_text.split("Veľkosť")[0].strip()
             roast_shade = roast_shade.split("Metóda")[0].strip()
         return roast_shade
 
