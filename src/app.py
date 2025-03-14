@@ -27,6 +27,8 @@ def main():
 
     for coffee_soup in crawler.find_coffee(list(metadata_set)):
         coffee = processor.process_coffee(coffee_soup)
+        if coffee:
+            updated_dict = supabase.update_coffe(coffee)
 
 
 if __name__ == "__main__":
