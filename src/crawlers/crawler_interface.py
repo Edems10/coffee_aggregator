@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
-from typing import Generator, Union
+from typing import Generator
 from bs4 import BeautifulSoup
+from models.metadata import Metadata
 
 
 class Crawler(ABC):
@@ -12,6 +13,8 @@ class Crawler(ABC):
         pass
 
     @abstractmethod
-    def find_coffee(self, coffe_url_base: str) -> Union[BeautifulSoup, None]:
+    def find_coffee(
+        self, metadata: list[Metadata]
+    ) -> Generator[BeautifulSoup, None, None]:
         """finds specific coffe and all information about it"""
         pass

@@ -1,11 +1,12 @@
 from typing import Generator
 import requests
 
+from models.metadata import Metadata
 from collections import defaultdict
 from urllib.parse import urljoin
 from bs4 import BeautifulSoup
 
-from crawlers.base_crawler import Crawler
+from crawlers.crawler_interface import Crawler
 
 
 class CoffeeinCrawler(Crawler):
@@ -16,8 +17,28 @@ class CoffeeinCrawler(Crawler):
         self.timeout = timeout
         self.max_pages = max_pages
 
-    def find_coffee(self, coffe_url_base):
-        pass
+    def find_coffee(
+        self, metadata_list: list[Metadata]
+    ) -> Generator[BeautifulSoup, None, None]:
+        for metadata in metadata_list:
+            relative_path = f"detail/{metadata.page_id}/{metadata.detail_link}"
+            base_coffe_url = urljoin(self.base_url, relative_path)
+            try:
+                response = requests.get(base_coffe_url, timeout=self.timeout)
+                response.raise_for_status()
+                yield BeautifulSoup(response.text, features="html.parser")
+            except requests.exceptions.HTTPError as e:
+                print(f"HTTP Error: {e}")
+            except requests.exceptions.ConnectionError:
+                print(
+                    "A connection error occurred. Please check your internet connection."
+                )
+            except requests.exceptions.Timeout:
+                print("The request timed out.")
+            except requests.exceptions.RequestException as e:
+                print(f"An error occurred: {e}")
+            except Exception as e:
+                print(f"An unexpected error occurred: {e}")
 
     def is_rerouted(self, requested_url: str, response_url: str) -> bool:
         return requested_url != response_url
@@ -31,15 +52,25 @@ class CoffeeinCrawler(Crawler):
         for page_iterator in range(1, self.max_pages):
             url = urljoin(base_metadata_url, f"{page_iterator}/")
             page_iterator = page_iterator + 1
-            response = requests.get(url, timeout=self.timeout)
 
-            if response.status_code == 200:
+            try:
+                response = requests.get(url, timeout=self.timeout)
+                response.raise_for_status()
                 if self.is_rerouted(url, response.url):
                     break
                 yield BeautifulSoup(response.text, features="html.parser")
-            else:
-                print(f"Failed to retrieve the page.\nStatus: {response.status_code}")
-                break
+            except requests.exceptions.HTTPError as e:
+                print(f"HTTP Error: {e}")
+            except requests.exceptions.ConnectionError:
+                print(
+                    "A connection error occurred. Please check your internet connection."
+                )
+            except requests.exceptions.Timeout:
+                print("The request timed out.")
+            except requests.exceptions.RequestException as e:
+                print(f"An error occurred: {e}")
+            except Exception as e:
+                print(f"An unexpected error occurred: {e}")
 
     def generate_specific_page_url(self, link, item_id):
         return urljoin(self.base_url, f"detail/{link}/{item_id}")
