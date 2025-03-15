@@ -11,6 +11,7 @@ from assets.constants import (
     ID,
 )
 from database.db_interface import Database
+from models.coffee import Coffee
 from models.metadata import Metadata
 
 
@@ -55,7 +56,7 @@ class SupabaseDB(Database):
             existing = (
                 self.supabase.table(TABLE_METADATA)
                 .select("*")
-                .eq(ID, metadata.page_id)
+                .eq(PAGE_ID, metadata.page_id)
                 .execute()
                 .data
             )
@@ -75,3 +76,56 @@ class SupabaseDB(Database):
                 created.extend(result.data)
 
         return {"created": created, "updated": updated}
+
+    def update_coffee(self, coffee: Coffee) -> bool:
+        try:
+            upsert_data = {
+                "page_id": coffee.id,
+                "page": coffee.page,
+                "name": coffee.name,
+                "price": coffee.price,
+                "weight": coffee.weight,
+                "region": coffee.origin.region,
+                "farm": coffee.origin.farm,
+                "altitude": coffee.origin.altitude,
+                "variety": coffee.origin.variety,
+                "body": coffee.taste.body,
+                "bitterness": coffee.taste.bitterness,
+                "acidity": coffee.taste.acidity,
+                "sweetness": coffee.taste.sweetness,
+                "roast_shade": coffee.taste.roast_shade,
+                "arabica": coffee.taste.species.arabica,
+                "robusta": coffee.taste.species.robusta,
+                "processing": coffee.taste.processing,
+                "flavor_profile": ";".join(coffee.taste.flavor_profile)
+                if coffee.taste.flavor_profile
+                else None,
+                "reviews": ";".join(coffee.popularity.reviews)
+                if coffee.popularity and coffee.popularity.reviews
+                else None,
+                "review_score": coffee.popularity.review_score
+                if coffee.popularity
+                else None,
+                "buy_count": coffee.popularity.buy_count if coffee.popularity else None,
+                "decaf": coffee.decaf,
+            }
+
+            existing = (
+                self.supabase.table("coffee")
+                .select("*")
+                .eq("page_id", coffee.id)
+                .execute()
+            )
+
+            if existing.data:
+                self.supabase.table("coffee").update(upsert_data).eq(
+                    "page_id", coffee.id
+                ).execute()
+            else:
+                self.supabase.table("coffee").insert(upsert_data).execute()
+
+            return True
+
+        except Exception as e:
+            print(f"Error updating/inserting Coffee record: {e}")
+            return False
