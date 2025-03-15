@@ -87,8 +87,7 @@ class CoffeeinProcessor(Processor):
                 return True
         return False
 
-    def process_coffee(self, coffee_soup: BeautifulSoup) -> Coffee|None:
-
+    def process_coffee(self, coffee_soup: BeautifulSoup) -> Coffee | None:
         name = coffee_soup.find(H1, itemprop="name").text.strip()
         price = float(coffee_soup.find(SPAN, class_="product_price").get("content"))
 
@@ -105,9 +104,7 @@ class CoffeeinProcessor(Processor):
             # origin = self.handle_mixed_origin(coffee_soup)
             # taste = self.handle_mixed_taste(coffee_soup)
         # Extract page_id from script tags
-        
 
-        # Create and return Coffee object
         return Coffee(
             id=page_id,
             page=PageType.COFFEEIN.name,
@@ -331,7 +328,7 @@ class CoffeeinProcessor(Processor):
 
             rating_value = review_section.find("meta", itemprop="ratingValue")
             if rating_value:
-                review_score = float(rating_value.get("content", "0"))
+                review_score = float(rating_value.get("content", "0")) * 20
 
         popis_date_data = coffee_soup.find(DIV, class_="popis_date_data")
         if popis_date_data:
@@ -343,7 +340,7 @@ class CoffeeinProcessor(Processor):
                 buy_count = int(popularity_match.group(1))
 
         return Popularity(
-            reviews=reviews, review_score=review_score, buy_count=buy_count
+            reviews=reviews, review_score=int(review_score), buy_count=buy_count
         )
 
     def handle_decaf(self, name: str, coffee_soup: BeautifulSoup) -> bool:
