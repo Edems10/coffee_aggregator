@@ -1,0 +1,332 @@
+[
+ {
+  "domain": "jungleroastery.sk",
+  "name": "Jungle Roastery",
+  "country": "SK",
+  "category_url": "https://www.jungleroastery.sk/kava/",
+  "sample_product_url": "https://www.jungleroastery.sk/colombia-apricot/",
+  "crawl_delay": "none",
+  "products": "18 products on the /kava/ category page (18 distinct data-micro-product-id values); single page",
+  "feed": "https://www.jungleroastery.sk/sitemap.xml (standard Shoptet URL sitemap incl. product URLs). Shoptet XML product feeds live under /action/ or /export/, both robots-disallowed; not probed."
+ },
+ {
+  "domain": "readyafter.sk",
+  "name": "Ready After",
+  "country": "SK",
+  "category_url": "https://www.readyafter.sk/kava/",
+  "sample_product_url": "https://www.readyafter.sk/ethiopia-sookoo-coffee-guji-okoluu-g1-organic/",
+  "crawl_delay": "none specified",
+  "products": "~42 product tiles rendered on /kava/ (no strana-N pagination link seen on that page); large taxonomy of coffee sub-categories by country, acidity, brewing method (/etiopska-kava/, /brazilska-kava/, /kava-filter/, /kava-na-espresso/, /bezkofeinova-kava/, /bio-kava/ …)",
+  "feed": "https://www.readyafter.sk/sitemap.xml -> https://www.readyafter.sk/sitemaps/sitemap0.xml.gz. No public XML product feed; /export/ is Disallowed."
+ },
+ {
+  "domain": "urbancoffee.sk",
+  "name": "Urban Coffee",
+  "country": "SK",
+  "category_url": "https://www.urbancoffee.sk/e-shop/",
+  "sample_product_url": "https://www.urbancoffee.sk/etiopia-goro-bedessa/",
+  "crawl_delay": "none specified",
+  "products": "~10 (10 product tiles with data-micro-product-id on /e-shop/, no pagination links present)",
+  "feed": "https://www.urbancoffee.sk/sitemap.xml (named in robots.txt; not fetched). Shoptet XML feeds (/export/...) exist by convention but /export/ is Disallowed."
+ },
+ {
+  "domain": "coffeespot.cz",
+  "name": "Coffeespot",
+  "country": "CZ",
+  "category_url": "https://www.coffeespot.cz/zrnkova-kava/",
+  "sample_product_url": "https://www.coffeespot.cz/brazilie-diamond-santos/",
+  "crawl_delay": "none specified",
+  "products": "~41 product cards rendered on the first page of /zrnkova-kava/ (Shoptet default paging; total across the category is larger — pagination/sort query params are partly disallowed, so page through path-based pagination only)",
+  "feed": "https://www.coffeespot.cz/sitemap.xml (named in robots.txt; Shoptet XML feeds under /export/ exist but /export/ is Disallowed)"
+ },
+ {
+  "domain": "mamacoffee.cz",
+  "name": "mamacoffee",
+  "country": "CZ",
+  "category_url": "https://www.mamacoffee.cz/en/coffee/",
+  "sample_product_url": "https://www.mamacoffee.cz/en/brasil-mogiana/",
+  "crawl_delay": "none specified",
+  "products": "~14 product cards on the first page of /en/coffee/ (subcategories split the catalogue; low tens of coffees overall)",
+  "feed": "https://www.mamacoffee.cz/sitemap.xml (named in robots.txt). Shoptet XML feeds live under /export/, which is Disallowed."
+ },
+ {
+  "domain": "dos-mundos.cz",
+  "name": "Dos Mundos",
+  "country": "CZ",
+  "category_url": "https://www.dos-mundos.cz/jednodruhova-kava-100--arabica/",
+  "sample_product_url": "https://www.dos-mundos.cz/etiopie-beshasha/",
+  "crawl_delay": "none declared",
+  "products": "18 products rendered on the single-druh arabica listing (18 data-micro-identifier blocks, no pagination); broader /kava/ tree adds espresso/filter subcategories",
+  "feed": "https://www.dos-mundos.cz/sitemap.xml (declared in robots.txt; not fetched). Note /export/ — the usual Shoptet XML feed path — is Disallowed."
+ },
+ {
+  "domain": "rebelbean.cz",
+  "name": "Rebelbean",
+  "country": "CZ",
+  "category_url": "https://www.rebelbean.cz/en/coffee/",
+  "sample_product_url": "https://www.rebelbean.cz/en/kenya-gatomboya/",
+  "crawl_delay": "none declared",
+  "products": "13 products rendered on /en/coffee/ (13 data-micro-identifier blocks, no pagination); sibling categories /en/specialty-coffee/, /en/decaf/, /en/coffee-specialities/, /en/coffee-tasting-set/ hold more",
+  "feed": "https://www.rebelbean.cz/sitemap.xml (declared in robots.txt; not fetched). /export/ (Shoptet's XML feed directory) is Disallowed."
+ },
+ {
+  "domain": "penerini.cz",
+  "name": "Penerini Coffee",
+  "country": "CZ",
+  "category_url": "https://eshop.penerini.cz/cerstveprazenakava/ (related: /vyberova-kava/, /kava-na-espresso/, /bezkofeinova-kava/)",
+  "sample_product_url": "https://eshop.penerini.cz/cerstveprazenakava/india-bababudan-100--arabika-zrnkova-kava/",
+  "crawl_delay": "none",
+  "products": "18 products on page 1 of /cerstveprazenakava/ with a /cerstveprazenakava/strana-2/ pagination link → roughly 20-36 fresh-roasted coffees",
+  "feed": "https://eshop.penerini.cz/sitemap.xml (Shoptet sitemap, named in robots); /export/ feeds Disallowed"
+ },
+ {
+  "domain": "botacoffee.cz",
+  "name": "Bota Coffee",
+  "country": "CZ",
+  "category_url": "https://www.botacoffee.cz/kava/",
+  "sample_product_url": "https://www.botacoffee.cz/brazil-patricia-coelho/",
+  "crawl_delay": "none",
+  "products": "~40 coffees (31 product cards on page 1; pagination has exactly 2 pages, /kava/strana-2/ is the last)",
+  "feed": "https://www.botacoffee.cz/sitemap.xml (flat urlset of category + product URLs, confirmed 200 text/xml). Shoptet XML product feeds normally live under /export/ which robots.txt disallows."
+ },
+ {
+  "domain": "daliacoffee.cz",
+  "name": "Dalia Coffee",
+  "country": "CZ",
+  "category_url": "https://www.daliacoffee.cz/kategorie/vyberova-kava/",
+  "sample_product_url": "https://www.daliacoffee.cz/zbozi/etiopie-banko/",
+  "crawl_delay": "none",
+  "products": "12 products on page 1 with a /kategorie/vyberova-kava/strana-2/ link, so roughly 13-24 selection coffees; subcategories Kávy na filtr, Kávy na espresso, Bez kofeinu, Drip bagy overlap this listing",
+  "feed": "https://www.daliacoffee.cz/sitemap.xml (declared in robots.txt; not fetched). Shoptet XML export paths live under /export/ which robots.txt disallows."
+ },
+ {
+  "domain": "birdsong.cz",
+  "name": "Birdsong",
+  "country": "CZ",
+  "category_url": "https://www.birdsong.cz/kava/",
+  "sample_product_url": "https://www.birdsong.cz/kava/bolivie-teoponte/",
+  "crawl_delay": "none",
+  "products": "~14 coffees (13-15 product tiles on the single /kava/ page; sitemap.xml lists 14 /kava/<slug>/ product URLs)",
+  "feed": "https://www.birdsong.cz/sitemap.xml (93 <loc> entries, 14 of them /kava/ products). Shoptet's /export/ feed directory exists but is explicitly 'Disallow: /export/'."
+ },
+ {
+  "domain": "alacoffee.cz",
+  "name": "Ala Coffee",
+  "country": "CZ",
+  "category_url": "https://www.alacoffee.cz/kava/",
+  "sample_product_url": "https://www.alacoffee.cz/ethiopia-negele/",
+  "crawl_delay": "none",
+  "products": "~20 coffee items (12 product tiles on page 1, pager shows '1 z 2' with /kava/strana-2/; sitemap.xml has 104 URLs across all categories, with sub-categories /jednodruhove/ and /smesi/)",
+  "feed": "https://www.alacoffee.cz/sitemap.xml (104 URLs; products live at root-level slugs, e.g. /ethiopia-negele/). Shoptet /export/ feeds are disallowed by robots."
+ },
+ {
+  "domain": "coffeesheep.sk",
+  "name": "CoffeeSheep",
+  "country": "SK",
+  "category_url": "https://www.coffeesheep.sk/kava/",
+  "sample_product_url": "https://www.coffeesheep.sk/kava/ethiopia-sidamo/",
+  "crawl_delay": "none",
+  "products": "~16 coffee products directly under /kava/ (plus 3 under /espresso/, dedicated /filtrovana-kava/ and /degustacne-balicky/ sections); site sitemap.xml lists 173 URLs across all categories incl. tea and equipment",
+  "feed": "https://www.coffeesheep.sk/sitemap.xml (Shoptet sitemap, 173 URLs incl. product pages). Note robots blocks /export/ — the typical Shoptet XML feed location — so do not fetch feeds there."
+ },
+ {
+  "domain": "prazirnabrno.cz",
+  "name": "Pražírna Brno",
+  "country": "CZ",
+  "category_url": "https://www.prazirnabrno.cz/prazena-kava/",
+  "sample_product_url": "https://www.prazirnabrno.cz/ethiopia-sidamo/",
+  "crawl_delay": "none",
+  "products": "~11-20 whole-bean coffees (10 products rendered on page 1, pagination link /prazena-kava/strana-2 exists, no page 3)",
+  "feed": "https://www.prazirnabrno.cz/sitemap.xml -> sitemapindex pointing to https://www.prazirnabrno.cz/sitemaps/sitemap0.xml.gz (gzipped URL list). Note /export/ (the usual Shoptet XML feed dir) is disallowed for *."
+ },
+ {
+  "domain": "motmot.cz",
+  "name": "MOTMOT coffee roasters",
+  "country": "CZ",
+  "category_url": "https://www.motmot.cz/espresso/",
+  "sample_product_url": "https://www.motmot.cz/el-salvador-los-angeles/",
+  "crawl_delay": "none",
+  "products": "11 on /espresso/ (11 distinct data-micro-product-id, no pagination links); more coffees live in sibling categories /filtr/, /kapsle/, /kava-pomaha/",
+  "feed": "https://www.motmot.cz/sitemap.xml — a flat <urlset> of page/category/product URLs (not gzipped, not an index). /export/ is disallowed for *."
+ },
+ {
+  "domain": "ohmybean.coffee",
+  "name": "Oh My Bean Roastery",
+  "country": "CZ",
+  "category_url": "https://www.ohmybean.coffee/filtr/",
+  "sample_product_url": "https://www.ohmybean.coffee/filtr/nirvana-filter/",
+  "crawl_delay": "none specified",
+  "products": "12 products on /filtr/ (filter coffees); further coffee categories exist: /espresso/, /house-beans/, /kava/ (parent). No pagination on /filtr/ — single page.",
+  "feed": "https://www.ohmybean.coffee/sitemap.xml (single flat urlset with product + category URLs; no separate product-only feed exposed in robots.txt)"
+ },
+ {
+  "domain": "theminers.eu",
+  "name": "The Miners Specialty Coffee Roasters",
+  "country": "CZ",
+  "category_url": "https://www.theminers.eu/e-shop/",
+  "sample_product_url": "https://www.theminers.eu/burundi-bukeye/",
+  "crawl_delay": "none specified",
+  "products": "~43 product cards on /e-shop/ (whole catalogue incl. drip bags, capsules, accessories); dedicated sub-categories exist: /coffee-beans/, /espresso-coffee-beans/, /filter-coffee-beans/",
+  "feed": "https://www.theminers.eu/sitemap.xml (flat urlset with hreflang alternates covering product and category URLs; no separate product-only feed named in robots.txt)"
+ },
+ {
+  "domain": "prazirnaignac.cz",
+  "name": "Pražírna Ignác",
+  "country": "CZ",
+  "category_url": "https://www.prazirnaignac.cz/cerstve-prazena-kava/",
+  "sample_product_url": "https://www.prazirnaignac.cz/brazilie-cerrado-dulce/",
+  "crawl_delay": "none",
+  "products": "~30 (12 product tiles per page; pagination /cerstve-prazena-kava/strana-2/ and /strana-3/ → roughly 25-36 coffees)",
+  "feed": "https://www.prazirnaignac.cz/sitemap.xml (fetched, 200, ~380 KB, contains product and category URLs). Shoptet XML product feeds live under /export/ which is Disallowed."
+ },
+ {
+  "domain": "usteckakava.cz",
+  "name": "Ústecká pražírna",
+  "country": "CZ",
+  "category_url": "https://www.usteckakava.cz/kategorie/jednodruhove-kavy/",
+  "sample_product_url": "https://www.usteckakava.cz/jednodruhove-kavy/burundi-bukeye/",
+  "crawl_delay": "none",
+  "products": "~25 single-origin coffees in /kategorie/jednodruhove-kavy/ (25 distinct product URLs on one page, no pagination); further categories for blends, decaf, robusta, green coffee",
+  "feed": "https://www.usteckakava.cz/sitemap.xml (declared in robots.txt; not fetched). Shoptet /export/ XML feeds are Disallowed."
+ },
+ {
+  "domain": "alegrecafe.cz",
+  "name": "Alegre Café Roasters",
+  "country": "CZ",
+  "category_url": "https://www.alegrecafe.cz/na-filtr/",
+  "sample_product_url": "https://www.alegrecafe.cz/kibingo-honey/",
+  "crawl_delay": "none specified",
+  "products": "6 (\"6 položek celkem\" on /na-filtr/); site also has /na-espresso/, /bezkofeinova/, /degustacni-sety/ and 18 country subcategories under /dle-zemi/",
+  "feed": "https://www.alegrecafe.cz/sitemap.xml → sitemap index pointing to https://www.alegrecafe.cz/sitemaps/sitemap0.xml.gz"
+ },
+ {
+  "domain": "cafegape.eu",
+  "name": "Café Gape",
+  "country": "CZ",
+  "category_url": "https://www.cafegape.eu/jednodruhova-kava/",
+  "sample_product_url": "https://www.cafegape.eu/peru-andes/",
+  "crawl_delay": "none specified",
+  "products": "9 (\"9 položek celkem\" on /jednodruhova-kava/); broader coffee tree includes /kava-cafe-gape/, /espresso-100--arabika/, /kavove-smesi-like/ and /kava-bez-kofeinu/",
+  "feed": "https://www.cafegape.eu/sitemap.xml (named in robots.txt); /export/ XML feeds are robots-disallowed"
+ },
+ {
+  "domain": "henri.cz",
+  "name": "Pražírna HENRI",
+  "country": "CZ",
+  "category_url": "https://www.henri.cz/kavy/",
+  "sample_product_url": "https://www.henri.cz/vyberova-kava-rwanda-motherland-farm/",
+  "crawl_delay": "none specified",
+  "products": "10 (\"Stránka 1 z 1 - 10 položek celkem\" on /kavy/); subcategories /vyberova-kava/, /single-origin-arabica/, /kavove-smesi/",
+  "feed": "https://www.henri.cz/sitemap.xml (named in robots.txt); /export/ feeds robots-disallowed"
+ },
+ {
+  "domain": "kikafe.cz",
+  "name": "KIKAFE",
+  "country": "CZ",
+  "category_url": "https://shop.kikafe.cz/zrnkova-kava/",
+  "sample_product_url": "https://shop.kikafe.cz/zrnkova-kava/burundi-kayanza-zrnkova-kava/",
+  "crawl_delay": "none specified (on shop.kikafe.cz)",
+  "products": "12 (\"12 položek celkem\" on /zrnkova-kava/), incl. one decaf and one cascara",
+  "feed": "https://shop.kikafe.cz/sitemap.xml (named in robots.txt); /export/ disallowed"
+ },
+ {
+  "domain": "chroast.cz",
+  "name": "CHROAST Coffee Roasters",
+  "country": "CZ",
+  "category_url": "https://www.chroast.cz/filtr/",
+  "sample_product_url": "https://www.chroast.cz/filtr/summer-jam-ethiopia-filter/",
+  "crawl_delay": "none declared",
+  "products": "5 filter coffees on /filtr/ (single page, no pagination); espresso coffees sit in a separate /espresso/ category, so roughly 10-15 coffees site-wide",
+  "feed": "https://www.chroast.cz/sitemap.xml (declared in robots.txt); no XML/JSON product feed publicly declared"
+ },
+ {
+  "domain": "putovniprazirna.cz",
+  "name": "Putovní Pražírna",
+  "country": "CZ",
+  "category_url": "https://shop.putovniprazirna.cz/kava-2/",
+  "sample_product_url": "https://shop.putovniprazirna.cz/uraga-guji--etiopie--zrnkova-kava/",
+  "crawl_delay": "none declared",
+  "products": "~9 coffee products on the single category page (9 data-micro-product-id items; 'položek celkem' label present, no extra pagination pages observed) — small, frequently rotating selection",
+  "feed": "https://shop.putovniprazirna.cz/sitemap.xml (named in robots.txt). Shoptet XML product feeds live under /export/ which is explicitly Disallowed — do not fetch those."
+ },
+ {
+  "domain": "crosscafeprazirna.cz",
+  "name": "CrossCafe Pražírna",
+  "country": "CZ",
+  "category_url": "https://www.crosscafeprazirna.cz/kava/",
+  "sample_product_url": "https://www.crosscafeprazirna.cz/agualinda--kolumbie--250-g/",
+  "crawl_delay": "none declared",
+  "products": "~20 items listed on /kava/ (20 data-micro-product-id items; sub-categories /espresso/, /filtr/, /bezkofein/ split the same range, and many coffees exist as 250 g / 500 g / 1 kg separate SKUs)",
+  "feed": "https://www.crosscafeprazirna.cz/sitemap.xml (declared in robots.txt). /export/ Shoptet feeds are Disallowed."
+ },
+ {
+  "domain": "melodyroastery.sk",
+  "name": "Melody Fine Roastery",
+  "country": "SK",
+  "category_url": "https://www.melodyroastery.sk/kava/",
+  "sample_product_url": "https://www.melodyroastery.sk/kava/etiopia-guji-coba/",
+  "crawl_delay": "none",
+  "products": "~10 coffees listed on /kava/ (single page, no pagination)",
+  "feed": "https://www.melodyroastery.sk/sitemap.xml (declared in robots.txt; standard Shoptet XML urlset including product URLs). No dedicated product XML feed exposed publicly."
+ },
+ {
+  "domain": "coffeeveronia.sk",
+  "name": "Coffee Veronia",
+  "country": "SK",
+  "category_url": "https://www.coffeeveronia.sk/kava/",
+  "sample_product_url": "https://www.coffeeveronia.sk/zrnkova-kava-columbia-1kg/",
+  "crawl_delay": "none specified",
+  "products": "117 items in /kava/ (\"Zobrazených položiek: 117\", 4 pages of 36; includes ground + flavoured coffee, not only whole bean)",
+  "feed": "https://www.coffeeveronia.sk/sitemap.xml (gzipped child sitemap); no dedicated product XML/JSON feed advertised"
+ },
+ {
+  "domain": "dibosco.sk",
+  "name": "DI BOSCo",
+  "country": "SK",
+  "category_url": "https://www.dibosco.sk/kava/",
+  "sample_product_url": "https://www.dibosco.sk/kava-di-bosco-kolumbia/",
+  "crawl_delay": "none specified",
+  "products": "8 (\"8 položiek celkom\" on the listing; 8 data-micro-product-id blocks, single page, no pagination)",
+  "feed": "https://www.dibosco.sk/sitemap.xml (declared in robots.txt; plain urlset of page URLs including product URLs — no separate XML product feed found without brute-forcing)"
+ },
+ {
+  "domain": "kavomil.sk",
+  "name": "Kavomil / Nômad Roastery",
+  "country": "SK",
+  "category_url": "https://www.kavomil.sk/prazena-kava/",
+  "sample_product_url": "https://www.kavomil.sk/prazena-kava/brazilia-cerrado/",
+  "crawl_delay": "none specified",
+  "products": "~25 ('Zobrazených položiek: 25' on the category page; roastery Nômad own-roast range plus sets)",
+  "feed": "https://www.kavomil.sk/sitemap.xml (flat urlset listing brand/category/product URLs). Note robots disallows /export/, which is where Shoptet's XML product feeds normally live — so the feeds are explicitly off-limits; use the sitemap instead."
+ },
+ {
+  "domain": "kavicka.sk",
+  "name": "Kávička.sk",
+  "country": "SK",
+  "category_url": "https://www.kavicka.sk/cerstvo-prazena-kava/",
+  "sample_product_url": "https://www.kavicka.sk/kavy-podla-znacky/kavicka-brazil-sul-de-minas-zrnkova-kava-250-g/",
+  "crawl_delay": "none specified",
+  "products": "24 (listing footer: \"Stránka 1 z 1 - 24 položiek celkom\") in the fresh-roasted category; whole shop much larger",
+  "feed": "https://www.kavicka.sk/sitemap.xml (plain urlset with category/brand/product URLs; no public XML product feed found — Shoptet feeds live under the disallowed /export/ path)"
+ },
+ {
+  "domain": "kafista.cz",
+  "name": "Kafista",
+  "country": "CZ",
+  "category_url": "https://www.kafista.cz/kava/",
+  "sample_product_url": "https://www.kafista.cz/zbozi/zrnkova-kava-marzipan-dream--espresso-blend--250g--kafista/",
+  "crawl_delay": "none specified",
+  "products": "~200 (9 pagination pages at ~22-24 products per page in /kava/); sub-categories include /kava-na-espresso/, /kava-na-filtr/, /kava-kafista/, /kavove-kapsle/",
+  "feed": "https://www.kafista.cz/sitemap.xml (declared in robots.txt). No open XML product feed; Shoptet feeds are under the disallowed /export/."
+ },
+ {
+  "domain": "kofi.sk",
+  "name": "KOFI",
+  "country": "SK",
+  "category_url": "https://www.kofi.sk/kava/",
+  "sample_product_url": "https://www.kofi.sk/floral-mist-colombia-250g--espresso--concept-coffee-roasters/",
+  "crawl_delay": "none",
+  "products": "~60-90 (46 product tiles on page 1; 'Nachádzate sa na strane 1 z 2', next page /kava/strana-2/)",
+  "feed": "https://www.kofi.sk/sitemap.xml → sitemap index pointing to https://www.kofi.sk/sitemaps/sitemap0.xml.gz. Note robots.txt disallows /export/, where Shoptet XML feeds normally live."
+ }
+]

@@ -1,0 +1,26 @@
+# mamacoffee — Prague fair-trade roastery. The recorded category URL was
+# the /en/ mutation; the Czech /kava/ listing is used instead so the
+# parameter labels arrive in Czech.
+platform = "shoptet"
+site_id = "mamacoffee"
+name = "mamacoffee"
+country = "CZ"
+base_url = "https://www.mamacoffee.cz/"
+category_urls = ["https://www.mamacoffee.cz/kava/"]
+currency = "CZK"
+max_pages = 20
+pagination = "path"
+
+# The category also lists things that are not whole beans.
+ignore = [
+  "drip sacek",
+  "degustacni set",
+  "darkov",
+]
+
+# Parameter names this shop invents that the built-in CZ/SK/EN map
+# does not already cover.
+[label_map]
+"Způsob zpracování" = "process"
+"Producenti" = "producer"
+"Podchuť" = "flavor_notes"

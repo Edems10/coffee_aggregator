@@ -1,0 +1,31 @@
+# The Miners — a Prague roastery whose default mutation is English and
+# prices in EUR, hence currency = EUR rather than CZK. /coffee-beans/ is
+# a 404; /e-shop/ is the only listing that exists, and it mixes beans
+# with capsules, drip bags, matcha and gear. The product pages state no
+# lot data at all — only the "Variant" size select, mapped below.
+platform = "shoptet"
+site_id = "theminers"
+name = "The Miners Specialty Coffee Roasters"
+country = "CZ"
+base_url = "https://www.theminers.eu/"
+category_urls = ["https://www.theminers.eu/e-shop/"]
+currency = "EUR"
+max_pages = 20
+pagination = "path"
+
+# The category also lists things that are not whole beans.
+ignore = [
+  "capsules",
+  "drip",
+  "matcha",
+  "cacao",
+  "chai",
+  "tumbler",
+  "cold brew",
+  "kinto",
+]
+
+# Parameter names this shop invents that the built-in CZ/SK/EN map
+# does not already cover.
+[label_map]
+"Variant" = "weight"

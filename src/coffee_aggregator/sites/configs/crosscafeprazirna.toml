@@ -1,0 +1,18 @@
+# CrossCafe Pražírna — every coffee exists as a separate 250 g / 500 g /
+# 1 kg SKU, and the roast row is called "Praženo" and holds the roast
+# profile (filter or espresso) rather than a darkness level.
+platform = "shoptet"
+site_id = "crosscafeprazirna"
+name = "CrossCafe Pražírna"
+country = "CZ"
+base_url = "https://www.crosscafeprazirna.cz/"
+category_urls = ["https://www.crosscafeprazirna.cz/kava/"]
+currency = "CZK"
+max_pages = 20
+pagination = "path"
+
+# Parameter names this shop invents that the built-in CZ/SK/EN map
+# does not already cover.
+[label_map]
+"Způsob zpracování" = "process"
+"Praženo" = "roast"

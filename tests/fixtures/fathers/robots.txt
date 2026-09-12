@@ -1,0 +1,53 @@
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: *
+Allow: /
+Disallow: /?utm
+Disallow: /&utm
+Disallow: /?gclid=*
+Disallow: /&gclid=*
+Disallow: /?modal=*
+Disallow: /&modal=*
+Disallow: /oauth
+Disallow: /ucet
+Disallow: /objednavky
+Disallow: /ucet/adresy
+Disallow: /dekujeme-za-objednavku
+Disallow: /kurzy/dekujeme
+Disallow: /kosik
+Disallow: /kosik/fakturacni-udaje
+Disallow: /predplatne
+Disallow: /dekujeme-za-clenstvi
+Disallow: /predplatne/prodlouzit
+Disallow: /predplatne/zmena-platby
+Disallow: /predplatne/aktivovat-darek
+Disallow: /en/oauth
+Disallow: /en/account
+Disallow: /en/orders
+Disallow: /en/account/deliveryAddresses
+Disallow: /en/thank-you
+Disallow: /en/courses/thank-you
+Disallow: /en/cart
+Disallow: /en/cart/billing-information
+Disallow: /en/subscriptions
+Disallow: /en/thank-you-for-membership
+Disallow: /en/subscriptions/prolong
+Disallow: /en/subscriptions/change-payment
+Disallow: /en/subscriptions/activate-gift
+Sitemap: https://fathers.cz/sitemap.xml

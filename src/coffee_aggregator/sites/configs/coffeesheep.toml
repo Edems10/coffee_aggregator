@@ -1,0 +1,21 @@
+# CoffeeSheep — a Slovak roastery on Shoptet with a well-filled parameter table
+# (Krajina pôvodu, Región, Nadmorská výška, Odroda, Spracovanie, Druh kávy,
+# Chuťový profil), every label of which the built-in CZ/SK/EN map knows.
+# "Výrobca" (the roaster) and "Forma kávy" (beans vs ground) have no field to
+# feed, so they are kept verbatim in raw_attributes.
+platform = "shoptet"
+site_id = "coffeesheep"
+name = "CoffeeSheep"
+country = "SK"
+base_url = "https://www.coffeesheep.sk/"
+category_urls = ["https://www.coffeesheep.sk/kava/"]
+currency = "EUR"
+max_pages = 20
+pagination = "path"
+
+# /kava/ also lists tasting packs and the coffee subscription.
+ignore = [
+  "degustacny balicek",
+  "coffee break",
+  "darcek",
+]

@@ -1,0 +1,27 @@
+# Bota Coffee — a family roastery that suffixes "kávy" onto most of its
+# parameter names, which the built-in map does not know verbatim.
+platform = "shoptet"
+site_id = "botacoffee"
+name = "Bota Coffee"
+country = "CZ"
+base_url = "https://www.botacoffee.cz/"
+category_urls = ["https://www.botacoffee.cz/kava/"]
+currency = "CZK"
+max_pages = 20
+pagination = "path"
+
+# The category also lists things that are not whole beans.
+ignore = [
+  "darkov",
+  "degustac",
+]
+
+# Parameter names this shop invents that the built-in CZ/SK/EN map
+# does not already cover.
+[label_map]
+"Velikost balení" = "weight"
+"Zrnkovou nebo mletou" = "brewing"
+"Zpracování kávy" = "process"
+"Odrůda kávy" = "variety"
+"Stupeň pražení kávy" = "roast"
+"Dochuť" = "flavor_notes"

@@ -1,0 +1,44 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      # Saved pages are verbatim captures of live HTML: never rewrite them.
+      - id: trailing-whitespace
+        exclude: ^tests/fixtures/
+      - id: end-of-file-fixer
+        exclude: ^tests/fixtures/
+      - id: check-toml
+      - id: check-yaml
+      - id: check-added-large-files
+        args: ["--maxkb=600"]
+
+  - repo: https://github.com/astral-sh/uv-pre-commit
+    rev: 0.12.13
+    hooks:
+      - id: uv-lock
+
+  - repo: local
+    hooks:
+      - id: ruff-check
+        name: ruff check
+        entry: uv run ruff check --fix --exit-non-zero-on-fix
+        language: system
+        types_or: [python, pyi]
+      - id: ruff-format
+        name: ruff format
+        entry: uv run ruff format
+        language: system
+        types_or: [python, pyi]
+      - id: mypy
+        name: mypy
+        entry: uv run mypy
+        language: system
+        pass_filenames: false
+        always_run: true
+      - id: pytest
+        name: pytest
+        entry: uv run pytest -q
+        language: system
+        pass_filenames: false
+        always_run: true
+        stages: [pre-push]

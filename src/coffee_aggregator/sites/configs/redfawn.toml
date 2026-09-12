@@ -1,0 +1,24 @@
+# Red Fawn — a Slovak specialty roastery on Shoptet. It states almost nothing in
+# table.detail-parameters, so the adapter leans on the schema.org microdata, on
+# the variant selects ("Gramáž", "Praženie") and on the description.
+platform = "shoptet"
+site_id = "redfawn"
+name = "Red Fawn"
+country = "SK"
+base_url = "https://www.redfawn.sk/"
+category_urls = ["https://www.redfawn.sk/kava/"]
+currency = "EUR"
+max_pages = 20
+pagination = "path"
+
+# The category mixes beans with cascara and brewing gear.
+ignore = [
+  "cascara",
+  "mlyncek",
+  "chemex",
+  "filtre",
+  "darcekov",
+]
+
+# No [label_map] is needed: "Gramáž" and "Praženie" are already in the
+# platform's built-in CZ/SK/EN parameter-name map.

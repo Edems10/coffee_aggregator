@@ -1,0 +1,23 @@
+# Pražírna HENRI — a complete parameter table; only the cupping row needs
+# naming. The category also lists sugar, almonds and mugs.
+platform = "shoptet"
+site_id = "henri"
+name = "Pražírna HENRI"
+country = "CZ"
+base_url = "https://www.henri.cz/"
+category_urls = ["https://www.henri.cz/kavy/"]
+currency = "CZK"
+max_pages = 20
+pagination = "path"
+
+# The category also lists things that are not whole beans.
+ignore = [
+  "cukr",
+  "mandle",
+  "plechacek",
+]
+
+# Parameter names this shop invents that the built-in CZ/SK/EN map
+# does not already cover.
+[label_map]
+"Cupping score" = "sca_score"

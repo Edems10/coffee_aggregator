@@ -1,0 +1,20 @@
+# Jungle Roastery — a Slovak specialty roastery on Shoptet. Its product pages
+# state nothing in table.detail-parameters: the only structured facts are the
+# two variant axes ("Praženie", "Hmotnosť"), both of which the platform's
+# built-in CZ/SK/EN map already knows, so no [label_map] is needed here.
+platform = "shoptet"
+site_id = "jungleroastery"
+name = "Jungle Roastery"
+country = "SK"
+base_url = "https://www.jungleroastery.sk/"
+category_urls = ["https://www.jungleroastery.sk/kava/"]
+currency = "EUR"
+max_pages = 20
+pagination = "path"
+
+# /kava/ also lists sample multipacks and capsules, which are not whole beans.
+ignore = [
+  "vzork",
+  "kapsul",
+  "darcek",
+]

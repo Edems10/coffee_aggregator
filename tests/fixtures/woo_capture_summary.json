@@ -1,0 +1,1299 @@
+[
+ {
+  "site_id": "ebenica",
+  "domain": "ebenica.sk",
+  "country": "SK",
+  "api_ok": false,
+  "total_products": 27,
+  "coffee_category_ids": [],
+  "coffee_category_slugs": [],
+  "attribute_names": [
+   "Lokalita",
+   "Nadmorská výška",
+   "Druh",
+   "Odroda",
+   "Spracovanie",
+   "SCA skóre",
+   "Praženie",
+   "Príprava",
+   "Chuť a tóny"
+  ],
+  "currency": "EUR",
+  "files_saved": [
+   "detail_kava-colombia-medellin.html",
+   "list_page1.html",
+   "notes.md",
+   "robots.txt"
+  ],
+  "requests_made": 3,
+  "notes": "HTML mode: robots.txt disallows /wp-json/ so the Store API was not touched. Attribute names above come from the WooCommerce attribute table on the detail page. 27 products in /kava/ (12 per page). Variable products; per-variation prices in data-product_variations. JSON-LD Product + FAQPage present."
+ },
+ {
+  "site_id": "goriffee",
+  "domain": "goriffee.com",
+  "country": "SK",
+  "api_ok": true,
+  "total_products": 26,
+  "coffee_category_ids": [
+   22,
+   78,
+   104,
+   179,
+   23,
+   24,
+   128
+  ],
+  "coffee_category_slugs": [
+   "kava",
+   "bezkofeinova-kava",
+   "kavove-kapsule",
+   "rozpustna-kava",
+   "vyberova-kava-na-espresso",
+   "vyberova-kava-na-filter",
+   "vyhodne-baliky"
+  ],
+  "attribute_names": [
+   "Chuťový profil",
+   "Podľa oblasti",
+   "Podľa prípravy kávy",
+   "Príprava kávy",
+   "Stupeň praženia (Roast)",
+   "Váha",
+   "Balenie"
+  ],
+  "currency": "EUR",
+  "files_saved": [
+   "notes.md",
+   "robots.txt",
+   "store_categories.json",
+   "store_products_page1.json"
+  ],
+  "requests_made": 3,
+  "notes": "API 200; 26 items on page 1 (X-WP-Total=26, X-WP-TotalPages=1); filter=&category=22; minor_unit=2; 25/26 products with attributes; price_range on 20 products; description labels: none; `pa_podla-pripravy-kavy` / `pa_priprava-kavy` are two overlapping brew-method attributes."
+ },
+ {
+  "site_id": "diroastery",
+  "domain": "diroastery.sk",
+  "country": "SK",
+  "api_ok": true,
+  "total_products": 14,
+  "coffee_category_ids": [
+   28,
+   44,
+   45,
+   27
+  ],
+  "coffee_category_slugs": [
+   "kava",
+   "automat-kava",
+   "espresso-kava",
+   "filter"
+  ],
+  "attribute_names": [
+   "Praženie",
+   "Hmotnosť"
+  ],
+  "currency": "EUR",
+  "files_saved": [
+   "notes.md",
+   "robots.txt",
+   "store_categories.json",
+   "store_products_page1.json"
+  ],
+  "requests_made": 3,
+  "notes": "API 200; 14 items on page 1 (X-WP-Total=14, X-WP-TotalPages=1); filter=&category=28; minor_unit=2; 12/14 products with attributes; price_range on 12 products; description labels: Obsah balíka; Coffee category 28 `kava` (14 products) sits next to a bean-to-bar chocolate category (182); `pa_prazenie` doubles as a brew-method attribute ('Automatický kávovar', 'Espresso', 'Filter')."
+ },
+ {
+  "site_id": "illimite",
+  "domain": "illimite.sk",
+  "country": "SK",
+  "api_ok": true,
+  "total_products": 4,
+  "coffee_category_ids": [
+   107
+  ],
+  "coffee_category_slugs": [
+   "zrnkova-vyberova-kava"
+  ],
+  "attribute_names": [
+   "Hmotnosť"
+  ],
+  "currency": "EUR",
+  "files_saved": [
+   "notes.md",
+   "robots.txt",
+   "store_categories.json",
+   "store_products_page1.json"
+  ],
+  "requests_made": 3,
+  "notes": "API 200; 4 items on page 1 (X-WP-Total=4, X-WP-TotalPages=1); filter=&category=107; minor_unit=2; 4/4 products with attributes; price_range on 2 products; description labels: Odroda, Spracovanie, Nadmorská výška, Príprava, Farma, Oblasť; Served through Cloudflare (`server: cloudflare`) - no challenge seen with this UA, but expect 403s at higher rates."
+ },
+ {
+  "site_id": "goodtimes",
+  "domain": "goodtimes.coffee",
+  "country": "SK",
+  "api_ok": true,
+  "total_products": 3,
+  "coffee_category_ids": [],
+  "coffee_category_slugs": [],
+  "attribute_names": [
+   "Hmotnosť"
+  ],
+  "currency": "EUR",
+  "files_saved": [
+   "notes.md",
+   "robots.txt",
+   "store_categories.json",
+   "store_products_page1.json"
+  ],
+  "requests_made": 3,
+  "notes": "API 200; 3 items on page 1 (X-WP-Total=3, X-WP-TotalPages=1); filter=none (unfiltered); minor_unit=2; 3/3 products with attributes; price_range on 3 products; description labels: Región, Nadmorská výška, Odroda, Spracovanie, Stupeň praženia, Príprava; The Store API exposes exactly one category, 47 `premium` - no coffee category to filter on -> unfiltered capture (3 products)."
+ },
+ {
+  "site_id": "25coffee",
+  "domain": "25coffee.sk",
+  "country": "SK",
+  "api_ok": true,
+  "total_products": 9,
+  "coffee_category_ids": [
+   23,
+   25,
+   27,
+   152
+  ],
+  "coffee_category_slugs": [
+   "zrnkova-kava-100-arabica",
+   "nase-vlastne-zmesi",
+   "zrnkova-bezkofeinova-kava",
+   "cascara"
+  ],
+  "attribute_names": [
+   "Ak by ste túto kávičku radi vyskúšali, prosím Vás vyberte si hmotnosť balenia."
+  ],
+  "currency": "EUR",
+  "files_saved": [
+   "notes.md",
+   "robots.txt",
+   "store_categories.json",
+   "store_products_page1.json"
+  ],
+  "requests_made": 3,
+  "notes": "API 200; 9 items on page 1 (X-WP-Total=9, X-WP-TotalPages=1); filter=none (unfiltered); minor_unit=2; 9/9 products with attributes; price_range on 8 products; description labels: Chuť, Krajina pôvodu, Región, Odroda, Spracovanie, Pôvod kávy; Coffee is split across 4 flat categories (23 zrnkova-kava-100-arabica, 25 nase-vlastne-zmesi, 27 zrnkova-bezkofeinova-kava, 152 cascara) -> unfiltered capture of all 9 products."
+ },
+ {
+  "site_id": "caffe4u",
+  "domain": "caffe4u.sk",
+  "country": "SK",
+  "api_ok": true,
+  "total_products": 45,
+  "coffee_category_ids": [
+   17,
+   32,
+   360,
+   27
+  ],
+  "coffee_category_slugs": [
+   "prazena-zrnkova-kava",
+   "blendy-zmesi",
+   "limitovane-zrnkove-kavy",
+   "novinky-prazena-kava"
+  ],
+  "attribute_names": [
+   "Typ kávy",
+   "Druh kávy",
+   "Krajina pôvodu",
+   "Odroda alebo varieta",
+   "Chuťový profil",
+   "Klasifikácia kávy",
+   "Kyslosť kávy",
+   "Nadmorská výška",
+   "Obdobie zberu",
+   "Skóre kvality",
+   "Spôsob spracovania",
+   "Odporúčaný spôsob prípravy",
+   "Stupeň praženia",
+   "Decaf - bez kofeínu",
+   "Nepražená káva",
+   "Hmotnosť",
+   "Región",
+   "Farma",
+   "Horkosť kávy"
+  ],
+  "currency": "EUR",
+  "files_saved": [
+   "notes.md",
+   "robots.txt",
+   "store_categories.json",
+   "store_products_page1.json"
+  ],
+  "requests_made": 3,
+  "notes": "API 200; 45 items on page 1 (X-WP-Total=45, X-WP-TotalPages=1); filter=&category=17; minor_unit=2; 45/45 products with attributes; price_range on 37 products; description labels: Zloženie podľa pôvodu zrniek, Zloženie podľa druhu, Robusta; The category tree contains synthetic 16-digit ids (9003241321018644 `prazena-kava`, 9003241321018596 `zelena-kava`, 9003241321018666 `bez-kofeinu-decaf`) produced by a category-merge plugin; the fixture filters on the ordinary id 17 `prazena-zrnkova-kava` (same count, 45)."
+ },
+ {
+  "site_id": "trinitybeans",
+  "domain": "trinitybeans.sk",
+  "country": "SK",
+  "api_ok": true,
+  "total_products": 17,
+  "coffee_category_ids": [
+   50,
+   37
+  ],
+  "coffee_category_slugs": [
+   "espresso",
+   "filter"
+  ],
+  "attribute_names": [
+   "Balenie",
+   "Použitie",
+   "Praženie",
+   "Región",
+   "Plantáž / farmár",
+   "Spracovanie",
+   "Farma",
+   "Farmár",
+   "Odroda",
+   "Spôsob spracovania",
+   "Nadmorská výška",
+   "Gramáž",
+   "Farmári",
+   "Chuť",
+   "Acidita",
+   "Telo",
+   "Plantáž/ farmár",
+   "Odrody",
+   "Brazília",
+   "India",
+   "Pôvod",
+   "Nadmorská výška pestovania"
+  ],
+  "currency": "EUR",
+  "files_saved": [
+   "notes.md",
+   "robots.txt",
+   "store_categories.json",
+   "store_products_page1.json"
+  ],
+  "requests_made": 3,
+  "notes": "API 200; 17 items on page 1 (X-WP-Total=17, X-WP-TotalPages=1); filter=none (unfiltered); minor_unit=2; 17/17 products with attributes; price_range on 9 products; description labels: none; 22 custom (taxonomy null) attributes, i.e. per-product ad-hoc attributes rather than a shared taxonomy - the attribute NAMES are the data (Región, Farma, Farmár, Spracovanie, Praženie ...)."
+ },
+ {
+  "site_id": "kaan",
+  "domain": "kaan.sk",
+  "country": "SK",
+  "api_ok": true,
+  "total_products": 17,
+  "coffee_category_ids": [
+   20
+  ],
+  "coffee_category_slugs": [
+   "kava"
+  ],
+  "attribute_names": [
+   "Káva",
+   "Veľkosť",
+   "Chuť",
+   "Druh kávy",
+   "Spôsob prípravy"
+  ],
+  "currency": "EUR",
+  "files_saved": [
+   "notes.md",
+   "robots.txt",
+   "store_categories.json",
+   "store_products_page1.json"
+  ],
+  "requests_made": 3,
+  "notes": "API 200; 17 items on page 1 (X-WP-Total=17, X-WP-TotalPages=1); filter=&category=20; minor_unit=2; 17/17 products with attributes; price_range on 17 products; description labels: none; Coffee spreads over 20 kava (17), 52 jednodruhove-kavy (13), 51 blendy (4) and 21 kavy-na-hompage (7); the fixture filters on 20 `kava`, which the input's listing count (17) confirms."
+ },
+ {
+  "site_id": "zarno",
+  "domain": "zarno.sk",
+  "country": "SK",
+  "api_ok": true,
+  "total_products": 8,
+  "coffee_category_ids": [
+   20,
+   21,
+   25
+  ],
+  "coffee_category_slugs": [
+   "arabica",
+   "robusta",
+   "zmes"
+  ],
+  "attribute_names": [
+   "Hmotnosť"
+  ],
+  "currency": "EUR",
+  "files_saved": [
+   "notes.md",
+   "robots.txt",
+   "store_categories.json",
+   "store_products_page1.json"
+  ],
+  "requests_made": 3,
+  "notes": "API 200; 8 items on page 1 (X-WP-Total=8, X-WP-TotalPages=1); filter=none (unfiltered); minor_unit=2; 4/8 products with attributes; price_range on 4 products; description labels: SCA; Categories are variety-based (20 arabica, 21 robusta, 25 zmes) -> unfiltered capture of all 8 products."
+ },
+ {
+  "site_id": "sweetbeans",
+  "domain": "sweetbeans.coffee",
+  "country": "SK",
+  "api_ok": true,
+  "total_products": 33,
+  "coffee_category_ids": [
+   30,
+   32,
+   241,
+   33,
+   15,
+   31,
+   34
+  ],
+  "coffee_category_slugs": [
+   "coffee-beans",
+   "for-espresso",
+   "fruitfermentations",
+   "new-coffee",
+   "nezaradene",
+   "specialty-beans",
+   "unique-beans"
+  ],
+  "attribute_names": [
+   "weight",
+   "samplebox"
+  ],
+  "currency": "EUR",
+  "files_saved": [
+   "notes.md",
+   "robots.txt",
+   "store_categories.json",
+   "store_products_page1.json"
+  ],
+  "requests_made": 3,
+  "notes": "API 200; 33 items on page 1 (X-WP-Total=33, X-WP-TotalPages=1); filter=&category=30; minor_unit=2; 30/33 products with attributes; price_range on 29 products; description labels: Primary flavour note, Process, Altitude, Varieties, Profile, SCA; English-language shop (attribute `weight`, description labels Process / Altitude / Varieties / Primary flavour note / SCA)."
+ },
+ {
+  "site_id": "spiritcoffee",
+  "domain": "spiritcoffee.sk",
+  "country": "SK",
+  "api_ok": true,
+  "total_products": 10,
+  "coffee_category_ids": [
+   53
+  ],
+  "coffee_category_slugs": [
+   "kava"
+  ],
+  "attribute_names": [
+   "Hmotnosť:"
+  ],
+  "currency": "EUR",
+  "files_saved": [
+   "notes.md",
+   "robots.txt",
+   "store_categories.json",
+   "store_products_page1.json"
+  ],
+  "requests_made": 3,
+  "notes": "API 200; 10 items on page 1 (X-WP-Total=10, X-WP-TotalPages=1); filter=&category=53; minor_unit=2; 10/10 products with attributes; price_range on 9 products; description labels: Praženie, Spracovanie, Typ, Chuť, Varieta, Typ kávy; Attribute name carries a trailing colon: 'Hmotnosť:' (taxonomy `pa_hmotnost`) - normalise attribute names before matching."
+ },
+ {
+  "site_id": "industra",
+  "domain": "industra.coffee",
+  "country": "CZ",
+  "api_ok": true,
+  "total_products": 189,
+  "coffee_category_ids": [
+   17,
+   53,
+   296,
+   364
+  ],
+  "coffee_category_slugs": [
+   "filtrovana-kava",
+   "espresso-2",
+   "filter-coffee",
+   "espresso-2"
+  ],
+  "attribute_names": [
+   "Weight",
+   "Farm",
+   "Cultivar",
+   "Processing",
+   "Flavor profile",
+   "Type of coffee",
+   "Manufacturer",
+   "Hmotnost",
+   "Farma",
+   "Kultivar",
+   "Zpracování",
+   "Chuťový profil",
+   "Typ kávy",
+   "Výrobce",
+   "Color",
+   "Barva",
+   "Size",
+   "Velikost",
+   "Pražení",
+   "Frekvence",
+   "Délka",
+   "Množství"
+  ],
+  "currency": "CZK",
+  "files_saved": [
+   "notes.md",
+   "robots.txt",
+   "store_categories.json",
+   "store_products_page1.json"
+  ],
+  "requests_made": 3,
+  "notes": "API 200; 100 items on page 1 (X-WP-Total=189, X-WP-TotalPages=2); filter=none (unfiltered); minor_unit=2; 43/100 products with attributes; price_range on 27 products; description labels: Size, Rozměry, Doporučená porce, Weight, Hmotnost, Uskladnění; Bilingual CZ/EN shop: the category tree is duplicated per language (17 filtrovana-kava vs 296 filter-coffee, 53 espresso-2 vs 364 espresso-2, 35 prislusenstvi vs 433 accessories) and the attribute *names* come back in the language of the product (Weight/Hmotnost, Farm/Farma ...). No single coffee category -> unfiltered capture."
+ },
+ {
+  "site_id": "beansmiths",
+  "domain": "beansmiths.com",
+  "country": "CZ",
+  "api_ok": true,
+  "total_products": 25,
+  "coffee_category_ids": [
+   33,
+   36,
+   35,
+   57
+  ],
+  "coffee_category_slugs": [
+   "kava",
+   "espresso",
+   "filtr",
+   "predplatne-kavy"
+  ],
+  "attribute_names": [
+   "Velikost balení",
+   "Typ pražení",
+   "Délka předplatného",
+   "Velikost předplatného"
+  ],
+  "currency": "CZK",
+  "files_saved": [
+   "notes.md",
+   "robots.txt",
+   "store_categories.json",
+   "store_products_page1.json"
+  ],
+  "requests_made": 3,
+  "notes": "API 200; 25 items on page 1 (X-WP-Total=25, X-WP-TotalPages=1); filter=&category=33; minor_unit=2; 22/25 products with attributes; price_range on 22 products; description labels: https, Selektivní sklizeň a floating, Fermentace a promývání, Promývání kávy, Sušení; Bilingual CZ/EN: 33 kava (CZ) mirrors 147 coffee (EN); the same products appear under both trees."
+ },
+ {
+  "site_id": "cokafe",
+  "domain": "cokafe.com",
+  "country": "CZ",
+  "api_ok": true,
+  "total_products": 11,
+  "coffee_category_ids": [
+   56
+  ],
+  "coffee_category_slugs": [
+   "kava"
+  ],
+  "attribute_names": [
+   "Farma",
+   "Farmář",
+   "Odrůda",
+   "Region",
+   "Zpracování",
+   "Nadmořská výška",
+   "Balení",
+   "Sklizeň"
+  ],
+  "currency": "CZK",
+  "files_saved": [
+   "notes.md",
+   "robots.txt",
+   "store_categories.json",
+   "store_products_page1.json"
+  ],
+  "requests_made": 3,
+  "notes": "API 200; 11 items on page 1 (X-WP-Total=11, X-WP-TotalPages=1); filter=&category=56; minor_unit=2; 11/11 products with attributes; price_range on 11 products; description labels: none; All 8 attributes are taxonomy-backed and origin-specific (Farma, Farmář, Odrůda, Region, Zpracování, Nadmořská výška, Balení, Sklizeň); the shop also sells bakery goods (136 cerstve-pecivo)."
+ },
+ {
+  "site_id": "qb",
+  "domain": "qb.coffee",
+  "country": "CZ",
+  "api_ok": false,
+  "total_products": null,
+  "coffee_category_ids": [],
+  "coffee_category_slugs": [],
+  "attribute_names": [],
+  "currency": null,
+  "files_saved": [],
+  "requests_made": 0,
+  "notes": "SKIPPED: qb.coffee is not a WooCommerce shop - the store lives on eshop.qb.coffee and is a Shoptet deployment (openresty, /wp-json/wc/store/v1/* -> 404). Nothing captured; it must be handled by the Shoptet adapter, not the WooCommerce one."
+ },
+ {
+  "site_id": "triplefivecoffee",
+  "domain": "triplefivecoffee.com",
+  "country": "SK",
+  "api_ok": true,
+  "total_products": 21,
+  "coffee_category_ids": [
+   27,
+   145
+  ],
+  "coffee_category_slugs": [
+   "kava",
+   "novinka"
+  ],
+  "attribute_names": [
+   "Výber hmotnosti"
+  ],
+  "currency": "EUR",
+  "files_saved": [
+   "notes.md",
+   "robots.txt",
+   "store_categories.json",
+   "store_products_page1.json"
+  ],
+  "requests_made": 3,
+  "notes": "API 200; 21 items on page 1 (X-WP-Total=21, X-WP-TotalPages=1); filter=&category=27; minor_unit=2; 21/21 products with attributes; price_range on 18 products; description labels: Krajina, Spracovateľ, Varieta, Nadmorská výška, Spracovanie, Oblasť; Two `kava` categories exist (27 count=21 = SK, 100 count=13 = EN duplicate); the fixture uses 27."
+ },
+ {
+  "site_id": "kavaondrejka",
+  "domain": "kavaondrejka.sk",
+  "country": "SK",
+  "api_ok": true,
+  "total_products": 7,
+  "coffee_category_ids": [
+   16,
+   17,
+   18
+  ],
+  "coffee_category_slugs": [
+   "espresso",
+   "alternativne-sposoby",
+   "bezkofeinova-kava"
+  ],
+  "attribute_names": [
+   "Údaje o káve",
+   "Chuťový profil",
+   "Váha",
+   "Skladovanie",
+   "Obsah balenia"
+  ],
+  "currency": "EUR",
+  "files_saved": [
+   "notes.md",
+   "robots.txt",
+   "store_categories.json",
+   "store_products_page1.json"
+  ],
+  "requests_made": 3,
+  "notes": "API 200; 7 items on page 1 (X-WP-Total=7, X-WP-TotalPages=1); filter=none (unfiltered); minor_unit=2; 7/7 products with attributes; price_range on 7 products; description labels: none; Attributes are *custom* (taxonomy null) and one of them, `Údaje o káve`, packs the whole origin block into a single multi-line value ('Región: ...\\nFarma: ...\\nNadmorská výška: ...\\nSpracovanie: ...\\nVarieta: ...') - it must be split on newlines + 'Label: value'."
+ },
+ {
+  "site_id": "mlsnacava",
+  "domain": "mlsnacava.sk",
+  "country": "SK",
+  "api_ok": true,
+  "total_products": 12,
+  "coffee_category_ids": [
+   53,
+   34,
+   32,
+   31,
+   33
+  ],
+  "coffee_category_slugs": [
+   "kava",
+   "decaff",
+   "filtrovana-kava",
+   "moderne-espresso",
+   "tradicne-zmesi"
+  ],
+  "attribute_names": [
+   "Veľkosť balenia"
+  ],
+  "currency": "EUR",
+  "files_saved": [
+   "notes.md",
+   "robots.txt",
+   "store_categories.json",
+   "store_products_page1.json"
+  ],
+  "requests_made": 3,
+  "notes": "API 200; 12 items on page 1 (X-WP-Total=12, X-WP-TotalPages=1); filter=&category=53; minor_unit=2; 12/12 products with attributes; price_range on 11 products; description labels: Tradičné Espresso; robots.txt returns HTTP 404 (the saved robots.txt is the 404 page body, not a real robots file)."
+ },
+ {
+  "site_id": "zrnco",
+  "domain": "zrnco.sk",
+  "country": "SK",
+  "api_ok": true,
+  "total_products": 5,
+  "coffee_category_ids": [
+   25
+  ],
+  "coffee_category_slugs": [
+   "kava"
+  ],
+  "attribute_names": [
+   "Veľkosť balenia",
+   "Čerstvo pražená výberová káva",
+   "Praženie (od 500g)",
+   "&quot;Vylepši&quot; si kávu sám"
+  ],
+  "currency": "EUR",
+  "files_saved": [
+   "notes.md",
+   "robots.txt",
+   "store_categories.json",
+   "store_products_page1.json"
+  ],
+  "requests_made": 3,
+  "notes": "API 200; 5 items on page 1 (X-WP-Total=5, X-WP-TotalPages=1); filter=&category=25; minor_unit=2; 5/5 products with attributes; price_range on 5 products; description labels: none; All attributes are custom (taxonomy null) and are really *configurator* options: 'Veľkosť balenia', 'Praženie (od 500g)', '\"Vylepši\" si kávu sám', 'Čerstvo pražená výberová káva' - they describe the order, not the bean."
+ },
+ {
+  "site_id": "kmen",
+  "domain": "kmen.coffee",
+  "country": "CZ",
+  "api_ok": true,
+  "total_products": 62,
+  "coffee_category_ids": [
+   306,
+   322,
+   321,
+   850
+  ],
+  "coffee_category_slugs": [
+   "kava",
+   "espresso",
+   "filtr",
+   "kapsle"
+  ],
+  "attribute_names": [
+   "Farma",
+   "Země původu",
+   "Oblast",
+   "Odrůda",
+   "Chuťový profil",
+   "Zpracování",
+   "Použití",
+   "Typ balení",
+   "Producent",
+   "Hmotnost",
+   "Příprava",
+   "Délka"
+  ],
+  "currency": "CZK",
+  "files_saved": [
+   "notes.md",
+   "robots.txt",
+   "store_categories.json",
+   "store_products_page1.json"
+  ],
+  "requests_made": 3,
+  "notes": "API 200; 62 items on page 1 (X-WP-Total=62, X-WP-TotalPages=1); filter=&category=306; minor_unit=0; 62/62 products with attributes; price_range on 60 products; description labels: cca 3; `currency_minor_unit` is 0 for CZK -> `prices.price` = '360' means 360 Kč, NOT 3.60 Kč. Do not assume 2."
+ },
+ {
+  "site_id": "kavaloka",
+  "domain": "kavaloka.cz",
+  "country": "CZ",
+  "api_ok": true,
+  "total_products": 54,
+  "coffee_category_ids": [
+   19,
+   20,
+   21
+  ],
+  "coffee_category_slugs": [
+   "jednodruhova-kava",
+   "kavove-smesi-kavaloka",
+   "kava-bez-kofeinu"
+  ],
+  "attribute_names": [
+   "Velikost balení",
+   "Hrubost kávy",
+   "Stupeň pražení",
+   "Kyselost",
+   "Chuťový profil",
+   "Vhodná pro",
+   "Složení",
+   "Země původu",
+   "Nadmořská výška",
+   "Odrůda",
+   "Zpracování",
+   "Specifikace a složení",
+   "Druh",
+   "Výživové hodnoty",
+   "Ostatní",
+   "Předplatné"
+  ],
+  "currency": "CZK",
+  "files_saved": [
+   "notes.md",
+   "robots.txt",
+   "store_categories.json",
+   "store_products_page1.json"
+  ],
+  "requests_made": 3,
+  "notes": "API 200; 54 items on page 1 (X-WP-Total=54, X-WP-TotalPages=1); filter=none (unfiltered); minor_unit=0; 45/54 products with attributes; price_range on 36 products; description labels: Objem, Váha prázdné lahve, Minerální látky; `currency_minor_unit` is 0 for CZK -> `prices.price` = '390' means 390 Kč, NOT 3.90 Kč. Do not assume 2."
+ },
+ {
+  "site_id": "longberry",
+  "domain": "longberry.cz",
+  "country": "CZ",
+  "api_ok": true,
+  "total_products": 31,
+  "coffee_category_ids": [
+   156,
+   493,
+   567,
+   157,
+   255,
+   159,
+   160
+  ],
+  "coffee_category_slugs": [
+   "kava",
+   "degustacni-baleni",
+   "espresso-smesi",
+   "jednodruhova",
+   "ochucena",
+   "vicedruhova",
+   "vyberova"
+  ],
+  "attribute_names": [
+   "Hmotnost",
+   "Světadíl",
+   "Způsob zpracování",
+   "Varieta",
+   "Sušení",
+   "Velikost farmy",
+   "Zpusob mleti"
+  ],
+  "currency": "CZK",
+  "files_saved": [
+   "notes.md",
+   "robots.txt",
+   "store_categories.json",
+   "store_products_page1.json"
+  ],
+  "requests_made": 3,
+  "notes": "API 200; 31 items on page 1 (X-WP-Total=31, X-WP-TotalPages=1); filter=&category=156; minor_unit=2; 28/31 products with attributes; price_range on 28 products; description labels: Odrůda, Nadmořská výška, Země, Region/oblast, Sklizeň, Chuťový profil; Multilingual CZ/HR: 156 kava (CZ) and 581 kava-2 (HR) both have count 31 and hold the same products; the fixture uses 156."
+ },
+ {
+  "site_id": "praziarenepera",
+  "domain": "praziarenepera.sk",
+  "country": "SK",
+  "api_ok": true,
+  "total_products": 25,
+  "coffee_category_ids": [
+   20
+  ],
+  "coffee_category_slugs": [
+   "cerstva-kava"
+  ],
+  "attribute_names": [
+   "Praženie",
+   "Veľkosť balenia",
+   "Mletie",
+   "Druh",
+   "Nadmorská výška",
+   "Spracovanie",
+   "Odroda",
+   "Krajina",
+   "Región",
+   "Chuťový profil",
+   "Odporúčaná príprava",
+   "Zber",
+   "Farma",
+   "Farmár",
+   "Obsah kofeínu",
+   "Sušenie"
+  ],
+  "currency": "EUR",
+  "files_saved": [
+   "notes.md",
+   "robots.txt",
+   "store_categories.json",
+   "store_products_page1.json"
+  ],
+  "requests_made": 3,
+  "notes": "API 200; 25 items on page 1 (X-WP-Total=25, X-WP-TotalPages=1); filter=&category=20; minor_unit=2; 25/25 products with attributes; price_range on 25 products; description labels: Odporúčaná príprava, Chuťový profil, Krajina, Región, SCA, Typ; 16 attributes, all taxonomy-backed - the richest well-normalised set in the wave (Praženie, Mletie, Druh, Nadmorská výška, Spracovanie, Odroda, Krajina, Región ...)."
+ },
+ {
+  "site_id": "twohands",
+  "domain": "twohands.sk",
+  "country": "SK",
+  "api_ok": true,
+  "total_products": 22,
+  "coffee_category_ids": [
+   25,
+   24,
+   23
+  ],
+  "coffee_category_slugs": [
+   "kava",
+   "espresso",
+   "filter"
+  ],
+  "attribute_names": [
+   "Balíček",
+   "balíček",
+   "šiltovka",
+   "merch",
+   "Čiapka čierna"
+  ],
+  "currency": "EUR",
+  "files_saved": [
+   "notes.md",
+   "robots.txt",
+   "store_categories.json",
+   "store_products_page1.json"
+  ],
+  "requests_made": 3,
+  "notes": "API 200; 22 items on page 1 (X-WP-Total=22, X-WP-TotalPages=1); filter=none (unfiltered); minor_unit=2; 14/22 products with attributes; price_range on 10 products; description labels: Spracovanie, Chuťový profil, Stupeň praženia, Druh, Cupping score, Príprava; Coffee sits in three sibling top-level categories (25 kava, 24 espresso, 23 filter) and the shop also sells merch/gear, so the capture is unfiltered (all 22 products)."
+ },
+ {
+  "site_id": "severan",
+  "domain": "severan.eu",
+  "country": "SK",
+  "api_ok": true,
+  "total_products": 17,
+  "coffee_category_ids": [
+   172,
+   173,
+   66
+  ],
+  "coffee_category_slugs": [
+   "horka",
+   "ovocna",
+   "bezkofeinova"
+  ],
+  "attribute_names": [
+   "Hmotnosť",
+   "Chuť"
+  ],
+  "currency": "EUR",
+  "files_saved": [
+   "notes.md",
+   "robots.txt",
+   "store_categories.json",
+   "store_products_page1.json"
+  ],
+  "requests_made": 3,
+  "notes": "API 200; 17 items on page 1 (X-WP-Total=17, X-WP-TotalPages=1); filter=none (unfiltered); minor_unit=2; 17/17 products with attributes; price_range on 13 products; description labels: none; No coffee-named category at all - the taxonomy is flavour-based (172 horka, 173 ovocna, 66 bezkofeinova) -> unfiltered capture of all 17 products."
+ },
+ {
+  "site_id": "ripit",
+  "domain": "ripit.sk",
+  "country": "SK",
+  "api_ok": true,
+  "total_products": 32,
+  "coffee_category_ids": [
+   16,
+   20,
+   21
+  ],
+  "coffee_category_slugs": [
+   "kavy",
+   "espresso",
+   "filter"
+  ],
+  "attribute_names": [
+   "Gramáž",
+   "Pôvod",
+   "Región",
+   "Odroda",
+   "Nadmorská výška",
+   "Spracovanie",
+   "Praženie",
+   "Chuťový profil",
+   "Telo",
+   "Acidita",
+   "Sladkosť",
+   "Typ",
+   "Príprava",
+   "Zloženie",
+   "Typ mletia"
+  ],
+  "currency": "EUR",
+  "files_saved": [
+   "notes.md",
+   "robots.txt",
+   "store_categories.json",
+   "store_products_page1.json"
+  ],
+  "requests_made": 3,
+  "notes": "API 200; 32 items on page 1 (X-WP-Total=32, X-WP-TotalPages=1); filter=&category=16; minor_unit=2; 32/32 products with attributes; price_range on 26 products; description labels: none; `pa_gramaz` is the only taxonomy attribute; the 14 origin attributes (Pôvod, Región, Odroda, Nadmorská výška, Spracovanie, Praženie, Chuťový profil ...) are custom per-product attributes (taxonomy null)."
+ },
+ {
+  "site_id": "triproasters",
+  "domain": "triproasters.sk",
+  "country": "SK",
+  "api_ok": true,
+  "total_products": 14,
+  "coffee_category_ids": [
+   22,
+   283,
+   281,
+   282
+  ],
+  "coffee_category_slugs": [
+   "vyberova-kava",
+   "bezkofeinova-kava",
+   "espresso",
+   "filter"
+  ],
+  "attribute_names": [
+   "Druh",
+   "Hmotnosť produktu",
+   "Spôsob spracovania",
+   "Spôsob praženia",
+   "Odroda kávy",
+   "Nadmorská výška",
+   "Zloženie kávy",
+   "Chuťový profil",
+   "Kyslosť kávy",
+   "Horkosť kávy",
+   "Obal",
+   "Oblasť",
+   "Cup score",
+   "Minimálny odber",
+   "Farma"
+  ],
+  "currency": "EUR",
+  "files_saved": [
+   "notes.md",
+   "robots.txt",
+   "store_categories.json",
+   "store_products_page1.json"
+  ],
+  "requests_made": 3,
+  "notes": "API 200; 14 items on page 1 (X-WP-Total=14, X-WP-TotalPages=1); filter=&category=22; minor_unit=2; 14/14 products with attributes; price_range on 9 products; description labels: Balenie; 15 attributes, all taxonomy-backed; `robots.txt` disallows `/*/feed/`, so RSS is off limits."
+ },
+ {
+  "site_id": "finecoffee",
+  "domain": "finecoffee.sk",
+  "country": "SK",
+  "api_ok": true,
+  "total_products": 9,
+  "coffee_category_ids": [
+   15
+  ],
+  "coffee_category_slugs": [
+   "prazena-kava"
+  ],
+  "attribute_names": [
+   "balenie"
+  ],
+  "currency": "EUR",
+  "files_saved": [
+   "notes.md",
+   "robots.txt",
+   "store_categories.json",
+   "store_products_page1.json"
+  ],
+  "requests_made": 3,
+  "notes": "API 200; 9 items on page 1 (X-WP-Total=9, X-WP-TotalPages=1); filter=&category=15; minor_unit=2; 9/9 products with attributes; price_range on 9 products; description labels: Chuťový profil, Spracovanie, Odroda, Farma, Lokalita, Nadmorská výška; The only attribute is the lower-case custom `balenie`; all other facts are 'Label: value' lines in the description, and only 1-3 products carry each label."
+ },
+ {
+  "site_id": "karmacoffee",
+  "domain": "karmacoffee.sk",
+  "country": "SK",
+  "api_ok": true,
+  "total_products": 13,
+  "coffee_category_ids": [
+   24
+  ],
+  "coffee_category_slugs": [
+   "nasa-kava"
+  ],
+  "attribute_names": [],
+  "currency": "EUR",
+  "files_saved": [
+   "detail_funky-filter-kolumbia.html",
+   "list_page1.html",
+   "notes.md",
+   "robots.txt",
+   "store_categories.json",
+   "store_products_page1.json"
+  ],
+  "requests_made": 5,
+  "notes": "API 200; 13 items on page 1 (X-WP-Total=13, X-WP-TotalPages=1); filter=&category=24; minor_unit=2; 0/13 products with attributes; price_range on 0 products; description labels: Tel., Vyrobil; Store API works but EVERY product is `simple` with an EMPTY `attributes` array AND an empty `categories` array on the product objects (even though `?category=24` filters correctly) -> HTML fallback captured as well."
+ },
+ {
+  "site_id": "riksakava",
+  "domain": "riksakava.sk",
+  "country": "SK",
+  "api_ok": true,
+  "total_products": 11,
+  "coffee_category_ids": [
+   16
+  ],
+  "coffee_category_slugs": [
+   "ponuka-kav"
+  ],
+  "attribute_names": [
+   "Hmotnosť"
+  ],
+  "currency": "EUR",
+  "files_saved": [
+   "notes.md",
+   "robots.txt",
+   "store_categories.json",
+   "store_products_page1.json"
+  ],
+  "requests_made": 3,
+  "notes": "API 200; 11 items on page 1 (X-WP-Total=11, X-WP-TotalPages=1); filter=&category=16; minor_unit=2; 11/11 products with attributes; price_range on 11 products; description labels: Praženie, Chuťový profil, Odroda, Spracovanie, Pôvod, Farmári; The Store API exposes exactly ONE category (16 `ponuka-kav`, 'Kávy – 1KG / 300G')."
+ },
+ {
+  "site_id": "bozinroastery",
+  "domain": "bozinroastery.sk",
+  "country": "SK",
+  "api_ok": true,
+  "total_products": 32,
+  "coffee_category_ids": [
+   51,
+   176,
+   191,
+   186,
+   175,
+   173,
+   174
+  ],
+  "coffee_category_slugs": [
+   "kava",
+   "bezkofeinova",
+   "doplnky-ku-kave",
+   "drip-coffee",
+   "espresso-zmesi",
+   "single-origin",
+   "specialty-coffee"
+  ],
+  "attribute_names": [
+   "Hmotnosť",
+   "Príprava",
+   "Hmotnosť:"
+  ],
+  "currency": "EUR",
+  "files_saved": [
+   "notes.md",
+   "robots.txt",
+   "store_categories.json",
+   "store_products_page1.json"
+  ],
+  "requests_made": 3,
+  "notes": "API 200; 32 items on page 1 (X-WP-Total=32, X-WP-TotalPages=1); filter=&category=51; minor_unit=2; 32/32 products with attributes; price_range on 22 products; description labels: Odroda, Nadmorská výška, Región, Druh, Spôsob spracovania, Spracovanie; Big mixed catalogue (328 products shop-wide: syrups, machines, tea, chocolate). The coffee category is 51 `kava` (32 products, matches the listing) - NOT 79 `domaca-priprava-kavy` (147), which is the home-brewing gear tree."
+ },
+ {
+  "site_id": "doraz",
+  "domain": "doraz.sk",
+  "country": "SK",
+  "api_ok": true,
+  "total_products": 15,
+  "coffee_category_ids": [
+   63,
+   47
+  ],
+  "coffee_category_slugs": [
+   "arabiky",
+   "blendy"
+  ],
+  "attribute_names": [
+   "Váha"
+  ],
+  "currency": "EUR",
+  "files_saved": [
+   "notes.md",
+   "robots.txt",
+   "store_categories.json",
+   "store_products_page1.json"
+  ],
+  "requests_made": 3,
+  "notes": "API 200; 15 items on page 1 (X-WP-Total=15, X-WP-TotalPages=1); filter=none (unfiltered); minor_unit=2; 15/15 products with attributes; price_range on 12 products; description labels: Type; No `kava` category; coffee is split into 63 arabiky (11) and 47 blendy (3) -> unfiltered capture of all 15 products."
+ },
+ {
+  "site_id": "aurelica",
+  "domain": "aurelica.coffee",
+  "country": "SK",
+  "api_ok": true,
+  "total_products": 55,
+  "coffee_category_ids": [
+   39,
+   89,
+   40,
+   41
+  ],
+  "coffee_category_slugs": [
+   "kava",
+   "bezkofeinova-kava",
+   "komoditna-kava",
+   "vyberova-kava"
+  ],
+  "attribute_names": [
+   "Krajina pôvodu",
+   "Farma",
+   "Odroda",
+   "Spracovanie",
+   "Typ praženia",
+   "Veľkosť balenia",
+   "Nadmorská výška",
+   "Región",
+   "Velkosť ponožiek",
+   "Káva",
+   "Druh kávy",
+   "Druh",
+   "Pomer"
+  ],
+  "currency": "EUR",
+  "files_saved": [
+   "notes.md",
+   "robots.txt",
+   "store_categories.json",
+   "store_products_page1.json"
+  ],
+  "requests_made": 3,
+  "notes": "API 200; 55 items on page 1 (X-WP-Total=55, X-WP-TotalPages=1); filter=&category=39; minor_unit=2; 55/55 products with attributes; price_range on 51 products; description labels: Intenzita, Sladkosť, Kyslosť, Horkosť; Served through Cloudflare (`server: cloudflare`)."
+ },
+ {
+  "site_id": "tokycaffe",
+  "domain": "tokycaffe.sk",
+  "country": "SK",
+  "api_ok": true,
+  "total_products": 62,
+  "coffee_category_ids": [
+   169,
+   178,
+   165,
+   177
+  ],
+  "coffee_category_slugs": [
+   "kava-podla-krajiny-povodu",
+   "speciality-coffee",
+   "zmesi-toky-caffe",
+   "bezkofeinovakavaplechovky"
+  ],
+  "attribute_names": [
+   "Balenie"
+  ],
+  "currency": "EUR",
+  "files_saved": [
+   "notes.md",
+   "robots.txt",
+   "store_categories.json",
+   "store_products_page1.json"
+  ],
+  "requests_made": 3,
+  "notes": "API 200; 62 items on page 1 (X-WP-Total=62, X-WP-TotalPages=1); filter=none (unfiltered); minor_unit=2; 23/62 products with attributes; price_range on 21 products; description labels: Druh, Krajina, Odroda, Farma, Zber, Spracovanie; Coffee is split over 169 kava-podla-krajiny-povodu (17), 178 speciality-coffee (11), 165 zmesi-toky-caffe (6) and 177 bezkofeinovakavaplechovky (4) and the shop also sells machines -> unfiltered capture of all 62 products."
+ },
+ {
+  "site_id": "poetrycoffee",
+  "domain": "poetrycoffee.sk",
+  "country": "SK",
+  "api_ok": true,
+  "total_products": 4,
+  "coffee_category_ids": [
+   53,
+   60,
+   59
+  ],
+  "coffee_category_slugs": [
+   "kava",
+   "espresso",
+   "filter"
+  ],
+  "attribute_names": [
+   "Hmotnosť",
+   "Mletie"
+  ],
+  "currency": "EUR",
+  "files_saved": [
+   "notes.md",
+   "robots.txt",
+   "store_categories.json",
+   "store_products_page1.json"
+  ],
+  "requests_made": 3,
+  "notes": "API 200; 4 items on page 1 (X-WP-Total=4, X-WP-TotalPages=1); filter=&category=53; minor_unit=2; 4/4 products with attributes; price_range on 4 products; description labels: none; Only 4 products in the coffee category; attributes are `pa_weight` and `pa_grind` (grind is a variation attribute, so variation count = weights x grinds)."
+ },
+ {
+  "site_id": "viemcoffee",
+  "domain": "viemcoffee.sk",
+  "country": "SK",
+  "api_ok": true,
+  "total_products": 6,
+  "coffee_category_ids": [
+   19
+  ],
+  "coffee_category_slugs": [
+   "kava-na-espresso"
+  ],
+  "attribute_names": [
+   "Váha"
+  ],
+  "currency": "EUR",
+  "files_saved": [
+   "notes.md",
+   "robots.txt",
+   "store_categories.json",
+   "store_products_page1.json"
+  ],
+  "requests_made": 3,
+  "notes": "API 200; 6 items on page 1 (X-WP-Total=6, X-WP-TotalPages=1); filter=&category=19; minor_unit=2; 6/6 products with attributes; price_range on 6 products; description labels: Chuťový profil, Spracovanie, Odroda, Stupeň praženia, Región, Nadmorská výška; The Store API exposes exactly ONE category (19 `kava-na-espresso`), which is also the whole catalogue (6 products).; robots.txt is HTTP 200 with a ZERO-BYTE body"
+ },
+ {
+  "site_id": "seriouscoffee",
+  "domain": "seriouscoffee.sk",
+  "country": "SK",
+  "api_ok": true,
+  "total_products": 7,
+  "coffee_category_ids": [
+   191,
+   222,
+   196,
+   194
+  ],
+  "coffee_category_slugs": [
+   "vyberova",
+   "decaf",
+   "espresso-blend",
+   "office"
+  ],
+  "attribute_names": [
+   "Veľkosť",
+   "Praženie"
+  ],
+  "currency": "EUR",
+  "files_saved": [
+   "notes.md",
+   "robots.txt",
+   "store_categories.json",
+   "store_products_page1.json"
+  ],
+  "requests_made": 3,
+  "notes": "API 200; 7 items on page 1 (X-WP-Total=7, X-WP-TotalPages=1); filter=none (unfiltered); minor_unit=2; 7/7 products with attributes; price_range on 7 products; description labels: Chuťový profil, Stupeň praženia, Región, Farma, Odroda, Nadmorská výška; Categories are tiny and non-exhaustive (191 vyberova=4, 222 decaf, 196 espresso-blend, 194 office) -> unfiltered capture of all 7 products."
+ },
+ {
+  "site_id": "kavavitazov",
+  "domain": "kavavitazov.sk",
+  "country": "SK",
+  "api_ok": true,
+  "total_products": 1,
+  "coffee_category_ids": [],
+  "coffee_category_slugs": [],
+  "attribute_names": [
+   "Balenie",
+   "Stupeň praženia",
+   "Mletie"
+  ],
+  "currency": "EUR",
+  "files_saved": [
+   "notes.md",
+   "robots.txt",
+   "store_categories.json",
+   "store_products_page1.json"
+  ],
+  "requests_made": 3,
+  "notes": "API 200; 15 items on page 1 (X-WP-Total=1, X-WP-TotalPages=1); filter=none (unfiltered); minor_unit=2; 15/15 products with attributes; price_range on 15 products; description labels: Dôležité, Chuťový profil; `X-WP-Total: 1` / `X-WP-TotalPages: 1` while the body actually contains 15 products - the header is wrong on this shop, so pagination must be driven by 'did this page return < per_page items?' rather than by the header."
+ }
+]

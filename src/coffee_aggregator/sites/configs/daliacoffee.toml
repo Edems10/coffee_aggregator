@@ -1,0 +1,24 @@
+# Dalia Coffee — products sit under /zbozi/ and categories under
+# /kategorie/, which the path pagination handles unchanged.
+platform = "shoptet"
+site_id = "daliacoffee"
+name = "Dalia Coffee"
+country = "CZ"
+base_url = "https://www.daliacoffee.cz/"
+category_urls = ["https://www.daliacoffee.cz/kategorie/vyberova-kava/"]
+currency = "CZK"
+max_pages = 20
+pagination = "path"
+
+# The category also lists things that are not whole beans.
+ignore = [
+  "drip bag",
+  "predplatne",
+  "degustacni sada",
+  "darkov",
+]
+
+# Parameter names this shop invents that the built-in CZ/SK/EN map
+# does not already cover.
+[label_map]
+"Nadm. výška" = "altitude"

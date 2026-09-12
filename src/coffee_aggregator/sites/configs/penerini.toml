@@ -1,0 +1,25 @@
+# Penerini Coffee — the shop lives on the eshop. subdomain, not on the
+# brand site. Blends and single origins share one parameter table.
+platform = "shoptet"
+site_id = "penerini"
+name = "Penerini Coffee"
+country = "CZ"
+base_url = "https://eshop.penerini.cz/"
+category_urls = ["https://eshop.penerini.cz/cerstveprazenakava/"]
+currency = "CZK"
+max_pages = 20
+pagination = "path"
+
+# The category also lists things that are not whole beans.
+ignore = [
+  "kapsle",
+]
+
+# Parameter names this shop invents that the built-in CZ/SK/EN map
+# does not already cover.
+[label_map]
+"Nadm. výška" = "altitude"
+"Země/region" = "region"
+"Způsob přípravy" = "brewing"
+"Vhodná pro" = "brewing"
+"Cuppingové skóre" = "sca_score"

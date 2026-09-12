@@ -1,0 +1,24 @@
+# Pražírna Brno — states the species as a bare "Typ" row and the packet
+# size as "Velikost balení".
+platform = "shoptet"
+site_id = "prazirnabrno"
+name = "Pražírna Brno"
+country = "CZ"
+base_url = "https://www.prazirnabrno.cz/"
+category_urls = ["https://www.prazirnabrno.cz/prazena-kava/"]
+currency = "CZK"
+max_pages = 20
+pagination = "path"
+
+# The category also lists things that are not whole beans.
+ignore = [
+  "darkov",
+]
+
+# Parameter names this shop invents that the built-in CZ/SK/EN map
+# does not already cover.
+[label_map]
+"Typ" = "species"
+"Velikost balení" = "weight"
+"Pomlet na" = "brewing"
+"Stupeň pražení" = "roast"

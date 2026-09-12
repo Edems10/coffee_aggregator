@@ -1,0 +1,24 @@
+# Rebelbean — Brno roastery. The recorded category URL was the /en/
+# mutation; the Czech /kava/ listing is used instead. The shop writes the
+# altitude row as the abbreviated "Nadm. výška".
+platform = "shoptet"
+site_id = "rebelbean"
+name = "Rebelbean"
+country = "CZ"
+base_url = "https://www.rebelbean.cz/"
+category_urls = ["https://www.rebelbean.cz/kava/"]
+currency = "CZK"
+max_pages = 20
+pagination = "path"
+
+# The category also lists things that are not whole beans.
+ignore = [
+  "degustac",
+]
+
+# Parameter names this shop invents that the built-in CZ/SK/EN map
+# does not already cover.
+[label_map]
+"Nadm. výška" = "altitude"
+"Metoda zpracování" = "process"
+"Chcete kávu namlít" = "brewing"

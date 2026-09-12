@@ -1,0 +1,26 @@
+# MOTMOT — the catalogue is split into espresso and filter with no common
+# whole-bean parent, so both listings are walked.
+platform = "shoptet"
+site_id = "motmot"
+name = "MOTMOT coffee roasters"
+country = "CZ"
+base_url = "https://www.motmot.cz/"
+category_urls = [
+  "https://www.motmot.cz/espresso/",
+  "https://www.motmot.cz/filtr/",
+]
+currency = "CZK"
+max_pages = 20
+pagination = "path"
+
+# The category also lists things that are not whole beans.
+ignore = [
+  "kapsle",
+  "seznamka",
+]
+
+# Parameter names this shop invents that the built-in CZ/SK/EN map
+# does not already cover.
+[label_map]
+"Způsob přípravy" = "brewing"
+"Chceš kávu namlít" = "brewing"
