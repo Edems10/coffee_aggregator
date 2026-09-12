@@ -1,0 +1,19 @@
+# Ala Coffee — the product table states only size and grind. Everything
+# else (country, region, farm, altitude, variety, process, harvest,
+# cupping score) is a two-column block inside the short description, so
+# no label_map can reach it; see the onboarding notes.
+platform = "shoptet"
+site_id = "alacoffee"
+name = "Ala Coffee"
+country = "CZ"
+base_url = "https://www.alacoffee.cz/"
+category_urls = ["https://www.alacoffee.cz/kava/"]
+currency = "CZK"
+max_pages = 20
+pagination = "path"
+
+# The category also lists things that are not whole beans.
+ignore = [
+  "darkov",
+  "degustac",
+]

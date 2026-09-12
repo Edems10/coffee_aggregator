@@ -1,0 +1,562 @@
+{
+ "gramáž (produkt)": [
+  "ebenica.sk"
+ ],
+ "chuťový profil": [
+  "caffe4u.sk",
+  "cokafe.com",
+  "finecoffee.sk",
+  "goodtimes.coffee",
+  "goriffee.com",
+  "kavaloka.cz",
+  "kavaondrejka.sk",
+  "kavavitazov.sk",
+  "kmen.coffee",
+  "praziarenepera.sk",
+  "riksakava.sk",
+  "ripit.sk",
+  "seriouscoffee.sk",
+  "triproasters.sk",
+  "twohands.sk",
+  "viemcoffee.sk"
+ ],
+ "podľa oblasti": [
+  "goriffee.com"
+ ],
+ "podľa prípravy kávy": [
+  "goriffee.com"
+ ],
+ "príprava kávy": [
+  "goriffee.com"
+ ],
+ "stupeň praženia (roast)": [
+  "goriffee.com"
+ ],
+ "váha": [
+  "doraz.sk",
+  "goriffee.com",
+  "kavaondrejka.sk",
+  "viemcoffee.sk"
+ ],
+ "hmotnosť": [
+  "bozinroastery.sk",
+  "caffe4u.sk",
+  "diroastery.sk",
+  "goodtimes.coffee",
+  "illimite.sk",
+  "riksakava.sk",
+  "severan.eu",
+  "spiritcoffee.sk",
+  "tokycaffe.sk",
+  "triplefivecoffee.com",
+  "triproasters.sk",
+  "zarno.sk"
+ ],
+ "praženie": [
+  "diroastery.sk",
+  "praziarenepera.sk",
+  "riksakava.sk",
+  "ripit.sk",
+  "seriouscoffee.sk",
+  "spiritcoffee.sk",
+  "trinitybeans.sk",
+  "triplefivecoffee.com"
+ ],
+ "ak by ste túto kávičku radi vyskúšali, prosím vás vyberte si hmotnosť balenia.": [
+  "25coffee.sk"
+ ],
+ "decaf - bez kofeínu": [
+  "caffe4u.sk"
+ ],
+ "druh kávy": [
+  "caffe4u.sk"
+ ],
+ "klasifikácia kávy": [
+  "caffe4u.sk"
+ ],
+ "krajina pôvodu": [
+  "25coffee.sk",
+  "aurelica.coffee",
+  "caffe4u.sk"
+ ],
+ "kyslosť kávy": [
+  "caffe4u.sk",
+  "triproasters.sk"
+ ],
+ "nadmorská výška": [
+  "aurelica.coffee",
+  "caffe4u.sk",
+  "finecoffee.sk",
+  "goodtimes.coffee",
+  "illimite.sk",
+  "praziarenepera.sk",
+  "ripit.sk",
+  "seriouscoffee.sk",
+  "trinitybeans.sk",
+  "triplefivecoffee.com",
+  "triproasters.sk",
+  "viemcoffee.sk"
+ ],
+ "nepražená káva": [
+  "caffe4u.sk"
+ ],
+ "obdobie zberu": [
+  "caffe4u.sk"
+ ],
+ "odporúčaný spôsob prípravy": [
+  "caffe4u.sk"
+ ],
+ "odroda alebo varieta": [
+  "caffe4u.sk"
+ ],
+ "skóre kvality": [
+  "caffe4u.sk"
+ ],
+ "spôsob spracovania": [
+  "caffe4u.sk",
+  "trinitybeans.sk",
+  "triproasters.sk"
+ ],
+ "stupeň praženia": [
+  "caffe4u.sk",
+  "goodtimes.coffee",
+  "kavavitazov.sk",
+  "seriouscoffee.sk",
+  "twohands.sk",
+  "viemcoffee.sk"
+ ],
+ "typ kávy": [
+  "caffe4u.sk"
+ ],
+ "balenie": [
+  "finecoffee.sk",
+  "kavavitazov.sk",
+  "trinitybeans.sk"
+ ],
+ "farma": [
+  "aurelica.coffee",
+  "cokafe.com",
+  "finecoffee.sk",
+  "illimite.sk",
+  "kmen.coffee",
+  "seriouscoffee.sk",
+  "trinitybeans.sk",
+  "viemcoffee.sk"
+ ],
+ "farmár": [
+  "illimite.sk",
+  "trinitybeans.sk"
+ ],
+ "odroda": [
+  "25coffee.sk",
+  "aurelica.coffee",
+  "finecoffee.sk",
+  "goodtimes.coffee",
+  "illimite.sk",
+  "praziarenepera.sk",
+  "riksakava.sk",
+  "ripit.sk",
+  "seriouscoffee.sk",
+  "trinitybeans.sk",
+  "twohands.sk",
+  "viemcoffee.sk"
+ ],
+ "plantáž / farmár": [
+  "trinitybeans.sk"
+ ],
+ "použitie": [
+  "trinitybeans.sk"
+ ],
+ "región": [
+  "25coffee.sk",
+  "aurelica.coffee",
+  "goodtimes.coffee",
+  "praziarenepera.sk",
+  "ripit.sk",
+  "seriouscoffee.sk",
+  "trinitybeans.sk",
+  "triplefivecoffee.com",
+  "viemcoffee.sk"
+ ],
+ "spracovanie": [
+  "25coffee.sk",
+  "aurelica.coffee",
+  "finecoffee.sk",
+  "goodtimes.coffee",
+  "illimite.sk",
+  "praziarenepera.sk",
+  "riksakava.sk",
+  "ripit.sk",
+  "seriouscoffee.sk",
+  "trinitybeans.sk",
+  "triplefivecoffee.com",
+  "twohands.sk",
+  "viemcoffee.sk"
+ ],
+ "doplnky": [
+  "kaan.sk"
+ ],
+ "veľkosť drippera": [
+  "kaan.sk"
+ ],
+ "weight": [
+  "industra.coffee",
+  "sweetbeans.coffee"
+ ],
+ "package size": [
+  "beansmiths.com"
+ ],
+ "typ pražení": [
+  "beansmiths.com"
+ ],
+ "velikost balení": [
+  "beansmiths.com",
+  "kavaloka.cz"
+ ],
+ "balení": [
+  "cokafe.com"
+ ],
+ "farmář": [
+  "cokafe.com"
+ ],
+ "nadmořská výška": [
+  "cokafe.com",
+  "kavaloka.cz"
+ ],
+ "odrůda": [
+  "beansmiths.com",
+  "cokafe.com",
+  "kavaloka.cz",
+  "kmen.coffee"
+ ],
+ "region": [
+  "cokafe.com",
+  "doraz.sk",
+  "triplefivecoffee.com",
+  "twohands.sk"
+ ],
+ "zpracování": [
+  "beansmiths.com",
+  "cokafe.com",
+  "kavaloka.cz",
+  "kmen.coffee"
+ ],
+ "výber hmotnosti": [
+  "triplefivecoffee.com"
+ ],
+ "obsah balenia": [
+  "kavaondrejka.sk"
+ ],
+ "skladovanie": [
+  "kavaondrejka.sk"
+ ],
+ "údaje o káve": [
+  "kavaondrejka.sk"
+ ],
+ "veľkosť balenia": [
+  "aurelica.coffee",
+  "mlsnacava.sk",
+  "praziarenepera.sk",
+  "zrnco.sk"
+ ],
+ "&quot;vylepši&quot; si kávu sám": [
+  "zrnco.sk"
+ ],
+ "praženie (od 500g)": [
+  "zrnco.sk"
+ ],
+ "čerstvo pražená výberová káva": [
+  "zrnco.sk"
+ ],
+ "oblast": [
+  "kmen.coffee"
+ ],
+ "použití": [
+  "kmen.coffee"
+ ],
+ "typ balení": [
+  "kmen.coffee"
+ ],
+ "země původu": [
+  "kavaloka.cz",
+  "kmen.coffee"
+ ],
+ "hrubost kávy": [
+  "kavaloka.cz"
+ ],
+ "kyselost": [
+  "kavaloka.cz"
+ ],
+ "složení": [
+  "industra.coffee",
+  "kavaloka.cz"
+ ],
+ "stupeň pražení": [
+  "kavaloka.cz"
+ ],
+ "vhodná pro": [
+  "kavaloka.cz"
+ ],
+ "druh": [
+  "praziarenepera.sk",
+  "tokycaffe.sk",
+  "triproasters.sk",
+  "twohands.sk"
+ ],
+ "krajina": [
+  "praziarenepera.sk",
+  "triplefivecoffee.com"
+ ],
+ "mletie": [
+  "kavavitazov.sk",
+  "praziarenepera.sk"
+ ],
+ "odporúčaná príprava": [
+  "goodtimes.coffee",
+  "praziarenepera.sk"
+ ],
+ "zber": [
+  "25coffee.sk",
+  "praziarenepera.sk"
+ ],
+ "balíček": [
+  "twohands.sk"
+ ],
+ "chuť": [
+  "25coffee.sk",
+  "severan.eu",
+  "spiritcoffee.sk"
+ ],
+ "acidita": [
+  "ripit.sk"
+ ],
+ "gramáž": [
+  "ripit.sk"
+ ],
+ "príprava": [
+  "goodtimes.coffee",
+  "illimite.sk",
+  "ripit.sk",
+  "twohands.sk"
+ ],
+ "pôvod": [
+  "riksakava.sk",
+  "ripit.sk",
+  "viemcoffee.sk"
+ ],
+ "sladkosť": [
+  "aurelica.coffee",
+  "ripit.sk"
+ ],
+ "telo": [
+  "ripit.sk"
+ ],
+ "typ": [
+  "ripit.sk"
+ ],
+ "typ mletia": [
+  "ripit.sk"
+ ],
+ "zloženie": [
+  "bozinroastery.sk",
+  "ripit.sk"
+ ],
+ "hmotnosť produktu": [
+  "triproasters.sk"
+ ],
+ "horkosť kávy": [
+  "triproasters.sk"
+ ],
+ "obal": [
+  "tokycaffe.sk",
+  "triproasters.sk"
+ ],
+ "odroda kávy": [
+  "triproasters.sk"
+ ],
+ "spôsob praženia": [
+  "triproasters.sk"
+ ],
+ "zloženie kávy": [
+  "triproasters.sk"
+ ],
+ "typ praženia": [
+  "aurelica.coffee"
+ ],
+ "veľkosť": [
+  "seriouscoffee.sk"
+ ],
+ "oblasť": [
+  "illimite.sk",
+  "viemcoffee.sk"
+ ],
+ "colombia huila je zložením": [
+  "25coffee.sk"
+ ],
+ "pôvod kávy": [
+  "25coffee.sk",
+  "kavavitazov.sk"
+ ],
+ "zloženie podľa druhu": [
+  "caffe4u.sk"
+ ],
+ "zloženie podľa pôvodu zrniek": [
+  "caffe4u.sk"
+ ],
+ "altitude": [
+  "sweetbeans.coffee",
+  "triplefivecoffee.com"
+ ],
+ "location": [
+  "sweetbeans.coffee"
+ ],
+ "primary flavour note": [
+  "sweetbeans.coffee"
+ ],
+ "process": [
+  "sweetbeans.coffee",
+  "triplefivecoffee.com"
+ ],
+ "producer": [
+  "sweetbeans.coffee",
+  "triplefivecoffee.com"
+ ],
+ "varieties": [
+  "sweetbeans.coffee"
+ ],
+ "dozvuk": [
+  "spiritcoffee.sk"
+ ],
+ "odporúčaný začiatok": [
+  "spiritcoffee.sk"
+ ],
+ "výška": [
+  "spiritcoffee.sk"
+ ],
+ "directions": [
+  "industra.coffee"
+ ],
+ "hmotnost": [
+  "industra.coffee"
+ ],
+ "storage": [
+  "industra.coffee"
+ ],
+ "uskladnění": [
+  "industra.coffee"
+ ],
+ "způsob použití": [
+  "industra.coffee"
+ ],
+ "our baristas notes": [
+  "beansmiths.com"
+ ],
+ "processing": [
+  "beansmiths.com"
+ ],
+ "variety": [
+  "beansmiths.com",
+  "triplefivecoffee.com"
+ ],
+ "country of origin": [
+  "triplefivecoffee.com"
+ ],
+ "package weight": [
+  "triplefivecoffee.com"
+ ],
+ "preparation method": [
+  "triplefivecoffee.com"
+ ],
+ "profil": [
+  "triplefivecoffee.com",
+  "viemcoffee.sk"
+ ],
+ "roast": [
+  "triplefivecoffee.com"
+ ],
+ "spracovateľ": [
+  "triplefivecoffee.com"
+ ],
+ "spôsoby prípravy": [
+  "triplefivecoffee.com"
+ ],
+ "taste profile": [
+  "triplefivecoffee.com"
+ ],
+ "varieta": [
+  "triplefivecoffee.com"
+ ],
+ "ondra": [
+  "kmen.coffee"
+ ],
+ "dlouhý závěr": [
+  "longberry.cz"
+ ],
+ "lahodná harmonie": [
+  "longberry.cz"
+ ],
+ "plné a bohaté tělo": [
+  "longberry.cz"
+ ],
+ "sca": [
+  "praziarenepera.sk"
+ ],
+ "cupping score": [
+  "twohands.sk"
+ ],
+ "potlač": [
+  "triproasters.sk"
+ ],
+ "rozmer": [
+  "triproasters.sk"
+ ],
+ "technické špecifikácie": [
+  "triproasters.sk"
+ ],
+ "lokalita": [
+  "finecoffee.sk"
+ ],
+ "vyrobil": [
+  "karmacoffee.sk"
+ ],
+ "cuppingové skóre": [
+  "riksakava.sk",
+  "viemcoffee.sk"
+ ],
+ "farmári": [
+  "riksakava.sk"
+ ],
+ "horkosť": [
+  "aurelica.coffee"
+ ],
+ "intenzita": [
+  "aurelica.coffee"
+ ],
+ "kyslosť": [
+  "aurelica.coffee"
+ ],
+ "kvalita": [
+  "viemcoffee.sk"
+ ],
+ "majiteľ": [
+  "viemcoffee.sk"
+ ],
+ "o káve": [
+  "viemcoffee.sk"
+ ],
+ "váha balenia": [
+  "viemcoffee.sk"
+ ],
+ "zdroj": [
+  "viemcoffee.sk"
+ ],
+ "stupeň praženia full city": [
+  "kavavitazov.sk"
+ ],
+ "stupeň praženia light": [
+  "kavavitazov.sk"
+ ],
+ "zaujímavosť": [
+  "kavavitazov.sk"
+ ]
+}

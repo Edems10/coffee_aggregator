@@ -1,0 +1,24 @@
+# Kafista — the largest catalogue of the batch (~9 listing pages). Its
+# parameter rows are prefixed with a "✓" glyph, which defeats every
+# built-in label, so each one has to be named here verbatim.
+platform = "shoptet"
+site_id = "kafista"
+name = "Kafista"
+country = "CZ"
+base_url = "https://www.kafista.cz/"
+category_urls = ["https://www.kafista.cz/kava/"]
+currency = "CZK"
+max_pages = 20
+pagination = "path"
+
+# The category also lists things that are not whole beans.
+ignore = [
+  "degustacni",
+  "darkov",
+  "kalendar",
+  "cold brew",
+  "1+1",
+  "sada zrnkove",
+  "box",
+  "bonbo",
+]

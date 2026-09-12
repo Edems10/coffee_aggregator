@@ -1,0 +1,21 @@
+# CHROAST — filter and espresso are separate top-level categories with no
+# whole-bean parent, so both are walked.
+platform = "shoptet"
+site_id = "chroast"
+name = "CHROAST Coffee Roasters"
+country = "CZ"
+base_url = "https://www.chroast.cz/"
+category_urls = [
+  "https://www.chroast.cz/filtr/",
+  "https://www.chroast.cz/espresso/",
+]
+currency = "CZK"
+max_pages = 20
+pagination = "path"
+
+# Parameter names this shop invents that the built-in CZ/SK/EN map
+# does not already cover.
+[label_map]
+"Lokalita" = "region"
+"Velikost balení" = "weight"
+"Cupping scóre" = "sca_score"

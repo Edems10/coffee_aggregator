@@ -1,0 +1,47 @@
+User-agent: *
+Content-Signal: search=yes, ai-train=no
+Disallow: /export/
+Disallow: /admin/
+Disallow: /script/
+Disallow: /api/
+Disallow: /action/
+Disallow: /*?priceMax
+Disallow: /*?priceMin
+Disallow: /*?parameterId
+Disallow: /*?order
+Disallow: /*?availabilityId
+Disallow: /*?manufacturerId
+Disallow: /*?stock
+Disallow: /*?pv*=*,
+Disallow: /*&pv*=*,
+Disallow: /*?pv*=*&pv*=
+Disallow: /*&pv*=*&pv*=
+Disallow: /*:*,*/
+Disallow: /*/?backTo=
+Disallow: /*?dd=*,
+Disallow: /*&dd=*,
+Disallow: /*?dd=*&pv*=
+Disallow: /*?pv*=*&dd=
+Disallow: /*/?letter=*
+Disallow: /search/
+Disallow: /cart/
+Disallow: /login/
+Disallow: /registration/
+Disallow: /client-center/forgotten-password/
+Disallow: /affiliate-registration/
+Disallow: /affiliate-forgotten-password/
+Disallow: /client/
+Disallow: /client-center/my-order/
+Disallow: /affiliate/accounts/
+Disallow: /affiliate/scripts/
+
+Disallow: /*:ask-salesman
+Disallow: /*:client-ratings
+Disallow: /*:delivery-offer
+Disallow: /*:discussion
+Disallow: /*:price-guard
+Disallow: /*:wysiwyg
+
+
+
+Sitemap: https://www.theminers.eu/sitemap.xml

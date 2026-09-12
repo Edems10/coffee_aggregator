@@ -1,0 +1,392 @@
+[
+ {
+  "domain": "ebenica.sk",
+  "name": "Ebenica Coffee",
+  "country": "SK",
+  "category_url": "https://ebenica.sk/kava/",
+  "sample_product_url": "https://ebenica.sk/kava-colombia-medellin/",
+  "crawl_delay": "none",
+  "products": "27 (\"Zobrazených 1–12 z 27 výsledkov\")",
+  "feed": "https://ebenica.sk/sitemaps.xml (declared in robots) — not fetched"
+ },
+ {
+  "domain": "goriffee.com",
+  "name": "Goriffee Roastery",
+  "country": "SK",
+  "category_url": "https://www.goriffee.com/produkty/",
+  "sample_product_url": "https://www.goriffee.com/shop/kava/bezkofeinova-kava/brazil-caramelo-decaf-espresso/",
+  "crawl_delay": "none",
+  "products": "43 overall (\"Zobrazené produkty: 1 - 30 (celkom 43)\"), coffee subsets shown as 9-product groups",
+  "feed": "https://www.goriffee.com/sitemap_index.xml (declared in robots) — not fetched"
+ },
+ {
+  "domain": "diroastery.sk",
+  "name": "Diamond's Roastery",
+  "country": "SK",
+  "category_url": "https://diroastery.sk/kategoria-produktu/kava/",
+  "sample_product_url": "https://diroastery.sk/produkt/etiopia-haro-wachu-zrnkova-kava/",
+  "crawl_delay": "none",
+  "products": "~16 coffee products on the single /kategoria-produktu/kava/ page (16 distinct /produkt/ links, no pagination); product-sitemap.xml lists 58 URLs for the whole shop (coffee + chocolate + grinders/accessories)",
+  "feed": "https://diroastery.sk/product-sitemap.xml (Yoast product sitemap; no WooCommerce XML/JSON product feed advertised)"
+ },
+ {
+  "domain": "illimite.sk",
+  "name": "Illimité Coffee Roasters",
+  "country": "SK",
+  "category_url": "https://illimite.sk/vyberova-kava/ (WooCommerce shop archive; true product category is https://illimite.sk/product-category/zrnkova-vyberova-kava/ per breadcrumb JSON-LD)",
+  "sample_product_url": "https://illimite.sk/product/colombia-satus-geisha/",
+  "crawl_delay": "none",
+  "products": "~4 coffee products listed on the shop archive (small, rotating lot-based offer); no pagination visible",
+  "feed": "https://illimite.sk/sitemap_index.xml (contains WooCommerce product sitemap; no separate XML/JSON product feed found)"
+ },
+ {
+  "domain": "goodtimes.coffee",
+  "name": "Good Times Coffee Roasters",
+  "country": "SK",
+  "category_url": "https://goodtimes.coffee/obchod/",
+  "sample_product_url": "https://goodtimes.coffee/produkt/brazil-doce-diamantina/",
+  "crawl_delay": "none specified",
+  "products": "3 coffees listed on /obchod/ (Brazil Doce Diamantina, Daily Espresso Seasonal Blend, Honduras COMSA co-operative); no pagination — very small catalogue",
+  "feed": "https://goodtimes.coffee/sitemap_index.xml (contains a product sitemap); WooCommerce Store/WP REST API at /wp-json/ is also reachable but was not probed"
+ },
+ {
+  "domain": "25coffee.sk",
+  "name": "25COFFEE",
+  "country": "SK",
+  "category_url": "https://www.25coffee.sk/shop/",
+  "sample_product_url": "https://www.25coffee.sk/product/colombia-huila/",
+  "crawl_delay": "none specified",
+  "products": "/shop/ shows \"Zobrazuje sa 9 výsledkov\" (9 products, no pagination). Whole-bean sub-categories: /product-category/zrnkova-kava-100-arabica/, /zrnkova-kava-100-robusta/, /zrnkova-bezkofeinova-kava/, /nase-vlastne-zmesi/",
+  "feed": "https://www.25coffee.sk/product-sitemap.xml (declared in robots.txt)"
+ },
+ {
+  "domain": "caffe4u.sk",
+  "name": "Caffe4U",
+  "country": "SK",
+  "category_url": "https://caffe4u.sk/eshop/",
+  "sample_product_url": "https://caffe4u.sk/produkt/panama-geisha/",
+  "crawl_delay": "none specified",
+  "products": "70 (listing states \"Zobrazených 1–16 z 70 výsledkov\", 5 pagination pages); coffee subcategories exist: /prazena-kava/, /prazena-zrnkova-kava/, /zelena-kava/, /kava-tyzdna/",
+  "feed": "https://caffe4u.sk/sitemap_index.xml (Yoast-style index named in robots.txt; not fetched)"
+ },
+ {
+  "domain": "trinitybeans.sk",
+  "name": "Trinity Beans",
+  "country": "SK",
+  "category_url": "https://www.trinitybeans.sk/obchod/",
+  "sample_product_url": "https://www.trinitybeans.sk/produkt/ethiopia-sidamo-bombe-natural/",
+  "crawl_delay": "none specified",
+  "products": "~12-18 (9 distinct /produkt/ links on page 1 of /obchod/ plus a page/2 link; subcategories /kategoria-produktu/espresso/ and /kategoria-produktu/filter/)",
+  "feed": "https://www.trinitybeans.sk/sitemap.xml (named in robots.txt; not fetched)"
+ },
+ {
+  "domain": "kaan.sk",
+  "name": "Kaan Roastery",
+  "country": "SK",
+  "category_url": "https://kaan.sk/kategoria/kava/",
+  "sample_product_url": "https://kaan.sk/produkt/vanilla-vice/",
+  "crawl_delay": "none",
+  "products": "17 coffee products on the single category page (17 WooCommerce product cards, no pagination)",
+  "feed": "https://kaan.sk/product-sitemap.xml (product sitemap from sitemap_index); no dedicated XML product feed found"
+ },
+ {
+  "domain": "zarno.sk",
+  "name": "Zarno",
+  "country": "SK",
+  "category_url": "https://zarno.sk/obchod/",
+  "sample_product_url": "https://zarno.sk/produkt/rwanda-nyamasheke-kilimbi/",
+  "crawl_delay": "none",
+  "products": "8 — listing states \"Zobrazuje sa 8 výsledkov\"",
+  "feed": "http://zarno.sk/product-sitemap.xml (from sitemap index); WooCommerce RSS also exposed at https://zarno.sk/obchod/feed/"
+ },
+ {
+  "domain": "sweetbeans.coffee",
+  "name": "Sweet Beans Coffee Roastery",
+  "country": "SK",
+  "category_url": "https://www.sweetbeans.coffee/shop/ (beans-only: https://www.sweetbeans.coffee/kategoria-produktu/coffee-beans/)",
+  "sample_product_url": "https://www.sweetbeans.coffee/produkt/kenya-nguguini/",
+  "crawl_delay": "none",
+  "products": "66 total shop products (\"Showing 1–12 of 66 results\", 12 per page); coffee-beans category is a subset — ~14 bean products linked from page 1",
+  "feed": "https://www.sweetbeans.coffee/sitemap.xml and https://www.sweetbeans.coffee/sitemap.rss (both declared in robots.txt); no Google-Merchant-style XML feed found"
+ },
+ {
+  "domain": "spiritcoffee.sk",
+  "name": "Spirit Coffee",
+  "country": "SK",
+  "category_url": "https://spiritcoffee.sk/c/kava/",
+  "sample_product_url": "https://spiritcoffee.sk/p/brazil-organic-fazenda-klem/",
+  "crawl_delay": "none",
+  "products": "10 products in \"Káva\" (category counter \"Káva (10)\", 10 distinct /p/ links, no pagination); plus \"Kávové sety (3)\"",
+  "feed": "none found"
+ },
+ {
+  "domain": "industra.coffee",
+  "name": "Industra Coffee",
+  "country": "CZ",
+  "category_url": "https://industra.coffee/obchod/",
+  "sample_product_url": "https://industra.coffee/produkt/bolivie-los-rodriguez-filtr/",
+  "crawl_delay": "none specified",
+  "products": "12 products per page with pagination up to at least /obchod/page/8/ → roughly 90-100 products across the whole shop (coffee plus gear/courses/vouchers)",
+  "feed": "https://industra.coffee/sitemap.xml and https://industra.coffee/en/sitemap.xml (both named in robots.txt; Yoast-style index containing a product sitemap)"
+ },
+ {
+  "domain": "beansmiths.com",
+  "name": "Beansmith's Coffee Roastery (Kofárna)",
+  "country": "CZ",
+  "category_url": "https://beansmiths.com/kategorie-produktu/kava/",
+  "sample_product_url": "https://beansmiths.com/produkt/gahahe-2/",
+  "crawl_delay": "none declared",
+  "products": "~12 distinct /produkt/ items on the coffee category page (incl. 2 non-bean espresso-machine listings and a 'test-roast'), so roughly 9-10 live coffees; no pagination present",
+  "feed": "https://beansmiths.com/wp-sitemap.xml (declared in robots.txt; not fetched). WP REST API /wp-json/ is linked from the homepage and would expose /wp-json/wc/store/products, but that was not probed."
+ },
+ {
+  "domain": "cokafe.com",
+  "name": "COKAFE",
+  "country": "CZ",
+  "category_url": "https://cokafe.com/produkty/kava/",
+  "sample_product_url": "https://cokafe.com/produkt/peru-el-condor-filtr/",
+  "crawl_delay": "none",
+  "products": "11 distinct /produkt/ URLs on the category page (single page, no pagination) — e.g. Brazílie, Peru, Kolumbie, Nikaragua, Rwanda origins in espresso/filtr versions",
+  "feed": "https://cokafe.com/sitemap_index.xml named in robots.txt (Yoast; will contain a product sitemap). No WooCommerce XML/CSV product feed found."
+ },
+ {
+  "domain": "qb.coffee",
+  "name": "QB Coffee Roasters",
+  "country": "CZ",
+  "category_url": "https://eshop.qb.coffee/kava/",
+  "sample_product_url": "https://eshop.qb.coffee/ethiopia-dukamo-washed-filtr/",
+  "crawl_delay": "none",
+  "products": "21 products rendered on the single /kava/ listing page (21 data-micro-identifier items); no pagination links, so ~21 coffee SKUs (includes capsules)",
+  "feed": "https://eshop.qb.coffee/sitemap.xml (named in eshop robots.txt; not fetched). No XML/JSON product feed URL exposed publicly."
+ },
+ {
+  "domain": "triplefivecoffee.com",
+  "name": "Triple Five Coffee",
+  "country": "SK",
+  "category_url": "https://triplefivecoffee.com/product-category/kava/",
+  "sample_product_url": "https://triplefivecoffee.com/product/costa-rica-honey-filter/",
+  "crawl_delay": "none",
+  "products": "11 (\"Zobrazuje sa 11 výsledkov\", single page, no pagination)",
+  "feed": "none found beyond sitemap index https://triplefivecoffee.com/sitemap_index.xml (not fetched)"
+ },
+ {
+  "domain": "kavaondrejka.sk",
+  "name": "Káva Ondrejka",
+  "country": "SK",
+  "category_url": "https://www.kavaondrejka.sk/obchod/ (categories: /kategoria-produktu/espresso/, /alternativne-sposoby/, /bezkofeinova-kava/)",
+  "sample_product_url": "https://www.kavaondrejka.sk/produkt/etiopia-guji-banti-nenka-washed/",
+  "crawl_delay": "none",
+  "products": "~7 coffee products listed on /obchod/ (no result-count label, no pagination)",
+  "feed": "WooCommerce feeds exist (/obchod/feed/, /feed/ — RSS, not a product feed); sitemap index https://www.kavaondrejka.sk/sitemap_index.xml (not fetched)"
+ },
+ {
+  "domain": "mlsnacava.sk",
+  "name": "Mlsnacava",
+  "country": "SK",
+  "category_url": "https://mlsnacava.sk/obchod/",
+  "sample_product_url": "https://mlsnacava.sk/produkt/filter-costarica-las-lajas/",
+  "crawl_delay": "none",
+  "products": "12 (\"12 výsledkov\" on /obchod/; 6 coffee products visible in first grid)",
+  "feed": "none found; robots names sitemap.xml and sitemap_index.xml (not fetched)"
+ },
+ {
+  "domain": "zrnco.sk",
+  "name": "ZRNCO",
+  "country": "SK",
+  "category_url": "https://www.zrnco.sk/obchod/",
+  "sample_product_url": "https://www.zrnco.sk/obchod/etiopia/",
+  "crawl_delay": "none",
+  "products": "~11 products linked from /obchod/ (single-origin coffees Brazília, Etiópia, Kolumbia, Peru, plus degustačná sada, mlynček, šálky, poukážka, bundles)",
+  "feed": "https://www.zrnco.sk/product-sitemap.xml and https://www.zrnco.sk/produkty-sitemap.xml (both listed in sitemap_index.xml). No public merchant XML/CSV feed found."
+ },
+ {
+  "domain": "kmen.coffee",
+  "name": "Kmen Coffee Roasters",
+  "country": "CZ",
+  "category_url": "https://kmen.coffee/shop-2/",
+  "sample_product_url": "https://kmen.coffee/product/el-paraiso/",
+  "crawl_delay": "none specified",
+  "products": "38 products total (\"38 produktů / Zobrazen 1. – 15. z 38 výsledků\"), 3 pagination pages; includes some accessories (cupping spoon, Cafiza, cap)",
+  "feed": "https://kmen.coffee/product-sitemap1.xml (product sitemap, from the sitemap index https://kmen.coffee/sitemaps.xml; also product_cat-sitemap1.xml)"
+ },
+ {
+  "domain": "kavaloka.cz",
+  "name": "KÁVALOKA",
+  "country": "CZ",
+  "category_url": "https://www.kavaloka.cz/e-shop/",
+  "sample_product_url": "https://www.kavaloka.cz/produkt/ethiopia-sidamo/",
+  "crawl_delay": "none",
+  "products": "~60-65 items across the whole e-shop (13 products per page, pagination up to page 5); coffee plus a few accessories",
+  "feed": "https://www.kavaloka.cz/sitemap_index.xml (Yoast index; product sitemap expected inside — not fetched)"
+ },
+ {
+  "domain": "longberry.cz",
+  "name": "LONGBERRY",
+  "country": "CZ",
+  "category_url": "https://www.longberry.cz/kategorie-produktu/kava/",
+  "sample_product_url": "https://www.longberry.cz/produkt/etiopie/",
+  "crawl_delay": "none specified",
+  "products": "~22 product links rendered on the single category page; sidebar subcategory counts sum to ~29 coffee SKUs (Jednodruhová 13, Espresso směsi 7, Výběrová 3, Ochucená 3, Vícedruhová 2, Degustační balení 1). No pagination seen.",
+  "feed": "https://longberry.cz/sitemap_index.xml (sitemap index; no explicit XML/JSON product feed advertised)"
+ },
+ {
+  "domain": "praziarenepera.sk",
+  "name": "Epera Coffee",
+  "country": "SK",
+  "category_url": "https://www.praziarenepera.sk/kategoria-produktu/cerstva-kava/",
+  "sample_product_url": "https://www.praziarenepera.sk/produkt/kava-burundi-turaco/",
+  "crawl_delay": "none",
+  "products": "~24 products on page 1, 2 pages total → roughly 30-40 fresh-coffee SKUs",
+  "feed": "https://www.praziarenepera.sk/wp-sitemap.xml (robots-declared); category RSS feed also linked: https://www.praziarenepera.sk/kategoria-produktu/cerstva-kava/feed/"
+ },
+ {
+  "domain": "twohands.sk",
+  "name": "Two Hands Roastery",
+  "country": "SK",
+  "category_url": "https://www.twohands.sk/obchod/",
+  "sample_product_url": "https://www.twohands.sk/rwanda-wild-gorillas/",
+  "crawl_delay": "none",
+  "products": "~29 product URLs on the shop page (single page, no pagination), of which roughly 10-15 are coffees; the rest are brewing gear and merch",
+  "feed": "https://www.twohands.sk/sitemap_index.xml (robots-declared Yoast index, includes a product sitemap); RSS at https://www.twohands.sk/feed/"
+ },
+ {
+  "domain": "severan.eu",
+  "name": "Severan",
+  "country": "SK",
+  "category_url": "https://severan.eu/shop/",
+  "sample_product_url": "https://severan.eu/shop/etiopia-sidamo-belayneh-beriso/",
+  "crawl_delay": "none",
+  "products": "17 (\"Zobrazených 1–16 z 17 výsledkov\", 2 pages) - whole shop, includes blends/flavoured",
+  "feed": "https://severan.eu/shop/feed/ (WooCommerce RSS, linked on the listing); sitemap index https://severan.eu/sitemap_index.xml (not fetched)"
+ },
+ {
+  "domain": "ripit.sk",
+  "name": "Ripit Roastery",
+  "country": "SK",
+  "category_url": "https://ripit.sk/obchod/kavy/ (subcategories /obchod/kavy/espresso/ and /obchod/kavy/filter/)",
+  "sample_product_url": "https://ripit.sk/produkt/fressot-etiopia/",
+  "crawl_delay": "none",
+  "products": "32 (\"Počet produktov: 32\" on the listing; paginated, /obchod/kavy/page/2/)",
+  "feed": "none found beyond https://ripit.sk/sitemap.xml (named in robots.txt; not fetched)"
+ },
+ {
+  "domain": "triproasters.sk",
+  "name": "Trip Coffee Roasters",
+  "country": "SK",
+  "category_url": "https://triproasters.sk/vyberova-kava/",
+  "sample_product_url": "https://triproasters.sk/ethiopia-kelloo/",
+  "crawl_delay": "none",
+  "products": "14 (\"Zobrazuje sa 14 výsledkov\", single page); sibling categories /espresso/, /filter/, /bezkofeinova-kava/",
+  "feed": "none found - robots names only the sitemap index https://triproasters.sk/sitemap_index.xml (not fetched); /*/feed/ is explicitly disallowed, so WooCommerce RSS feeds are off-limits"
+ },
+ {
+  "domain": "finecoffee.sk",
+  "name": "Fine Coffee SK",
+  "country": "SK",
+  "category_url": "https://www.finecoffee.sk/kategoria-produktu/prazena-kava/ (the /kava/ hint URL is an editorial page, not the shop category)",
+  "sample_product_url": "https://www.finecoffee.sk/produkt/fine-coffee-columbia-la-manuela/",
+  "crawl_delay": "none specified",
+  "products": "9 (\"Zobrazuje sa 9 výsledkov\", single page) in Pražená zrnková káva",
+  "feed": "none found (no Sitemap: line in robots.txt; did not probe further)"
+ },
+ {
+  "domain": "karmacoffee.sk",
+  "name": "Karma Coffee",
+  "country": "SK",
+  "category_url": "https://www.karmacoffee.sk/nasa-kava/ (products live under /obchod/<slug>/, category also at /kategoria-produktu/nasa-kava/)",
+  "sample_product_url": "https://www.karmacoffee.sk/obchod/funky-filter-kolumbia/",
+  "crawl_delay": "none specified",
+  "products": "~13 products linked on the 'Naša káva' page (no woocommerce-result-count, no pagination); includes a few teas",
+  "feed": "none found (no Sitemap: line in robots.txt; did not probe)"
+ },
+ {
+  "domain": "riksakava.sk",
+  "name": "Rikša Káva",
+  "country": "SK",
+  "category_url": "https://www.riksakava.sk/product-category/ponuka-kav/",
+  "sample_product_url": "https://www.riksakava.sk/product/cerrado-good/",
+  "crawl_delay": "none",
+  "products": "11 (\"Zobrazuje sa všetkych 11 výsledkov\", single page, no pagination)",
+  "feed": "https://www.riksakava.sk/product-sitemap.xml (from https://www.riksakava.sk/sitemap.xml — Yoast index; robots.txt itself lists no Sitemap)"
+ },
+ {
+  "domain": "bozinroastery.sk",
+  "name": "Bozin Roastery",
+  "country": "SK",
+  "category_url": "https://www.bozinroastery.sk/kava/",
+  "sample_product_url": "https://www.bozinroastery.sk/produkt/ethiopia-sidamo-guji-prazena-zrnkova-kava/",
+  "crawl_delay": "none",
+  "products": "32 (\"Zobrazených 1–12 z 32 výsledkov\", 12 per page, numbered page-numbers pagination)",
+  "feed": "https://www.bozinroastery.sk/sitemap.xml is a sitemap index (Google Sitemap Generator) including category and post/product sitemaps; no dedicated product XML/JSON feed found"
+ },
+ {
+  "domain": "doraz.sk",
+  "name": "Doraz Café & Roastery",
+  "country": "SK",
+  "category_url": "https://doraz.sk/obchod/",
+  "sample_product_url": "https://doraz.sk/obchod/colombia-geisha/",
+  "crawl_delay": "none",
+  "products": "~17 distinct product URLs on the shop page (no count label visible; sub-categories /arabiky/, /blendy/, /limitovane-edicie/)",
+  "feed": "https://doraz.sk/product-sitemap.xml (from https://doraz.sk/sitemap_index.xml, named in robots.txt); also a WooCommerce RSS feed exists at https://doraz.sk/obchod/feed/ (linked in the page, not fetched)"
+ },
+ {
+  "domain": "aurelica.coffee",
+  "name": "Aurelica",
+  "country": "SK",
+  "category_url": "https://www.aurelica.coffee/product-category/kava/",
+  "sample_product_url": "https://www.aurelica.coffee/obchod/2026/ethiopia-g1-chelchele-espresso-roast/",
+  "crawl_delay": "none",
+  "products": "10 product links on the listing (6 current 2026 single-origin coffees + 3 older 2022 items + Nespresso capsules); no pagination",
+  "feed": "https://www.aurelica.coffee/product-sitemap.xml (product URL sitemap; no price/attribute feed found)"
+ },
+ {
+  "domain": "tokycaffe.sk",
+  "name": "TOKY Caffé",
+  "country": "SK",
+  "category_url": "https://tokycaffe.sk/obchod/",
+  "sample_product_url": "https://tokycaffe.sk/obchod/boutique-process-ethiopia-250-g/",
+  "crawl_delay": "none",
+  "products": "62 (\"Zobrazených 1–20 z 62 výsledkov\", 4 pages of 20) — all shop items incl. accessories; ~22 product links on page 1",
+  "feed": "https://tokycaffe.sk/sitemap_index.xml (Yoast index; contains product sitemap). No price feed found."
+ },
+ {
+  "domain": "poetrycoffee.sk",
+  "name": "Poetry Coffee",
+  "country": "SK",
+  "category_url": "https://poetrycoffee.sk/obchod/",
+  "sample_product_url": "https://poetrycoffee.sk/produkt/ethiopia/",
+  "crawl_delay": "none",
+  "products": "11 shop products, of which ~4 are coffees (brazilia, ethiopia, kolumbia, realpoet) plus chocolate-covered beans; rest are brewers/grinders. No pagination",
+  "feed": "https://poetrycoffee.sk/wp-sitemap.xml (core WP sitemap index; product URLs under wp-sitemap-posts-product-1.xml). No price feed found."
+ },
+ {
+  "domain": "viemcoffee.sk",
+  "name": "ViEM Coffee",
+  "country": "SK",
+  "category_url": "https://www.viemcoffee.sk/obchod/",
+  "sample_product_url": "https://www.viemcoffee.sk/produkt/etiopia/",
+  "crawl_delay": "none",
+  "products": "6 (\"Zobrazuje sa všetkych 6 výsledkov\"): brazilia, espresso-blend, etiopia, kolumbia-huila-san-adolfo2, nikaragua, startovacia-zmes",
+  "feed": "https://www.viemcoffee.sk/product-sitemap.xml (Rank Math product URL sitemap); no price feed found"
+ },
+ {
+  "domain": "seriouscoffee.sk",
+  "name": "Serious Coffee",
+  "country": "SK",
+  "category_url": "https://www.seriouscoffee.sk/e-shop/",
+  "sample_product_url": "https://www.seriouscoffee.sk/produkt/etiopia-guji/",
+  "crawl_delay": "none",
+  "products": "7 (listing states \"Zobrazuje sa 7 výsledkov\", no pagination)",
+  "feed": "https://www.seriouscoffee.sk/sitemap_index.xml (named in robots.txt; WP/Yoast index containing product sitemaps)"
+ },
+ {
+  "domain": "kavavitazov.sk",
+  "name": "Victory – Káva víťazov",
+  "country": "SK",
+  "category_url": "https://kavavitazov.sk/obchod/",
+  "sample_product_url": "https://kavavitazov.sk/tanzania-specialty-coffee/",
+  "crawl_delay": "none",
+  "products": "~15 products linked from the shop page (bezkofeinova-decaf, blend-arabica, cowboy-blend, dominika-barahona, espresso-arabica, espresso-blend, kava-brazilia, darcekove-balenie, kava-kolumbia, kava-prazena-na-slovensku, papua-nova-guinea, prazena-kava-etiopia, prazena-kava-nikaragua, robusta-vietnam, tanzania-specialty-coffee); no pagination",
+  "feed": "https://kavavitazov.sk/sitemap_index.xml (robots.txt); WooCommerce RSS at https://kavavitazov.sk/obchod/feed/ linked from the shop page"
+ }
+]

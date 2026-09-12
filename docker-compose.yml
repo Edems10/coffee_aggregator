@@ -1,0 +1,26 @@
+# Local development database. Production points DATABASE_URL at RDS / any
+# managed Postgres / Supabase's direct connection string instead — same code.
+#
+# If this machine already runs Postgres on 5432, publish on another port:
+#   COFFEE_DB_PORT=5433 docker compose up -d
+#   DATABASE_URL=postgresql://coffee:coffee@localhost:5433/coffee
+services:
+  db:
+    image: postgres:18-alpine
+    container_name: coffee-aggregator-db
+    environment:
+      POSTGRES_USER: coffee
+      POSTGRES_PASSWORD: coffee
+      POSTGRES_DB: coffee
+    ports:
+      - "${COFFEE_DB_PORT:-5432}:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U coffee -d coffee"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  pgdata:

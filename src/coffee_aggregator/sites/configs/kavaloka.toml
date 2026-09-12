@@ -1,0 +1,30 @@
+# Kávaloka — a Czech roastery on WooCommerce. Its Store API quotes whole crowns
+# (currency_minor_unit = 0), which is why the adapter never hard-codes /100.
+# Every coffee carries a full attribute set (Země původu, Odrůda, Zpracování,
+# Nadmořská výška, Chuťový profil), so no [label_map] override is needed.
+platform = "woocommerce"
+site_id = "kavaloka"
+name = "Kávaloka"
+country = "CZ"
+base_url = "https://www.kavaloka.cz/"
+currency = "CZK"
+mode = "api"
+max_pages = 10
+
+# Pinned ids, not slugs: the categories endpoint hides empty categories and
+# renumbers nothing, but slugs get rewritten whenever the shop is re-themed.
+# 19 jednodruhova-kava (13), 20 kavove-smesi-kavaloka (3), 21 kava-bez-kofeinu (1).
+api_category_ids = [19, 20, 21]
+
+# The HTML fallback, used only if /wp-json/ ever stops answering.
+category_urls = [
+  "https://www.kavaloka.cz/kategorie-produktu/jednodruhova-kava/",
+  "https://www.kavaloka.cz/kategorie-produktu/kavove-smesi-kavaloka/",
+]
+
+# The catalogue also sells dried fruit, nuts, gift boxes and vouchers.
+ignore = [
+  "darkovy poukaz",
+  "darkove baleni",
+  "kornout",
+]

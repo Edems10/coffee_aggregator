@@ -1,0 +1,22 @@
+# Alegre Café — there is no common whole-bean parent, so the filter and
+# espresso listings are both walked. The lot data lives in a two-column
+# <table> inside the description tab, not in table.detail-parameters, so
+# no label_map reaches it; see the onboarding notes.
+platform = "shoptet"
+site_id = "alegrecafe"
+name = "Alegre Café Roasters"
+country = "CZ"
+base_url = "https://www.alegrecafe.cz/"
+category_urls = [
+  "https://www.alegrecafe.cz/na-filtr/",
+  "https://www.alegrecafe.cz/na-espresso/",
+]
+currency = "CZK"
+max_pages = 20
+pagination = "path"
+
+# The category also lists things that are not whole beans.
+ignore = [
+  "degustacni",
+  "darkov",
+]

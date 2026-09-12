@@ -1,0 +1,21 @@
+# Concept Coffee — a Slovak specialty roastery on Shoptet. Its product pages
+# state origin, process and altitude in table.detail-parameters, so nothing
+# beyond this file is needed to crawl it.
+platform = "shoptet"
+site_id = "conceptcoffee"
+name = "Concept Coffee"
+country = "SK"
+base_url = "https://www.conceptcoffee.sk/"
+category_urls = ["https://www.conceptcoffee.sk/espresso/"]
+currency = "EUR"
+max_pages = 20
+pagination = "path"
+
+# The category also lists brewing gear and gift packs.
+ignore = [
+  "cascara",
+  "darcek",
+  "mlyncek",
+  "filtre",
+  "kapsul",
+]

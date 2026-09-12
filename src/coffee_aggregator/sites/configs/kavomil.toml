@@ -1,0 +1,23 @@
+# Kavomil / Nômad Roastery — a Slovak roastery on Shoptet. Its parameter table
+# states the cup profile, acidity, bitterness, brewing and packaging; the
+# country comes from a LABEL: value line in the description. Every label is one
+# the built-in CZ/SK/EN map already knows, so no [label_map] is needed.
+# "Výroba/Distribúcia" names the roastery and its address and has no field to
+# feed, so it stays in raw_attributes.
+platform = "shoptet"
+site_id = "kavomil"
+name = "Kavomil / Nômad Roastery"
+country = "SK"
+base_url = "https://www.kavomil.sk/"
+category_urls = ["https://www.kavomil.sk/prazena-kava/"]
+currency = "EUR"
+max_pages = 20
+pagination = "path"
+
+# The category also lists multi-kilo sets and tasting packs.
+ignore = [
+  "degustacn",
+  "set",
+  "mix",
+  "darcek",
+]

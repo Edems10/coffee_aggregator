@@ -1,0 +1,1583 @@
+<!doctype html><html lang="cs" dir="ltr" class="header-background-dark external-fonts-loaded"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" /><title>Káva - Rebelbean</title><link rel="preconnect" href="https://cdn.myshoptet.com" /><link rel="dns-prefetch" href="https://cdn.myshoptet.com" /><link rel="preload" href="https://cdn.myshoptet.com/prj/dist/master/cms/libs/jquery/jquery-1.11.3-sec1.min.js" as="script" /><link href="https://cdn.myshoptet.com/prj/dist/master/cms/templates/frontend_templates/shared/css/font-face/poppins.css" rel="stylesheet"><link href="https://cdn.myshoptet.com/prj/dist/master/shop/dist/font-shoptet-12.css.d637f40c301981789c16.css" rel="stylesheet"><script>
+dataLayer = [];
+dataLayer.push({'shoptet' : {
+    "pageId": 698,
+    "pageType": "category",
+    "currency": "CZK",
+    "currencyInfo": {
+        "decimalSeparator": ",",
+        "exchangeRate": 1,
+        "priceDecimalPlaces": 1,
+        "symbol": "K\u010d",
+        "symbolLeft": 0,
+        "thousandSeparator": " "
+    },
+    "language": "cs",
+    "projectId": 353127,
+    "category": {
+        "guid": "e5e0aa1f-7a7d-11ea-ac23-ac1f6b0076ec",
+        "path": "K\u00e1va",
+        "parentCategoryGuid": null
+    },
+    "cartInfo": {
+        "id": null,
+        "freeShipping": false,
+        "freeShippingFrom": 0,
+        "leftToFreeGift": {
+            "formattedPrice": "0 K\u010d",
+            "priceLeft": 0
+        },
+        "freeGift": false,
+        "leftToFreeShipping": {
+            "priceLeft": 0,
+            "dependOnRegion": 0,
+            "formattedPrice": "0 K\u010d"
+        },
+        "discountCoupon": [],
+        "getNoBillingShippingPrice": {
+            "withoutVat": 0,
+            "vat": 0,
+            "withVat": 0
+        },
+        "cartItems": [],
+        "taxMode": "ORDINARY"
+    },
+    "cart": [],
+    "customer": {
+        "priceRatio": 1,
+        "priceListId": 1,
+        "groupId": null,
+        "registered": false,
+        "mainAccount": false
+    }
+}});
+dataLayer.push({'cookie_consent' : {
+    "marketing": "denied",
+    "analytics": "denied"
+}});
+document.addEventListener('DOMContentLoaded', function() {
+    shoptet.consent.onAccept(function(agreements) {
+        if (agreements.length == 0) {
+            return;
+        }
+        dataLayer.push({
+            'cookie_consent' : {
+                'marketing' : (agreements.includes(shoptet.config.cookiesConsentOptPersonalisation)
+                    ? 'granted' : 'denied'),
+                'analytics': (agreements.includes(shoptet.config.cookiesConsentOptAnalytics)
+                    ? 'granted' : 'denied')
+            },
+            'event': 'cookie_consent'
+        });
+    });
+});
+</script>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PQJDJ2NH');</script>
+<meta property="og:type" content="website"><meta property="og:site_name" content="Rebelbean"><meta property="og:url" content="https://www.rebelbean.cz/kava/"><meta property="og:title" content="Káva - Rebelbean"><meta name="author" content="Rebelbean"><meta name="web_author" content="Shoptet.cz"><meta name="dcterms.rightsHolder" content="www.rebelbean.cz"><meta name="robots" content="index,follow"><meta property="og:image" content="https://www.rebelbean.cz/user/categories/orig/img_6274.jpg"><meta property="og:description" content="Káva, Rebelbean"><meta name="description" content="Káva, Rebelbean"><meta name="google-site-verification" content="DhFiXobQKHVUn3pzVx2DntCkNlMw44SZJpLV99ZyZ5o">
+<link href="https://cdn.myshoptet.com/prj/dist/master/shop/dist/main-12.less.9ff5358340b1a1290042.css" rel="stylesheet" />
+<script>var shoptet = shoptet || {};</script>
+<script src="https://cdn.myshoptet.com/prj/dist/master/shop/dist/main-3g-header.js.27c4444ba5dd6be3416d.js"></script>
+<script type="text/javascript">
+                    document.addEventListener('DOMContentLoaded', function() {
+                        if (getShoptetDataLayer('pageType') === 'billingAndShipping') {
+                            
+                try {
+                    const isAndroid = () => /Android/i.test(navigator?.userAgent);
+                    // OLD: window.ApplePaySession && window.ApplePaySession.canMakePayments()
+                    if (!isAndroid()) {
+                        
+                        if (document.querySelector('#order-billing-methods .radio-wrapper[data-guid="67ae4d95-2af1-11ee-9219-ce12b750376e"]')) {
+                            document.querySelector('#order-billing-methods .radio-wrapper[data-guid="67ae4d95-2af1-11ee-9219-ce12b750376e"]').classList.add('cgapplepay');
+                        }
+                        
+
+                        if (document.querySelector('#order-billing-methods .radio-wrapper[data-guid="68a0de02-2af1-11ee-9219-ce12b750376e"]')) {
+                            document.querySelector('#order-billing-methods .radio-wrapper[data-guid="68a0de02-2af1-11ee-9219-ce12b750376e"]').classList.add('cgapplepay');
+                        }
+                        
+                    }
+                } catch (err) {} 
+            
+                            
+                const cgBaseCardPaymentMethod = {
+                        type: 'CARD',
+                        parameters: {
+                            allowedAuthMethods: ["PAN_ONLY", "CRYPTOGRAM_3DS"],
+                            allowedCardNetworks: [/*"AMEX", "DISCOVER", "INTERAC", "JCB",*/ "MASTERCARD", "VISA"]
+                        }
+                };
+                
+                function cgLoadScript(src, callback)
+                {
+                    var s,
+                        r,
+                        t;
+                    r = false;
+                    s = document.createElement('script');
+                    s.type = 'text/javascript';
+                    s.src = src;
+                    s.onload = s.onreadystatechange = function() {
+                        if ( !r && (!this.readyState || this.readyState == 'complete') )
+                        {
+                            r = true;
+                            callback();
+                        }
+                    };
+                    t = document.getElementsByTagName('script')[0];
+                    t.parentNode.insertBefore(s, t);
+                } 
+                
+                function cgGetGoogleIsReadyToPayRequest() {
+                    return Object.assign(
+                        {},
+                        {
+                            apiVersion: 2,
+                            apiVersionMinor: 0
+                        },
+                        {
+                            allowedPaymentMethods: [cgBaseCardPaymentMethod]
+                        }
+                    );
+                }
+
+                function onCgGooglePayLoaded() {
+                    let paymentsClient = new google.payments.api.PaymentsClient({environment: 'PRODUCTION'});
+                    paymentsClient.isReadyToPay(cgGetGoogleIsReadyToPayRequest()).then(function(response) {
+                        if (response.result) {
+                            
+                        if (document.querySelector('#order-billing-methods .radio-wrapper[data-guid="67b8acb1-2af1-11ee-9219-ce12b750376e"]')) {
+                            document.querySelector('#order-billing-methods .radio-wrapper[data-guid="67b8acb1-2af1-11ee-9219-ce12b750376e"]').classList.add('cggooglepay');
+                        }
+                        
+
+                        if (document.querySelector('#order-billing-methods .radio-wrapper[data-guid="68b78032-2af1-11ee-9219-ce12b750376e"]')) {
+                            document.querySelector('#order-billing-methods .radio-wrapper[data-guid="68b78032-2af1-11ee-9219-ce12b750376e"]').classList.add('cggooglepay');
+                        }
+                        	 	 	 	 	 
+                        }
+                    })
+                    .catch(function(err) {});
+                }
+                
+                cgLoadScript('https://pay.google.com/gp/p/js/pay.js', onCgGooglePayLoaded);
+            
+                        }
+                    });
+                </script>
+<link rel="stylesheet" href="https://cdn.myshoptet.com/usr/api2.dklab.cz/user/documents/_doplnky/doprava/353127/27/353127_27.css" type="text/css" />
+<link rel="stylesheet" href="https://cdn.myshoptet.com/usr/api2.dklab.cz/user/documents/_doplnky/filtry/353127/19/353127_19.css" type="text/css" />
+<link rel="stylesheet" href="https://cdn.myshoptet.com/addons/dominikmartini/shop_rating/styles.header.min.css?02d5750dcabae5039447edfe615105ebfd256f19">
+<link rel="stylesheet" href="https://cdn.myshoptet.com/usr/webotvurci.myshoptet.com/user/documents/plugin-product-interconnection/css/all.min.css?v=29">
+<meta name="facebook-domain-verification" content="ccpuuplfif6gmm9w4qj28t1lu5u6so" />
+<link href="/user/documents/style.css?v=13.9" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<link href="/user/documents/eshop.css?v=1.5" rel="stylesheet">
+<meta name="google-site-verification" content="GYuYUZbs6ZhhVAGGB3kGYVv9_YnfJuNPFY70NomuPN8" />
+<link href="/user/documents/style-nosov.css?v=1.8" rel="stylesheet">
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "uy5u5orkli");
+</script>
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" /><link rel="canonical" href="https://www.rebelbean.cz/kava/" /><link rel="alternate" hreflang="cs" href="https://www.rebelbean.cz/kava/" /><link rel="alternate" hreflang="en" href="https://www.rebelbean.cz/en/coffee/" /><link rel="alternate" hreflang="x-default" href="https://www.rebelbean.cz/kava/" /> <script>
+        var _hwq = _hwq || [];
+        _hwq.push(['setKey', '20A48DC1C710E10DE89BD55ACE8707E7']);
+        _hwq.push(['setTopPos', '200']);
+        _hwq.push(['showWidget', '22']);
+        (function() {
+            var ho = document.createElement('script');
+            ho.src = 'https://cz.im9.cz/direct/i/gjs.php?n=wdgt&sak=20A48DC1C710E10DE89BD55ACE8707E7';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ho, s);
+        })();
+    </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H2X6DX7FK1"></script>
+<script>
+        
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        
+
+                    console.debug('default consent data');
+
+            gtag('consent', 'default', {"ad_storage":"denied","analytics_storage":"denied","ad_user_data":"denied","ad_personalization":"denied","wait_for_update":500});
+            dataLayer.push({
+                'event': 'default_consent'
+            });
+        
+        gtag('js', new Date());
+
+        
+                gtag('config', 'G-H2X6DX7FK1', {"groups":"GA4","send_page_view":false,"content_group":"category","currency":"CZK","page_language":"cs"});
+        
+                gtag('config', 'AW-319903091');
+        
+        
+        
+        
+        
+                    gtag('event', 'page_view', {"send_to":"GA4","page_language":"cs","content_group":"category","currency":"CZK"});
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof shoptet.tracking !== 'undefined') {
+                for (var id in shoptet.tracking.bannersList) {
+                    gtag('event', 'view_promotion', {
+                        "send_to": "UA",
+                        "promotions": [
+                            {
+                                "id": shoptet.tracking.bannersList[id].id,
+                                "name": shoptet.tracking.bannersList[id].name,
+                                "position": shoptet.tracking.bannersList[id].position
+                            }
+                        ]
+                    });
+                }
+            }
+
+            shoptet.consent.onAccept(function(agreements) {
+                if (agreements.length !== 0) {
+                    console.debug('gtag consent accept');
+                    var gtagConsentPayload =  {
+                        'ad_storage': agreements.includes(shoptet.config.cookiesConsentOptPersonalisation)
+                            ? 'granted' : 'denied',
+                        'analytics_storage': agreements.includes(shoptet.config.cookiesConsentOptAnalytics)
+                            ? 'granted' : 'denied',
+                                                                                                'ad_user_data': agreements.includes(shoptet.config.cookiesConsentOptPersonalisation)
+                            ? 'granted' : 'denied',
+                        'ad_personalization': agreements.includes(shoptet.config.cookiesConsentOptPersonalisation)
+                            ? 'granted' : 'denied',
+                        };
+                    console.debug('update consent data', gtagConsentPayload);
+                    gtag('consent', 'update', gtagConsentPayload);
+                    dataLayer.push(
+                        { 'event': 'update_consent' }
+                    );
+                }
+            });
+        });
+    </script>
+</head><body class="desktop id-698 in-kava template-12 type-category one-column-body columns-3 ums_discussion_rating_forms--on ums_page_element_headings--on ums_forms_redesign--on ums_images_with_query_params--on ums_mobile_header_v1--on ums_jquery_fix--on mobile-header-version-0"><noscript>
+<div class="no-javascript">
+<div class="no-javascript__title">Musíte změnit nastavení vašeho prohlížeče</div>
+<div class="no-javascript__text">Podívejte se na: <a href="https://www.google.com/support/bin/answer.py?answer=23852">Jak povolit JavaScript ve vašem prohlížeči</a>.</div>
+<div class="no-javascript__text">Pokud používáte software na blokování reklam, může být nutné povolit JavaScript z této stránky.</div>
+<div class="no-javascript__text">Děkujeme.</div>
+</div>
+</noscript>
+<div id="fb-root"></div>
+<script>
+            window.fbAsyncInit = function() {
+                FB.init({
+                    autoLogAppEvents : true,
+                    xfbml            : true,
+                    version          : 'v24.0'
+                });
+            };
+        </script>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/cs_CZ/sdk.js#xfbml=1&version=v24.0"></script>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PQJDJ2NH"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<div class="siteCookies siteCookies--bottom siteCookies--light js-siteCookies" role="dialog" data-testid="cookiesPopup" data-nosnippet>
+<div class="siteCookies__form">
+<div class="siteCookies__content">
+<div class="siteCookies__text">
+Kafe a sušenky. To jde k sobě. I proto máme na webu cookies. A budeme moc rádi, když nám dáš souhlas je používat. Díky nim zjišťujeme, kdo, kdy a kam sem chodí na návštěvu. Nic víc.
+</div>
+<p class="siteCookies__links">
+<button class="siteCookies__link js-cookies-settings" aria-label="Nastavení cookies" data-testid="cookiesSettings">Nastavení</button>
+</p>
+</div>
+<div class="siteCookies__buttonWrap">
+<button class="siteCookies__button js-cookiesConsentSubmit" value="all" aria-label="Přijmout cookies" data-testid="buttonCookiesAccept">Souhlasím</button>
+</div>
+</div>
+<script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const siteCookies = document.querySelector('.js-siteCookies');
+                document.addEventListener("scroll", shoptet.common.throttle(() => {
+                    const st = document.documentElement.scrollTop;
+                    if (st > 1) {
+                        siteCookies.classList.add('siteCookies--scrolled');
+                    } else {
+                        siteCookies.classList.remove('siteCookies--scrolled');
+                    }
+                }, 100));
+            });
+        </script>
+</div>
+<a href="#content" class="skip-link sr-only">Přejít na obsah</a><div class="overall-wrapper">
+<div class="user-action">
+<dialog id="login" class="dialog dialog--modal dialog--fullscreen js-dialog--modal" aria-labelledby="loginHeading">
+<div class="dialog__close dialog__close--arrow">
+<button type="button" class="btn toggle-window-arr" data-dialog-close data-testid="backToShop">Zpět <span>do obchodu</span></button>
+</div>
+<div class="dialog__wrapper">
+<div class="dialog__content dialog__content--form">
+<div class="dialog__header">
+<h2 id="loginHeading" class="dialog__heading dialog__heading--login">Přihlášení k vašemu účtu</h2>
+</div>
+<div id="customerLogin" class="dialog__body">
+<form action="/action/Customer/Login/" method="post" id="formLoginIncluded" class="csrf-enabled login-form" data-testid="formLogin" novalidate><input type="hidden" name="referer" value="" /><div class="form-group smart-label-wrapper"><label for="loginWidgetEmail"><span class="required-asterisk">E-mail</span></label><div class="form-control-wrapper js-validated-element-wrapper"><input type="email" name="email" id="loginWidgetEmail" class="form-control js-validate js-validate-required" data-testid="inputEmail" autocomplete="email" required autofocus /></div></div><div class="form-group smart-label-wrapper"><label for="loginWidgetPassword"><span class="required-asterisk">Heslo</span></label><div class="form-control-wrapper js-validated-element-wrapper"><input type="password" name="password" id="loginWidgetPassword" class="form-control js-validate js-validate-required" data-testid="inputPassword" autocomplete="current-password" required /><span class="sr-only" inert><span>Nevyplňujte toto pole</span><label>Surname<input type="text" name="surname" value="" autocomplete="off" tabindex="-1" /></label></span>
+</div></div><div class="form-group submit-wrapper"><button type="submit" class="btn btn-primary" data-testid="buttonSubmit">Přihlásit se</button></div><p class="alternative-links"><a href="/registrace/" data-testid="signup" rel="nofollow">Nová registrace</a><a href="/klient/zapomenute-heslo/" rel="nofollow">Zapomenuté heslo</a></p><div class="social-login-buttons"><div class="social-login-buttons-divider"><span>nebo</span></div><div class="form-group"><a href="/action/Social/login/?provider=Google" class="login-btn google" rel="nofollow"><span class="login-google-icon"></span><strong>Přihlásit se přes Google</strong></a></div><div class="form-group"><a href="/action/Social/login/?provider=Seznam" class="login-btn seznam" rel="nofollow"><span class="login-seznam-icon"></span><strong>Přihlásit se přes Seznam</strong></a></div></div></form>
+</div>
+</div>
+</div>
+</dialog>
+</div>
+<header id="header"><div class="container navigation-wrapper"><div class="site-name"><a href="/" data-testid="linkWebsiteLogo"><img src="https://cdn.myshoptet.com/usr/www.rebelbean.cz/user/logos/rebelbean-logo-cervene.svg" alt="Rebelbean" fetchpriority="low" /></a></div>
+<nav id="navigation" aria-label="Hlavní menu" data-collapsible="true"><div class="navigation-in menu"><ul class="menu-level-1" role="menubar" data-testid="headerMenuItems"><li class="menu-item-698 ext" role="none"><a href="/kava/" class="active" data-testid="headerMenuItem" role="menuitem" aria-haspopup="true" aria-expanded="false"><b>Káva</b><span class="submenu-arrow"></span></a><ul class="menu-level-2" aria-label="Káva" tabindex="-1" role="menu"><li class="menu-item-1156" role="none"><a href="/vyberova-kava/" data-testid="headerMenuItem" role="menuitem"><span>Výběrová káva</span></a>
+</li><li class="menu-item-1153" role="none"><a href="/kavove-speciality/" data-testid="headerMenuItem" role="menuitem"><span>Kávové speciality</span></a>
+</li></ul></li>
+<li class="menu-item-716 ext" role="none"><a href="/prislusenstvi/" data-testid="headerMenuItem" role="menuitem" aria-haspopup="true" aria-expanded="false"><b>Příslušenství</b><span class="submenu-arrow"></span></a><ul class="menu-level-2" aria-label="Příslušenství" tabindex="-1" role="menu"><li class="menu-item-740" role="none"><a href="/filtry/" data-testid="headerMenuItem" role="menuitem"><span>Filtry</span></a>
+</li><li class="menu-item-848" role="none"><a href="/mlynky/" data-testid="headerMenuItem" role="menuitem"><span>Mlýnky</span></a>
+</li><li class="menu-item-845" role="none"><a href="/priprava-kavy/" data-testid="headerMenuItem" role="menuitem"><span>Příprava filtrované kávy</span></a>
+</li><li class="menu-item-1004" role="none"><a href="/priprava-espressa/" data-testid="headerMenuItem" role="menuitem"><span>Příprava espressa</span></a>
+</li><li class="menu-item-851" role="none"><a href="/hrnky-salky/" data-testid="headerMenuItem" role="menuitem"><span>Šálky, termosky a to go</span></a>
+</li><li class="menu-item-950" role="none"><a href="/kavovary-2/" data-testid="headerMenuItem" role="menuitem"><span>Kávovary</span></a>
+</li><li class="menu-item-884" role="none"><a href="/literatura/" data-testid="headerMenuItem" role="menuitem"><span>Čtení o kávě</span></a>
+</li><li class="menu-item-734" role="none"><a href="/merch/" data-testid="headerMenuItem" role="menuitem"><span>Náš Merch</span></a>
+</li><li class="menu-item-1023" role="none"><a href="/vodni-filtry/" data-testid="headerMenuItem" role="menuitem"><span>Úprava vody</span></a>
+</li></ul></li>
+<li class="menu-item-1029" role="none"><a href="/kavova-degustace/" data-testid="headerMenuItem" role="menuitem" aria-expanded="false"><b>Degustace</b></a></li>
+<li class="menu-item-860" role="none"><a href="/poukazy/" data-testid="headerMenuItem" role="menuitem" aria-expanded="false"><b>Poukazy</b></a></li>
+<li class="menu-item-962" role="none"><a href="/nase-kavarny/" data-testid="headerMenuItem" role="menuitem" aria-expanded="false"><b>Naše kavárny</b></a></li>
+<li class="menu-item-911" role="none"><a href="/hledame-posily/" data-testid="headerMenuItem" role="menuitem" aria-expanded="false"><b>Kariéra</b></a></li>
+<li class="menu-item-1126" role="none"><a href="/kalendar/" data-testid="headerMenuItem" role="menuitem" aria-expanded="false"><b>Kalendář akcí</b></a></li>
+</ul>
+<ul class="navigationActions" role="menu">
+<li class="ext" role="none">
+<a href="#" role="menuitem" aria-haspopup="true" aria-expanded="false" data-testid="navigationLanguageSwitch">
+<span class="navigationActions__flagWrapper">
+<span>CZK /</span>
+</span>
+<span class="submenu-arrow"></span>
+</a>
+<ul class="navigationActions__submenu menu-level-2" role="menu">
+<li role="none">
+<ul role="group" aria-label="Měna">
+<li class="navigationActions__submenu__item navigationActions__submenu__item--active" role="none">
+<a href="/action/Currency/changeCurrency/?currencyCode=CZK" rel="nofollow" role="menuitem">CZK</a>
+</li>
+<li class="navigationActions__submenu__item" role="none">
+<a href="/action/Currency/changeCurrency/?currencyCode=EUR" rel="nofollow" role="menuitem">EUR</a>
+</li>
+</ul>
+<ul role="group" aria-label="Jazyk">
+<li class="navigationActions__submenu__item navigationActions__submenu__item--active" role="none">
+<a href="/action/Language/changeLanguage/?language=cs" class="navigationActions__link--flag" data-testid="navigationLanguageLink" rel="nofollow" role="menuitem">
+<span class="navigationActions__flagWrapper">
+<span>Čeština</span>
+</span>
+</a>
+</li>
+<li class="navigationActions__submenu__item" role="none">
+<a href="/action/Language/changeLanguage/?language=en" class="navigationActions__link--flag" data-testid="navigationLanguageLink" rel="nofollow" role="menuitem">
+<span class="navigationActions__flagWrapper">
+<span>English</span>
+</span>
+</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li role="none">
+<a href="/login/?backTo=%2Fkava%2F" rel="nofollow" data-testid="signin" role="menuitem"><span>Přihlášení</span></a>
+</li>
+</ul>
+</div><span class="navigation-close"></span></nav><div class="menu-helper" data-testid="hamburgerMenu"><span>Více</span></div>
+<div class="navigation-buttons">
+<div class="languagesMenu" data-testid="topnavLanguagesMenu">
+<button id="topNavigationDropdown" class="languagesMenu__flags" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<span class="caret"></span>
+</button>
+<div class="languagesMenu__content" aria-labelledby="topNavigationDropdown">
+<div class="languagesMenu__box toggle-window js-languagesMenu__box" data-hover="true" data-target="currency" data-testid="topnavCurrencyDropdown">
+<div class="languagesMenu__header languagesMenu__header--name">Měna</div>
+<div class="languagesMenu__header languagesMenu__header--actual" data-toggle="dropdown">CZK<span class="caret"></span></div>
+<ul class="languagesMenu__list languagesMenu__list--currency">
+<li class="languagesMenu__list__item">
+<a href="/action/Currency/changeCurrency/?currencyCode=CZK" rel="nofollow" class="languagesMenu__list__link languagesMenu__list__link--currency">CZK</a>
+</li>
+<li class="languagesMenu__list__item">
+<a href="/action/Currency/changeCurrency/?currencyCode=EUR" rel="nofollow" class="languagesMenu__list__link languagesMenu__list__link--currency">EUR</a>
+</li>
+</ul>
+</div>
+<div class="languagesMenu__box toggle-window js-languagesMenu__box" data-hover="true" data-target="language" data-testid="topnavLanguageDropdown">
+<div class="languagesMenu__header languagesMenu__header--name">Jazyk</div>
+<div class="languagesMenu__header languagesMenu__header--actual" data-toggle="dropdown">
+Čeština
+<span class="caret"></span>
+</div>
+<ul class="languagesMenu__list languagesMenu__list--language">
+<li>
+<a href="/action/Language/changeLanguage/?language=cs" class="languagesMenu__list__link" data-testid="topnavLanguageDropdownLink" rel="nofollow">
+<span class="languagesMenu__list__name languagesMenu__list__name--actual">Čeština</span>
+</a>
+</li>
+<li>
+<a href="/action/Language/changeLanguage/?language=en" class="languagesMenu__list__link" data-testid="topnavLanguageDropdownLink" rel="nofollow">
+<span class="languagesMenu__list__name">English</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<a href="#" class="toggle-window" data-target="search" data-testid="linkSearchIcon"><span class="sr-only">Hledat</span></a>
+<button class="top-nav-button top-nav-button-login" type="button" data-dialog-id="login" aria-haspopup="dialog" aria-controls="login" data-testid="signin">
+<span class="sr-only">Přihlášení</span>
+</button>
+<a href="/kosik/" class="toggle-window cart-count" data-target="cart" data-testid="headerCart" rel="nofollow" aria-haspopup="dialog" aria-expanded="false" aria-controls="cart-widget"><span class="sr-only">Nákupní košík</span></a>
+<a href="#" class="toggle-window" data-target="navigation" data-testid="hamburgerMenu"><span class="sr-only">Menu</span></a>
+</div>
+</div></header>
+<div id="content-wrapper" class="container_resetted content-wrapper">
+<div class="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList">
+<span id="navigation-first" data-basetitle="Rebelbean" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+<a href="/" itemprop="item" ><span itemprop="name">Domů</span></a>
+<span class="navigation-bullet">/</span>
+<meta itemprop="position" content="1" />
+</span>
+<span id="navigation-1" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" data-testid="breadcrumbsLastLevel">
+<meta itemprop="item" content="https://www.rebelbean.cz/kava/" />
+<meta itemprop="position" content="2" />
+<span itemprop="name" data-title="Káva">Káva</span>
+</span>
+</div>
+<div class="content-wrapper-in">
+<main id="content" class="content wide">
+<div class="category-top">
+<h1 class="category-title" data-testid="titleCategory">Káva</h1>
+<div class="category-perex">
+<p><img src="/user/documents/upload/sablona/kategorie-kava.jpg" width="1521" height="238" caption="false" /></p>
+<h4>Káva</h4>
+</div>
+<ul class="subcategories">
+<li class="col-xs-6 col-sm-4 col-lg-3 col-xl-2">
+<a href="/vyberova-kava/">
+<span class="text">
+Výběrová káva
+</span>
+</a>
+</li>
+<li class="col-xs-6 col-sm-4 col-lg-3 col-xl-2">
+<a href="/kavove-speciality/">
+<span class="text">
+Kávové speciality
+</span>
+</a>
+</li>
+</ul>
+</div>
+<div class="category-content-wrapper">
+<div id="category-header" class="category-header">
+<div class="listSorting js-listSorting">
+<h2 class="sr-only" id="listSortingHeading">Řazení produktů</h2>
+<ul class="listSorting__controls" aria-labelledby="listSortingHeading">
+<li>
+<button
+type="button"
+id="listSortingControl-priority"
+class="listSorting__control listSorting__control--current"
+data-sort="priority"
+data-url="https://www.rebelbean.cz/kava/?order=priority"
+aria-label="Doporučujeme - Aktuálně nastavené řazení" aria-disabled="true">
+Doporučujeme
+</button>
+</li>
+<li>
+<button
+type="button"
+id="listSortingControl-price"
+class="listSorting__control"
+data-sort="price"
+data-url="https://www.rebelbean.cz/kava/?order=price"
+>
+Nejlevnější
+</button>
+</li>
+<li>
+<button
+type="button"
+id="listSortingControl--price"
+class="listSorting__control"
+data-sort="-price"
+data-url="https://www.rebelbean.cz/kava/?order=-price"
+>
+Nejdražší
+</button>
+</li>
+<li>
+<button
+type="button"
+id="listSortingControl-bestseller"
+class="listSorting__control"
+data-sort="bestseller"
+data-url="https://www.rebelbean.cz/kava/?order=bestseller"
+>
+Nejprodávanější
+</button>
+</li>
+<li>
+<button
+type="button"
+id="listSortingControl-name"
+class="listSorting__control"
+data-sort="name"
+data-url="https://www.rebelbean.cz/kava/?order=name"
+>
+Abecedně
+</button>
+</li>
+</ul>
+</div>
+</div>
+<div id="filters-wrapper"><div id="filters-default-position" data-filters-default-position="trash"></div><div class="filters-wrapper"><div class="filters-unveil-button-wrapper" data-testid='buttonOpenFilter'><a href="#" class="btn btn-default unveil-button" data-unveil="filters" data-text="Zavřít filtr">Otevřít filtr </a></div><div id="filters" class="filters"><div class="slider-wrapper"><h4><span>Cena</span></h4><div class="slider-header"><span class="from"><span id="min">310</span> Kč</span><span class="to"><span id="max">1355</span> Kč</span></div><div class="slider-content"><div id="slider" class="param-price-filter"></div></div><span id="currencyExchangeRate" class="no-display">1</span><span id="categoryMinValue" class="no-display">310</span><span id="categoryMaxValue" class="no-display">1355</span></div><form action="/action/ProductsListing/setPriceFilter/" method="post" id="price-filter-form"><fieldset id="price-filter"><input type="hidden" value="310" name="priceMin" id="price-value-min" /><input type="hidden" value="1355" name="priceMax" id="price-value-max" /><input type="hidden" name="referer" value="/kava/" /></fieldset></form><div class="filter-sections"><div class="filter-section filter-section-boolean"><div class="param-filter-top"><form action="/action/ProductsListing/setStockFilter/" method="post"><fieldset><div><input type="checkbox" value="1" name="stock" id="stock" data-url="https://www.rebelbean.cz/kava/?stock=1" data-filter-id="1" data-filter-code="stock" autocomplete="off" /><label for="stock" class="filter-label">Na skladě <span class="filter-count">13</span></label></div><input type="hidden" name="referer" value="/kava/" /></fieldset></form><form action="/action/ProductsListing/setDoubledotFilter/" method="post"><fieldset><div><input data-url="https://www.rebelbean.cz/kava/?dd=1" data-filter-id="1" data-filter-code="dd" type="checkbox" name="dd[]" id="dd[]1" value="1" disabled="disabled" autocomplete="off" /><label for="dd[]1" class="filter-label disabled ">Akce<span class="filter-count">0</span></label></div><div><input data-url="https://www.rebelbean.cz/kava/?dd=2" data-filter-id="2" data-filter-code="dd" type="checkbox" name="dd[]" id="dd[]2" value="2" disabled="disabled" autocomplete="off" /><label for="dd[]2" class="filter-label disabled ">Novinka<span class="filter-count">0</span></label></div><div><input data-url="https://www.rebelbean.cz/kava/?dd=3" data-filter-id="3" data-filter-code="dd" type="checkbox" name="dd[]" id="dd[]3" value="3" disabled="disabled" autocomplete="off" /><label for="dd[]3" class="filter-label disabled ">Tip<span class="filter-count">0</span></label></div><div><input data-url="https://www.rebelbean.cz/kava/?dd=8" data-filter-id="8" data-filter-code="dd" type="checkbox" name="dd[]" id="dd[]8" value="8" autocomplete="off" /><label for="dd[]8" class="filter-label ">Bez kofeinu<span class="filter-count">1</span></label></div><div><input data-url="https://www.rebelbean.cz/kava/?dd=14" data-filter-id="14" data-filter-code="dd" type="checkbox" name="dd[]" id="dd[]14" value="14" autocomplete="off" /><label for="dd[]14" class="filter-label ">Limitovaná edice<span class="filter-count">1</span></label></div><div><input data-url="https://www.rebelbean.cz/kava/?dd=233" data-filter-id="233" data-filter-code="dd" type="checkbox" name="dd[]" id="dd[]233" value="233" autocomplete="off" /><label for="dd[]233" class="filter-label ">Nově pražíme<span class="filter-count">2</span></label></div><div><input data-url="https://www.rebelbean.cz/kava/?dd=285" data-filter-id="285" data-filter-code="dd" type="checkbox" name="dd[]" id="dd[]285" value="285" autocomplete="off" /><label for="dd[]285" class="filter-label ">Poslední balíčky<span class="filter-count">1</span></label></div><div><input data-url="https://www.rebelbean.cz/kava/?dd=313" data-filter-id="313" data-filter-code="dd" type="checkbox" name="dd[]" id="dd[]313" value="313" autocomplete="off" /><label for="dd[]313" class="filter-label ">Poslední kusy<span class="filter-count">1</span></label></div><input type="hidden" name="referer" value="/kava/" /></fieldset></form></div></div><div class="filter-section filter-section-button"><a href="#" class="chevron-after chevron-down-after toggle-filters" data-unveil="category-filter-hover">Rozbalit filtr</a></div><div id="category-filter-hover"><div id="manufacturer-filter" class="filter-section filter-section-manufacturer"><h4><span>Značky</span></h4><form action="/action/productsListing/setManufacturerFilter/" method="post"><fieldset><div><input data-url="https://www.rebelbean.cz/kava:rebelbean/" data-filter-id="rebelbean" data-filter-code="manufacturerId" type="checkbox" name="manufacturerId[]" id="manufacturerId[]rebelbean" value="rebelbean" autocomplete="off" /><label for="manufacturerId[]rebelbean" class="filter-label">Rebelbean&nbsp;<span class="filter-count">13</span></label></div><input type="hidden" name="referer" value="/kava/" /></fieldset></form></div><div class="filter-section filter-section-parametric filter-section-parametric-id-316"><h4><span>Chuťový profil</span><span class="show-tooltip question-tooltip" title="Chuťový profil napovídá, jaký charakter chuti můžete od kávy očekávat.">?</span></h4><form method="post"><fieldset><div class="advanced-filters-wrapper"></div><div><input data-url="https://www.rebelbean.cz/kava/?pv316=1018" data-filter-id="316" data-filter-code="pv" type="checkbox" name="pv[]" id="pv[]1018" value="Čokoládové a ořechové" autocomplete="off" /><label for="pv[]1018" class="filter-label ">Čokoládové a ořechové <span class="filter-count">9</span></label></div><div><input data-url="https://www.rebelbean.cz/kava/?pv316=1021" data-filter-id="316" data-filter-code="pv" type="checkbox" name="pv[]" id="pv[]1021" value="Svěží a citrusové" autocomplete="off" /><label for="pv[]1021" class="filter-label ">Svěží a citrusové <span class="filter-count">5</span></label></div><div><input data-url="https://www.rebelbean.cz/kava/?pv316=1024" data-filter-id="316" data-filter-code="pv" type="checkbox" name="pv[]" id="pv[]1024" value="Ovocné" autocomplete="off" /><label for="pv[]1024" class="filter-label ">Ovocné <span class="filter-count">10</span></label></div><div><input data-url="https://www.rebelbean.cz/kava/?pv316=1027" data-filter-id="316" data-filter-code="pv" type="checkbox" name="pv[]" id="pv[]1027" value="Tropické" autocomplete="off" /><label for="pv[]1027" class="filter-label ">Tropické <span class="filter-count">4</span></label></div><div><input data-url="https://www.rebelbean.cz/kava/?pv316=1030" data-filter-id="316" data-filter-code="pv" type="checkbox" name="pv[]" id="pv[]1030" value="Elegantní a květinové" autocomplete="off" /><label for="pv[]1030" class="filter-label ">Elegantní a květinové <span class="filter-count">4</span></label></div><div><input data-url="https://www.rebelbean.cz/kava/?pv316=1033" data-filter-id="316" data-filter-code="pv" type="checkbox" name="pv[]" id="pv[]1033" value="Experimentální" autocomplete="off" /><label for="pv[]1033" class="filter-label ">Experimentální <span class="filter-count">1</span></label></div><input type="hidden" name="referer" value="/kava/" /></fieldset></form></div><div class="filter-section filter-section-parametric filter-section-parametric-id-319"><h4><span>Acidita</span><span class="show-tooltip question-tooltip" title="Acidita označuje příjemnou svěžest a živost kávy, která se může projevit jemně nakyslými tóny.">?</span></h4><form method="post"><fieldset><div class="advanced-filters-wrapper"></div><div><input data-url="https://www.rebelbean.cz/kava/?pv319=1036" data-filter-id="319" data-filter-code="pv" type="checkbox" name="pv[]" id="pv[]1036" value="Nízká" autocomplete="off" /><label for="pv[]1036" class="filter-label ">Nízká <span class="filter-count">4</span></label></div><div><input data-url="https://www.rebelbean.cz/kava/?pv319=1039" data-filter-id="319" data-filter-code="pv" type="checkbox" name="pv[]" id="pv[]1039" value="Střední" autocomplete="off" /><label for="pv[]1039" class="filter-label ">Střední <span class="filter-count">8</span></label></div><div><input data-url="https://www.rebelbean.cz/kava/?pv319=1042" data-filter-id="319" data-filter-code="pv" type="checkbox" name="pv[]" id="pv[]1042" value="Vysoká" autocomplete="off" /><label for="pv[]1042" class="filter-label ">Vysoká <span class="filter-count">3</span></label></div><input type="hidden" name="referer" value="/kava/" /></fieldset></form></div><div class="filter-section filter-section-parametric filter-section-parametric-id-322"><h4><span>Metoda zpracování</span><span class="show-tooltip question-tooltip" title="Zpracování je proces, při kterém se z kávové třešně odstraní dužina a zrno se usuší. Způsob zpracování výrazně ovlivňuje výslednou chuť kávy.">?</span></h4><form method="post"><fieldset><div class="advanced-filters-wrapper"></div><div><input data-url="https://www.rebelbean.cz/kava/?pv322=1045" data-filter-id="322" data-filter-code="pv" type="checkbox" name="pv[]" id="pv[]1045" value="Washed" autocomplete="off" /><label for="pv[]1045" class="filter-label ">Washed <span class="filter-count">4</span></label></div><div><input data-url="https://www.rebelbean.cz/kava/?pv322=1048" data-filter-id="322" data-filter-code="pv" type="checkbox" name="pv[]" id="pv[]1048" value="Natural" autocomplete="off" /><label for="pv[]1048" class="filter-label ">Natural <span class="filter-count">7</span></label></div><div><input data-url="https://www.rebelbean.cz/kava/?pv322=1051" data-filter-id="322" data-filter-code="pv" type="checkbox" name="pv[]" id="pv[]1051" value="Honey" autocomplete="off" /><label for="pv[]1051" class="filter-label ">Honey <span class="filter-count">1</span></label></div><div><input data-url="https://www.rebelbean.cz/kava/?pv322=1057" data-filter-id="322" data-filter-code="pv" type="checkbox" name="pv[]" id="pv[]1057" value="Decaf" autocomplete="off" /><label for="pv[]1057" class="filter-label ">Decaf <span class="filter-count">1</span></label></div><input type="hidden" name="referer" value="/kava/" /></fieldset></form></div><div class="filter-section filter-section-count"><div class="filter-total-count"> Položek k zobrazení: <strong>13</strong>
+</div>
+</div>
+</div></div></div></div></div>
+<h2 id="productsListHeading" class="sr-only" tabindex="-1">Výpis produktů</h2>
+<div id="products" class="products products-page products-block" data-testid="productCards">
+<div class="product">
+<div class="p" data-micro="product" data-micro-product-id="1737" data-micro-identifier="ad9444bc-84f9-11f1-aa43-bc241179ac38" data-testid="productItem">
+<a href="/costa-rica-don-alexis/" class="image">
+<img src="https://cdn.myshoptet.com/usr/www.rebelbean.cz/user/shop/detail/1737_costarica.jpg?ff=1&amp;x=423&amp;y=423&amp;q=85&amp;ts=6a833b54&amp;sg=89595c3b
+" alt="costarica" data-micro-image="https://cdn.myshoptet.com/usr/www.rebelbean.cz/user/shop/big/1737_costarica.jpg?ff=1&amp;x=1024&amp;y=1024&amp;q=85&amp;ts=6a833b54&amp;sg=38cb01fe" width="423" height="423" fetchpriority="high" />
+<meta id="ogImage" property="og:image" content="https://cdn.myshoptet.com/usr/www.rebelbean.cz/user/shop/big/1737_costarica.jpg?ff=1&amp;x=1024&amp;y=1024&amp;q=85&amp;ts=6a833b54&amp;sg=38cb01fe" />
+<div class="flags flags-default"> <span class="flag flag-custom3" style="background-color:#000000;">
+Limitovaná edice
+</span>
+<span class="flag flag-nove-prazime" style="background-color:#cb0000;">
+Nově pražíme
+</span>
+</div>
+</a>
+<div class="p-in">
+<div class="p-in-in">
+<a href="/costa-rica-don-alexis/" class="name" data-micro="url">
+<span data-micro="name" data-testid="productCardName">
+Costa Rica Don Alexis </span>
+</a>
+</div>
+<div class="p-bottom single-button">
+<div data-micro="offer"
+data-micro-price="490.00"
+data-micro-price-currency="CZK"
+>
+<div class="prices">
+<div class="price price-final" data-testid="productCardPrice">
+<strong>
+490 Kč
+</strong>
+</div>
+</div>
+<div class="p-tools">
+<a href="/costa-rica-don-alexis/" class="btn btn-primary" aria-hidden="true" tabindex="-1">Detail</a>
+</div>
+<p class="p-desc" data-micro="description" data-testid="productCardShortDescr">
+Peach Ice Cream
+## Delikátní a krémová káva s lehkostí bílého...
+</p>
+</div>
+</div>
+</div>
+<span class="no-display" data-micro="sku">1608</span>
+</div>
+</div>
+<div class="product">
+<div class="p" data-micro="product" data-micro-product-id="1750" data-micro-identifier="f82f4020-a863-11f1-b0b5-bc2411217be9" data-testid="productItem">
+<a href="/kenya-gatomboya/" class="image">
+<img src="https://cdn.myshoptet.com/usr/www.rebelbean.cz/user/shop/detail/1750_kenya-image.jpg?ff=1&amp;x=423&amp;y=423&amp;q=85&amp;ts=6a9ad8dc&amp;sg=89595c3b
+" alt="kenya image" data-micro-image="https://cdn.myshoptet.com/usr/www.rebelbean.cz/user/shop/big/1750_kenya-image.jpg?ff=1&amp;x=1024&amp;y=1024&amp;q=85&amp;ts=6a9ad8dc&amp;sg=38cb01fe" width="423" height="423" fetchpriority="low" />
+<div class="flags flags-default"> <span class="flag flag-nove-prazime" style="background-color:#cb0000;">
+Nově pražíme
+</span>
+</div>
+</a>
+<div class="p-in">
+<div class="p-in-in">
+<a href="/kenya-gatomboya/" class="name" data-micro="url">
+<span data-micro="name" data-testid="productCardName">
+Kenya Gatomboya </span>
+</a>
+</div>
+<div class="p-bottom single-button">
+<div data-micro="offer"
+data-micro-price="390.00"
+data-micro-price-currency="CZK"
+>
+<div class="prices">
+<div class="price price-final" data-testid="productCardPrice">
+<strong>
+<small>od</small> 390 Kč </strong>
+</div>
+<div class="price-measure">
+<span class="sr-only">Měrná cena: </span>
+1 560 Kč /&nbsp;1&nbsp;kg </div>
+</div>
+<div class="p-tools">
+<a href="/kenya-gatomboya/" class="btn btn-primary" aria-hidden="true" tabindex="-1">Detail</a>
+</div>
+<p class="p-desc" data-micro="description" data-testid="productCardShortDescr">
+Blackberry &amp; Vanilla
+## Šťavnatá a svěží keňská káva, která...
+</p>
+</div>
+</div>
+</div>
+<span class="no-display" data-micro="sku">1750/250</span>
+</div>
+</div>
+<div class="product">
+<div class="p" data-micro="product" data-micro-product-id="368" data-micro-identifier="e0bfeeaa-7fdc-11ea-b5b6-0cc47a6c9370" data-testid="productItem">
+<a href="/my-daily-mix/" class="image">
+<img src="https://cdn.myshoptet.com/usr/www.rebelbean.cz/user/shop/detail/368-3_my-daily-mix.jpg?ff=1&amp;x=423&amp;y=423&amp;q=85&amp;ts=69b82a8a&amp;sg=89595c3b
+" alt="my daily mix" data-shp-lazy="true" data-micro-image="https://cdn.myshoptet.com/usr/www.rebelbean.cz/user/shop/big/368-3_my-daily-mix.jpg?ff=1&amp;x=1024&amp;y=1024&amp;q=85&amp;ts=69b82a8a&amp;sg=38cb01fe" width="423" height="423" fetchpriority="low" />
+</a>
+<div class="p-in">
+<div class="p-in-in">
+<a href="/my-daily-mix/" class="name" data-micro="url">
+<span data-micro="name" data-testid="productCardName">
+My Daily Mix </span>
+</a>
+</div>
+<div class="p-bottom single-button">
+<div data-micro="offer"
+data-micro-price="370.00"
+data-micro-price-currency="CZK"
+>
+<div class="prices">
+<div class="price price-final" data-testid="productCardPrice">
+<strong>
+<small>od</small> 370 Kč </strong>
+</div>
+<div class="price-measure">
+<span class="sr-only">Měrná cena: </span>
+1 480 Kč /&nbsp;1&nbsp;kg </div>
+</div>
+<div class="p-tools">
+<a href="/my-daily-mix/" class="btn btn-primary" aria-hidden="true" tabindex="-1">Detail</a>
+</div>
+<p class="p-desc" data-micro="description" data-testid="productCardShortDescr">
+Sweet &amp; Balanced
+## Maximálně komplexní a sladký blend...
+</p>
+</div>
+</div>
+</div>
+<span class="no-display" data-micro="sku">368_251A</span>
+</div>
+</div>
+<div class="product">
+<div class="p" data-micro="product" data-micro-product-id="467" data-micro-identifier="9d5d150e-325e-11eb-a44c-ecf4bbd79d2f" data-testid="productItem">
+<a href="/the-underdog/" class="image">
+<img src="data:image/svg+xml,%3Csvg%20width%3D%22423%22%20height%3D%22423%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3C%2Fsvg%3E" alt="underdog" data-micro-image="https://cdn.myshoptet.com/usr/www.rebelbean.cz/user/shop/big/467-3_underdog.jpg?ff=1&amp;x=1024&amp;y=1024&amp;q=85&amp;ts=69b82acf&amp;sg=38cb01fe" width="423" height="423" data-src="https://cdn.myshoptet.com/usr/www.rebelbean.cz/user/shop/detail/467-3_underdog.jpg?ff=1&amp;x=423&amp;y=423&amp;q=85&amp;ts=69b82acf&amp;sg=89595c3b
+" fetchpriority="low" />
+</a>
+<div class="p-in">
+<div class="p-in-in">
+<a href="/the-underdog/" class="name" data-micro="url">
+<span data-micro="name" data-testid="productCardName">
+The Underdog </span>
+</a>
+</div>
+<div class="p-bottom single-button">
+<div data-micro="offer"
+data-micro-price="310.00"
+data-micro-price-currency="CZK"
+>
+<div class="prices">
+<div class="price price-final" data-testid="productCardPrice">
+<strong>
+<small>od</small> 310 Kč </strong>
+</div>
+<div class="price-measure">
+<span class="sr-only">Měrná cena: </span>
+od 1 060 Kč /&nbsp;1&nbsp;kg </div>
+</div>
+<div class="p-tools">
+<a href="/the-underdog/" class="btn btn-primary" aria-hidden="true" tabindex="-1">Detail</a>
+</div>
+<p class="p-desc" data-micro="description" data-testid="productCardShortDescr">
+Strong &amp; Reliable
+## Poctivá, hutná káva s nízkou aciditou a...
+</p>
+</div>
+</div>
+</div>
+<span class="no-display" data-micro="sku">467_251A</span>
+</div>
+</div>
+<div class="product">
+<div class="p" data-micro="product" data-micro-product-id="1698" data-micro-identifier="b42b0c4a-54f5-11f1-9d75-bc2411bb8865" data-testid="productItem">
+<a href="/bolivia-aljiri/" class="image">
+<img src="data:image/svg+xml,%3Csvg%20width%3D%22423%22%20height%3D%22423%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3C%2Fsvg%3E" alt="bolivia" data-micro-image="https://cdn.myshoptet.com/usr/www.rebelbean.cz/user/shop/big/1698-1_bolivia.jpg?ff=1&amp;x=1024&amp;y=1024&amp;q=85&amp;ts=6a159afe&amp;sg=38cb01fe" width="423" height="423" data-src="https://cdn.myshoptet.com/usr/www.rebelbean.cz/user/shop/detail/1698-1_bolivia.jpg?ff=1&amp;x=423&amp;y=423&amp;q=85&amp;ts=6a159afe&amp;sg=89595c3b
+" fetchpriority="low" />
+</a>
+<div class="p-in">
+<div class="p-in-in">
+<a href="/bolivia-aljiri/" class="name" data-micro="url">
+<span data-micro="name" data-testid="productCardName">
+Bolivia Aljiri </span>
+</a>
+</div>
+<div class="p-bottom single-button">
+<div data-micro="offer"
+data-micro-price="370.00"
+data-micro-price-currency="CZK"
+>
+<div class="prices">
+<div class="price price-final" data-testid="productCardPrice">
+<strong>
+<small>od</small> 370 Kč </strong>
+</div>
+<div class="price-measure">
+<span class="sr-only">Měrná cena: </span>
+od 1 270 Kč /&nbsp;1&nbsp;kg </div>
+</div>
+<div class="p-tools">
+<a href="/bolivia-aljiri/" class="btn btn-primary" aria-hidden="true" tabindex="-1">Detail</a>
+</div>
+<p class="p-desc" data-micro="description" data-testid="productCardShortDescr">
+Apricots &amp; Caramel
+## Sladká a ovocná káva se šťavnatou chutí...
+</p>
+</div>
+</div>
+</div>
+<span class="no-display" data-micro="sku">1698/250</span>
+</div>
+</div>
+<div class="product">
+<div class="p" data-micro="product" data-micro-product-id="1701" data-micro-identifier="c0cb5436-54f6-11f1-8554-bc241179ac38" data-testid="productItem">
+<a href="/brazil-fazenda-cruzeiro/" class="image">
+<img src="data:image/svg+xml,%3Csvg%20width%3D%22423%22%20height%3D%22423%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3C%2Fsvg%3E" alt="brazil" data-micro-image="https://cdn.myshoptet.com/usr/www.rebelbean.cz/user/shop/big/1701_brazil.jpg?ff=1&amp;x=1024&amp;y=1024&amp;q=85&amp;ts=6a12d61a&amp;sg=38cb01fe" width="423" height="423" data-src="https://cdn.myshoptet.com/usr/www.rebelbean.cz/user/shop/detail/1701_brazil.jpg?ff=1&amp;x=423&amp;y=423&amp;q=85&amp;ts=6a12d61a&amp;sg=89595c3b
+" fetchpriority="low" />
+</a>
+<div class="p-in">
+<div class="p-in-in">
+<a href="/brazil-fazenda-cruzeiro/" class="name" data-micro="url">
+<span data-micro="name" data-testid="productCardName">
+Brazil Fazenda do Cruzeiro </span>
+</a>
+</div>
+<div class="p-bottom single-button">
+<div data-micro="offer"
+data-micro-price="370.00"
+data-micro-price-currency="CZK"
+>
+<div class="prices">
+<div class="price price-final" data-testid="productCardPrice">
+<strong>
+<small>od</small> 370 Kč </strong>
+</div>
+<div class="price-measure">
+<span class="sr-only">Měrná cena: </span>
+od 1 270 Kč /&nbsp;1&nbsp;kg </div>
+</div>
+<div class="p-tools">
+<a href="/brazil-fazenda-cruzeiro/" class="btn btn-primary" aria-hidden="true" tabindex="-1">Detail</a>
+</div>
+<p class="p-desc" data-micro="description" data-testid="productCardShortDescr">
+Chocolaty &amp; Nutty
+## Hutná a sladká tradiční Brazílie s plným...
+</p>
+</div>
+</div>
+</div>
+<span class="no-display" data-micro="sku">1701/250</span>
+</div>
+</div>
+<div class="product">
+<div class="p" data-micro="product" data-micro-product-id="1731" data-micro-identifier="001c8856-84d3-11f1-a1e0-bc2411bb8865" data-testid="productItem">
+<a href="/ethiopia-kayon-mountain/" class="image">
+<img src="data:image/svg+xml,%3Csvg%20width%3D%22423%22%20height%3D%22423%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3C%2Fsvg%3E" alt="ethiopia" data-micro-image="https://cdn.myshoptet.com/usr/www.rebelbean.cz/user/shop/big/1731_ethiopia.jpg?ff=1&amp;x=1024&amp;y=1024&amp;q=85&amp;ts=6a68eafb&amp;sg=38cb01fe" width="423" height="423" data-src="https://cdn.myshoptet.com/usr/www.rebelbean.cz/user/shop/detail/1731_ethiopia.jpg?ff=1&amp;x=423&amp;y=423&amp;q=85&amp;ts=6a68eafb&amp;sg=89595c3b
+" fetchpriority="low" />
+</a>
+<div class="p-in">
+<div class="p-in-in">
+<a href="/ethiopia-kayon-mountain/" class="name" data-micro="url">
+<span data-micro="name" data-testid="productCardName">
+Ethiopia Kayon Mountain </span>
+</a>
+</div>
+<div class="p-bottom single-button">
+<div data-micro="offer"
+data-micro-price="380.00"
+data-micro-price-currency="CZK"
+>
+<div class="prices">
+<div class="price price-final" data-testid="productCardPrice">
+<strong>
+<small>od</small> 380 Kč </strong>
+</div>
+<div class="price-measure">
+<span class="sr-only">Měrná cena: </span>
+od 1 310 Kč /&nbsp;1&nbsp;kg </div>
+</div>
+<div class="p-tools">
+<a href="/ethiopia-kayon-mountain/" class="btn btn-primary" aria-hidden="true" tabindex="-1">Detail</a>
+</div>
+<p class="p-desc" data-micro="description" data-testid="productCardShortDescr">
+Strawberries &amp; Elderflower
+## Šťavnatá etiopská pecka plná...
+</p>
+</div>
+</div>
+</div>
+<span class="no-display" data-micro="sku">1731/250</span>
+</div>
+</div>
+<div class="product">
+<div class="p" data-micro="product" data-micro-product-id="1687" data-micro-identifier="d07732a8-2d08-11f1-93b2-bc241179ac38" data-testid="productItem">
+<a href="/mexico-carlos-cadena/" class="image">
+<img src="data:image/svg+xml,%3Csvg%20width%3D%22423%22%20height%3D%22423%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3C%2Fsvg%3E" alt="mexico sangria" data-micro-image="https://cdn.myshoptet.com/usr/www.rebelbean.cz/user/shop/big/1687-1_mexico-sangria.jpg?ff=1&amp;x=1024&amp;y=1024&amp;q=85&amp;ts=69cd2878&amp;sg=38cb01fe" width="423" height="423" data-src="https://cdn.myshoptet.com/usr/www.rebelbean.cz/user/shop/detail/1687-1_mexico-sangria.jpg?ff=1&amp;x=423&amp;y=423&amp;q=85&amp;ts=69cd2878&amp;sg=89595c3b
+" fetchpriority="low" />
+<div class="flags flags-default"> <span class="flag flag-posledni-balicky" style="background-color:#f8a102;">
+Poslední balíčky
+</span>
+</div>
+</a>
+<div class="p-in">
+<div class="p-in-in">
+<a href="/mexico-carlos-cadena/" class="name" data-micro="url">
+<span data-micro="name" data-testid="productCardName">
+Mexico Carlos Cadena </span>
+</a>
+</div>
+<div class="p-bottom single-button">
+<div data-micro="offer"
+data-micro-price="390.00"
+data-micro-price-currency="CZK"
+>
+<div class="prices">
+<div class="price price-final" data-testid="productCardPrice">
+<strong>
+<small>od</small> 390 Kč </strong>
+</div>
+<div class="price-measure">
+<span class="sr-only">Měrná cena: </span>
+1 560 Kč /&nbsp;1&nbsp;kg </div>
+</div>
+<div class="p-tools">
+<a href="/mexico-carlos-cadena/" class="btn btn-primary" aria-hidden="true" tabindex="-1">Detail</a>
+</div>
+<p class="p-desc" data-micro="description" data-testid="productCardShortDescr">
+Red Wine Sangria
+## Jiskrná a plná káva s výraznou aromatikou...
+</p>
+</div>
+</div>
+</div>
+<span class="no-display" data-micro="sku">1687/250</span>
+</div>
+</div>
+<div class="product">
+<div class="p" data-micro="product" data-micro-product-id="1713" data-micro-identifier="cc109f62-6edd-11f1-927b-bc241179ac38" data-testid="productItem">
+<a href="/papua-new-guinea-kindeng-mill/" class="image">
+<img src="data:image/svg+xml,%3Csvg%20width%3D%22423%22%20height%3D%22423%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3C%2Fsvg%3E" alt="papua" data-micro-image="https://cdn.myshoptet.com/usr/www.rebelbean.cz/user/shop/big/1713-2_papua.jpg?ff=1&amp;x=1024&amp;y=1024&amp;q=85&amp;ts=6a3e5666&amp;sg=38cb01fe" width="423" height="423" data-src="https://cdn.myshoptet.com/usr/www.rebelbean.cz/user/shop/detail/1713-2_papua.jpg?ff=1&amp;x=423&amp;y=423&amp;q=85&amp;ts=6a3e5666&amp;sg=89595c3b
+" fetchpriority="low" />
+<div class="flags flags-default"> <span class="flag flag-posledni-kusy" style="background-color:#000000;">
+Poslední kusy
+</span>
+</div>
+</a>
+<div class="p-in">
+<div class="p-in-in">
+<a href="/papua-new-guinea-kindeng-mill/" class="name" data-micro="url">
+<span data-micro="name" data-testid="productCardName">
+Papua New Guinea Kindeng Mill </span>
+</a>
+</div>
+<div class="p-bottom single-button">
+<div data-micro="offer"
+data-micro-price="370.00"
+data-micro-price-currency="CZK"
+>
+<div class="prices">
+<div class="price price-final" data-testid="productCardPrice">
+<strong>
+<small>od</small> 370 Kč </strong>
+</div>
+<div class="price-measure">
+<span class="sr-only">Měrná cena: </span>
+1 480 Kč /&nbsp;1&nbsp;kg </div>
+</div>
+<div class="p-tools">
+<a href="/papua-new-guinea-kindeng-mill/" class="btn btn-primary" aria-hidden="true" tabindex="-1">Detail</a>
+</div>
+<p class="p-desc" data-micro="description" data-testid="productCardShortDescr">
+Cinnamon Marmalade
+## Neuvěřitelně hřejivá, voňavá a sladká káva s...
+</p>
+</div>
+</div>
+</div>
+<span class="no-display" data-micro="sku">1713/250</span>
+</div>
+</div>
+<div class="product">
+<div class="p" data-micro="product" data-micro-product-id="1734" data-micro-identifier="ac5ee324-84d4-11f1-a9f7-bc241179ac38" data-testid="productItem">
+<a href="/peru-uchubamba/" class="image">
+<img src="data:image/svg+xml,%3Csvg%20width%3D%22423%22%20height%3D%22423%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3C%2Fsvg%3E" alt="peru2" data-micro-image="https://cdn.myshoptet.com/usr/www.rebelbean.cz/user/shop/big/1734-1_peru2.jpg?ff=1&amp;x=1024&amp;y=1024&amp;q=85&amp;ts=6a68eae6&amp;sg=38cb01fe" width="423" height="423" data-src="https://cdn.myshoptet.com/usr/www.rebelbean.cz/user/shop/detail/1734-1_peru2.jpg?ff=1&amp;x=423&amp;y=423&amp;q=85&amp;ts=6a68eae6&amp;sg=89595c3b
+" fetchpriority="low" />
+</a>
+<div class="p-in">
+<div class="p-in-in">
+<a href="/peru-uchubamba/" class="name" data-micro="url">
+<span data-micro="name" data-testid="productCardName">
+Peru Uchubamba </span>
+</a>
+</div>
+<div class="p-bottom single-button">
+<div data-micro="offer"
+data-micro-price="390.00"
+data-micro-price-currency="CZK"
+>
+<div class="prices">
+<div class="price price-final" data-testid="productCardPrice">
+<strong>
+<small>od</small> 390 Kč </strong>
+</div>
+<div class="price-measure">
+<span class="sr-only">Měrná cena: </span>
+1 560 Kč /&nbsp;1&nbsp;kg </div>
+</div>
+<div class="p-tools">
+<a href="/peru-uchubamba/" class="btn btn-primary" aria-hidden="true" tabindex="-1">Detail</a>
+</div>
+<p class="p-desc" data-micro="description" data-testid="productCardShortDescr">
+Nectarines &amp; Honey
+## Šťavnatá a lehká káva z Peru...
+</p>
+</div>
+</div>
+</div>
+<span class="no-display" data-micro="sku">1734/250</span>
+</div>
+</div>
+<div class="product">
+<div class="p" data-micro="product" data-micro-product-id="1710" data-micro-identifier="ce9f7200-6a12-11f1-b20b-bc2411217be9" data-testid="productItem">
+<a href="/decaf/" class="image">
+<img src="data:image/svg+xml,%3Csvg%20width%3D%22423%22%20height%3D%22423%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3C%2Fsvg%3E" alt="uganda" data-micro-image="https://cdn.myshoptet.com/usr/www.rebelbean.cz/user/shop/big/1710-3_uganda.jpg?ff=1&amp;x=1024&amp;y=1024&amp;q=85&amp;ts=6a32d15a&amp;sg=38cb01fe" width="423" height="423" data-src="https://cdn.myshoptet.com/usr/www.rebelbean.cz/user/shop/detail/1710-3_uganda.jpg?ff=1&amp;x=423&amp;y=423&amp;q=85&amp;ts=6a32d15a&amp;sg=89595c3b
+" fetchpriority="low" />
+<div class="flags flags-default"> <span class="flag flag-custom1" style="background-color:#c0c0c0;">
+Bez kofeinu
+</span>
+</div>
+</a>
+<div class="p-in">
+<div class="p-in-in">
+<a href="/decaf/" class="name" data-micro="url">
+<span data-micro="name" data-testid="productCardName">
+Uganda Lunar Coffee </span>
+</a>
+</div>
+<div class="p-bottom single-button">
+<div data-micro="offer"
+data-micro-price="370.00"
+data-micro-price-currency="CZK"
+>
+<div class="prices">
+<div class="price price-final" data-testid="productCardPrice">
+<strong>
+<small>od</small> 370 Kč </strong>
+</div>
+<div class="price-measure">
+<span class="sr-only">Měrná cena: </span>
+1 480 Kč /&nbsp;1&nbsp;kg </div>
+</div>
+<div class="p-tools">
+<a href="/decaf/" class="btn btn-primary" aria-hidden="true" tabindex="-1">Detail</a>
+</div>
+<p class="p-desc" data-micro="description" data-testid="productCardShortDescr">
+Sweet &amp; Velvety
+## Bezkofeinová káva bez kompromisů. Užijte si...
+</p>
+</div>
+</div>
+</div>
+<span class="no-display" data-micro="sku">1710/250</span>
+</div>
+</div>
+<div class="product">
+<div class="p" data-micro="product" data-micro-product-id="1240" data-micro-identifier="115ddbd0-524d-11ee-aeba-c23895735dfc" data-testid="productItem">
+<a href="/push-the-button/" class="image">
+<img src="data:image/svg+xml,%3Csvg%20width%3D%22423%22%20height%3D%22423%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3C%2Fsvg%3E" alt="push the button" data-micro-image="https://cdn.myshoptet.com/usr/www.rebelbean.cz/user/shop/big/1240-1_push-the-button.jpg?ff=1&amp;x=1024&amp;y=1024&amp;q=85&amp;ts=69b82ac2&amp;sg=38cb01fe" width="423" height="423" data-src="https://cdn.myshoptet.com/usr/www.rebelbean.cz/user/shop/detail/1240-1_push-the-button.jpg?ff=1&amp;x=423&amp;y=423&amp;q=85&amp;ts=69b82ac2&amp;sg=89595c3b
+" fetchpriority="low" />
+</a>
+<div class="p-in">
+<div class="p-in-in">
+<a href="/push-the-button/" class="name" data-micro="url">
+<span data-micro="name" data-testid="productCardName">
+Push The Button </span>
+</a>
+</div>
+<div class="p-bottom single-button">
+<div data-micro="offer"
+data-micro-price="310.00"
+data-micro-price-currency="CZK"
+>
+<div class="prices">
+<div class="price price-final" data-testid="productCardPrice">
+<strong>
+<small>od</small> 310 Kč </strong>
+</div>
+<div class="price-measure">
+<span class="sr-only">Měrná cena: </span>
+od 1 060 Kč /&nbsp;1&nbsp;kg </div>
+</div>
+<div class="p-tools">
+<a href="/push-the-button/" class="btn btn-primary" aria-hidden="true" tabindex="-1">Detail</a>
+</div>
+<p class="p-desc" data-micro="description" data-testid="productCardShortDescr">
+Dark Chocolate &amp; Nuts
+## Sladká čokoláda a lískové ořechy v...
+</p>
+</div>
+</div>
+</div>
+<span class="no-display" data-micro="sku">1240/250</span>
+</div>
+</div>
+<div class="product">
+<div class="p" data-micro="product" data-micro-product-id="458" data-micro-identifier="f0a2f40c-268f-11eb-aff7-ecf4bbd79d2f" data-testid="productItem">
+<a href="/degustacni-set/" class="image">
+<img src="data:image/svg+xml,%3Csvg%20width%3D%22423%22%20height%3D%22423%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3C%2Fsvg%3E" alt="Degustaèní set 4 × 50 g" data-micro-image="https://cdn.myshoptet.com/usr/www.rebelbean.cz/user/shop/big/458-9_degusta--ni-set-4--50-g.jpg?ff=1&amp;x=1024&amp;y=1024&amp;q=85&amp;ts=66d5aea2&amp;sg=38cb01fe" width="423" height="423" data-src="https://cdn.myshoptet.com/usr/www.rebelbean.cz/user/shop/detail/458-9_degusta--ni-set-4--50-g.jpg?ff=1&amp;x=423&amp;y=423&amp;q=85&amp;ts=66d5aea2&amp;sg=89595c3b
+" fetchpriority="low" />
+</a>
+<div class="p-in">
+<div class="p-in-in">
+<a href="/degustacni-set/" class="name" data-micro="url">
+<span data-micro="name" data-testid="productCardName">
+Degustaèní set 4 × 50 g </span>
+</a>
+</div>
+<div class="p-bottom single-button">
+<div data-micro="offer"
+data-micro-price="450.00"
+data-micro-price-currency="CZK"
+>
+<div class="prices">
+<div class="price price-final" data-testid="productCardPrice">
+<strong>
+450 Kč
+</strong>
+</div>
+</div>
+<div class="p-tools">
+<a href="/degustacni-set/" class="btn btn-primary" aria-hidden="true" tabindex="-1">Detail</a>
+</div>
+</div>
+</div>
+</div>
+<span class="no-display" data-micro="sku">458_DEG</span>
+</div>
+</div>
+</div>
+<div class="listingControls" aria-labelledby="listingControlsHeading">
+<h3 id="listingControlsHeading" class="sr-only">Ovládací prvky výpisu</h3>
+<div class="itemsTotal">
+<strong>13</strong> položek celkem </div>
+</div>
+<div class="category__secondDescription">
+<div id="coffee-dynamic-section" style="margin-top: 120px;">
+<p style="text-align: center;">Načítám kávové speciality...</p>
+</div>
+<script>document.addEventListener("DOMContentLoaded", function() {
+    const targetContainer = document.getElementById('coffee-dynamic-section');
+    if (!targetContainer) return;
+
+    fetch('/')
+        .then(response => response.text())
+        .then(html => {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+            const sourceSection = doc.querySelector('#homepageProducts34');
+
+            if (sourceSection) {
+                const clone = sourceSection.cloneNode(true);
+                clone.removeAttribute('id');
+                
+                // --- STRUKTURÁLNÍ OPRAVA KAŽDÉHO PRODUKTU ---
+                clone.querySelectorAll('.product').forEach(product => {
+                    
+                    // 1. Oprava třídy hlavního obalu (přidání swap-images)
+                    const pWrapper = product.querySelector('.p');
+                    if (pWrapper) pWrapper.classList.add('swap-images');
+
+                    // 2. Oprava obrázku (přidání swap-image třídy)
+                    const img = product.querySelector('img');
+                    if (img) {
+                        img.classList.add('swap-image');
+                        if (img.dataset.src) img.src = img.dataset.src;
+                        img.classList.remove('lazyload');
+                    }
+
+                    // 3. PŘESUN POPISKU (p-desc)
+                    // Najdeme popisek (aktuálně v p-tools nebo jinde)
+                    const desc = product.querySelector('.p-desc');
+                    const nameContainer = product.querySelector('.p-in-in');
+                    
+                    if (desc && nameContainer) {
+                        // Přesuneme popisek hned za název (do p-in-in)
+                        nameContainer.appendChild(desc);
+                    }
+
+                    // 4. Vyčištění Shoptet balastu
+                    product.querySelectorAll('*').forEach(el => {
+                        el.classList.remove('fade', 'invisible', 'js-product-slider', 'orient-carousel');
+                    });
+                });
+                // ------------------------------------------
+
+                targetContainer.innerHTML = '';
+                targetContainer.appendChild(clone);
+            } else {
+                targetContainer.style.display = 'none';
+            }
+        })
+        .catch(err => {
+            console.error('Chyba při zpracování struktury:', err);
+            targetContainer.style.display = 'none';
+        });
+});</script>
+</div>
+</div>
+</main>
+</div>
+<div class="benefitBanner position--benefitCategory">
+<div class="benefitBanner__item"><div class="benefitBanner__picture"><img src="data:image/svg+xml,%3Csvg%20width%3D%22150%22%20height%3D%22170%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3C%2Fsvg%3E" data-src="https://cdn.myshoptet.com/usr/www.rebelbean.cz/user/banners/icon-bean-1.gif?69b43b73" class="benefitBanner__img" alt="Výběrová káva pražená v Brně" fetchpriority="low" width="150" height="170"></div><div class="benefitBanner__content"><strong class="benefitBanner__title">Výběrová káva</strong><div class="benefitBanner__data">Čerstvě pražená v Brně</div></div></div>
+<div class="benefitBanner__item"><div class="benefitBanner__picture"><img src="data:image/svg+xml,%3Csvg%20width%3D%22150%22%20height%3D%22170%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3C%2Fsvg%3E" data-src="https://cdn.myshoptet.com/usr/www.rebelbean.cz/user/banners/icon-shipping.gif?69b43b7c" class="benefitBanner__img" alt="Doprava nad 990 Kč zdarma" fetchpriority="low" width="150" height="170"></div><div class="benefitBanner__content"><strong class="benefitBanner__title">Doprava zdarma</strong><div class="benefitBanner__data">Objednávky nad 990 Kč mají dopravu zdarma</div></div></div>
+<div class="benefitBanner__item"><div class="benefitBanner__picture"><img src="data:image/svg+xml,%3Csvg%20width%3D%22150%22%20height%3D%22170%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3C%2Fsvg%3E" data-src="https://cdn.myshoptet.com/usr/www.rebelbean.cz/user/banners/icon-roast.gif?69b43bae" class="benefitBanner__img" alt="Omni roast pražení pro všechny způsoby přípravy" fetchpriority="low" width="150" height="170"></div><div class="benefitBanner__content"><strong class="benefitBanner__title">Omni roast</strong><div class="benefitBanner__data">Pražení vhodné pro všechny způsoby přípravy</div></div></div>
+<div class="benefitBanner__item"><div class="benefitBanner__picture"><img src="data:image/svg+xml,%3Csvg%20width%3D%22150%22%20height%3D%22170%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3C%2Fsvg%3E" data-src="https://cdn.myshoptet.com/usr/www.rebelbean.cz/user/banners/icon-phone.gif?6a61f331" class="benefitBanner__img" alt="Pomoc s výběrem" fetchpriority="low" width="150" height="170"></div><div class="benefitBanner__content"><strong class="benefitBanner__title">Poradíme s&nbsp;výběrem</strong><div class="benefitBanner__data"><a href="javascript:void(0)" onclick="window.Chatling.open()">Zkuste náš chatbot</a> nebo volejte <a href="tel:+420 604 116 944">+420&nbsp;604&nbsp;116&nbsp;944</a> <span style="white-space: nowrap;">(po&ndash;pá: 7:30&ndash;15:30)</span></div></div></div>
+</div>
+<div id="cart-widget" class="content-window cart-window" role="dialog" aria-hidden="true" aria-labelledby="cartHeading">
+<h2 id="cartHeading" class="sr-only">Košík</h2>
+<div class="content-window-in cart-window-in">
+<button type="button" class="btn toggle-window-arr toggle-window" data-target="cart" data-testid="backToShop" aria-controls="cart-widget">Zpět <span>do obchodu</span></button>
+<div class="container place-cart-here">
+<div class="loader-overlay">
+<div class="loader"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="content-window search-window" itemscope itemtype="https://schema.org/WebSite">
+<meta itemprop="headline" content="Káva"/><meta itemprop="url" content="https://www.rebelbean.cz"/><meta itemprop="text" content="Káva, Rebelbean"/> <div class="content-window-in search-window-in">
+<button type="button" class="btn toggle-window-arr toggle-window" data-target="search" data-testid="backToShop" aria-controls="cart-widget">Zpět <span>do obchodu</span></button>
+<div class="container">
+<div class="search"><h2>Co potřebujete najít?</h2><form action="/action/ProductSearch/prepareString/"
+method="post"
+id="formSearchForm"
+class="search-form compact-form js-search-main"
+itemprop="potentialAction"
+itemscope
+itemtype="https://schema.org/SearchAction"
+data-testid="searchForm"
+novalidate>
+<fieldset>
+<meta itemprop="target"
+content="https://www.rebelbean.cz/vyhledavani/?string={string}"/>
+<input type="hidden" name="language" value="cs"/>
+<input
+type="search"
+name="string"
+class="query-input form-control search-input js-search-input lg"
+placeholder="Napište, co hledáte"
+autocomplete="off"
+required
+itemprop="query-input"
+aria-label="Vyhledávání"
+data-testid="searchInput"
+>
+<button type="submit" class="btn btn-default btn-arrow-right btn-lg" data-testid="searchBtn"><span class="sr-only">Hledat</span></button>
+</fieldset>
+</form>
+<h3>Doporučujeme</h3><div class="recommended-products"></div></div>
+</div>
+</div>
+</div>
+</div>
+<footer id="footer" class="footer">
+<h2 class="sr-only">Zápatí</h2>
+<div class="container footer-newsletter">
+<div class="newsletter-header">
+<h3 class="h4 topic"><span>Odebírat newsletter</span></h3>
+<p>Nezmeškejte žádné novinky či slevy! </p>
+</div>
+<form action="/action/MailForm/subscribeToNewsletters/" method="post" id="formNewsletter" class="subscribe-form" novalidate>
+<fieldset>
+<input type="hidden" name="formId" value="2" />
+<span class="sr-only" inert><span>Nevyplňujte toto pole</span><label>Surname<input type="text" name="surname" value="" autocomplete="off" tabindex="-1" /></label></span>
+<div class="form-group smart-label-wrapper">
+<label for="newsletter"><span class="required-asterisk">E-mail</span></label>
+<div class="form-control-wrapper js-validated-element-wrapper">
+<input type="email" id="newsletter" name="email" class="form-control js-validate js-validate-required" autocomplete="email" required />
+</div>
+</div>
+<div class="form-group js-validated-element-wrapper consents consents-first">
+<input
+type="hidden"
+name="consents[]"
+id="newsletterConsents31"
+value="31"
+/>
+<p class="label">Vložením e-mailu souhlasíte s <a href="/podminky-ochrany-osobnich-udaju/" target="_blank" rel="noopener noreferrer">podmínkami ochrany osobních údajů</a></p>
+</div>
+<button type="submit" class="btn btn-primary">Přihlásit se</button>
+</fieldset>
+</form>
+</div>
+<div class="container footer-rows">
+<div class="row custom-footer elements-6">
+<div class="custom-footer__banner21 col-sm-6 col-lg-4">
+<div class="banner">
+<div class="banner-wrapper">
+<img data-src="https://cdn.myshoptet.com/usr/www.rebelbean.cz/user/banners/footer-logo.png?61d58d3a" src="data:image/svg+xml,%3Csvg%20width%3D%22130%22%20height%3D%22141%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3C%2Fsvg%3E" fetchpriority="low" alt="Rebelbean" width="130" height="141" />
+</div>
+</div>
+</div>
+<div class="custom-footer__banner31 col-sm-6 col-lg-4">
+<div class="banner">
+<div class="banner-wrapper">
+<span data-ec-promo-id="218"><div class="footer-banner">
+<h6>Pražírna kávy Rebelbean</h6>
+<p><a href="https://maps.app.goo.gl/XazFNSzRw6J8PTDa8" target="_blank">Kulkova 4045/8<br>
+615 00 Brno-Židenice</a></p>
+<p><strong>Rebelbean s.r.o.</strong><br/>
+Nové sady 988/2<br>
+602 00 Brno</p>
+<p>IČO: 04168488<br>
+DIČ: CZ04168488</p>
+</div></span>
+</div>
+</div>
+</div>
+<div class="custom-footer__banner20 col-sm-6 col-lg-4">
+<div class="banner">
+<div class="banner-wrapper">
+<span data-ec-promo-id="185"><h6>Pojďte do toho s&nbsp;námi</h6>
+<ul>
+<li><a href="/budrebel/">Proč Rebelbean</a></li>
+<li><a href="/nase-kavarny/">Zajděte na kávu</a></li>
+<li><a href="/love/">Náš (nejhorší) klub</a></li>
+<li><a href="/kalendar/">Kde se potkáme</a></li>
+<li><a href="/hledame-posily/">Pojďte k nám pracovat</a></li>
+<li><a href="/catering/">Catering</a></li>
+<li><a href="/velkoobchod/">Káva pro váš podnik</a></li>
+<li><a href="/balicky-pro-firmy/">Pořádné dárky pro firmy</a></li>
+</ul></span>
+</div>
+</div>
+</div>
+<div class="custom-footer__articles col-sm-6 col-lg-4">
+<h3 class="pageElement__heading">
+<span>Informace k nákupu</span>
+</h3>
+<ul>
+<li><a href="https://www.rebelbean.cz/kosik/">Nákupní košík</a></li>
+<li><a href="https://www.rebelbean.cz/login/">Zákaznický účet</a></li>
+<li><a href="/moje-objednavka/">Moje objednávka</a></li>
+<li><a href="/obchodni-podminky/">Obchodní podmínky</a></li>
+<li><a href="/ochrana-osobnich-udaju/">Ochrana osobních údajů</a></li>
+<li><a href="/podminky-uziti-webu/">Podmínky užití webu</a></li>
+</ul>
+</div>
+<div class="custom-footer__banner15 col-sm-6 col-lg-4">
+<div class="banner">
+<div class="banner-wrapper">
+<span data-ec-promo-id="292"><h6>Potřebujete pomoct?</h6>
+<p>Pondělí&ndash;pátek: 7.30&nbsp;15.30 hodin.</p>
+<p><a href="tel:604116944">+420&nbsp;604&nbsp;116&nbsp;944</a><br>
+<a href="mailto:shop@rebelbean.cz">shop@rebelbean.cz</a></p></span>
+</div>
+</div>
+</div>
+<div class="custom-footer__banner32 col-sm-6 col-lg-4">
+<div class="banner">
+<div class="banner-wrapper">
+<span data-ec-promo-id="224"><div class="platebniKarty">
+<div><img src='https://cdn.myshoptet.com/usr/www.rebelbean.cz/user/documents/upload/sablona/logo-visa.svg' alt="visa"></div>
+<div><img src='https://cdn.myshoptet.com/usr/www.rebelbean.cz/user/documents/upload/sablona/logo-mastercard.svg' alt="mastercard"></div>
+<div><img src='https://cdn.myshoptet.com/usr/www.rebelbean.cz/user/documents/upload/sablona/logo-comgate.svg' alt="comgate"></div>
+<div><img src='https://cdn.myshoptet.com/usr/www.rebelbean.cz/user/documents/upload/sablona/logo-applepay.svg' alt="applepay"></div>
+<div><img src='https://cdn.myshoptet.com/usr/www.rebelbean.cz/user/documents/upload/sablona/logo-googlepay.svg?v=2' alt="Google Pay"></div>
+<div><img src='https://cdn.myshoptet.com/usr/www.rebelbean.cz/user/documents/upload/sablona/logo-ppl.svg' alt="ppl"></div>
+<div><img src='https://cdn.myshoptet.com/usr/www.rebelbean.cz/user/documents/upload/sablona/logo-ppl-alzabox.svg?v=2' alt="Alzaboxy"></div>
+<div><img src='https://cdn.myshoptet.com/usr/www.rebelbean.cz/user/documents/upload/sablona/logo-zasilkovna.svg' alt="zasilkovna"></div>
+</div></span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container footer-links-icons">
+<div class="footer-icons" data-editorid="footerIcons">
+<div class="footer-icon">
+<a href="https://www.instagram.com/rebelbeancz/" title="Instagram" target="_blank">Instagram</a>
+</div>
+<div class="footer-icon">
+<a href="https://www.facebook.com/rebelbeancz" title="Facebook" target="_blank">Facebook</a>
+</div>
+<div class="footer-icon">
+<a href="https://www.youtube.com/@rebelbean5444" title="YouTube" >YouTube</a>
+</div>
+</div>
+</div>
+<div class="container footer-bottom">
+<span id="signature" style="display: inline-block !important; visibility: visible !important;"><a href="https://www.shoptet.cz/?utm_source=footer&utm_medium=link&utm_campaign=create_by_shoptet" class="image" target="_blank"><img src="data:image/svg+xml,%3Csvg%20width%3D%2217%22%20height%3D%2217%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3C%2Fsvg%3E" data-src="https://cdn.myshoptet.com/prj/dist/master/cms/img/common/logo/shoptetLogo.svg" width="17" height="17" alt="Shoptet" class="vam" fetchpriority="low" /></a><a href="https://www.shoptet.cz/?utm_source=footer&utm_medium=link&utm_campaign=create_by_shoptet" class="title" target="_blank">Vytvořil Shoptet</a></span>
+<span class="copyright" data-testid="textCopyright">
+Copyright 2026 <strong>Rebelbean</strong>. Všechna práva vyhrazena. </span>
+</div>
+</footer>
+</div>
+<script src="https://cdn.myshoptet.com/prj/dist/master/cms/libs/jquery/jquery-1.11.3-sec1.min.js"></script>
+<script>var shoptet = shoptet || {};shoptet.abilities = {"about":{"generation":3,"id":"12"},"config":{"category":{"product":{"image_size":"detail"}},"navigation_breakpoint":991,"number_of_active_related_products":4,"product_slider":{"autoplay":false,"autoplay_speed":3000,"loop":true,"navigation":true,"pagination":true,"shadow_size":0}},"elements":{"recapitulation_in_checkout":true},"feature":{"directional_thumbnails":false,"extended_ajax_cart":true,"extended_search_whisperer":false,"fixed_header":false,"images_in_menu":false,"product_slider":false,"simple_ajax_cart":false,"smart_labels":false,"tabs_accordion":false,"tabs_responsive":true,"top_navigation_menu":false,"user_action_fullscreen":true}};shoptet.design = {"template":{"name":"Step","colorVariant":"12-one"},"layout":{"homepage":"catalog3","subPage":"catalog3","productDetail":"catalog3"},"colorScheme":{"conversionColor":"#000000","conversionColorHover":"#343434","color1":"#000000","color2":"#343434","color3":"#E2E2E2","color4":"#E2E2E2"},"fonts":{"heading":"Poppins","text":"Poppins"},"header":{"backgroundImage":"https:\/\/www.rebelbean.czdata:image\/gif;base64,R0lGODlhAQABAIAAAAAAAP\/\/\/yH5BAEAAAAALAAAAAABAAEAAAIBRAA7","image":null,"logo":"https:\/\/www.rebelbean.czuser\/logos\/rebelbean-logo-cervene.svg","color":"#000000"},"background":{"enabled":false,"color":null,"image":null}};shoptet.config = {};shoptet.events = {};shoptet.runtime = {};shoptet.content = shoptet.content || {};shoptet.updates = {};shoptet.messages = [];shoptet.messages['lightboxImg'] = "Obrázek";shoptet.messages['lightboxOf'] = "z";shoptet.messages['more'] = "Více";shoptet.messages['cancel'] = "Zrušit";shoptet.messages['removedItem'] = "Položka byla odstraněna z košíku.";shoptet.messages['discountCouponWarning'] = "Zapomněli jste uplatnit slevový kupón. Pro pokračování jej uplatněte pomocí tlačítka vedle vstupního pole, nebo jej smažte.";shoptet.messages['charsNeeded'] = "Prosím, použijte minimálně 3 znaky!";shoptet.messages['invalidCompanyId'] = "Neplané IČ, povoleny jsou pouze číslice";shoptet.messages['needHelp'] = "Potřebujete pomoc?";shoptet.messages['showContacts'] = "Zobrazit kontakty";shoptet.messages['hideContacts'] = "Skrýt kontakty";shoptet.messages['ajaxError'] = "Došlo k chybě; obnovte prosím stránku a zkuste to znovu.";shoptet.messages['variantWarning'] = "Zvolte prosím variantu produktu.";shoptet.messages['chooseVariant'] = "Zvolte variantu";shoptet.messages['unavailableVariant'] = "Tato varianta není dostupná a není možné ji objednat.";shoptet.messages['withVat'] = "včetně DPH";shoptet.messages['withoutVat'] = "bez DPH";shoptet.messages['toCart'] = "Do košíku";shoptet.messages['emptyCart'] = "Prázdný košík";shoptet.messages['change'] = "Změnit";shoptet.messages['chosenBranch'] = "Zvolená pobočka";shoptet.messages['validatorRequired'] = "Povinné pole";shoptet.messages['validatorEmail'] = "Prosím vložte platnou e-mailovou adresu";shoptet.messages['validatorUrl'] = "Prosím vložte platnou URL adresu";shoptet.messages['validatorDate'] = "Prosím vložte platné datum";shoptet.messages['validatorNumber'] = "Vložte číslo";shoptet.messages['validatorDigits'] = "Prosím vložte pouze číslice";shoptet.messages['validatorCheckbox'] = "Zadejte prosím všechna povinná pole";shoptet.messages['validatorConsent'] = "Bez souhlasu nelze odeslat.";shoptet.messages['validatorPassword'] = "Hesla se neshodují";shoptet.messages['validatorInvalidPhoneNumber'] = "Vyplňte prosím platné telefonní číslo bez předvolby.";shoptet.messages['validatorInvalidPhoneNumberSuggestedRegion'] = "Neplatné číslo — navržený region: %1";shoptet.messages['validatorInvalidCompanyId'] = "Neplatné IČ, musí být ve tvaru jako %1";shoptet.messages['validatorFullName'] = "Nezapomněli jste příjmení?";shoptet.messages['validatorStreet'] = "Zadejte prosím ulici bez čísla domu";shoptet.messages['validatorHouseNumber'] = "Prosím zadejte správné číslo domu";shoptet.messages['validatorZipCode'] = "Zadané PSČ neodpovídá zvolené zemi";shoptet.messages['validatorShortPhoneNumber'] = "Telefonní číslo musí mít min. 8 znaků";shoptet.messages['choose-personal-collection'] = "Prosím vyberte místo doručení u osobního odběru, není zvoleno.";shoptet.messages['choose-external-shipping'] = "Upřesněte prosím vybraný způsob dopravy";shoptet.messages['choose-ceska-posta'] = "Pobočka České Pošty není určena, zvolte prosím některou";shoptet.messages['choose-hupostPostaPont'] = "Pobočka Maďarské pošty není vybrána, zvolte prosím nějakou";shoptet.messages['choose-postSk'] = "Pobočka Slovenské pošty není zvolena, vyberte prosím některou";shoptet.messages['choose-ulozenka'] = "Pobočka Uloženky nebyla zvolena, prosím vyberte některou";shoptet.messages['choose-zasilkovna'] = "Pobočka Zásilkovny nebyla zvolena, prosím vyberte některou";shoptet.messages['choose-ppl-cz'] = "Pobočka PPL ParcelShop nebyla vybrána, vyberte prosím jednu";shoptet.messages['choose-glsCz'] = "Pobočka GLS ParcelShop nebyla zvolena, prosím vyberte některou";shoptet.messages['choose-dpd-cz'] = "Ani jedna z poboček služby DPD Parcel Shop nebyla zvolená, prosím vyberte si jednu z možností.";shoptet.messages['watchdogType'] = "Je zapotřebí vybrat jednu z možností u sledování produktu.";shoptet.messages['watchdog-consent-required'] = "Musíte zaškrtnout všechny povinné souhlasy";shoptet.messages['watchdogEmailEmpty'] = "Prosím vyplňte e-mail";shoptet.messages['privacyPolicy'] = 'Musíte souhlasit s ochranou osobních údajů';shoptet.messages['amountChanged'] = '(množství bylo změněno)';shoptet.messages['unavailableCombination'] = 'Není k dispozici v této kombinaci';shoptet.messages['specifyShippingMethod'] = 'Upřesněte dopravu';shoptet.messages['PIScountryOptionMoreBanks'] = 'Možnost platby z %1 bank';shoptet.messages['PIScountryOptionOneBank'] = 'Možnost platby z 1 banky';shoptet.messages['PIScurrencyInfoCZK'] = 'V měně CZK lze zaplatit pouze prostřednictvím českých bank.';shoptet.messages['PIScurrencyInfoHUF'] = 'V měně HUF lze zaplatit pouze prostřednictvím maďarských bank.';shoptet.messages['validatorVatIdWaiting'] = "Ověřujeme";shoptet.messages['validatorVatIdValid'] = "Ověřeno";shoptet.messages['validatorVatIdInvalid'] = "DIČ se nepodařilo ověřit, i přesto můžete objednávku dokončit";shoptet.messages['validatorVatIdInvalidOrderForbid'] = "Zadané DIČ nelze nyní ověřit, protože služba ověřování je dočasně nedostupná. Zkuste opakovat zadání později, nebo DIČ vymažte s vaši objednávku dokončete v režimu OSS. Případně kontaktujte prodejce.";shoptet.messages['validatorVatIdInvalidOssRegime'] = "Zadané DIČ nemůže být ověřeno, protože služba ověřování je dočasně nedostupná. Vaše objednávka bude dokončena v režimu OSS. Případně kontaktujte prodejce.";shoptet.messages['previous'] = "Předchozí";shoptet.messages['next'] = "Následující";shoptet.messages['close'] = "Zavřít";shoptet.messages['imageWithoutAlt'] = "Tento obrázek nemá popisek";shoptet.messages['newQuantity'] = "Nové množství:";shoptet.messages['currentQuantity'] = "Aktuální množství:";shoptet.messages['quantityRange'] = "Prosím vložte číslo v rozmezí %1 a %2";shoptet.messages['skipped'] = "Přeskočeno";shoptet.messages.validator = {};shoptet.messages.validator.nameRequired = "Zadejte jméno a příjmení.";shoptet.messages.validator.fullNameRequired = shoptet.messages.validator.nameRequired;shoptet.messages.validator.emailRequired = "Zadejte e-mailovou adresu (např. jan.novak@example.com).";shoptet.messages.validator.phoneRequired = "Zadejte telefonní číslo.";shoptet.messages.validator.messageRequired = "Napište komentář.";shoptet.messages.validator.descriptionRequired = shoptet.messages.validator.messageRequired;shoptet.messages.validator.captchaRequired = "Vyplňte bezpečnostní kontrolu.";shoptet.messages.validator.consentsRequired = "Potvrďte svůj souhlas.";shoptet.messages.validator.scoreRequired = "Zadejte počet hvězdiček.";shoptet.messages.validator.passwordRequired = "Zadejte heslo, které bude obsahovat min. 4 znaky.";shoptet.messages.validator.passwordAgainRequired = shoptet.messages.validator.passwordRequired;shoptet.messages.validator.currentPasswordRequired = shoptet.messages.validator.passwordRequired;shoptet.messages.validator.birthdateRequired = "Zadejte datum narození.";shoptet.messages.validator.billFullNameRequired = "Zadejte jméno a příjmení.";shoptet.messages.validator.deliveryFullNameRequired = shoptet.messages.validator.billFullNameRequired;shoptet.messages.validator.billStreetRequired = "Zadejte název ulice.";shoptet.messages.validator.deliveryStreetRequired = shoptet.messages.validator.billStreetRequired;shoptet.messages.validator.billHouseNumberRequired = "Zadejte číslo domu.";shoptet.messages.validator.deliveryHouseNumberRequired = shoptet.messages.validator.billHouseNumberRequired;shoptet.messages.validator.billZipRequired = "Zadejte PSČ.";shoptet.messages.validator.deliveryZipRequired = shoptet.messages.validator.billZipRequired;shoptet.messages.validator.billCityRequired = "Zadejte název města.";shoptet.messages.validator.deliveryCityRequired = shoptet.messages.validator.billCityRequired;shoptet.messages.validator.billDistrictRequired = "Zadejte název okresu.";shoptet.messages.validator.deliveryDistrictRequired = shoptet.messages.validator.billDistrictRequired;shoptet.messages.validator.deliveryCompanyRequired = "Zadejte název společnosti.";shoptet.messages.validator.companyIdRequired = "Zadejte IČ.";shoptet.messages.validator.vatIdRequired = "Zadejte DIČ.";shoptet.messages.validator.identificationNumberRequired = "Zadejte identifikační číslo.";shoptet.messages.validator.billCompanyRequired = "Zadejte název společnosti.";shoptet.messages.validator.discountCouponCodeRequired = "Zadejte slevový kupón";shoptet.messages['loading'] = "Načítám…";shoptet.messages['stillLoading'] = "Stále načítám…";shoptet.messages['loadingFailed'] = "Načtení se nezdařilo. Zkuste to znovu.";shoptet.messages['productsSorted'] = "Produkty seřazeny.";shoptet.messages['formLoadingFailed'] = "Formulář se nepodařilo načíst. Zkuste to prosím znovu.";shoptet.messages.moreInfo = "Více informací";shoptet.config.orderingProcess = {active: false,step: false};shoptet.config.documentsRounding = '3';shoptet.config.documentPriceDecimalPlaces = '0';shoptet.config.thousandSeparator = ' ';shoptet.config.decSeparator = ',';shoptet.config.decPlaces = '1';shoptet.config.decPlacesSystemDefault = '2';shoptet.config.currencySymbol = 'Kč';shoptet.config.currencySymbolLeft = '0';shoptet.config.defaultVatIncluded = 1;shoptet.config.defaultProductMaxAmount = 9999;shoptet.config.inStockAvailabilityId = -1;shoptet.config.defaultProductMaxAmount = 9999;shoptet.config.inStockAvailabilityId = -1;shoptet.config.cartActionUrl = '/action/Cart';shoptet.config.advancedOrderUrl = '/action/Cart/GetExtendedOrder/';shoptet.config.cartContentUrl = '/action/Cart/GetCartContent/';shoptet.config.stockAmountUrl = '/action/ProductStockAmount/';shoptet.config.addToCartUrl = '/action/Cart/addCartItem/';shoptet.config.isDeliveryIntoBoxRestrictedUrl = '/action/Cart/isDeliveryIntoBoxRestricted/';shoptet.config.removeFromCartUrl = '/action/Cart/deleteCartItem/';shoptet.config.updateCartUrl = '/action/Cart/setCartItemAmount/';shoptet.config.addDiscountCouponUrl = '/action/Cart/addDiscountCoupon/';shoptet.config.setSelectedGiftUrl = '/action/Cart/setSelectedGift/';shoptet.config.rateProduct = '/action/ProductDetail/RateProduct/';shoptet.config.customerDataUrl = '/action/OrderingProcess/step2CustomerAjax/';shoptet.config.registerUrl = '/registrace/';shoptet.config.agreementCookieName = 'site-agreement';shoptet.config.cookiesConsentUrl = '/action/CustomerCookieConsent/';shoptet.config.cookiesConsentIsActive = 1;shoptet.config.cookiesConsentOptAnalytics = 'analytics';shoptet.config.cookiesConsentOptPersonalisation = 'personalisation';shoptet.config.cookiesConsentOptNone = 'none';shoptet.config.cookiesConsentRefuseDuration = 7;shoptet.config.cookiesConsentName = 'CookiesConsent';shoptet.config.agreementCookieExpire = 30;shoptet.config.cookiesConsentSettingsUrl = '/cookies-settings/';shoptet.config.fonts = {"google":{"attributes":"300,400,700,900:latin-ext","families":["Poppins"],"urls":["https:\/\/cdn.myshoptet.com\/prj\/dist\/master\/cms\/templates\/frontend_templates\/shared\/css\/font-face\/poppins.css"]},"custom":{"families":["shoptet"],"urls":["https:\/\/cdn.myshoptet.com\/prj\/dist\/master\/shop\/dist\/font-shoptet-12.css.d637f40c301981789c16.css"]}};shoptet.config.mobileHeaderVersion = '0';shoptet.config.fbCAPIEnabled = true;shoptet.config.fbPixelEnabled = true;shoptet.config.fbCAPIUrl = '/action/FacebookCAPI/';shoptet.config.initApplePaySdk = false;shoptet.content.regexp = /strana-[0-9]+[\/]/g;shoptet.content.colorboxHeader = '<div class="colorbox-html-content">';shoptet.content.colorboxFooter = '</div>';shoptet.customer = {};shoptet.csrf = shoptet.csrf || {};shoptet.csrf.token = 'csrf_m0ZBd0zj529e17b0e22172d6';shoptet.csrf.invalidTokenModal = '<div><h2>Přihlaste se prosím znovu</h2><p>Omlouváme se, ale Váš CSRF token pravděpodobně vypršel. Abychom mohli udržet Vaši bezpečnost na co největší úrovni potřebujeme, abyste se znovu přihlásili.</p><p>Děkujeme za pochopení.</p><div><a href="/login/?backTo=%2Fkava%2F">Přihlášení</a></div></div> ';shoptet.csrf.formsSelector = 'csrf-enabled';shoptet.csrf.submitListener = true;shoptet.csrf.validateURL = '/action/ValidateCSRFToken/Index/';shoptet.csrf.refreshURL = '/action/RefreshCSRFTokenNew/Index/';shoptet.csrf.enabled = false;shoptet.config.googleAnalytics ||= {};shoptet.config.googleAnalytics.isGa4Enabled = true;shoptet.config.googleAnalytics.route ||= {};shoptet.config.googleAnalytics.route.ua = "UA";shoptet.config.googleAnalytics.route.ga4 = "GA4";shoptet.config.rating = {enabled: true,advanced: false};shoptet.config.ums_discussion_rating_forms = true;shoptet.config.ums_forms_redesign = true;shoptet.config.showPriceWithoutVat = '';</script>
+<script type="text/plain" data-cookiecategory="analytics">
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+            n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+            document,'script','//connect.facebook.net/en_US/fbevents.js');
+$(document).ready(function(){
+fbq('set', 'autoConfig', 'false', '243505006826247')
+fbq("init", "243505006826247", {}, { agent:"plshoptet" });
+fbq("track", "PageView",{}, {"eventID":"665bd3c59bc69f74e3b95be7cba89b5e"});
+window.dataLayer = window.dataLayer || [];
+dataLayer.push({"fbpixel": "loaded","event": "fbloaded"});
+fbq("track", "ViewCategory", {"content_name":"K\u00e1va","content_category":"K\u00e1va","content_ids":[],"content_type":"product"}, {"eventID":"665bd3c59bc69f74e3b95be7cba89b5e"});
+});
+</script>
+<noscript>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=243505006826247&ev=PageView&noscript=1"/>
+</noscript>
+<script src="https://cdn.myshoptet.com/prj/dist/master/shop/dist/main-3g.js.6aa8b09212ca502e55ab.js"></script>
+<script src="https://cdn.myshoptet.com/prj/dist/master/cms/templates/frontend_templates/shared/js/jqueryui/i18n/datepicker-cs.js"></script>
+<script>if (window.self !== window.top) {const script = document.createElement('script');script.type = 'module';script.src = "https://cdn.myshoptet.com/prj/dist/master/shop/dist/editorPreview.js.7bc41cc42d12aa23c5e0.js";document.body.appendChild(script);}</script> <script type="text/javascript" src="https://c.seznam.cz/js/rc.js"></script>
+<script>
+            /* <![CDATA[ */
+            var retargetingConf = {
+                rtgId: 138844,
+                                                category: "Potraviny a nápoje | Nápoje | Nealkoholické nápoje | Horké nápoje | Káva a kávové kapsle | Káva",
+                                pageType: "category"
+                            };
+
+            let lastSentItemId = null;
+            let lastConsent = null;
+
+            function triggerRetargetingHit(retargetingConf) {
+                let variantId = retargetingConf.itemId;
+                let variantCode = null;
+
+                let input = document.querySelector(`input[name="_variant-${variantId}"]`);
+                if (input) {
+                    variantCode = input.value;
+                    if (variantCode) {
+                        retargetingConf.itemId = variantCode;
+                    }
+                }
+
+                if (retargetingConf.itemId !== lastSentItemId || retargetingConf.consent !== lastConsent) {
+                    lastSentItemId = retargetingConf.itemId;
+                    lastConsent = retargetingConf.consent;
+                    if (window.rc && window.rc.retargetingHit) {
+                        window.rc.retargetingHit(retargetingConf);
+                    }
+                }
+            }
+
+                            retargetingConf.consent = 0;
+
+                document.addEventListener('DOMContentLoaded', function() {
+
+                    // Update retargetingConf after user accepts or change personalisation cookies
+                    shoptet.consent.onAccept(function(agreements) {
+                        if (agreements.length === 0 || !agreements.includes(shoptet.config.cookiesConsentOptPersonalisation)) {
+                            retargetingConf.consent = 0;
+                        } else {
+                            retargetingConf.consent = 1;
+                        }
+                        triggerRetargetingHit(retargetingConf);
+                    });
+
+                    triggerRetargetingHit(retargetingConf);
+
+                    // Dynamic update itemId for product detail page with variants
+                                    });
+                        /* ]]> */
+        </script>
+<script type="text/plain" data-cookiecategory="analytics">
+            if (typeof gtag === 'function') {
+            gtag('event', 'view_item_list', {
+                                                                                'send_to': 'AW-319903091',
+                                'ecomm_pagetype': 'category'
+            });
+        }
+        </script>
+<div class="container">
+<script src="https://cdn.myshoptet.com/usr/api2.dklab.cz/user/documents/_doplnky/doprava/353127/27/353127_datalayer_27.js"></script><script src="https://cdn.myshoptet.com/usr/api2.dklab.cz/user/documents/_doplnky/doprava/353127/27/353127_27.js"></script>
+<script src="https://cdn.myshoptet.com/usr/api2.dklab.cz/user/documents/_doplnky/filtry/353127/19/353127_datalayer_19.js"></script><script src="https://cdn.myshoptet.com/usr/api2.dklab.cz/user/documents/_doplnky/filtry/353127/19/353127_19.js"></script>
+<link href="https://cdn.myshoptet.com/usr/252557.myshoptet.com/user/documents/sticky-header/Step.css?v33" rel="stylesheet" />
+<script src="https://cdn.myshoptet.com/usr/252557.myshoptet.com/user/documents/sticky-header/Step.js?v18" type="text/javascript"></script>
+<script>
+$(window).scroll(function() { 
+if($('body.jupiter').length){
+    var scroll = $(window).scrollTop();
+    
+    if (scroll >= 350) {
+  if($(window).width() >= 768){
+        $("body").addClass("sticky-header");
+        }
+    } else {
+        $("body").removeClass("sticky-header");
+    }
+    }
+});
+</script>
+<script>
+(function(w,d,x,n,u,t,p,f,s,o){f='LHInsights';w[n]=w[f]=w[f]||function(n,d){
+(w[f].q=w[f].q||[]).push([n,d])};w[f].l=1*new Date();w[f].p=p;s=d.createElement(x);
+s.async=1;s.src=u+'?t='+t+(p?'&p='+p:'');o=d.getElementsByTagName(x)[0];o.parentNode.insertBefore(s,o)
+})(window,document,'script','lhi','https://www.lhinsights.com/shoptet-agent.js','353127','shoptet');
+</script>
+<script src="https://cdn.myshoptet.com/addons/dominikmartini/shop_rating/scripts.footer.min.js?02d5750dcabae5039447edfe615105ebfd256f19"></script>
+<script src="https://cdn.myshoptet.com/usr/webotvurci.myshoptet.com/user/documents/plugin-product-interconnection/product-interconnection-scripts-final.js?v=39" type="text/javascript"></script>
+<script>
+    var _lang = 'cs';
+    var scriptElement = document.createElement('script');
+    //scriptElement.src = "https://doplnky.applypark.cz/shoptet/doplneni-fakturacnich-udaju/js.js?v20240415-2";
+    scriptElement.src = "https://applypark.myshoptet.com/user/documents/upload/cdn-applypark/ico.js?v=2025-29-04_2";
+    $('head').append(scriptElement);
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script src="/user/documents/script.js?v=1.94" type="text/javascript"></script>
+<script>
+const initialMenu = shoptet.menu.splitMenu,
+			initialHelper = shoptet.menu.splitHelperMenu
+const handleMenu = () => {
+  if (window.innerWidth > 1440) {
+  		$(document).off('resizeEnd', function() {
+      	setTimeout(function() { shoptet.menu.splitMenu() }, 100)
+      })
+      $(window).on('load', function() {
+      	shoptet.menu.splitMenu()
+      	shoptet.menu.splitMenu = function() {}
+      	shoptet.menu.splitHelperMenu = function() {}
+      })
+      $(document).on('resizeEnd', function() {
+      	shoptet.menu.splitMenu()
+      	shoptet.menu.splitMenu = function() {}
+      	shoptet.menu.splitHelperMenu = function() {}
+      })
+  } else {
+      shoptet.menu.splitMenu = initialMenu
+      shoptet.menu.splitHelperMenu = initialHelper
+      $(document).on('resizeEnd', function() {
+      	setTimeout(function() { shoptet.menu.splitMenu() }, 100)
+      })
+  }
+}
+handleMenu();
+document.addEventListener('resizeEnd', handleMenu)
+</script>
+<script>
+if($('.mobile.type-category').length) {
+if($('.products-block .product').length > 8) {
+      $('.custom-footer__banner19').clone().insertAfter($('.products-block .product:nth-child(8)'));
+    } else {
+      $('.custom-footer__banner19').clone().appendTo($('.products-block'));
+    }
+}
+</script>
+<script>
+let freeDeliveryMessages = {
+    cz: "Poštovné zdarma od 990 Kč",
+    czEN: "Free shipping from 990 CZK",
+    sk: "Poštovné zdarma od 40 EUR",
+    skEN: "Free shipping from 40 EUR",
+    be: "Free shipping from 40 EUR",
+    bg: "Free shipping from 40 EUR",
+    dk: "Free shipping from 40 EUR",
+    ee: "Free shipping from 40 EUR",
+    fi: "Free shipping from 40 EUR",
+    fr: "Free shipping from 40 EUR",
+    hr: "Free shipping from 40 EUR",
+    ie: "Free shipping from 40 EUR",
+    it: "Free shipping from 40 EUR",
+    lt: "Free shipping from 40 EUR",
+    lv: "Free shipping from 40 EUR",
+    hu: "Free shipping from 40 EUR",
+    de: "Free shipping from 40 EUR",
+    nl: "Free shipping from 40 EUR",
+    no: "Free shipping from 40 EUR",
+    pl: "Free shipping from 40 EUR",
+    pt: "Free shipping from 40 EUR",
+    at: "Free shipping from 40 EUR",
+    ro: "Free shipping from 40 EUR",
+    gr: "Free shipping from 40 EUR",
+    si: "Free shipping from 40 EUR",
+    us: "Free shipping from 40 EUR",
+    es: "Free shipping from 40 EUR",
+    se: "Free shipping from 40 EUR",
+    ch: "Free shipping from 40 EUR",
+    ua: "Free shipping from 40 EUR",
+};
+
+</script>
+<script src="/user/documents/script-nosov.js?v=1.98" type="text/javascript"></script>
+<script>document.addEventListener("DOMContentLoaded", function() {
+    
+    const isProduct = document.body.classList.contains('type-product');
+    
+    window.chtlConfig = {
+      chatbotId: "7165414142",
+      variables: {
+        current_page_url: window.location.href,
+        current_page_title: document.title,
+        is_product_page: isProduct ? "true" : "false" 
+      }
+    };
+
+    const chatlingScript = document.createElement('script');
+    chatlingScript.async = true;
+    chatlingScript.dataset.id = "7165414142";
+    chatlingScript.id = "chatling-embed-script";
+    chatlingScript.src = "https://chatling.ai/js/embed.js";
+    document.body.appendChild(chatlingScript);
+    
+  });</script>
+</div>
+<div class="messages">
+</div>
+<div id="screen-reader-announcer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+<script id="trackingScript" data-products='{"products":{"4392":{"content_category":"Káva","content_type":"product","content_name":"Costa Rica Don Alexis","base_name":"Costa Rica Don Alexis","variant":null,"manufacturer":"Rebelbean","content_ids":["1608"],"guid":"ad9444bc-84f9-11f1-aa43-bc241179ac38","visibility":1,"value":"490","valueWoVat":"437.5","facebookPixelVat":false,"currency":"CZK","base_id":1737,"category_path":["Káva"]},"4411":{"content_category":"Káva","content_type":"product","content_name":"Kenya Gatomboya","base_name":"Kenya Gatomboya","variant":"250 g","manufacturer":"Rebelbean","content_ids":["1750\/250"],"guid":"f82f4020-a863-11f1-b0b5-bc2411217be9","visibility":1,"value":"390","valueWoVat":"348.2","facebookPixelVat":false,"currency":"CZK","base_id":1750,"category_path":["Káva"]},"1634":{"content_category":"Káva","content_type":"product","content_name":"My Daily Mix","base_name":"My Daily Mix","variant":"250 g","manufacturer":"Rebelbean","content_ids":["368_251A"],"guid":"e0bfeeaa-7fdc-11ea-b5b6-0cc47a6c9370","visibility":1,"value":"370","valueWoVat":"330.4","facebookPixelVat":false,"currency":"CZK","base_id":368,"category_path":["Káva"]},"1640":{"content_category":"Káva","content_type":"product","content_name":"The Underdog","base_name":"The Underdog","variant":"250 g","manufacturer":"Rebelbean","content_ids":["467_251A"],"guid":"9d5d150e-325e-11eb-a44c-ecf4bbd79d2f","visibility":1,"value":"310","valueWoVat":"276.8","facebookPixelVat":false,"currency":"CZK","base_id":467,"category_path":["Káva"]},"4311":{"content_category":"Káva","content_type":"product","content_name":"Bolivia Aljiri","base_name":"Bolivia Aljiri","variant":"250 g","manufacturer":"Rebelbean","content_ids":["1698\/250"],"guid":"b42b0c4a-54f5-11f1-9d75-bc2411bb8865","visibility":1,"value":"370","valueWoVat":"330.4","facebookPixelVat":false,"currency":"CZK","base_id":1698,"category_path":["Káva"]},"4317":{"content_category":"Káva","content_type":"product","content_name":"Brazil Fazenda do Cruzeiro","base_name":"Brazil Fazenda do Cruzeiro","variant":"250 g","manufacturer":"Rebelbean","content_ids":["1701\/250"],"guid":"c0cb5436-54f6-11f1-8554-bc241179ac38","visibility":1,"value":"370","valueWoVat":"330.4","facebookPixelVat":false,"currency":"CZK","base_id":1701,"category_path":["Káva"]},"4380":{"content_category":"Káva","content_type":"product","content_name":"Ethiopia Kayon Mountain","base_name":"Ethiopia Kayon Mountain","variant":"250 g","manufacturer":"Rebelbean","content_ids":["1731\/250"],"guid":"001c8856-84d3-11f1-a1e0-bc2411bb8865","visibility":1,"value":"380","valueWoVat":"339.3","facebookPixelVat":false,"currency":"CZK","base_id":1731,"category_path":["Káva"]},"4291":{"content_category":"Káva","content_type":"product","content_name":"Mexico Carlos Cadena","base_name":"Mexico Carlos Cadena","variant":"250 g","manufacturer":"Rebelbean","content_ids":["1687\/250"],"guid":"d07732a8-2d08-11f1-93b2-bc241179ac38","visibility":1,"value":"390","valueWoVat":"348.2","facebookPixelVat":false,"currency":"CZK","base_id":1687,"category_path":["Káva"]},"4335":{"content_category":"Káva","content_type":"product","content_name":"Papua New Guinea Kindeng Mill","base_name":"Papua New Guinea Kindeng Mill","variant":"250 g","manufacturer":"Rebelbean","content_ids":["1713\/250"],"guid":"cc109f62-6edd-11f1-927b-bc241179ac38","visibility":1,"value":"370","valueWoVat":"330.4","facebookPixelVat":false,"currency":"CZK","base_id":1713,"category_path":["Káva"]},"4386":{"content_category":"Káva","content_type":"product","content_name":"Peru Uchubamba","base_name":"Peru Uchubamba","variant":"250 g","manufacturer":"Rebelbean","content_ids":["1734\/250"],"guid":"ac5ee324-84d4-11f1-a9f7-bc241179ac38","visibility":1,"value":"390","valueWoVat":"348.2","facebookPixelVat":false,"currency":"CZK","base_id":1734,"category_path":["Káva"]},"4329":{"content_category":"Káva","content_type":"product","content_name":"Uganda Lunar Coffee","base_name":"Uganda Lunar Coffee","variant":"250 g","manufacturer":"Rebelbean","content_ids":["1710\/250"],"guid":"ce9f7200-6a12-11f1-b20b-bc2411217be9","visibility":1,"value":"370","valueWoVat":"330.4","facebookPixelVat":false,"currency":"CZK","base_id":1710,"category_path":["Káva"]},"4177":{"content_category":"Káva","content_type":"product","content_name":"Push The Button","base_name":"Push The Button","variant":"250 g","manufacturer":"Rebelbean","content_ids":["1240\/250"],"guid":"115ddbd0-524d-11ee-aeba-c23895735dfc","visibility":1,"value":"310","valueWoVat":"276.8","facebookPixelVat":false,"currency":"CZK","base_id":1240,"category_path":["Káva"]},"1184":{"content_category":"Káva","content_type":"product","content_name":"Degustaèní set 4 × 50 g","base_name":"Degustaèní set 4 × 50 g","variant":"Degustační set","manufacturer":"Rebelbean","content_ids":["458_DEG"],"guid":"f0a2f40c-268f-11eb-aff7-ecf4bbd79d2f","visibility":1,"value":"450","valueWoVat":"401.8","facebookPixelVat":false,"currency":"CZK","base_id":458,"category_path":["Káva"]}},"banners":{"188":{"id":"banner21","name":"Footer logo","position":"footer"},"218":{"id":"banner31","name":"Identifikační údaje","position":"footer"},"185":{"id":"banner20","name":"Odkazy","position":"footer"},"292":{"id":"banner15","name":"Kontakt","position":"footer"},"224":{"id":"banner32","name":"Platební karty","position":"footer"}},"lists":[{"id":"698","name":"category: \/kava\/","price_ids":[4392,4411,1634,1640,4311,4317,4380,4291,4335,4386,4329,4177,1184],"isMainListing":true,"offset":0}]}'>
+        if (typeof shoptet.tracking.processTrackingContainer === 'function') {
+            shoptet.tracking.processTrackingContainer(
+                document.getElementById('trackingScript').getAttribute('data-products')
+            );
+        } else {
+            console.warn('Tracking script is not available.');
+        }
+    </script>
+</body>
+</html>

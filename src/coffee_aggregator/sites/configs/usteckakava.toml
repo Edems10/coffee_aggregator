@@ -1,0 +1,19 @@
+# Ústecká pražírna — the product table holds only the category row and the
+# long-description tab says "Popis produktu není dostupný"; every fact
+# about the lot is prose in the short description. Nothing to map; see
+# the onboarding notes.
+platform = "shoptet"
+site_id = "usteckakava"
+name = "Ústecká pražírna"
+country = "CZ"
+base_url = "https://www.usteckakava.cz/"
+category_urls = ["https://www.usteckakava.cz/kategorie/jednodruhove-kavy/"]
+currency = "CZK"
+max_pages = 20
+pagination = "path"
+
+# The category also lists things that are not whole beans.
+ignore = [
+  "zelena kava",
+  "cascara",
+]

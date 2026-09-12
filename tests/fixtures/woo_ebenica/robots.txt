@@ -1,0 +1,150 @@
+# As a condition of accessing this website, you agree to abide by
+# the following content signals:
+#
+# (a)  If a content-signal = yes, you may collect content for the
+#      corresponding use.
+# (b)  If a content-signal = no, you may not collect content for
+#      the corresponding use.
+#
+# search:    building a search index and providing search results.
+# ai-input:  inputting content into one or more AI models (e.g., RAG,
+#            grounding, or other real-time generative AI search answers).
+# ai-train:  training or fine-tuning AI models.
+#
+# ANY RESTRICTIONS EXPRESSED VIA CONTENT SIGNALS ARE EXPRESS
+# RESERVATIONS OF RIGHTS UNDER ARTICLE 4 OF THE EUROPEAN UNION
+# DIRECTIVE 2019/790 ON COPYRIGHT AND RELATED RIGHTS IN THE
+# DIGITAL SINGLE MARKET.
+
+# ALLOW: AI search bots (cite your site with links back)
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: PerplexityBot
+User-agent: DuckAssistBot
+Allow: /
+
+# BLOCK: AI training bots (absorb content into models)
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: CCBot
+User-agent: FacebookBot
+User-agent: Meta-ExternalAgent
+User-agent: Bytespider
+User-agent: Amazonbot
+User-agent: cohere-ai
+Disallow: /
+
+# WooCommerce
+
+User-agent: *
+Content-Signal: ai-train=no, search=yes, ai-input=yes
+
+# ===================================================================
+# WooCommerce Filter URLs - Allow only specific indexed filter URLs
+# ===================================================================
+# Strategy: Allow exact URLs + pagination, disallow all other filter combinations
+# This matches the logic in .htaccess for consistent crawling behavior
+
+# --- ALLOW: Specific indexed filter URLs (base + pagination) ---
+
+# Mletie + Priprava (Zrnkova Kava na Espresso)
+Allow: /kava/mletie_kavy-zrnkova-kava/priprava_kavy-espresso$
+Allow: /kava/mletie_kavy-zrnkova-kava/priprava_kavy-espresso/$
+Allow: /kava/mletie_kavy-zrnkova-kava/priprava_kavy-espresso/page/
+Allow: /mletie_kavy-zrnkova-kava/priprava_kavy-espresso$
+Allow: /mletie_kavy-zrnkova-kava/priprava_kavy-espresso/$
+Allow: /mletie_kavy-zrnkova-kava/priprava_kavy-espresso/page/
+
+# Druh + Mletie (Arabica-Robusta Zrnkova)
+Allow: /kava/druh_kavy-arabica-robusta/mletie_kavy-zrnkova-kava$
+Allow: /kava/druh_kavy-arabica-robusta/mletie_kavy-zrnkova-kava/$
+Allow: /kava/druh_kavy-arabica-robusta/mletie_kavy-zrnkova-kava/page/
+Allow: /druh_kavy-arabica-robusta/mletie_kavy-zrnkova-kava$
+Allow: /druh_kavy-arabica-robusta/mletie_kavy-zrnkova-kava/$
+Allow: /druh_kavy-arabica-robusta/mletie_kavy-zrnkova-kava/page/
+
+# Chut (Kava Bez Kyslosti)
+Allow: /kava/chut_kavy-kava-bez-kyslosti$
+Allow: /kava/chut_kavy-kava-bez-kyslosti/$
+Allow: /kava/chut_kavy-kava-bez-kyslosti/page/
+Allow: /chut_kavy-kava-bez-kyslosti$
+Allow: /chut_kavy-kava-bez-kyslosti/$
+Allow: /chut_kavy-kava-bez-kyslosti/page/
+
+# Chut (Horka Kava)
+Allow: /kava/chut_kavy-horka-kava$
+Allow: /kava/chut_kavy-horka-kava/$
+Allow: /kava/chut_kavy-horka-kava/page/
+Allow: /chut_kavy-horka-kava$
+Allow: /chut_kavy-horka-kava/$
+Allow: /chut_kavy-horka-kava/page/
+
+# Priprava (Automat)
+Allow: /kava/priprava_kavy-automat$
+Allow: /kava/priprava_kavy-automat/$
+Allow: /kava/priprava_kavy-automat/page/
+Allow: /priprava_kavy-automat$
+Allow: /priprava_kavy-automat/$
+Allow: /priprava_kavy-automat/page/
+
+# Priprava (Espresso)
+Allow: /kava/priprava_kavy-espresso$
+Allow: /kava/priprava_kavy-espresso/$
+Allow: /kava/priprava_kavy-espresso/page/
+Allow: /priprava_kavy-espresso$
+Allow: /priprava_kavy-espresso/$
+Allow: /priprava_kavy-espresso/page/
+
+# Obsah Kofeinu (Bezkofeinova)
+Allow: /kava/obsah_kofeinu-bezkofeinova$
+Allow: /kava/obsah_kofeinu-bezkofeinova/$
+Allow: /kava/obsah_kofeinu-bezkofeinova/page/
+Allow: /obsah_kofeinu-bezkofeinova$
+Allow: /obsah_kofeinu-bezkofeinova/$
+Allow: /obsah_kofeinu-bezkofeinova/page/
+
+# Ocenena Kava
+Allow: /kava/ocenena_kava-ano$
+Allow: /kava/ocenena_kava-ano/$
+Allow: /kava/ocenena_kava-ano/page/
+Allow: /ocenena_kava-ano$
+Allow: /ocenena_kava-ano/$
+Allow: /ocenena_kava-ano/page/
+
+# ===================================================================
+# DISALLOW: All other filter combinations
+# ===================================================================
+
+Disallow: */ocenena_kava-*
+Disallow: */obsah_kofeinu-*
+Disallow: */priprava_kavy-*
+Disallow: */chut_kavy-*
+Disallow: */druh_kavy-*
+Disallow: */mletie_kavy-*
+
+# --- Add a "Disallow" line for any other filter keys your site uses ---
+
+Disallow: /*/feed/*
+Disallow: /wp-admin/
+Disallow: /wp-json/
+Disallow: /*add-to-cart=*
+Disallow: /*remove_item=*
+Disallow: /*undo_item=*
+Disallow: /?s=*
+Disallow: /wp-content/plugins/litespeed-cache/guest.vary.php
+Allow: /wp-admin/admin-ajax.php
+
+Sitemap: https://ebenica.sk/sitemaps.xml
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: SeekportBot
+Disallow: /
+
+User-agent: Amazonbot
+Disallow: /

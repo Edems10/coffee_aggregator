@@ -1,0 +1,17 @@
+# Café Gape — the parameter table holds only the variant selects. Origin,
+# region, species and varieties are label/value pairs inside the
+# description tab, which the adapter does not read; see the notes.
+platform = "shoptet"
+site_id = "cafegape"
+name = "Café Gape"
+country = "CZ"
+base_url = "https://www.cafegape.eu/"
+category_urls = ["https://www.cafegape.eu/jednodruhova-kava/"]
+currency = "CZK"
+max_pages = 20
+pagination = "path"
+
+# The category also lists things that are not whole beans.
+ignore = [
+  "darkov",
+]

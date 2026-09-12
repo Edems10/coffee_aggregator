@@ -1,0 +1,33 @@
+# EBENICA COFFEE — the one shop of the WooCommerce survey whose robots.txt says
+# "Disallow: /wp-json/" for User-agent: *. Its Store API answers, but a polite
+# crawler must not ask, so this shop is pinned to HTML mode: the detail pages
+# carry a full table.woocommerce-product-attributes and a JSON-LD Product, and
+# data-product_variations even states a price per weight, which the Store API
+# never does.
+platform = "woocommerce"
+site_id = "ebenica"
+name = "EBENICA COFFEE"
+country = "SK"
+base_url = "https://ebenica.sk/"
+currency = "EUR"
+mode = "html"
+max_pages = 10
+
+# Whole beans only; the parent "kava" (77) mixes in ground coffee and capsules.
+category_urls = ["https://ebenica.sk/zrnkova-kava/"]
+
+# The catalogue also sells grinders, drippers, cups, vouchers and tasting packs.
+ignore = [
+  "mlyncek",
+  "dripper",
+  "salka",
+  "poukaz",
+  "degustacn",
+  "tricko",
+]
+
+[label_map]
+# "Ocenenia" lists competition medals — awards, not certifications — and there
+# is no typed field for them yet, so it is kept out of the typed mapping and
+# reaches the sink through raw_attributes.
+"Ocenenia" = ""

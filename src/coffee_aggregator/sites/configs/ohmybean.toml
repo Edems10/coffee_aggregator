@@ -1,0 +1,23 @@
+# Oh My Bean — /kava/ is the parent of /espresso/, /filtr/ and
+# /house-beans/, so one listing covers the whole bean range.
+platform = "shoptet"
+site_id = "ohmybean"
+name = "Oh My Bean Roastery"
+country = "CZ"
+base_url = "https://www.ohmybean.coffee/"
+category_urls = ["https://www.ohmybean.coffee/kava/"]
+currency = "CZK"
+max_pages = 20
+pagination = "path"
+
+# The category also lists things that are not whole beans.
+ignore = [
+  "degustacni box",
+  "cold brew",
+]
+
+# Parameter names this shop invents that the built-in CZ/SK/EN map
+# does not already cover.
+[label_map]
+"Způsob zpracování" = "process"
+"Vhodné použití" = "brewing"

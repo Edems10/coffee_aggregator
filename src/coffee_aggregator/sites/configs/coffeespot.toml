@@ -1,0 +1,33 @@
+# Coffeespot — a large Czech roastery and reseller on Shoptet. Its
+# table.detail-parameters is rich but uses its own wording for almost
+# every row, so the mapping below is what makes the page readable.
+platform = "shoptet"
+site_id = "coffeespot"
+name = "Coffeespot"
+country = "CZ"
+base_url = "https://www.coffeespot.cz/"
+category_urls = ["https://www.coffeespot.cz/zrnkova-kava/"]
+currency = "CZK"
+max_pages = 20
+pagination = "path"
+
+# The category also lists things that are not whole beans.
+ignore = [
+  "degustacni",
+  "darkov",
+  "poukaz",
+  "kapsle",
+  "pro ucitele",
+  "pro zdravotniky",
+]
+
+# Parameter names this shop invents that the built-in CZ/SK/EN map
+# does not already cover.
+[label_map]
+"Metoda zpracování" = "process"
+"Zpracovatelský závod" = "washing_station"
+"Velikost balení" = "weight"
+"Velikost (g)" = "weight"
+"Typ kávy" = "species"
+"Metoda přípravy" = "brewing"
+"Chci kávu namlít" = "brewing"

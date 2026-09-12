@@ -1,0 +1,25 @@
+# Dos Mundos — Prague roastery. The single-origin listing is the broadest
+# whole-bean category; /kava/ above it also holds drip bags and cascara.
+platform = "shoptet"
+site_id = "dosmundos"
+name = "Dos Mundos"
+country = "CZ"
+base_url = "https://www.dos-mundos.cz/"
+category_urls = ["https://www.dos-mundos.cz/jednodruhova-kava-100--arabica/"]
+currency = "CZK"
+max_pages = 20
+pagination = "path"
+
+# The category also lists things that are not whole beans.
+ignore = [
+  "cascara",
+  "drip coffee",
+  "predplatne",
+]
+
+# Parameter names this shop invents that the built-in CZ/SK/EN map
+# does not already cover.
+[label_map]
+"Zpracování kávy" = "process"
+"Množství" = "weight"
+"Typ přípravy" = "brewing"

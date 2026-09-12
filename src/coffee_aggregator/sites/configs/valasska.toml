@@ -1,0 +1,20 @@
+# Valašská pražírna — a Czech roastery on Shoptet. Its coffee category mixes
+# single origins with blends, and both state their parameters in the same table.
+platform = "shoptet"
+site_id = "valasska"
+name = "Valašská pražírna"
+country = "CZ"
+base_url = "https://www.valasska-prazirna.cz/"
+category_urls = ["https://www.valasska-prazirna.cz/kava/"]
+currency = "CZK"
+max_pages = 20
+pagination = "path"
+
+# The category also lists gear, gift boxes and instant coffee.
+ignore = [
+  "darkova",
+  "darkovy",
+  "degustacni sada",
+  "instantni",
+  "mlynek",
+]

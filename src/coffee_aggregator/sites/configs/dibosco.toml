@@ -1,0 +1,24 @@
+# DI BOSCo — a small Slovak roastery on Shoptet. The parameter table is empty;
+# the coffee passport (Krajina pôvodu, Odroda, Spracovanie, Farma, Región,
+# Nadmorská výška, Farmár) is written as LABEL: value lines in the description,
+# which the platform reads. Only the two variant axes need naming.
+platform = "shoptet"
+site_id = "dibosco"
+name = "DI BOSCo"
+country = "SK"
+base_url = "https://www.dibosco.sk/"
+category_urls = ["https://www.dibosco.sk/kava/"]
+currency = "EUR"
+max_pages = 20
+pagination = "path"
+
+ignore = [
+  "darcek",
+  "degustacn",
+]
+
+[label_map]
+# The weight axis, declined so that the built-in "balenie" never matches.
+"Veľkosť balenia" = "weight"
+# The grind axis: what the shop will mill the beans for.
+"Typ mletia" = "brewing"

@@ -1,0 +1,47 @@
+User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Disallow: /export/
+Disallow: /admin/
+Disallow: /script/
+Disallow: /api/
+Disallow: /action/
+Disallow: /*?priceMax
+Disallow: /*?priceMin
+Disallow: /*?parameterId
+Disallow: /*?order
+Disallow: /*?availabilityId
+Disallow: /*?manufacturerId
+Disallow: /*?stock
+Disallow: /*?pv*=*,
+Disallow: /*&pv*=*,
+Disallow: /*?pv*=*&pv*=
+Disallow: /*&pv*=*&pv*=
+Disallow: /*:*,*/
+Disallow: /*/?backTo=
+Disallow: /*?dd=*,
+Disallow: /*&dd=*,
+Disallow: /*?dd=*&pv*=
+Disallow: /*?pv*=*&dd=
+Disallow: /*/?letter=*
+Disallow: /vyhledavani/
+Disallow: /kosik/
+Disallow: /login/
+Disallow: /registrace/
+Disallow: /klient/zapomenute-heslo/
+Disallow: /affiliate-registrace/
+Disallow: /affiliate-zapomenute-heslo/
+Disallow: /uzivatel/
+Disallow: /klient/moje-objednavka/
+Disallow: /affiliate/accounts/
+Disallow: /affiliate/scripts/
+
+Disallow: /*:diskuse
+Disallow: /*:dotaz
+Disallow: /*:hlidat-cenu
+Disallow: /*:klient-hodnoceni
+Disallow: /*:moznosti-dopravy
+Disallow: /*:wysiwyg
+
+
+
+Sitemap: https://www.coffeespot.cz/sitemap.xml

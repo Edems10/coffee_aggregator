@@ -1,0 +1,27 @@
+# Coffee Veronia — a Slovak roaster-retailer on Shoptet. Its parameter table is
+# roomy but idiosyncratic: it states the parcel weight as "Hmotnosť" and the net
+# bean weight separately as "Hmotnosť kávy", and it names a continent rather
+# than a country, so the origin comes from the product name.
+platform = "shoptet"
+site_id = "coffeeveronia"
+name = "Coffee Veronia"
+country = "SK"
+base_url = "https://www.coffeeveronia.sk/"
+category_urls = ["https://www.coffeeveronia.sk/kava/"]
+currency = "EUR"
+max_pages = 20
+pagination = "path"
+
+# /kava/ mixes whole beans with ground coffee and multi-kilo office sets.
+ignore = [
+  "mleta",
+  "degustacn",
+  "darcek",
+]
+
+[label_map]
+# This shop's own name for the net weight of the beans; plain "Hmotnosť" is the
+# parcel weight here, exactly as the built-in map assumes.
+"Hmotnosť kávy" = "weight"
+# The brewing axis, spelled as a noun phrase the built-in map does not carry.
+"Spôsob prípravy" = "brewing"

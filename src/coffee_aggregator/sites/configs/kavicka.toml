@@ -1,0 +1,21 @@
+# Kávička.sk — a Slovak multi-brand coffee retailer on Shoptet. It runs the
+# older "template-04" product template, which renders neither div.p-detail nor
+# table.detail-parameters nor div.basic-description, so the Shoptet adapter
+# finds no labels at all on its product pages — see the onboarding notes. The
+# roaster is named in the page's own "Značka" row (e.g. "Kávička.sk"), which
+# that template puts in a class-less table the adapter does not read either.
+# No [label_map] can help: the labels are standard, the container is not.
+platform = "shoptet"
+site_id = "kavicka"
+name = "Kávička.sk"
+country = "SK"
+base_url = "https://www.kavicka.sk/"
+category_urls = ["https://www.kavicka.sk/cerstvo-prazena-kava/"]
+currency = "EUR"
+max_pages = 20
+pagination = "path"
+
+ignore = [
+  "darcek",
+  "degustacn",
+]

@@ -1,0 +1,26 @@
+# Ready After — a Slovak roastery on Shoptet with an unusually complete product
+# page: the parameter table states species, cup profile and brewing, and the
+# description carries a hand-written "coffee passport" (region, farm, variety,
+# process, altitude, cupping score) that the platform reads as LABEL: value.
+platform = "shoptet"
+site_id = "readyafter"
+name = "Ready After"
+country = "SK"
+base_url = "https://www.readyafter.sk/"
+category_urls = ["https://www.readyafter.sk/kava/"]
+currency = "EUR"
+max_pages = 20
+pagination = "path"
+
+# The category also lists gift coffees and tasting sets.
+ignore = [
+  "ochutnavkovy set",
+  "darcek",
+  "darcekov",
+]
+
+# Labels this shop invents that the built-in CZ/SK/EN map does not know.
+[label_map]
+# The built-in map knows "praženie"/"pražení"; this shop declines the noun,
+# so "Stupeň praženia" matches nothing and the roast level would be lost.
+"Stupeň praženia" = "roast"

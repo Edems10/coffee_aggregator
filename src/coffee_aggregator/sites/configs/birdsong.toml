@@ -1,0 +1,24 @@
+# Birdsong — a small Prague roastery. It calls the growing region
+# "Lokalita" and offers every size through one "Varianta" select.
+platform = "shoptet"
+site_id = "birdsong"
+name = "Birdsong"
+country = "CZ"
+base_url = "https://www.birdsong.cz/"
+category_urls = ["https://www.birdsong.cz/kava/"]
+currency = "CZK"
+max_pages = 20
+pagination = "path"
+
+# The category also lists things that are not whole beans.
+ignore = [
+  "test roast",
+  "darkov",
+]
+
+# Parameter names this shop invents that the built-in CZ/SK/EN map
+# does not already cover.
+[label_map]
+"Lokalita" = "region"
+"Typ kávy" = "species"
+"Varianta" = "weight"

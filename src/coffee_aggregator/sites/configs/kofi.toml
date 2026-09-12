@@ -1,0 +1,27 @@
+# KOFI — a Slovak multi-brand specialty retailer on Shoptet, reselling Concept
+# Coffee, Diamonds, Red Fawn, Spojka, Nômad and others. Its parameter table is
+# the richest of the Slovak set: country, region, farm, grower, variety,
+# process, altitude, cupping score and cup notes are all stated.
+# "Pražiareň" names the roaster, which is the fact that matters most on a
+# multi-brand shop; there is no roaster/brand field in the model, so it is only
+# kept verbatim in raw_attributes — see the onboarding notes.
+platform = "shoptet"
+site_id = "kofi"
+name = "KOFI"
+country = "SK"
+base_url = "https://www.kofi.sk/"
+category_urls = ["https://www.kofi.sk/kava/"]
+currency = "EUR"
+max_pages = 20
+pagination = "path"
+
+ignore = [
+  "darcek",
+  "degustacn",
+  "predplatne",
+]
+
+[label_map]
+# This shop's own name for the roast the beans were built for ("Espresso",
+# "Filter", "Omni"); it feeds the roast block, whose profile is derived from it.
+"Štýl praženia" = "roast"

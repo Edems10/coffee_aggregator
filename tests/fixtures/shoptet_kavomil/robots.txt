@@ -1,0 +1,47 @@
+User-agent: *
+Content-Signal: search=yes, ai-train=no
+Disallow: /export/
+Disallow: /admin/
+Disallow: /script/
+Disallow: /api/
+Disallow: /action/
+Disallow: /*?priceMax
+Disallow: /*?priceMin
+Disallow: /*?parameterId
+Disallow: /*?order
+Disallow: /*?availabilityId
+Disallow: /*?manufacturerId
+Disallow: /*?stock
+Disallow: /*?pv*=*,
+Disallow: /*&pv*=*,
+Disallow: /*?pv*=*&pv*=
+Disallow: /*&pv*=*&pv*=
+Disallow: /*:*,*/
+Disallow: /*/?backTo=
+Disallow: /*?dd=*,
+Disallow: /*&dd=*,
+Disallow: /*?dd=*&pv*=
+Disallow: /*?pv*=*&dd=
+Disallow: /*/?letter=*
+Disallow: /vyhladavanie/
+Disallow: /kosik/
+Disallow: /login/
+Disallow: /registracia/
+Disallow: /klient/zabudnute-heslo/
+Disallow: /affiliate-registracia/
+Disallow: /affiliate-zabudnute-heslo/
+Disallow: /klient/
+Disallow: /klient/moja-objednavka/
+Disallow: /affiliate/accounts/
+Disallow: /affiliate/scripts/
+
+Disallow: /*:diskusia
+Disallow: /*:klient-hodnotenie
+Disallow: /*:moznosti-dorucenia
+Disallow: /*:otazka
+Disallow: /*:strazit-cenu
+Disallow: /*:wysiwyg
+
+
+
+Sitemap: https://www.kavomil.sk/sitemap.xml

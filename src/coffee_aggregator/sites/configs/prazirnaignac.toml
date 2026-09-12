@@ -1,0 +1,26 @@
+# Pražírna Ignác — a complete parameter table written in the shop's own
+# words, so most of the mapping below is about wording, not gaps.
+platform = "shoptet"
+site_id = "prazirnaignac"
+name = "Pražírna Ignác"
+country = "CZ"
+base_url = "https://www.prazirnaignac.cz/"
+category_urls = ["https://www.prazirnaignac.cz/cerstve-prazena-kava/"]
+currency = "CZK"
+max_pages = 20
+pagination = "path"
+
+# The category also lists things that are not whole beans.
+ignore = [
+  "degustacni box",
+]
+
+# Parameter names this shop invents that the built-in CZ/SK/EN map
+# does not already cover.
+[label_map]
+"Metoda zpracování" = "process"
+"Typ pražení" = "roast"
+"Kávová zrna" = "species"
+"Skupina chutí" = "flavor_notes"
+"Mletí zrn" = "brewing"
+"Použití" = "brewing"

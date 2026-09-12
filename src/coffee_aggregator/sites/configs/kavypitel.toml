@@ -1,0 +1,26 @@
+# Kávy pitel — a Czech family roastery near Kutná Hora, running on Shoptet.
+# Its product pages carry an unusually complete table.detail-parameters, so
+# almost everything is mapped without touching Python.
+platform = "shoptet"
+site_id = "kavypitel"
+name = "Kávy pitel"
+country = "CZ"
+base_url = "https://www.kavypitel.cz/"
+category_urls = ["https://www.kavypitel.cz/kava-z-ruznych-koutu-sveta/"]
+currency = "CZK"
+max_pages = 20
+pagination = "path"
+
+# Products the coffee category also lists but that are not beans.
+ignore = [
+  "darkova sada",
+  "darkove baleni",
+  "degustacni sada",
+  "darkovy poukaz",
+  "instantni",
+]
+
+# Labels this shop invents that the built-in CZ/SK/EN map does not know.
+[label_map]
+# "Bližší určení" is this shop's own name for the growing region.
+"Bližší určení" = "region"

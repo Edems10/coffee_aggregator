@@ -1,0 +1,31 @@
+# Rip It — a Slovak roastery on WooCommerce with the richest attribute set of
+# the survey: origin, region, variety, altitude, process, roast, tasting profile
+# and three sensory bars (Telo, Acidita, Sladkosť) all arrive as attributes.
+platform = "woocommerce"
+site_id = "ripit"
+name = "Rip It Coffee"
+country = "SK"
+base_url = "https://ripit.sk/"
+currency = "EUR"
+mode = "api"
+max_pages = 10
+
+# 16 kavy (32) is the parent of 20 espresso and 21 filter, so one id is enough.
+api_category_ids = [16]
+
+# The HTML fallback, used only if /wp-json/ ever stops answering.
+category_urls = ["https://ripit.sk/obchod/kavy/"]
+
+# The shop also sells tea, nut butters, waffles and tasting sets.
+ignore = [
+  "ochutnavk",
+  "darcek",
+  "caj",
+]
+
+[label_map]
+# "Typ" is Rip It's single-origin/blend flag, not a coffee species, and "Zdroj"
+# is a link to the importer — both would otherwise be claimed by the fuzzy
+# whole-word matcher.
+"Typ" = ""
+"Zdroj" = ""

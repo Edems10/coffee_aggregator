@@ -1,0 +1,20 @@
+# Melody Fine Roastery — a Slovak roastery on Shoptet. Its parameter table holds
+# only the variant picker, and the whole coffee passport (Farma, Región, Odroda,
+# Nadmorská výška, Spracovanie, Tóny, Skóre, Praženie, Odporúčaná príprava) is
+# written as <p><strong>Label:</strong> value</p> inside .p-short-description,
+# a block the Shoptet adapter does not read for labels. No [label_map] can fix
+# that — see the onboarding notes; the labels themselves are all standard.
+platform = "shoptet"
+site_id = "melodyroastery"
+name = "Melody Fine Roastery"
+country = "SK"
+base_url = "https://www.melodyroastery.sk/"
+category_urls = ["https://www.melodyroastery.sk/kava/"]
+currency = "EUR"
+max_pages = 20
+pagination = "path"
+
+ignore = [
+  "degustacn",
+  "darcek",
+]

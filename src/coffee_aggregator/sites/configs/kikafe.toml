@@ -1,0 +1,23 @@
+# KIKAFE — the shop lives on the shop. subdomain. It abbreviates the
+# altitude row to a bare "Výška".
+platform = "shoptet"
+site_id = "kikafe"
+name = "KIKAFE"
+country = "CZ"
+base_url = "https://shop.kikafe.cz/"
+category_urls = ["https://shop.kikafe.cz/zrnkova-kava/"]
+currency = "CZK"
+max_pages = 20
+pagination = "path"
+
+# The category also lists things that are not whole beans.
+ignore = [
+  "cascara",
+  "darkovy poukaz",
+]
+
+# Parameter names this shop invents that the built-in CZ/SK/EN map
+# does not already cover.
+[label_map]
+"Výška" = "altitude"
+"Země původu zrna" = "country"

@@ -1,0 +1,7726 @@
+[
+ {
+  "domain": "ebenica.sk",
+  "name": "Ebenica Coffee",
+  "country": "SK",
+  "api_host": "ebenica.sk",
+  "category_url": "https://ebenica.sk/kava/",
+  "robots": {
+   "status": "200",
+   "star_disallows_wp_json": true,
+   "matching_lines": [
+    "Disallow: /wp-json/"
+   ]
+  },
+  "store_api_products": {
+   "status": 200,
+   "content_type": "application/json; charset=UTF-8",
+   "x_wp_total": "137",
+   "x_wp_totalpages": "69",
+   "server": null,
+   "cloudflare": false,
+   "works": true,
+   "items_returned": 2,
+   "fields_present": {
+    "id": true,
+    "name": true,
+    "permalink": true,
+    "prices": true,
+    "attributes": true,
+    "variations": true,
+    "categories": true,
+    "tags": true,
+    "short_description": true,
+    "description": true,
+    "images": true,
+    "is_in_stock": true,
+    "sku": true,
+    "type": true,
+    "slug": true,
+    "weight": true,
+    "on_sale": true,
+    "price_html": true
+   },
+   "price_fields": [
+    "currency_code",
+    "currency_decimal_separator",
+    "currency_minor_unit",
+    "currency_prefix",
+    "currency_suffix",
+    "currency_symbol",
+    "currency_thousand_separator",
+    "price",
+    "price_range",
+    "regular_price",
+    "sale_price"
+   ],
+   "currency_code": "EUR",
+   "currency_minor_unit": 2,
+   "attributes_seen": [
+    {
+     "name": "gramáž (produkt)",
+     "taxonomy": "pa_variant-kosik",
+     "has_variations": true
+    }
+   ],
+   "products_with_attributes": 2,
+   "types": [
+    "variable"
+   ],
+   "has_variations": [
+    2,
+    2
+   ],
+   "price_range_present": [
+    true,
+    true
+   ],
+   "sku_nonempty": [
+    false,
+    false
+   ],
+   "images_count": [
+    4,
+    8
+   ],
+   "is_in_stock": [
+    true,
+    false
+   ],
+   "tags": [
+    [
+     "cukriky",
+     "grep",
+     "kakao",
+     "mandle"
+    ],
+    [
+     "bylinky",
+     "kakao",
+     "lieskovce",
+     "pomaranc"
+    ]
+   ],
+   "categories_on_products": [
+    [
+     "77:kava",
+     "694:kava-arabica-100",
+     "693:kava-do-kavovaru",
+     "747:kava-do-moka-kanvicky",
+     "721:kava-s-nizkou-aciditou",
+     "729:kolumbijska-kava",
+     "722:sladka-kava",
+     "725:vyberova-kava",
+     "691:zrnkova-kava",
+     "717:zrnkova-kava-100-arabica",
+     "718:zrnkova-kava-do-kavovaru"
+    ],
+    [
+     "726:guatemala-kava",
+     "77:kava",
+     "694:kava-arabica-100",
+     "746:kava-do-french-pressu",
+     "693:kava-do-kavovaru",
+     "745:kava-na-filter",
+     "721:kava-s-nizkou-aciditou",
+     "722:sladka-kava",
+     "725:vyberova-kava",
+     "691:zrnkova-kava",
+     "717:zrnkova-kava-100-arabica",
+     "718:zrnkova-kava-do-kavovaru"
+    ]
+   ],
+   "description_label_lines": [],
+   "desc_len": [
+    5584,
+    5035
+   ],
+   "short_desc_len": [
+    253,
+    277
+   ],
+   "sample_names": [
+    "BLEND XVII",
+    "Guatemala Onà Farm"
+   ]
+  },
+  "store_api_categories": {
+   "status": 200,
+   "x_wp_total": null,
+   "total_returned": 56,
+   "all_slugs": [
+    "aeropress",
+    "bezkofeinova-kava",
+    "mleta-kava-bez-kofeinu",
+    "brazilska-kava",
+    "cascara",
+    "poukazky-a-darceky",
+    "degustacne-balicky-kavy",
+    "dozy-na-kavu",
+    "etiopia-kava",
+    "v60-filtre",
+    "french-press-kavovar",
+    "great-taste-kava",
+    "guatemala-kava",
+    "hario",
+    "hario-mlyncek-na-kavu",
+    "hario-v60-dripper",
+    "horka-kava",
+    "kanvicky-na-mlieko",
+    "kava",
+    "kava-1kg",
+    "kava-arabica-100",
+    "kava-arabica-1kg",
+    "kava-bez-kyslosti",
+    "kava-darcekove-balenie",
+    "kava-do-french-pressu",
+    "kava-do-kavovaru",
+    "kava-do-moka-kanvicky",
+    "kava-na-filter",
+    "kava-pre-alternativne-kavovary",
+    "kava-pre-tehotne",
+    "kava-s-nizkou-aciditou",
+    "kavove-prislusenstvo",
+    "kolumbijska-kava",
+    "kubanska-kava",
+    "mleta-kava",
+    "mleta-kava-do-kavovaru",
+    "mleta-kava-na-espresso",
+    "moka-kanvicky-bialetti",
+    "papierove-filtre-na-kavu",
+    "pohare-na-kavu-so-sebou",
+    "porcelanove-salky-na-kavu",
+    "robusta-kava",
+    "rucne-mlynceky-na-kavu",
+    "salky-na-cappuccino",
+    "salky-na-espresso",
+    "salky-na-kavu",
+    "salky-s-logom-ebenica",
+    "sladka-kava",
+    "svetlo-prazena-kava",
+    "tricka-kava",
+    "vyberova-kava",
+    "zrnkova-bezkofeinova-kava",
+    "zrnkova-kava",
+    "zrnkova-kava-100-arabica",
+    "zrnkova-kava-1kg",
+    "zrnkova-kava-do-kavovaru"
+   ],
+   "coffee_categories": [
+    {
+     "id": 77,
+     "slug": "kava",
+     "name": "Káva",
+     "count": 27,
+     "parent": 0
+    },
+    {
+     "id": 78,
+     "slug": "kavove-prislusenstvo",
+     "name": "Kávové príslušenstvo",
+     "count": 26,
+     "parent": 0
+    },
+    {
+     "id": 693,
+     "slug": "kava-do-kavovaru",
+     "name": "Káva do kávovaru",
+     "count": 24,
+     "parent": 77
+    },
+    {
+     "id": 691,
+     "slug": "zrnkova-kava",
+     "name": "Zrnková káva",
+     "count": 24,
+     "parent": 77
+    },
+    {
+     "id": 718,
+     "slug": "zrnkova-kava-do-kavovaru",
+     "name": "Zrnková káva do kávovaru",
+     "count": 23,
+     "parent": 691
+    },
+    {
+     "id": 744,
+     "slug": "kava-pre-alternativne-kavovary",
+     "name": "Káva pre alternatívne kávovary",
+     "count": 22,
+     "parent": 77
+    },
+    {
+     "id": 725,
+     "slug": "vyberova-kava",
+     "name": "Výberová káva",
+     "count": 21,
+     "parent": 693
+    },
+    {
+     "id": 717,
+     "slug": "zrnkova-kava-100-arabica",
+     "name": "Zrnková káva 100% arabica",
+     "count": 20,
+     "parent": 691
+    },
+    {
+     "id": 694,
+     "slug": "kava-arabica-100",
+     "name": "Káva arabica 100%",
+     "count": 19,
+     "parent": 77
+    },
+    {
+     "id": 747,
+     "slug": "kava-do-moka-kanvicky",
+     "name": "Káva do moka kanvičky",
+     "count": 18,
+     "parent": 744
+    },
+    {
+     "id": 723,
+     "slug": "horka-kava",
+     "name": "Horká káva",
+     "count": 13,
+     "parent": 693
+    },
+    {
+     "id": 696,
+     "slug": "kava-1kg",
+     "name": "Káva 1kg",
+     "count": 13,
+     "parent": 77
+    },
+    {
+     "id": 724,
+     "slug": "kava-bez-kyslosti",
+     "name": "Káva bez kyslosti",
+     "count": 13,
+     "parent": 693
+    },
+    {
+     "id": 746,
+     "slug": "kava-do-french-pressu",
+     "name": "Káva do french pressu",
+     "count": 13,
+     "parent": 744
+    },
+    {
+     "id": 731,
+     "slug": "zrnkova-kava-1kg",
+     "name": "Zrnková káva 1kg",
+     "count": 13,
+     "parent": 696
+    },
+    {
+     "id": 697,
+     "slug": "great-taste-kava",
+     "name": "Great Taste káva",
+     "count": 12,
+     "parent": 77
+    },
+    {
+     "id": 714,
+     "slug": "kava-darcekove-balenie",
+     "name": "Káva darčekové balenia",
+     "count": 11,
+     "parent": 80
+    },
+    {
+     "id": 732,
+     "slug": "kava-arabica-1kg",
+     "name": "Káva arabica 1kg",
+     "count": 10,
+     "parent": 696
+    },
+    {
+     "id": 745,
+     "slug": "kava-na-filter",
+     "name": "Káva na filter",
+     "count": 9,
+     "parent": 744
+    },
+    {
+     "id": 721,
+     "slug": "kava-s-nizkou-aciditou",
+     "name": "Káva s nízkou aciditou",
+     "count": 9,
+     "parent": 693
+    },
+    {
+     "id": 722,
+     "slug": "sladka-kava",
+     "name": "Sladká káva",
+     "count": 9,
+     "parent": 693
+    },
+    {
+     "id": 729,
+     "slug": "kolumbijska-kava",
+     "name": "Kolumbijská káva",
+     "count": 8,
+     "parent": 694
+    },
+    {
+     "id": 692,
+     "slug": "mleta-kava",
+     "name": "Mletá káva",
+     "count": 8,
+     "parent": 77
+    },
+    {
+     "id": 719,
+     "slug": "mleta-kava-do-kavovaru",
+     "name": "Mletá káva do kávovaru",
+     "count": 8,
+     "parent": 692
+    },
+    {
+     "id": 720,
+     "slug": "mleta-kava-na-espresso",
+     "name": "Mletá káva na espresso",
+     "count": 8,
+     "parent": 692
+    },
+    {
+     "id": 713,
+     "slug": "degustacne-balicky-kavy",
+     "name": "Degustačné balíčky kávy",
+     "count": 6,
+     "parent": 80
+    },
+    {
+     "id": 698,
+     "slug": "bezkofeinova-kava",
+     "name": "Bezkofeínová káva",
+     "count": 5,
+     "parent": 0
+    },
+    {
+     "id": 727,
+     "slug": "brazilska-kava",
+     "name": "Brazílska káva",
+     "count": 5,
+     "parent": 694
+    },
+    {
+     "id": 748,
+     "slug": "svetlo-prazena-kava",
+     "name": "Svetlo pražená káva",
+     "count": 5,
+     "parent": 744
+    },
+    {
+     "id": 700,
+     "slug": "kava-pre-tehotne",
+     "name": "Káva pre tehotné",
+     "count": 4,
+     "parent": 698
+    },
+    {
+     "id": 695,
+     "slug": "robusta-kava",
+     "name": "Robusta káva",
+     "count": 4,
+     "parent": 77
+    },
+    {
+     "id": 704,
+     "slug": "salky-na-kavu",
+     "name": "Šálky na kávu",
+     "count": 4,
+     "parent": 78
+    },
+    {
+     "id": 699,
+     "slug": "zrnkova-bezkofeinova-kava",
+     "name": "Zrnková bezkofeínová káva",
+     "count": 4,
+     "parent": 698
+    },
+    {
+     "id": 701,
+     "slug": "mleta-kava-bez-kofeinu",
+     "name": "Bezkofeínová káva mletá",
+     "count": 3,
+     "parent": 698
+    },
+    {
+     "id": 728,
+     "slug": "etiopia-kava",
+     "name": "Etiópia káva",
+     "count": 3,
+     "parent": 694
+    },
+    {
+     "id": 726,
+     "slug": "guatemala-kava",
+     "name": "Guatemala káva",
+     "count": 3,
+     "parent": 694
+    },
+    {
+     "id": 712,
+     "slug": "aeropress",
+     "name": "Aeropress kávovary",
+     "count": 2,
+     "parent": 78
+    },
+    {
+     "id": 741,
+     "slug": "hario-mlyncek-na-kavu",
+     "name": "Hario mlynčeky na kávu",
+     "count": 2,
+     "parent": 709
+    },
+    {
+     "id": 738,
+     "slug": "porcelanove-salky-na-kavu",
+     "name": "Porcelánové šálky na kávu",
+     "count": 2,
+     "parent": 704
+    },
+    {
+     "id": 705,
+     "slug": "rucne-mlynceky-na-kavu",
+     "name": "Ručné mlynčeky na kávu",
+     "count": 2,
+     "parent": 78
+    },
+    {
+     "id": 735,
+     "slug": "salky-na-espresso",
+     "name": "Šálky na espresso",
+     "count": 2,
+     "parent": 704
+    },
+    {
+     "id": 703,
+     "slug": "dozy-na-kavu",
+     "name": "Dózy na kávu",
+     "count": 1,
+     "parent": 78
+    },
+    {
+     "id": 739,
+     "slug": "v60-filtre",
+     "name": "Filtre V60",
+     "count": 1,
+     "parent": 708
+    },
+    {
+     "id": 711,
+     "slug": "french-press-kavovar",
+     "name": "French press kávovary",
+     "count": 1,
+     "parent": 78
+    },
+    {
+     "id": 730,
+     "slug": "kubanska-kava",
+     "name": "Kubánska káva",
+     "count": 1,
+     "parent": 694
+    },
+    {
+     "id": 708,
+     "slug": "papierove-filtre-na-kavu",
+     "name": "Papierové filtre na kávu",
+     "count": 1,
+     "parent": 78
+    },
+    {
+     "id": 737,
+     "slug": "pohare-na-kavu-so-sebou",
+     "name": "Poháre na kávu so sebou",
+     "count": 1,
+     "parent": 704
+    },
+    {
+     "id": 715,
+     "slug": "tricka-kava",
+     "name": "Tričko &#8211; káva EBENICA",
+     "count": 1,
+     "parent": 80
+    }
+   ]
+  },
+  "attribute_coverage": "weight_or_variation_only",
+  "origin_data_source": "unstructured_or_absent",
+  "verdict": "api_ok_but_robots_disallowed",
+  "notes": "robots.txt User-agent: * has \"Disallow: /wp-json/\" - the ONLY shop that forbids the Store API. API technically returns 200 JSON but a polite adapter must fall back to HTML here. Single variation attribute \"gramáž (produkt)\" (taxonomy pa_variant-kosik); no origin attributes, no Label: value lines in the description either.",
+  "suggested_coffee_category_ids": [
+   77
+  ],
+  "suggested_coffee_categories": [
+   "77:kava(27)"
+  ]
+ },
+ {
+  "domain": "goriffee.com",
+  "name": "Goriffee Roastery",
+  "country": "SK",
+  "api_host": "www.goriffee.com",
+  "category_url": "https://www.goriffee.com/produkty/",
+  "robots": {
+   "status": "200",
+   "star_disallows_wp_json": false,
+   "matching_lines": []
+  },
+  "store_api_products": {
+   "status": 200,
+   "content_type": "application/json; charset=UTF-8",
+   "x_wp_total": "43",
+   "x_wp_totalpages": "22",
+   "server": "LiteSpeed",
+   "cloudflare": false,
+   "works": true,
+   "items_returned": 2,
+   "fields_present": {
+    "id": true,
+    "name": true,
+    "permalink": true,
+    "prices": true,
+    "attributes": true,
+    "variations": true,
+    "categories": true,
+    "tags": true,
+    "short_description": true,
+    "description": true,
+    "images": true,
+    "is_in_stock": true,
+    "sku": true,
+    "type": true,
+    "slug": true,
+    "weight": true,
+    "on_sale": true,
+    "price_html": true
+   },
+   "price_fields": [
+    "currency_code",
+    "currency_decimal_separator",
+    "currency_minor_unit",
+    "currency_prefix",
+    "currency_suffix",
+    "currency_symbol",
+    "currency_thousand_separator",
+    "price",
+    "price_range",
+    "regular_price",
+    "sale_price"
+   ],
+   "currency_code": "EUR",
+   "currency_minor_unit": 2,
+   "attributes_seen": [
+    {
+     "name": "Chuťový profil",
+     "taxonomy": "pa_chutovy-profil",
+     "has_variations": false
+    },
+    {
+     "name": "Podľa oblasti",
+     "taxonomy": "pa_podla-oblasti",
+     "has_variations": false
+    },
+    {
+     "name": "Podľa prípravy kávy",
+     "taxonomy": "pa_podla-pripravy-kavy",
+     "has_variations": false
+    },
+    {
+     "name": "Príprava kávy",
+     "taxonomy": "pa_priprava-kavy",
+     "has_variations": false
+    },
+    {
+     "name": "Stupeň praženia (Roast)",
+     "taxonomy": "pa_stupen-prazenia-roast",
+     "has_variations": true
+    },
+    {
+     "name": "Váha",
+     "taxonomy": "pa_vaha",
+     "has_variations": true
+    }
+   ],
+   "products_with_attributes": 1,
+   "types": [
+    "simple",
+    "variable"
+   ],
+   "has_variations": [
+    0,
+    2
+   ],
+   "price_range_present": [
+    false,
+    true
+   ],
+   "sku_nonempty": [
+    false,
+    true
+   ],
+   "images_count": [
+    1,
+    1
+   ],
+   "is_in_stock": [
+    true,
+    true
+   ],
+   "tags": [
+    [],
+    []
+   ],
+   "categories_on_products": [
+    [
+     "78:bezkofeinova-kava",
+     "128:vyhodne-baliky"
+    ],
+    [
+     "24:vyberova-kava-na-filter"
+    ]
+   ],
+   "description_label_lines": [],
+   "desc_len": [
+    0,
+    0
+   ],
+   "short_desc_len": [
+    1350,
+    730
+   ],
+   "sample_names": [
+    "Výhodný balík: 3x Bezkofeínová káva",
+    "Ethiopia Aricha Washed"
+   ]
+  },
+  "store_api_categories": {
+   "status": 200,
+   "x_wp_total": null,
+   "total_returned": 12,
+   "all_slugs": [
+    "bezkofeinova-kava",
+    "doplnky",
+    "kavove-kapsule",
+    "kurzy",
+    "merch",
+    "predplatne-kavy",
+    "rozpustna-kava",
+    "smaky",
+    "kava",
+    "vyberova-kava-na-espresso",
+    "vyberova-kava-na-filter",
+    "vyhodne-baliky"
+   ],
+   "coffee_categories": [
+    {
+     "id": 22,
+     "slug": "kava",
+     "name": "Výberová káva",
+     "count": 26,
+     "parent": 0
+    },
+    {
+     "id": 23,
+     "slug": "vyberova-kava-na-espresso",
+     "name": "Výberová káva na espresso",
+     "count": 10,
+     "parent": 22
+    },
+    {
+     "id": 24,
+     "slug": "vyberova-kava-na-filter",
+     "name": "Výberová káva na filter",
+     "count": 8,
+     "parent": 22
+    },
+    {
+     "id": 78,
+     "slug": "bezkofeinova-kava",
+     "name": "Bezkofeínová káva",
+     "count": 6,
+     "parent": 22
+    },
+    {
+     "id": 104,
+     "slug": "kavove-kapsule",
+     "name": "Kávové kapsule",
+     "count": 5,
+     "parent": 22
+    },
+    {
+     "id": 51,
+     "slug": "predplatne-kavy",
+     "name": "Predplatné kávy",
+     "count": 4,
+     "parent": 0
+    },
+    {
+     "id": 179,
+     "slug": "rozpustna-kava",
+     "name": "Rozpustná káva",
+     "count": 1,
+     "parent": 22
+    }
+   ]
+  },
+  "attribute_coverage": "origin_attributes",
+  "origin_data_source": "woo_attributes",
+  "verdict": "api_ok",
+  "notes": "description empty across the sample (short_description carries the copy). Coffee products do expose 6 origin attributes.",
+  "suggested_coffee_category_ids": [
+   22
+  ],
+  "suggested_coffee_categories": [
+   "22:kava(26)"
+  ]
+ },
+ {
+  "domain": "diroastery.sk",
+  "name": "Diamond's Roastery",
+  "country": "SK",
+  "api_host": "diroastery.sk",
+  "category_url": "https://diroastery.sk/kategoria-produktu/kava/",
+  "robots": {
+   "status": "200",
+   "star_disallows_wp_json": false,
+   "matching_lines": []
+  },
+  "store_api_products": {
+   "status": 200,
+   "content_type": "application/json; charset=UTF-8",
+   "x_wp_total": "57",
+   "x_wp_totalpages": "29",
+   "server": "openresty",
+   "cloudflare": false,
+   "works": true,
+   "items_returned": 2,
+   "fields_present": {
+    "id": true,
+    "name": true,
+    "permalink": true,
+    "prices": true,
+    "attributes": true,
+    "variations": true,
+    "categories": true,
+    "tags": true,
+    "short_description": true,
+    "description": true,
+    "images": true,
+    "is_in_stock": true,
+    "sku": true,
+    "type": true,
+    "slug": true,
+    "weight": true,
+    "on_sale": true,
+    "price_html": true
+   },
+   "price_fields": [
+    "currency_code",
+    "currency_decimal_separator",
+    "currency_minor_unit",
+    "currency_prefix",
+    "currency_suffix",
+    "currency_symbol",
+    "currency_thousand_separator",
+    "price",
+    "price_range",
+    "regular_price",
+    "sale_price"
+   ],
+   "currency_code": "EUR",
+   "currency_minor_unit": 2,
+   "attributes_seen": [
+    {
+     "name": "Hmotnosť",
+     "taxonomy": "pa_hmotnost",
+     "has_variations": true
+    },
+    {
+     "name": "Praženie",
+     "taxonomy": "pa_prazenie",
+     "has_variations": true
+    }
+   ],
+   "products_with_attributes": 2,
+   "types": [
+    "variable"
+   ],
+   "has_variations": [
+    8,
+    8
+   ],
+   "price_range_present": [
+    true,
+    true
+   ],
+   "sku_nonempty": [
+    false,
+    false
+   ],
+   "images_count": [
+    6,
+    7
+   ],
+   "is_in_stock": [
+    true,
+    true
+   ],
+   "tags": [
+    [
+     "cokoladova",
+     "kava",
+     "orieskova",
+     "sladka"
+    ],
+    [
+     "funky",
+     "kava",
+     "ovocna",
+     "sladka"
+    ]
+   ],
+   "categories_on_products": [
+    [
+     "44:automat-kava",
+     "45:espresso-kava",
+     "28:kava"
+    ],
+    [
+     "45:espresso-kava",
+     "27:filter",
+     "28:kava"
+    ]
+   ],
+   "description_label_lines": [],
+   "desc_len": [
+    2439,
+    2871
+   ],
+   "short_desc_len": [
+    0,
+    0
+   ],
+   "sample_names": [
+    "Mexiko Ki-Saya &#8211; zrnková káva",
+    "Kolumbia Quebraditas Chiroso &#8211; zrnková káva"
+   ]
+  },
+  "store_api_categories": {
+   "status": 200,
+   "x_wp_total": null,
+   "total_returned": 17,
+   "all_slugs": [
+    "alternativne-pripravy-kavy-obchod",
+    "automat-kava",
+    "bean-to-bar-cokolada",
+    "caje-obchod",
+    "doplnky",
+    "elektricke-mlynceky-prislusenstvo",
+    "espresso-kava",
+    "filter",
+    "filtracia-vody",
+    "kava",
+    "predplatne",
+    "kavove-predplatne",
+    "nezaradene",
+    "obchod",
+    "priprava-kavy-prislusenstvo",
+    "prislusenstvo",
+    "rucne-mlynceky-prislusenstvo"
+   ],
+   "coffee_categories": [
+    {
+     "id": 28,
+     "slug": "kava",
+     "name": "Káva",
+     "count": 14,
+     "parent": 0
+    },
+    {
+     "id": 45,
+     "slug": "espresso-kava",
+     "name": "Espresso",
+     "count": 11,
+     "parent": 28
+    },
+    {
+     "id": 41,
+     "slug": "priprava-kavy-prislusenstvo",
+     "name": "Príprava kávy",
+     "count": 11,
+     "parent": 30
+    },
+    {
+     "id": 27,
+     "slug": "filter",
+     "name": "Filter",
+     "count": 10,
+     "parent": 28
+    },
+    {
+     "id": 43,
+     "slug": "alternativne-pripravy-kavy-obchod",
+     "name": "Alternatívne prípravy kávy",
+     "count": 6,
+     "parent": 22
+    },
+    {
+     "id": 44,
+     "slug": "automat-kava",
+     "name": "Automat",
+     "count": 4,
+     "parent": 28
+    },
+    {
+     "id": 154,
+     "slug": "filtracia-vody",
+     "name": "Filtrácia vody",
+     "count": 3,
+     "parent": 30
+    },
+    {
+     "id": 21,
+     "slug": "predplatne",
+     "name": "Kávové predplatné",
+     "count": 1,
+     "parent": 0
+    },
+    {
+     "id": 42,
+     "slug": "kavove-predplatne",
+     "name": "Kávové predplatné",
+     "count": 1,
+     "parent": 22
+    }
+   ]
+  },
+  "attribute_coverage": "origin_attributes",
+  "origin_data_source": "woo_attributes",
+  "verdict": "api_ok",
+  "notes": "8 variations per product, 2 attributes (Hmotnosť, Mletie) plus tag-based flavour descriptors (cokoladova, ovocna, sladka) which are useful as tasting notes.",
+  "suggested_coffee_category_ids": [
+   28
+  ],
+  "suggested_coffee_categories": [
+   "28:kava(14)"
+  ]
+ },
+ {
+  "domain": "illimite.sk",
+  "name": "Illimité Coffee Roasters",
+  "country": "SK",
+  "api_host": "illimite.sk",
+  "category_url": "https://illimite.sk/vyberova-kava/",
+  "robots": {
+   "status": "200",
+   "star_disallows_wp_json": false,
+   "matching_lines": []
+  },
+  "store_api_products": {
+   "status": 200,
+   "content_type": "application/json; charset=UTF-8",
+   "x_wp_total": "4",
+   "x_wp_totalpages": "2",
+   "server": "cloudflare",
+   "cloudflare": true,
+   "works": true,
+   "items_returned": 2,
+   "fields_present": {
+    "id": true,
+    "name": true,
+    "permalink": true,
+    "prices": true,
+    "attributes": true,
+    "variations": true,
+    "categories": true,
+    "tags": true,
+    "short_description": true,
+    "description": true,
+    "images": true,
+    "is_in_stock": true,
+    "sku": true,
+    "type": true,
+    "slug": true,
+    "weight": true,
+    "on_sale": true,
+    "price_html": true
+   },
+   "price_fields": [
+    "currency_code",
+    "currency_decimal_separator",
+    "currency_minor_unit",
+    "currency_prefix",
+    "currency_suffix",
+    "currency_symbol",
+    "currency_thousand_separator",
+    "price",
+    "price_range",
+    "regular_price",
+    "sale_price"
+   ],
+   "currency_code": "EUR",
+   "currency_minor_unit": 2,
+   "attributes_seen": [
+    {
+     "name": "Hmotnosť",
+     "taxonomy": "pa_hmotnost",
+     "has_variations": true
+    }
+   ],
+   "products_with_attributes": 2,
+   "types": [
+    "variable"
+   ],
+   "has_variations": [
+    2,
+    2
+   ],
+   "price_range_present": [
+    true,
+    true
+   ],
+   "sku_nonempty": [
+    false,
+    false
+   ],
+   "images_count": [
+    2,
+    2
+   ],
+   "is_in_stock": [
+    true,
+    true
+   ],
+   "tags": [
+    [],
+    []
+   ],
+   "categories_on_products": [
+    [
+     "107:zrnkova-vyberova-kava"
+    ],
+    [
+     "107:zrnkova-vyberova-kava"
+    ]
+   ],
+   "description_label_lines": [
+    "Farma",
+    "Farmár",
+    "Nadmorská výška",
+    "Oblasť",
+    "Odroda",
+    "Príprava",
+    "Spracovanie"
+   ],
+   "desc_len": [
+    721,
+    635
+   ],
+   "short_desc_len": [
+    556,
+    750
+   ],
+   "sample_names": [
+    "Brasil Fazenda São Mateus",
+    "Colombia CO-25-078 Incorporate N"
+   ]
+  },
+  "store_api_categories": {
+   "status": 200,
+   "x_wp_total": null,
+   "total_returned": 1,
+   "all_slugs": [
+    "zrnkova-vyberova-kava"
+   ],
+   "coffee_categories": [
+    {
+     "id": 107,
+     "slug": "zrnkova-vyberova-kava",
+     "name": "Zrnková výberová káva",
+     "count": 4,
+     "parent": 0
+    }
+   ]
+  },
+  "attribute_coverage": "weight_or_variation_only",
+  "origin_data_source": "description_label_lines",
+  "verdict": "api_ok",
+  "notes": "Behind Cloudflare but no challenge for a plain UA (200 JSON). Only one category exists: 107 zrnkova-vyberova-kava (4 products). Origin data is in the description as Label: value lines (Farma, Farmár, Nadmorská výška, Oblasť, Odroda, Príprava, Spracovanie).",
+  "suggested_coffee_category_ids": [
+   107
+  ],
+  "suggested_coffee_categories": [
+   "107:zrnkova-vyberova-kava(4)"
+  ]
+ },
+ {
+  "domain": "goodtimes.coffee",
+  "name": "Good Times Coffee Roasters",
+  "country": "SK",
+  "api_host": "goodtimes.coffee",
+  "category_url": "https://goodtimes.coffee/obchod/",
+  "robots": {
+   "status": "200",
+   "star_disallows_wp_json": false,
+   "matching_lines": []
+  },
+  "store_api_products": {
+   "status": 200,
+   "content_type": "application/json; charset=UTF-8",
+   "x_wp_total": "3",
+   "x_wp_totalpages": "2",
+   "server": "Apache",
+   "cloudflare": false,
+   "works": true,
+   "items_returned": 2,
+   "fields_present": {
+    "id": true,
+    "name": true,
+    "permalink": true,
+    "prices": true,
+    "attributes": true,
+    "variations": true,
+    "categories": true,
+    "tags": true,
+    "short_description": true,
+    "description": true,
+    "images": true,
+    "is_in_stock": true,
+    "sku": true,
+    "type": true,
+    "slug": true,
+    "weight": true,
+    "on_sale": true,
+    "price_html": true
+   },
+   "price_fields": [
+    "currency_code",
+    "currency_decimal_separator",
+    "currency_minor_unit",
+    "currency_prefix",
+    "currency_suffix",
+    "currency_symbol",
+    "currency_thousand_separator",
+    "price",
+    "price_range",
+    "regular_price",
+    "sale_price"
+   ],
+   "currency_code": "EUR",
+   "currency_minor_unit": 2,
+   "attributes_seen": [
+    {
+     "name": "Hmotnosť",
+     "taxonomy": null,
+     "has_variations": true
+    }
+   ],
+   "products_with_attributes": 2,
+   "types": [
+    "variable"
+   ],
+   "has_variations": [
+    2,
+    2
+   ],
+   "price_range_present": [
+    true,
+    true
+   ],
+   "sku_nonempty": [
+    false,
+    false
+   ],
+   "images_count": [
+    1,
+    1
+   ],
+   "is_in_stock": [
+    true,
+    true
+   ],
+   "tags": [
+    [
+     "espresso",
+     "stredne-prazenie"
+    ],
+    [
+     "espresso",
+     "tmave-prazenie"
+    ]
+   ],
+   "categories_on_products": [
+    [
+     "47:premium"
+    ],
+    [
+     "47:premium"
+    ]
+   ],
+   "description_label_lines": [
+    "Chuťový profil",
+    "Nadmorská výška",
+    "Odporúčaná príprava",
+    "Odroda",
+    "Príprava",
+    "Región",
+    "Spracovanie",
+    "Stupeň praženia"
+   ],
+   "desc_len": [
+    2184,
+    2235
+   ],
+   "short_desc_len": [
+    447,
+    407
+   ],
+   "sample_names": [
+    "Honduras COMSA co-operative",
+    "Daily Espresso Seasonal Blend"
+   ]
+  },
+  "store_api_categories": {
+   "status": 200,
+   "x_wp_total": null,
+   "total_returned": 1,
+   "all_slugs": [
+    "premium"
+   ],
+   "coffee_categories": []
+  },
+  "attribute_coverage": "weight_or_variation_only",
+  "origin_data_source": "description_label_lines",
+  "verdict": "api_ok",
+  "notes": "Only one category exists (47 premium, 3 products) - no \"kava\" slug to filter on. Origin data is in the description as Label: value lines.",
+  "suggested_coffee_category_ids": [
+   47
+  ],
+  "suggested_coffee_categories": [
+   "47:premium(3)"
+  ]
+ },
+ {
+  "domain": "25coffee.sk",
+  "name": "25COFFEE",
+  "country": "SK",
+  "api_host": "www.25coffee.sk",
+  "category_url": "https://www.25coffee.sk/shop/",
+  "robots": {
+   "status": "200",
+   "star_disallows_wp_json": false,
+   "matching_lines": []
+  },
+  "store_api_products": {
+   "status": 200,
+   "content_type": "application/json; charset=UTF-8",
+   "x_wp_total": "9",
+   "x_wp_totalpages": "5",
+   "server": "openresty",
+   "cloudflare": false,
+   "works": true,
+   "items_returned": 2,
+   "fields_present": {
+    "id": true,
+    "name": true,
+    "permalink": true,
+    "prices": true,
+    "attributes": true,
+    "variations": true,
+    "categories": true,
+    "tags": true,
+    "short_description": true,
+    "description": true,
+    "images": true,
+    "is_in_stock": true,
+    "sku": true,
+    "type": true,
+    "slug": true,
+    "weight": false,
+    "on_sale": true,
+    "price_html": true
+   },
+   "price_fields": [
+    "currency_code",
+    "currency_decimal_separator",
+    "currency_minor_unit",
+    "currency_prefix",
+    "currency_suffix",
+    "currency_symbol",
+    "currency_thousand_separator",
+    "price",
+    "price_range",
+    "regular_price",
+    "sale_price"
+   ],
+   "currency_code": "EUR",
+   "currency_minor_unit": 2,
+   "attributes_seen": [
+    {
+     "name": "Ak by ste túto kávičku radi vyskúšali, prosím Vás vyberte si hmotnosť balenia.",
+     "taxonomy": "pa_hmotnost",
+     "has_variations": true
+    }
+   ],
+   "products_with_attributes": 2,
+   "types": [
+    "variable"
+   ],
+   "has_variations": [
+    3,
+    3
+   ],
+   "price_range_present": [
+    true,
+    true
+   ],
+   "sku_nonempty": [
+    false,
+    false
+   ],
+   "images_count": [
+    1,
+    1
+   ],
+   "is_in_stock": [
+    true,
+    true
+   ],
+   "tags": [
+    [
+     "prazena-zrnkova-kava"
+    ],
+    [
+     "prazena-zrnkova-kava"
+    ]
+   ],
+   "categories_on_products": [
+    [],
+    []
+   ],
+   "description_label_lines": [
+    "Chuť",
+    "Colombia Huila je zložením",
+    "Krajina pôvodu",
+    "Odroda",
+    "Pôvod kávy",
+    "Región",
+    "Spracovanie",
+    "Zber"
+   ],
+   "desc_len": [
+    1606,
+    1554
+   ],
+   "short_desc_len": [
+    1362,
+    1533
+   ],
+   "sample_names": [
+    "Colombia Huila",
+    "Rwanda Humure"
+   ]
+  },
+  "store_api_categories": {
+   "status": 200,
+   "x_wp_total": null,
+   "total_returned": 4,
+   "all_slugs": [
+    "zrnkova-kava-100-arabica",
+    "nase-vlastne-zmesi",
+    "zrnkova-bezkofeinova-kava",
+    "cascara"
+   ],
+   "coffee_categories": [
+    {
+     "id": 23,
+     "slug": "zrnkova-kava-100-arabica",
+     "name": "Zrnková káva 100% Arabica",
+     "count": 6,
+     "parent": 0
+    },
+    {
+     "id": 27,
+     "slug": "zrnkova-bezkofeinova-kava",
+     "name": "Zrnková bezkofeinová káva",
+     "count": 1,
+     "parent": 0
+    }
+   ]
+  },
+  "attribute_coverage": "weight_or_variation_only",
+  "origin_data_source": "description_label_lines",
+  "verdict": "api_ok",
+  "notes": "Category slugs are grind/type based (zrnkova-kava-100-arabica, zrnkova-bezkofeinova-kava, nase-vlastne-zmesi, cascara). Origin data in description Label: value lines.",
+  "suggested_coffee_category_ids": [
+   23,
+   25,
+   27
+  ],
+  "suggested_coffee_categories": [
+   "23:zrnkova-kava-100-arabica(6)",
+   "25:nase-vlastne-zmesi(1)",
+   "27:zrnkova-bezkofeinova-kava(1)"
+  ]
+ },
+ {
+  "domain": "caffe4u.sk",
+  "name": "Caffe4U",
+  "country": "SK",
+  "api_host": "caffe4u.sk",
+  "category_url": "https://caffe4u.sk/eshop/",
+  "robots": {
+   "status": "200",
+   "star_disallows_wp_json": false,
+   "matching_lines": []
+  },
+  "store_api_products": {
+   "status": 200,
+   "content_type": "application/json; charset=UTF-8",
+   "x_wp_total": "70",
+   "x_wp_totalpages": "35",
+   "server": "LiteSpeed",
+   "cloudflare": false,
+   "works": true,
+   "items_returned": 2,
+   "fields_present": {
+    "id": true,
+    "name": true,
+    "permalink": true,
+    "prices": true,
+    "attributes": true,
+    "variations": true,
+    "categories": true,
+    "tags": true,
+    "short_description": true,
+    "description": true,
+    "images": true,
+    "is_in_stock": true,
+    "sku": true,
+    "type": true,
+    "slug": true,
+    "weight": false,
+    "on_sale": true,
+    "price_html": true
+   },
+   "price_fields": [
+    "currency_code",
+    "currency_decimal_separator",
+    "currency_minor_unit",
+    "currency_prefix",
+    "currency_suffix",
+    "currency_symbol",
+    "currency_thousand_separator",
+    "price",
+    "price_range",
+    "regular_price",
+    "sale_price"
+   ],
+   "currency_code": "EUR",
+   "currency_minor_unit": 2,
+   "attributes_seen": [
+    {
+     "name": "Chuťový profil",
+     "taxonomy": "pa_chutovy-profil",
+     "has_variations": false
+    },
+    {
+     "name": "Decaf - bez kofeínu",
+     "taxonomy": "pa_decaf-bez-kofeinu",
+     "has_variations": false
+    },
+    {
+     "name": "Druh kávy",
+     "taxonomy": "pa_druh-kavy",
+     "has_variations": false
+    },
+    {
+     "name": "Hmotnosť",
+     "taxonomy": "pa_hmotnost",
+     "has_variations": true
+    },
+    {
+     "name": "Klasifikácia kávy",
+     "taxonomy": "pa_klasifikacia-kavy",
+     "has_variations": false
+    },
+    {
+     "name": "Krajina pôvodu",
+     "taxonomy": "pa_krajina-povodu",
+     "has_variations": false
+    },
+    {
+     "name": "Kyslosť kávy",
+     "taxonomy": "pa_kyslost-kavy",
+     "has_variations": false
+    },
+    {
+     "name": "Nadmorská výška",
+     "taxonomy": "pa_nadmorska-vyska",
+     "has_variations": false
+    },
+    {
+     "name": "Nepražená káva",
+     "taxonomy": "pa_neprazena-kava",
+     "has_variations": false
+    },
+    {
+     "name": "Obdobie zberu",
+     "taxonomy": "pa_obdobie-zberu",
+     "has_variations": false
+    },
+    {
+     "name": "Odporúčaný spôsob prípravy",
+     "taxonomy": "pa_odporucany-sposob-pripravy",
+     "has_variations": false
+    },
+    {
+     "name": "Odroda alebo varieta",
+     "taxonomy": "pa_odroda-alebo-varieta",
+     "has_variations": false
+    },
+    {
+     "name": "Skóre kvality",
+     "taxonomy": "pa_skore-kvality",
+     "has_variations": false
+    },
+    {
+     "name": "Spôsob spracovania",
+     "taxonomy": "pa_sposob-spracovania",
+     "has_variations": false
+    },
+    {
+     "name": "Stupeň praženia",
+     "taxonomy": "pa_stupen-prazenia",
+     "has_variations": false
+    },
+    {
+     "name": "Typ kávy",
+     "taxonomy": "pa_typ-kavy",
+     "has_variations": false
+    }
+   ],
+   "products_with_attributes": 2,
+   "types": [
+    "variable"
+   ],
+   "has_variations": [
+    2,
+    2
+   ],
+   "price_range_present": [
+    true,
+    true
+   ],
+   "sku_nonempty": [
+    true,
+    true
+   ],
+   "images_count": [
+    1,
+    3
+   ],
+   "is_in_stock": [
+    true,
+    true
+   ],
+   "tags": [
+    [],
+    []
+   ],
+   "categories_on_products": [
+    [
+     "17:prazena-zrnkova-kava",
+     "32:blendy-zmesi",
+     "27:novinky-prazena-kava",
+     "9003241321018644:prazena-kava"
+    ],
+    [
+     "17:prazena-zrnkova-kava",
+     "32:blendy-zmesi",
+     "27:novinky-prazena-kava",
+     "9003241321018644:prazena-kava"
+    ]
+   ],
+   "description_label_lines": [
+    "Zloženie podľa druhu",
+    "Zloženie podľa pôvodu zrniek"
+   ],
+   "desc_len": [
+    475,
+    419
+   ],
+   "short_desc_len": [
+    0,
+    0
+   ],
+   "sample_names": [
+    "BUDÍČEK",
+    "OBEDNÁ PAUZIČKA"
+   ]
+  },
+  "store_api_categories": {
+   "status": 200,
+   "x_wp_total": null,
+   "total_returned": 13,
+   "all_slugs": [
+    "akciove-kavy",
+    "bez-kofeinu-decaf",
+    "blendy-zmesi",
+    "kavove-sety-a-balicky",
+    "limitovane-zrnkove-kavy",
+    "novinky-prazena-kava",
+    "novinky-zelena-kava",
+    "prazena-kava",
+    "prazena-zrnkova-kava",
+    "prislusenstvo-ku-kave",
+    "zelena-kava",
+    "zelena-mleta-kava",
+    "zelena-zrnkova-kava"
+   ],
+   "coffee_categories": [
+    {
+     "id": 9003241321018644,
+     "slug": "prazena-kava",
+     "name": "Pražená káva",
+     "count": 45,
+     "parent": 0
+    },
+    {
+     "id": 17,
+     "slug": "prazena-zrnkova-kava",
+     "name": "Pražená zrnková káva",
+     "count": 45,
+     "parent": 9003241321018644
+    },
+    {
+     "id": 27,
+     "slug": "novinky-prazena-kava",
+     "name": "Novinky pražená káva",
+     "count": 31,
+     "parent": 17
+    },
+    {
+     "id": 360,
+     "slug": "limitovane-zrnkove-kavy",
+     "name": "Limitované zrnkové kávy",
+     "count": 30,
+     "parent": 17
+    },
+    {
+     "id": 9003241321018596,
+     "slug": "zelena-kava",
+     "name": "Zelená káva",
+     "count": 22,
+     "parent": 0
+    },
+    {
+     "id": 33,
+     "slug": "akciove-kavy",
+     "name": "Akciové kávy",
+     "count": 21,
+     "parent": 0
+    },
+    {
+     "id": 18,
+     "slug": "zelena-zrnkova-kava",
+     "name": "Zelená zrnková káva",
+     "count": 17,
+     "parent": 9003241321018596
+    },
+    {
+     "id": 28,
+     "slug": "novinky-zelena-kava",
+     "name": "Novinky zelená káva",
+     "count": 8,
+     "parent": 9003241321018596
+    },
+    {
+     "id": 300,
+     "slug": "kavove-sety-a-balicky",
+     "name": "Kávové sety a balíčky",
+     "count": 7,
+     "parent": 0
+    },
+    {
+     "id": 32,
+     "slug": "blendy-zmesi",
+     "name": "Blendy / Zmesi",
+     "count": 6,
+     "parent": 17
+    },
+    {
+     "id": 19,
+     "slug": "zelena-mleta-kava",
+     "name": "Zelená mletá káva",
+     "count": 5,
+     "parent": 9003241321018596
+    },
+    {
+     "id": 20,
+     "slug": "prislusenstvo-ku-kave",
+     "name": "Príslušenstvo ku káve",
+     "count": 3,
+     "parent": 0
+    },
+    {
+     "id": 9003241321018666,
+     "slug": "bez-kofeinu-decaf",
+     "name": "Bez kofeínu (Decaf)",
+     "count": 1,
+     "parent": 0
+    }
+   ]
+  },
+  "attribute_coverage": "origin_attributes",
+  "origin_data_source": "woo_attributes",
+  "verdict": "api_ok",
+  "notes": "Category endpoint returns duplicate entries with 16-digit synthetic ids (e.g. 9003241321018644 prazena-kava alongside 17 prazena-zrnkova-kava, both count 45) - a plugin injects virtual terms. Prefer the small integer ids. Richest attribute set of the survey (16 attributes incl. Kyslosť kávy, Horkosť kávy, Zloženie kávy).",
+  "suggested_coffee_category_ids": [
+   17
+  ],
+  "suggested_coffee_categories": [
+   "17:prazena-zrnkova-kava(45)"
+  ]
+ },
+ {
+  "domain": "trinitybeans.sk",
+  "name": "Trinity Beans",
+  "country": "SK",
+  "api_host": "www.trinitybeans.sk",
+  "category_url": "https://www.trinitybeans.sk/obchod/",
+  "robots": {
+   "status": "200",
+   "star_disallows_wp_json": false,
+   "matching_lines": []
+  },
+  "store_api_products": {
+   "status": 200,
+   "content_type": "application/json; charset=UTF-8",
+   "x_wp_total": "17",
+   "x_wp_totalpages": "9",
+   "server": "openresty",
+   "cloudflare": false,
+   "works": true,
+   "items_returned": 2,
+   "fields_present": {
+    "id": true,
+    "name": true,
+    "permalink": true,
+    "prices": true,
+    "attributes": true,
+    "variations": true,
+    "categories": true,
+    "tags": true,
+    "short_description": true,
+    "description": true,
+    "images": true,
+    "is_in_stock": true,
+    "sku": true,
+    "type": true,
+    "slug": true,
+    "weight": false,
+    "on_sale": true,
+    "price_html": true
+   },
+   "price_fields": [
+    "currency_code",
+    "currency_decimal_separator",
+    "currency_minor_unit",
+    "currency_prefix",
+    "currency_suffix",
+    "currency_symbol",
+    "currency_thousand_separator",
+    "price",
+    "price_range",
+    "regular_price",
+    "sale_price"
+   ],
+   "currency_code": "EUR",
+   "currency_minor_unit": 2,
+   "attributes_seen": [
+    {
+     "name": "Balenie",
+     "taxonomy": null,
+     "has_variations": false
+    },
+    {
+     "name": "Farma",
+     "taxonomy": null,
+     "has_variations": false
+    },
+    {
+     "name": "Farmár",
+     "taxonomy": null,
+     "has_variations": false
+    },
+    {
+     "name": "Nadmorská výška",
+     "taxonomy": null,
+     "has_variations": false
+    },
+    {
+     "name": "Odroda",
+     "taxonomy": null,
+     "has_variations": false
+    },
+    {
+     "name": "Plantáž / farmár",
+     "taxonomy": null,
+     "has_variations": false
+    },
+    {
+     "name": "Použitie",
+     "taxonomy": null,
+     "has_variations": false
+    },
+    {
+     "name": "Praženie",
+     "taxonomy": null,
+     "has_variations": false
+    },
+    {
+     "name": "Región",
+     "taxonomy": null,
+     "has_variations": false
+    },
+    {
+     "name": "Spracovanie",
+     "taxonomy": null,
+     "has_variations": false
+    },
+    {
+     "name": "Spôsob spracovania",
+     "taxonomy": null,
+     "has_variations": false
+    }
+   ],
+   "products_with_attributes": 2,
+   "types": [
+    "simple"
+   ],
+   "has_variations": [
+    0,
+    0
+   ],
+   "price_range_present": [
+    false,
+    false
+   ],
+   "sku_nonempty": [
+    false,
+    false
+   ],
+   "images_count": [
+    3,
+    1
+   ],
+   "is_in_stock": [
+    true,
+    true
+   ],
+   "tags": [
+    [],
+    []
+   ],
+   "categories_on_products": [
+    [
+     "50:espresso",
+     "37:filter"
+    ],
+    []
+   ],
+   "description_label_lines": [],
+   "desc_len": [
+    1340,
+    980
+   ],
+   "short_desc_len": [
+    91,
+    128
+   ],
+   "sample_names": [
+    "Coffee dripbags",
+    "Cascara &#8211; Hacienda Sonora"
+   ]
+  },
+  "store_api_categories": {
+   "status": 200,
+   "x_wp_total": null,
+   "total_returned": 3,
+   "all_slugs": [
+    "espresso",
+    "filter",
+    "nezaradene"
+   ],
+   "coffee_categories": [
+    {
+     "id": 50,
+     "slug": "espresso",
+     "name": "Espresso",
+     "count": 10,
+     "parent": 0
+    },
+    {
+     "id": 37,
+     "slug": "filter",
+     "name": "Filter",
+     "count": 6,
+     "parent": 0
+    }
+   ]
+  },
+  "attribute_coverage": "origin_attributes",
+  "origin_data_source": "woo_attributes",
+  "verdict": "api_ok",
+  "notes": "28-field (older) schema, simple products only, 11 attributes incl. Skóre kvality, Obdobie zberu, Klasifikácia kávy.",
+  "suggested_coffee_category_ids": [
+   50,
+   37
+  ],
+  "suggested_coffee_categories": [
+   "50:espresso(10)",
+   "37:filter(6)"
+  ]
+ },
+ {
+  "domain": "kaan.sk",
+  "name": "Kaan Roastery",
+  "country": "SK",
+  "api_host": "kaan.sk",
+  "category_url": "https://kaan.sk/kategoria/kava/",
+  "robots": {
+   "status": "200",
+   "star_disallows_wp_json": false,
+   "matching_lines": []
+  },
+  "store_api_products": {
+   "status": 200,
+   "content_type": "application/json; charset=UTF-8",
+   "x_wp_total": "76",
+   "x_wp_totalpages": "38",
+   "server": "nginx/1.18.0 (Ubuntu)",
+   "cloudflare": false,
+   "works": true,
+   "items_returned": 2,
+   "fields_present": {
+    "id": true,
+    "name": true,
+    "permalink": true,
+    "prices": true,
+    "attributes": true,
+    "variations": true,
+    "categories": true,
+    "tags": true,
+    "short_description": true,
+    "description": true,
+    "images": true,
+    "is_in_stock": true,
+    "sku": true,
+    "type": true,
+    "slug": true,
+    "weight": true,
+    "on_sale": true,
+    "price_html": true
+   },
+   "price_fields": [
+    "currency_code",
+    "currency_decimal_separator",
+    "currency_minor_unit",
+    "currency_prefix",
+    "currency_suffix",
+    "currency_symbol",
+    "currency_thousand_separator",
+    "price",
+    "price_range",
+    "regular_price",
+    "sale_price"
+   ],
+   "currency_code": "EUR",
+   "currency_minor_unit": 2,
+   "attributes_seen": [
+    {
+     "name": "Doplnky",
+     "taxonomy": "pa_doplnky",
+     "has_variations": false
+    },
+    {
+     "name": "Doplnky",
+     "taxonomy": "pa_doplnky",
+     "has_variations": true
+    },
+    {
+     "name": "Veľkosť drippera",
+     "taxonomy": "pa_velkost-dripper",
+     "has_variations": true
+    }
+   ],
+   "products_with_attributes": 2,
+   "types": [
+    "simple"
+   ],
+   "has_variations": [
+    0,
+    0
+   ],
+   "price_range_present": [
+    false,
+    false
+   ],
+   "sku_nonempty": [
+    true,
+    true
+   ],
+   "images_count": [
+    2,
+    2
+   ],
+   "is_in_stock": [
+    true,
+    true
+   ],
+   "tags": [
+    [],
+    []
+   ],
+   "categories_on_products": [
+    [
+     "53:baristicke-pomocky",
+     "33:doplnky"
+    ],
+    [
+     "53:baristicke-pomocky",
+     "33:doplnky"
+    ]
+   ],
+   "description_label_lines": [],
+   "desc_len": [
+    688,
+    807
+   ],
+   "short_desc_len": [
+    135,
+    219
+   ],
+   "sample_names": [
+    "Papierové filtre pre Fellow Aiden &#8211; 50 ks",
+    "Digitálna váha Timemore Mini čierna"
+   ]
+  },
+  "store_api_categories": {
+   "status": 200,
+   "x_wp_total": null,
+   "total_returned": 8,
+   "all_slugs": [
+    "baristicke-pomocky",
+    "blendy",
+    "doplnky",
+    "jednodruhove-kavy",
+    "kava",
+    "kavy-na-hompage",
+    "tip-na-filter",
+    "vzorkovy-balicek"
+   ],
+   "coffee_categories": [
+    {
+     "id": 20,
+     "slug": "kava",
+     "name": "Káva",
+     "count": 17,
+     "parent": 0
+    },
+    {
+     "id": 52,
+     "slug": "jednodruhove-kavy",
+     "name": "Jednodruhové kávy",
+     "count": 13,
+     "parent": 0
+    },
+    {
+     "id": 21,
+     "slug": "kavy-na-hompage",
+     "name": "Kávy na homepage",
+     "count": 7,
+     "parent": 0
+    },
+    {
+     "id": 51,
+     "slug": "blendy",
+     "name": "Blendy",
+     "count": 4,
+     "parent": 0
+    },
+    {
+     "id": 49,
+     "slug": "tip-na-filter",
+     "name": "Tip na filter",
+     "count": 1,
+     "parent": 0
+    }
+   ]
+  },
+  "attribute_coverage": "weight_or_variation_only",
+  "origin_data_source": "unstructured_or_absent",
+  "verdict": "api_ok",
+  "notes": "Simple products with real SKUs; X-WP-Total 76 for a shop the first wave counted at 17 coffees - the API total covers the whole catalogue incl. variations/other types.",
+  "suggested_coffee_category_ids": [
+   20
+  ],
+  "suggested_coffee_categories": [
+   "20:kava(17)"
+  ]
+ },
+ {
+  "domain": "zarno.sk",
+  "name": "Zarno",
+  "country": "SK",
+  "api_host": "zarno.sk",
+  "category_url": "https://zarno.sk/obchod/",
+  "robots": {
+   "status": "200",
+   "star_disallows_wp_json": false,
+   "matching_lines": []
+  },
+  "store_api_products": {
+   "status": 200,
+   "content_type": "application/json; charset=UTF-8",
+   "x_wp_total": "8",
+   "x_wp_totalpages": "4",
+   "server": "openresty",
+   "cloudflare": false,
+   "works": true,
+   "items_returned": 2,
+   "fields_present": {
+    "id": true,
+    "name": true,
+    "permalink": true,
+    "prices": true,
+    "attributes": true,
+    "variations": true,
+    "categories": true,
+    "tags": true,
+    "short_description": true,
+    "description": true,
+    "images": true,
+    "is_in_stock": true,
+    "sku": true,
+    "type": true,
+    "slug": true,
+    "weight": true,
+    "on_sale": true,
+    "price_html": true
+   },
+   "price_fields": [
+    "currency_code",
+    "currency_decimal_separator",
+    "currency_minor_unit",
+    "currency_prefix",
+    "currency_suffix",
+    "currency_symbol",
+    "currency_thousand_separator",
+    "price",
+    "price_range",
+    "regular_price",
+    "sale_price"
+   ],
+   "currency_code": "EUR",
+   "currency_minor_unit": 2,
+   "attributes_seen": [
+    {
+     "name": "Hmotnosť",
+     "taxonomy": "pa_hmotnost",
+     "has_variations": true
+    }
+   ],
+   "products_with_attributes": 2,
+   "types": [
+    "variable"
+   ],
+   "has_variations": [
+    3,
+    3
+   ],
+   "price_range_present": [
+    true,
+    true
+   ],
+   "sku_nonempty": [
+    false,
+    false
+   ],
+   "images_count": [
+    1,
+    1
+   ],
+   "is_in_stock": [
+    true,
+    true
+   ],
+   "tags": [
+    [],
+    []
+   ],
+   "categories_on_products": [
+    [
+     "25:zmes"
+    ],
+    [
+     "25:zmes"
+    ]
+   ],
+   "description_label_lines": [],
+   "desc_len": [
+    274,
+    678
+   ],
+   "short_desc_len": [
+    97,
+    97
+   ],
+   "sample_names": [
+    "TRIO Arabica Espresso Blend",
+    "TRIO Espresso Blend"
+   ]
+  },
+  "store_api_categories": {
+   "status": 200,
+   "x_wp_total": null,
+   "total_returned": 4,
+   "all_slugs": [
+    "arabica",
+    "nezaradena",
+    "robusta",
+    "zmes"
+   ],
+   "coffee_categories": []
+  },
+  "attribute_coverage": "weight_or_variation_only",
+  "origin_data_source": "unstructured_or_absent",
+  "verdict": "api_ok",
+  "notes": "No coffee-named categories at all: arabica(4), robusta(3), zmes(4), nezaradena(1). Category filtering must be per-shop configured.",
+  "suggested_coffee_category_ids": [
+   20,
+   21,
+   25
+  ],
+  "suggested_coffee_categories": [
+   "20:arabica(4)",
+   "21:robusta(3)",
+   "25:zmes(4)"
+  ]
+ },
+ {
+  "domain": "sweetbeans.coffee",
+  "name": "Sweet Beans Coffee Roastery",
+  "country": "SK",
+  "api_host": "www.sweetbeans.coffee",
+  "category_url": "https://www.sweetbeans.coffee/shop/",
+  "robots": {
+   "status": "200",
+   "star_disallows_wp_json": false,
+   "matching_lines": []
+  },
+  "store_api_products": {
+   "status": 200,
+   "content_type": "application/json; charset=UTF-8",
+   "x_wp_total": "68",
+   "x_wp_totalpages": "34",
+   "server": "openresty",
+   "cloudflare": false,
+   "works": true,
+   "items_returned": 2,
+   "fields_present": {
+    "id": true,
+    "name": true,
+    "permalink": true,
+    "prices": true,
+    "attributes": true,
+    "variations": true,
+    "categories": true,
+    "tags": true,
+    "short_description": true,
+    "description": true,
+    "images": true,
+    "is_in_stock": true,
+    "sku": true,
+    "type": true,
+    "slug": true,
+    "weight": true,
+    "on_sale": true,
+    "price_html": true
+   },
+   "price_fields": [
+    "currency_code",
+    "currency_decimal_separator",
+    "currency_minor_unit",
+    "currency_prefix",
+    "currency_suffix",
+    "currency_symbol",
+    "currency_thousand_separator",
+    "price",
+    "price_range",
+    "regular_price",
+    "sale_price"
+   ],
+   "currency_code": "EUR",
+   "currency_minor_unit": 2,
+   "attributes_seen": [
+    {
+     "name": "weight",
+     "taxonomy": "pa_weight",
+     "has_variations": true
+    }
+   ],
+   "products_with_attributes": 2,
+   "types": [
+    "variable"
+   ],
+   "has_variations": [
+    2,
+    3
+   ],
+   "price_range_present": [
+    true,
+    true
+   ],
+   "sku_nonempty": [
+    false,
+    false
+   ],
+   "images_count": [
+    1,
+    1
+   ],
+   "is_in_stock": [
+    true,
+    true
+   ],
+   "tags": [
+    [],
+    []
+   ],
+   "categories_on_products": [
+    [
+     "30:coffee-beans",
+     "241:fruitfermentations",
+     "33:new-coffee",
+     "34:unique-beans"
+    ],
+    [
+     "30:coffee-beans",
+     "250:expo",
+     "33:new-coffee",
+     "34:unique-beans"
+    ]
+   ],
+   "description_label_lines": [
+    "Altitude",
+    "Location",
+    "Primary flavour note",
+    "Process",
+    "Producer",
+    "Varieties"
+   ],
+   "desc_len": [
+    1358,
+    2269
+   ],
+   "short_desc_len": [
+    690,
+    1042
+   ],
+   "sample_names": [
+    "Colombia Jairo Arcila | Cherry",
+    "Colombia Jorge Rojas x natural gesha"
+   ]
+  },
+  "store_api_categories": {
+   "status": 200,
+   "x_wp_total": null,
+   "total_returned": 16,
+   "all_slugs": [
+    "coffee-cups",
+    "coffee-beans",
+    "drip-coffee",
+    "equipment",
+    "expo",
+    "for-espresso",
+    "fruitfermentations",
+    "nespresso",
+    "new-coffee",
+    "nezaradene",
+    "origami",
+    "paper-filters",
+    "specialty-beans",
+    "spring-sale",
+    "sweet-merch",
+    "unique-beans"
+   ],
+   "coffee_categories": [
+    {
+     "id": 30,
+     "slug": "coffee-beans",
+     "name": "COFFEE BEANS",
+     "count": 31,
+     "parent": 0
+    },
+    {
+     "id": 33,
+     "slug": "new-coffee",
+     "name": "new coffee",
+     "count": 14,
+     "parent": 30
+    },
+    {
+     "id": 34,
+     "slug": "unique-beans",
+     "name": "unique beans",
+     "count": 14,
+     "parent": 30
+    },
+    {
+     "id": 31,
+     "slug": "specialty-beans",
+     "name": "specialty beans",
+     "count": 12,
+     "parent": 30
+    },
+    {
+     "id": 246,
+     "slug": "coffee-cups",
+     "name": "Barista Coffee Cups",
+     "count": 6,
+     "parent": 0
+    },
+    {
+     "id": 36,
+     "slug": "paper-filters",
+     "name": "paper filters",
+     "count": 6,
+     "parent": 35
+    },
+    {
+     "id": 32,
+     "slug": "for-espresso",
+     "name": "for espresso",
+     "count": 5,
+     "parent": 30
+    },
+    {
+     "id": 69,
+     "slug": "drip-coffee",
+     "name": "Drip Coffee",
+     "count": 3,
+     "parent": 0
+    },
+    {
+     "id": 244,
+     "slug": "nespresso",
+     "name": "Nespresso",
+     "count": 3,
+     "parent": 0
+    }
+   ]
+  },
+  "attribute_coverage": "weight_or_variation_only",
+  "origin_data_source": "description_label_lines",
+  "verdict": "api_ok",
+  "notes": "English-language shop (EN label lines: Altitude, Process, Producer, Varieties, Location) though it is an SK roaster; categories in English (coffee-beans 31, specialty-beans 12).",
+  "suggested_coffee_category_ids": [
+   30
+  ],
+  "suggested_coffee_categories": [
+   "30:coffee-beans(31)"
+  ]
+ },
+ {
+  "domain": "spiritcoffee.sk",
+  "name": "Spirit Coffee",
+  "country": "SK",
+  "api_host": "spiritcoffee.sk",
+  "category_url": "https://spiritcoffee.sk/c/kava/",
+  "robots": {
+   "status": "200",
+   "star_disallows_wp_json": false,
+   "matching_lines": []
+  },
+  "store_api_products": {
+   "status": 200,
+   "content_type": "application/json; charset=UTF-8",
+   "x_wp_total": "23",
+   "x_wp_totalpages": "12",
+   "server": "openresty",
+   "cloudflare": false,
+   "works": true,
+   "items_returned": 2,
+   "fields_present": {
+    "id": true,
+    "name": true,
+    "permalink": true,
+    "prices": true,
+    "attributes": true,
+    "variations": true,
+    "categories": true,
+    "tags": true,
+    "short_description": true,
+    "description": true,
+    "images": true,
+    "is_in_stock": true,
+    "sku": true,
+    "type": true,
+    "slug": true,
+    "weight": true,
+    "on_sale": true,
+    "price_html": true
+   },
+   "price_fields": [
+    "currency_code",
+    "currency_decimal_separator",
+    "currency_minor_unit",
+    "currency_prefix",
+    "currency_suffix",
+    "currency_symbol",
+    "currency_thousand_separator",
+    "price",
+    "price_range",
+    "regular_price",
+    "sale_price"
+   ],
+   "currency_code": "EUR",
+   "currency_minor_unit": 2,
+   "attributes_seen": [
+    {
+     "name": "Hmotnosť:",
+     "taxonomy": "pa_hmotnost",
+     "has_variations": true
+    }
+   ],
+   "products_with_attributes": 1,
+   "types": [
+    "simple"
+   ],
+   "has_variations": [
+    0,
+    0
+   ],
+   "price_range_present": [
+    false,
+    false
+   ],
+   "sku_nonempty": [
+    false,
+    false
+   ],
+   "images_count": [
+    1,
+    1
+   ],
+   "is_in_stock": [
+    true,
+    true
+   ],
+   "tags": [
+    [
+     "kavovy-blend"
+    ],
+    []
+   ],
+   "categories_on_products": [
+    [
+     "53:kava"
+    ],
+    [
+     "55:prislusenstvo"
+    ]
+   ],
+   "description_label_lines": [
+    "Chuť",
+    "Dozvuk",
+    "Odporúčaný začiatok",
+    "Praženie",
+    "výška"
+   ],
+   "desc_len": [
+    1864,
+    94
+   ],
+   "short_desc_len": [
+    225,
+    780
+   ],
+   "sample_names": [
+    "FLOW 01",
+    "Podložka pod pohár"
+   ]
+  },
+  "store_api_categories": {
+   "status": 200,
+   "x_wp_total": null,
+   "total_returned": 4,
+   "all_slugs": [
+    "kava",
+    "kavove-sety",
+    "prislusenstvo",
+    "spirit-plus"
+   ],
+   "coffee_categories": [
+    {
+     "id": 53,
+     "slug": "kava",
+     "name": "Káva",
+     "count": 10,
+     "parent": 0
+    },
+    {
+     "id": 54,
+     "slug": "kavove-sety",
+     "name": "Kávové sety",
+     "count": 3,
+     "parent": 0
+    }
+   ]
+  },
+  "attribute_coverage": "weight_or_variation_only",
+  "origin_data_source": "description_label_lines",
+  "verdict": "api_ok",
+  "notes": "Simple products only; second sampled product has a 94-char description. Label lines present (Chuť, Dozvuk, Praženie, výška).",
+  "suggested_coffee_category_ids": [
+   53
+  ],
+  "suggested_coffee_categories": [
+   "53:kava(10)"
+  ]
+ },
+ {
+  "domain": "industra.coffee",
+  "name": "Industra Coffee",
+  "country": "CZ",
+  "api_host": "industra.coffee",
+  "category_url": "https://industra.coffee/obchod/",
+  "robots": {
+   "status": "200",
+   "star_disallows_wp_json": false,
+   "matching_lines": []
+  },
+  "store_api_products": {
+   "status": 200,
+   "content_type": "application/json; charset=UTF-8",
+   "x_wp_total": "189",
+   "x_wp_totalpages": "95",
+   "server": "nginx",
+   "cloudflare": false,
+   "works": true,
+   "items_returned": 2,
+   "fields_present": {
+    "id": true,
+    "name": true,
+    "permalink": true,
+    "prices": true,
+    "attributes": true,
+    "variations": true,
+    "categories": true,
+    "tags": true,
+    "short_description": true,
+    "description": true,
+    "images": true,
+    "is_in_stock": true,
+    "sku": true,
+    "type": true,
+    "slug": true,
+    "weight": true,
+    "on_sale": true,
+    "price_html": true
+   },
+   "price_fields": [
+    "currency_code",
+    "currency_decimal_separator",
+    "currency_minor_unit",
+    "currency_prefix",
+    "currency_suffix",
+    "currency_symbol",
+    "currency_thousand_separator",
+    "price",
+    "price_range",
+    "regular_price",
+    "sale_price"
+   ],
+   "currency_code": "CZK",
+   "currency_minor_unit": 2,
+   "attributes_seen": [],
+   "products_with_attributes": 0,
+   "types": [
+    "simple"
+   ],
+   "has_variations": [
+    0,
+    0
+   ],
+   "price_range_present": [
+    false,
+    false
+   ],
+   "sku_nonempty": [
+    false,
+    false
+   ],
+   "images_count": [
+    7,
+    7
+   ],
+   "is_in_stock": [
+    true,
+    true
+   ],
+   "tags": [
+    [
+     "new"
+    ],
+    [
+     "novinka"
+    ]
+   ],
+   "categories_on_products": [
+    [
+     "541:merch"
+    ],
+    [
+     "77:merch"
+    ]
+   ],
+   "description_label_lines": [
+    "Directions",
+    "Hmotnost",
+    "Složení",
+    "Storage",
+    "Uskladnění",
+    "Weight",
+    "Způsob použití"
+   ],
+   "desc_len": [
+    1086,
+    1559
+   ],
+   "short_desc_len": [
+    0,
+    0
+   ],
+   "sample_names": [
+    "Natural handmade coffee soap INDUSTRA.COFFEE",
+    "Přírodní kávové mýdlo INDUSTRA.COFFEE"
+   ]
+  },
+  "store_api_categories": {
+   "status": 200,
+   "x_wp_total": null,
+   "total_returned": 34,
+   "all_slugs": [
+    "accessories",
+    "brewing-coffee-at-home",
+    "ceramics",
+    "chai-latte",
+    "chai-latte",
+    "coffee-preparation",
+    "courses",
+    "cupping",
+    "darkove-poukazy",
+    "dobroty",
+    "espresso-2",
+    "espresso-2",
+    "espresso-kurzy",
+    "filter-coffee",
+    "filters",
+    "filtrovana-kava",
+    "gift-vouchers",
+    "goodies",
+    "kurzy",
+    "latte-art",
+    "matcha",
+    "matcha",
+    "merch",
+    "merch",
+    "mistrovstvi-pripravy-kavy-latte-art",
+    "nadobi",
+    "nezarazene",
+    "filtry",
+    "pokrocile-techniky-pripravy-filtrovane-kavy",
+    "predplatne",
+    "priprava-doma",
+    "priprava-kavy",
+    "prislusenstvi",
+    "uncategorized-en"
+   ],
+   "coffee_categories": [
+    {
+     "id": 73,
+     "slug": "priprava-kavy",
+     "name": "Příprava kávy",
+     "count": 23,
+     "parent": 35
+    },
+    {
+     "id": 436,
+     "slug": "coffee-preparation",
+     "name": "Coffee preparation",
+     "count": 19,
+     "parent": 433
+    },
+    {
+     "id": 17,
+     "slug": "filtrovana-kava",
+     "name": "Filtrovaná káva",
+     "count": 14,
+     "parent": 0
+    },
+    {
+     "id": 53,
+     "slug": "espresso-2",
+     "name": "Espresso",
+     "count": 12,
+     "parent": 0
+    },
+    {
+     "id": 296,
+     "slug": "filter-coffee",
+     "name": "Filter coffee",
+     "count": 11,
+     "parent": 0
+    },
+    {
+     "id": 364,
+     "slug": "espresso-2",
+     "name": "Espresso",
+     "count": 10,
+     "parent": 0
+    },
+    {
+     "id": 43,
+     "slug": "espresso-kurzy",
+     "name": "Espresso kurzy",
+     "count": 7,
+     "parent": 36
+    },
+    {
+     "id": 525,
+     "slug": "filters",
+     "name": "Filters",
+     "count": 6,
+     "parent": 433
+    },
+    {
+     "id": 75,
+     "slug": "filtry",
+     "name": "Papírové filtry",
+     "count": 6,
+     "parent": 35
+    },
+    {
+     "id": 337,
+     "slug": "brewing-coffee-at-home",
+     "name": "Brewing coffee at home",
+     "count": 1,
+     "parent": 331
+    },
+    {
+     "id": 1771,
+     "slug": "mistrovstvi-pripravy-kavy-latte-art",
+     "name": "Mistrovství přípravy kávy &amp; latte art",
+     "count": 1,
+     "parent": 36
+    },
+    {
+     "id": 48,
+     "slug": "pokrocile-techniky-pripravy-filtrovane-kavy",
+     "name": "Pokročilé techniky přípravy filtrované kávy",
+     "count": 1,
+     "parent": 36
+    }
+   ]
+  },
+  "attribute_coverage": "none",
+  "origin_data_source": "description_label_lines",
+  "verdict": "api_ok",
+  "notes": "Bilingual (CZ/EN, WPML-style): categories are duplicated per language (espresso-2 appears twice with different ids, filtrovana-kava/filter-coffee, kava/coffee). Sampled products were soaps, so 0 attributes in this sample; description uses EN/CZ \"Weight:/Hmotnost:\" label lines.",
+  "suggested_coffee_category_ids": [
+   17,
+   53
+  ],
+  "suggested_coffee_categories": [
+   "17:filtrovana-kava(14)",
+   "53:espresso-2(12)"
+  ]
+ },
+ {
+  "domain": "beansmiths.com",
+  "name": "Beansmith's Coffee Roastery (Kofárna)",
+  "country": "CZ",
+  "api_host": "beansmiths.com",
+  "category_url": "https://beansmiths.com/kategorie-produktu/kava/",
+  "robots": {
+   "status": "200",
+   "star_disallows_wp_json": false,
+   "matching_lines": []
+  },
+  "store_api_products": {
+   "status": 200,
+   "content_type": "application/json; charset=UTF-8",
+   "x_wp_total": "144",
+   "x_wp_totalpages": "72",
+   "server": "nginx",
+   "cloudflare": false,
+   "works": true,
+   "items_returned": 2,
+   "fields_present": {
+    "id": true,
+    "name": true,
+    "permalink": true,
+    "prices": true,
+    "attributes": true,
+    "variations": true,
+    "categories": true,
+    "tags": true,
+    "short_description": true,
+    "description": true,
+    "images": true,
+    "is_in_stock": true,
+    "sku": true,
+    "type": true,
+    "slug": true,
+    "weight": true,
+    "on_sale": true,
+    "price_html": true
+   },
+   "price_fields": [
+    "currency_code",
+    "currency_decimal_separator",
+    "currency_minor_unit",
+    "currency_prefix",
+    "currency_suffix",
+    "currency_symbol",
+    "currency_thousand_separator",
+    "price",
+    "price_range",
+    "regular_price",
+    "sale_price"
+   ],
+   "currency_code": "CZK",
+   "currency_minor_unit": 2,
+   "attributes_seen": [
+    {
+     "name": "Package size",
+     "taxonomy": "pa_velikost-baleni",
+     "has_variations": true
+    },
+    {
+     "name": "Typ pražení",
+     "taxonomy": "pa_prazeni",
+     "has_variations": true
+    },
+    {
+     "name": "Velikost balení",
+     "taxonomy": "pa_velikost-baleni",
+     "has_variations": true
+    }
+   ],
+   "products_with_attributes": 2,
+   "types": [
+    "variable"
+   ],
+   "has_variations": [
+    3,
+    3
+   ],
+   "price_range_present": [
+    true,
+    true
+   ],
+   "sku_nonempty": [
+    false,
+    false
+   ],
+   "images_count": [
+    11,
+    11
+   ],
+   "is_in_stock": [
+    true,
+    true
+   ],
+   "tags": [
+    [],
+    []
+   ],
+   "categories_on_products": [
+    [
+     "147:coffee",
+     "149:espresso"
+    ],
+    [
+     "36:espresso",
+     "33:kava"
+    ]
+   ],
+   "description_label_lines": [
+    "Odrůda",
+    "Our baristas notes",
+    "Processing",
+    "Variety",
+    "Zpracování"
+   ],
+   "desc_len": [
+    3297,
+    2817
+   ],
+   "short_desc_len": [
+    0,
+    0
+   ],
+   "sample_names": [
+    "Hacienda Sonora",
+    "Hacienda Sonora"
+   ]
+  },
+  "store_api_categories": {
+   "status": 200,
+   "x_wp_total": null,
+   "total_returned": 16,
+   "all_slugs": [
+    "accessories",
+    "akce",
+    "coffee",
+    "espresso",
+    "espresso",
+    "filter",
+    "filtr",
+    "hygiena",
+    "hygiene",
+    "kava",
+    "merch",
+    "merchandise",
+    "nekava",
+    "notcoffee",
+    "predplatne-kavy",
+    "prislusenstvi"
+   ],
+   "coffee_categories": [
+    {
+     "id": 33,
+     "slug": "kava",
+     "name": "Káva",
+     "count": 67,
+     "parent": 0
+    },
+    {
+     "id": 147,
+     "slug": "coffee",
+     "name": "Coffee",
+     "count": 58,
+     "parent": 0
+    },
+    {
+     "id": 35,
+     "slug": "filtr",
+     "name": "Filtr",
+     "count": 37,
+     "parent": 33
+    },
+    {
+     "id": 151,
+     "slug": "filter",
+     "name": "Filter",
+     "count": 35,
+     "parent": 147
+    },
+    {
+     "id": 36,
+     "slug": "espresso",
+     "name": "Espresso",
+     "count": 30,
+     "parent": 33
+    },
+    {
+     "id": 149,
+     "slug": "espresso",
+     "name": "Espresso",
+     "count": 28,
+     "parent": 147
+    },
+    {
+     "id": 3842,
+     "slug": "nekava",
+     "name": "Nekáva",
+     "count": 17,
+     "parent": 0
+    },
+    {
+     "id": 3844,
+     "slug": "notcoffee",
+     "name": "Notcoffee",
+     "count": 14,
+     "parent": 0
+    },
+    {
+     "id": 57,
+     "slug": "predplatne-kavy",
+     "name": "Předplatné kávy",
+     "count": 3,
+     "parent": 33
+    }
+   ]
+  },
+  "attribute_coverage": "origin_attributes",
+  "origin_data_source": "woo_attributes",
+  "verdict": "api_ok",
+  "notes": "Bilingual CZ/EN: kava(67)/coffee(58), filtr(37)/filter(35), espresso(30)/espresso(28) are the same products in two languages - an adapter must pick one language tree or it will double-count.",
+  "suggested_coffee_category_ids": [
+   33
+  ],
+  "suggested_coffee_categories": [
+   "33:kava(67)"
+  ]
+ },
+ {
+  "domain": "cokafe.com",
+  "name": "COKAFE",
+  "country": "CZ",
+  "api_host": "cokafe.com",
+  "category_url": "https://cokafe.com/produkty/kava/",
+  "robots": {
+   "status": "200",
+   "star_disallows_wp_json": false,
+   "matching_lines": []
+  },
+  "store_api_products": {
+   "status": 200,
+   "content_type": "application/json; charset=UTF-8",
+   "x_wp_total": "32",
+   "x_wp_totalpages": "16",
+   "server": "openresty",
+   "cloudflare": false,
+   "works": true,
+   "items_returned": 2,
+   "fields_present": {
+    "id": true,
+    "name": true,
+    "permalink": true,
+    "prices": true,
+    "attributes": true,
+    "variations": true,
+    "categories": true,
+    "tags": true,
+    "short_description": true,
+    "description": true,
+    "images": true,
+    "is_in_stock": true,
+    "sku": true,
+    "type": true,
+    "slug": true,
+    "weight": true,
+    "on_sale": true,
+    "price_html": true
+   },
+   "price_fields": [
+    "currency_code",
+    "currency_decimal_separator",
+    "currency_minor_unit",
+    "currency_prefix",
+    "currency_suffix",
+    "currency_symbol",
+    "currency_thousand_separator",
+    "price",
+    "price_range",
+    "regular_price",
+    "sale_price"
+   ],
+   "currency_code": "CZK",
+   "currency_minor_unit": 2,
+   "attributes_seen": [
+    {
+     "name": "Balení",
+     "taxonomy": "pa_baleni",
+     "has_variations": true
+    },
+    {
+     "name": "Farma",
+     "taxonomy": "pa_farma",
+     "has_variations": false
+    },
+    {
+     "name": "Farmář",
+     "taxonomy": "pa_farmar",
+     "has_variations": false
+    },
+    {
+     "name": "Nadmořská výška",
+     "taxonomy": "pa_nadmorska-vyska",
+     "has_variations": false
+    },
+    {
+     "name": "Odrůda",
+     "taxonomy": "pa_odruda",
+     "has_variations": false
+    },
+    {
+     "name": "Region",
+     "taxonomy": "pa_region",
+     "has_variations": false
+    },
+    {
+     "name": "Zpracování",
+     "taxonomy": "pa_zpracovani",
+     "has_variations": false
+    }
+   ],
+   "products_with_attributes": 2,
+   "types": [
+    "variable"
+   ],
+   "has_variations": [
+    2,
+    2
+   ],
+   "price_range_present": [
+    true,
+    true
+   ],
+   "sku_nonempty": [
+    false,
+    false
+   ],
+   "images_count": [
+    1,
+    1
+   ],
+   "is_in_stock": [
+    true,
+    true
+   ],
+   "tags": [
+    [],
+    []
+   ],
+   "categories_on_products": [
+    [
+     "56:kava"
+    ],
+    [
+     "56:kava"
+    ]
+   ],
+   "description_label_lines": [
+    "Chuťový profil"
+   ],
+   "desc_len": [
+    1205,
+    1284
+   ],
+   "short_desc_len": [
+    124,
+    128
+   ],
+   "sample_names": [
+    "Rwanda Kanya- espresso",
+    "Rwanda Coproca- filtr"
+   ]
+  },
+  "store_api_categories": {
+   "status": 200,
+   "x_wp_total": null,
+   "total_returned": 6,
+   "all_slugs": [
+    "cukrarna",
+    "kava",
+    "kurzy",
+    "cerstve-pecivo",
+    "poukazy",
+    "prislusenstvi"
+   ],
+   "coffee_categories": [
+    {
+     "id": 56,
+     "slug": "kava",
+     "name": "Káva",
+     "count": 11,
+     "parent": 0
+    }
+   ]
+  },
+  "attribute_coverage": "origin_attributes",
+  "origin_data_source": "woo_attributes",
+  "verdict": "api_ok",
+  "notes": "CZK, 7 attributes; catalogue mixes a bakery (cerstve-pecivo 10, cukrarna 6) with coffee (56 kava, 11).",
+  "suggested_coffee_category_ids": [
+   56
+  ],
+  "suggested_coffee_categories": [
+   "56:kava(11)"
+  ]
+ },
+ {
+  "domain": "qb.coffee",
+  "name": "QB Coffee Roasters",
+  "country": "CZ",
+  "api_host": "eshop.qb.coffee",
+  "category_url": "https://eshop.qb.coffee/kava/",
+  "robots": {
+   "status": "200",
+   "star_disallows_wp_json": false,
+   "matching_lines": []
+  },
+  "store_api_products": {
+   "status": 404,
+   "content_type": "text/html; charset=utf-8",
+   "x_wp_total": null,
+   "x_wp_totalpages": null,
+   "server": "openresty",
+   "cloudflare": false,
+   "works": false,
+   "body_snippet": "<html> <head><title>404 Not Found</title></head> <body> <center><h1>404 Not Found</h1></center> <hr><center>openresty</center> </body> </html> "
+  },
+  "store_api_categories": {
+   "status": 404,
+   "x_wp_total": null,
+   "works": false,
+   "body_snippet": "<html>\r <head><title>404 Not Found</title></head>\r <body>\r <center><h1>404 Not Found</h1></center>\r <hr><center>openresty</center>\r </body>\r </html>\r "
+  },
+  "attribute_coverage": "n/a",
+  "origin_data_source": "n/a",
+  "verdict": "api_unavailable",
+  "html_fallback": {
+   "url": "https://eshop.qb.coffee/kava/",
+   "status": 200,
+   "bytes": 168806,
+   "standard_woocommerce_markup": false,
+   "markers": {
+    "li.product": 0,
+    "woocommerce-loop-product__title": 0,
+    ".price .amount": 0,
+    "shoptet": 328,
+    "data-micro-identifier": 21
+   },
+   "conclusion": "Shoptet storefront, not WooCommerce - no li.product / woocommerce-loop-product__title / .woocommerce-product-attributes markup. Needs a Shoptet adapter."
+  },
+  "notes": "NOT WooCommerce. eshop.qb.coffee is a Shoptet store (168 KB of \"shoptet\" markup, data-micro-identifier product tiles, openresty 404 on /wp-json/*). Misclassified in the first wave; needs a Shoptet adapter, not the Woo one.",
+  "suggested_coffee_category_ids": [],
+  "suggested_coffee_categories": [],
+  "suggested_coffee_categories_note": "no usable coffee category - take the whole catalogue and filter by product/type heuristics"
+ },
+ {
+  "domain": "triplefivecoffee.com",
+  "name": "Triple Five Coffee",
+  "country": "SK",
+  "api_host": "triplefivecoffee.com",
+  "category_url": "https://triplefivecoffee.com/product-category/kava/",
+  "robots": {
+   "status": "200",
+   "star_disallows_wp_json": false,
+   "matching_lines": []
+  },
+  "store_api_products": {
+   "status": 200,
+   "content_type": "application/json; charset=UTF-8",
+   "x_wp_total": "136",
+   "x_wp_totalpages": "68",
+   "server": "openresty",
+   "cloudflare": false,
+   "works": true,
+   "items_returned": 2,
+   "fields_present": {
+    "id": true,
+    "name": true,
+    "permalink": true,
+    "prices": true,
+    "attributes": true,
+    "variations": true,
+    "categories": true,
+    "tags": true,
+    "short_description": true,
+    "description": true,
+    "images": true,
+    "is_in_stock": true,
+    "sku": true,
+    "type": true,
+    "slug": true,
+    "weight": true,
+    "on_sale": true,
+    "price_html": true
+   },
+   "price_fields": [
+    "currency_code",
+    "currency_decimal_separator",
+    "currency_minor_unit",
+    "currency_prefix",
+    "currency_suffix",
+    "currency_symbol",
+    "currency_thousand_separator",
+    "price",
+    "price_range",
+    "regular_price",
+    "sale_price"
+   ],
+   "currency_code": "EUR",
+   "currency_minor_unit": 2,
+   "attributes_seen": [
+    {
+     "name": "Výber hmotnosti",
+     "taxonomy": "pa_vaha",
+     "has_variations": true
+    }
+   ],
+   "products_with_attributes": 2,
+   "types": [
+    "simple"
+   ],
+   "has_variations": [
+    0,
+    0
+   ],
+   "price_range_present": [
+    false,
+    false
+   ],
+   "sku_nonempty": [
+    false,
+    false
+   ],
+   "images_count": [
+    1,
+    1
+   ],
+   "is_in_stock": [
+    true,
+    true
+   ],
+   "tags": [
+    [],
+    []
+   ],
+   "categories_on_products": [
+    [
+     "100:kava",
+     "147:novinka"
+    ],
+    [
+     "145:novinka",
+     "27:kava"
+    ]
+   ],
+   "description_label_lines": [
+    "Altitude",
+    "Country of origin",
+    "Hmotnosť",
+    "Krajina",
+    "Nadmorská výška",
+    "Package weight",
+    "Praženie",
+    "Preparation method",
+    "Process",
+    "Producer",
+    "Profil",
+    "Region",
+    "Región",
+    "Roast",
+    "Spracovanie",
+    "Spracovateľ",
+    "Spôsoby prípravy",
+    "Taste profile",
+    "Varieta",
+    "Variety"
+   ],
+   "desc_len": [
+    2107,
+    1826
+   ],
+   "short_desc_len": [
+    806,
+    795
+   ],
+   "sample_names": [
+    "Costa Rica Enrique Experimental (filter)",
+    "Costa Rica Enrique Experimental (filter)"
+   ]
+  },
+  "store_api_categories": {
+   "status": 200,
+   "x_wp_total": null,
+   "total_returned": 11,
+   "all_slugs": [
+    "novinka",
+    "doplnky",
+    "doplnky",
+    "kava",
+    "kava",
+    "kavove-predplatne",
+    "merch",
+    "merch",
+    "novinka",
+    "uncategorized-en",
+    "uncategorized"
+   ],
+   "coffee_categories": [
+    {
+     "id": 27,
+     "slug": "kava",
+     "name": "Káva",
+     "count": 21,
+     "parent": 0
+    },
+    {
+     "id": 100,
+     "slug": "kava",
+     "name": "Káva",
+     "count": 13,
+     "parent": 0
+    },
+    {
+     "id": 52,
+     "slug": "kavove-predplatne",
+     "name": "Kávové predplatné",
+     "count": 4,
+     "parent": 0
+    }
+   ]
+  },
+  "attribute_coverage": "weight_or_variation_only",
+  "origin_data_source": "description_label_lines",
+  "verdict": "api_ok",
+  "notes": "Simple products, bilingual description label lines (SK + EN). X-WP-Total 136 vs 11 coffees on the category page - filter by category 27/100 kava.",
+  "suggested_coffee_category_ids": [
+   27
+  ],
+  "suggested_coffee_categories": [
+   "27:kava(21)"
+  ]
+ },
+ {
+  "domain": "kavaondrejka.sk",
+  "name": "Káva Ondrejka",
+  "country": "SK",
+  "api_host": "www.kavaondrejka.sk",
+  "category_url": "https://www.kavaondrejka.sk/obchod/",
+  "robots": {
+   "status": "200",
+   "star_disallows_wp_json": false,
+   "matching_lines": []
+  },
+  "store_api_products": {
+   "status": 200,
+   "content_type": "application/json; charset=UTF-8",
+   "x_wp_total": "7",
+   "x_wp_totalpages": "4",
+   "server": "openresty",
+   "cloudflare": false,
+   "works": true,
+   "items_returned": 2,
+   "fields_present": {
+    "id": true,
+    "name": true,
+    "permalink": true,
+    "prices": true,
+    "attributes": true,
+    "variations": true,
+    "categories": true,
+    "tags": true,
+    "short_description": true,
+    "description": true,
+    "images": true,
+    "is_in_stock": true,
+    "sku": true,
+    "type": true,
+    "slug": true,
+    "weight": true,
+    "on_sale": true,
+    "price_html": true
+   },
+   "price_fields": [
+    "currency_code",
+    "currency_decimal_separator",
+    "currency_minor_unit",
+    "currency_prefix",
+    "currency_suffix",
+    "currency_symbol",
+    "currency_thousand_separator",
+    "price",
+    "price_range",
+    "regular_price",
+    "sale_price"
+   ],
+   "currency_code": "EUR",
+   "currency_minor_unit": 2,
+   "attributes_seen": [
+    {
+     "name": "Chuťový profil",
+     "taxonomy": null,
+     "has_variations": false
+    },
+    {
+     "name": "Obsah balenia",
+     "taxonomy": null,
+     "has_variations": false
+    },
+    {
+     "name": "Skladovanie",
+     "taxonomy": null,
+     "has_variations": false
+    },
+    {
+     "name": "Váha",
+     "taxonomy": null,
+     "has_variations": true
+    },
+    {
+     "name": "Údaje o káve",
+     "taxonomy": null,
+     "has_variations": false
+    }
+   ],
+   "products_with_attributes": 2,
+   "types": [
+    "variable"
+   ],
+   "has_variations": [
+    2,
+    2
+   ],
+   "price_range_present": [
+    true,
+    true
+   ],
+   "sku_nonempty": [
+    false,
+    false
+   ],
+   "images_count": [
+    4,
+    5
+   ],
+   "is_in_stock": [
+    true,
+    true
+   ],
+   "tags": [
+    [],
+    []
+   ],
+   "categories_on_products": [
+    [
+     "17:alternativne-sposoby",
+     "16:espresso"
+    ],
+    [
+     "16:espresso"
+    ]
+   ],
+   "description_label_lines": [],
+   "desc_len": [
+    1450,
+    1033
+   ],
+   "short_desc_len": [
+    48,
+    43
+   ],
+   "sample_names": [
+    "Etiópia Gesha &#8211; Karamachi Farm- Natural Wine Process",
+    "Brazília &#8211; Triangulo Mineiro &#8211; Fazenda Pereira &#8211; Natural"
+   ]
+  },
+  "store_api_categories": {
+   "status": 200,
+   "x_wp_total": null,
+   "total_returned": 3,
+   "all_slugs": [
+    "alternativne-sposoby",
+    "bezkofeinova-kava",
+    "espresso"
+   ],
+   "coffee_categories": [
+    {
+     "id": 16,
+     "slug": "espresso",
+     "name": "Espresso",
+     "count": 6,
+     "parent": 0
+    },
+    {
+     "id": 18,
+     "slug": "bezkofeinova-kava",
+     "name": "Bezkofeínová káva",
+     "count": 1,
+     "parent": 0
+    }
+   ]
+  },
+  "attribute_coverage": "origin_attributes",
+  "origin_data_source": "woo_attributes",
+  "verdict": "api_ok",
+  "notes": "5 attributes incl. Spôsob spracovania, Odroda, Nadmorská výška; only 7 products.",
+  "suggested_coffee_category_ids": [
+   16,
+   18
+  ],
+  "suggested_coffee_categories": [
+   "16:espresso(6)",
+   "18:bezkofeinova-kava(1)"
+  ]
+ },
+ {
+  "domain": "mlsnacava.sk",
+  "name": "Mlsnacava",
+  "country": "SK",
+  "api_host": "mlsnacava.sk",
+  "category_url": "https://mlsnacava.sk/obchod/",
+  "robots": {
+   "status": "404",
+   "star_disallows_wp_json": false,
+   "matching_lines": []
+  },
+  "store_api_products": {
+   "status": 200,
+   "content_type": "application/json; charset=UTF-8",
+   "x_wp_total": "12",
+   "x_wp_totalpages": "6",
+   "server": "nginx/1.24.0 (Ubuntu)",
+   "cloudflare": false,
+   "works": true,
+   "items_returned": 2,
+   "fields_present": {
+    "id": true,
+    "name": true,
+    "permalink": true,
+    "prices": true,
+    "attributes": true,
+    "variations": true,
+    "categories": true,
+    "tags": true,
+    "short_description": true,
+    "description": true,
+    "images": true,
+    "is_in_stock": true,
+    "sku": true,
+    "type": true,
+    "slug": true,
+    "weight": false,
+    "on_sale": true,
+    "price_html": true
+   },
+   "price_fields": [
+    "currency_code",
+    "currency_decimal_separator",
+    "currency_minor_unit",
+    "currency_prefix",
+    "currency_suffix",
+    "currency_symbol",
+    "currency_thousand_separator",
+    "price",
+    "price_range",
+    "regular_price",
+    "sale_price"
+   ],
+   "currency_code": "EUR",
+   "currency_minor_unit": 2,
+   "attributes_seen": [
+    {
+     "name": "Veľkosť balenia",
+     "taxonomy": null,
+     "has_variations": true
+    }
+   ],
+   "products_with_attributes": 2,
+   "types": [
+    "variable",
+    "yith_bundle"
+   ],
+   "has_variations": [
+    2,
+    0
+   ],
+   "price_range_present": [
+    true,
+    false
+   ],
+   "sku_nonempty": [
+    false,
+    false
+   ],
+   "images_count": [
+    1,
+    1
+   ],
+   "is_in_stock": [
+    true,
+    true
+   ],
+   "tags": [
+    [],
+    []
+   ],
+   "categories_on_products": [
+    [
+     "34:decaff",
+     "32:filtrovana-kava",
+     "31:moderne-espresso"
+    ],
+    [
+     "34:decaff",
+     "32:filtrovana-kava",
+     "31:moderne-espresso",
+     "33:tradicne-zmesi"
+    ]
+   ],
+   "description_label_lines": [],
+   "desc_len": [
+    0,
+    0
+   ],
+   "short_desc_len": [
+    0,
+    154
+   ],
+   "sample_names": [
+    "Decaff: Colombia Atunkaa &#8211; bezkofeínová káva",
+    "Degustačná krabička MLSNACAVA"
+   ]
+  },
+  "store_api_categories": {
+   "status": 200,
+   "x_wp_total": null,
+   "total_returned": 5,
+   "all_slugs": [
+    "decaff",
+    "filtrovana-kava",
+    "kava",
+    "moderne-espresso",
+    "tradicne-zmesi"
+   ],
+   "coffee_categories": [
+    {
+     "id": 53,
+     "slug": "kava",
+     "name": "Káva",
+     "count": 12,
+     "parent": 0
+    },
+    {
+     "id": 31,
+     "slug": "moderne-espresso",
+     "name": "Moderné espresso",
+     "count": 7,
+     "parent": 53
+    },
+    {
+     "id": 32,
+     "slug": "filtrovana-kava",
+     "name": "Filtrovaná káva",
+     "count": 5,
+     "parent": 53
+    },
+    {
+     "id": 34,
+     "slug": "decaff",
+     "name": "Decaff",
+     "count": 2,
+     "parent": 53
+    }
+   ]
+  },
+  "attribute_coverage": "weight_or_variation_only",
+  "origin_data_source": "unstructured_or_absent",
+  "verdict": "api_ok",
+  "notes": "robots.txt returns 404 (no robots file). Store API fine. Both description AND short_description are empty in the API (page-builder content) and the only attribute is \"Veľkosť balenia\" -> no origin data at all from the API; a second product is type \"yith_bundle\" (YITH bundles plugin).",
+  "suggested_coffee_category_ids": [
+   53
+  ],
+  "suggested_coffee_categories": [
+   "53:kava(12)"
+  ]
+ },
+ {
+  "domain": "zrnco.sk",
+  "name": "ZRNCO",
+  "country": "SK",
+  "api_host": "www.zrnco.sk",
+  "category_url": "https://www.zrnco.sk/obchod/",
+  "robots": {
+   "status": "200",
+   "star_disallows_wp_json": false,
+   "matching_lines": []
+  },
+  "store_api_products": {
+   "status": 200,
+   "content_type": "application/json; charset=UTF-8",
+   "x_wp_total": "11",
+   "x_wp_totalpages": "6",
+   "server": "openresty",
+   "cloudflare": false,
+   "works": true,
+   "items_returned": 2,
+   "fields_present": {
+    "id": true,
+    "name": true,
+    "permalink": true,
+    "prices": true,
+    "attributes": true,
+    "variations": true,
+    "categories": true,
+    "tags": true,
+    "short_description": true,
+    "description": true,
+    "images": true,
+    "is_in_stock": true,
+    "sku": true,
+    "type": true,
+    "slug": true,
+    "weight": true,
+    "on_sale": true,
+    "price_html": true
+   },
+   "price_fields": [
+    "currency_code",
+    "currency_decimal_separator",
+    "currency_minor_unit",
+    "currency_prefix",
+    "currency_suffix",
+    "currency_symbol",
+    "currency_thousand_separator",
+    "price",
+    "price_range",
+    "regular_price",
+    "sale_price"
+   ],
+   "currency_code": "EUR",
+   "currency_minor_unit": 2,
+   "attributes_seen": [
+    {
+     "name": "&quot;Vylepši&quot; si kávu sám",
+     "taxonomy": null,
+     "has_variations": true
+    },
+    {
+     "name": "Praženie (od 500g)",
+     "taxonomy": null,
+     "has_variations": true
+    },
+    {
+     "name": "Veľkosť balenia",
+     "taxonomy": null,
+     "has_variations": true
+    },
+    {
+     "name": "Čerstvo pražená výberová káva",
+     "taxonomy": null,
+     "has_variations": false
+    }
+   ],
+   "products_with_attributes": 2,
+   "types": [
+    "variable"
+   ],
+   "has_variations": [
+    11,
+    11
+   ],
+   "price_range_present": [
+    true,
+    true
+   ],
+   "sku_nonempty": [
+    false,
+    false
+   ],
+   "images_count": [
+    9,
+    5
+   ],
+   "is_in_stock": [
+    true,
+    true
+   ],
+   "tags": [
+    [
+     "cerstvo-prazena-kava",
+     "kolumbia",
+     "specialty-coffee",
+     "vyberova-kava",
+     "zrnkova-kava"
+    ],
+    [
+     "cerstvo-prazena-kava",
+     "etiopia",
+     "specialty-coffee",
+     "vyberova-kava",
+     "zrnkova-kava"
+    ]
+   ],
+   "categories_on_products": [
+    [
+     "25:kava"
+    ],
+    [
+     "25:kava"
+    ]
+   ],
+   "description_label_lines": [],
+   "desc_len": [
+    0,
+    0
+   ],
+   "short_desc_len": [
+    130,
+    134
+   ],
+   "sample_names": [
+    "Kolumbia",
+    "Etiópia"
+   ]
+  },
+  "store_api_categories": {
+   "status": 200,
+   "x_wp_total": null,
+   "total_returned": 3,
+   "all_slugs": [
+    "darcekove-sety",
+    "doplnky",
+    "kava"
+   ],
+   "coffee_categories": [
+    {
+     "id": 25,
+     "slug": "kava",
+     "name": "Výberová káva",
+     "count": 5,
+     "parent": 0
+    }
+   ]
+  },
+  "attribute_coverage": "origin_attributes",
+  "origin_data_source": "woo_attributes",
+  "verdict": "api_ok",
+  "notes": "description empty (page builder); short_description is a flavour sentence. Attributes are shop-specific upsell labels (\"Čerstvo pražená výberová káva\", \"Praženie (od 500g)\", \"\\\"Vylepši\\\" si kávu sám\") rather than origin data. 11 variations per product.",
+  "suggested_coffee_category_ids": [
+   25
+  ],
+  "suggested_coffee_categories": [
+   "25:kava(5)"
+  ]
+ },
+ {
+  "domain": "kmen.coffee",
+  "name": "Kmen Coffee Roasters",
+  "country": "CZ",
+  "api_host": "kmen.coffee",
+  "category_url": "https://kmen.coffee/shop-2/",
+  "robots": {
+   "status": "200",
+   "star_disallows_wp_json": false,
+   "matching_lines": []
+  },
+  "store_api_products": {
+   "status": 200,
+   "content_type": "application/json; charset=UTF-8",
+   "x_wp_total": "79",
+   "x_wp_totalpages": "40",
+   "server": "Apache",
+   "cloudflare": false,
+   "works": true,
+   "items_returned": 2,
+   "fields_present": {
+    "id": true,
+    "name": true,
+    "permalink": true,
+    "prices": true,
+    "attributes": true,
+    "variations": true,
+    "categories": true,
+    "tags": true,
+    "short_description": true,
+    "description": true,
+    "images": true,
+    "is_in_stock": true,
+    "sku": true,
+    "type": true,
+    "slug": true,
+    "weight": true,
+    "on_sale": true,
+    "price_html": true
+   },
+   "price_fields": [
+    "currency_code",
+    "currency_decimal_separator",
+    "currency_minor_unit",
+    "currency_prefix",
+    "currency_suffix",
+    "currency_symbol",
+    "currency_thousand_separator",
+    "price",
+    "price_range",
+    "regular_price",
+    "sale_price"
+   ],
+   "currency_code": "CZK",
+   "currency_minor_unit": 0,
+   "attributes_seen": [
+    {
+     "name": "Chuťový profil",
+     "taxonomy": "pa_chutovy-profil",
+     "has_variations": false
+    },
+    {
+     "name": "Farma",
+     "taxonomy": "pa_farma",
+     "has_variations": false
+    },
+    {
+     "name": "Oblast",
+     "taxonomy": "pa_oblast",
+     "has_variations": false
+    },
+    {
+     "name": "Odrůda",
+     "taxonomy": "pa_odruda",
+     "has_variations": false
+    },
+    {
+     "name": "Použití",
+     "taxonomy": "pa_pouziti",
+     "has_variations": false
+    },
+    {
+     "name": "Typ balení",
+     "taxonomy": "pa_typ-baleni",
+     "has_variations": true
+    },
+    {
+     "name": "Země původu",
+     "taxonomy": "pa_zeme-puvodu",
+     "has_variations": false
+    },
+    {
+     "name": "Zpracování",
+     "taxonomy": "pa_zpracovani",
+     "has_variations": false
+    }
+   ],
+   "products_with_attributes": 2,
+   "types": [
+    "variable"
+   ],
+   "has_variations": [
+    2,
+    2
+   ],
+   "price_range_present": [
+    true,
+    true
+   ],
+   "sku_nonempty": [
+    true,
+    true
+   ],
+   "images_count": [
+    0,
+    6
+   ],
+   "is_in_stock": [
+    false,
+    true
+   ],
+   "tags": [
+    [],
+    []
+   ],
+   "categories_on_products": [
+    [
+     "322:espresso",
+     "306:kava"
+    ],
+    [
+     "321:filtr",
+     "306:kava"
+    ]
+   ],
+   "description_label_lines": [
+    "Ondra"
+   ],
+   "desc_len": [
+    1779,
+    1685
+   ],
+   "short_desc_len": [
+    1217,
+    421
+   ],
+   "sample_names": [
+    "Penas Blacas Suaza",
+    "Keramo"
+   ]
+  },
+  "store_api_categories": {
+   "status": 200,
+   "x_wp_total": null,
+   "total_returned": 8,
+   "all_slugs": [
+    "espresso",
+    "filtr",
+    "kapsle",
+    "kava",
+    "uncategorized",
+    "predplatne",
+    "prislusenstvi",
+    "skoleni"
+   ],
+   "coffee_categories": [
+    {
+     "id": 306,
+     "slug": "kava",
+     "name": "Káva",
+     "count": 23,
+     "parent": 0
+    },
+    {
+     "id": 321,
+     "slug": "filtr",
+     "name": "Filtr",
+     "count": 13,
+     "parent": 306
+    },
+    {
+     "id": 322,
+     "slug": "espresso",
+     "name": "Espresso",
+     "count": 12,
+     "parent": 306
+    }
+   ]
+  },
+  "attribute_coverage": "origin_attributes",
+  "origin_data_source": "woo_attributes",
+  "verdict": "api_ok",
+  "notes": "CZK with currency_minor_unit = 0 (prices are whole crowns, NOT hundredths) - the adapter must honour currency_minor_unit. One sampled product has zero images.",
+  "suggested_coffee_category_ids": [
+   306
+  ],
+  "suggested_coffee_categories": [
+   "306:kava(23)"
+  ]
+ },
+ {
+  "domain": "kavaloka.cz",
+  "name": "KÁVALOKA",
+  "country": "CZ",
+  "api_host": "www.kavaloka.cz",
+  "category_url": "https://www.kavaloka.cz/e-shop/",
+  "robots": {
+   "status": "200",
+   "star_disallows_wp_json": false,
+   "matching_lines": []
+  },
+  "store_api_products": {
+   "status": 200,
+   "content_type": "application/json; charset=UTF-8",
+   "x_wp_total": "54",
+   "x_wp_totalpages": "27",
+   "server": "openresty",
+   "cloudflare": false,
+   "works": true,
+   "items_returned": 2,
+   "fields_present": {
+    "id": true,
+    "name": true,
+    "permalink": true,
+    "prices": true,
+    "attributes": true,
+    "variations": true,
+    "categories": true,
+    "tags": true,
+    "short_description": true,
+    "description": true,
+    "images": true,
+    "is_in_stock": true,
+    "sku": true,
+    "type": true,
+    "slug": true,
+    "weight": false,
+    "on_sale": true,
+    "price_html": true
+   },
+   "price_fields": [
+    "currency_code",
+    "currency_decimal_separator",
+    "currency_minor_unit",
+    "currency_prefix",
+    "currency_suffix",
+    "currency_symbol",
+    "currency_thousand_separator",
+    "price",
+    "price_range",
+    "regular_price",
+    "sale_price"
+   ],
+   "currency_code": "CZK",
+   "currency_minor_unit": 0,
+   "attributes_seen": [
+    {
+     "name": "Chuťový profil",
+     "taxonomy": "pa_chut",
+     "has_variations": false
+    },
+    {
+     "name": "Hrubost kávy",
+     "taxonomy": "pa_hrubost",
+     "has_variations": true
+    },
+    {
+     "name": "Kyselost",
+     "taxonomy": "pa_kyselost",
+     "has_variations": false
+    },
+    {
+     "name": "Nadmořská výška",
+     "taxonomy": "pa_nadmorska-vyska",
+     "has_variations": false
+    },
+    {
+     "name": "Odrůda",
+     "taxonomy": null,
+     "has_variations": false
+    },
+    {
+     "name": "Složení",
+     "taxonomy": "pa_slozeni",
+     "has_variations": false
+    },
+    {
+     "name": "Stupeň pražení",
+     "taxonomy": "pa_stupen-prazeni",
+     "has_variations": false
+    },
+    {
+     "name": "Velikost balení",
+     "taxonomy": "pa_velikost-baleni",
+     "has_variations": true
+    },
+    {
+     "name": "Vhodná pro",
+     "taxonomy": "pa_vhodna-pro",
+     "has_variations": false
+    },
+    {
+     "name": "Země původu",
+     "taxonomy": "pa_zeme-puvodu",
+     "has_variations": false
+    },
+    {
+     "name": "Zpracování",
+     "taxonomy": "pa_zpracovani",
+     "has_variations": false
+    }
+   ],
+   "products_with_attributes": 2,
+   "types": [
+    "variable"
+   ],
+   "has_variations": [
+    24,
+    24
+   ],
+   "price_range_present": [
+    true,
+    true
+   ],
+   "sku_nonempty": [
+    true,
+    true
+   ],
+   "images_count": [
+    1,
+    2
+   ],
+   "is_in_stock": [
+    true,
+    true
+   ],
+   "tags": [
+    [
+     "100-arabica"
+    ],
+    [
+     "100-arabica"
+    ]
+   ],
+   "categories_on_products": [
+    [
+     "19:jednodruhova-kava"
+    ],
+    [
+     "19:jednodruhova-kava"
+    ]
+   ],
+   "description_label_lines": [],
+   "desc_len": [
+    584,
+    1257
+   ],
+   "short_desc_len": [
+    0,
+    0
+   ],
+   "sample_names": [
+    "Rwanda Isano",
+    "Costa Rica La Pastora Tarrazú"
+   ]
+  },
+  "store_api_categories": {
+   "status": 200,
+   "x_wp_total": null,
+   "total_returned": 8,
+   "all_slugs": [
+    "darkove-balicky-a-kornouty",
+    "darkove-poukazy",
+    "jednodruhova-kava",
+    "kava-bez-kofeinu",
+    "kavove-prislusenstvi",
+    "kavove-smesi-kavaloka",
+    "nezarazene",
+    "susene-plody-a-orechy"
+   ],
+   "coffee_categories": [
+    {
+     "id": 19,
+     "slug": "jednodruhova-kava",
+     "name": "Jednodruhová káva",
+     "count": 13,
+     "parent": 0
+    },
+    {
+     "id": 22,
+     "slug": "kavove-prislusenstvi",
+     "name": "Kávové příslušenství",
+     "count": 6,
+     "parent": 0
+    },
+    {
+     "id": 20,
+     "slug": "kavove-smesi-kavaloka",
+     "name": "Kávové směsi",
+     "count": 3,
+     "parent": 0
+    },
+    {
+     "id": 21,
+     "slug": "kava-bez-kofeinu",
+     "name": "Káva bez kofeinu",
+     "count": 1,
+     "parent": 0
+    }
+   ]
+  },
+  "attribute_coverage": "origin_attributes",
+  "origin_data_source": "woo_attributes",
+  "verdict": "api_ok",
+  "notes": "CZK with currency_minor_unit = 0. 24 variations per product; 11 attributes.",
+  "suggested_coffee_category_ids": [
+   19,
+   20,
+   21
+  ],
+  "suggested_coffee_categories": [
+   "19:jednodruhova-kava(13)",
+   "20:kavove-smesi-kavaloka(3)",
+   "21:kava-bez-kofeinu(1)"
+  ]
+ },
+ {
+  "domain": "longberry.cz",
+  "name": "LONGBERRY",
+  "country": "CZ",
+  "api_host": "www.longberry.cz",
+  "category_url": "https://www.longberry.cz/kategorie-produktu/kava/",
+  "robots": {
+   "status": "200",
+   "star_disallows_wp_json": false,
+   "matching_lines": []
+  },
+  "store_api_products": {
+   "status": 200,
+   "content_type": "application/json; charset=UTF-8",
+   "x_wp_total": "106",
+   "x_wp_totalpages": "53",
+   "server": "nginx",
+   "cloudflare": false,
+   "works": true,
+   "items_returned": 2,
+   "fields_present": {
+    "id": true,
+    "name": true,
+    "permalink": true,
+    "prices": true,
+    "attributes": true,
+    "variations": true,
+    "categories": true,
+    "tags": true,
+    "short_description": true,
+    "description": true,
+    "images": true,
+    "is_in_stock": true,
+    "sku": true,
+    "type": true,
+    "slug": true,
+    "weight": true,
+    "on_sale": true,
+    "price_html": true
+   },
+   "price_fields": [
+    "currency_code",
+    "currency_decimal_separator",
+    "currency_minor_unit",
+    "currency_prefix",
+    "currency_suffix",
+    "currency_symbol",
+    "currency_thousand_separator",
+    "price",
+    "price_range",
+    "regular_price",
+    "sale_price"
+   ],
+   "currency_code": "CZK",
+   "currency_minor_unit": 2,
+   "attributes_seen": [],
+   "products_with_attributes": 0,
+   "types": [
+    "simple"
+   ],
+   "has_variations": [
+    0,
+    0
+   ],
+   "price_range_present": [
+    false,
+    false
+   ],
+   "sku_nonempty": [
+    false,
+    false
+   ],
+   "images_count": [
+    1,
+    1
+   ],
+   "is_in_stock": [
+    true,
+    true
+   ],
+   "tags": [
+    [
+     "espresso"
+    ],
+    []
+   ],
+   "categories_on_products": [
+    [
+     "567:espresso-smesi",
+     "156:kava"
+    ],
+    [
+     "197:kavovary",
+     "540:nove-kavovary"
+    ]
+   ],
+   "description_label_lines": [
+    "Dlouhý závěr",
+    "Lahodná harmonie",
+    "Plné a bohaté tělo"
+   ],
+   "desc_len": [
+    1640,
+    534
+   ],
+   "short_desc_len": [
+    243,
+    0
+   ],
+   "sample_names": [
+    "DLOUHÝ ŠIROKÝ 250g",
+    "Pákový kávovar ROCKET Boxer EVO 2 group"
+   ]
+  },
+  "store_api_categories": {
+   "status": 200,
+   "x_wp_total": null,
+   "total_returned": 43,
+   "all_slugs": [
+    "aparati-za-kavu",
+    "aromatizirana",
+    "aromatizirani-crni-cajevi",
+    "aromatizirani-zeleni-cajevi",
+    "caje",
+    "caje-necaje",
+    "cajevi",
+    "cerne-caje",
+    "cerne-caje-ochucene",
+    "crni-cajevi",
+    "degustacijsko-pakiranje",
+    "degustacni-baleni",
+    "dodaci-i-pribor",
+    "doplnky-a-prislusenstvi",
+    "espresso-mjesavine-2",
+    "espresso-smesi",
+    "horka-cokolada",
+    "jednodruhova",
+    "jednovrsna",
+    "kava",
+    "kava-2",
+    "kavovary",
+    "merch",
+    "merch-hr",
+    "nepravi-cajevi",
+    "nove-kavovary",
+    "ochucena",
+    "ostalo",
+    "ostatni",
+    "ovocne-smesi",
+    "pribor-za-aparate-za-kavu",
+    "prislusenstvi-ke-kavovarum",
+    "sirupi",
+    "sirupy-cs",
+    "topla-cokolada",
+    "vicedruhova",
+    "visevrsna",
+    "vocne-mjesavine",
+    "vrhunska",
+    "vyberova",
+    "zelene-caje",
+    "zelene-caje-ochucene",
+    "zeleni-cajevi"
+   ],
+   "coffee_categories": [
+    {
+     "id": 156,
+     "slug": "kava",
+     "name": "Káva",
+     "count": 31,
+     "parent": 0
+    },
+    {
+     "id": 581,
+     "slug": "kava-2",
+     "name": "Kava",
+     "count": 31,
+     "parent": 0
+    },
+    {
+     "id": 567,
+     "slug": "espresso-smesi",
+     "name": "Espresso směsi",
+     "count": 7,
+     "parent": 156
+    },
+    {
+     "id": 620,
+     "slug": "espresso-mjesavine-2",
+     "name": "Espresso mješavine",
+     "count": 6,
+     "parent": 581
+    },
+    {
+     "id": 197,
+     "slug": "kavovary",
+     "name": "Kávovary",
+     "count": 3,
+     "parent": 0
+    },
+    {
+     "id": 160,
+     "slug": "vyberova",
+     "name": "Výběrová",
+     "count": 3,
+     "parent": 156
+    },
+    {
+     "id": 540,
+     "slug": "nove-kavovary",
+     "name": "Nové kávovary",
+     "count": 2,
+     "parent": 197
+    },
+    {
+     "id": 587,
+     "slug": "aparati-za-kavu",
+     "name": "Aparati za kavu",
+     "count": 1,
+     "parent": 0
+    },
+    {
+     "id": 644,
+     "slug": "pribor-za-aparate-za-kavu",
+     "name": "Pribor za aparate za kavu",
+     "count": 1,
+     "parent": 587
+    },
+    {
+     "id": 574,
+     "slug": "prislusenstvi-ke-kavovarum",
+     "name": "Příslušenství ke kávovarům",
+     "count": 1,
+     "parent": 197
+    }
+   ]
+  },
+  "attribute_coverage": "none",
+  "origin_data_source": "description_label_lines",
+  "verdict": "api_ok",
+  "notes": "One sampled simple product has price \"0\" (price on request / machine). Duplicated category trees again (kava 156 and kava-2 581, both count 31). Sampled products were a blend and an espresso machine -> 0 attributes in this sample.",
+  "suggested_coffee_category_ids": [
+   156
+  ],
+  "suggested_coffee_categories": [
+   "156:kava(31)"
+  ]
+ },
+ {
+  "domain": "praziarenepera.sk",
+  "name": "Epera Coffee",
+  "country": "SK",
+  "api_host": "www.praziarenepera.sk",
+  "category_url": "https://www.praziarenepera.sk/kategoria-produktu/cerstva-kava/",
+  "robots": {
+   "status": "200",
+   "star_disallows_wp_json": false,
+   "matching_lines": []
+  },
+  "store_api_products": {
+   "status": 200,
+   "content_type": "application/json; charset=UTF-8",
+   "x_wp_total": "135",
+   "x_wp_totalpages": "68",
+   "server": "openresty",
+   "cloudflare": false,
+   "works": true,
+   "items_returned": 2,
+   "fields_present": {
+    "id": true,
+    "name": true,
+    "permalink": true,
+    "prices": true,
+    "attributes": true,
+    "variations": true,
+    "categories": true,
+    "tags": true,
+    "short_description": true,
+    "description": true,
+    "images": true,
+    "is_in_stock": true,
+    "sku": true,
+    "type": true,
+    "slug": true,
+    "weight": true,
+    "on_sale": true,
+    "price_html": true
+   },
+   "price_fields": [
+    "currency_code",
+    "currency_decimal_separator",
+    "currency_minor_unit",
+    "currency_prefix",
+    "currency_suffix",
+    "currency_symbol",
+    "currency_thousand_separator",
+    "price",
+    "price_range",
+    "regular_price",
+    "sale_price"
+   ],
+   "currency_code": "EUR",
+   "currency_minor_unit": 2,
+   "attributes_seen": [
+    {
+     "name": "Chuťový profil",
+     "taxonomy": "pa_chutovy-profil",
+     "has_variations": false
+    },
+    {
+     "name": "Druh",
+     "taxonomy": "pa_druh",
+     "has_variations": false
+    },
+    {
+     "name": "Krajina",
+     "taxonomy": "pa_krajina",
+     "has_variations": false
+    },
+    {
+     "name": "Mletie",
+     "taxonomy": "pa_mletie",
+     "has_variations": true
+    },
+    {
+     "name": "Nadmorská výška",
+     "taxonomy": "pa_nadmorska-vyska",
+     "has_variations": false
+    },
+    {
+     "name": "Odporúčaná príprava",
+     "taxonomy": "pa_odporucana-priprava",
+     "has_variations": false
+    },
+    {
+     "name": "Odroda",
+     "taxonomy": "pa_odroda",
+     "has_variations": false
+    },
+    {
+     "name": "Praženie",
+     "taxonomy": "pa_prazenie",
+     "has_variations": true
+    },
+    {
+     "name": "Región",
+     "taxonomy": "pa_region",
+     "has_variations": false
+    },
+    {
+     "name": "Spracovanie",
+     "taxonomy": "pa_spracovanie",
+     "has_variations": false
+    },
+    {
+     "name": "Veľkosť balenia",
+     "taxonomy": "pa_velkost-balenia",
+     "has_variations": true
+    },
+    {
+     "name": "Zber",
+     "taxonomy": "pa_zber",
+     "has_variations": false
+    }
+   ],
+   "products_with_attributes": 2,
+   "types": [
+    "variable"
+   ],
+   "has_variations": [
+    3,
+    3
+   ],
+   "price_range_present": [
+    true,
+    true
+   ],
+   "sku_nonempty": [
+    false,
+    false
+   ],
+   "images_count": [
+    3,
+    2
+   ],
+   "is_in_stock": [
+    true,
+    true
+   ],
+   "tags": [
+    [],
+    []
+   ],
+   "categories_on_products": [
+    [
+     "20:cerstva-kava"
+    ],
+    [
+     "20:cerstva-kava"
+    ]
+   ],
+   "description_label_lines": [
+    "Chuťový profil",
+    "Krajina",
+    "Odporúčaná príprava",
+    "Región",
+    "SCA"
+   ],
+   "desc_len": [
+    845,
+    304
+   ],
+   "short_desc_len": [
+    595,
+    196
+   ],
+   "sample_names": [
+    "Káva Burundi TURACO",
+    "Káva SUMMER BLEND"
+   ]
+  },
+  "store_api_categories": {
+   "status": 200,
+   "x_wp_total": null,
+   "total_returned": 8,
+   "all_slugs": [
+    "cerstva-kava",
+    "darcekove-boxy",
+    "ine-produkty",
+    "kavova-permanentka",
+    "prislusenstvo",
+    "sypane-caje",
+    "vzorky-kavy",
+    "draft-vianoce"
+   ],
+   "coffee_categories": [
+    {
+     "id": 20,
+     "slug": "cerstva-kava",
+     "name": "Čerstvá káva",
+     "count": 25,
+     "parent": 0
+    },
+    {
+     "id": 262,
+     "slug": "vzorky-kavy",
+     "name": "Vzorky kávy",
+     "count": 17,
+     "parent": 0
+    },
+    {
+     "id": 22,
+     "slug": "kavova-permanentka",
+     "name": "Kávová permanentka",
+     "count": 4,
+     "parent": 0
+    }
+   ]
+  },
+  "attribute_coverage": "origin_attributes",
+  "origin_data_source": "woo_attributes",
+  "verdict": "api_ok",
+  "notes": "12 attributes including SCA-style fields; category cerstva-kava(25) + vzorky-kavy(17).",
+  "suggested_coffee_category_ids": [
+   20
+  ],
+  "suggested_coffee_categories": [
+   "20:cerstva-kava(25)"
+  ]
+ },
+ {
+  "domain": "twohands.sk",
+  "name": "Two Hands Roastery",
+  "country": "SK",
+  "api_host": "www.twohands.sk",
+  "category_url": "https://www.twohands.sk/obchod/",
+  "robots": {
+   "status": "200",
+   "star_disallows_wp_json": false,
+   "matching_lines": []
+  },
+  "store_api_products": {
+   "status": 200,
+   "content_type": "application/json; charset=UTF-8",
+   "x_wp_total": "22",
+   "x_wp_totalpages": "11",
+   "server": "openresty",
+   "cloudflare": false,
+   "works": true,
+   "items_returned": 2,
+   "fields_present": {
+    "id": true,
+    "name": true,
+    "permalink": true,
+    "prices": true,
+    "attributes": true,
+    "variations": true,
+    "categories": true,
+    "tags": true,
+    "short_description": true,
+    "description": true,
+    "images": true,
+    "is_in_stock": true,
+    "sku": true,
+    "type": true,
+    "slug": true,
+    "weight": false,
+    "on_sale": true,
+    "price_html": true
+   },
+   "price_fields": [
+    "currency_code",
+    "currency_decimal_separator",
+    "currency_minor_unit",
+    "currency_prefix",
+    "currency_suffix",
+    "currency_symbol",
+    "currency_thousand_separator",
+    "price",
+    "price_range",
+    "regular_price",
+    "sale_price"
+   ],
+   "currency_code": "EUR",
+   "currency_minor_unit": 2,
+   "attributes_seen": [
+    {
+     "name": "Balíček",
+     "taxonomy": null,
+     "has_variations": true
+    }
+   ],
+   "products_with_attributes": 2,
+   "types": [
+    "variable"
+   ],
+   "has_variations": [
+    3,
+    3
+   ],
+   "price_range_present": [
+    true,
+    true
+   ],
+   "sku_nonempty": [
+    false,
+    false
+   ],
+   "images_count": [
+    1,
+    1
+   ],
+   "is_in_stock": [
+    true,
+    true
+   ],
+   "tags": [
+    [],
+    [
+     "zrnkova-kava"
+    ]
+   ],
+   "categories_on_products": [
+    [
+     "23:filter",
+     "25:kava"
+    ],
+    [
+     "24:espresso",
+     "25:kava"
+    ]
+   ],
+   "description_label_lines": [
+    "Chuťový profil",
+    "Cupping score",
+    "Druh",
+    "Odroda",
+    "Príprava",
+    "Region",
+    "Spracovanie",
+    "Stupeň praženia"
+   ],
+   "desc_len": [
+    1033,
+    1193
+   ],
+   "short_desc_len": [
+    680,
+    330
+   ],
+   "sample_names": [
+    "Etiópia &#8211; Don&#8217;t touch",
+    "INDONÉZIA &#8211; POST MELÓN"
+   ]
+  },
+  "store_api_categories": {
+   "status": 200,
+   "x_wp_total": null,
+   "total_returned": 5,
+   "all_slugs": [
+    "doplnky",
+    "espresso",
+    "filter",
+    "kava",
+    "merch"
+   ],
+   "coffee_categories": [
+    {
+     "id": 25,
+     "slug": "kava",
+     "name": "Káva",
+     "count": 11,
+     "parent": 0
+    },
+    {
+     "id": 24,
+     "slug": "espresso",
+     "name": "Espresso",
+     "count": 9,
+     "parent": 0
+    },
+    {
+     "id": 23,
+     "slug": "filter",
+     "name": "Filter",
+     "count": 4,
+     "parent": 0
+    }
+   ]
+  },
+  "attribute_coverage": "weight_or_variation_only",
+  "origin_data_source": "description_label_lines",
+  "verdict": "api_ok",
+  "notes": "28-field schema. Only a weight attribute, but the description carries a full Label: value block (Odroda, Spracovanie, Region, Stupeň praženia, Cupping score, Chuťový profil).",
+  "suggested_coffee_category_ids": [
+   25
+  ],
+  "suggested_coffee_categories": [
+   "25:kava(11)"
+  ]
+ },
+ {
+  "domain": "severan.eu",
+  "name": "Severan",
+  "country": "SK",
+  "api_host": "severan.eu",
+  "category_url": "https://severan.eu/shop/",
+  "robots": {
+   "status": "200",
+   "star_disallows_wp_json": false,
+   "matching_lines": []
+  },
+  "store_api_products": {
+   "status": 200,
+   "content_type": "application/json; charset=UTF-8",
+   "x_wp_total": "17",
+   "x_wp_totalpages": "9",
+   "server": "openresty",
+   "cloudflare": false,
+   "works": true,
+   "items_returned": 2,
+   "fields_present": {
+    "id": true,
+    "name": true,
+    "permalink": true,
+    "prices": true,
+    "attributes": true,
+    "variations": true,
+    "categories": true,
+    "tags": true,
+    "short_description": true,
+    "description": true,
+    "images": true,
+    "is_in_stock": true,
+    "sku": true,
+    "type": true,
+    "slug": true,
+    "weight": true,
+    "on_sale": true,
+    "price_html": true
+   },
+   "price_fields": [
+    "currency_code",
+    "currency_decimal_separator",
+    "currency_minor_unit",
+    "currency_prefix",
+    "currency_suffix",
+    "currency_symbol",
+    "currency_thousand_separator",
+    "price",
+    "price_range",
+    "regular_price",
+    "sale_price"
+   ],
+   "currency_code": "EUR",
+   "currency_minor_unit": 2,
+   "attributes_seen": [
+    {
+     "name": "Chuť",
+     "taxonomy": "pa_chut",
+     "has_variations": false
+    },
+    {
+     "name": "Hmotnosť",
+     "taxonomy": "pa_hmotnost",
+     "has_variations": true
+    }
+   ],
+   "products_with_attributes": 2,
+   "types": [
+    "variable"
+   ],
+   "has_variations": [
+    3,
+    3
+   ],
+   "price_range_present": [
+    true,
+    true
+   ],
+   "sku_nonempty": [
+    true,
+    true
+   ],
+   "images_count": [
+    4,
+    4
+   ],
+   "is_in_stock": [
+    true,
+    true
+   ],
+   "tags": [
+    [],
+    []
+   ],
+   "categories_on_products": [
+    [
+     "172:horka"
+    ],
+    [
+     "172:horka"
+    ]
+   ],
+   "description_label_lines": [],
+   "desc_len": [
+    0,
+    0
+   ],
+   "short_desc_len": [
+    2019,
+    2019
+   ],
+   "sample_names": [
+    "BURUNDI",
+    "GUATEMALA SHB &#8211; (Strictly Hard Bean) – najvyššia kvalita"
+   ]
+  },
+  "store_api_categories": {
+   "status": 200,
+   "x_wp_total": null,
+   "total_returned": 4,
+   "all_slugs": [
+    "bezkofeinova",
+    "horka",
+    "ovocna",
+    "uncategorized"
+   ],
+   "coffee_categories": [
+    {
+     "id": 66,
+     "slug": "bezkofeinova",
+     "name": "Bezkofeínová káva",
+     "count": 1,
+     "parent": 0
+    }
+   ]
+  },
+  "attribute_coverage": "origin_attributes",
+  "origin_data_source": "woo_attributes",
+  "verdict": "api_ok",
+  "notes": "description empty; short_description contains an HTML <table class=\"coffee-table\"> with Chuť/Praženie style rows plus icons - needs table parsing rather than Label: value. Prices use a dot decimal separator in price_html.",
+  "suggested_coffee_category_ids": [
+   172,
+   173,
+   66
+  ],
+  "suggested_coffee_categories": [
+   "172:horka(8)",
+   "173:ovocna(8)",
+   "66:bezkofeinova(1)"
+  ]
+ },
+ {
+  "domain": "ripit.sk",
+  "name": "Ripit Roastery",
+  "country": "SK",
+  "api_host": "ripit.sk",
+  "category_url": "https://ripit.sk/obchod/kavy/",
+  "robots": {
+   "status": "200",
+   "star_disallows_wp_json": false,
+   "matching_lines": []
+  },
+  "store_api_products": {
+   "status": 200,
+   "content_type": "application/json; charset=UTF-8",
+   "x_wp_total": "59",
+   "x_wp_totalpages": "30",
+   "server": "openresty",
+   "cloudflare": false,
+   "works": true,
+   "items_returned": 2,
+   "fields_present": {
+    "id": true,
+    "name": true,
+    "permalink": true,
+    "prices": true,
+    "attributes": true,
+    "variations": true,
+    "categories": true,
+    "tags": true,
+    "short_description": true,
+    "description": true,
+    "images": true,
+    "is_in_stock": true,
+    "sku": true,
+    "type": true,
+    "slug": true,
+    "weight": true,
+    "on_sale": true,
+    "price_html": true
+   },
+   "price_fields": [
+    "currency_code",
+    "currency_decimal_separator",
+    "currency_minor_unit",
+    "currency_prefix",
+    "currency_suffix",
+    "currency_symbol",
+    "currency_thousand_separator",
+    "price",
+    "price_range",
+    "regular_price",
+    "sale_price"
+   ],
+   "currency_code": "EUR",
+   "currency_minor_unit": 2,
+   "attributes_seen": [
+    {
+     "name": "Acidita",
+     "taxonomy": null,
+     "has_variations": false
+    },
+    {
+     "name": "Chuťový profil",
+     "taxonomy": null,
+     "has_variations": false
+    },
+    {
+     "name": "Gramáž",
+     "taxonomy": "pa_gramaz",
+     "has_variations": true
+    },
+    {
+     "name": "Nadmorská výška",
+     "taxonomy": null,
+     "has_variations": false
+    },
+    {
+     "name": "Odroda",
+     "taxonomy": null,
+     "has_variations": false
+    },
+    {
+     "name": "Praženie",
+     "taxonomy": null,
+     "has_variations": false
+    },
+    {
+     "name": "Príprava",
+     "taxonomy": null,
+     "has_variations": false
+    },
+    {
+     "name": "Pôvod",
+     "taxonomy": null,
+     "has_variations": false
+    },
+    {
+     "name": "Región",
+     "taxonomy": null,
+     "has_variations": false
+    },
+    {
+     "name": "Sladkosť",
+     "taxonomy": null,
+     "has_variations": false
+    },
+    {
+     "name": "Spracovanie",
+     "taxonomy": null,
+     "has_variations": false
+    },
+    {
+     "name": "Telo",
+     "taxonomy": null,
+     "has_variations": false
+    },
+    {
+     "name": "Typ",
+     "taxonomy": null,
+     "has_variations": false
+    },
+    {
+     "name": "Typ mletia",
+     "taxonomy": "pa_typ-mletia",
+     "has_variations": true
+    },
+    {
+     "name": "Zloženie",
+     "taxonomy": null,
+     "has_variations": false
+    }
+   ],
+   "products_with_attributes": 2,
+   "types": [
+    "variable"
+   ],
+   "has_variations": [
+    1,
+    3
+   ],
+   "price_range_present": [
+    false,
+    true
+   ],
+   "sku_nonempty": [
+    false,
+    false
+   ],
+   "images_count": [
+    3,
+    3
+   ],
+   "is_in_stock": [
+    false,
+    true
+   ],
+   "tags": [
+    [],
+    []
+   ],
+   "categories_on_products": [
+    [
+     "21:filter",
+     "16:kavy"
+    ],
+    [
+     "20:espresso",
+     "16:kavy"
+    ]
+   ],
+   "description_label_lines": [],
+   "desc_len": [
+    384,
+    252
+   ],
+   "short_desc_len": [
+    68,
+    63
+   ],
+   "sample_names": [
+    "Samršot – Colombia",
+    "Tofišot – El Salvador"
+   ]
+  },
+  "store_api_categories": {
+   "status": 200,
+   "x_wp_total": null,
+   "total_returned": 8,
+   "all_slugs": [
+    "caj",
+    "darcek",
+    "espresso",
+    "filter",
+    "kavy",
+    "masla",
+    "oblatky",
+    "ochutnavka"
+   ],
+   "coffee_categories": [
+    {
+     "id": 16,
+     "slug": "kavy",
+     "name": "Kávy",
+     "count": 32,
+     "parent": 0
+    },
+    {
+     "id": 20,
+     "slug": "espresso",
+     "name": "Espresso",
+     "count": 26,
+     "parent": 16
+    },
+    {
+     "id": 21,
+     "slug": "filter",
+     "name": "Filter",
+     "count": 11,
+     "parent": 16
+    }
+   ]
+  },
+  "attribute_coverage": "origin_attributes",
+  "origin_data_source": "woo_attributes",
+  "verdict": "api_ok",
+  "notes": "Mixed: one sampled variable product has no price_range, the other has one. 15 attributes - richest SK set.",
+  "suggested_coffee_category_ids": [
+   16
+  ],
+  "suggested_coffee_categories": [
+   "16:kavy(32)"
+  ]
+ },
+ {
+  "domain": "triproasters.sk",
+  "name": "Trip Coffee Roasters",
+  "country": "SK",
+  "api_host": "triproasters.sk",
+  "category_url": "https://triproasters.sk/vyberova-kava/",
+  "robots": {
+   "status": "200",
+   "star_disallows_wp_json": false,
+   "matching_lines": []
+  },
+  "store_api_products": {
+   "status": 200,
+   "content_type": "application/json; charset=UTF-8",
+   "x_wp_total": "43",
+   "x_wp_totalpages": "22",
+   "server": "nginx",
+   "cloudflare": false,
+   "works": true,
+   "items_returned": 2,
+   "fields_present": {
+    "id": true,
+    "name": true,
+    "permalink": true,
+    "prices": true,
+    "attributes": true,
+    "variations": true,
+    "categories": true,
+    "tags": true,
+    "short_description": true,
+    "description": true,
+    "images": true,
+    "is_in_stock": true,
+    "sku": true,
+    "type": true,
+    "slug": true,
+    "weight": true,
+    "on_sale": true,
+    "price_html": true
+   },
+   "price_fields": [
+    "currency_code",
+    "currency_decimal_separator",
+    "currency_minor_unit",
+    "currency_prefix",
+    "currency_suffix",
+    "currency_symbol",
+    "currency_thousand_separator",
+    "price",
+    "price_range",
+    "regular_price",
+    "sale_price"
+   ],
+   "currency_code": "EUR",
+   "currency_minor_unit": 2,
+   "attributes_seen": [
+    {
+     "name": "Chuťový profil",
+     "taxonomy": "pa_chutovy-profil",
+     "has_variations": false
+    },
+    {
+     "name": "Druh",
+     "taxonomy": "pa_druh",
+     "has_variations": false
+    },
+    {
+     "name": "Hmotnosť produktu",
+     "taxonomy": "pa_hmotnost",
+     "has_variations": true
+    },
+    {
+     "name": "Horkosť kávy",
+     "taxonomy": "pa_horkost-kavy",
+     "has_variations": false
+    },
+    {
+     "name": "Kyslosť kávy",
+     "taxonomy": "pa_kyslost-kavy",
+     "has_variations": false
+    },
+    {
+     "name": "Nadmorská výška",
+     "taxonomy": "pa_nadmorska-vyska",
+     "has_variations": false
+    },
+    {
+     "name": "Obal",
+     "taxonomy": "pa_obal",
+     "has_variations": false
+    },
+    {
+     "name": "Odroda kávy",
+     "taxonomy": "pa_odroda-kavy",
+     "has_variations": false
+    },
+    {
+     "name": "Spôsob praženia",
+     "taxonomy": "pa_sposob-prazenia",
+     "has_variations": true
+    },
+    {
+     "name": "Spôsob spracovania",
+     "taxonomy": "pa_sposob-spracovania",
+     "has_variations": false
+    },
+    {
+     "name": "Zloženie kávy",
+     "taxonomy": "pa_zlozenie-kavy",
+     "has_variations": false
+    }
+   ],
+   "products_with_attributes": 1,
+   "types": [
+    "simple",
+    "variable"
+   ],
+   "has_variations": [
+    1,
+    0
+   ],
+   "price_range_present": [
+    false,
+    false
+   ],
+   "sku_nonempty": [
+    true,
+    true
+   ],
+   "images_count": [
+    1,
+    1
+   ],
+   "is_in_stock": [
+    true,
+    true
+   ],
+   "tags": [
+    [],
+    []
+   ],
+   "categories_on_products": [
+    [
+     "281:espresso",
+     "282:filter"
+    ],
+    [
+     "311:darcekove-poukazky",
+     "23:darcekovy-set",
+     "84:prislusenstvo-ku-kave",
+     "207:salky-na-kavu"
+    ]
+   ],
+   "description_label_lines": [
+    "Hmotnosť",
+    "Potlač",
+    "Rozmer",
+    "Technické špecifikácie"
+   ],
+   "desc_len": [
+    954,
+    504
+   ],
+   "short_desc_len": [
+    94,
+    0
+   ],
+   "sample_names": [
+    "SUMMER ROAST",
+    "PLÁTENÁ TAŠKA S DLHÝMI UŠAMI"
+   ]
+  },
+  "store_api_categories": {
+   "status": 200,
+   "x_wp_total": null,
+   "total_returned": 14,
+   "all_slugs": [
+    "bezkofeinova-kava",
+    "cistiace-tablety",
+    "darcekove-poukazky",
+    "darcekovy-set",
+    "digitalne-vahy",
+    "espresso",
+    "filter",
+    "filtre-do-kavovaru",
+    "manualne-kavovary",
+    "mlynceky-na-kavu",
+    "odvapnovace",
+    "prislusenstvo-ku-kave",
+    "salky-na-kavu",
+    "vyberova-kava"
+   ],
+   "coffee_categories": [
+    {
+     "id": 84,
+     "slug": "prislusenstvo-ku-kave",
+     "name": "Príslušenstvo ku káve",
+     "count": 25,
+     "parent": 0
+    },
+    {
+     "id": 281,
+     "slug": "espresso",
+     "name": "Espresso",
+     "count": 14,
+     "parent": 22
+    },
+    {
+     "id": 22,
+     "slug": "vyberova-kava",
+     "name": "Výberová káva",
+     "count": 14,
+     "parent": 0
+    },
+    {
+     "id": 282,
+     "slug": "filter",
+     "name": "Filter",
+     "count": 10,
+     "parent": 22
+    },
+    {
+     "id": 203,
+     "slug": "filtre-do-kavovaru",
+     "name": "Filtre do kávovaru",
+     "count": 7,
+     "parent": 84
+    },
+    {
+     "id": 207,
+     "slug": "salky-na-kavu",
+     "name": "Šálky",
+     "count": 6,
+     "parent": 84
+    },
+    {
+     "id": 206,
+     "slug": "manualne-kavovary",
+     "name": "Manuálne kávovary",
+     "count": 4,
+     "parent": 84
+    },
+    {
+     "id": 283,
+     "slug": "bezkofeinova-kava",
+     "name": "Bezkofeínová káva",
+     "count": 1,
+     "parent": 22
+    },
+    {
+     "id": 205,
+     "slug": "mlynceky-na-kavu",
+     "name": "Mlynčeky na kávu",
+     "count": 1,
+     "parent": 84
+    }
+   ]
+  },
+  "attribute_coverage": "origin_attributes",
+  "origin_data_source": "woo_attributes",
+  "verdict": "api_ok",
+  "notes": "Variable product returned without price_range. Sampled items included merch, so some attributes are Rozmer/Potlač.",
+  "suggested_coffee_category_ids": [
+   22
+  ],
+  "suggested_coffee_categories": [
+   "22:vyberova-kava(14)"
+  ]
+ },
+ {
+  "domain": "finecoffee.sk",
+  "name": "Fine Coffee SK",
+  "country": "SK",
+  "api_host": "www.finecoffee.sk",
+  "category_url": "https://www.finecoffee.sk/kategoria-produktu/prazena-kava/",
+  "robots": {
+   "status": "200",
+   "star_disallows_wp_json": false,
+   "matching_lines": []
+  },
+  "store_api_products": {
+   "status": 200,
+   "content_type": "application/json; charset=UTF-8",
+   "x_wp_total": "16",
+   "x_wp_totalpages": "8",
+   "server": "Apache",
+   "cloudflare": false,
+   "works": true,
+   "items_returned": 2,
+   "fields_present": {
+    "id": true,
+    "name": true,
+    "permalink": true,
+    "prices": true,
+    "attributes": true,
+    "variations": true,
+    "categories": true,
+    "tags": true,
+    "short_description": true,
+    "description": true,
+    "images": true,
+    "is_in_stock": true,
+    "sku": true,
+    "type": true,
+    "slug": true,
+    "weight": false,
+    "on_sale": true,
+    "price_html": true
+   },
+   "price_fields": [
+    "currency_code",
+    "currency_decimal_separator",
+    "currency_minor_unit",
+    "currency_prefix",
+    "currency_suffix",
+    "currency_symbol",
+    "currency_thousand_separator",
+    "price",
+    "price_range",
+    "regular_price",
+    "sale_price"
+   ],
+   "currency_code": "EUR",
+   "currency_minor_unit": 2,
+   "attributes_seen": [
+    {
+     "name": "balenie",
+     "taxonomy": null,
+     "has_variations": true
+    }
+   ],
+   "products_with_attributes": 2,
+   "types": [
+    "variable"
+   ],
+   "has_variations": [
+    2,
+    2
+   ],
+   "price_range_present": [
+    true,
+    true
+   ],
+   "sku_nonempty": [
+    true,
+    true
+   ],
+   "images_count": [
+    2,
+    2
+   ],
+   "is_in_stock": [
+    true,
+    true
+   ],
+   "tags": [
+    [
+     "finecoffeesk",
+     "novinka"
+    ],
+    [
+     "finecoffeesk"
+    ]
+   ],
+   "categories_on_products": [
+    [
+     "15:prazena-kava"
+    ],
+    [
+     "15:prazena-kava"
+    ]
+   ],
+   "description_label_lines": [
+    "Chuťový profil",
+    "Farma",
+    "Lokalita",
+    "Nadmorská výška",
+    "Odroda",
+    "Spracovanie"
+   ],
+   "desc_len": [
+    221,
+    252
+   ],
+   "short_desc_len": [
+    100,
+    41
+   ],
+   "sample_names": [
+    "Fine Coffee Mexico Esmeralda",
+    "Fine Coffee Kolumbia La Manuela"
+   ]
+  },
+  "store_api_categories": {
+   "status": 200,
+   "x_wp_total": null,
+   "total_returned": 4,
+   "all_slugs": [
+    "doplnky",
+    "kavovary",
+    "prazena-kava",
+    "pakove-kavovary"
+   ],
+   "coffee_categories": [
+    {
+     "id": 15,
+     "slug": "prazena-kava",
+     "name": "Pražená zrnková káva",
+     "count": 9,
+     "parent": 0
+    },
+    {
+     "id": 20,
+     "slug": "doplnky",
+     "name": "Doplnky ku kávovarom",
+     "count": 5,
+     "parent": 0
+    },
+    {
+     "id": 21,
+     "slug": "kavovary",
+     "name": "Kávovary",
+     "count": 2,
+     "parent": 0
+    },
+    {
+     "id": 18,
+     "slug": "pakove-kavovary",
+     "name": "Profi pákové kávovary",
+     "count": 2,
+     "parent": 21
+    }
+   ]
+  },
+  "attribute_coverage": "weight_or_variation_only",
+  "origin_data_source": "description_label_lines",
+  "verdict": "api_ok",
+  "notes": "Weight-only attribute, but description carries Farma/Lokalita/Nadmorská výška/Odroda/Spracovanie/Chuťový profil lines. SKUs populated.",
+  "suggested_coffee_category_ids": [
+   15
+  ],
+  "suggested_coffee_categories": [
+   "15:prazena-kava(9)"
+  ]
+ },
+ {
+  "domain": "karmacoffee.sk",
+  "name": "Karma Coffee",
+  "country": "SK",
+  "api_host": "www.karmacoffee.sk",
+  "category_url": "https://www.karmacoffee.sk/nasa-kava/",
+  "robots": {
+   "status": "200",
+   "star_disallows_wp_json": false,
+   "matching_lines": []
+  },
+  "store_api_products": {
+   "status": 200,
+   "content_type": "application/json; charset=UTF-8",
+   "x_wp_total": "19",
+   "x_wp_totalpages": "10",
+   "server": null,
+   "cloudflare": false,
+   "works": true,
+   "items_returned": 2,
+   "fields_present": {
+    "id": true,
+    "name": true,
+    "permalink": true,
+    "prices": true,
+    "attributes": true,
+    "variations": true,
+    "categories": true,
+    "tags": true,
+    "short_description": true,
+    "description": true,
+    "images": true,
+    "is_in_stock": true,
+    "sku": true,
+    "type": true,
+    "slug": true,
+    "weight": false,
+    "on_sale": true,
+    "price_html": true
+   },
+   "price_fields": [
+    "currency_code",
+    "currency_decimal_separator",
+    "currency_minor_unit",
+    "currency_prefix",
+    "currency_suffix",
+    "currency_symbol",
+    "currency_thousand_separator",
+    "price",
+    "price_range",
+    "regular_price",
+    "sale_price"
+   ],
+   "currency_code": "EUR",
+   "currency_minor_unit": 2,
+   "attributes_seen": [],
+   "products_with_attributes": 0,
+   "types": [
+    "simple"
+   ],
+   "has_variations": [
+    0,
+    0
+   ],
+   "price_range_present": [
+    false,
+    false
+   ],
+   "sku_nonempty": [
+    false,
+    false
+   ],
+   "images_count": [
+    8,
+    9
+   ],
+   "is_in_stock": [
+    true,
+    true
+   ],
+   "tags": [
+    [],
+    []
+   ],
+   "categories_on_products": [
+    [],
+    []
+   ],
+   "description_label_lines": [
+    "Vyrobil"
+   ],
+   "desc_len": [
+    7332,
+    8117
+   ],
+   "short_desc_len": [
+    1227,
+    1227
+   ],
+   "sample_names": [
+    "JUICY PEACH | Kolumbia",
+    "JUICY GRAPE | Kolumbia"
+   ]
+  },
+  "store_api_categories": {
+   "status": 200,
+   "x_wp_total": null,
+   "total_returned": 2,
+   "all_slugs": [
+    "nasa-kava",
+    "prislusenstvo"
+   ],
+   "coffee_categories": [
+    {
+     "id": 24,
+     "slug": "nasa-kava",
+     "name": "Naša káva",
+     "count": 13,
+     "parent": 0
+    }
+   ]
+  },
+  "attribute_coverage": "none",
+  "origin_data_source": "description_label_lines",
+  "verdict": "api_ok",
+  "notes": "Real attribute gap: coffee products carry NO WooCommerce attributes, description is theme/nav markup and short_description is a <pre> narrative blob. Origin data would have to be NLP-extracted or scraped from the HTML detail page.",
+  "suggested_coffee_category_ids": [
+   24
+  ],
+  "suggested_coffee_categories": [
+   "24:nasa-kava(13)"
+  ]
+ },
+ {
+  "domain": "riksakava.sk",
+  "name": "Rikša Káva",
+  "country": "SK",
+  "api_host": "www.riksakava.sk",
+  "category_url": "https://www.riksakava.sk/product-category/ponuka-kav/",
+  "robots": {
+   "status": "200",
+   "star_disallows_wp_json": false,
+   "matching_lines": []
+  },
+  "store_api_products": {
+   "status": 200,
+   "content_type": "application/json; charset=UTF-8",
+   "x_wp_total": "11",
+   "x_wp_totalpages": "6",
+   "server": "openresty",
+   "cloudflare": false,
+   "works": true,
+   "items_returned": 2,
+   "fields_present": {
+    "id": true,
+    "name": true,
+    "permalink": true,
+    "prices": true,
+    "attributes": true,
+    "variations": true,
+    "categories": true,
+    "tags": true,
+    "short_description": true,
+    "description": true,
+    "images": true,
+    "is_in_stock": true,
+    "sku": true,
+    "type": true,
+    "slug": false,
+    "weight": false,
+    "on_sale": true,
+    "price_html": true
+   },
+   "price_fields": [
+    "currency_code",
+    "currency_decimal_separator",
+    "currency_minor_unit",
+    "currency_prefix",
+    "currency_suffix",
+    "currency_symbol",
+    "currency_thousand_separator",
+    "price",
+    "price_range",
+    "regular_price",
+    "sale_price"
+   ],
+   "currency_code": "EUR",
+   "currency_minor_unit": 2,
+   "attributes_seen": [
+    {
+     "name": "Hmotnosť",
+     "taxonomy": "pa_vaha",
+     "has_variations": true
+    }
+   ],
+   "products_with_attributes": 2,
+   "types": [
+    "variable"
+   ],
+   "has_variations": [
+    2,
+    2
+   ],
+   "price_range_present": [
+    true,
+    true
+   ],
+   "sku_nonempty": [
+    true,
+    true
+   ],
+   "images_count": [
+    1,
+    1
+   ],
+   "is_in_stock": [
+    true,
+    true
+   ],
+   "tags": [
+    [],
+    []
+   ],
+   "categories_on_products": [
+    [],
+    []
+   ],
+   "description_label_lines": [
+    "Chuťový profil",
+    "Cuppingové skóre",
+    "Farmári",
+    "Odroda",
+    "Praženie",
+    "Pôvod",
+    "Spracovanie"
+   ],
+   "desc_len": [
+    398,
+    426
+   ],
+   "short_desc_len": [
+    451,
+    482
+   ],
+   "sample_names": [
+    "Brasil Cerrado Good",
+    "Brasil Fruta Doce"
+   ]
+  },
+  "store_api_categories": {
+   "status": 200,
+   "x_wp_total": null,
+   "total_returned": 1,
+   "all_slugs": [
+    "ponuka-kav"
+   ],
+   "coffee_categories": [
+    {
+     "id": 16,
+     "slug": "ponuka-kav",
+     "name": "Kávy &#8211; 1KG / 300G",
+     "count": 11,
+     "parent": 0
+    }
+   ]
+  },
+  "attribute_coverage": "weight_or_variation_only",
+  "origin_data_source": "description_label_lines",
+  "verdict": "api_ok",
+  "notes": "Oldest Store API schema in the survey (27 fields, no slug/weight/dimensions/_links). Only one category: 16 ponuka-kav (11).",
+  "suggested_coffee_category_ids": [
+   16
+  ],
+  "suggested_coffee_categories": [
+   "16:ponuka-kav(11)"
+  ]
+ },
+ {
+  "domain": "bozinroastery.sk",
+  "name": "Bozin Roastery",
+  "country": "SK",
+  "api_host": "www.bozinroastery.sk",
+  "category_url": "https://www.bozinroastery.sk/kava/",
+  "robots": {
+   "status": "200",
+   "star_disallows_wp_json": false,
+   "matching_lines": []
+  },
+  "store_api_products": {
+   "status": 200,
+   "content_type": "application/json; charset=UTF-8",
+   "x_wp_total": "328",
+   "x_wp_totalpages": "164",
+   "server": "openresty",
+   "cloudflare": false,
+   "works": true,
+   "items_returned": 2,
+   "fields_present": {
+    "id": true,
+    "name": true,
+    "permalink": true,
+    "prices": true,
+    "attributes": true,
+    "variations": true,
+    "categories": true,
+    "tags": true,
+    "short_description": true,
+    "description": true,
+    "images": true,
+    "is_in_stock": true,
+    "sku": true,
+    "type": true,
+    "slug": true,
+    "weight": true,
+    "on_sale": true,
+    "price_html": true
+   },
+   "price_fields": [
+    "currency_code",
+    "currency_decimal_separator",
+    "currency_minor_unit",
+    "currency_prefix",
+    "currency_suffix",
+    "currency_symbol",
+    "currency_thousand_separator",
+    "price",
+    "price_range",
+    "regular_price",
+    "sale_price"
+   ],
+   "currency_code": "EUR",
+   "currency_minor_unit": 2,
+   "attributes_seen": [
+    {
+     "name": "Hmotnosť",
+     "taxonomy": "pa_hmotnost",
+     "has_variations": true
+    }
+   ],
+   "products_with_attributes": 2,
+   "types": [
+    "variable"
+   ],
+   "has_variations": [
+    2,
+    2
+   ],
+   "price_range_present": [
+    true,
+    true
+   ],
+   "sku_nonempty": [
+    false,
+    false
+   ],
+   "images_count": [
+    2,
+    2
+   ],
+   "is_in_stock": [
+    true,
+    true
+   ],
+   "tags": [
+    [],
+    []
+   ],
+   "categories_on_products": [
+    [
+     "62:cokolada"
+    ],
+    [
+     "62:cokolada"
+    ]
+   ],
+   "description_label_lines": [
+    "Zloženie"
+   ],
+   "desc_len": [
+    1221,
+    1148
+   ],
+   "short_desc_len": [
+    471,
+    454
+   ],
+   "sample_names": [
+    "Čokoládové dropsy &#8211; Mliečna čokoláda 32%",
+    "Čokoládové dropsy &#8211; Horká čokoláda 72%"
+   ]
+  },
+  "store_api_categories": {
+   "status": 200,
+   "x_wp_total": null,
+   "total_returned": 36,
+   "all_slugs": [
+    "baristicke-nastroje",
+    "bezkofeinova",
+    "caj",
+    "cistenie-a-udrzba",
+    "cokolada",
+    "domaca-priprava-kavy",
+    "domace-kavovary",
+    "doplnky-ku-kave",
+    "drip-coffee",
+    "drippery",
+    "espresso-zmesi",
+    "kanvice",
+    "kava",
+    "kava-so-sebou",
+    "kavovary",
+    "keramika",
+    "merch",
+    "mlynceky",
+    "mlynceky-homebrewing-tools",
+    "moka-kavovary",
+    "napenovace-mlieka",
+    "ostatne",
+    "ostatne-fabbri",
+    "porciovane-caje",
+    "poukazky-a-darceky",
+    "pyre-fabbri",
+    "rastlinne-alternativy-mlieka",
+    "single-origin",
+    "sirupy",
+    "sirupy-fabbri",
+    "specialty-coffee",
+    "sypane-caje",
+    "technologie",
+    "toppingy-fabbri",
+    "uprava-vody",
+    "vahy"
+   ],
+   "coffee_categories": [
+    {
+     "id": 79,
+     "slug": "domaca-priprava-kavy",
+     "name": "Domáca príprava kávy",
+     "count": 147,
+     "parent": 0
+    },
+    {
+     "id": 87,
+     "slug": "kava-so-sebou",
+     "name": "Káva so sebou",
+     "count": 54,
+     "parent": 79
+    },
+    {
+     "id": 51,
+     "slug": "kava",
+     "name": "Káva",
+     "count": 32,
+     "parent": 0
+    },
+    {
+     "id": 83,
+     "slug": "domace-kavovary",
+     "name": "Domáce kávovary",
+     "count": 13,
+     "parent": 79
+    },
+    {
+     "id": 63,
+     "slug": "kavovary",
+     "name": "Kávovary",
+     "count": 13,
+     "parent": 76
+    },
+    {
+     "id": 174,
+     "slug": "specialty-coffee",
+     "name": "Specialty Coffee",
+     "count": 10,
+     "parent": 51
+    },
+    {
+     "id": 173,
+     "slug": "single-origin",
+     "name": "Single Origin",
+     "count": 7,
+     "parent": 51
+    },
+    {
+     "id": 191,
+     "slug": "doplnky-ku-kave",
+     "name": "Doplnky ku káve",
+     "count": 6,
+     "parent": 51
+    },
+    {
+     "id": 81,
+     "slug": "moka-kavovary",
+     "name": "Moka kávovary",
+     "count": 6,
+     "parent": 79
+    },
+    {
+     "id": 175,
+     "slug": "espresso-zmesi",
+     "name": "Espresso zmesi",
+     "count": 4,
+     "parent": 51
+    },
+    {
+     "id": 186,
+     "slug": "drip-coffee",
+     "name": "Drip Coffee",
+     "count": 3,
+     "parent": 51
+    },
+    {
+     "id": 176,
+     "slug": "bezkofeinova",
+     "name": "Bezkofeinová",
+     "count": 2,
+     "parent": 51
+    }
+   ]
+  },
+  "attribute_coverage": "weight_or_variation_only",
+  "origin_data_source": "description_label_lines",
+  "verdict": "api_ok",
+  "notes": "Largest catalogue (X-WP-Total 328). Category tree mixes coffee with machines (domaca-priprava-kavy 147, domace-kavovary 13); the real bean category is 51 kava (32).",
+  "suggested_coffee_category_ids": [
+   51
+  ],
+  "suggested_coffee_categories": [
+   "51:kava(32)"
+  ]
+ },
+ {
+  "domain": "doraz.sk",
+  "name": "Doraz Café & Roastery",
+  "country": "SK",
+  "api_host": "doraz.sk",
+  "category_url": "https://doraz.sk/obchod/",
+  "robots": {
+   "status": "200",
+   "star_disallows_wp_json": false,
+   "matching_lines": []
+  },
+  "store_api_products": {
+   "status": 200,
+   "content_type": "application/json; charset=UTF-8",
+   "x_wp_total": "15",
+   "x_wp_totalpages": "8",
+   "server": "openresty",
+   "cloudflare": false,
+   "works": true,
+   "items_returned": 2,
+   "fields_present": {
+    "id": true,
+    "name": true,
+    "permalink": true,
+    "prices": true,
+    "attributes": true,
+    "variations": true,
+    "categories": true,
+    "tags": true,
+    "short_description": true,
+    "description": true,
+    "images": true,
+    "is_in_stock": true,
+    "sku": true,
+    "type": true,
+    "slug": true,
+    "weight": false,
+    "on_sale": true,
+    "price_html": true
+   },
+   "price_fields": [
+    "currency_code",
+    "currency_decimal_separator",
+    "currency_minor_unit",
+    "currency_prefix",
+    "currency_suffix",
+    "currency_symbol",
+    "currency_thousand_separator",
+    "price",
+    "price_range",
+    "regular_price",
+    "sale_price"
+   ],
+   "currency_code": "EUR",
+   "currency_minor_unit": 2,
+   "attributes_seen": [
+    {
+     "name": "Váha",
+     "taxonomy": "pa_vaha",
+     "has_variations": true
+    }
+   ],
+   "products_with_attributes": 2,
+   "types": [
+    "variable"
+   ],
+   "has_variations": [
+    1,
+    1
+   ],
+   "price_range_present": [
+    false,
+    false
+   ],
+   "sku_nonempty": [
+    false,
+    false
+   ],
+   "images_count": [
+    4,
+    4
+   ],
+   "is_in_stock": [
+    false,
+    true
+   ],
+   "tags": [
+    [
+     "bestseller"
+    ],
+    [
+     "bestseller"
+    ]
+   ],
+   "categories_on_products": [
+    [
+     "63:arabiky"
+    ],
+    [
+     "63:arabiky"
+    ]
+   ],
+   "description_label_lines": [
+    "Region"
+   ],
+   "desc_len": [
+    322,
+    775
+   ],
+   "short_desc_len": [
+    364,
+    361
+   ],
+   "sample_names": [
+    "COLOMBIA GEISHA",
+    "CASCARA COSTA-RICA HACIENDA SONORA"
+   ]
+  },
+  "store_api_categories": {
+   "status": 200,
+   "x_wp_total": null,
+   "total_returned": 3,
+   "all_slugs": [
+    "arabiky",
+    "blendy",
+    "predplatne"
+   ],
+   "coffee_categories": [
+    {
+     "id": 47,
+     "slug": "blendy",
+     "name": "Blendy",
+     "count": 3,
+     "parent": 0
+    }
+   ]
+  },
+  "attribute_coverage": "weight_or_variation_only",
+  "origin_data_source": "description_label_lines",
+  "verdict": "api_ok",
+  "notes": "Older Store API build: variable products come back WITHOUT prices.price_range (only a single price). No \"kava\" category at all - coffee lives in arabiky(11)/blendy(3).",
+  "suggested_coffee_category_ids": [
+   63,
+   47
+  ],
+  "suggested_coffee_categories": [
+   "63:arabiky(11)",
+   "47:blendy(3)"
+  ]
+ },
+ {
+  "domain": "aurelica.coffee",
+  "name": "Aurelica",
+  "country": "SK",
+  "api_host": "www.aurelica.coffee",
+  "category_url": "https://www.aurelica.coffee/product-category/kava/",
+  "robots": {
+   "status": "200",
+   "star_disallows_wp_json": false,
+   "matching_lines": []
+  },
+  "store_api_products": {
+   "status": 200,
+   "content_type": "application/json; charset=UTF-8",
+   "x_wp_total": "88",
+   "x_wp_totalpages": "44",
+   "server": "cloudflare",
+   "cloudflare": true,
+   "works": true,
+   "items_returned": 2,
+   "fields_present": {
+    "id": true,
+    "name": true,
+    "permalink": true,
+    "prices": true,
+    "attributes": true,
+    "variations": true,
+    "categories": true,
+    "tags": true,
+    "short_description": true,
+    "description": true,
+    "images": true,
+    "is_in_stock": true,
+    "sku": true,
+    "type": true,
+    "slug": true,
+    "weight": true,
+    "on_sale": true,
+    "price_html": true
+   },
+   "price_fields": [
+    "currency_code",
+    "currency_decimal_separator",
+    "currency_minor_unit",
+    "currency_prefix",
+    "currency_suffix",
+    "currency_symbol",
+    "currency_thousand_separator",
+    "price",
+    "price_range",
+    "regular_price",
+    "sale_price"
+   ],
+   "currency_code": "EUR",
+   "currency_minor_unit": 2,
+   "attributes_seen": [
+    {
+     "name": "Farma",
+     "taxonomy": null,
+     "has_variations": false
+    },
+    {
+     "name": "Krajina pôvodu",
+     "taxonomy": "pa_krajina-povodu",
+     "has_variations": false
+    },
+    {
+     "name": "Nadmorská výška",
+     "taxonomy": null,
+     "has_variations": false
+    },
+    {
+     "name": "Odroda",
+     "taxonomy": "pa_odroda",
+     "has_variations": false
+    },
+    {
+     "name": "Región",
+     "taxonomy": "pa_region",
+     "has_variations": false
+    },
+    {
+     "name": "Spracovanie",
+     "taxonomy": "pa_spravovanie",
+     "has_variations": false
+    },
+    {
+     "name": "Typ praženia",
+     "taxonomy": "pa_typ-prazenia",
+     "has_variations": false
+    },
+    {
+     "name": "Veľkosť balenia",
+     "taxonomy": "pa_velkost-balenia",
+     "has_variations": true
+    }
+   ],
+   "products_with_attributes": 2,
+   "types": [
+    "variable"
+   ],
+   "has_variations": [
+    2,
+    2
+   ],
+   "price_range_present": [
+    true,
+    true
+   ],
+   "sku_nonempty": [
+    false,
+    false
+   ],
+   "images_count": [
+    1,
+    1
+   ],
+   "is_in_stock": [
+    true,
+    true
+   ],
+   "tags": [
+    [
+     "espresso",
+     "kava",
+     "ovocna",
+     "vyberova"
+    ],
+    [
+     "espresso",
+     "kava",
+     "ovocna",
+     "vyberova"
+    ]
+   ],
+   "categories_on_products": [
+    [
+     "39:kava",
+     "41:vyberova-kava"
+    ],
+    [
+     "39:kava",
+     "41:vyberova-kava"
+    ]
+   ],
+   "description_label_lines": [
+    "Horkosť",
+    "Intenzita",
+    "Kyslosť",
+    "Sladkosť"
+   ],
+   "desc_len": [
+    1757,
+    1815
+   ],
+   "short_desc_len": [
+    0,
+    0
+   ],
+   "sample_names": [
+    "Ethiopia &#8211; G1 Chelchele &#8211; espresso roast",
+    "Uganda &#8211; Nafuna &#8211; espresso roast"
+   ]
+  },
+  "store_api_categories": {
+   "status": 200,
+   "x_wp_total": null,
+   "total_returned": 12,
+   "all_slugs": [
+    "alternativna-priprava",
+    "bezkofeinova-kava",
+    "cistiace-pomocky",
+    "filtre",
+    "kava",
+    "komoditna-kava",
+    "merch",
+    "mokka-konvicky",
+    "nahradne-diely",
+    "prislusenstvo",
+    "uncategorized",
+    "vyberova-kava"
+   ],
+   "coffee_categories": [
+    {
+     "id": 39,
+     "slug": "kava",
+     "name": "Káva",
+     "count": 10,
+     "parent": 0
+    },
+    {
+     "id": 41,
+     "slug": "vyberova-kava",
+     "name": "Výberová káva",
+     "count": 6,
+     "parent": 39
+    },
+    {
+     "id": 74,
+     "slug": "filtre",
+     "name": "Filtre",
+     "count": 5,
+     "parent": 42
+    },
+    {
+     "id": 40,
+     "slug": "komoditna-kava",
+     "name": "Komoditná káva",
+     "count": 4,
+     "parent": 39
+    },
+    {
+     "id": 89,
+     "slug": "bezkofeinova-kava",
+     "name": "Bezkofeínová káva",
+     "count": 1,
+     "parent": 39
+    }
+   ]
+  },
+  "attribute_coverage": "origin_attributes",
+  "origin_data_source": "woo_attributes",
+  "verdict": "api_ok",
+  "notes": "Behind Cloudflare, no challenge. 8 attributes but they are tasting sliders (Intenzita, Kyslosť, Sladkosť, Horkosť) rather than origin fields.",
+  "suggested_coffee_category_ids": [
+   39
+  ],
+  "suggested_coffee_categories": [
+   "39:kava(10)"
+  ]
+ },
+ {
+  "domain": "tokycaffe.sk",
+  "name": "TOKY Caffé",
+  "country": "SK",
+  "api_host": "tokycaffe.sk",
+  "category_url": "https://tokycaffe.sk/obchod/",
+  "robots": {
+   "status": "200",
+   "star_disallows_wp_json": false,
+   "matching_lines": []
+  },
+  "store_api_products": {
+   "status": 200,
+   "content_type": "application/json; charset=UTF-8",
+   "x_wp_total": "62",
+   "x_wp_totalpages": "31",
+   "server": "openresty",
+   "cloudflare": false,
+   "works": true,
+   "items_returned": 2,
+   "fields_present": {
+    "id": true,
+    "name": true,
+    "permalink": true,
+    "prices": true,
+    "attributes": true,
+    "variations": true,
+    "categories": true,
+    "tags": true,
+    "short_description": true,
+    "description": true,
+    "images": true,
+    "is_in_stock": true,
+    "sku": true,
+    "type": true,
+    "slug": true,
+    "weight": true,
+    "on_sale": true,
+    "price_html": true
+   },
+   "price_fields": [
+    "currency_code",
+    "currency_decimal_separator",
+    "currency_minor_unit",
+    "currency_prefix",
+    "currency_suffix",
+    "currency_symbol",
+    "currency_thousand_separator",
+    "price",
+    "price_range",
+    "regular_price",
+    "sale_price"
+   ],
+   "currency_code": "EUR",
+   "currency_minor_unit": 2,
+   "attributes_seen": [],
+   "products_with_attributes": 0,
+   "types": [
+    "simple"
+   ],
+   "has_variations": [
+    0,
+    0
+   ],
+   "price_range_present": [
+    false,
+    false
+   ],
+   "sku_nonempty": [
+    false,
+    false
+   ],
+   "images_count": [
+    5,
+    5
+   ],
+   "is_in_stock": [
+    true,
+    true
+   ],
+   "tags": [
+    [],
+    []
+   ],
+   "categories_on_products": [
+    [
+     "177:bezkofeinovakavaplechovky"
+    ],
+    [
+     "177:bezkofeinovakavaplechovky"
+    ]
+   ],
+   "description_label_lines": [
+    "Druh",
+    "Hmotnosť",
+    "Obal"
+   ],
+   "desc_len": [
+    408,
+    406
+   ],
+   "short_desc_len": [
+    0,
+    0
+   ],
+   "sample_names": [
+    "Bezkofeínová zrnková 250&nbsp;g",
+    "Bezkofeínová mletá 250&nbsp;g"
+   ]
+  },
+  "store_api_categories": {
+   "status": 200,
+   "x_wp_total": null,
+   "total_returned": 8,
+   "all_slugs": [
+    "bezkofeinovakavaplechovky",
+    "kava-podla-krajiny-povodu",
+    "kavovary",
+    "kavovary-a-prislusenstvo",
+    "nezaradene",
+    "prislusenstvo",
+    "speciality-coffee",
+    "zmesi-toky-caffe"
+   ],
+   "coffee_categories": [
+    {
+     "id": 173,
+     "slug": "kavovary-a-prislusenstvo",
+     "name": "Kávovary a príslušenstvo",
+     "count": 19,
+     "parent": 0
+    },
+    {
+     "id": 169,
+     "slug": "kava-podla-krajiny-povodu",
+     "name": "Káva podľa krajiny pôvodu",
+     "count": 17,
+     "parent": 0
+    },
+    {
+     "id": 171,
+     "slug": "kavovary",
+     "name": "Kávovary",
+     "count": 16,
+     "parent": 173
+    },
+    {
+     "id": 178,
+     "slug": "speciality-coffee",
+     "name": "Speciality Coffee",
+     "count": 11,
+     "parent": 0
+    },
+    {
+     "id": 177,
+     "slug": "bezkofeinovakavaplechovky",
+     "name": "Bezkofeínová káva a plechovky",
+     "count": 4,
+     "parent": 0
+    }
+   ]
+  },
+  "attribute_coverage": "none",
+  "origin_data_source": "description_label_lines",
+  "verdict": "api_ok",
+  "notes": "No attributes; the facts live in the description as \"Druh: <strong>..</strong> Obal: .. Hmotnosť: ..\" label lines - parseable with a Label: value extractor.",
+  "suggested_coffee_category_ids": [
+   169,
+   178,
+   177
+  ],
+  "suggested_coffee_categories": [
+   "169:kava-podla-krajiny-povodu(17)",
+   "178:speciality-coffee(11)",
+   "177:bezkofeinovakavaplechovky(4)"
+  ]
+ },
+ {
+  "domain": "poetrycoffee.sk",
+  "name": "Poetry Coffee",
+  "country": "SK",
+  "api_host": "poetrycoffee.sk",
+  "category_url": "https://poetrycoffee.sk/obchod/",
+  "robots": {
+   "status": "200",
+   "star_disallows_wp_json": false,
+   "matching_lines": []
+  },
+  "store_api_products": {
+   "status": 200,
+   "content_type": "application/json; charset=UTF-8",
+   "x_wp_total": "11",
+   "x_wp_totalpages": "6",
+   "server": "openresty",
+   "cloudflare": false,
+   "works": true,
+   "items_returned": 2,
+   "fields_present": {
+    "id": true,
+    "name": true,
+    "permalink": true,
+    "prices": true,
+    "attributes": true,
+    "variations": true,
+    "categories": true,
+    "tags": true,
+    "short_description": true,
+    "description": true,
+    "images": true,
+    "is_in_stock": true,
+    "sku": true,
+    "type": true,
+    "slug": true,
+    "weight": false,
+    "on_sale": true,
+    "price_html": true
+   },
+   "price_fields": [
+    "currency_code",
+    "currency_decimal_separator",
+    "currency_minor_unit",
+    "currency_prefix",
+    "currency_suffix",
+    "currency_symbol",
+    "currency_thousand_separator",
+    "price",
+    "price_range",
+    "regular_price",
+    "sale_price"
+   ],
+   "currency_code": "EUR",
+   "currency_minor_unit": 2,
+   "attributes_seen": [],
+   "products_with_attributes": 0,
+   "types": [
+    "simple"
+   ],
+   "has_variations": [
+    0,
+    0
+   ],
+   "price_range_present": [
+    false,
+    false
+   ],
+   "sku_nonempty": [
+    false,
+    false
+   ],
+   "images_count": [
+    3,
+    3
+   ],
+   "is_in_stock": [
+    true,
+    true
+   ],
+   "tags": [
+    [],
+    []
+   ],
+   "categories_on_products": [
+    [
+     "62:doplnky"
+    ],
+    [
+     "62:doplnky"
+    ]
+   ],
+   "description_label_lines": [],
+   "desc_len": [
+    740,
+    478
+   ],
+   "short_desc_len": [
+    79,
+    45
+   ],
+   "sample_names": [
+    "Hario fľaša na coldbrew",
+    "French Press timemore U 450ml"
+   ]
+  },
+  "store_api_categories": {
+   "status": 200,
+   "x_wp_total": null,
+   "total_returned": 5,
+   "all_slugs": [
+    "cokolada",
+    "doplnky",
+    "espresso",
+    "filter",
+    "kava"
+   ],
+   "coffee_categories": [
+    {
+     "id": 53,
+     "slug": "kava",
+     "name": "Káva",
+     "count": 4,
+     "parent": 0
+    },
+    {
+     "id": 60,
+     "slug": "espresso",
+     "name": "Espresso",
+     "count": 3,
+     "parent": 53
+    },
+    {
+     "id": 59,
+     "slug": "filter",
+     "name": "Filter",
+     "count": 2,
+     "parent": 53
+    }
+   ]
+  },
+  "attribute_coverage": "none",
+  "origin_data_source": "unstructured_or_absent",
+  "verdict": "api_ok",
+  "notes": "Sampled products were brewers (Hario, French press) -> no attributes in this sample; only 11 products total of which ~4 are coffees.",
+  "suggested_coffee_category_ids": [
+   53
+  ],
+  "suggested_coffee_categories": [
+   "53:kava(4)"
+  ]
+ },
+ {
+  "domain": "viemcoffee.sk",
+  "name": "ViEM Coffee",
+  "country": "SK",
+  "api_host": "www.viemcoffee.sk",
+  "category_url": "https://www.viemcoffee.sk/obchod/",
+  "robots": {
+   "status": "200",
+   "star_disallows_wp_json": false,
+   "matching_lines": []
+  },
+  "store_api_products": {
+   "status": 200,
+   "content_type": "application/json; charset=UTF-8",
+   "x_wp_total": "6",
+   "x_wp_totalpages": "3",
+   "server": "openresty",
+   "cloudflare": false,
+   "works": true,
+   "items_returned": 2,
+   "fields_present": {
+    "id": true,
+    "name": true,
+    "permalink": true,
+    "prices": true,
+    "attributes": true,
+    "variations": true,
+    "categories": true,
+    "tags": true,
+    "short_description": true,
+    "description": true,
+    "images": true,
+    "is_in_stock": true,
+    "sku": true,
+    "type": true,
+    "slug": true,
+    "weight": false,
+    "on_sale": true,
+    "price_html": true
+   },
+   "price_fields": [
+    "currency_code",
+    "currency_decimal_separator",
+    "currency_minor_unit",
+    "currency_prefix",
+    "currency_suffix",
+    "currency_symbol",
+    "currency_thousand_separator",
+    "price",
+    "price_range",
+    "regular_price",
+    "sale_price"
+   ],
+   "currency_code": "EUR",
+   "currency_minor_unit": 2,
+   "attributes_seen": [
+    {
+     "name": "Váha",
+     "taxonomy": "pa_vaha",
+     "has_variations": true
+    }
+   ],
+   "products_with_attributes": 2,
+   "types": [
+    "variable"
+   ],
+   "has_variations": [
+    2,
+    2
+   ],
+   "price_range_present": [
+    true,
+    true
+   ],
+   "sku_nonempty": [
+    false,
+    false
+   ],
+   "images_count": [
+    2,
+    1
+   ],
+   "is_in_stock": [
+    true,
+    false
+   ],
+   "tags": [
+    [],
+    []
+   ],
+   "categories_on_products": [
+    [
+     "19:kava-na-espresso"
+    ],
+    [
+     "19:kava-na-espresso"
+    ]
+   ],
+   "description_label_lines": [
+    "Chuťový profil",
+    "Cuppingové skóre",
+    "Farma",
+    "Kvalita",
+    "Majiteľ",
+    "Nadmorská výška",
+    "O káve",
+    "Oblasť",
+    "Odroda",
+    "Profil",
+    "Pôvod",
+    "Región",
+    "Spracovanie",
+    "Stupeň praženia",
+    "Váha balenia",
+    "zdroj"
+   ],
+   "desc_len": [
+    5083,
+    3606
+   ],
+   "short_desc_len": [
+    0,
+    1553
+   ],
+   "sample_names": [
+    "Nikaragua SHG",
+    "Kolumbia Pink Bourbon by Hugo Gualaco"
+   ]
+  },
+  "store_api_categories": {
+   "status": 200,
+   "x_wp_total": null,
+   "total_returned": 1,
+   "all_slugs": [
+    "kava-na-espresso"
+   ],
+   "coffee_categories": [
+    {
+     "id": 19,
+     "slug": "kava-na-espresso",
+     "name": "Káva na espresso",
+     "count": 6,
+     "parent": 0
+    }
+   ]
+  },
+  "attribute_coverage": "weight_or_variation_only",
+  "origin_data_source": "description_label_lines",
+  "verdict": "api_ok",
+  "notes": "28-field schema. Long description with a rich Label: value block (Farma, Majiteľ, Nadmorská výška, Odroda, Cuppingové skóre...). Only one category: 19 kava-na-espresso.",
+  "suggested_coffee_category_ids": [
+   19
+  ],
+  "suggested_coffee_categories": [
+   "19:kava-na-espresso(6)"
+  ]
+ },
+ {
+  "domain": "seriouscoffee.sk",
+  "name": "Serious Coffee",
+  "country": "SK",
+  "api_host": "www.seriouscoffee.sk",
+  "category_url": "https://www.seriouscoffee.sk/e-shop/",
+  "robots": {
+   "status": "200",
+   "star_disallows_wp_json": false,
+   "matching_lines": []
+  },
+  "store_api_products": {
+   "status": 200,
+   "content_type": "application/json; charset=UTF-8",
+   "x_wp_total": "7",
+   "x_wp_totalpages": "4",
+   "server": "openresty",
+   "cloudflare": false,
+   "works": true,
+   "items_returned": 2,
+   "fields_present": {
+    "id": true,
+    "name": true,
+    "permalink": true,
+    "prices": true,
+    "attributes": true,
+    "variations": true,
+    "categories": true,
+    "tags": true,
+    "short_description": true,
+    "description": true,
+    "images": true,
+    "is_in_stock": true,
+    "sku": true,
+    "type": true,
+    "slug": true,
+    "weight": true,
+    "on_sale": true,
+    "price_html": true
+   },
+   "price_fields": [
+    "currency_code",
+    "currency_decimal_separator",
+    "currency_minor_unit",
+    "currency_prefix",
+    "currency_suffix",
+    "currency_symbol",
+    "currency_thousand_separator",
+    "price",
+    "price_range",
+    "regular_price",
+    "sale_price"
+   ],
+   "currency_code": "EUR",
+   "currency_minor_unit": 2,
+   "attributes_seen": [
+    {
+     "name": "Praženie",
+     "taxonomy": null,
+     "has_variations": true
+    },
+    {
+     "name": "Veľkosť",
+     "taxonomy": null,
+     "has_variations": true
+    }
+   ],
+   "products_with_attributes": 2,
+   "types": [
+    "variable"
+   ],
+   "has_variations": [
+    2,
+    2
+   ],
+   "price_range_present": [
+    true,
+    true
+   ],
+   "sku_nonempty": [
+    false,
+    false
+   ],
+   "images_count": [
+    1,
+    1
+   ],
+   "is_in_stock": [
+    true,
+    false
+   ],
+   "tags": [
+    [],
+    []
+   ],
+   "categories_on_products": [
+    [
+     "222:decaf"
+    ],
+    [
+     "191:vyberova"
+    ]
+   ],
+   "description_label_lines": [
+    "Chuťový profil",
+    "Farma",
+    "Nadmorská výška",
+    "Odroda",
+    "Región",
+    "Spracovanie",
+    "Stupeň praženia"
+   ],
+   "desc_len": [
+    218,
+    408
+   ],
+   "short_desc_len": [
+    721,
+    968
+   ],
+   "sample_names": [
+    "Columbia Sugarcane",
+    "Brazil Minas"
+   ]
+  },
+  "store_api_categories": {
+   "status": 200,
+   "x_wp_total": null,
+   "total_returned": 4,
+   "all_slugs": [
+    "decaf",
+    "espresso-blend",
+    "office",
+    "vyberova"
+   ],
+   "coffee_categories": [
+    {
+     "id": 191,
+     "slug": "vyberova",
+     "name": "Výberová",
+     "count": 4,
+     "parent": 0
+    },
+    {
+     "id": 222,
+     "slug": "decaf",
+     "name": "Decaf",
+     "count": 1,
+     "parent": 0
+    },
+    {
+     "id": 196,
+     "slug": "espresso-blend",
+     "name": "Espresso Blend",
+     "count": 1,
+     "parent": 0
+    }
+   ]
+  },
+  "attribute_coverage": "origin_attributes",
+  "origin_data_source": "woo_attributes",
+  "verdict": "api_ok",
+  "notes": "2 attributes + full Label: value description block; categories are vyberova(4), decaf(1), espresso-blend(1).",
+  "suggested_coffee_category_ids": [
+   191,
+   222,
+   196
+  ],
+  "suggested_coffee_categories": [
+   "191:vyberova(4)",
+   "222:decaf(1)",
+   "196:espresso-blend(1)"
+  ]
+ },
+ {
+  "domain": "kavavitazov.sk",
+  "name": "Victory – Káva víťazov",
+  "country": "SK",
+  "api_host": "kavavitazov.sk",
+  "category_url": "https://kavavitazov.sk/obchod/",
+  "robots": {
+   "status": "200",
+   "star_disallows_wp_json": false,
+   "matching_lines": []
+  },
+  "store_api_products": {
+   "status": 200,
+   "content_type": "application/json; charset=UTF-8",
+   "x_wp_total": "1",
+   "x_wp_totalpages": "1",
+   "server": "openresty",
+   "cloudflare": false,
+   "works": true,
+   "items_returned": 2,
+   "fields_present": {
+    "id": true,
+    "name": true,
+    "permalink": true,
+    "prices": true,
+    "attributes": true,
+    "variations": true,
+    "categories": true,
+    "tags": true,
+    "short_description": true,
+    "description": true,
+    "images": true,
+    "is_in_stock": true,
+    "sku": true,
+    "type": true,
+    "slug": true,
+    "weight": false,
+    "on_sale": true,
+    "price_html": true
+   },
+   "price_fields": [
+    "currency_code",
+    "currency_decimal_separator",
+    "currency_minor_unit",
+    "currency_prefix",
+    "currency_suffix",
+    "currency_symbol",
+    "currency_thousand_separator",
+    "price",
+    "price_range",
+    "regular_price",
+    "sale_price"
+   ],
+   "currency_code": "EUR",
+   "currency_minor_unit": 2,
+   "attributes_seen": [
+    {
+     "name": "Balenie",
+     "taxonomy": "pa_balenie",
+     "has_variations": true
+    },
+    {
+     "name": "Mletie",
+     "taxonomy": "pa_mletie",
+     "has_variations": true
+    },
+    {
+     "name": "Stupeň praženia",
+     "taxonomy": "pa_stupen-prazenia",
+     "has_variations": true
+    }
+   ],
+   "products_with_attributes": 2,
+   "types": [
+    "variable"
+   ],
+   "has_variations": [
+    20,
+    30
+   ],
+   "price_range_present": [
+    true,
+    true
+   ],
+   "sku_nonempty": [
+    true,
+    true
+   ],
+   "images_count": [
+    1,
+    1
+   ],
+   "is_in_stock": [
+    true,
+    true
+   ],
+   "tags": [
+    [
+     "zakladna"
+    ],
+    [
+     "premium"
+    ]
+   ],
+   "categories_on_products": [
+    [
+     "28:oblubene"
+    ],
+    [
+     "28:oblubene"
+    ]
+   ],
+   "description_label_lines": [
+    "Chuťový profil",
+    "Pôvod kávy",
+    "Stupeň praženia full city",
+    "Stupeň praženia light",
+    "Zaujímavosť"
+   ],
+   "desc_len": [
+    1451,
+    2930
+   ],
+   "short_desc_len": [
+    31,
+    19
+   ],
+   "sample_names": [
+    "Jesenný Blend",
+    "Brazília"
+   ]
+  },
+  "store_api_categories": {
+   "status": 200,
+   "x_wp_total": null,
+   "total_returned": 2,
+   "all_slugs": [
+    "novinky",
+    "oblubene"
+   ],
+   "coffee_categories": []
+  },
+  "attribute_coverage": "origin_attributes",
+  "origin_data_source": "woo_attributes",
+  "verdict": "api_ok",
+  "notes": "X-WP-Total says 1 while the endpoint returns 2 items - the count header is unreliable here (caching/filter plugin); paginate until an empty page instead of trusting the header. Products have 20-30 variations each.",
+  "suggested_coffee_category_ids": [],
+  "suggested_coffee_categories": [],
+  "suggested_coffee_categories_note": "no usable coffee category - take the whole catalogue and filter by product/type heuristics"
+ }
+]

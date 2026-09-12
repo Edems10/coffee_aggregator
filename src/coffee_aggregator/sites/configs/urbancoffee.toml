@@ -1,0 +1,20 @@
+# Urban Coffee — a Slovak roastery on Shoptet. Everything worth having sits in
+# the description as LABEL: value lines (Región, Nadmorská výška, Odroda,
+# Spracovanie, Chuťový profil, Praženie), all of which the built-in CZ/SK/EN
+# map already covers, so no [label_map] is needed.
+platform = "shoptet"
+site_id = "urbancoffee"
+name = "Urban Coffee"
+country = "SK"
+base_url = "https://www.urbancoffee.sk/"
+category_urls = ["https://www.urbancoffee.sk/e-shop/"]
+currency = "EUR"
+max_pages = 20
+pagination = "path"
+
+# /e-shop/ is the whole catalogue, so the usual non-bean items are excluded.
+ignore = [
+  "mlyncek",
+  "darcek",
+  "degustacn",
+]
