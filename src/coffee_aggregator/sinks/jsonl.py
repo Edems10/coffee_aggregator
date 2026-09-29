@@ -8,6 +8,7 @@ from pathlib import Path
 from typing import TYPE_CHECKING
 
 from coffee_aggregator.sinks.base import SinkResult
+from coffee_aggregator.sinks.records import coffee_record
 
 if TYPE_CHECKING:
     from collections.abc import Sequence
@@ -80,7 +81,7 @@ class JsonlSink:
         failed = 0
         for coffee in coffees:
             try:
-                line = json.dumps(coffee.to_record(json_safe=True), ensure_ascii=False)
+                line = json.dumps(coffee_record(coffee, json_safe=True), ensure_ascii=False)
             except TypeError, ValueError:
                 logger.exception("could not serialise %s", coffee.url)
                 failed += 1

@@ -14,6 +14,7 @@ from coffee_aggregator.db.connect import (
     connect,
 )
 from coffee_aggregator.sinks.base import SinkResult
+from coffee_aggregator.sinks.records import coffee_record
 
 if TYPE_CHECKING:
     from collections.abc import Iterator, Sequence
@@ -25,7 +26,7 @@ if TYPE_CHECKING:
 logger = logging.getLogger(__name__)
 
 
-#: Every data column of ``coffee``, in the order ``Coffee.to_record()`` emits
+#: Every data column of ``coffee``, in the order :func:`coffee_record` emits
 #: them. The INSERT statement, the schema test and the record keys all derive
 #: from this one tuple so they cannot drift apart.
 COLUMNS: tuple[str, ...] = (
@@ -210,7 +211,7 @@ def row_for(coffee: Coffee) -> tuple[Any, ...]:
     Returns:
         One value per entry of :data:`COLUMNS`, jsonb values already wrapped.
     """
-    record = coffee.to_record(json_safe=False)
+    record = coffee_record(coffee, json_safe=False)
     return tuple(
         Jsonb(record[column]) if column in JSON_COLUMNS else record[column] for column in COLUMNS
     )

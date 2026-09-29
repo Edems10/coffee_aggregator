@@ -7,6 +7,7 @@ import pytest
 
 from coffee_aggregator.http import FetchResult
 from coffee_aggregator.models import ProcessMethod, RoastProfile
+from coffee_aggregator.sinks.records import coffee_record
 from coffee_aggregator.sites import get as get_site
 from coffee_aggregator.sites.base import ProductRef
 from coffee_aggregator.sites.fathers import FathersSite, parse_props
@@ -216,7 +217,7 @@ def test_a_reference_payload_parses_to_the_same_coffee(
     assert ref.payload is not None
     from_payload = site.parse_product(ref.payload, ref)
     assert from_payload is not None
-    assert from_payload.to_record()["raw_attributes"] == chapata.to_record()["raw_attributes"]
+    assert coffee_record(from_payload)["raw_attributes"] == coffee_record(chapata)["raw_attributes"]
     assert from_payload.price == chapata.price
     assert from_payload.origin.country == chapata.origin.country
     assert from_payload.url == chapata.url
