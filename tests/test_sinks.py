@@ -6,6 +6,7 @@ from typing import TYPE_CHECKING
 from coffee_aggregator.models import Coffee, Variant
 from coffee_aggregator.sinks.jsonl import JsonlSink
 from coffee_aggregator.sinks.postgres import COLUMNS, VARIANT_COLUMNS, variant_rows_for
+from coffee_aggregator.sinks.records import coffee_record
 
 if TYPE_CHECKING:
     from pathlib import Path
@@ -40,13 +41,13 @@ def test_jsonl_sink_cannot_delist(tmp_path: Path) -> None:
     sink.close()
 
 
-def test_to_record_keys_are_exactly_the_sink_columns() -> None:
-    assert list(make_coffee().to_record().keys()) == list(COLUMNS)
+def test_coffee_record_keys_are_exactly_the_sink_columns() -> None:
+    assert list(coffee_record(make_coffee()).keys()) == list(COLUMNS)
 
 
-def test_to_record_round_trips_every_field() -> None:
+def test_coffee_record_round_trips_every_field() -> None:
     coffee = make_coffee()
-    record = coffee.to_record(json_safe=True)
+    record = coffee_record(coffee, json_safe=True)
 
     assert record["site"] == "demo"
     assert record["price_per_kg"] == 49.95
@@ -74,8 +75,8 @@ def test_to_record_round_trips_every_field() -> None:
     assert json.loads(json.dumps(record, ensure_ascii=False)) == record
 
 
-def test_to_record_keeps_native_dates_for_postgres() -> None:
-    record = make_coffee().to_record(json_safe=False)
+def test_coffee_record_keeps_native_dates_for_postgres() -> None:
+    record = coffee_record(make_coffee(), json_safe=False)
     assert record["roast_date"].year == 2026
     assert record["scraped_at"].tzinfo is not None
 
@@ -168,7 +169,7 @@ def test_two_bags_sharing_one_price_leave_the_per_kilo_price_empty() -> None:
 
     assert coffee.price_basis is None
     assert coffee.price_per_kg is None
-    assert coffee.to_record()["price_per_kg"] is None
+    assert coffee_record(coffee)["price_per_kg"] is None
 
 
 def test_the_product_pair_is_used_when_no_variant_claims_the_price() -> None:
@@ -203,7 +204,7 @@ def test_the_variant_key_prefers_the_shops_own_id_and_never_the_position() -> No
 
 def test_the_roaster_is_read_out_of_the_brand_attribute() -> None:
     coffee = make_coffee(raw_attributes={"BRAND": "Doubleshot  "})
-    record = coffee.to_record()
+    record = coffee_record(coffee)
 
     assert record["roaster"] == "Doubleshot"
     assert record["roaster_key"] == "doubleshot"
@@ -217,14 +218,14 @@ def test_the_roaster_key_folds_accents_so_two_shops_match() -> None:
 
 
 def test_a_product_with_no_brand_keeps_both_roaster_columns_empty() -> None:
-    record = make_coffee().to_record()
+    record = coffee_record(make_coffee())
     assert record["roaster"] is None
     assert record["roaster_key"] is None
 
 
 def test_an_explicit_roaster_wins_over_the_raw_attribute() -> None:
     coffee = make_coffee(raw_attributes={"BRAND": "Shop"}, roaster="Roastery")
-    assert coffee.to_record()["roaster"] == "Roastery"
+    assert coffee_record(coffee)["roaster"] == "Roastery"
 
 
 def test_variant_rows_carry_everything_a_cross_shop_query_needs() -> None:

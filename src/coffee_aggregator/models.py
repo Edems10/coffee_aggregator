@@ -2,11 +2,10 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 from datetime import UTC, date, datetime
-from decimal import ROUND_HALF_UP, Decimal, InvalidOperation
 from enum import StrEnum
-from typing import Any
 
-GRAMS_PER_KG = 1000.0
+from coffee_aggregator.money import per_kg
+
 #: The scale every sensory bar is expressed on, and the default review scale.
 DEFAULT_TASTE_SCALE_MAX = 5
 DEFAULT_RATING_MAX = 5
@@ -15,29 +14,6 @@ BRAND_ATTRIBUTE = "BRAND"
 #: Two prices this close apart are the same price: shops state them to the cent,
 #: and the halfpenny of a float round-trip must not break the match.
 _PRICE_EPSILON = 0.005
-_CENTS = Decimal("0.01")
-
-
-def per_kg(amount: float | None, weight_g: int | None) -> float | None:
-    """Extrapolate an amount for one package to one kilogram.
-
-    Args:
-        amount: The price of one package, in any currency.
-        weight_g: The net weight of that same package.
-
-    Returns:
-        The price of a kilogram rounded to the cent, or None when either input
-        is missing or the weight is zero.
-    """
-    if amount is None or not weight_g:
-        return None
-    try:
-        value = Decimal(str(amount)) * Decimal(str(GRAMS_PER_KG)) / Decimal(weight_g)
-    except InvalidOperation:
-        return None
-    if not value.is_finite():
-        return None
-    return float(value.quantize(_CENTS, rounding=ROUND_HALF_UP))
 
 
 @dataclass(slots=True, frozen=True)
@@ -106,12 +82,6 @@ class RoastProfile(StrEnum):
     UNKNOWN = "unknown"
 
 
-def _date_value(value: date | None, *, json_safe: bool) -> date | str | None:
-    if value is None:
-        return None
-    return value.isoformat() if json_safe else value
-
-
 @dataclass(slots=True)
 class Variant:
     """One purchasable packaging option of a coffee."""
@@ -151,26 +121,6 @@ class Variant:
         if self.weight_g:
             return f"{self.weight_g}g"
         return f"#{index}"
-
-    def to_record(self) -> dict[str, Any]:
-        """Return a JSON-serialisable mapping of this variant.
-
-        Returns:
-            A flat dictionary safe to store in a jsonb column.
-        """
-        return {
-            "external_id": self.external_id,
-            "url": self.url,
-            "weight_g": self.weight_g,
-            "price": self.price,
-            "currency": self.currency,
-            "available": self.available,
-            "label": self.label,
-            "price_eur": self.price_eur,
-            "price_czk": self.price_czk,
-            "price_per_kg_eur": self.price_per_kg_eur,
-            "price_per_kg_czk": self.price_per_kg_czk,
-        }
 
 
 @dataclass(slots=True)
@@ -235,19 +185,6 @@ class Review:
     date: date | None = None
     rating: float | None = None
     text: str | None = None
-
-    def to_record(self) -> dict[str, Any]:
-        """Return a JSON-serialisable mapping of this review.
-
-        Returns:
-            A flat dictionary safe to store in a jsonb column.
-        """
-        return {
-            "author": self.author,
-            "date": _date_value(self.date, json_safe=True),
-            "rating": self.rating,
-            "text": self.text,
-        }
 
 
 @dataclass(slots=True)
@@ -416,86 +353,3 @@ class Coffee:
         """
         basis = self.price_basis
         return None if basis is None else basis.amount_per_kg()
-
-    def to_record(self, *, json_safe: bool = True) -> dict[str, Any]:
-        """Flatten the coffee into one row matching the ``coffee`` table.
-
-        The keys are exactly the schema's data columns, so a sink can feed the
-        dictionary straight into an INSERT without reshaping it.
-
-        Args:
-            json_safe: When True (the JSONL sink) dates become ISO strings and
-                enums become plain strings; when False (the PostgreSQL sink) the
-                native ``date`` objects are kept so psycopg can adapt them.
-
-        Returns:
-            A flat dictionary keyed by column name.
-        """
-        return {
-            "site": self.site,
-            "external_id": self.external_id,
-            "url": self.url,
-            "name": self.name,
-            "site_country": self.site_country,
-            "roaster": self.roaster_name,
-            "roaster_key": self.roaster_key,
-            "price": self.price,
-            "currency": self.currency,
-            "weight_g": self.weight_g,
-            "price_per_kg": self.price_per_kg,
-            "price_eur": self.price_eur,
-            "price_czk": self.price_czk,
-            "price_per_kg_eur": self.price_per_kg_eur,
-            "price_per_kg_czk": self.price_per_kg_czk,
-            "fx_rate_eur_czk": self.fx_rate_eur_czk,
-            "fx_date": _date_value(self.fx_date, json_safe=json_safe),
-            "available": self.available,
-            "decaf": self.decaf,
-            "origin_country": self.origin.country,
-            "origin_region": self.origin.region,
-            "origin_farm": self.origin.farm,
-            "origin_producer": self.origin.producer,
-            "origin_washing_station": self.origin.washing_station,
-            "altitude_min_m": self.origin.altitude_min_m,
-            "altitude_max_m": self.origin.altitude_max_m,
-            "altitude_raw": self.origin.altitude_raw,
-            "variety": list(self.origin.variety),
-            "harvest": self.origin.harvest,
-            "process_method": str(self.processing.method),
-            "process_methods": [str(method) for method in self.processing.methods],
-            "process_raw": self.processing.raw,
-            "roast_level": str(self.roast.level),
-            "roast_raw": self.roast.raw,
-            "roast_profile": str(self.roast.profile),
-            "roast_date": _date_value(self.roast.roast_date, json_safe=json_safe),
-            "best_before": _date_value(self.roast.best_before, json_safe=json_safe),
-            "arabica_pct": self.species.arabica_pct,
-            "robusta_pct": self.species.robusta_pct,
-            "is_blend": self.species.is_blend,
-            "body": self.taste.body,
-            "bitterness": self.taste.bitterness,
-            "acidity": self.taste.acidity,
-            "sweetness": self.taste.sweetness,
-            "taste_scale_max": self.taste.scale_max,
-            "flavor_notes": list(self.taste.flavor_notes),
-            "tasting_text": self.taste.tasting_text,
-            "brewing_methods": list(self.taste.brewing_methods),
-            "sca_score": self.taste.sca_score,
-            "rating": self.popularity.rating,
-            "rating_max": self.popularity.rating_max,
-            "review_count": self.popularity.review_count,
-            "reviews": [review.to_record() for review in self.popularity.reviews],
-            "sold_count": self.popularity.sold_count,
-            "variants": [variant.to_record() for variant in self.variants],
-            "images": list(self.images),
-            "tags": list(self.tags),
-            "categories": list(self.categories),
-            "certifications": list(self.certifications),
-            "awards": list(self.awards),
-            "specialty_grade": self.specialty_grade,
-            "original_price": self.original_price,
-            "description": self.description,
-            "origin_text": self.origin_text,
-            "raw_attributes": dict(self.raw_attributes),
-            "scraped_at": self.scraped_at.isoformat() if json_safe else self.scraped_at,
-        }

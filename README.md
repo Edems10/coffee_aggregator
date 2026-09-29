@@ -197,15 +197,25 @@ Every request in the project goes through one `PoliteFetcher`:
 
 ## Supported shops
 
-| id | shop | country | kind |
-| --- | --- | --- | --- |
-| `coffeein` | [coffeein.sk](https://www.coffeein.sk/) | SK | bespoke module |
-| `kavypitel` | [kavypitel.cz](https://www.kavypitel.cz/) | CZ | Shoptet, TOML only |
-| `redfawn` | [redfawn.sk](https://www.redfawn.sk/) | SK | Shoptet, TOML only |
-| `conceptcoffee` | [conceptcoffee.sk](https://www.conceptcoffee.sk/) | SK | Shoptet, TOML only |
-| `valasska` | [valasska-prazirna.cz](https://www.valasska-prazirna.cz/) | CZ | Shoptet, TOML only |
+157 shops — 102 Czech, 55 Slovak. `coffee-aggregator list-sites` prints the live
+list with each shop's id, country, kind and base URL; it is generated from the
+registry, so it is never out of date the way a table here would be.
 
-`coffee-aggregator list-sites` prints the live list.
+| kind | shops | what drives it |
+| --- | --- | --- |
+| Shoptet | 99 | `platforms/shoptet.py` + one TOML file per shop |
+| WooCommerce | 47 | `platforms/woocommerce.py` + one TOML file per shop |
+| Shopify | 8 | `platforms/shopify.py` + one TOML file per shop |
+| bespoke | 3 | `sites/coffeein.py`, `sites/fathers.py`, `sites/nordbeans.py` |
+
+A shop needs a module of its own only when its pages fit none of the three
+platform adapters. The other 154 are configuration: see
+[Adding a shop](#adding-a-shop).
+
+Czech and Slovak shops still outside the catalogue mostly run Upgates,
+Eshop-rychle or PrestaShop, or are custom builds. None of them expose a public
+product JSON, so each needs HTML-first discovery — a new platform adapter, not a
+config file.
 
 **coffeein** walks `/kategoria/2/cerstvo-prazena-zrnkova-kava/<n>/` page by page and
 stops as soon as a page redirects or adds no new product, building every reference
@@ -216,8 +226,8 @@ lands in `raw_attributes`, the known ones also in typed fields. Blends are kept.
 `CoffeeinSite(use_sitemap=True)` enumerates `/sitemap.xml` instead, which covers the
 whole catalogue (mugs and filters included), so the category walk stays the default.
 
-**kavypitel**, **redfawn**, **conceptcoffee** and **valasska** are the same code —
-`platforms/shoptet.py` — driven by `sites/configs/*.toml`. The Shoptet adapter walks
+The 99 **Shoptet** shops are one adapter — `platforms/shoptet.py` — driven by
+`sites/configs/*.toml`. The Shoptet adapter walks
 `/<category>/strana-<n>/` (or `?page=<n>`, set `pagination = "query"`) until a page
 lists nothing or repeats the page before it, reading only the real `#products` grid
 so the recommendation carousel above it cannot fake a page. Products already seen in
@@ -318,7 +328,8 @@ parameter names, so most shops need no `label_map` at all.
 `models.Coffee` is the canonical record (see `src/coffee_aggregator/models.py`):
 identity, price and weight, `Origin`, `Processing`, `Roast`, `Species`, `Taste`,
 `Popularity`, variants, images, tags, categories, certifications, awards and the
-`raw_attributes` catch-all. `Coffee.to_record()` flattens it into exactly the data
+`raw_attributes` catch-all. The model itself stores no serialisation:
+`sinks/records.py` flattens it, and `coffee_record()` emits exactly the data
 columns of the `coffee` table, so a sink never reshapes anything.
 
 `Processing` keeps a list: a lot marked *"Washed · Natural"* really was processed
@@ -381,7 +392,7 @@ migrations existed and only records its version.
 
 **Adding one** (once something is deployed): drop `000N_what_it_does.sql` in that
 directory and re-run `init-db`. If it adds a column to `coffee`, add it to `Coffee`,
-to `to_record()` and to `COLUMNS` in the same commit — the drift test fails
+to `coffee_record()` and to `COLUMNS` in the same commit — the drift test fails
 otherwise. `init-db --dry-run` prints what is pending without touching anything.
 
 ## Run history
@@ -527,7 +538,9 @@ module next to it: `sites/loader.py` (discovery), `sites/registry.py` (the
 request), `db/migrate.py` (the migration runner), `db/monitoring.py` (the `crawl_run`
 recorder), `fx/cnb.py` and `fx/ecb.py` (the
 rate feeds), `fx/rates.py` (the once-a-day service), `fx/stores.py` and
-`fx/convert.py`. Nothing in the project starts with a module docstring or a licence
+`fx/convert.py`, `money.py` (the one place a price is rounded or extrapolated to
+the kilogram) and `sinks/records.py` (model → column dictionary, for both
+sinks). Nothing in the project starts with a module docstring or a licence
 header; `D100`, `D104` and `CPY001` are ignored for that reason.
 
 ## Development

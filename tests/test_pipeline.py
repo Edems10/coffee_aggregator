@@ -28,6 +28,7 @@ from coffee_aggregator.pipeline import (
     wrote_nothing,
 )
 from coffee_aggregator.sinks.base import SinkResult
+from coffee_aggregator.sinks.records import coffee_record
 from coffee_aggregator.sites.base import ProductRef, SiteAdapter
 from conftest import make_coffee
 
@@ -459,7 +460,7 @@ def test_derive_without_a_rate_leaves_everything_null() -> None:
 
     derive(coffee, None)
 
-    record = coffee.to_record()
+    record = coffee_record(coffee)
     for key in ("price_eur", "price_czk", "price_per_kg_eur", "price_per_kg_czk", "fx_date"):
         assert record[key] is None
     assert record["price_per_kg"] == 49.95

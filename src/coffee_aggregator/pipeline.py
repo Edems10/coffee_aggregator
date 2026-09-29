@@ -12,7 +12,7 @@ from urllib.parse import urlsplit
 from coffee_aggregator.config import DEFAULT_BATCH_SIZE
 from coffee_aggregator.fx import convert
 from coffee_aggregator.http import FetchDisallowed, FetchError, FetchResult
-from coffee_aggregator.models import per_kg
+from coffee_aggregator.money import per_kg
 
 if TYPE_CHECKING:
     from collections.abc import Callable, Iterator, Sequence

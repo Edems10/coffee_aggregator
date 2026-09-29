@@ -13,6 +13,7 @@ from coffee_aggregator.platforms.shoptet import (
     ShoptetConfigError,
     ShoptetSite,
 )
+from coffee_aggregator.sinks.records import coffee_record
 from coffee_aggregator.sites import get as get_site
 from coffee_aggregator.sites.base import ProductRef
 from conftest import FIXTURE_ROOT
@@ -574,7 +575,7 @@ def test_a_blend_records_every_process_it_names(
     assert coffee.processing.raw == "Washed · Natural"
     assert coffee.processing.method is ProcessMethod.MIXED
     assert coffee.processing.methods == [ProcessMethod.WASHED, ProcessMethod.NATURAL]
-    assert coffee.to_record()["process_methods"] == ["washed", "natural"]
+    assert coffee_record(coffee)["process_methods"] == ["washed", "natural"]
 
 
 # --- item 19: de-duplication never ends a category's pagination --------------

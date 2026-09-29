@@ -14,6 +14,7 @@ from coffee_aggregator.config import ConfigError, Settings
 from coffee_aggregator.db import monitoring
 from coffee_aggregator.http import PoliteFetcher
 from coffee_aggregator.pipeline import Deadline, RunReport, ShardError, run_many
+from coffee_aggregator.sinks.records import coffee_record
 from coffee_aggregator.sites.base import ProductRef
 from coffee_aggregator.sites.registry import UnknownSiteError
 
@@ -558,7 +559,7 @@ def cmd_parse(args: argparse.Namespace) -> int:
         logger.warning("%s is not a coffee product", args.file)
         _write_json(None)
         return EXIT_OK
-    _write_json(coffee.to_record(json_safe=True))
+    _write_json(coffee_record(coffee, json_safe=True))
     return EXIT_OK
 
 
