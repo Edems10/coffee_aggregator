@@ -1,0 +1,17 @@
+# Valašská pražírna — blends carry invented names ("MANGOVER", "TUTTI FRUTTI")
+# with no origin in the title; sets and cascara share the category.
+platform = "shoptet"
+site_id = "valasskaprazirna"
+name = "Valašská pražírna"
+country = "CZ"
+base_url = "https://www.valasska-prazirna.cz/"
+category_urls = ["https://www.valasska-prazirna.cz/kava/"]
+currency = "CZK"
+max_pages = 10
+pagination = "path"
+
+ignore = [
+  "cascara",
+  "set kav",
+  "all-star set",
+]

@@ -1,0 +1,11 @@
+# Pražírna Smrk — names are the origin in capitals; the listing markup omits
+# the usual data-micro attributes, so everything comes off the detail pages.
+platform = "shoptet"
+site_id = "prazirnasmrk"
+name = "Pražírna Smrk"
+country = "CZ"
+base_url = "https://www.prazirnasmrk.cz/"
+category_urls = ["https://www.prazirnasmrk.cz/vyberova-kava/"]
+currency = "CZK"
+max_pages = 10
+pagination = "path"

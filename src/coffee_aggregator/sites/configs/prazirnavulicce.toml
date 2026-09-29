@@ -1,0 +1,11 @@
+# Pražírna v Uličce — a ten-coffee catalogue named by country alone
+# ("BOLÍVIE", "KEŇA"), a couple of them fair-trade labelled in the name.
+platform = "shoptet"
+site_id = "prazirnavulicce"
+name = "Pražírna v Uličce"
+country = "CZ"
+base_url = "https://www.prazirnavulicce.cz/"
+category_urls = ["https://www.prazirnavulicce.cz/cerstve-prazena-kava/"]
+currency = "CZK"
+max_pages = 10
+pagination = "path"

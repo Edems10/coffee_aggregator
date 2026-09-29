@@ -22,12 +22,3 @@ ignore = [
 ]
 
 # Parameter names this shop invents that the built-in CZ/SK/EN map
-# does not already cover.
-[label_map]
-"Metoda zpracování" = "process"
-"Zpracovatelský závod" = "washing_station"
-"Velikost balení" = "weight"
-"Velikost (g)" = "weight"
-"Typ kávy" = "species"
-"Metoda přípravy" = "brewing"
-"Chci kávu namlít" = "brewing"

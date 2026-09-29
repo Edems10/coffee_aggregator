@@ -1,0 +1,11 @@
+# Kozák Kafe — the shop runs on the "eshop." subdomain, not on the bare
+# kozak-kafe.cz host, so both base_url and the category sit there.
+platform = "shoptet"
+site_id = "kozakkafe"
+name = "Kozák Kafe"
+country = "CZ"
+base_url = "https://eshop.kozak-kafe.cz/"
+category_urls = ["https://eshop.kozak-kafe.cz/prazena-kava/"]
+currency = "CZK"
+max_pages = 10
+pagination = "path"

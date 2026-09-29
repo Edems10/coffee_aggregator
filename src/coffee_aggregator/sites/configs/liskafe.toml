@@ -1,0 +1,14 @@
+# lis.kafe — four coffees split across two equal top-level categories,
+# espresso and filtr, with no whole-bean parent above them.
+platform = "shoptet"
+site_id = "liskafe"
+name = "lis.kafe"
+country = "CZ"
+base_url = "https://www.liskafe.cz/"
+category_urls = [
+  "https://www.liskafe.cz/espresso/",
+  "https://www.liskafe.cz/filtr/",
+]
+currency = "CZK"
+max_pages = 5
+pagination = "path"

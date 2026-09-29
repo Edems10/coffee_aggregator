@@ -11,15 +11,33 @@ from urllib.parse import urljoin
 from bs4 import BeautifulSoup, Tag
 
 from coffee_aggregator import normalize
+from coffee_aggregator.labels import (
+    F_CERTIFICATIONS,
+    F_COUNTRY,
+    F_PROCESS,
+    F_SHIP_WEIGHT,
+    KNOWN_FIELDS,
+    MAX_FUZZY_LABEL_WORDS,
+    TERMS,
+    Labels,
+    build_map,
+    headline_weight,
+    is_decaf,
+    map_label,
+    option_list,
+    parse_origin,
+    parse_roast,
+    parse_species,
+    parse_taste,
+    plausible_weight,
+    read_lines,
+    score,
+    specialty_grade,
+)
 from coffee_aggregator.models import (
     DEFAULT_RATING_MAX,
-    DEFAULT_TASTE_SCALE_MAX,
     Coffee,
-    Origin,
     Popularity,
-    Roast,
-    Species,
-    Taste,
     Variant,
 )
 from coffee_aggregator.sites import html as dom
@@ -35,26 +53,7 @@ logger = logging.getLogger(__name__)
 
 PLATFORM: Final = "shoptet"
 DEFAULT_MAX_PAGES: Final = 50
-#: A label longer than this is a sentence, not a parameter name.
-_MAX_FUZZY_LABEL_WORDS: Final = 4
-_MAX_FUZZY_LABEL_CHARS: Final = 30
-#: Bean weights a coffee shop plausibly sells, in grams.
-_MIN_BEAN_WEIGHT_G: Final = 50
-_MAX_BEAN_WEIGHT_G: Final = 5000
-#: A processing row states a method, not a paragraph.
-_MAX_PROCESS_WORDS: Final = 6
-_MIN_SCA_SCORE: Final = 50.0
-_SPECIALTY_SCORE: Final = 80.0
-_MAX_SCA_SCORE: Final = 100.0
-_MAX_NOTE_LENGTH: Final = 32
-_MIN_NOTES: Final = 2
-_MAX_NOTES: Final = 8
 
-#: The trailing ``" :"`` and help ``"?"`` Shoptet puts in a header cell.
-_LABEL_TRIM: Final = " \t:?"
-#: The "✓"/"•"/"–" decoration a shop puts in front of its parameter names. It is
-#: removed before matching so no shop has to spell the glyph into its label map.
-_LABEL_DECORATION_RE: Final = re.compile(r"^[^0-9A-Za-zÀ-ɏ]+")
 
 #: ``raw_attributes`` key every roaster name is mirrored onto. The model has no
 #: brand column yet, so a multi-brand retailer's "Pražiareň"/"Výrobca" row is
@@ -82,203 +81,19 @@ _BRAND_JSON_RE: Final = re.compile(
 )
 
 # --- the fields a recognised label feeds -------------------------------------
-F_IGNORE: Final = ""
-F_COUNTRY: Final = "country"
-F_REGION: Final = "region"
-F_FARM: Final = "farm"
-F_PRODUCER: Final = "producer"
-F_STATION: Final = "washing_station"
-F_ALTITUDE: Final = "altitude"
-F_VARIETY: Final = "variety"
-F_HARVEST: Final = "harvest"
-F_PROCESS: Final = "process"
-F_ROAST: Final = "roast"
-F_BREWING: Final = "brewing"
-F_FLAVOR: Final = "flavor_notes"
-F_SCA: Final = "sca_score"
-F_SPECIES: Final = "species"
-F_DECAF: Final = "decaf"
-F_WEIGHT: Final = "weight"
-F_SHIP_WEIGHT: Final = "shipping_weight"
-F_ROAST_DATE: Final = "roast_date"
-F_BEST_BEFORE: Final = "best_before"
-F_CERTIFICATIONS: Final = "certifications"
-F_BODY: Final = "body"
-F_BITTERNESS: Final = "bitterness"
-F_ACIDITY: Final = "acidity"
-F_SWEETNESS: Final = "sweetness"
+# The vocabulary itself lives in coffee_aggregator.labels, shared with every
+# other platform: a Czech or Slovak term any shop might print belongs there, so
+# adding it once teaches every adapter at the same time.
 
-#: Every field name a shop TOML's ``label_map`` may point a label at. Validating
-#: against it turns a typo into a startup error naming the label, instead of a
-#: silently ignored mapping nobody notices for months.
-KNOWN_FIELDS: Final[frozenset[str]] = frozenset(
-    {
-        F_IGNORE,
-        F_COUNTRY,
-        F_REGION,
-        F_FARM,
-        F_PRODUCER,
-        F_STATION,
-        F_ALTITUDE,
-        F_VARIETY,
-        F_HARVEST,
-        F_PROCESS,
-        F_ROAST,
-        F_BREWING,
-        F_FLAVOR,
-        F_SCA,
-        F_SPECIES,
-        F_DECAF,
-        F_WEIGHT,
-        F_SHIP_WEIGHT,
-        F_ROAST_DATE,
-        F_BEST_BEFORE,
-        F_CERTIFICATIONS,
-        F_BODY,
-        F_BITTERNESS,
-        F_ACIDITY,
-        F_SWEETNESS,
-    }
-)
-
-#: Folded CZ/SK/EN parameter name -> the field it feeds. Keys are matched exactly
-#: first and then, for short labels only, as whole words (longest key wins),
-#: which is why the decoys that merely *contain* a real key — "místo pražení" is
-#: a place, not a roast level — are listed explicitly with :data:`F_IGNORE`.
-DEFAULT_LABEL_MAP: Final[dict[str, str]] = {
-    # decoys, listed so the substring fallback never claims them
-    "misto prazeni": F_IGNORE,
-    "miesto prazenia": F_IGNORE,
-    "kategorie": F_IGNORE,
-    "kategoria": F_IGNORE,
-    "ean": F_IGNORE,
-    # origin
-    "zeme puvodu": F_COUNTRY,
-    "krajina povodu": F_COUNTRY,
-    "puvod": F_COUNTRY,
-    "povod": F_COUNTRY,
-    "origin": F_COUNTRY,
-    "country": F_COUNTRY,
-    "oblast": F_REGION,
-    "region": F_REGION,
-    "farma": F_FARM,
-    "farm": F_FARM,
-    "finca": F_FARM,
-    "farmar": F_PRODUCER,
-    "pestovatel": F_PRODUCER,
-    "producent": F_PRODUCER,
-    "producer": F_PRODUCER,
-    "spracovatelska stanica": F_STATION,
-    "zpracovatelska stanice": F_STATION,
-    "washing station": F_STATION,
-    "prac stanica": F_STATION,
-    "nadmorska vyska": F_ALTITUDE,
-    "altitude": F_ALTITUDE,
-    "masl": F_ALTITUDE,
-    "odruda": F_VARIETY,
-    "odroda": F_VARIETY,
-    "varieta": F_VARIETY,
-    "variety": F_VARIETY,
-    "kultivar": F_VARIETY,
-    "sber": F_HARVEST,
-    "zber": F_HARVEST,
-    "sklizen": F_HARVEST,
-    "uroda": F_HARVEST,
-    "harvest": F_HARVEST,
-    # processing and roast
-    "zpracovani": F_PROCESS,
-    "spracovanie": F_PROCESS,
-    "process": F_PROCESS,
-    "processing": F_PROCESS,
-    "prazeni": F_ROAST,
-    "prazenie": F_ROAST,
-    "roast": F_ROAST,
-    "datum prazeni": F_ROAST_DATE,
-    "datum prazenia": F_ROAST_DATE,
-    "uprazeno": F_ROAST_DATE,
-    "uprazene": F_ROAST_DATE,
-    "roasted on": F_ROAST_DATE,
-    "roast date": F_ROAST_DATE,
-    "minimalni trvanlivost": F_BEST_BEFORE,
-    "minimalna trvanlivost": F_BEST_BEFORE,
-    "trvanlivost": F_BEST_BEFORE,
-    "spotrebujte do": F_BEST_BEFORE,
-    "expirace": F_BEST_BEFORE,
-    "expiracia": F_BEST_BEFORE,
-    "best before": F_BEST_BEFORE,
-    "vhodne pro": F_BREWING,
-    "vhodne na": F_BREWING,
-    # the grind axis: what the shop will mill the beans for
-    "kavu namelte na": F_BREWING,
-    "namelte": F_BREWING,
-    "mleti": F_BREWING,
-    "mletie": F_BREWING,
-    "stupen mleti": F_BREWING,
-    "hrubost mletia": F_BREWING,
-    "urceno pro": F_BREWING,
-    "urcene pre": F_BREWING,
-    "priprava": F_BREWING,
-    "pripravu": F_BREWING,
-    "brewing": F_BREWING,
-    # sensory
-    "chut": F_FLAVOR,
-    "chute": F_FLAVOR,
-    "chutovy profil": F_FLAVOR,
-    "chutovy profil kavy": F_FLAVOR,
-    "chutove tony": F_FLAVOR,
-    "chutova charakteristika": F_FLAVOR,
-    "senzoricky profil": F_FLAVOR,
-    "flavour profile": F_FLAVOR,
-    "flavor profile": F_FLAVOR,
-    "tasting notes": F_FLAVOR,
-    "aroma": F_FLAVOR,
-    "tony": F_FLAVOR,
-    "notes": F_FLAVOR,
-    "flavour": F_FLAVOR,
-    "flavor": F_FLAVOR,
-    "telo": F_BODY,
-    "body": F_BODY,
-    "horkost": F_BITTERNESS,
-    "bitterness": F_BITTERNESS,
-    "acidita": F_ACIDITY,
-    "kyselost": F_ACIDITY,
-    "kyslost": F_ACIDITY,
-    "acidity": F_ACIDITY,
-    "sladkost": F_SWEETNESS,
-    "sweetness": F_SWEETNESS,
-    "sca": F_SCA,
-    "skore": F_SCA,
-    "score": F_SCA,
-    "cupping": F_SCA,
-    # composition and packaging
-    "arabica": F_SPECIES,
-    "arabika": F_SPECIES,
-    "robusta": F_SPECIES,
-    "slozeni": F_SPECIES,
-    "zlozenie": F_SPECIES,
-    "druh kavy": F_SPECIES,
-    "druh": F_SPECIES,
-    "pomer": F_SPECIES,
-    "pomer zrn": F_SPECIES,
-    "species": F_SPECIES,
-    "bezkofeinova": F_DECAF,
-    "bezkofeinova kava": F_DECAF,
-    "decaf": F_DECAF,
-    # the net weight of the beans …
-    "gramaz": F_WEIGHT,
-    "baleni": F_WEIGHT,
-    "balenie": F_WEIGHT,
-    "vaha": F_WEIGHT,
-    "net weight": F_WEIGHT,
-    # … which Shoptet's own "Hmotnost" is not: that one is the parcel weight,
-    # packaging included, and is only believed when nothing else states a size.
+#: Shoptet's own reading of two terms the shared vocabulary leaves out. In a
+#: Shoptet parameter table "Hmotnost" is what the parcel weighs, not what is in
+#: the bag; the bag weight comes from "Velikost balení" or from the name.
+PLATFORM_TERMS: Final[dict[str, str]] = {
     "hmotnost": F_SHIP_WEIGHT,
     "weight": F_SHIP_WEIGHT,
-    "certifikace": F_CERTIFICATIONS,
-    "certifikacia": F_CERTIFICATIONS,
-    "certifikat": F_CERTIFICATIONS,
-    "certification": F_CERTIFICATIONS,
 }
+
+DEFAULT_LABEL_MAP: Final[dict[str, str]] = build_map(TERMS, extra=PLATFORM_TERMS)
 
 
 class ShoptetConfigError(ValueError):
@@ -472,118 +287,6 @@ def _value(tag: Tag) -> str | None:
 # --- label collection --------------------------------------------------------
 
 
-@dataclass(slots=True)
-class _Labels:
-    """Every labelled value a product page states.
-
-    Attributes:
-        raw: Labels as written (trimmed, upper-cased) -> value, for the sink.
-        by_field: Canonical field name -> the first value that fed it.
-    """
-
-    raw: dict[str, str] = field(default_factory=dict)
-    by_field: dict[str, str] = field(default_factory=dict)
-
-    def add(self, label: str | None, value: str | None, label_map: dict[str, str]) -> None:
-        """Record one ``label: value`` pair.
-
-        Args:
-            label: The label as the shop wrote it.
-            value: The value as the shop wrote it.
-            label_map: Folded label -> field, already merged with the defaults.
-        """
-        cleaned = _LABEL_DECORATION_RE.sub("", (label or "").strip(_LABEL_TRIM).strip()).strip()
-        text = (value or "").strip()
-        if not cleaned or not text:
-            return
-        self.raw.setdefault(cleaned.upper(), text)
-        mapped = _map_label(normalize.fold(cleaned), label_map)
-        if mapped and _plausible(mapped, text):
-            self.by_field.setdefault(mapped, text)
-
-    def get(self, field_name: str) -> str | None:
-        """Return the value mapped onto one field.
-
-        Args:
-            field_name: One of the ``F_*`` constants.
-
-        Returns:
-            The value, or None when no label fed that field.
-        """
-        return self.by_field.get(field_name)
-
-
-def _map_label(folded: str, label_map: dict[str, str]) -> str | None:
-    """Resolve a folded label to a field: exactly first, then by whole words.
-
-    A plain substring match is what let "Balení kávy značky Kávy pitel" claim the
-    weight field and "Objednávky nad 1 kg zasíláme zdarma" claim it again. A
-    match is therefore only attempted on a label short enough to be a parameter
-    name rather than a sentence, and only on whole words.
-
-    Args:
-        folded: The folded label, e.g. ``"stupen prazeni"``.
-        label_map: Folded label -> field.
-
-    Returns:
-        The field name, None when nothing matches, and ``""`` for labels that
-        are deliberately ignored.
-    """
-    if folded in label_map:
-        return label_map[folded]
-    words = folded.split()
-    if len(words) > _MAX_FUZZY_LABEL_WORDS or len(folded) > _MAX_FUZZY_LABEL_CHARS:
-        return None
-    for key in sorted(label_map, key=len, reverse=True):
-        if _says(words, key):
-            return label_map[key]
-    return None
-
-
-def _says(words: list[str], key: str) -> bool:
-    """Say whether a label contains a key as a run of whole words.
-
-    Args:
-        words: The folded label, already split on whitespace.
-        key: A folded key of the label map.
-
-    Returns:
-        True when the key's words appear consecutively in the label.
-    """
-    wanted = key.split()
-    if not wanted or len(wanted) > len(words):
-        return False
-    return any(
-        words[start : start + len(wanted)] == wanted
-        for start in range(len(words) - len(wanted) + 1)
-    )
-
-
-def _plausible(field_name: str, value: str) -> bool:
-    """Reject a value that cannot be what the field it was mapped onto means.
-
-    The label alone is never proof: "Popis zpracování objednávky" reads like a
-    processing row and holds a paragraph about shipping. A field that has an
-    obvious shape is therefore checked against it, and a value that fails stays
-    in ``raw_attributes`` only.
-
-    Args:
-        field_name: One of the ``F_*`` constants.
-        value: The value the shop wrote.
-
-    Returns:
-        True when the value may feed that field.
-    """
-    if field_name in {F_WEIGHT, F_SHIP_WEIGHT}:
-        grams = normalize.parse_weight_grams(value)
-        return grams is not None and _MIN_BEAN_WEIGHT_G <= grams <= _MAX_BEAN_WEIGHT_G
-    if field_name == F_PROCESS:
-        return len(value.split()) <= _MAX_PROCESS_WORDS
-    if field_name == F_COUNTRY:
-        return normalize.detect_country(value) is not None
-    return True
-
-
 #: Where a Shoptet template states its parameters: the standard
 #: ``.detail-parameters`` table, and the ``#product-detail``/``#product-detail-info``
 #: pair the older "template-04" layout uses instead — which carries no class at
@@ -714,6 +417,41 @@ _OPTION_PRICE_RE: Final = re.compile(r"\(([^()]*\d[^()]*)\)\s*$")
 #: Any run of whitespace, the non-breaking space Shoptet pads options with included.
 _WHITESPACE_RE: Final = re.compile(r"\s+")
 _SKU_WEIGHT_RE: Final = re.compile(r"[/\-](\d{2,5})\s*$")
+#: The sizes coffee is actually bagged in. A sku suffix that is not one of them
+#: is the shop numbering its packs: donfranko sells 250 g bags under the codes
+#: 501, 510 and 520, and reading those as grams states a third of the real price
+#: per kilogram. A weight the option text spells out in words is believed as is;
+#: only a number guessed out of a sku has to look like a bag.
+_PACK_SIZES_G: Final = frozenset(
+    {
+        100,
+        125,
+        150,
+        200,
+        220,
+        227,
+        250,
+        300,
+        330,
+        340,
+        350,
+        400,
+        450,
+        500,
+        600,
+        700,
+        750,
+        800,
+        900,
+        1000,
+        1200,
+        1500,
+        2000,
+        2500,
+        3000,
+        5000,
+    }
+)
 #: Availability words a combined option states next to the weight.
 _IN_STOCK_WORDS: Final[tuple[str, ...]] = ("sklad", "in stock", "ihned", "dostupne", "dostupné")
 _SOLD_OUT_WORDS: Final[tuple[str, ...]] = (
@@ -808,6 +546,8 @@ def _description_blocks(root: Tag) -> list[Tag]:
 _PAIR_LABEL_TAGS: Final[frozenset[str]] = frozenset({"span", "div", "dt", "th", "b", "strong"})
 _PAIR_VALUE_TAGS: Final[frozenset[str]] = frozenset({"strong", "span", "div", "dd", "td"})
 _PAIR_CELLS: Final = 2
+#: The punctuation a fact label may end in without being a whole line.
+_TRAILING_COLON: Final = " :"
 
 
 def _pair_rows(root: Tag, label_map: dict[str, str]) -> Iterator[tuple[str | None, str | None]]:
@@ -892,13 +632,16 @@ def _fact_pairs(block: Tag, label_map: dict[str, str]) -> Iterator[tuple[str | N
         if label_tag.name not in _PAIR_LABEL_TAGS or value_tag.name not in _PAIR_VALUE_TAGS:
             continue
         label, value = dom.text(label_tag), dom.text(value_tag)
-        if not label or not value or len(label.split()) > _MAX_FUZZY_LABEL_WORDS:
+        if not label or not value or len(label.split()) > MAX_FUZZY_LABEL_WORDS:
             continue
-        if ":" in label:
-            # A colon means this is an ordinary labelled line that the line
-            # reader splits correctly; splitting it here cuts the value in two.
+        if ":" in label.rstrip(_TRAILING_COLON):
+            # A colon *inside* the label means the element holds a whole
+            # "LABEL: value" line, which the line reader splits correctly;
+            # splitting it here would cut the value in two. A colon that merely
+            # ends the label is punctuation, and dropping the row over it lost
+            # every "<div>Pražení:</div><div>Světlé</div>" a shop writes.
             continue
-        if _map_label(normalize.fold(label), label_map):
+        if map_label(normalize.fold(label), label_map):
             yield label, value
 
 
@@ -914,7 +657,7 @@ def _description_lines(root: Tag) -> list[str]:
     return [line for block in _description_blocks(root) for line in dom.lines(block)]
 
 
-def _collect_labels(root: Tag, label_map: dict[str, str]) -> tuple[_Labels, list[str]]:
+def _collect_labels(root: Tag, label_map: dict[str, str]) -> tuple[Labels, list[str]]:
     """Read every labelled value on the page, plus the prose left over.
 
     Args:
@@ -924,8 +667,8 @@ def _collect_labels(root: Tag, label_map: dict[str, str]) -> tuple[_Labels, list
     Returns:
         The labels and the description lines that are not ``LABEL: value``.
     """
-    labels = _Labels()
-    # Variant axes first: :class:`_Labels` keeps the first value it is given, and
+    labels = Labels()
+    # Variant axes first: :class:`Labels` keeps the first value it is given, and
     # the axis list is the clean version of what the parameter table renders.
     for name, options in _variant_axes(root):
         labels.add(name, ", ".join(options), label_map)
@@ -933,13 +676,9 @@ def _collect_labels(root: Tag, label_map: dict[str, str]) -> tuple[_Labels, list
         labels.add(label, value, label_map)
     for label, value in _pair_rows(root, label_map):
         labels.add(label, value, label_map)
-    prose: list[str] = []
-    for line in _description_lines(root):
-        match = dom.LABEL_RE.match(line)
-        if match is None:
-            prose.append(line)
-            continue
-        labels.add(match.group("label"), match.group("value"), label_map)
+    pairs, prose = read_lines(_description_lines(root), label_map)
+    for label, value in pairs:
+        labels.add(label, value, label_map)
     return labels, prose
 
 
@@ -986,7 +725,7 @@ def _offer_fields(offer: Tag) -> tuple[str | None, float | None, str | None, boo
     price = normalize.parse_amount(_first_value(offer, "price"))
     currency = _first_value(offer, "priceCurrency")
     availability = _first_value(offer, "availability")
-    return sku, price, currency, _available(availability)
+    return sku, price, currency, schema_available(availability)
 
 
 def _first_value(scope: Tag, prop: str) -> str | None:
@@ -1003,7 +742,7 @@ def _first_value(scope: Tag, prop: str) -> str | None:
     return _value(tag) if tag is not None else None
 
 
-def _available(availability: str | None) -> bool | None:
+def schema_available(availability: str | None) -> bool | None:
     """Turn a schema.org availability URL into a boolean.
 
     Args:
@@ -1035,7 +774,7 @@ def _parse_variants(root: Tag, ref: ProductRef, currency: str | None) -> list[Va
     """
     combined = _combined_variants(root, ref, currency)
     if combined:
-        return combined
+        return _drop_guessed_weights(combined)
     offers = _offers(root)
     options = _weight_options(root)
     if len(offers) <= 1 and not options:
@@ -1049,7 +788,7 @@ def _parse_variants(root: Tag, ref: ProductRef, currency: str | None) -> list[Va
             Variant(url=ref.url, weight_g=normalize.parse_weight_grams(option), label=option)
             for option in options
         ]
-    return variants
+    return _drop_guessed_weights(variants)
 
 
 def _combined_variants(root: Tag, ref: ProductRef, currency: str | None) -> list[Variant]:
@@ -1156,10 +895,63 @@ def _option_weight(label: str, sku: str | None) -> int | None:
     grams = normalize.parse_weight_grams(label)
     if grams is None:
         match = _SKU_WEIGHT_RE.search(sku or "")
-        grams = int(match.group(1)) if match else None
-    if grams is None or not _MIN_BEAN_WEIGHT_G <= grams <= _MAX_BEAN_WEIGHT_G:
-        return None
-    return grams
+        grams = _sku_grams(int(match.group(1))) if match else None
+    return grams if plausible_weight(grams) else None
+
+
+def _sku_grams(number: int) -> int | None:
+    """Believe a sku suffix as a weight only when it looks like a pack size.
+
+    Coffee is sold in bags of known sizes. A suffix of 501, 510 or 520 is the
+    shop numbering its packs, and reading it as grams puts a weight on a variant
+    that no scale ever produced.
+
+    Args:
+        number: The number the suffix states.
+
+    Returns:
+        The weight in grams, or None when the number is not a pack size.
+    """
+    return number if number in _PACK_SIZES_G else None
+
+
+def _drop_guessed_weights(variants: list[Variant]) -> list[Variant]:
+    """Forget a variant weight that the sku suffix got wrong.
+
+    The suffix of a sku like ``"01-01-03/100"`` is a pack code as often as it is
+    a gram count, and reading the code as grams states a tenth of the real weight
+    and ten times the real price per kilogram. One product's own prices settle
+    it: a bigger bag never costs less than a smaller one, so a dearer variant
+    that claims to hold less than a cheaper one is reading a code. Weights the
+    option text states in words are left alone.
+
+    Args:
+        variants: The variants of one product, modified in place.
+
+    Returns:
+        The same list.
+    """
+    # Every comparison is made against the weights as the page stated them, and
+    # only then are the losers cleared: deciding and clearing in one pass would
+    # compare the next variant against a weight this loop had already removed.
+    stated = [
+        (variant, variant.price, variant.weight_g)
+        for variant in variants
+        if variant.price is not None and variant.weight_g is not None
+    ]
+    guessed = [
+        variant
+        for variant, price, weight in stated
+        if normalize.parse_weight_grams(variant.label or "") is None
+        and any(
+            other_price < price and other_weight > weight
+            for other, other_price, other_weight in stated
+            if other is not variant
+        )
+    ]
+    for variant in guessed:
+        variant.weight_g = None
+    return variants
 
 
 def _option_available(label: str) -> bool | None:
@@ -1246,7 +1038,27 @@ def _parse_images(root: Tag, base_url: str) -> list[str]:
         for image in root.select(".p-image img")
         if _own(root, image)
     )
-    return dom.unique(dom.absolute(base_url, url) for url in candidates)
+    # A gallery's lightbox trigger is an anchor with "#" or nothing in its href,
+    # which is not a photo; which of the two a shop writes even depends on the
+    # HTML parser's version, so neither belongs in the record.
+    return dom.unique(
+        dom.absolute(base_url, url) for url in candidates if _is_image_href(url or "")
+    )
+
+
+def _is_image_href(href: str) -> bool:
+    """Say whether an href points at a file rather than at the page itself.
+
+    Args:
+        href: The raw attribute value.
+
+    Returns:
+        True when it is worth resolving into an image URL.
+    """
+    cleaned = href.strip()
+    if not cleaned or cleaned.startswith(("#", "javascript:", "data:")):
+        return False
+    return cleaned != "/"
 
 
 def _parse_categories(soup: BeautifulSoup, root: Tag, name: str) -> list[str]:
@@ -1293,41 +1105,6 @@ def _parse_popularity(root: Tag) -> Popularity:
     )
 
 
-def _score(labels: _Labels) -> float | None:
-    """Read a cupping score, rejecting values outside the SCA range.
-
-    Args:
-        labels: Every labelled value on the page.
-
-    Returns:
-        The score, or None.
-    """
-    value = normalize.parse_float(labels.get(F_SCA))
-    if value is None or not _MIN_SCA_SCORE <= value <= _MAX_SCA_SCORE:
-        return None
-    return value
-
-
-def _bar(labels: _Labels, field_name: str) -> int | None:
-    """Read a sensory bar, in points when the shop draws one and in words when not.
-
-    Half the shops publish "Telo: 4/5" and the other half "Telo: vysoké"; both
-    end up on the same 1-5 scale so the two are comparable.
-
-    Args:
-        labels: Every labelled value on the page.
-        field_name: One of the ``F_BODY``/``F_ACIDITY``/… constants.
-
-    Returns:
-        The value on the 0-5 scale, or None when the page states neither.
-    """
-    value = labels.get(field_name)
-    points = normalize.parse_int(value)
-    if points is not None and 0 <= points <= DEFAULT_TASTE_SCALE_MAX:
-        return points
-    return normalize.parse_intensity(value)
-
-
 def _short_description(root: Tag) -> str | None:
     """Return the shop's one-line product summary.
 
@@ -1343,170 +1120,7 @@ def _short_description(root: Tag) -> str | None:
     return _micro(root, "description")
 
 
-#: The ``"+10 Kč"`` / ``"+0,50 €"`` surcharge Shoptet appends to a variant option.
-_PRICE_SUFFIX_RE: Final = re.compile(
-    r"\s*[+\-\u2212]\s*\d[\d\s.,]*\s*(?:k\u010d|kc|czk|eur|\u20ac|\$|zl|huf)\s*$",
-    re.IGNORECASE,
-)
-
-
-def _option_list(text: str | None) -> list[str]:
-    """Split an option list and drop the price surcharge each option carries.
-
-    Shoptet renders a paid variant axis as ``"Espresso +10 Kč"``; the money is a
-    property of the shop's pricing, not of the brewing method.
-
-    Args:
-        text: The joined option labels, or any other enumeration.
-
-    Returns:
-        The items, surcharges removed, empty ones dropped.
-    """
-    cleaned = (_PRICE_SUFFIX_RE.sub("", item).strip() for item in normalize.split_list(text))
-    return [item for item in cleaned if item]
-
-
-def _notes_from_text(text: str | None) -> list[str]:
-    """Read flavour notes from a value that is really a list of them.
-
-    Roasteries very often use the short description for nothing but the cup
-    notes (``"Citrusy • Sušená slivka • Tmavé kakao"``), so a summary that splits
-    into a handful of short, sentence-free fragments is treated as such a list.
-
-    Args:
-        text: The short description, or the value of a "flavour" parameter.
-
-    Returns:
-        The notes, or an empty list when the text is ordinary prose.
-    """
-    items = _option_list(text)
-    if not _MIN_NOTES <= len(items) <= _MAX_NOTES:
-        return []
-    if any(len(item) > _MAX_NOTE_LENGTH or "." in item for item in items):
-        return []
-    return items
-
-
-def _parse_taste(labels: _Labels, summary: str | None) -> Taste:
-    """Build the sensory part of the model.
-
-    Args:
-        labels: Every labelled value on the page.
-        summary: The short description, used when no label names the notes.
-
-    Returns:
-        The taste block.
-    """
-    # Both sources go through the same guard: a shop that writes a whole
-    # sentence into its "Chuťový profil" row states tasting_text, not a list of
-    # notes, and a one-sentence bucket would poison every cross-shop grouping.
-    notes = _notes_from_text(labels.get(F_FLAVOR)) or _notes_from_text(summary)
-    return Taste(
-        body=_bar(labels, F_BODY),
-        bitterness=_bar(labels, F_BITTERNESS),
-        acidity=_bar(labels, F_ACIDITY),
-        sweetness=_bar(labels, F_SWEETNESS),
-        scale_max=DEFAULT_TASTE_SCALE_MAX,
-        flavor_notes=notes,
-        tasting_text=labels.get(F_FLAVOR),
-        brewing_methods=_option_list(labels.get(F_BREWING)),
-        sca_score=_score(labels),
-    )
-
-
-def _parse_roast(labels: _Labels, categories: list[str]) -> Roast:
-    """Build the roast part of the model.
-
-    Args:
-        labels: Every labelled value on the page.
-        categories: The breadcrumb trail, which usually names espresso/filter.
-
-    Returns:
-        The roast block.
-    """
-    raw = labels.get(F_ROAST)
-    sources = " ".join(
-        value for value in (raw, labels.get(F_BREWING), *categories) if value is not None
-    )
-    return Roast(
-        level=normalize.normalize_roast_level(raw),
-        raw=raw,
-        profile=normalize.normalize_roast_profile(sources),
-        roast_date=normalize.parse_date_dmy(labels.get(F_ROAST_DATE)),
-        best_before=normalize.parse_date_dmy(labels.get(F_BEST_BEFORE)),
-    )
-
-
-def _parse_origin(labels: _Labels, name: str, *, blend: bool) -> Origin:
-    """Build the origin part of the model.
-
-    Args:
-        labels: Every labelled value on the page.
-        name: The product name — for single origins the most reliable source.
-        blend: Whether the product is a blend, in which case no single country
-            is claimed.
-
-    Returns:
-        The origin block.
-    """
-    altitude_raw = labels.get(F_ALTITUDE)
-    low, high = normalize.parse_altitude(altitude_raw)
-    country = None
-    if not blend:
-        country = normalize.detect_country(labels.get(F_COUNTRY)) or normalize.detect_country(name)
-    return Origin(
-        country=country,
-        region=labels.get(F_REGION),
-        farm=labels.get(F_FARM),
-        producer=labels.get(F_PRODUCER),
-        washing_station=labels.get(F_STATION),
-        altitude_min_m=low,
-        altitude_max_m=high,
-        altitude_raw=altitude_raw,
-        variety=normalize.clean_variety(normalize.split_list(labels.get(F_VARIETY))),
-        harvest=labels.get(F_HARVEST),
-    )
-
-
-def _parse_species(labels: _Labels, name: str) -> Species:
-    """Build the arabica/robusta split.
-
-    Args:
-        labels: Every labelled value on the page.
-        name: The product name, which often carries the word "blend".
-
-    Returns:
-        The species block.
-    """
-    raw = labels.get(F_SPECIES)
-    arabica, robusta = normalize.parse_species(raw)
-    return Species(
-        arabica_pct=arabica,
-        robusta_pct=robusta,
-        other=raw,
-        is_blend=normalize.detect_blend(f"{name} {raw or ''}", arabica, robusta),
-    )
-
-
-def _specialty_grade(name: str, categories: list[str], score: float | None) -> bool | None:
-    """Decide whether the product is specialty-grade coffee.
-
-    Args:
-        name: The product name.
-        categories: The breadcrumb trail.
-        score: The cupping score, when the page states one.
-
-    Returns:
-        True when the page says so outright or cups at 80+, else None — a shop
-        that never mentions grading has not said the coffee is commodity.
-    """
-    if score is not None:
-        return score >= _SPECIALTY_SCORE
-    blob = normalize.fold(" ".join([name, *categories]))
-    return True if "specialty" in blob or "speciality" in blob else None
-
-
-def _brand(labels: _Labels, soup: BeautifulSoup) -> str | None:
+def _brand(labels: Labels, soup: BeautifulSoup) -> str | None:
     """Read who roasted the coffee, for a shop that sells more than one roaster.
 
     Args:
@@ -1544,21 +1158,6 @@ def _json_brand(soup: BeautifulSoup) -> str | None:
         if value.strip():
             return value.strip()
     return None
-
-
-def _is_decaf(labels: _Labels, name: str, categories: list[str]) -> bool:
-    """Decide whether the product is decaffeinated.
-
-    Args:
-        labels: Every labelled value on the page.
-        name: The product name.
-        categories: The breadcrumb trail.
-
-    Returns:
-        True when any of the three says so.
-    """
-    blob = normalize.fold(" ".join([name, labels.get(F_DECAF) or "", *categories]))
-    return "bezkofein" in blob or "decaf" in blob or "bez kofein" in blob
 
 
 #: The product wrapper, whichever template the shop runs: ``.p-detail`` on every
@@ -1824,7 +1423,7 @@ class ShoptetSite(SiteAdapter):
             labels.raw.setdefault(BRAND_KEY, brand)
         price, currency = self._price(root, ref)
         categories = _parse_categories(soup, root, name)
-        species = _parse_species(labels, name)
+        species = parse_species(labels, name)
         variants = _parse_variants(root, ref, currency)
         summary = _short_description(root)
         return Coffee(
@@ -1835,14 +1434,23 @@ class ShoptetSite(SiteAdapter):
             site_country=self.country,
             price=price,
             currency=currency,
-            weight_g=self._weight(labels, name, variants),
-            available=_available(_micro(root, "availability")),
-            decaf=_is_decaf(labels, name, categories),
-            origin=_parse_origin(labels, name, blend=species.is_blend),
+            weight_g=headline_weight(
+                labels,
+                name,
+                variants,
+                price=price,
+                # Shoptet's own "Hmotnost" is the parcel weight, packaging
+                # included, so it is believed only when nothing else on the
+                # page states a size.
+                fallback=labels.get(F_SHIP_WEIGHT),
+            ),
+            available=schema_available(_micro(root, "availability")),
+            decaf=is_decaf(labels, name, categories),
+            origin=parse_origin(labels, name, blend=species.is_blend),
             processing=normalize.parse_processing(labels.get(F_PROCESS)),
-            roast=_parse_roast(labels, categories),
+            roast=parse_roast(labels, categories),
             species=species,
-            taste=_parse_taste(labels, summary),
+            taste=parse_taste(labels, summary),
             popularity=_parse_popularity(root),
             variants=variants,
             images=_parse_images(root, self.base_url),
@@ -1850,8 +1458,8 @@ class ShoptetSite(SiteAdapter):
                 dom.text(flag) for flag in root.select(".flags-default .flag") if _own(root, flag)
             ),
             categories=categories,
-            certifications=_option_list(labels.get(F_CERTIFICATIONS)),
-            specialty_grade=_specialty_grade(name, categories, _score(labels)),
+            certifications=option_list(labels.get(F_CERTIFICATIONS)),
+            specialty_grade=specialty_grade(name, categories, score(labels)),
             original_price=self._original_price(root),
             description="\n".join(prose) or summary,
             origin_text=labels.get(F_COUNTRY),
@@ -1891,26 +1499,3 @@ class ShoptetSite(SiteAdapter):
             if _own(root, tag):
                 return normalize.parse_amount(dom.text(tag))
         return None
-
-    def _weight(self, labels: _Labels, name: str, variants: list[Variant]) -> int | None:
-        """Work out the weight the headline price refers to.
-
-        Args:
-            labels: Every labelled value on the page.
-            name: The product name, which often ends in ``(250g)``.
-            variants: The parsed variants; the first matches the headline price.
-
-        Returns:
-            The weight in grams, or None.
-        """
-        from_label = normalize.parse_weight_grams(labels.get(F_WEIGHT))
-        if from_label is not None:
-            return from_label
-        if variants and variants[0].weight_g is not None:
-            return variants[0].weight_g
-        from_name = normalize.parse_weight_grams(name)
-        if from_name is not None:
-            return from_name
-        # Shoptet's own "Hmotnost" is the parcel weight, packaging included, so
-        # it is believed only when nothing else on the page states a size.
-        return normalize.parse_weight_grams(labels.get(F_SHIP_WEIGHT))

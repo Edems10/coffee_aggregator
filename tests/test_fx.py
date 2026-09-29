@@ -1,38 +1,40 @@
 from __future__ import annotations
 
+import json
 import logging
 from datetime import date
 from decimal import Decimal
 from typing import TYPE_CHECKING, Any, Self
 
 import pytest
-import responses
 
 from coffee_aggregator.fx import cnb, convert, ecb, rates, stores
 from coffee_aggregator.fx.rates import FxRate, FxService
 from coffee_aggregator.fx.stores import FileFxStore, PostgresFxStore
 from coffee_aggregator.http import PoliteFetcher
+from test_fetcher import MockHTTP, install
 
 if TYPE_CHECKING:
     from collections.abc import Sequence
     from pathlib import Path
 
-CNB_ROBOTS = "https://www.cnb.cz/robots.txt"
+CNB_ROBOTS = "https://api.cnb.cz/robots.txt"
 ECB_ROBOTS = "https://www.ecb.europa.eu/robots.txt"
 
 FRIDAY = date(2026, 9, 11)
 SATURDAY = date(2026, 9, 12)
 SUNDAY = date(2026, 9, 13)
 
-CNB_TEXT = """11.09.2026 #176
-země|měna|množství|kód|kurz
-Austrálie|dolar|1|AUD|13,969
-Brazílie|real|1|BRL|3,894
-EMU|euro|1|EUR|24,260
-Japonsko|jen|100|JPY|14,271
-Maďarsko|forint|100|HUF|6,147
-USA|dolar|1|USD|20,661
-"""
+CNB_JSON = json.dumps(
+    {
+        "rates": [
+            {"validFor": "2026-09-11", "amount": 1, "currencyCode": "AUD", "rate": 13.969},
+            {"validFor": "2026-09-11", "amount": 1, "currencyCode": "EUR", "rate": 24.26},
+            {"validFor": "2026-09-11", "amount": 100, "currencyCode": "JPY", "rate": 14.271},
+            {"validFor": "2026-09-11", "amount": 1, "currencyCode": "USD", "rate": 20.661},
+        ]
+    }
+)
 
 ECB_XML = """<?xml version="1.0" encoding="UTF-8"?>
 <gesmes:Envelope xmlns:gesmes="http://www.gesmes.org/xml/2002-08-01"
@@ -62,9 +64,16 @@ def make_fetcher() -> PoliteFetcher:
     )
 
 
-def allow_robots() -> None:
-    responses.add(responses.GET, CNB_ROBOTS, status=404)
-    responses.add(responses.GET, ECB_ROBOTS, status=404)
+@pytest.fixture
+def http(monkeypatch: pytest.MonkeyPatch) -> MockHTTP:
+    """The network, replaced for the duration of one test."""
+    return install(monkeypatch)
+
+
+def allow_robots(http: MockHTTP) -> None:
+    """Let the two banks through: neither publishes a robots.txt."""
+    http.add(CNB_ROBOTS, status=404)
+    http.add(ECB_ROBOTS, status=404)
 
 
 class MemoryStore:
@@ -88,64 +97,86 @@ class MemoryStore:
 # --- CNB ---------------------------------------------------------------------
 
 
-def test_cnb_reads_the_decimal_comma() -> None:
-    rate = cnb.parse_rate(CNB_TEXT)
+def test_cnb_reads_the_rate() -> None:
+    rate = cnb.parse_rate(CNB_JSON)
     assert rate is not None
-    assert rate.rate == Decimal("24.260")
+    assert rate.rate == Decimal("24.26")
     assert rate.date == FRIDAY
     assert (rate.base, rate.quote, rate.source) == ("EUR", "CZK", "cnb")
 
 
-def test_cnb_divides_the_currencies_quoted_per_hundred() -> None:
-    fixing = cnb.parse_fixing(CNB_TEXT)
-    assert fixing is not None
-    assert fixing.rates["JPY"] == Decimal("0.14271")
-    assert fixing.rates["HUF"] == Decimal("0.06147")
-    assert fixing.rates["USD"] == Decimal("20.661")
+def test_cnb_divides_a_currency_quoted_per_hundred() -> None:
+    """The bank quotes the yen per hundred; a rate per unit is what compares."""
+    payload = json.dumps(
+        {
+            "rates": [
+                {"validFor": "2026-09-11", "amount": 100, "currencyCode": "JPY", "rate": 14.271}
+            ]
+        }
+    )
+    rate = cnb.parse_rate(payload, code="JPY")
+    assert rate is not None
+    assert rate.rate == Decimal("0.14271")
 
 
-def test_cnb_keeps_the_published_date_over_a_weekend() -> None:
-    """Saturday's download carries Friday's fixing; that is the date recorded."""
-    rate = cnb.parse_rate(CNB_TEXT)
+def test_cnb_keeps_the_day_the_bank_states() -> None:
+    """Asked on a Saturday the service answers with Friday's fixing, and says so."""
+    rate = cnb.parse_rate(CNB_JSON)
     assert rate is not None
     assert rate.date == FRIDAY != SATURDAY
 
 
 @pytest.mark.parametrize(
     "text",
-    ["", "not a date at all\nzemě|měna|množství|kód|kurz\n", "11.09.2026 #176\n", "  \n\n"],
+    ["", "not json at all", "{}", '{"rates": []}', '{"rates": "nope"}', "[]"],
 )
 def test_cnb_returns_none_for_garbage(text: str) -> None:
     assert cnb.parse_rate(text) is None
 
 
 def test_cnb_returns_none_when_the_euro_row_is_missing() -> None:
-    text = "11.09.2026 #176\nzemě|měna|množství|kód|kurz\nUSA|dolar|1|USD|20,661\n"
-    assert cnb.parse_rate(text) is None
+    payload = json.dumps(
+        {"rates": [{"validFor": "2026-09-11", "amount": 1, "currencyCode": "USD", "rate": 20.661}]}
+    )
+    assert cnb.parse_rate(payload) is None
 
 
-def test_cnb_ignores_a_zero_amount_column() -> None:
-    text = "11.09.2026 #176\nzemě|měna|množství|kód|kurz\nEMU|euro|0|EUR|24,260\n"
-    assert cnb.parse_rate(text) is None
+def test_cnb_ignores_a_zero_amount() -> None:
+    payload = json.dumps(
+        {"rates": [{"validFor": "2026-09-11", "amount": 0, "currencyCode": "EUR", "rate": 24.26}]}
+    )
+    assert cnb.parse_rate(payload) is None
 
 
-@responses.activate
-def test_cnb_is_fetched_through_the_polite_fetcher() -> None:
-    allow_robots()
-    responses.add(responses.GET, cnb.CNB_URL, body=CNB_TEXT, content_type="text/plain")
+def test_cnb_ignores_an_unreadable_date() -> None:
+    payload = json.dumps(
+        {"rates": [{"validFor": "yesterday", "amount": 1, "currencyCode": "EUR", "rate": 24.26}]}
+    )
+    assert cnb.parse_rate(payload) is None
+
+
+def test_cnb_asks_for_one_day_in_the_bank_own_format() -> None:
+    """The service answers with the newest fixing on or before the day asked for."""
+    assert cnb.url_for(SATURDAY).endswith("?date=2026-09-12&lang=EN")
+
+
+def test_cnb_is_fetched_through_the_polite_fetcher(http: MockHTTP) -> None:
+    allow_robots(http)
+    http.add(cnb.CNB_URL, body=CNB_JSON, content_type="application/json")
     fetcher = make_fetcher()
-    rate = cnb.fetch_rate(fetcher)
+    rate = cnb.fetch_rate(fetcher, FRIDAY)
     fetcher.close()
     assert rate is not None
-    assert rate.rate == Decimal("24.260")
+    assert rate.rate == Decimal("24.26")
     # robots.txt first, the fixing second: the bank is paced like any shop
-    assert [call.request.url for call in responses.calls] == [CNB_ROBOTS, cnb.CNB_URL]
+    assert [url.split("?")[0] for url in http.urls()] == [
+        CNB_ROBOTS,
+        cnb.CNB_URL,
+    ]
 
 
-@responses.activate
-def test_a_shop_robots_txt_that_forbids_us_is_obeyed_for_the_bank_too() -> None:
-    responses.add(
-        responses.GET,
+def test_a_shop_robots_txt_that_forbids_us_is_obeyed_for_the_bank_too(http: MockHTTP) -> None:
+    http.add(
         CNB_ROBOTS,
         body="User-agent: *\nDisallow: /\n",
         content_type="text/plain",
@@ -177,10 +208,9 @@ def test_ecb_returns_none_for_garbage() -> None:
     assert ecb.parse_rate("<html>down for maintenance</html>") is None
 
 
-@responses.activate
-def test_ecb_is_fetched_through_the_polite_fetcher() -> None:
-    allow_robots()
-    responses.add(responses.GET, ecb.ECB_URL, body=ECB_XML, content_type="text/xml")
+def test_ecb_is_fetched_through_the_polite_fetcher(http: MockHTTP) -> None:
+    allow_robots(http)
+    http.add(ecb.ECB_URL, body=ECB_XML, content_type="text/xml")
     fetcher = make_fetcher()
     rate = ecb.fetch_rate(fetcher)
     fetcher.close()
@@ -191,11 +221,10 @@ def test_ecb_is_fetched_through_the_polite_fetcher() -> None:
 # --- the service -------------------------------------------------------------
 
 
-@responses.activate
-def test_the_service_prefers_the_national_bank() -> None:
-    allow_robots()
-    responses.add(responses.GET, cnb.CNB_URL, body=CNB_TEXT, content_type="text/plain")
-    responses.add(responses.GET, ecb.ECB_URL, body=ECB_XML, content_type="text/xml")
+def test_the_service_prefers_the_national_bank(http: MockHTTP) -> None:
+    allow_robots(http)
+    http.add(cnb.CNB_URL, body=CNB_JSON, content_type="text/plain")
+    http.add(ecb.ECB_URL, body=ECB_XML, content_type="text/xml")
     fetcher = make_fetcher()
     store = MemoryStore()
 
@@ -205,14 +234,13 @@ def test_the_service_prefers_the_national_bank() -> None:
     assert rate is not None
     assert rate.source == "cnb"
     assert store.puts == [rate]
-    assert ecb.ECB_URL not in [call.request.url for call in responses.calls]
+    assert ecb.ECB_URL not in http.urls()
 
 
-@responses.activate
-def test_the_service_falls_back_to_the_ecb() -> None:
-    allow_robots()
-    responses.add(responses.GET, cnb.CNB_URL, status=503)
-    responses.add(responses.GET, ecb.ECB_URL, body=ECB_XML, content_type="text/xml")
+def test_the_service_falls_back_to_the_ecb(http: MockHTTP) -> None:
+    allow_robots(http)
+    http.add(cnb.CNB_URL, status=503)
+    http.add(ecb.ECB_URL, body=ECB_XML, content_type="text/xml")
     fetcher = make_fetcher()
     store = MemoryStore()
 
@@ -224,13 +252,13 @@ def test_the_service_falls_back_to_the_ecb() -> None:
     assert rate.rate == Decimal("24.264")
 
 
-@responses.activate
 def test_the_service_falls_back_to_the_store_and_says_how_old_it_is(
+    http: MockHTTP,
     caplog: pytest.LogCaptureFixture,
 ) -> None:
-    allow_robots()
-    responses.add(responses.GET, cnb.CNB_URL, status=503)
-    responses.add(responses.GET, ecb.ECB_URL, status=503)
+    allow_robots(http)
+    http.add(cnb.CNB_URL, status=503)
+    http.add(ecb.ECB_URL, status=503)
     stale = FxRate(date=date(2026, 9, 4), rate=Decimal("24.100"), source="cnb")
     fetcher = make_fetcher()
     store = MemoryStore([stale])
@@ -243,39 +271,36 @@ def test_the_service_falls_back_to_the_store_and_says_how_old_it_is(
     assert "7 day(s) old" in caplog.text
 
 
-@responses.activate
-def test_the_service_returns_none_when_the_store_is_empty_too() -> None:
-    allow_robots()
-    responses.add(responses.GET, cnb.CNB_URL, status=503)
-    responses.add(responses.GET, ecb.ECB_URL, status=503)
+def test_the_service_returns_none_when_the_store_is_empty_too(http: MockHTTP) -> None:
+    allow_robots(http)
+    http.add(cnb.CNB_URL, status=503)
+    http.add(ecb.ECB_URL, status=503)
     fetcher = make_fetcher()
 
     assert FxService(fetcher, MemoryStore()).get_rate(FRIDAY) is None
     fetcher.close()
 
 
-@responses.activate
-def test_the_rate_is_fetched_at_most_once_a_day() -> None:
-    allow_robots()
-    responses.add(responses.GET, cnb.CNB_URL, body=CNB_TEXT, content_type="text/plain")
+def test_the_rate_is_fetched_at_most_once_a_day(http: MockHTTP) -> None:
+    allow_robots(http)
+    http.add(cnb.CNB_URL, body=CNB_JSON, content_type="text/plain")
     fetcher = make_fetcher()
     store = MemoryStore()
     service = FxService(fetcher, store)
 
     first = service.get_rate(FRIDAY)
-    before = len(responses.calls)
+    before = len(http.calls)
     second = service.get_rate(FRIDAY)
     fetcher.close()
 
     assert first == second
-    assert len(responses.calls) == before
+    assert len(http.calls) == before
     assert len(store.puts) == 1
 
 
-@responses.activate
-def test_a_weekend_reuses_fridays_fixing_without_a_request() -> None:
+def test_a_weekend_reuses_fridays_fixing_without_a_request(http: MockHTTP) -> None:
     """The bank publishes nothing on a Saturday, so nothing is worth asking for."""
-    allow_robots()
+    allow_robots(http)
     fetcher = make_fetcher()
     friday = FxRate(date=FRIDAY, rate=Decimal("24.260"), source="cnb")
     store = MemoryStore([friday])
@@ -283,13 +308,12 @@ def test_a_weekend_reuses_fridays_fixing_without_a_request() -> None:
     assert FxService(fetcher, store).get_rate(SATURDAY) == friday
     assert FxService(fetcher, store).get_rate(SUNDAY) == friday
     fetcher.close()
-    assert len(responses.calls) == 0
+    assert len(http.calls) == 0
 
 
-@responses.activate
-def test_refresh_ignores_the_store() -> None:
-    allow_robots()
-    responses.add(responses.GET, cnb.CNB_URL, body=CNB_TEXT, content_type="text/plain")
+def test_refresh_ignores_the_store(http: MockHTTP) -> None:
+    allow_robots(http)
+    http.add(cnb.CNB_URL, body=CNB_JSON, content_type="text/plain")
     fetcher = make_fetcher()
     store = MemoryStore([FxRate(date=FRIDAY, rate=Decimal("1.000"), source="stale")])
 

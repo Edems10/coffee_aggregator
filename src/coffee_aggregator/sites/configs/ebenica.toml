@@ -30,4 +30,3 @@ ignore = [
 # "Ocenenia" lists competition medals — awards, not certifications — and there
 # is no typed field for them yet, so it is kept out of the typed mapping and
 # reaches the sink through raw_attributes.
-"Ocenenia" = ""

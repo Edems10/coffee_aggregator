@@ -1,0 +1,25 @@
+# 228 kava also parents 279 cascara and three weight shelves (145/154/155)
+# that repeat the same coffees; the adapter de-duplicates by product id and
+# cascara is dropped by the shared ignore list. Whole crowns (minor unit 0).
+platform = "woocommerce"
+site_id = "lexacoffee"
+name = "Lexa Coffee"
+country = "CZ"
+base_url = "https://www.lexacoffee.cz/"
+currency = "CZK"
+mode = "api"
+max_pages = 10
+
+# Pinned ids, not slugs: ids survive a re-theme, slugs do not.
+api_category_ids = [228]
+
+# The HTML fallback, used only if /wp-json/ ever stops answering.
+category_urls = [
+  "https://www.lexacoffee.cz/kategorie-produktu/kava/",
+]
+
+# The catalogue also sells things that are not coffee beans.
+ignore = [
+  "darkova sada",
+  "merch",
+]

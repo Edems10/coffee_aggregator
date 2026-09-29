@@ -1,0 +1,18 @@
+# City Roasters — a Czech roastery on Shopify. Its variant axis is the grind
+# ("nechci namlít / 250g", "Espresso / 1000g") and `grams` is left at 0 on every
+# one of them, so both the pack weight and the roast profile come out of the
+# variant title. The description is a clean one-fact-per-line passport, except
+# for the altitude, which is written as a sentence ("Pěstuje se v nadmořské
+# výšce 1600 m.n.m.") and is therefore read as prose.
+platform = "shopify"
+site_id = "cityroasters"
+name = "City Roasters"
+country = "CZ"
+base_url = "https://cityroasters.eu/"
+# products.json quotes bare decimal strings and names no currency anywhere.
+currency = "CZK"
+max_pages = 3
+
+# "Káva" holds all 130 coffees; matcha and the brewing gear live in sibling
+# collections it does not contain.
+collections = ["kava"]

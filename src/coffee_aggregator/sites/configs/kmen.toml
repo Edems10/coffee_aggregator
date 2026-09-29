@@ -1,0 +1,28 @@
+# Kmen Coffee Roasters — a Czech roastery whose Store API quotes whole
+# crowns (currency_minor_unit = 0), like kavaloka.cz. Every coffee carries the
+# full attribute set (Země původu, Oblast, Odrůda, Zpracování, Farma, Producent).
+# prices.currency_minor_unit is 0 here: "360" means 360 CZK, not 3.60.
+platform = "woocommerce"
+site_id = "kmen"
+name = "Kmen Coffee Roasters"
+country = "CZ"
+base_url = "https://kmen.coffee/"
+currency = "CZK"
+mode = "api"
+max_pages = 10
+
+# Pinned ids, not slugs: ids survive a re-theme, slugs do not.
+# 306 kava (23).
+api_category_ids = [306]
+
+# The HTML fallback, used only if /wp-json/ ever stops answering.
+category_urls = [
+  "https://kmen.coffee/kava/",
+]
+
+# The catalogue also sells things that are not coffee beans.
+ignore = [
+  "predplatne",
+  "poukaz",
+  "darkov",
+]

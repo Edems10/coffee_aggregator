@@ -1,0 +1,32 @@
+# Trinity Beans — an older 28-field Store API schema, simple products only,
+# 11 attributes including Skóre kvality and Obdobie zberu.
+platform = "woocommerce"
+site_id = "trinitybeans"
+name = "Trinity Beans"
+country = "SK"
+base_url = "https://www.trinitybeans.sk/"
+currency = "EUR"
+mode = "api"
+max_pages = 10
+
+# Pinned ids, not slugs: ids survive a re-theme, slugs do not.
+# 50 espresso (10), 37 filter (6).
+api_category_ids = [50, 37]
+
+# The HTML fallback, used only if /wp-json/ ever stops answering.
+category_urls = [
+  "https://www.trinitybeans.sk/kategoria-produktu/espresso/",
+  "https://www.trinitybeans.sk/kategoria-produktu/filter/",
+]
+
+# The catalogue also sells things that are not coffee beans.
+ignore = [
+  "dripbag",
+  "kapsul",
+]
+
+[label_map]
+"Plantáž / farmár" = "producer"
+"Plantáž/ farmár" = "producer"
+"Nadmorská výška pestovania" = "altitude"
+"Odrody" = "variety"

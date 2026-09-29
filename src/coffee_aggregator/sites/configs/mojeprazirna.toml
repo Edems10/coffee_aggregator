@@ -1,0 +1,11 @@
+# Moje pražírna — product names are plain English/Italian ("Palermo Blend",
+# "Colombia Medellín Excelso") on an otherwise Czech Shoptet.
+platform = "shoptet"
+site_id = "mojeprazirna"
+name = "Moje pražírna"
+country = "CZ"
+base_url = "https://www.mojeprazirna.cz/"
+category_urls = ["https://www.mojeprazirna.cz/cerstve-prazena-vyberova-kava/"]
+currency = "CZK"
+max_pages = 10
+pagination = "path"

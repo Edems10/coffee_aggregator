@@ -1,0 +1,10 @@
+# MaKa Coffee — a single short /zrnkova-kava/ listing of eight single origins.
+platform = "shoptet"
+site_id = "eshopmakacoffee"
+name = "MaKa Coffee"
+country = "CZ"
+base_url = "https://www.eshopmakacoffee.cz/"
+category_urls = ["https://www.eshopmakacoffee.cz/zrnkova-kava/"]
+currency = "CZK"
+max_pages = 10
+pagination = "path"

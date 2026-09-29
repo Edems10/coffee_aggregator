@@ -1,0 +1,29 @@
+# Sweet Beans Coffee Roastery — an English-language Slovak roastery: the
+# description label lines are EN (Altitude, Process, Producer, Varieties).
+platform = "woocommerce"
+site_id = "sweetbeans"
+name = "Sweet Beans Coffee Roastery"
+country = "SK"
+base_url = "https://www.sweetbeans.coffee/"
+currency = "EUR"
+mode = "api"
+max_pages = 10
+
+# Pinned ids, not slugs: ids survive a re-theme, slugs do not.
+# 30 coffee-beans (31).
+api_category_ids = [30]
+
+# The HTML fallback, used only if /wp-json/ ever stops answering.
+category_urls = [
+  "https://www.sweetbeans.coffee/kategoria-produktu/coffee-beans/",
+]
+
+# The catalogue also sells things that are not coffee beans.
+ignore = [
+  "sample box",
+  "credit",
+  "offer",
+]
+
+[label_map]
+"Producers" = "producer"

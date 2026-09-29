@@ -1,0 +1,29 @@
+# Bozin Roastery — the largest catalogue of the survey; category 51 kava is
+# the bean tree, the rest mixes machines, sugar and biscuits. Origin data is
+# a "Label: value" block in the description.
+platform = "woocommerce"
+site_id = "bozinroastery"
+name = "Bozin Roastery"
+country = "SK"
+base_url = "https://www.bozinroastery.sk/"
+currency = "EUR"
+mode = "api"
+max_pages = 10
+
+# Pinned ids, not slugs: ids survive a re-theme, slugs do not.
+# 51 kava (32).
+api_category_ids = [51]
+
+# The HTML fallback, used only if /wp-json/ ever stops answering.
+category_urls = [
+  "https://www.bozinroastery.sk/kava/",
+]
+
+# The catalogue also sells things that are not coffee beans.
+ignore = [
+  "coffee drips",
+  "biskvit",
+  "cukor",
+  "med hygienicky",
+  "amarettini",
+]

@@ -1,0 +1,11 @@
+# Pražírna kávy Analog — one /zrnkova-kava/ page; the listing also carries a
+# cascara, which the shared ignore list already drops.
+platform = "shoptet"
+site_id = "analogprazirna"
+name = "Pražírna kávy Analog"
+country = "CZ"
+base_url = "https://www.analogprazirna.cz/"
+category_urls = ["https://www.analogprazirna.cz/zrnkova-kava/"]
+currency = "CZK"
+max_pages = 10
+pagination = "path"

@@ -1,0 +1,25 @@
+# A Slovak shop on a .eu domain with the English permalink base
+# /product-category/. 165 premiova-zrnkova-kava is the bean root; 297
+# cascara sits outside it and is ignored anyway.
+platform = "woocommerce"
+site_id = "ritualcoffee"
+name = "Ritual Coffee"
+country = "SK"
+base_url = "https://www.ritualcoffee.eu/"
+currency = "EUR"
+mode = "api"
+max_pages = 10
+
+# Pinned ids, not slugs: ids survive a re-theme, slugs do not.
+api_category_ids = [165]
+
+# The HTML fallback, used only if /wp-json/ ever stops answering.
+category_urls = [
+  "https://www.ritualcoffee.eu/product-category/premiova-zrnkova-kava/",
+]
+
+# The catalogue also sells things that are not coffee beans.
+ignore = [
+  "poukaz",
+  "balicek",
+]

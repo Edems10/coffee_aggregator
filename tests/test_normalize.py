@@ -377,3 +377,72 @@ def test_parse_processing_is_total(text: str | None, method: ProcessMethod) -> N
     processing = normalize.parse_processing(text)
     assert processing.method is method
     assert processing.methods == []
+
+
+# --- a cup note is not a roast level ----------------------------------------
+
+
+@pytest.mark.parametrize(
+    ("text", "expected"),
+    [
+        ("tmavá čokoláda", RoastLevel.UNKNOWN),
+        ("hořká čokoláda, tmavé ovoce", RoastLevel.UNKNOWN),
+        ("mléčná čokoláda", RoastLevel.UNKNOWN),
+        ("dark chocolate", RoastLevel.UNKNOWN),
+        ("tóny tmavého ovocia a karamelu", RoastLevel.UNKNOWN),
+        ("světlý karamel", RoastLevel.UNKNOWN),
+        ("light caramel, milk chocolate", RoastLevel.UNKNOWN),
+        ("4 - Intenzivní", RoastLevel.UNKNOWN),
+        ("Omni roast", RoastLevel.UNKNOWN),
+        ("tmavé praženie", RoastLevel.DARK),
+        ("světlé pražení", RoastLevel.LIGHT),
+        ("dark roast", RoastLevel.DARK),
+        ("stredne tmavé", RoastLevel.MEDIUM_DARK),
+        ("Full City", RoastLevel.MEDIUM_DARK),
+        ("City +", RoastLevel.MEDIUM),
+        # The cup note is skipped and the real roast word further on still wins.
+        ("tmavá čokoláda, světlé pražení", RoastLevel.LIGHT),
+    ],
+)
+def test_normalize_roast_level_tells_a_cup_note_from_a_roast(
+    text: str,
+    expected: RoastLevel,
+) -> None:
+    assert normalize_roast_level(text) is expected
+
+
+# --- totality on absurd input -----------------------------------------------
+
+
+def test_parse_weight_grams_survives_a_number_that_overflows_a_float() -> None:
+    assert parse_weight_grams("9" * 309 + " g") is None
+    assert parse_weight_grams("9" * 309 + " kg") is None
+
+
+def test_parse_altitude_survives_a_number_that_overflows_a_float() -> None:
+    assert parse_altitude("1" * 400 + " m n.m.") == (None, None)
+
+
+# --- the substring tables stay append-safe ----------------------------------
+
+_SUBSTRING_TABLES: dict[str, tuple[tuple[str, object], ...]] = {
+    "_CURRENCIES": normalize._CURRENCIES,
+    "_INTENSITY_TABLE": normalize._INTENSITY_TABLE,
+    "_PROCESS_TABLE": normalize._PROCESS_TABLE,
+    "_ROAST_TABLE": normalize._ROAST_TABLE,
+}
+
+
+@pytest.mark.parametrize(("name", "table"), sorted(_SUBSTRING_TABLES.items()))
+def test_no_short_needle_shadows_a_later_longer_one(
+    name: str,
+    table: tuple[tuple[str, object], ...],
+) -> None:
+    """A needle listed first must not swallow a longer one below it."""
+    shadowed = [
+        (early, late)
+        for index, (early, early_value) in enumerate(table)
+        for late, late_value in table[index + 1 :]
+        if early in late and early_value != late_value
+    ]
+    assert shadowed == [], f"{name}: move the longer needle above the shorter one"

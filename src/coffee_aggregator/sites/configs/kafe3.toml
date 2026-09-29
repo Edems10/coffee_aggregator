@@ -1,0 +1,16 @@
+# Pražírna kafe 3 — a short listing that also carries a corporate gift pack
+# and a subscription-style "kolekce".
+platform = "shoptet"
+site_id = "kafe3"
+name = "Pražírna kafe 3"
+country = "CZ"
+base_url = "https://www.kafe3.cz/"
+category_urls = ["https://www.kafe3.cz/kafe/"]
+currency = "CZK"
+max_pages = 10
+pagination = "path"
+
+ignore = [
+  "darkove baleni",
+  "kolekce",
+]

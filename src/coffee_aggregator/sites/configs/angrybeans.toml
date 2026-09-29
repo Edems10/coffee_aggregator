@@ -1,0 +1,16 @@
+# AngryBeans — a Czech roastery on a .eu domain, so the country is CZ and the
+# prices are in CZK; product names are codes ("100ESPRO") as often as origins.
+platform = "shoptet"
+site_id = "angrybeans"
+name = "AngryBeans"
+country = "CZ"
+base_url = "https://www.angrybeans.eu/"
+category_urls = ["https://www.angrybeans.eu/nase-kava/"]
+currency = "CZK"
+max_pages = 10
+pagination = "path"
+
+ignore = [
+  "degustacni balicek",
+  "darkov",
+]

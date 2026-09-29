@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import json
 import logging
 import re
 from typing import TYPE_CHECKING, Final
@@ -9,15 +8,26 @@ from urllib.parse import urljoin
 from bs4 import BeautifulSoup, Tag
 
 from coffee_aggregator import normalize
-from coffee_aggregator.models import (
-    Coffee,
-    Origin,
-    Roast,
-    Species,
-    Taste,
-    Variant,
+from coffee_aggregator.labels import (
+    F_ACIDITY,
+    F_BITTERNESS,
+    F_BODY,
+    F_BREWING,
+    F_COUNTRY,
+    F_FARM,
+    F_PROCESS,
+    F_SWEETNESS,
+    bar,
+    headline_weight,
+    is_decaf,
+    map_label,
+    parse_origin,
+    parse_roast,
+    score,
 )
+from coffee_aggregator.models import Coffee, Species, Taste, Variant
 from coffee_aggregator.sites import html as dom
+from coffee_aggregator.sites import toolkit as kit
 from coffee_aggregator.sites.base import DEFAULT_IGNORED, ProductRef, SiteAdapter
 from coffee_aggregator.sites.registry import register
 
@@ -44,44 +54,40 @@ IGNORED_MARKERS: Final = (
     "degustacni",
 )
 
-_PRODUCT_ID_RE: Final = re.compile(r"_z(?P<id>\d+)/?(?:[?#]|$)")
+PRODUCT_ID_RE: Final = re.compile(r"_z(?P<id>\d+)/?(?:[?#]|$)")
 #: ``page_data = {...};page_data[`` — the detail page's own GA4 product record.
 _PAGE_DATA_RE: Final = re.compile(r"page_data\s*=\s*(?P<json>\{.*?\})\s*;\s*page_data\[", re.DOTALL)
 #: ``gtm_prva[1417] = {'id': ..., 'price': ...};`` — one entry per package size.
 _VARIATION_RE: Final = re.compile(r"gtm_prva\[(?P<id>\d+)\]\s*=\s*\{(?P<fields>[^}]*)\}")
 _VARIATION_FIELD_RE: Final = re.compile(r"'(?P<key>\w+)'\s*:\s*'?(?P<value>[^',}]*)'?")
 #: The shop writes its cup notes as ``a - b - c``, which the shared splitter
-#: leaves whole because a bare dash also joins words. Candidate for sites/html.py.
-_NOTE_SPLIT_RE: Final = re.compile(r"\s+[\u2010-\u2015\u2212-]\s+")
+#: leaves whole because a bare dash also joins words.
+_NOTE_SPLIT_RE: Final = re.compile(r"\s+[‐-―−-]\s+")
 
-_LABEL_SERIES: Final = "rada"
-_LABEL_BREWING: Final = "priprava"
+#: The shop's own spellings, over the shared vocabulary. It declines its sensory
+#: rows ("intenzita těla", never the bare "tělo" the vocabulary knows) and reads
+#: "Lokalita" as the place the lot comes from rather than as a wider region.
+SHOP_TERMS: Final[dict[str, str]] = {
+    "intenzita tela": F_BODY,
+    "intenzita kyselosti": F_ACIDITY,
+    "intenzita horkosti": F_BITTERNESS,
+    "intenzita sladkosti": F_SWEETNESS,
+    "lokalita": F_FARM,
+}
+LABEL_MAP: Final[dict[str, str]] = kit.vocabulary(SHOP_TERMS)
+
+#: The two flavour rows the shop prints side by side. One canonical flavour
+#: field cannot hold both, so they are read by their own spellings: "Chuť" is a
+#: one-word verdict and "Charakteristika" is the list of cup notes.
 _LABEL_TASTE: Final = "chut"
 _LABEL_NOTES: Final = "charakteristika"
-_LABEL_BODY: Final = "intenzita tela"
-_LABEL_ACIDITY: Final = "intenzita kyselosti"
-_LABEL_BITTERNESS: Final = "intenzita horkosti"
-_LABEL_SWEETNESS: Final = "intenzita sladkosti"
-_LABEL_PROCESS: Final = "zpracovani"
-_LABEL_VARIETY: Final = "odruda"
-_LABEL_ORIGIN: Final = "puvod"
-_LABEL_REGION: Final = "region"
-_LABEL_LOCALITY: Final = "lokalita"
-_LABEL_STATION: Final = "zpracovatelsky zavod"
-_LABEL_ALTITUDE: Final = "nadm. vyska"
-_LABEL_HARVEST: Final = "sklizen"
-_LABEL_ROAST: Final = "prazeni"
-_LABEL_SCA: Final = "sca skore"
-_LABEL_PRODUCER: Final = "farmar"
 
-#: Folded parameter label -> the :class:`~coffee_aggregator.models.Taste` field
-#: its 1-5 bean bar fills in.
-_INTENSITY_LABELS: Final = {
-    _LABEL_BODY: "body",
-    _LABEL_ACIDITY: "acidity",
-    _LABEL_BITTERNESS: "bitterness",
-    _LABEL_SWEETNESS: "sweetness",
-}
+_BARS: Final = (
+    (F_BODY, "body"),
+    (F_ACIDITY, "acidity"),
+    (F_BITTERNESS, "bitterness"),
+    (F_SWEETNESS, "sweetness"),
+)
 
 
 def external_id_of(url: str | None) -> str | None:
@@ -93,10 +99,7 @@ def external_id_of(url: str | None) -> str | None:
     Returns:
         The id as a string, or None when the URL is not a product URL.
     """
-    if not url:
-        return None
-    match = _PRODUCT_ID_RE.search(url)
-    return match.group("id") if match else None
+    return kit.id_from(url, PRODUCT_ID_RE)
 
 
 def split_notes(text: str | None) -> list[str]:
@@ -114,31 +117,18 @@ def split_notes(text: str | None) -> list[str]:
     return dom.unique(items)
 
 
-def _tracking(tag: Tag | None, attribute: str = "data-tracking-click") -> dict[str, object]:
+def _tracking(tag: Tag | None) -> dict[str, object]:
     """Decode the GA4 record the shop hangs off every product link.
 
     Args:
         tag: The ``a.product-link`` element.
-        attribute: Which tracking attribute to read.
 
     Returns:
         The first product record, or an empty mapping.
     """
-    raw = dom.attr(tag, attribute)
-    if not raw:
-        return {}
-    try:
-        decoded = json.loads(raw)
-    except json.JSONDecodeError:
-        logger.debug("a product card carried unreadable tracking data")
-        return {}
-    if not isinstance(decoded, dict):
-        return {}
-    click = decoded.get("click") if isinstance(decoded.get("click"), dict) else decoded
-    products = click.get("products") if isinstance(click, dict) else None
-    if isinstance(products, list) and products and isinstance(products[0], dict):
-        return products[0]
-    return {}
+    decoded = kit.json_object(dom.attr(tag, "data-tracking-click"), what="tracking data")
+    click = decoded.get("click")
+    return kit.first_record(click if isinstance(click, dict) else decoded, "products")
 
 
 def _page_data(soup: BeautifulSoup) -> dict[str, object]:
@@ -151,47 +141,14 @@ def _page_data(soup: BeautifulSoup) -> dict[str, object]:
         The first product record, or an empty mapping.
     """
     for script in soup.find_all("script"):
-        match = _PAGE_DATA_RE.search(script.get_text())
-        if match is None:
-            continue
-        try:
-            decoded = json.loads(match.group("json"))
-        except json.JSONDecodeError:
-            logger.debug("the page_data script was not valid JSON")
-            continue
-        products = decoded.get("products") if isinstance(decoded, dict) else None
-        if isinstance(products, list) and products and isinstance(products[0], dict):
-            return products[0]
+        decoded = kit.embedded_json(script.get_text(), _PAGE_DATA_RE, what="page_data script")
+        record = kit.first_record(decoded, "products")
+        if record:
+            return record
     return {}
 
 
-def _number(value: object) -> float | None:
-    """Narrow a decoded JSON value to a number.
-
-    Args:
-        value: Anything ``json.loads`` produced.
-
-    Returns:
-        The number, or None when the value is not numeric.
-    """
-    if isinstance(value, bool):
-        return None
-    return float(value) if isinstance(value, (int, float)) else None
-
-
-def _text_of(value: object) -> str | None:
-    """Narrow a decoded JSON value to a non-empty string.
-
-    Args:
-        value: Anything ``json.loads`` produced.
-
-    Returns:
-        The trimmed string, or None.
-    """
-    return value.strip() or None if isinstance(value, str) else None
-
-
-def _parse_params(soup: BeautifulSoup) -> tuple[dict[str, str], dict[str, str], dict[str, int]]:
+def _read_params(soup: BeautifulSoup) -> tuple[kit.Facts, dict[str, int]]:
     """Read the ``Detaily`` parameter list, bean bars included.
 
     Each row is ``<li><strong>LABEL</strong><span>VALUE</span></li>``; an
@@ -202,33 +159,25 @@ def _parse_params(soup: BeautifulSoup) -> tuple[dict[str, str], dict[str, str], 
         soup: The parsed detail page.
 
     Returns:
-        A ``(raw_attributes, folded_lookup, intensities)`` tuple.
+        The labelled facts, and the bean-bar counts keyed by canonical field.
     """
-    raw: dict[str, str] = {}
-    folded: dict[str, str] = {}
+    facts = kit.Facts(label_map=LABEL_MAP)
     intensities: dict[str, int] = {}
     for row in soup.select("div.product-params li"):
         label = dom.text(row.select_one("strong"))
         if not label:
             continue
-        key = normalize.fold(label)
-        bar = row.select_one("p.intensity")
+        drawn = row.select_one("p.intensity")
         # The shop glues its units on with a no-break space; dash_fold_keep turns
         # that into a plain one without touching case or diacritics.
-        value = (
-            normalize.dash_fold_keep(
-                dom.text(bar.select_one("span")) if bar else dom.text(row.select_one("span"))
-            )
-            or None
-        )
-        if bar is not None:
-            active = bar.select("span.icons_bean:not(.inactive)")
-            if active:
-                intensities[key] = len(active)
-        if value:
-            raw.setdefault(label.strip().upper(), value)
-            folded.setdefault(key, value)
-    return raw, folded, intensities
+        source = dom.text(drawn.select_one("span")) if drawn else dom.text(row.select_one("span"))
+        value = normalize.dash_fold_keep(source) or None
+        active = drawn.select("span.icons_bean:not(.inactive)") if drawn else []
+        field_name = map_label(normalize.fold(label), LABEL_MAP)
+        if active and field_name:
+            intensities[field_name] = len(active)
+        facts.add(label, value)
+    return facts, intensities
 
 
 def _parse_variants(soup: BeautifulSoup, ref: ProductRef) -> list[Variant]:
@@ -250,25 +199,22 @@ def _parse_variants(soup: BeautifulSoup, ref: ProductRef) -> list[Variant]:
                 continue
             seen.add(identifier)
             fields = {
-                field.group("key"): field.group("value").strip()
-                for field in _VARIATION_FIELD_RE.finditer(match.group("fields"))
+                found.group("key"): found.group("value").strip()
+                for found in _VARIATION_FIELD_RE.finditer(match.group("fields"))
             }
-            label = fields.get("variationName")
-            price = normalize.parse_amount(fields.get("price"))
             variants.append(
-                Variant(
+                kit.package(
                     external_id=fields.get("id") or identifier,
                     url=f"{ref.url}#{identifier}",
-                    weight_g=normalize.parse_weight_grams(label),
-                    price=price,
-                    currency=DEFAULT_CURRENCY if price is not None else None,
-                    label=label,
+                    label=fields.get("variationName"),
+                    price=normalize.parse_amount(fields.get("price")),
+                    currency=DEFAULT_CURRENCY,
                 )
             )
     return variants
 
 
-def _parse_availability(soup: BeautifulSoup, record: dict[str, object]) -> bool | None:
+def _availability(soup: BeautifulSoup, record: dict[str, object]) -> bool | None:
     """Decide whether the product is in stock.
 
     Args:
@@ -278,17 +224,14 @@ def _parse_availability(soup: BeautifulSoup, record: dict[str, object]) -> bool 
     Returns:
         True, False, or None when neither source says.
     """
-    sold_out = _number(record.get("soldOut"))
-    stated = normalize.fold(_text_of(record.get("availability")))
-    delivery = normalize.fold(dom.text(soup.select_one("[data-deliverytime]")))
-    blob = f"{stated} {delivery}"
-    if "skladem" in blob and "neni skladem" not in blob:
-        return True
-    if "vyprodano" in blob or "nedostupne" in blob or "neni skladem" in blob:
-        return False
-    if sold_out is not None and sold_out > 0:
-        return False
-    return None
+    stated = kit.stock_state(
+        kit.as_str(record.get("availability")),
+        dom.text(soup.select_one("[data-deliverytime]")),
+    )
+    if stated is not None:
+        return stated
+    sold_out = kit.as_number(record.get("soldOut"))
+    return False if sold_out is not None and sold_out > 0 else None
 
 
 def _parse_images(soup: BeautifulSoup) -> list[str]:
@@ -300,13 +243,15 @@ def _parse_images(soup: BeautifulSoup) -> list[str]:
     Returns:
         Absolute image URLs, in page order.
     """
-    candidates = [
-        *(dom.attr(link, "href") for link in soup.select("div.product-gallery a[href]")),
-        *(dom.attr(image, "src") for image in soup.select("div.product-gallery img[src]")),
-        dom.attr(soup.select_one('meta[property="og:image"]'), "content"),
-    ]
-    return dom.unique(
-        dom.absolute(BASE_URL, url) for url in candidates if url and "/data/tmp/" in url
+    return kit.gallery(
+        BASE_URL,
+        [
+            *(dom.attr(link, "href") for link in soup.select("div.product-gallery a[href]")),
+            *(dom.attr(image, "src") for image in soup.select("div.product-gallery img[src]")),
+            dom.attr(soup.select_one('meta[property="og:image"]'), "content"),
+        ],
+        # Everything the shop serves from another path is a layout asset.
+        keep_when=lambda url: "/data/tmp/" in url,
     )
 
 
@@ -335,12 +280,10 @@ def _card_extra(card: Tag, record: dict[str, object]) -> dict[str, str]:
     flags = dom.unique(dom.text(flag) for flag in card.select("div.catalog-flags span.flag"))
     if flags:
         extra["flags"] = ", ".join(flags)
-    availability = _text_of(record.get("availability"))
-    if availability:
-        extra["stock"] = availability
-    producer = _text_of(record.get("producer"))
-    if producer:
-        extra["producer"] = producer
+    for key, source in (("stock", "availability"), ("producer", "producer")):
+        value = kit.as_str(record.get(source))
+        if value:
+            extra[key] = value
     return extra
 
 
@@ -396,16 +339,15 @@ class NordbeansSite(SiteAdapter):
                 logger.debug("skipping a product card without a product link")
                 continue
             record = _tracking(link)
-            price = _number(record.get("priceWithVat"))
             card = link.find_parent("div", class_="catalog")
             refs.append(
-                ProductRef(
-                    site_id=self.site_id,
-                    external_id=external_id,
-                    url=url,
-                    name=dom.text(link.select_one("h3.title")) or _text_of(record.get("name")),
-                    price=price,
-                    currency=DEFAULT_CURRENCY if price is not None else None,
+                kit.product_ref(
+                    self.site_id,
+                    external_id,
+                    url,
+                    name=dom.text(link.select_one("h3.title")) or kit.as_str(record.get("name")),
+                    price=kit.as_number(record.get("priceWithVat")),
+                    currency=DEFAULT_CURRENCY,
                     image_url=dom.absolute(BASE_URL, dom.attr(link.select_one("img"), "src")),
                     extra=_card_extra(card, record) if isinstance(card, Tag) else {},
                 )
@@ -423,17 +365,7 @@ class NordbeansSite(SiteAdapter):
             catalogue, mugs and grinders included, so the category walk stays
             the default.
         """
-        soup = BeautifulSoup(xml, "xml")
-        refs: list[ProductRef] = []
-        seen: set[str] = set()
-        for location in soup.find_all("loc"):
-            url = location.get_text(strip=True)
-            external_id = external_id_of(url)
-            if external_id is None or external_id in seen:
-                continue
-            seen.add(external_id)
-            refs.append(ProductRef(site_id=self.site_id, external_id=external_id, url=url))
-        return refs
+        return kit.sitemap_refs(xml, self.site_id, PRODUCT_ID_RE)
 
     def discover(
         self,
@@ -451,13 +383,11 @@ class NordbeansSite(SiteAdapter):
             One reference per product found.
         """
         cap = max_pages if max_pages is not None else self.max_pages
-        seen: set[str] = set()
-        for index in range(min(cap, len(CATEGORY_PATHS))):
-            url = self.category_url(index)
-            result = fetcher.get(url)
-            fresh = [ref for ref in self.parse_listing(result.text) if ref.external_id not in seen]
-            seen.update(ref.external_id for ref in fresh)
-            yield from fresh
+        urls = [self.category_url(index) for index in range(min(cap, len(CATEGORY_PATHS)))]
+        # The three categories are distinct lists, not pages of one: a category
+        # whose beans all appeared in the previous one is not the end of the
+        # catalogue, so only a redirect stops the walk.
+        yield from kit.walk_listing(fetcher, urls, self.parse_listing, stop_when_stale=False)
 
     def parse_product(self, html: str, ref: ProductRef) -> Coffee | None:
         """Turn one detail page into a coffee.
@@ -472,16 +402,16 @@ class NordbeansSite(SiteAdapter):
         """
         soup = BeautifulSoup(html, "lxml")
         record = _page_data(soup)
-        name = dom.text(soup.select_one("h1")) or _text_of(record.get("name")) or ref.name or ""
+        name = dom.text(soup.select_one("h1")) or kit.as_str(record.get("name")) or ref.name or ""
         if self.is_ignored(name):
             logger.debug("%s is not whole beans, skipping", name)
             return None
-        raw_attributes, labels, intensities = _parse_params(soup)
-        for key, value in dom.page_meta(soup).items():
-            raw_attributes.setdefault(key, value)
+        facts, intensities = _read_params(soup)
+        kit.keep(facts.raw, dom.page_meta(soup))
         variants = _parse_variants(soup, ref)
         price = self._price(soup, record, ref)
-        species = self._species(name, labels)
+        species = self._species(name, facts)
+        categories = self._categories(record)
         coffee = Coffee(
             site=self.site_id,
             external_id=ref.external_id or external_id_of(ref.url) or "",
@@ -490,21 +420,21 @@ class NordbeansSite(SiteAdapter):
             site_country=self.country,
             price=price,
             currency=DEFAULT_CURRENCY if price is not None else None,
-            weight_g=variants[0].weight_g if variants else None,
-            available=_parse_availability(soup, record),
-            decaf="bezkofein" in normalize.fold(name) or "decaf" in normalize.fold(name),
-            origin=self._origin(labels, name),
-            processing=normalize.parse_processing(labels.get(_LABEL_PROCESS)),
-            roast=self._roast(labels, ref),
+            weight_g=headline_weight(facts.labels, name, variants, price=price),
+            available=_availability(soup, record),
+            decaf=is_decaf(facts.labels, name, categories),
+            origin=parse_origin(facts.labels, name, blend=species.is_blend),
+            processing=normalize.parse_processing(facts.get(F_PROCESS)),
+            roast=parse_roast(facts.labels, [*categories, ref.extra.get("profile", ""), ref.url]),
             species=species,
-            taste=self._taste(labels, intensities),
+            taste=self._taste(facts, intensities),
             variants=variants,
             images=_parse_images(soup),
             tags=dom.unique(dom.text(flag) for flag in soup.select("div.product-flags span.flag")),
-            categories=self._categories(record),
+            categories=categories,
             description=dom.text(soup.select_one("div.product-description")),
-            origin_text=labels.get(_LABEL_ORIGIN),
-            raw_attributes=raw_attributes,
+            origin_text=facts.get(F_COUNTRY),
+            raw_attributes=facts.raw,
         )
         self._apply_codes(coffee, record)
         return coffee
@@ -527,96 +457,53 @@ class NordbeansSite(SiteAdapter):
         Returns:
             The price, or None when no source is readable.
         """
-        from_record = _number(record.get("priceWithVat"))
+        from_record = kit.as_number(record.get("priceWithVat"))
         if from_record is not None:
             return from_record
         shown = normalize.parse_amount(dom.text(soup.select_one("p.price[data-price]")))
         return shown if shown is not None else ref.price
 
-    def _species(self, name: str, labels: dict[str, str]) -> Species:
+    def _species(self, name: str, facts: kit.Facts) -> Species:
         """Read the arabica/robusta split, which the shop states only in prose.
 
         Args:
             name: The product name.
-            labels: The folded parameter lookup.
+            facts: The labelled values of the page.
 
         Returns:
-            The composition; a single-origin lot is read as pure arabica.
+            The composition; the split is hunted across every parameter value
+            because the shop names no parameter for it.
         """
-        blob = " ".join(labels.values())
-        arabica, robusta = normalize.parse_species(blob)
+        arabica, robusta = normalize.parse_species(" ".join(facts.values()))
         return Species(
             arabica_pct=arabica,
             robusta_pct=robusta,
             is_blend=normalize.detect_blend(name, arabica, robusta),
         )
 
-    def _origin(self, labels: dict[str, str], name: str) -> Origin:
-        """Read the origin block out of the parameter list.
-
-        Args:
-            labels: The folded parameter lookup.
-            name: The product name, used when no origin label exists.
-
-        Returns:
-            The origin part of the model.
-        """
-        altitude_raw = labels.get(_LABEL_ALTITUDE)
-        low, high = normalize.parse_altitude(altitude_raw)
-        origin_text = labels.get(_LABEL_ORIGIN)
-        return Origin(
-            country=normalize.detect_country(origin_text) or normalize.detect_country(name),
-            region=labels.get(_LABEL_REGION),
-            farm=labels.get(_LABEL_LOCALITY),
-            producer=labels.get(_LABEL_PRODUCER),
-            washing_station=labels.get(_LABEL_STATION),
-            altitude_min_m=low,
-            altitude_max_m=high,
-            altitude_raw=altitude_raw,
-            variety=normalize.clean_variety(normalize.split_list(labels.get(_LABEL_VARIETY))),
-            harvest=labels.get(_LABEL_HARVEST),
-        )
-
-    def _roast(self, labels: dict[str, str], ref: ProductRef) -> Roast:
-        """Read the roast level and the brewing style the roast targets.
-
-        Args:
-            labels: The folded parameter lookup.
-            ref: The reference, whose card names the profile the page omits.
-
-        Returns:
-            The roast part of the model.
-        """
-        raw = labels.get(_LABEL_ROAST)
-        profile_text = " ".join(
-            filter(None, (labels.get(_LABEL_BREWING), ref.extra.get("profile"), ref.url))
-        )
-        return Roast(
-            level=normalize.normalize_roast_level(raw),
-            raw=raw,
-            profile=normalize.normalize_roast_profile(profile_text),
-        )
-
-    def _taste(self, labels: dict[str, str], intensities: dict[str, int]) -> Taste:
+    def _taste(self, facts: kit.Facts, intensities: dict[str, int]) -> Taste:
         """Read the bean bars, the cup notes and the brewing methods.
 
+        The shop prints two flavour rows: "Chuť" is a one-word verdict and
+        "Charakteristika" the list of cup notes, so the two are read apart.
+
         Args:
-            labels: The folded parameter lookup.
-            intensities: The bean-bar counts, keyed by folded label.
+            facts: The labelled values of the page.
+            intensities: The bean-bar counts, keyed by canonical field.
 
         Returns:
             The sensory part of the model.
         """
         taste = Taste(
-            flavor_notes=split_notes(labels.get(_LABEL_NOTES)),
-            tasting_text=labels.get(_LABEL_TASTE),
-            brewing_methods=normalize.split_list(labels.get(_LABEL_BREWING)),
-            sca_score=normalize.parse_float(labels.get(_LABEL_SCA)),
+            flavor_notes=split_notes(facts.pick(_LABEL_NOTES)),
+            tasting_text=facts.pick(_LABEL_TASTE),
+            brewing_methods=normalize.split_list(facts.get(F_BREWING)),
+            sca_score=score(facts.labels),
         )
-        for key, field in _INTENSITY_LABELS.items():
-            value = intensities.get(key) or normalize.parse_intensity(labels.get(key))
+        for field_name, attribute in _BARS:
+            value = intensities.get(field_name) or bar(facts.labels, field_name)
             if value is not None:
-                setattr(taste, field, value)
+                setattr(taste, attribute, value)
         return taste
 
     def _categories(self, record: dict[str, object]) -> list[str]:
@@ -630,11 +517,8 @@ class NordbeansSite(SiteAdapter):
         """
         names: list[str | None] = []
         for key in ("categoryCurrent", "categoryMain"):
-            entries = record.get(key)
-            if not isinstance(entries, list):
-                continue
             names.extend(
-                _text_of(entry.get("name")) for entry in entries if isinstance(entry, dict)
+                kit.as_str(kit.as_dict(entry).get("name")) for entry in kit.as_list(record.get(key))
             )
         return dom.unique(names)
 
@@ -645,19 +529,14 @@ class NordbeansSite(SiteAdapter):
             coffee: The coffee being filled in.
             record: The ``page_data`` product record.
         """
-        for key in ("EAN", "code", "productCode", "variationName", "producer"):
-            value = _text_of(record.get(key)) or (
-                str(record[key]) if isinstance(record.get(key), int) else None
-            )
-            if value:
-                coffee.raw_attributes.setdefault(key.upper(), value)
-        campaigns = record.get("campaigns")
-        if isinstance(campaigns, dict):
-            names = dom.unique(
-                _text_of(entry.get("name"))
-                for entry in campaigns.values()
-                if isinstance(entry, dict)
-            )
-            if names:
-                coffee.raw_attributes.setdefault("CAMPAIGNS", ", ".join(names))
-                coffee.tags = dom.unique([*coffee.tags, *names])
+        kit.keep(
+            coffee.raw_attributes,
+            kit.strings(record, ("EAN", "code", "productCode", "variationName", "producer")),
+        )
+        campaigns = kit.as_dict(record.get("campaigns"))
+        names = dom.unique(
+            kit.as_str(kit.as_dict(entry).get("name")) for entry in campaigns.values()
+        )
+        if names:
+            coffee.raw_attributes.setdefault("CAMPAIGNS", ", ".join(names))
+            coffee.tags = dom.unique([*coffee.tags, *names])

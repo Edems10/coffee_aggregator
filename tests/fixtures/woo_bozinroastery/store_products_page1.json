@@ -1,0 +1,473 @@
+[
+ {
+  "id": 16430,
+  "name": "Brazilian Honey Propolis &#8211; Pražená zrnková káva",
+  "permalink": "https://www.bozinroastery.sk/produkt/brazilian-honey-propolis-prazena-zrnkova-kava/",
+  "short_description": "<p><strong>Brazilian Honey Propolis &#8211; Pražená zrnková káva<br />\n</strong><strong>Krajina: </strong>Brazília<br />\n<strong>Región: </strong> Cerrado Mineiro<br />\n<strong>Nadmorská výška:</strong> 960–1040 m.n.m.<br />\n<strong>Odroda:</strong> Topázio<br />\n<strong>Spracovanie:</strong> 2x fermented honey<br />\n<strong>Chuťový profil:</strong> Kvetinový, medový, sladký, stredné telo, dlhotrvajúci povrchový</p>",
+  "description": "<p style=\"text-align: center\">Brazilian Honey Propolis &#8211; Pražená zrnková káva pochádza z brazílskeho regiónu Cerrado Mineiro, konkrétne z rodinnej farmy Fazenda Recanto. Vďaka nadmorskej výške 960–1040 metrov nad morom a inovatívnemu dvojitému fermentačnému procesu, táto káva ponúka nezameniteľný chuťový profil s tónmi kvetín, medu, sladkosti, stredného tela a dlhotrvajúcej chuťe. Farma, s 120-hektárovou rozlohou a bohatou rodinnou históriou Vinhalovcov, je zárukou kvality a udržateľnosti, čo dokazujú aj certifikáty ako Rainforest Alliance a Certifica Minas.</p>\n<p style=\"text-align: center\"><strong>Región:</strong> Cerrado Mineiro<br />\n<strong>Farma:</strong> Fazenda Recanto<br />\n<strong>Farmár:</strong> Rafael Vinhal<br />\n<strong>Nadmorská výška:</strong> 960–1040 metrov nad morom.<br />\n<strong>Odroda:</strong> Topázio<br />\n<strong>Spracovanie: </strong>2x fermented honey<br />\n<strong>Chuťový profil:</strong> Kvetinový, medový, sladký, stredné telo, dlhotrvajúci povrchový<br />\n<strong>Pôvod<br />\n</strong>Google Maps: <a href=\"https://maps.app.goo.gl/aJrfiJNxeL5Z5d2e7\" target=\"_new\" rel=\"noopener\">https://maps.app.goo.gl/aJrfiJNxeL5Z5d2e7</a></p>",
+  "prices": {
+   "price": "1200",
+   "regular_price": "1200",
+   "sale_price": "1200",
+   "price_range": {
+    "min_amount": "1200",
+    "max_amount": "3600"
+   },
+   "currency_code": "EUR",
+   "currency_symbol": "€",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ",",
+   "currency_thousand_separator": ".",
+   "currency_prefix": "€",
+   "currency_suffix": ""
+  },
+  "images": [
+   {
+    "id": 16620,
+    "src": "https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/12-1.jpg?fit=750%2C750&ssl=1",
+    "thumbnail": "https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/12-1.jpg?resize=300%2C300&ssl=1",
+    "srcset": "https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/12-1.jpg?w=750&ssl=1 750w, https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/12-1.jpg?resize=300%2C300&ssl=1 300w, https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/12-1.jpg?resize=150%2C150&ssl=1 150w, https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/12-1.jpg?resize=550%2C550&ssl=1 550w, https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/12-1.jpg?resize=600%2C600&ssl=1 600w, https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/12-1.jpg?resize=100%2C100&ssl=1 100w, https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/12-1.jpg?resize=64%2C64&ssl=1 64w",
+    "sizes": "(max-width: 750px) 100vw, 750px",
+    "thumbnail_srcset": "https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/12-1.jpg?w=750&ssl=1 750w, https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/12-1.jpg?resize=300%2C300&ssl=1 300w, https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/12-1.jpg?resize=150%2C150&ssl=1 150w, https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/12-1.jpg?resize=550%2C550&ssl=1 550w, https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/12-1.jpg?resize=600%2C600&ssl=1 600w, https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/12-1.jpg?resize=100%2C100&ssl=1 100w, https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/12-1.jpg?resize=64%2C64&ssl=1 64w",
+    "thumbnail_sizes": "(max-width: 300px) 100vw, 300px",
+    "name": "Brazilian honey propolis &#8211; prazena zrnkova kava &#8211; bozin roastery",
+    "alt": "Brazilian honey propolis - prazena zrnkova kava - bozin roastery"
+   }
+  ],
+  "categories": [
+   {
+    "id": 51,
+    "name": "Káva",
+    "slug": "kava",
+    "link": "https://www.bozinroastery.sk/kava/"
+   },
+   {
+    "id": 174,
+    "name": "Specialty Coffee",
+    "slug": "specialty-coffee",
+    "link": "https://www.bozinroastery.sk/specialty-coffee/"
+   }
+  ],
+  "attributes": [
+   {
+    "id": 1,
+    "name": "Hmotnosť",
+    "taxonomy": "pa_hmotnost",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 72,
+      "name": "1kg",
+      "slug": "1kg"
+     },
+     {
+      "id": 172,
+      "name": "200g",
+      "slug": "200g"
+     },
+     {
+      "id": 71,
+      "name": "500g",
+      "slug": "500g"
+     }
+    ]
+   },
+   {
+    "id": 0,
+    "name": "Príprava",
+    "taxonomy": null,
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 0,
+      "name": "Espresso",
+      "slug": "Espresso"
+     },
+     {
+      "id": 0,
+      "name": "Filter",
+      "slug": "Filter"
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 16433,
+    "attributes": [
+     {
+      "name": "Hmotnosť",
+      "value": "500g"
+     },
+     {
+      "name": "Príprava",
+      "value": null
+     }
+    ]
+   },
+   {
+    "id": 16434,
+    "attributes": [
+     {
+      "name": "Hmotnosť",
+      "value": "1kg"
+     },
+     {
+      "name": "Príprava",
+      "value": null
+     }
+    ]
+   },
+   {
+    "id": 16432,
+    "attributes": [
+     {
+      "name": "Hmotnosť",
+      "value": "200g"
+     },
+     {
+      "name": "Príprava",
+      "value": null
+     }
+    ]
+   }
+  ],
+  "is_in_stock": true
+ },
+ {
+  "id": 15860,
+  "name": "El Salvador &#8211; finca El Cerro",
+  "permalink": "https://www.bozinroastery.sk/produkt/el-salvador-speciality-coffee/",
+  "short_description": "<p><strong>El Salvador &#8211; Speciality coffee<br />\n</strong><strong>Spracovanie: </strong>Natural<br />\n<strong>Región: </strong>Apaneca Llamatepec<br />\n<strong>Odroda: </strong>Anacafe<br />\n<strong>Nadmorská výška: </strong>: 1300 m.n.m.<br />\n<strong>Chuťový profil: </strong>Tóny čiernych ríbezli, ostružiny a javorového sirupu.</p>",
+  "description": "<p class=\"tw-data-text tw-text-large tw-ta\" dir=\"ltr\" style=\"text-align: center\" data-placeholder=\"Preklad\" data-ved=\"2ahUKEwiDurWFyK-CAxXghv0HHSL1B0gQ3ewLegQIBhAQ\"><span class=\"Y2IQFc\" lang=\"sk\">El Salvador &#8211; finca El Cerro pochádza z farmy Finca El Cerro. &#8222;Finca El Cerro&#8220; je dedičstvom 5 generácií salvádorských producentov kávy, pričom pestovanie kávy je v rodine už viac ako 150 rokov. Nachádza sa v horskom pásme Apaneca Llamatepec, čo je ideálna nadmorská výška pre produkciu špecializovanej kávy. Od roku 2016 spracováva farma svoju kávu vo vlastnom malom ekologickom mlyne. Tento rok pripravil majiteľ Fernando Leto Escobar špeciálny Pacamara Natural nazvaný Don Fernando Sr. na počesť svojho otca, ktorý vyrastal na rodinnej kávovej farme. Fernando prevzal zodpovednosť za farmu pred ôsmimi rokmi. Dnes spolupracujú ako partneri a ponúkajú kvalitnú kávu. </span></p>\n<p dir=\"ltr\" style=\"text-align: center\" data-placeholder=\"Preklad\" data-ved=\"2ahUKEwiDurWFyK-CAxXghv0HHSL1B0gQ3ewLegQIBhAQ\"><strong>Spracovanie: </strong>Natural<br />\n<strong>Región: </strong>Apaneca Llamatepec<br />\n<strong>Odroda: </strong>Anacafe<br />\n<strong>Nadmorská výška: </strong>: 1300 m.n.m.<br />\n<strong>Chuťový profil: </strong>Tóny čiernych ríbezli, ostružiny a javorového sirupu.</p>",
+  "prices": {
+   "price": "1200",
+   "regular_price": "1200",
+   "sale_price": "1200",
+   "price_range": {
+    "min_amount": "1200",
+    "max_amount": "3500"
+   },
+   "currency_code": "EUR",
+   "currency_symbol": "€",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ",",
+   "currency_thousand_separator": ".",
+   "currency_prefix": "€",
+   "currency_suffix": ""
+  },
+  "images": [
+   {
+    "id": 16626,
+    "src": "https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/el-salvador-1.jpg?fit=750%2C750&ssl=1",
+    "thumbnail": "https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/el-salvador-1.jpg?resize=300%2C300&ssl=1",
+    "srcset": "https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/el-salvador-1.jpg?w=750&ssl=1 750w, https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/el-salvador-1.jpg?resize=300%2C300&ssl=1 300w, https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/el-salvador-1.jpg?resize=150%2C150&ssl=1 150w, https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/el-salvador-1.jpg?resize=550%2C550&ssl=1 550w, https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/el-salvador-1.jpg?resize=600%2C600&ssl=1 600w, https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/el-salvador-1.jpg?resize=100%2C100&ssl=1 100w, https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/el-salvador-1.jpg?resize=64%2C64&ssl=1 64w",
+    "sizes": "(max-width: 750px) 100vw, 750px",
+    "thumbnail_srcset": "https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/el-salvador-1.jpg?w=750&ssl=1 750w, https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/el-salvador-1.jpg?resize=300%2C300&ssl=1 300w, https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/el-salvador-1.jpg?resize=150%2C150&ssl=1 150w, https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/el-salvador-1.jpg?resize=550%2C550&ssl=1 550w, https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/el-salvador-1.jpg?resize=600%2C600&ssl=1 600w, https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/el-salvador-1.jpg?resize=100%2C100&ssl=1 100w, https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/el-salvador-1.jpg?resize=64%2C64&ssl=1 64w",
+    "thumbnail_sizes": "(max-width: 300px) 100vw, 300px",
+    "name": "El Salvador &#8211; speciality coffee &#8211; Bozin roastery -Prazena zrnkova kava &#8211;  200g",
+    "alt": "El Salvador - speciality coffee - Bozin roastery -Prazena zrnkova kava - 200g"
+   }
+  ],
+  "categories": [
+   {
+    "id": 79,
+    "name": "Domáca príprava kávy",
+    "slug": "domaca-priprava-kavy",
+    "link": "https://www.bozinroastery.sk/domaca-priprava-kavy/"
+   },
+   {
+    "id": 51,
+    "name": "Káva",
+    "slug": "kava",
+    "link": "https://www.bozinroastery.sk/kava/"
+   },
+   {
+    "id": 174,
+    "name": "Specialty Coffee",
+    "slug": "specialty-coffee",
+    "link": "https://www.bozinroastery.sk/specialty-coffee/"
+   }
+  ],
+  "attributes": [
+   {
+    "id": 1,
+    "name": "Hmotnosť",
+    "taxonomy": "pa_hmotnost",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 72,
+      "name": "1kg",
+      "slug": "1kg"
+     },
+     {
+      "id": 172,
+      "name": "200g",
+      "slug": "200g"
+     },
+     {
+      "id": 71,
+      "name": "500g",
+      "slug": "500g"
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 15863,
+    "attributes": [
+     {
+      "name": "Hmotnosť",
+      "value": "200g"
+     }
+    ]
+   },
+   {
+    "id": 15861,
+    "attributes": [
+     {
+      "name": "Hmotnosť",
+      "value": "1kg"
+     }
+    ]
+   },
+   {
+    "id": 15862,
+    "attributes": [
+     {
+      "name": "Hmotnosť",
+      "value": "500g"
+     }
+    ]
+   }
+  ],
+  "is_in_stock": false
+ },
+ {
+  "id": 15868,
+  "name": "Nicaragua &#8211; Speciality coffee",
+  "permalink": "https://www.bozinroastery.sk/produkt/nicaragua-speciality-coffee/",
+  "short_description": "<p><strong>Nicaragua &#8211; Speciality coffee</strong><br />\n<strong>Spracovanie</strong>: Natural anaerobic<br />\n<strong>Oblasť</strong>: Farma sa nachádza v regióne Nueva Segovia, konkrétne v oblasti Bayuncun, San Fernando.<br />\n<strong>Odroda</strong>: Finca Mozonte Java<br />\n<strong>Nadmorská výška</strong>: 1350 &#8211; 1450 m.n.m.<br />\n<strong>Chuťový profil</strong>: <span class=\"Y2IQFc\" lang=\"sk\">sladká, krémová chuť s tónmi fíg, smotany, čokolády a medu, má stredné telo a nízku kyslosť.</span></p>",
+  "description": "<p id=\"tw-target-text\" class=\"tw-data-text tw-text-large tw-ta\" dir=\"ltr\" data-placeholder=\"Preklad\" data-ved=\"2ahUKEwiDurWFyK-CAxXghv0HHSL1B0gQ3ewLegQIBhAQ\"><span class=\"Y2IQFc\" lang=\"sk\">Nicaragua &#8211; Speciality coffee pochádza z farmy, ktorá sa nachádza v oblasti Bayuncun, San Fernando. Káva má sladkú, krémovú chuť s tónmi fíg, smotany, čokolády a medu, má stredné telo a nízku kyslosť.<br />\n</span><span class=\"Y2IQFc\" lang=\"sk\">Prístup k farme je veľmi ťažký kvôli nerovným cestám, ale to je kompenzované nádhernými výhľadmi na hory.<br />\nVlastník zaviedol osvedčené poľnohospodárske postupy  na ochranu ekosystému.<br />\nFarma má celkovú rozlohu 21 akrov. Pestujú sa tu odrody ako Java, Parainema, Catuai rojo a Caturra pod<br />\n</span><span class=\"Y2IQFc\" lang=\"sk\">tieňom, ktorý poskytujú borovice, banány, pomaranče a guavy.</span></p>",
+  "prices": {
+   "price": "1250",
+   "regular_price": "1250",
+   "sale_price": "1250",
+   "price_range": {
+    "min_amount": "1250",
+    "max_amount": "3600"
+   },
+   "currency_code": "EUR",
+   "currency_symbol": "€",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ",",
+   "currency_thousand_separator": ".",
+   "currency_prefix": "€",
+   "currency_suffix": ""
+  },
+  "images": [
+   {
+    "id": 16630,
+    "src": "https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/Nicaragua.jpg?fit=750%2C750&ssl=1",
+    "thumbnail": "https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/Nicaragua.jpg?resize=300%2C300&ssl=1",
+    "srcset": "https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/Nicaragua.jpg?w=750&ssl=1 750w, https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/Nicaragua.jpg?resize=300%2C300&ssl=1 300w, https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/Nicaragua.jpg?resize=150%2C150&ssl=1 150w, https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/Nicaragua.jpg?resize=550%2C550&ssl=1 550w, https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/Nicaragua.jpg?resize=600%2C600&ssl=1 600w, https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/Nicaragua.jpg?resize=100%2C100&ssl=1 100w, https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/Nicaragua.jpg?resize=64%2C64&ssl=1 64w",
+    "sizes": "(max-width: 750px) 100vw, 750px",
+    "thumbnail_srcset": "https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/Nicaragua.jpg?w=750&ssl=1 750w, https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/Nicaragua.jpg?resize=300%2C300&ssl=1 300w, https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/Nicaragua.jpg?resize=150%2C150&ssl=1 150w, https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/Nicaragua.jpg?resize=550%2C550&ssl=1 550w, https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/Nicaragua.jpg?resize=600%2C600&ssl=1 600w, https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/Nicaragua.jpg?resize=100%2C100&ssl=1 100w, https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/Nicaragua.jpg?resize=64%2C64&ssl=1 64w",
+    "thumbnail_sizes": "(max-width: 300px) 100vw, 300px",
+    "name": "Nicaragua &#8211; speciality coffee &#8211; Bozin roastery -Prazena zrnkova kava &#8211; 200g",
+    "alt": "Nicaragua - speciality coffee - Bozin roastery -Prazena zrnkova kava - 200g"
+   }
+  ],
+  "categories": [
+   {
+    "id": 79,
+    "name": "Domáca príprava kávy",
+    "slug": "domaca-priprava-kavy",
+    "link": "https://www.bozinroastery.sk/domaca-priprava-kavy/"
+   },
+   {
+    "id": 51,
+    "name": "Káva",
+    "slug": "kava",
+    "link": "https://www.bozinroastery.sk/kava/"
+   },
+   {
+    "id": 174,
+    "name": "Specialty Coffee",
+    "slug": "specialty-coffee",
+    "link": "https://www.bozinroastery.sk/specialty-coffee/"
+   }
+  ],
+  "attributes": [
+   {
+    "id": 1,
+    "name": "Hmotnosť",
+    "taxonomy": "pa_hmotnost",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 72,
+      "name": "1kg",
+      "slug": "1kg"
+     },
+     {
+      "id": 172,
+      "name": "200g",
+      "slug": "200g"
+     },
+     {
+      "id": 71,
+      "name": "500g",
+      "slug": "500g"
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 15869,
+    "attributes": [
+     {
+      "name": "Hmotnosť",
+      "value": "1kg"
+     }
+    ]
+   },
+   {
+    "id": 15870,
+    "attributes": [
+     {
+      "name": "Hmotnosť",
+      "value": "500g"
+     }
+    ]
+   },
+   {
+    "id": 15871,
+    "attributes": [
+     {
+      "name": "Hmotnosť",
+      "value": "200g"
+     }
+    ]
+   }
+  ],
+  "is_in_stock": false
+ },
+ {
+  "id": 16224,
+  "name": "Burundi &#8211; Speciality coffee",
+  "permalink": "https://www.bozinroastery.sk/produkt/burundi-speciality-coffee-prazena-zrnkova-kava/",
+  "short_description": "<p><strong>Burundi– Speciality coffee<br />\nSpracovanie:</strong> Washed<br />\n<strong>Región: </strong>Muyinga, severné Burundi<br />\n<strong>Odroda: </strong>Anacafe<br />\n<strong>Nadmorská výška: </strong>1500 &#8211; 1700 m.n.m.<br />\n<strong>Chuťový profil: </strong>Tóny černíc, čučoriedok a kôstkových plodov, stredné telo, krémová konzistencia</p>",
+  "description": "<p>V severnej časti Burundi, v krásnej kopcovitej provincii Muyinga sa pestuje výnimočná káva zvaná Karambo.<span class=\"Apple-converted-space\"><br />\n</span>Táto káva je známa svojimi výraznými tónmi čierníc a čučoriedok, vyniká stredným telom a krémovou konzistenciou.<br />\nKáva pochádza z kopca Karira, miesta s bohatou históriou.<span class=\"Apple-converted-space\"><br />\n</span>Karira nie je len o káve. V minulosti bol svedkom tragického sporu medzi princami, potomkami kráľa. Tento konflikt zanechal hlboké stopy v dušiach miestnych ľudí, čo sa odrazilo aj v názve kopca odvodeného od slovesa &#8222;kurira&#8220; &#8211; v kirundčine &#8222;plakať&#8220;.<br />\nDnes je však Karira symbolom premeny a nádeje. Farmári tu pestujú<span class=\"Apple-converted-space\">  </span>kávu, čím si zabezpečujú živobytie. Každá šálka Karambo kávy je tak nielen chutným nápojom, ale aj pripomienkou odolnosti, sily a schopnosti komunity prekonať bolestivú minulosť.</p>\n<p style=\"text-align: center\"><strong>Spracovanie: </strong>Washed<strong><br />\n</strong><strong>Región: </strong>Muyinga, severné Burundi<strong><br />\n</strong><strong>Nadmorská výška: </strong>1500-1700 m<strong><br />\n</strong><strong>Chuťový profil: </strong>Tóny černíc, čučoriedok a kôstkových plodov, stredné telo, krémová konzistencia.</p>",
+  "prices": {
+   "price": "1250",
+   "regular_price": "1250",
+   "sale_price": "1250",
+   "price_range": {
+    "min_amount": "1250",
+    "max_amount": "3600"
+   },
+   "currency_code": "EUR",
+   "currency_symbol": "€",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ",",
+   "currency_thousand_separator": ".",
+   "currency_prefix": "€",
+   "currency_suffix": ""
+  },
+  "images": [
+   {
+    "id": 16622,
+    "src": "https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/burundi.jpg?fit=750%2C750&ssl=1",
+    "thumbnail": "https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/burundi.jpg?resize=300%2C300&ssl=1",
+    "srcset": "https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/burundi.jpg?w=750&ssl=1 750w, https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/burundi.jpg?resize=300%2C300&ssl=1 300w, https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/burundi.jpg?resize=150%2C150&ssl=1 150w, https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/burundi.jpg?resize=550%2C550&ssl=1 550w, https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/burundi.jpg?resize=600%2C600&ssl=1 600w, https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/burundi.jpg?resize=100%2C100&ssl=1 100w, https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/burundi.jpg?resize=64%2C64&ssl=1 64w",
+    "sizes": "(max-width: 750px) 100vw, 750px",
+    "thumbnail_srcset": "https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/burundi.jpg?w=750&ssl=1 750w, https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/burundi.jpg?resize=300%2C300&ssl=1 300w, https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/burundi.jpg?resize=150%2C150&ssl=1 150w, https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/burundi.jpg?resize=550%2C550&ssl=1 550w, https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/burundi.jpg?resize=600%2C600&ssl=1 600w, https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/burundi.jpg?resize=100%2C100&ssl=1 100w, https://i0.wp.com/www.bozinroastery.sk/wp-content/uploads/burundi.jpg?resize=64%2C64&ssl=1 64w",
+    "thumbnail_sizes": "(max-width: 300px) 100vw, 300px",
+    "name": "Burundi &#8211; speciality coffee &#8211; Bozin roastery &#8211; Prazena zrnkova kava &#8211;",
+    "alt": "Burundi - speciality coffee - Bozin roastery - Prazena zrnkova kava -"
+   }
+  ],
+  "categories": [
+   {
+    "id": 79,
+    "name": "Domáca príprava kávy",
+    "slug": "domaca-priprava-kavy",
+    "link": "https://www.bozinroastery.sk/domaca-priprava-kavy/"
+   },
+   {
+    "id": 51,
+    "name": "Káva",
+    "slug": "kava",
+    "link": "https://www.bozinroastery.sk/kava/"
+   },
+   {
+    "id": 174,
+    "name": "Specialty Coffee",
+    "slug": "specialty-coffee",
+    "link": "https://www.bozinroastery.sk/specialty-coffee/"
+   }
+  ],
+  "attributes": [
+   {
+    "id": 1,
+    "name": "Hmotnosť",
+    "taxonomy": "pa_hmotnost",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 72,
+      "name": "1kg",
+      "slug": "1kg",
+      "default": false
+     },
+     {
+      "id": 172,
+      "name": "200g",
+      "slug": "200g",
+      "default": true
+     },
+     {
+      "id": 71,
+      "name": "500g",
+      "slug": "500g",
+      "default": false
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 16226,
+    "attributes": [
+     {
+      "name": "Hmotnosť",
+      "value": "500g"
+     }
+    ]
+   },
+   {
+    "id": 16225,
+    "attributes": [
+     {
+      "name": "Hmotnosť",
+      "value": "1kg"
+     }
+    ]
+   },
+   {
+    "id": 16227,
+    "attributes": [
+     {
+      "name": "Hmotnosť",
+      "value": "200g"
+     }
+    ]
+   }
+  ],
+  "is_in_stock": true
+ }
+]

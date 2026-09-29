@@ -1,0 +1,11 @@
+# Pražírna Lobkovice — the category slug ends in a stray hyphen
+# ("/zrnkova-kava-/"), which is the shop's own live URL.
+platform = "shoptet"
+site_id = "prazirnalobkovice"
+name = "Pražírna Lobkovice"
+country = "CZ"
+base_url = "https://www.prazirnalobkovice.cz/"
+category_urls = ["https://www.prazirnalobkovice.cz/zrnkova-kava-/"]
+currency = "CZK"
+max_pages = 10
+pagination = "path"

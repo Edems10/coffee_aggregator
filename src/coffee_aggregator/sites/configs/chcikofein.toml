@@ -1,0 +1,19 @@
+# Chci kofein — a tiny catalogue split into /filtr/ and /espresso/ with no
+# whole-bean parent, so both are walked; one coffee is listed in each.
+platform = "shoptet"
+site_id = "chcikofein"
+name = "Chci kofein"
+country = "CZ"
+base_url = "https://www.chcikofein.cz/"
+category_urls = [
+  "https://www.chcikofein.cz/filtr/",
+  "https://www.chcikofein.cz/espresso/",
+]
+currency = "CZK"
+max_pages = 10
+pagination = "path"
+
+ignore = [
+  "ochutnavkovy set",
+  "darkovy poukaz",
+]

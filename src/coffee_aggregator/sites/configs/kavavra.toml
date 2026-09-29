@@ -1,0 +1,10 @@
+# Kávavra — a two-coffee micro-roastery; the whole catalogue is one page.
+platform = "shoptet"
+site_id = "kavavra"
+name = "Kávavra"
+country = "CZ"
+base_url = "https://www.kavavra.cz/"
+category_urls = ["https://www.kavavra.cz/vyberova-prazena-kava/"]
+currency = "CZK"
+max_pages = 5
+pagination = "path"

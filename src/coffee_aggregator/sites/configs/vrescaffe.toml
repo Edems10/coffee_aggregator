@@ -1,0 +1,11 @@
+# Vres Caffe — an Italian-blend reseller; the pack size is part of every
+# product name ("Hořká káva KLASA 1000g") and the catalogue runs five pages.
+platform = "shoptet"
+site_id = "vrescaffe"
+name = "Vres Caffe"
+country = "CZ"
+base_url = "https://www.vrescaffe.cz/"
+category_urls = ["https://www.vrescaffe.cz/zrnkova-kava/"]
+currency = "CZK"
+max_pages = 12
+pagination = "path"

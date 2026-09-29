@@ -1,0 +1,26 @@
+# Overwhelmingly an equipment dealer — 30 doplnky alone holds 677 products —
+# so only 14 nase-kava is pinned. The coffee facts are lower-case label
+# lines ("odruda:", "nadmorska vyska:") in the description.
+platform = "woocommerce"
+site_id = "kafeking"
+name = "Kafe King"
+country = "CZ"
+base_url = "https://www.kafeking.cz/"
+currency = "CZK"
+mode = "api"
+max_pages = 10
+
+# Pinned ids, not slugs: ids survive a re-theme, slugs do not.
+api_category_ids = [14]
+
+# The HTML fallback, used only if /wp-json/ ever stops answering.
+category_urls = [
+  "https://www.kafeking.cz/kategorie-produktu/nase-kava/",
+]
+
+# The catalogue also sells things that are not coffee beans.
+ignore = [
+  "darkove baleni",
+  "kavovar",
+  "mlynek",
+]

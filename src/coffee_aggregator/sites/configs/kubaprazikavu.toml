@@ -1,0 +1,11 @@
+# Kuba praží kávu — the SCA score is written into the product name itself
+# ("Bolívie Carmelo Yujra SCA:88") as well as into the parameter table.
+platform = "shoptet"
+site_id = "kubaprazikavu"
+name = "Kuba praží kávu"
+country = "CZ"
+base_url = "https://www.kubaprazikavu.eu/"
+category_urls = ["https://www.kubaprazikavu.eu/kava/"]
+currency = "CZK"
+max_pages = 10
+pagination = "path"

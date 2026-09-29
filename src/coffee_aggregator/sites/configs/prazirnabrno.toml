@@ -19,6 +19,3 @@ ignore = [
 # does not already cover.
 [label_map]
 "Typ" = "species"
-"Velikost balení" = "weight"
-"Pomlet na" = "brewing"
-"Stupeň pražení" = "roast"

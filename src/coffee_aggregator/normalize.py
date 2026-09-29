@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import math
 import re
 import unicodedata
 from datetime import date
@@ -86,9 +87,12 @@ def _to_float(raw: str) -> float | None:
     if not digits and not fraction:
         return None
     try:
-        return float(f"{digits or '0'}.{fraction or '0'}")
+        value = float(f"{digits or '0'}.{fraction or '0'}")
     except ValueError:  # pragma: no cover - defensive, regex guarantees digits
         return None
+    # A few hundred digits — a mangled EAN, a leaked blob — overflow to inf, and
+    # every round() downstream then raises OverflowError on that one product.
+    return value if math.isfinite(value) else None
 
 
 _WEIGHT_RE = re.compile(
@@ -116,6 +120,8 @@ def parse_weight_grams(text: str | None) -> int | None:
         return None
     unit = match.group(2).lower()
     grams = value * 1000 if unit.startswith(("kg", "kilo")) else value
+    if not math.isfinite(grams):
+        return None
     return round(grams)
 
 
@@ -360,8 +366,72 @@ _ROAST_TABLE: tuple[tuple[str, str], ...] = (
 )
 
 
+#: Words that prove the text is talking about roasting rather than about the cup.
+_ROAST_CONTEXT_RE = re.compile(r"praz|roast|pecen")
+#: Colour words that are just as often cup notes: "tmavá čokoláda" is a tasting
+#: note on a light roast, not a dark roast.
+_AMBIGUOUS_ROAST_NEEDLES = frozenset({"tmav", "dark", "svetl", "light"})
+#: Nouns a colour word qualifies when it is a cup note rather than a roast level.
+_CUP_NOTE_NOUNS = (
+    "berr",
+    "bobul",
+    "cocoa",
+    "cokolad",
+    "chocolate",
+    "cukor",
+    "cukr",
+    "fruit",
+    "kakao",
+    "karamel",
+    "caramel",
+    "nuts",
+    "nutty",
+    "orech",
+    "oriesk",
+    "orisk",
+    "ovoc",
+    "sugar",
+    "tabak",
+    "tobacco",
+)
+#: How many words a text may have and still be read as a parameter value rather
+#: than prose — a bare "tmavé" in a roast cell needs no roasting word to be real.
+_MAX_ROAST_WORDS = 3
+
+
+def _roast_colour_is_real(folded: str, needle: str) -> bool:
+    """Decide whether a colour word names the roast or describes the cup.
+
+    Args:
+        folded: The folded text the needle matched in.
+        needle: The matched colour needle, such as ``"tmav"``.
+
+    Returns:
+        True when some occurrence of the colour word names the roast level.
+    """
+    words = _WORD_RE.findall(folded)
+    cup_notes = any(word.startswith(_CUP_NOTE_NOUNS) for word in words)
+    prose = len(words) > _MAX_ROAST_WORDS or cup_notes
+    roasting = _ROAST_CONTEXT_RE.search(folded) is not None
+    for index, word in enumerate(words):
+        if needle not in word:
+            continue
+        following = words[index + 1] if index + 1 < len(words) else ""
+        # "tmavé ovoce", "dark chocolate": the colour belongs to the noun.
+        if following.startswith(_CUP_NOTE_NOUNS):
+            continue
+        if roasting or not prose:
+            return True
+    return False
+
+
 def normalize_roast_level(text: str | None) -> RoastLevel:
     """Map a free-form roast description onto :class:`RoastLevel`.
+
+    A bare colour word is trusted in a short parameter value ("tmavé"), and in
+    prose only next to a roasting word ("tmavé praženie"); a colour sitting on a
+    food noun ("tmavá čokoláda") is a cup note and is skipped, so the table goes
+    on looking for a real roast word further down.
 
     Args:
         text: Text such as ``"Full City +"``, ``"svetle prazena"`` or ``"dark"``.
@@ -372,8 +442,13 @@ def normalize_roast_level(text: str | None) -> RoastLevel:
     folded = fold(text)
     if not folded:
         return RoastLevel.UNKNOWN
-    matched = _first_match(folded, _ROAST_TABLE)
-    return RoastLevel(matched) if matched is not None else RoastLevel.UNKNOWN
+    for needle, value in _ROAST_TABLE:
+        if needle not in folded:
+            continue
+        if needle in _AMBIGUOUS_ROAST_NEEDLES and not _roast_colour_is_real(folded, needle):
+            continue
+        return RoastLevel(value)
+    return RoastLevel.UNKNOWN
 
 
 _ESPRESSO_MARKERS = ("espresso", "espreso", "moka", "kavovar", "pakova")
@@ -420,7 +495,7 @@ def normalize_roast_profile(text: str | None) -> RoastProfile:
 _COUNTRY_TERMS: dict[str, tuple[str, ...]] = {
     "BR": ("brazilia", "brazilie", "brazil", "brasil", "brazilska", "brazilian"),
     "CO": ("kolumbia", "kolumbie", "colombia", "kolumbijska", "colombian"),
-    "ET": ("etiopia", "etiopie", "ethiopia", "etiopska", "ethiopian", "abesinia"),
+    "ET": ("etiopia", "etiopie", "ethiopia", "ethiopie", "etiopska", "ethiopian", "abesinia"),
     "KE": ("kena", "kenya", "kenska", "kenyan"),
     "VN": ("vietnam", "vietnamska", "vietnamese"),
     "ID": ("indonezia", "indonezie", "indonesia", "indonezska", "sumatra", "sulawesi", "flores"),

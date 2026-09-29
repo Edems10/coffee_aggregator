@@ -8,12 +8,18 @@ from urllib.parse import urljoin
 from bs4 import BeautifulSoup, Tag
 
 from coffee_aggregator import normalize
+from coffee_aggregator.labels import (
+    F_BREWING,
+    F_PROCESS,
+    F_ROAST,
+    headline_weight,
+    is_decaf,
+    parse_origin,
+)
 from coffee_aggregator.models import (
-    DEFAULT_RATING_MAX,
     Coffee,
     Origin,
     Popularity,
-    Review,
     Roast,
     RoastLevel,
     Species,
@@ -21,6 +27,7 @@ from coffee_aggregator.models import (
     Variant,
 )
 from coffee_aggregator.sites import html as dom
+from coffee_aggregator.sites import toolkit as kit
 from coffee_aggregator.sites.base import DEFAULT_IGNORED, ProductRef, SiteAdapter
 from coffee_aggregator.sites.registry import register
 
@@ -43,8 +50,12 @@ IGNORED_MARKERS: Final = (
     "darcekovy poukaz",
     "darcekova poukazka",
 )
+#: The decaffeinated and the specialty-grade category, which the shop states
+#: nowhere in words — only the category id says so.
+DECAF_CATEGORY: Final = "/kategoria/92/"
+SPECIALTY_CATEGORY: Final = "/kategoria/55/"
 
-_DETAIL_ID_RE: Final = re.compile(r"/detail/(\d+)/")
+DETAIL_ID_RE: Final = re.compile(r"/detail/(\d+)/")
 _BACKGROUND_URL_RE: Final = re.compile(r"url\((?P<quote>['\"]?)(?P<url>[^)'\"]+)(?P=quote)\)")
 _GTAG_ITEM_RE: Final = re.compile(r"\{[^{}]*?'item_id'\s*:\s*'(?P<id>\d+)'[^{}]*\}", re.DOTALL)
 _GTAG_PRICE_RE: Final = re.compile(r"'price'\s*:\s*(?P<price>[\d.]+)")
@@ -52,7 +63,11 @@ _CART_ARGS_RE: Final = re.compile(r"add_to_cart\([^{]*\{(?P<fields>[^}]*)\}")
 _CART_FIELD_RE: Final = re.compile(r"'(?P<key>\w+)'\s*:\s*'(?P<value>[^']*)'")
 _SOLD_RE: Final = re.compile(r"vypite\s*:?\s*(?P<count>\d[\d\s]*)")
 _SPECIES_LINE_RE: Final = re.compile(r"\d\s*%\s*(arabi|robus)", re.IGNORECASE)
-_PACKAGE_RE: Final = re.compile(r"\(([^)]*)\)")
+
+#: The shop states no term the shared Slovak vocabulary does not already carry —
+#: its "Odtieň praženia" and "Veľkosť balenia" are ordinary Slovak — so it
+#: overlays nothing and gains every synonym the vocabulary learns.
+LABEL_MAP: Final[dict[str, str]] = kit.vocabulary()
 
 #: ``class`` token on ``div.gallery > span.roast_level`` → canonical roast level.
 _ROAST_CLASS_LEVELS: Final = {
@@ -67,18 +82,6 @@ _TASTE_BARS: Final = {
     "acidita": "acidity",
     "sladkost": "sweetness",
 }
-_LABEL_REGION: Final = "region"
-_LABEL_FARM: Final = "farma"
-_LABEL_FARMER: Final = "farmar"
-_LABEL_PROCESSOR: Final = "spracovatel"
-_LABEL_STATION: Final = "spracovatelska stanica"
-_LABEL_ALTITUDE: Final = "nadmorska vyska"
-_LABEL_VARIETY: Final = "odroda"
-_LABEL_HARVEST: Final = "zber"
-_LABEL_PROCESS: Final = "spracovanie"
-_LABEL_ROAST: Final = "odtien prazenia"
-_LABEL_BREWING: Final = "metoda pripravy"
-_LABEL_PACKAGE: Final = "velkost balenia"
 
 
 def _external_id(url: str | None) -> str | None:
@@ -90,10 +93,7 @@ def _external_id(url: str | None) -> str | None:
     Returns:
         The id as a string, or None when the URL is not a product URL.
     """
-    if not url:
-        return None
-    match = _DETAIL_ID_RE.search(url)
-    return match.group(1) if match else None
+    return kit.id_from(url, DETAIL_ID_RE)
 
 
 def _cart_fields(onsubmit: str | None) -> dict[str, str]:
@@ -226,22 +226,6 @@ def _card_image(card: Tag) -> str | None:
     return dom.absolute(BASE_URL, match.group("url")) if match else None
 
 
-def _parse_labels(blocks: Iterable[Tag | None]) -> tuple[dict[str, str], dict[str, str], list[str]]:
-    """Split the info blocks into labelled values and marketing prose.
-
-    Args:
-        blocks: The ``<br/>``-separated blocks to read, in priority order.
-
-    Returns:
-        A ``(raw_attributes, folded_lookup, prose)`` tuple, where
-        ``raw_attributes`` keeps the labels as written (trimmed, upper-cased),
-        ``folded_lookup`` is keyed by the folded label for field mapping, and
-        ``prose`` holds every line that is not a ``LABEL: value`` pair.
-    """
-    parsed = dom.parse_label_lines(blocks)
-    return parsed.raw(), parsed.folded(), parsed.prose
-
-
 def _species_from_lines(lines: Iterable[str], name: str) -> Species:
     """Read the arabica/robusta split from the description lines.
 
@@ -300,13 +284,12 @@ def _parse_variants(soup: BeautifulSoup, ref: ProductRef, price: float | None) -
         url = dom.absolute(BASE_URL, dom.attr(option, "value"))
         is_current = url is None
         variants.append(
-            Variant(
+            kit.package(
                 external_id=_external_id(url) if url else ref.external_id or None,
                 url=url or ref.url,
-                weight_g=normalize.parse_weight_grams(label),
-                price=price if is_current else None,
-                currency=DEFAULT_CURRENCY if is_current and price is not None else None,
                 label=label,
+                price=price if is_current else None,
+                currency=DEFAULT_CURRENCY,
             )
         )
     return variants
@@ -323,11 +306,11 @@ def _parse_taste(soup: BeautifulSoup, brewing: str | None) -> Taste:
         The sensory part of the model.
     """
     taste = Taste()
-    for bar in soup.select("div.speci_param"):
-        field = _TASTE_BARS.get(normalize.fold(dom.text(bar.select_one("div.speci_param_name"))))
+    for drawn in soup.select("div.speci_param"):
+        field = _TASTE_BARS.get(normalize.fold(dom.text(drawn.select_one("div.speci_param_name"))))
         if field is None:
             continue
-        setattr(taste, field, len(bar.select("span.point_full")))
+        setattr(taste, field, len(drawn.select("span.point_full")))
     taste.flavor_notes = dom.unique(
         dom.text(span) for span in soup.select("div.recommended_preparation span")
     )
@@ -369,34 +352,6 @@ def _parse_roast(soup: BeautifulSoup, raw: str | None) -> Roast:
     return roast
 
 
-def _parse_reviews(soup: BeautifulSoup) -> list[Review]:
-    """Read every published customer review with its author, date and stars.
-
-    Args:
-        soup: The parsed detail page.
-
-    Returns:
-        One :class:`~coffee_aggregator.models.Review` per review block.
-    """
-    reviews: list[Review] = []
-    for item in soup.select("#ranks_box li[itemprop=review]"):
-        rating = dom.attr(
-            item.select_one("[itemprop=reviewRating] [itemprop=ratingValue]"), "content"
-        )
-        published = item.select_one("[itemprop=datePublished]")
-        reviews.append(
-            Review(
-                author=dom.text(item.select_one("[itemprop=author] [itemprop=name]")),
-                date=normalize.parse_date_dmy(
-                    dom.attr(published, "content") or dom.text(published)
-                ),
-                rating=normalize.parse_float(rating),
-                text=dom.text(item.select_one("div.rank_right")),
-            )
-        )
-    return reviews
-
-
 def _parse_popularity(soup: BeautifulSoup) -> Popularity:
     """Read the aggregate rating, the review list and the lifetime sales counter.
 
@@ -406,16 +361,13 @@ def _parse_popularity(soup: BeautifulSoup) -> Popularity:
     Returns:
         The social-proof part of the model.
     """
-    rankbox = soup.select_one("div.rankbox")
-    rating_tag = rankbox.select_one("[itemprop=ratingValue]") if rankbox else None
-    count_tag = rankbox.select_one("[itemprop=reviewCount]") if rankbox else None
-    best = dom.attr(rankbox.select_one("[itemprop=bestRating]"), "content") if rankbox else None
+    rating, count, best = kit.ratings(soup.select_one("div.rankbox"))
     sold = _SOLD_RE.search(normalize.fold(dom.text(soup.select_one("div.popis_date_data"))))
     return Popularity(
-        rating=normalize.parse_float(dom.attr(rating_tag, "content") or dom.text(rating_tag)),
-        rating_max=normalize.parse_int(best) or DEFAULT_RATING_MAX,
-        review_count=normalize.parse_int(dom.attr(count_tag, "content") or dom.text(count_tag)),
-        reviews=_parse_reviews(soup),
+        rating=rating,
+        rating_max=best,
+        review_count=count,
+        reviews=kit.reviews(soup.select_one("#ranks_box")),
         sold_count=normalize.parse_int(sold.group("count")) if sold else None,
     )
 
@@ -429,17 +381,10 @@ def _parse_availability(soup: BeautifulSoup) -> bool | None:
     Returns:
         True, False, or None when the page says nothing.
     """
-    schema = normalize.fold(dom.attr(soup.select_one("meta[itemprop=availability]"), "content"))
-    if "instock" in schema.replace(" ", ""):
-        return True
-    if schema:
-        return False
-    stock = normalize.fold(dom.text(soup.select_one("div.popis_date_data div.dost")))
-    if "skladom" in stock:
-        return True
-    if "vypredane" in stock or "nedostupne" in stock:
-        return False
-    return None
+    schema = kit.schema_stock(dom.attr(soup.select_one("meta[itemprop=availability]"), "content"))
+    if schema is not None:
+        return schema
+    return kit.stock_state(dom.text(soup.select_one("div.popis_date_data div.dost")))
 
 
 def _parse_images(soup: BeautifulSoup) -> list[str]:
@@ -451,13 +396,15 @@ def _parse_images(soup: BeautifulSoup) -> list[str]:
     Returns:
         Absolute image URLs in page order.
     """
-    candidates = [
-        dom.attr(soup.select_one("div.gallery a.gallery_first_img"), "href"),
-        dom.attr(soup.select_one("div.gallery img[itemprop=image]"), "src"),
-        *(dom.attr(link, "href") for link in soup.select("div.gallery div.images a")),
-    ]
-    return dom.unique(
-        dom.absolute(BASE_URL, url) for url in candidates if url and "/images/gta/" not in url
+    return kit.gallery(
+        BASE_URL,
+        [
+            dom.attr(soup.select_one("div.gallery a.gallery_first_img"), "href"),
+            dom.attr(soup.select_one("div.gallery img[itemprop=image]"), "src"),
+            *(dom.attr(link, "href") for link in soup.select("div.gallery div.images a")),
+        ],
+        # The award badges hang in the same gallery and are served from here.
+        keep_when=lambda url: "/images/gta/" not in url,
     )
 
 
@@ -598,15 +545,14 @@ class CoffeeinSite(SiteAdapter):
             if url is None or external_id is None:
                 logger.debug("skipping a product card without a /detail/ link")
                 continue
-            price = _card_price(card, gtag, external_id)
             refs.append(
-                ProductRef(
-                    site_id=self.site_id,
-                    external_id=external_id,
-                    url=url,
+                kit.product_ref(
+                    self.site_id,
+                    external_id,
+                    url,
                     name=dom.text(link),
-                    price=price,
-                    currency=DEFAULT_CURRENCY if price is not None else None,
+                    price=_card_price(card, gtag, external_id),
+                    currency=DEFAULT_CURRENCY,
                     image_url=_card_image(card),
                     extra=_card_extra(card),
                 )
@@ -622,17 +568,7 @@ class CoffeeinSite(SiteAdapter):
         Returns:
             One reference per ``/detail/<id>/`` location.
         """
-        soup = BeautifulSoup(xml, "xml")
-        refs: list[ProductRef] = []
-        seen: set[str] = set()
-        for location in soup.find_all("loc"):
-            url = location.get_text(strip=True)
-            external_id = _external_id(url)
-            if external_id is None or external_id in seen:
-                continue
-            seen.add(external_id)
-            refs.append(ProductRef(site_id=self.site_id, external_id=external_id, url=url))
-        return refs
+        return kit.sitemap_refs(xml, self.site_id, DETAIL_ID_RE)
 
     def discover(
         self,
@@ -650,26 +586,12 @@ class CoffeeinSite(SiteAdapter):
             One reference per product found.
         """
         if self.use_sitemap:
-            yield from self._discover_sitemap(fetcher)
+            result = fetcher.get(urljoin(BASE_URL, SITEMAP_PATH))
+            yield from self.parse_sitemap(result.text)
             return
         cap = max_pages if max_pages is not None else self.max_pages
-        seen: set[str] = set()
-        for page in range(1, cap + 1):
-            url = self.category_url(page)
-            result = fetcher.get(url)
-            if result.final_url.rstrip("/") != url.rstrip("/"):
-                logger.debug("listing page %d redirected to %s, stopping", page, result.final_url)
-                return
-            fresh = [ref for ref in self.parse_listing(result.text) if ref.external_id not in seen]
-            if not fresh:
-                logger.debug("listing page %d added no new products, stopping", page)
-                return
-            seen.update(ref.external_id for ref in fresh)
-            yield from fresh
-
-    def _discover_sitemap(self, fetcher: PoliteFetcher) -> Iterator[ProductRef]:
-        result = fetcher.get(urljoin(BASE_URL, SITEMAP_PATH))
-        yield from self.parse_sitemap(result.text)
+        urls = (self.category_url(page) for page in range(1, cap + 1))
+        yield from kit.walk_listing(fetcher, urls, self.parse_listing)
 
     def parse_product(self, html: str, ref: ProductRef) -> Coffee | None:
         """Turn one detail page into a coffee.
@@ -687,19 +609,23 @@ class CoffeeinSite(SiteAdapter):
         if self.is_ignored(name):
             logger.debug("%s is not coffee beans, skipping", name)
             return None
-        description_block = soup.select_one("p[itemprop=description]")
-        raw_attributes, labels, prose = _parse_labels(
-            (description_block, soup.select_one("div.long_desc_desc"))
+        facts, prose = kit.read_blocks(
+            (soup.select_one("p[itemprop=description]"), soup.select_one("div.long_desc_desc")),
+            LABEL_MAP,
+            # The shop's parameter sheet and its marketing copy share one block,
+            # so a bare heading is a heading: "100 % Arabika" over "Specialty
+            # grade" is not a species row whose value is the line beneath it.
+            bare_labels=False,
         )
         # Open Graph and <meta> often name the origin the visible markup omits;
         # a real label always wins, so this only ever adds.
-        for key, value in dom.page_meta(soup).items():
-            raw_attributes.setdefault(key, value)
+        kit.keep(facts.raw, dom.page_meta(soup))
         price, currency = self._parse_price(soup, ref)
-        species = _species_from_lines([*prose, *labels.values()], name)
+        species = _species_from_lines([*prose, *facts.values()], name)
         if species.arabica_pct is None and species.robusta_pct is None:
             species = _species_from_tags(soup, name)
         origin_text = dom.text(soup.select_one("div#coffee_origin"))
+        variants = _parse_variants(soup, ref, price)
         coffee = Coffee(
             site=self.site_id,
             external_id=ref.external_id or _gtag_item_id(soup) or "",
@@ -708,28 +634,39 @@ class CoffeeinSite(SiteAdapter):
             site_country=self.country,
             price=price,
             currency=currency,
-            weight_g=self._parse_weight(name, labels),
+            weight_g=headline_weight(facts.labels, name, variants, price=price),
             available=_parse_availability(soup),
-            origin=self._parse_origin(soup, labels, name, origin_text, blend=species.is_blend),
-            processing=normalize.parse_processing(labels.get(_LABEL_PROCESS)),
-            roast=_parse_roast(soup, labels.get(_LABEL_ROAST)),
+            origin=self._parse_origin(soup, facts, name, origin_text, blend=species.is_blend),
+            processing=normalize.parse_processing(facts.get(F_PROCESS)),
+            roast=_parse_roast(soup, facts.get(F_ROAST)),
             species=species,
-            taste=_parse_taste(soup, labels.get(_LABEL_BREWING)),
+            taste=_parse_taste(soup, facts.get(F_BREWING)),
             popularity=_parse_popularity(soup),
-            variants=_parse_variants(soup, ref, price),
+            variants=variants,
             images=_parse_images(soup),
             tags=dom.unique(dom.text(tag) for tag in soup.select("div.popis div.tags span.tag")),
             categories=_parse_categories(soup),
             awards=_parse_awards(soup),
             description="\n".join(prose) or None,
             origin_text=origin_text,
-            raw_attributes=raw_attributes,
+            raw_attributes=facts.raw,
         )
-        self._apply_flags(coffee, soup, prose)
+        self._apply_flags(coffee, soup, facts, prose)
         self._apply_discount(coffee, soup)
         return coffee
 
+    # ------------------------------------------------------------------ pieces
+
     def _parse_price(self, soup: BeautifulSoup, ref: ProductRef) -> tuple[float | None, str | None]:
+        """Work out the shown price and the currency it is quoted in.
+
+        Args:
+            soup: The parsed detail page.
+            ref: The reference being parsed.
+
+        Returns:
+            The price and its currency; the currency is dropped with the price.
+        """
         price_tag = soup.select_one("span.product_price")
         price = normalize.parse_amount(dom.attr(price_tag, "content"))
         if price is None:
@@ -738,42 +675,50 @@ class CoffeeinSite(SiteAdapter):
         currency = currency or normalize.detect_currency(dom.text(price_tag)) or ref.currency
         return price, currency if price is not None else None
 
-    def _parse_weight(self, name: str, labels: dict[str, str]) -> int | None:
-        for package in _PACKAGE_RE.findall(name):
-            weight = normalize.parse_weight_grams(package)
-            if weight is not None:
-                return weight
-        return normalize.parse_weight_grams(labels.get(_LABEL_PACKAGE))
-
     def _parse_origin(
         self,
         soup: BeautifulSoup,
-        labels: dict[str, str],
+        facts: kit.Facts,
         name: str,
         origin_text: str | None,
         *,
         blend: bool,
     ) -> Origin:
-        altitude_raw = labels.get(_LABEL_ALTITUDE)
-        low, high = normalize.parse_altitude(altitude_raw)
-        return Origin(
-            country=_detect_country(name, soup, origin_text, blend=blend) or None,
-            region=labels.get(_LABEL_REGION),
-            farm=labels.get(_LABEL_FARM),
-            producer=labels.get(_LABEL_FARMER) or labels.get(_LABEL_PROCESSOR),
-            washing_station=labels.get(_LABEL_STATION),
-            altitude_min_m=low,
-            altitude_max_m=high,
-            altitude_raw=altitude_raw,
-            variety=normalize.clean_variety(normalize.split_list(labels.get(_LABEL_VARIETY))),
-            harvest=labels.get(_LABEL_HARVEST),
-        )
+        """Read the origin block, with the country the shop never labels.
 
-    def _apply_flags(self, coffee: Coffee, soup: BeautifulSoup, prose: list[str]) -> None:
+        Args:
+            soup: The parsed detail page.
+            facts: The labelled values of the page.
+            name: The product name.
+            origin_text: The "Pôvod kávy" prose.
+            blend: Whether the product is a blend.
+
+        Returns:
+            The origin part of the model.
+        """
+        origin = parse_origin(facts.labels, name, blend=blend)
+        origin.country = _detect_country(name, soup, origin_text, blend=blend) or None
+        return origin
+
+    def _apply_flags(
+        self,
+        coffee: Coffee,
+        soup: BeautifulSoup,
+        facts: kit.Facts,
+        prose: list[str],
+    ) -> None:
+        """Set the two flags the shop states only through a category id.
+
+        Args:
+            coffee: The coffee being filled in.
+            soup: The parsed detail page.
+            facts: The labelled values of the page.
+            prose: Every description line that is not a labelled value.
+        """
         hrefs = _category_hrefs(soup)
         blob = normalize.fold(" ".join([coffee.name, *prose]))
-        coffee.decaf = "bezkofein" in blob or "/kategoria/92/" in hrefs
-        coffee.specialty_grade = "specialty grade" in blob or "/kategoria/55/" in hrefs
+        coffee.decaf = is_decaf(facts.labels, coffee.name, prose) or DECAF_CATEGORY in hrefs
+        coffee.specialty_grade = "specialty grade" in blob or SPECIALTY_CATEGORY in hrefs
 
     def _apply_discount(self, coffee: Coffee, soup: BeautifulSoup) -> None:
         """Record the shop's only discount signal, the inline add-to-cart dict.
@@ -787,8 +732,7 @@ class CoffeeinSite(SiteAdapter):
         """
         form = soup.select_one("div.price_fixed_box form[action^='/kosik/']")
         fields = _cart_fields(dom.attr(form, "onsubmit"))
-        for key, value in fields.items():
-            coffee.raw_attributes.setdefault(key.upper(), value)
+        kit.keep(coffee.raw_attributes, {key.upper(): value for key, value in fields.items()})
         discount = normalize.parse_amount(fields.get("added_item_discount"))
         if discount and coffee.price is not None:
             coffee.original_price = round(coffee.price + discount, 2)

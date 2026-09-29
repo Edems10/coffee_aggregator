@@ -1,0 +1,23 @@
+# Project Fox — a small Czech roastery on Shopify. Every variant leaves `grams`
+# at 0, so the pack weight comes from the variant title ("Espresso / 250 g").
+# The passport is written in shouting capitals with the value on the line under
+# the label, and the altitude label is abbreviated with a full stop
+# ("NADM. VÝŠKA:"), which still resolves because "výška" survives as a whole
+# word.
+platform = "shopify"
+site_id = "projectfox"
+name = "Project Fox"
+country = "CZ"
+base_url = "https://projectfox.cz/"
+# products.json quotes bare decimal strings and names no currency anywhere.
+currency = "CZK"
+max_pages = 3
+
+# "coffee" is titled "Balíčky kávy" and holds the 23 coffees; the subscription
+# and the accessories are sibling collections.
+collections = ["coffee"]
+
+# The shop sells its coffee on subscription as well as by the bag.
+ignore = [
+  "predplatne",
+]

@@ -1,0 +1,11 @@
+# Coffegarden — a Slovak reseller of the AVX roastery; every product name is
+# prefixed "AVX" and states its pack size.
+platform = "shoptet"
+site_id = "coffegarden"
+name = "Coffegarden"
+country = "SK"
+base_url = "https://www.coffegarden.sk/"
+category_urls = ["https://www.coffegarden.sk/kava/"]
+currency = "EUR"
+max_pages = 10
+pagination = "path"

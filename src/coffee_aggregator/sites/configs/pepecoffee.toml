@@ -1,0 +1,15 @@
+# Pepe Coffee — no whole-bean parent category; the survey recorded the decaf
+# corner, so the three blend categories that hold the catalogue are walked.
+platform = "shoptet"
+site_id = "pepecoffee"
+name = "Pepe Coffee"
+country = "CZ"
+base_url = "https://www.pepecoffee.cz/"
+category_urls = [
+  "https://www.pepecoffee.cz/smes-arabica/",
+  "https://www.pepecoffee.cz/smes-arabica-s-robustou/",
+  "https://www.pepecoffee.cz/robusta/",
+]
+currency = "CZK"
+max_pages = 5
+pagination = "path"

@@ -1,0 +1,11 @@
+# Nejkafe.cz — a reseller, not a roastery: the category is Italian house brands
+# (Borbone, Baranelli, Kimbo) in 1 kg bags, so origin data is sparse by nature.
+platform = "shoptet"
+site_id = "nejkafe"
+name = "Nejkafe.cz"
+country = "CZ"
+base_url = "https://www.nejkafe.cz/"
+category_urls = ["https://www.nejkafe.cz/zrnkova-kava/"]
+currency = "CZK"
+max_pages = 15
+pagination = "path"

@@ -1,97 +1,202 @@
--- 0001_initial — the base schema: plain PostgreSQL, no extensions required.
+-- The whole schema, as one file.
 --
--- Everything is reached through one DATABASE_URL, so the same DDL and the same
--- code run against every deployment:
---   local docker      DATABASE_URL=postgresql://coffee:coffee@localhost:5432/coffee
---                     (docker compose up -d, then `coffee-aggregator init-db`)
---   AWS RDS           DATABASE_URL=postgresql://USER:PASSWORD@db.eu-central-1.rds.amazonaws.com:5432/coffee?sslmode=require
---   Supabase          DATABASE_URL=postgresql://postgres:PASSWORD@db.PROJECT.supabase.co:5432/postgres
---                     (the *direct* Postgres connection string, not the REST API)
---   any other managed Postgres: the same postgresql:// URL.
+-- The project has never run against a database anyone needs to keep: the only
+-- ones are a developer's laptop and the throw-away database the integration
+-- tests own, and a full catalogue is re-crawled in well under a minute. Five
+-- incremental migrations describing the road to a shape nobody ever deployed
+-- were archaeology, so they were collapsed into this one. From the first real
+-- deployment onwards every change is a new numbered file beside this one and
+-- nothing is ever edited in place; the runner records a checksum and will
+-- refuse a file that changed after it was applied.
 --
--- Every statement is IF NOT EXISTS, so applying this file to a database that was
--- created by the pre-migrations `schema.sql` is a no-op and only records the
--- version.
+-- Point DATABASE_URL at a local docker Postgres, at AWS RDS, or at any managed
+-- Postgres; nothing here is vendor-specific.
 
 CREATE TABLE IF NOT EXISTS coffee (
-    site                    text        NOT NULL,
-    external_id             text        NOT NULL,
-    url                     text,
-    name                    text,
-    site_country            text,
-    price                   numeric,
-    currency                text,
-    weight_g                int,
-    price_per_kg            numeric,
-    available               bool,
-    decaf                   bool,
-    origin_country          text,
-    origin_region           text,
-    origin_farm             text,
-    origin_producer         text,
-    origin_washing_station  text,
-    altitude_min_m          int,
-    altitude_max_m          int,
-    altitude_raw            text,
-    variety                 jsonb,
-    harvest                 text,
-    process_method          text,
-    process_methods         jsonb,
-    process_raw             text,
-    roast_level             text,
-    roast_raw               text,
-    roast_profile           text,
-    roast_date              date,
-    best_before             date,
-    arabica_pct             int,
-    robusta_pct             int,
-    is_blend                bool,
-    body                    int,
-    bitterness              int,
-    acidity                 int,
-    sweetness               int,
-    taste_scale_max         int,
-    flavor_notes            jsonb,
-    tasting_text            text,
-    brewing_methods         jsonb,
-    sca_score               numeric,
-    rating                  numeric,
-    rating_max              int,
-    review_count            int,
-    reviews                 jsonb,
-    sold_count              int,
-    variants                jsonb,
-    images                  jsonb,
-    tags                    jsonb,
-    categories              jsonb,
-    certifications          jsonb,
-    awards                  jsonb,
-    specialty_grade         bool,
-    original_price          numeric,
-    description             text,
-    origin_text             text,
-    raw_attributes          jsonb,
-    scraped_at              timestamptz,
-    first_seen_at           timestamptz NOT NULL DEFAULT now(),
-    last_seen_at            timestamptz NOT NULL DEFAULT now(),
-    delisted_at             timestamptz,
-    PRIMARY KEY (site, external_id)
+    site text NOT NULL,
+    external_id text NOT NULL,
+    url text,
+    name text,
+    site_country text,
+    price numeric,
+    currency text,
+    weight_g integer,
+    price_per_kg numeric,
+    available boolean,
+    decaf boolean,
+    origin_country text,
+    origin_region text,
+    origin_farm text,
+    origin_producer text,
+    origin_washing_station text,
+    altitude_min_m integer,
+    altitude_max_m integer,
+    altitude_raw text,
+    variety jsonb,
+    harvest text,
+    process_method text,
+    process_methods jsonb,
+    process_raw text,
+    roast_level text,
+    roast_raw text,
+    roast_profile text,
+    roast_date date,
+    best_before date,
+    arabica_pct integer,
+    robusta_pct integer,
+    is_blend boolean,
+    body integer,
+    bitterness integer,
+    acidity integer,
+    sweetness integer,
+    taste_scale_max integer,
+    flavor_notes jsonb,
+    tasting_text text,
+    brewing_methods jsonb,
+    sca_score numeric,
+    rating numeric,
+    rating_max integer,
+    review_count integer,
+    reviews jsonb,
+    sold_count integer,
+    variants jsonb,
+    images jsonb,
+    tags jsonb,
+    categories jsonb,
+    certifications jsonb,
+    awards jsonb,
+    specialty_grade boolean,
+    original_price numeric,
+    description text,
+    origin_text text,
+    raw_attributes jsonb,
+    scraped_at timestamp with time zone,
+    first_seen_at timestamp with time zone DEFAULT now() NOT NULL,
+    last_seen_at timestamp with time zone DEFAULT now() NOT NULL,
+    delisted_at timestamp with time zone,
+    price_eur numeric,
+    price_czk numeric,
+    price_per_kg_eur numeric,
+    price_per_kg_czk numeric,
+    fx_rate_eur_czk numeric,
+    fx_date date,
+    roaster text,
+    roaster_key text
 );
-
-CREATE INDEX IF NOT EXISTS coffee_site_idx ON coffee (site);
-CREATE INDEX IF NOT EXISTS coffee_origin_country_idx ON coffee (origin_country);
-CREATE INDEX IF NOT EXISTS coffee_delisted_at_idx ON coffee (delisted_at);
-
+CREATE TABLE IF NOT EXISTS coffee_variant (
+    site text NOT NULL,
+    external_id text NOT NULL,
+    variant_key text NOT NULL,
+    variant_external_id text,
+    url text,
+    label text,
+    weight_g integer,
+    price numeric,
+    currency text,
+    available boolean,
+    price_eur numeric,
+    price_czk numeric,
+    price_per_kg_eur numeric,
+    price_per_kg_czk numeric,
+    scraped_at timestamp with time zone,
+    first_seen_at timestamp with time zone DEFAULT now() NOT NULL,
+    last_seen_at timestamp with time zone DEFAULT now() NOT NULL
+);
+CREATE TABLE IF NOT EXISTS fx_rates (
+    date date NOT NULL,
+    base text NOT NULL,
+    quote text NOT NULL,
+    rate numeric(12,6) NOT NULL,
+    source text,
+    fetched_at timestamp with time zone DEFAULT now() NOT NULL
+);
+-- One row per shop per crawl. A night where every selector rotted looks exactly
+-- like a night where nothing changed unless somebody wrote down what each run
+-- did, so the pipeline appends here and `coffee-aggregator runs` reads it back.
+CREATE TABLE IF NOT EXISTS crawl_run (
+    -- An identity column rather than the explicit sequence the older tables
+    -- use, and the primary key declared inline rather than added afterwards by
+    -- a DO block: adding a PRIMARY KEY to a table that already has one raises
+    -- invalid_table_definition, which is not one of the duplicate_* codes those
+    -- blocks trap. Inside CREATE TABLE IF NOT EXISTS the whole thing is a no-op
+    -- on a second apply instead of aborting the migration.
+    id bigint GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY,
+    site text NOT NULL,
+    started_at timestamp with time zone NOT NULL,
+    finished_at timestamp with time zone,
+    duration_s numeric,
+    discovered integer NOT NULL DEFAULT 0,
+    fetched integer NOT NULL DEFAULT 0,
+    parsed integer NOT NULL DEFAULT 0,
+    skipped_non_coffee integer NOT NULL DEFAULT 0,
+    failed integer NOT NULL DEFAULT 0,
+    disallowed integer NOT NULL DEFAULT 0,
+    written integer NOT NULL DEFAULT 0,
+    delisted integer NOT NULL DEFAULT 0,
+    complete boolean NOT NULL DEFAULT false,
+    discovery_ok boolean NOT NULL DEFAULT false,
+    deadline_reached boolean NOT NULL DEFAULT false,
+    errors jsonb,
+    command text,
+    recorded_at timestamp with time zone DEFAULT now() NOT NULL
+);
 CREATE TABLE IF NOT EXISTS price_history (
-    id           bigserial   PRIMARY KEY,
-    site         text        NOT NULL,
-    external_id  text        NOT NULL,
-    seen_at      timestamptz NOT NULL DEFAULT now(),
-    price        numeric,
-    currency     text,
-    weight_g     int,
-    available    bool
+    id bigint NOT NULL,
+    site text NOT NULL,
+    external_id text NOT NULL,
+    seen_at timestamp with time zone DEFAULT now() NOT NULL,
+    price numeric,
+    currency text,
+    weight_g integer,
+    available boolean,
+    price_eur numeric,
+    price_czk numeric,
+    fx_rate_eur_czk numeric,
+    seen_on date GENERATED ALWAYS AS (((seen_at AT TIME ZONE 'UTC'::text))::date) STORED
 );
-
-CREATE INDEX IF NOT EXISTS price_history_product_idx
-    ON price_history (site, external_id, seen_at);
+CREATE SEQUENCE IF NOT EXISTS price_history_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+ALTER SEQUENCE price_history_id_seq OWNED BY price_history.id;
+ALTER TABLE price_history ALTER COLUMN id SET DEFAULT nextval('price_history_id_seq'::regclass);
+DO $$ BEGIN
+    ALTER TABLE coffee
+    ADD CONSTRAINT coffee_pkey PRIMARY KEY (site, external_id);
+EXCEPTION WHEN duplicate_table OR duplicate_object THEN NULL;
+END $$;
+DO $$ BEGIN
+    ALTER TABLE coffee_variant
+    ADD CONSTRAINT coffee_variant_pkey PRIMARY KEY (site, external_id, variant_key);
+EXCEPTION WHEN duplicate_table OR duplicate_object THEN NULL;
+END $$;
+DO $$ BEGIN
+    ALTER TABLE fx_rates
+    ADD CONSTRAINT fx_rates_pkey PRIMARY KEY (date, base, quote);
+EXCEPTION WHEN duplicate_table OR duplicate_object THEN NULL;
+END $$;
+DO $$ BEGIN
+    ALTER TABLE price_history
+    ADD CONSTRAINT price_history_pkey PRIMARY KEY (id);
+EXCEPTION WHEN duplicate_table OR duplicate_object THEN NULL;
+END $$;
+CREATE INDEX IF NOT EXISTS crawl_run_site_started_idx ON crawl_run USING btree (site, started_at DESC);
+CREATE INDEX IF NOT EXISTS crawl_run_started_at_idx ON crawl_run USING btree (started_at DESC);
+CREATE INDEX IF NOT EXISTS coffee_delisted_at_idx ON coffee USING btree (delisted_at);
+CREATE INDEX IF NOT EXISTS coffee_origin_country_idx ON coffee USING btree (origin_country);
+CREATE INDEX IF NOT EXISTS coffee_price_per_kg_eur_idx ON coffee USING btree (price_per_kg_eur);
+CREATE INDEX IF NOT EXISTS coffee_roaster_key_idx ON coffee USING btree (roaster_key);
+CREATE INDEX IF NOT EXISTS coffee_site_idx ON coffee USING btree (site);
+CREATE INDEX IF NOT EXISTS coffee_variant_price_per_kg_eur_idx ON coffee_variant USING btree (price_per_kg_eur);
+CREATE INDEX IF NOT EXISTS coffee_variant_site_idx ON coffee_variant USING btree (site);
+CREATE INDEX IF NOT EXISTS coffee_variant_weight_price_idx ON coffee_variant USING btree (weight_g, price_eur);
+CREATE UNIQUE INDEX IF NOT EXISTS price_history_day_idx ON price_history USING btree (site, external_id, seen_on);
+CREATE INDEX IF NOT EXISTS price_history_product_idx ON price_history USING btree (site, external_id, seen_at);
+CREATE INDEX IF NOT EXISTS price_history_seen_at_brin_idx ON price_history USING brin (seen_at);
+DO $$ BEGIN
+    ALTER TABLE coffee_variant
+    ADD CONSTRAINT coffee_variant_site_external_id_fkey FOREIGN KEY (site, external_id) REFERENCES coffee(site, external_id) ON DELETE CASCADE;
+EXCEPTION WHEN duplicate_table OR duplicate_object THEN NULL;
+END $$;

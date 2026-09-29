@@ -1,0 +1,15 @@
+# Žhavé Café — a five-coffee shop selling only two-origin blends, with the
+# pack weight in the product name ("Brazílie / Honduras 400 g").
+platform = "shoptet"
+site_id = "zhanecafe"
+name = "Žhané Café"
+country = "CZ"
+base_url = "https://www.zhanecafe.cz/"
+category_urls = ["https://www.zhanecafe.cz/kava/"]
+currency = "CZK"
+max_pages = 5
+pagination = "path"
+
+ignore = [
+  "degustacni balicek",
+]

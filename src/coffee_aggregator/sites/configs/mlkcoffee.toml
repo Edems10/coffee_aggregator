@@ -1,0 +1,16 @@
+# MLK Coffee — the coffee category is "/kafe/"; it also lists Nespresso
+# capsules and cascara, which are ignored by name.
+platform = "shoptet"
+site_id = "mlkcoffee"
+name = "MLK Coffee"
+country = "CZ"
+base_url = "https://www.mlkcoffee.cz/"
+category_urls = ["https://www.mlkcoffee.cz/kafe/"]
+currency = "CZK"
+max_pages = 10
+pagination = "path"
+
+ignore = [
+  "kavove kapsle",
+  "cascara",
+]

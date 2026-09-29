@@ -1,0 +1,11 @@
+# Namleto — the species is spelled into the product name ("… Arabica",
+# "… Robusta Fine") rather than only into the parameter table.
+platform = "shoptet"
+site_id = "namleto"
+name = "Namleto"
+country = "CZ"
+base_url = "https://www.namleto.cz/"
+category_urls = ["https://www.namleto.cz/kava/"]
+currency = "CZK"
+max_pages = 10
+pagination = "path"

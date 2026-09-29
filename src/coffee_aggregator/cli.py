@@ -3,21 +3,24 @@ from __future__ import annotations
 import argparse
 import json
 import logging
+import shlex
 import sys
 from dataclasses import asdict
 from pathlib import Path
 from typing import TYPE_CHECKING
 
-from coffee_aggregator import __version__, sinks, sites
+from coffee_aggregator import __version__, pipeline, sinks, sites
 from coffee_aggregator.config import ConfigError, Settings
+from coffee_aggregator.db import monitoring
 from coffee_aggregator.http import PoliteFetcher
-from coffee_aggregator.pipeline import RunReport, run
+from coffee_aggregator.pipeline import Deadline, RunReport, ShardError, run_many
 from coffee_aggregator.sites.base import ProductRef
 from coffee_aggregator.sites.registry import UnknownSiteError
 
 if TYPE_CHECKING:
-    from collections.abc import Sequence
+    from collections.abc import Callable, Sequence
 
+    from coffee_aggregator.db.monitoring import RunMonitor
     from coffee_aggregator.fx import FxRate, FxStore
     from coffee_aggregator.sinks.base import Sink
     from coffee_aggregator.sites.base import SiteAdapter
@@ -25,7 +28,33 @@ if TYPE_CHECKING:
 logger = logging.getLogger("coffee_aggregator")
 
 EXIT_OK = 0
+#: A crawl that ran but did not do its job: see :func:`crawl_exit_code`.
+EXIT_INCOMPLETE = 1
 EXIT_CONFIG_ERROR = 2
+
+
+def shard_argument(raw: str) -> tuple[int, int]:
+    """Parse a ``--shard i/n`` value.
+
+    Args:
+        raw: What the user typed.
+
+    Returns:
+        The one-based shard index and the shard count.
+
+    Raises:
+        ArgumentTypeError: When it is not two positive integers separated by a
+            slash, or names a shard that does not exist.
+    """
+    index_text, separator, count_text = raw.partition("/")
+    if not separator or not index_text.strip().isdigit() or not count_text.strip().isdigit():
+        message = f"expected i/n, e.g. 1/4, got {raw!r}"
+        raise argparse.ArgumentTypeError(message)
+    index, count = int(index_text), int(count_text)
+    if count < 1 or not 1 <= index <= count:
+        message = f"shard {index} does not exist in a split of {count}"
+        raise argparse.ArgumentTypeError(message)
+    return index, count
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -64,6 +93,25 @@ def build_parser() -> argparse.ArgumentParser:
         parents=[common],
     )
     init_db.add_argument("--dsn", help="PostgreSQL DSN; overrides DATABASE_URL")
+    init_db.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="print the migrations that would be applied and change nothing",
+    )
+
+    runs = subparsers.add_parser(
+        "runs",
+        help="print what the recent crawls did, newest first",
+        parents=[common],
+    )
+    runs.add_argument("--site", help="only this shop's runs")
+    runs.add_argument(
+        "--limit",
+        type=int,
+        default=monitoring.DEFAULT_RECENT_LIMIT,
+        help="how many runs to print",
+    )
+    runs.add_argument("--dsn", help="PostgreSQL DSN; overrides DATABASE_URL")
 
     fx = subparsers.add_parser(
         "fx",
@@ -80,9 +128,36 @@ def build_parser() -> argparse.ArgumentParser:
     crawl.add_argument("--dsn", help="PostgreSQL DSN; overrides DATABASE_URL")
     crawl.add_argument("--limit", type=int, help="stop after N products (partial run)")
     crawl.add_argument("--max-pages", type=int, help="cap listing pages (partial run)")
-    crawl.add_argument("--workers", type=int, help="fetch thread pool size")
+    crawl.add_argument("--workers", type=int, help="fetch thread pool size, within one shop")
+    crawl.add_argument(
+        "--site-workers",
+        type=int,
+        help="how many shops to crawl at the same time (each host keeps its own pace)",
+    )
     crawl.add_argument("--delay", type=float, help="minimum seconds between requests per host")
     crawl.add_argument("--cache-dir", type=Path, help="directory for the conditional-GET cache")
+    crawl.add_argument(
+        "--deadline",
+        type=float,
+        metavar="SECONDS",
+        help="stop the whole crawl after this many seconds (the run is then incomplete, "
+        "so nothing is delisted)",
+    )
+    crawl.add_argument(
+        "--shard",
+        type=shard_argument,
+        metavar="I/N",
+        help="crawl only shard I of N, split by host and balanced by estimated cost",
+    )
+    crawl.add_argument("--batch-size", type=int, help="products fetched and written per round")
+    crawl.add_argument("--timeout", type=float, help="per-request timeout in seconds")
+    crawl.add_argument("--retries", type=int, help="how often a 429/5xx is retried")
+    crawl.add_argument("--max-retry-wait", type=float, help="longest a single retry may wait")
+    crawl.add_argument(
+        "--robots-retry",
+        type=float,
+        help="how long an unreadable robots.txt keeps a host closed",
+    )
 
     parse_cmd = subparsers.add_parser(
         "parse", help="parse one saved page and print the JSON", parents=[common]
@@ -111,19 +186,47 @@ def _selected_sites(site_id: str) -> list[SiteAdapter]:
     return [sites.get(site_id)]
 
 
+def _chosen[ValueT](args: argparse.Namespace, name: str, fallback: ValueT) -> ValueT:
+    """Return a command-line value when it was given, the configured one otherwise.
+
+    Only ``crawl`` carries the transport switches; ``fx`` reaches the same
+    builder with none of them, so every one of them is optional here.
+
+    Args:
+        args: Parsed command line arguments.
+        name: The destination the option parses into.
+        fallback: What the environment configured.
+
+    Returns:
+        The value to use.
+    """
+    given = getattr(args, name, None)
+    return fallback if given is None else given
+
+
 def _make_fetcher(settings: Settings, args: argparse.Namespace) -> PoliteFetcher:
-    # Only "crawl" carries the transport switches; "fx" gets the same fetcher
-    # with the configured defaults, so the banks are treated like any shop.
-    delay = getattr(args, "delay", None)
-    workers = getattr(args, "workers", None)
+    """Build the one fetcher an invocation uses.
+
+    Args:
+        settings: Environment-derived settings.
+        args: Parsed command line arguments.
+
+    Returns:
+        A fetcher carrying every configured transport knob.
+    """
     cache_dir = getattr(args, "cache_dir", None)
     return PoliteFetcher(
         user_agent=settings.user_agent,
         contact=settings.contact,
-        delay_s=delay if delay is not None else settings.delay_s,
-        workers=workers if workers is not None else settings.workers,
+        delay_s=_chosen(args, "delay", settings.delay_s),
+        workers=_chosen(args, "workers", settings.workers),
+        timeout_s=_chosen(args, "timeout", settings.timeout_s),
+        retries=_chosen(args, "retries", settings.retries),
+        max_retry_wait_s=_chosen(args, "max_retry_wait", settings.max_retry_wait_s),
+        robots_retry_s=_chosen(args, "robots_retry", settings.robots_retry_s),
         cache_dir=cache_dir or settings.cache_dir,
         ua_token=settings.ua_token,
+        hosts_in_flight=_chosen(args, "site_workers", settings.site_workers),
     )
 
 
@@ -237,6 +340,13 @@ def cmd_init_db(settings: Settings, args: argparse.Namespace) -> int:
 
     sink = PostgresSink(settings.require_database_url(args.dsn))
     try:
+        if getattr(args, "dry_run", False):
+            outstanding = sink.pending_migrations()
+            for version in outstanding:
+                logger.info("pending migration: %s", version)
+            if not outstanding:
+                logger.info("up to date")
+            return EXIT_OK
         applied = sink.init_schema()
     finally:
         sink.close()
@@ -244,6 +354,27 @@ def cmd_init_db(settings: Settings, args: argparse.Namespace) -> int:
         logger.info("applied migration: %s", version)
     if not applied:
         logger.info("up to date")
+    return EXIT_OK
+
+
+def cmd_runs(settings: Settings, args: argparse.Namespace) -> int:
+    """Print what the recent crawls did.
+
+    Args:
+        settings: Environment-derived settings.
+        args: Parsed command line arguments.
+
+    Returns:
+        The process exit code.
+    """
+    monitor = monitoring.PostgresMonitor(settings.require_database_url(args.dsn))
+    try:
+        rows = monitor.recent(site=args.site, limit=args.limit)
+    finally:
+        monitor.close()
+    if not rows:
+        logger.info("no runs recorded yet")
+    _write_json(rows)
     return EXIT_OK
 
 
@@ -267,17 +398,116 @@ def cmd_fx(settings: Settings, args: argparse.Namespace) -> int:
     return EXIT_OK
 
 
-def cmd_crawl(settings: Settings, args: argparse.Namespace) -> int:
+def crawl_exit_code(reports: Sequence[RunReport]) -> int:
+    """Decide whether a finished crawl counts as a successful night.
+
+    ``cmd_crawl`` used to return ``EXIT_OK`` whatever happened, so a night where
+    every shop's selectors rotted was a green Lambda. The rule is:
+
+    * a shop that stored **no product at all**, or whose **discovery failed**,
+      fails the run — those are the two shapes a rotted selector takes;
+    * ``--limit``, ``--max-pages`` and ``--deadline`` never fail a run by
+      themselves. They make it *partial*, which suppresses delisting; a cap of
+      one product is still expected to produce one product;
+    * a crawl with nothing to crawl fails too. An empty shop list at three in
+      the morning is a broken deployment, not a quiet night.
+
+    Args:
+        reports: One report per shop that was crawled.
+
+    Returns:
+        :data:`EXIT_OK` or :data:`EXIT_INCOMPLETE`.
+    """
+    if not reports:
+        logger.error("no shops were crawled")
+        return EXIT_INCOMPLETE
+    broken = [report.site_id for report in reports if not report.discovery_ok]
+    empty = pipeline.wrote_nothing(reports)
+    if broken:
+        logger.error("discovery failed for %d shop(s): %s", len(broken), ", ".join(broken))
+    if empty:
+        logger.error("%d shop(s) wrote nothing: %s", len(empty), ", ".join(empty))
+    if broken or empty:
+        return EXIT_INCOMPLETE
+    logger.info("every one of the %d shop(s) wrote at least one product", len(reports))
+    return EXIT_OK
+
+
+def _sharded(
+    settings: Settings,
+    adapters: Sequence[SiteAdapter],
+    args: argparse.Namespace,
+) -> list[SiteAdapter]:
+    """Cut the shop list down to the shard this invocation was given.
+
+    Args:
+        settings: Environment-derived settings, for the per-host delays.
+        adapters: Every shop the run would otherwise crawl.
+        args: Parsed command line arguments.
+
+    Returns:
+        The shops of this shard, or all of them when no shard was asked for.
+    """
+    shard = getattr(args, "shard", None)
+    if shard is None:
+        return list(adapters)
+    index, count = shard
+    delay_for = _delay_for(settings, args)
+    costs = pipeline.host_costs(adapters, delay_for=delay_for, max_pages=args.max_pages)
+    chosen = pipeline.shard_hosts(costs, index, count)
+    budget = sum(cost.seconds for cost in chosen)
+    logger.info(
+        "shard %d/%d: %d host(s), %d shop(s), ~%.0fs of estimated request time",
+        index,
+        count,
+        len(chosen),
+        sum(len(cost.site_ids) for cost in chosen),
+        budget,
+    )
+    for cost in chosen[:3]:
+        logger.info(
+            "  %s: %s (~%d requests at %.1fs, ~%.0fs)",
+            cost.host,
+            ", ".join(cost.site_ids),
+            cost.requests,
+            cost.delay_s,
+            cost.seconds,
+        )
+    return pipeline.shard_sites(
+        adapters, index, count, delay_for=delay_for, max_pages=args.max_pages
+    )
+
+
+def _delay_for(settings: Settings, args: argparse.Namespace) -> Callable[[str], float]:
+    """Return the function that says how slowly one host must be asked.
+
+    Args:
+        settings: Environment-derived settings, holding the known crawl-delays.
+        args: Parsed command line arguments, whose ``--delay`` wins.
+
+    Returns:
+        A callable from host to seconds per request.
+    """
+    floor = _chosen(args, "delay", settings.delay_s)
+
+    def delay_for(host: str) -> float:
+        return max(floor, settings.crawl_delays.get(host, 0.0))
+
+    return delay_for
+
+
+def cmd_crawl(settings: Settings, args: argparse.Namespace, command: str = "") -> int:
     """Crawl one shop or every shop.
 
     Args:
         settings: Environment-derived settings.
         args: Parsed command line arguments.
+        command: The command line this run was started with, recorded with it.
 
     Returns:
-        The process exit code.
+        The process exit code; see :func:`crawl_exit_code`.
     """
-    adapters = _selected_sites(args.site)
+    adapters = _sharded(settings, _selected_sites(args.site), args)
     if sites.load_errors:
         logger.warning(
             "%d site(s) could not be loaded; run list-sites for the details",
@@ -286,24 +516,28 @@ def cmd_crawl(settings: Settings, args: argparse.Namespace) -> int:
     sink = _make_sink(settings, args)
     fetcher = _make_fetcher(settings, args)
     dsn = settings.require_database_url(args.dsn) if args.sink != "jsonl" else None
+    deadline_s = _chosen(args, "deadline", settings.deadline_s)
+    monitor: RunMonitor = monitoring.build_monitor(dsn, command=command)
     try:
         fx_rate = _daily_rate(settings, args, fetcher, dsn)
-        reports: list[RunReport] = [
-            run(
-                adapter,
-                fetcher,
-                sink,
-                limit=args.limit,
-                max_pages=args.max_pages,
-                fx_rate=fx_rate,
-            )
-            for adapter in adapters
-        ]
+        reports: list[RunReport] = run_many(
+            adapters,
+            fetcher,
+            sink,
+            site_workers=_chosen(args, "site_workers", settings.site_workers),
+            limit=args.limit,
+            max_pages=args.max_pages,
+            batch_size=_chosen(args, "batch_size", settings.batch_size),
+            fx_rate=fx_rate,
+            deadline=None if deadline_s is None else Deadline.after(deadline_s),
+            monitor=monitor,
+        )
     finally:
         fetcher.close()
         sink.close()
+        monitor.close()
     _write_json([asdict(report) for report in reports])
-    return EXIT_OK
+    return crawl_exit_code(reports)
 
 
 def cmd_parse(args: argparse.Namespace) -> int:
@@ -328,12 +562,13 @@ def cmd_parse(args: argparse.Namespace) -> int:
     return EXIT_OK
 
 
-def _dispatch(settings: Settings, args: argparse.Namespace) -> int:
+def _dispatch(settings: Settings, args: argparse.Namespace, command: str) -> int:
     """Run the sub-command the user asked for.
 
     Args:
         settings: Environment-derived settings.
         args: Parsed command line arguments.
+        command: The command line, recorded with every crawl.
 
     Returns:
         The process exit code.
@@ -342,10 +577,12 @@ def _dispatch(settings: Settings, args: argparse.Namespace) -> int:
         return cmd_list_sites()
     if args.command == "init-db":
         return cmd_init_db(settings, args)
+    if args.command == "runs":
+        return cmd_runs(settings, args)
     if args.command == "fx":
         return cmd_fx(settings, args)
     if args.command == "crawl":
-        return cmd_crawl(settings, args)
+        return cmd_crawl(settings, args, command)
     return cmd_parse(args)
 
 
@@ -356,14 +593,17 @@ def main(argv: Sequence[str] | None = None) -> int:
         argv: Command line arguments; defaults to ``sys.argv[1:]``.
 
     Returns:
-        The process exit code: 0 on success, 2 on a configuration error.
+        The process exit code: 0 on success, 1 when a crawl ran but a shop wrote
+        nothing, 2 on a configuration error.
     """
     parser = build_parser()
-    args = parser.parse_args(argv)
+    arguments = list(sys.argv[1:] if argv is None else argv)
+    args = parser.parse_args(arguments)
     _configure_logging(verbose=getattr(args, "verbose", False))
+    command = shlex.join(["coffee-aggregator", *arguments])
     try:
-        return _dispatch(Settings.from_env(), args)
-    except (ConfigError, UnknownSiteError) as exc:
+        return _dispatch(Settings.from_env(), args, command)
+    except (ConfigError, UnknownSiteError, ShardError) as exc:
         logger.error("configuration error — %s", exc)  # noqa: TRY400  (a traceback helps nobody)
         return EXIT_CONFIG_ERROR
 

@@ -1,0 +1,12 @@
+# Montaña Café — robots.txt bans Bytespider, PetalBot and YandexBot outright,
+# but leaves the catalogue open to "User-agent: *"; products are named after
+# people, not origins, so the country comes from the parameter table.
+platform = "shoptet"
+site_id = "cafemontana"
+name = "Montaña Café"
+country = "CZ"
+base_url = "https://www.cafemontana.cz/"
+category_urls = ["https://www.cafemontana.cz/zrnkova-kava/"]
+currency = "CZK"
+max_pages = 10
+pagination = "path"

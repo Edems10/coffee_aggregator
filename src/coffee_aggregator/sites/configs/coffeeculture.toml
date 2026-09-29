@@ -1,0 +1,11 @@
+# Coffee Culture — each coffee is listed twice, once ground for espresso and
+# once for filter, with the brewing method spelled into the product name.
+platform = "shoptet"
+site_id = "coffeeculture"
+name = "Coffee Culture"
+country = "CZ"
+base_url = "https://www.coffee-culture.cz/"
+category_urls = ["https://www.coffee-culture.cz/kava/"]
+currency = "CZK"
+max_pages = 10
+pagination = "path"

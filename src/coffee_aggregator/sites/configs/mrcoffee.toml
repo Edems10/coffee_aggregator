@@ -1,0 +1,16 @@
+# Mr. Coffee — names are upper-case and pipe-separated
+# ("BURUNDI RAMA | 100% ARABICA"); the category also carries chai and cascara.
+platform = "shoptet"
+site_id = "mrcoffee"
+name = "Mr. Coffee"
+country = "CZ"
+base_url = "https://www.mrcoffee.cz/"
+category_urls = ["https://www.mrcoffee.cz/zrnkova-kava/"]
+currency = "CZK"
+max_pages = 10
+pagination = "path"
+
+ignore = [
+  "chai latte",
+  "cascara",
+]

@@ -1,0 +1,420 @@
+[
+ {
+  "id": 28759,
+  "name": "JAMAICA BLUE M.",
+  "permalink": "https://www.longberry.cz/produkt/jamaica-blue-m/",
+  "description": "<p>Pražená výběrová káva z malých farem</p>\n<p><strong>Chuťový profil</strong>: Ořechy, Jasmín, Koření</p>\n<p><strong>Region:</strong> Mountains<br />\n<strong>Farma:</strong> St. Andrew parish Blue<br />\n<strong>Nadmořská výška</strong>: 1800 m.n.m.<br />\n<strong>Odrůda:</strong> Catimor, Typica<br />\n<strong>Zpracování:</strong> Washed<br />\n<strong>Příprava:</strong> Espresso, alternativní způsob</p>\n<p>Většina zrnkových výběrových káv je s převažující <strong>ovocnosti / kyselosti</strong>. Je u nich jasný původ od malých farmářů. Tato zrna se pěstují ve ideálních klimatických podmínkách a vyznačuje se výraznou a intenzivní chutí. Unikátní chuť této degustační kávy je výsledkem mnoha faktorů, jako je dlouhá doba zrání, transparentnost původu, pečlivý sběr zralých plodů a péče při zpracovávání zrn.</p>",
+  "prices": {
+   "price": "39900",
+   "regular_price": "39900",
+   "sale_price": "39900",
+   "price_range": {
+    "min_amount": "39900",
+    "max_amount": "99000"
+   },
+   "currency_code": "CZK",
+   "currency_symbol": "Kč",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ".",
+   "currency_thousand_separator": " ",
+   "currency_prefix": "",
+   "currency_suffix": " Kč"
+  },
+  "images": [
+   {
+    "id": 34499,
+    "src": "https://www.longberry.cz/wp-content/uploads/2026/03/MG_6422u.webp",
+    "thumbnail": "https://www.longberry.cz/wp-content/uploads/2026/03/MG_6422u-300x450.webp",
+    "srcset": "https://www.longberry.cz/wp-content/uploads/2026/03/MG_6422u.webp 1200w, https://www.longberry.cz/wp-content/uploads/2026/03/MG_6422u-300x450.webp 300w, https://www.longberry.cz/wp-content/uploads/2026/03/MG_6422u-600x900.webp 600w",
+    "sizes": "(max-width: 1200px) 100vw, 1200px",
+    "thumbnail_srcset": "https://www.longberry.cz/wp-content/uploads/2026/03/MG_6422u-300x450.webp 300w, https://www.longberry.cz/wp-content/uploads/2026/03/MG_6422u-600x900.webp 600w, https://www.longberry.cz/wp-content/uploads/2026/03/MG_6422u.webp 1200w",
+    "thumbnail_sizes": "(max-width: 300px) 100vw, 300px",
+    "name": "_MG_6422u",
+    "alt": ""
+   }
+  ],
+  "categories": [
+   {
+    "id": 156,
+    "name": "Káva",
+    "slug": "kava",
+    "link": "https://www.longberry.cz/kategorie-produktu/kava/"
+   },
+   {
+    "id": 160,
+    "name": "Výběrová",
+    "slug": "vyberova",
+    "link": "https://www.longberry.cz/kategorie-produktu/kava/vyberova/"
+   }
+  ],
+  "attributes": [
+   {
+    "id": 2,
+    "name": "Hmotnost",
+    "taxonomy": "pa_hmotnost",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 559,
+      "name": "100 g",
+      "slug": "100-g-2"
+     },
+     {
+      "id": 163,
+      "name": "250 g",
+      "slug": "250-g"
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 30560,
+    "attributes": [
+     {
+      "name": "Hmotnost",
+      "value": "250-g"
+     }
+    ]
+   },
+   {
+    "id": 28857,
+    "attributes": [
+     {
+      "name": "Hmotnost",
+      "value": "100-g-2"
+     }
+    ]
+   }
+  ],
+  "is_in_stock": true
+ },
+ {
+  "id": 8128,
+  "name": "KOLUMBIE &#8211; Magdalena",
+  "permalink": "https://www.longberry.cz/produkt/columbie/",
+  "sku": "11111",
+  "short_description": "<p>Dopřejte si výjimečný zážitek s naší exkluzivní kávou Colombia Supremo Rio Magdalena, která vás okouzlí svou jedinečnou chutí a aromatem. Tato káva pochází z oblasti Magdalena v Kolumbii, kde jsou ideální podmínky pro pěstování kávy díky bohaté vulkanické půdě a optimálnímu klimatu. Každé zrnko je pečlivě vybíráno a zpracováváno, aby vám přineslo ten nejlepší zážitek z každého šálku.</p>",
+  "description": "<h3>Objevte Kouzlo Kolumbijské Kávy Supremo Magdalena</h3>\n<p>Dopřejte si výjimečný zážitek s naší exkluzivní kávou Colombia Supremo Rio Magdalena, která vás okouzlí svou jedinečnou chutí a aromatem. Tato káva pochází z oblasti Magdalena v Kolumbii, kde jsou ideální podmínky pro pěstování kávy díky bohaté vulkanické půdě a optimálnímu klimatu. Každé zrnko je pečlivě vybíráno a zpracováváno, aby vám přineslo ten nejlepší zážitek z každého šálku. <img class=\"size-full wp-image-28892 alignleft\" src=\"https://www.longberry.cz/wp-content/uploads/2018/08/colombia_Magdalena.webp\" alt=\"\" width=\"418\" height=\"529\" /></p>\n<p>&nbsp;</p>\n<p><strong>Původ a Kvalita</strong> Naše káva pochází z úrodných svahů okolo řeky Magdalena, kde se v ideálních podmínkách rodí jedinečná zrna. Každé zrno je pečlivě sbíráno ručně, aby byla zajištěna ta nejvyšší kvalita, kterou si zasloužíte.</p>\n<p><strong>Chuťové Tóny</strong> Colombia Supremo Rio Magdalena je synonymem pro komplexní a vyvážený chuťový zážitek. Od prvního doušku pocítíte:</p>\n<ul>\n<li><strong>Ovocné Tóny:</strong> Jemné náznaky citrusových plodů a sladkého manga, které osvěží vaše smysly.</li>\n<li><strong>Čokoládové Podtóny:</strong> Hladká a sametová chuť mléčné čokolády, která se krásně prolíná s ovocnými tóny.</li>\n<li><strong>Ořechové Nuance:</strong> Delikátní dotek lískových oříšků, který dodává kávě bohatost a plnost.</li>\n<li><strong>Karamelový Závěr:</strong> Dlouhotrvající sladký karamelový podtón, který vás pohladí na patře.</li>\n</ul>\n<p>&nbsp;</p>\n<p>Naše Colombia Supremo Rio Magdalena není jen obyčejná káva. Je to cesta, kterou podniknete každým douškem, cesta do srdce Kolumbie, kde se rodí to nejlepší. Získejte šálek, který vás probudí, inspiruje a zanechá ve vás touhu po dalším doušku.<img class=\"size-full wp-image-8783 alignright\" src=\"https://www.longberry.cz/wp-content/uploads/2018/08/colombia-2429461_640.jpg\" alt=\"\" width=\"640\" height=\"423\" /></p>\n<p>&nbsp;</p>\n<p><strong>Zpracování </strong></p>\n<p>Sklizené kávové třešně se nejprve mechanicky nebo ve vodních nádržích vyberou, aby se odstranily nezralé třešně a další cizí látky. Poté se zpracují pomocí depulperů, aby se odstranila kůže (exokarp) a dužina (vnější mezokarp).</p>\n<p>S částí slizu (vnitřního mezokarpu) ponechaného na pergamenu (endokarp) se kávová zrna fermentují ve vodních nádržích po dobu přibližně 14 až 36 hodin. Během této doby pomáhají mikroorganismy ve fazolích svými enzymy rozkládat sliz.</p>\n<p>zrna se poté promyjí sladkou vodou a položí se k sušení buď na cementové terasy nebo vyvýšené záhony, nebo se v některých případech umístí do mechanických sušiček. Pravidelně se obracejí, aby se předešlo nežádoucí plísni a dalšímu kvašení, a když zrna dosáhnou vlhkosti kolem 11 %, ukládají se do pergamenu (endokarp), než se melou a balí.</p>\n<p>&nbsp;</p>\n<p><strong>Země: Kolumbie</strong><br />\n<strong>Sklizeň: 2024</strong><br />\n<strong><span style=\"color: #ff0000\">Chuťový profil: </span></strong><br />\n<strong>Region/oblast: Santander, okolí řeky Magdalena</strong><br />\n<strong>Nadmořská výška: 1200-1500 m</strong><br />\n<strong>Zpracování: mokrá metoda</strong><br />\n<strong>Sušení: strojové</strong></p>",
+  "prices": {
+   "price": "25700",
+   "regular_price": "22348",
+   "sale_price": "22348",
+   "price_range": {
+    "min_amount": "25700",
+    "max_amount": "88300"
+   },
+   "currency_code": "CZK",
+   "currency_symbol": "Kč",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ".",
+   "currency_thousand_separator": " ",
+   "currency_prefix": "",
+   "currency_suffix": " Kč"
+  },
+  "images": [
+   {
+    "id": 34369,
+    "src": "https://www.longberry.cz/wp-content/uploads/2026/03/COLUMBIA_MAGDALENA.jpg",
+    "thumbnail": "https://www.longberry.cz/wp-content/uploads/2026/03/COLUMBIA_MAGDALENA-300x383.jpg",
+    "srcset": "https://www.longberry.cz/wp-content/uploads/2026/03/COLUMBIA_MAGDALENA.jpg 936w, https://www.longberry.cz/wp-content/uploads/2026/03/COLUMBIA_MAGDALENA-300x383.jpg 300w, https://www.longberry.cz/wp-content/uploads/2026/03/COLUMBIA_MAGDALENA-600x765.jpg 600w",
+    "sizes": "(max-width: 936px) 100vw, 936px",
+    "thumbnail_srcset": "https://www.longberry.cz/wp-content/uploads/2026/03/COLUMBIA_MAGDALENA-300x383.jpg 300w, https://www.longberry.cz/wp-content/uploads/2026/03/COLUMBIA_MAGDALENA-600x765.jpg 600w, https://www.longberry.cz/wp-content/uploads/2026/03/COLUMBIA_MAGDALENA.jpg 936w",
+    "thumbnail_sizes": "(max-width: 300px) 100vw, 300px",
+    "name": "COLUMBIA_MAGDALENA",
+    "alt": ""
+   }
+  ],
+  "categories": [
+   {
+    "id": 157,
+    "name": "Jednodruhová",
+    "slug": "jednodruhova",
+    "link": "https://www.longberry.cz/kategorie-produktu/kava/jednodruhova/"
+   },
+   {
+    "id": 156,
+    "name": "Káva",
+    "slug": "kava",
+    "link": "https://www.longberry.cz/kategorie-produktu/kava/"
+   }
+  ],
+  "attributes": [
+   {
+    "id": 2,
+    "name": "Hmotnost",
+    "taxonomy": "pa_hmotnost",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 164,
+      "name": "1000 g",
+      "slug": "1000-g"
+     },
+     {
+      "id": 163,
+      "name": "250 g",
+      "slug": "250-g"
+     }
+    ]
+   },
+   {
+    "id": 5,
+    "name": "Varieta",
+    "taxonomy": "pa_varieta",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 187,
+      "name": "Typica",
+      "slug": "typica"
+     }
+    ]
+   },
+   {
+    "id": 9,
+    "name": "Způsob zpracování",
+    "taxonomy": "pa_zpusob-zpracovani",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 189,
+      "name": "Mokrý proces",
+      "slug": "mokry-proces"
+     }
+    ]
+   },
+   {
+    "id": 4,
+    "name": "Sušení",
+    "taxonomy": "pa_suseni",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 185,
+      "name": "Přírodní rošty",
+      "slug": "prirodni-rosty"
+     }
+    ]
+   },
+   {
+    "id": 6,
+    "name": "Velikost farmy",
+    "taxonomy": "pa_velikost-farmy",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 193,
+      "name": "100Ha",
+      "slug": "100ha"
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 8130,
+    "attributes": [
+     {
+      "name": "Hmotnost",
+      "value": "250-g"
+     }
+    ]
+   },
+   {
+    "id": 8131,
+    "attributes": [
+     {
+      "name": "Hmotnost",
+      "value": "1000-g"
+     }
+    ]
+   }
+  ],
+  "is_in_stock": true
+ },
+ {
+  "id": 8153,
+  "name": "Guatemala",
+  "permalink": "https://www.longberry.cz/produkt/guatemala/",
+  "sku": "11151",
+  "short_description": "<p>Káva Santa Rosa roste v nadmořské výšce přes 1 800 metrů, kde se snoubí ideální podmínky – bohatá půda a chladné horské klima – pro pěstování těch nejlepších zrn.</p>",
+  "description": "<p><strong>Objevte lahodnou kávu Guatemala Santa Rosa</strong></p>\n<p>Ponořte se do světa výjimečných chutí s naší kávou Guatemala Santa Rosa. Tato prémiová arabika, pěstovaná na úrodných vulkanických půdách oblasti Santa Rosa ve střední Guatemale, vás okouzlí svou sladkou, ovocnou chutí. V každém doušku ucítíte šťavnaté tóny zralého ovoce, které jsou dokonale vyvážené jemnou sladkostí a podtrženy náznaky citrusů a medu.<img class=\" wp-image-29143 alignright\" src=\"https://www.longberry.cz/wp-content/uploads/2018/08/Nueva-Rosa.jpg\" alt=\"\" width=\"808\" height=\"606\" /></p>\n<p>Káva Santa Rosa roste v nadmořské výšce přes 1 800 metrů, kde se snoubí ideální podmínky – bohatá půda a chladné horské klima – pro pěstování těch nejlepších zrn. Místní farmáři, kteří se starají o každé zrnko s pečlivostí, využívají tradiční metody pěstování bez chemických hnojiv, což zaručuje její čistotu a výjimečnou kvalitu. Po sklizni se káva ručně třídí, aby k vám dorazila jen ta nejvyšší jakost.</p>\n<p>Guatemala Santa Rosa je perfektní volbou pro ty, kteří hledají ovocnou a sladkou kávu plnou svěžesti a komplexnosti. Každý šálek vás přenese do krásných guatemalských hor a umožní vám vychutnat si bohatství místních přírodních zdrojů.</p>\n<p>Zažijte Guatemala Santa Rosa a nechte své smysly cestovat!</p>\n<p><strong>Země: Guatemala</strong><br />\n<strong>Odrůda:  Cauai / Bourbon</strong><br />\n<strong>Sklizeň: 2024</strong><br />\n<strong><span style=\"color: #ff0000\">Chuťový profil: komplexní, ostře sladká ovocná vůně, chutná po pomeranči,</span></strong><br />\n<strong><span style=\"color: #ff0000\">mandlích a čokoládě</span></strong><br />\n<strong>Region/oblast: SantaRosa, Guatemala</strong><br />\n<strong>Nadmořská výška: 1400-2000 m</strong><br />\n<strong>Období sklizně: leden-duben</strong></p>",
+  "prices": {
+   "price": "27900",
+   "regular_price": "24261",
+   "sale_price": "24261",
+   "price_range": {
+    "min_amount": "27900",
+    "max_amount": "88700"
+   },
+   "currency_code": "CZK",
+   "currency_symbol": "Kč",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ".",
+   "currency_thousand_separator": " ",
+   "currency_prefix": "",
+   "currency_suffix": " Kč"
+  },
+  "images": [
+   {
+    "id": 34375,
+    "src": "https://www.longberry.cz/wp-content/uploads/2026/03/guatemalaWEB.jpg",
+    "thumbnail": "https://www.longberry.cz/wp-content/uploads/2026/03/guatemalaWEB-300x383.jpg",
+    "srcset": "https://www.longberry.cz/wp-content/uploads/2026/03/guatemalaWEB.jpg 936w, https://www.longberry.cz/wp-content/uploads/2026/03/guatemalaWEB-300x383.jpg 300w, https://www.longberry.cz/wp-content/uploads/2026/03/guatemalaWEB-600x765.jpg 600w",
+    "sizes": "(max-width: 936px) 100vw, 936px",
+    "thumbnail_srcset": "https://www.longberry.cz/wp-content/uploads/2026/03/guatemalaWEB-300x383.jpg 300w, https://www.longberry.cz/wp-content/uploads/2026/03/guatemalaWEB-600x765.jpg 600w, https://www.longberry.cz/wp-content/uploads/2026/03/guatemalaWEB.jpg 936w",
+    "thumbnail_sizes": "(max-width: 300px) 100vw, 300px",
+    "name": "guatemalaWEB",
+    "alt": ""
+   }
+  ],
+  "categories": [
+   {
+    "id": 157,
+    "name": "Jednodruhová",
+    "slug": "jednodruhova",
+    "link": "https://www.longberry.cz/kategorie-produktu/kava/jednodruhova/"
+   },
+   {
+    "id": 156,
+    "name": "Káva",
+    "slug": "kava",
+    "link": "https://www.longberry.cz/kategorie-produktu/kava/"
+   }
+  ],
+  "attributes": [
+   {
+    "id": 2,
+    "name": "Hmotnost",
+    "taxonomy": "pa_hmotnost",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 164,
+      "name": "1000 g",
+      "slug": "1000-g"
+     },
+     {
+      "id": 163,
+      "name": "250 g",
+      "slug": "250-g"
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 8155,
+    "attributes": [
+     {
+      "name": "Hmotnost",
+      "value": "250-g"
+     }
+    ]
+   },
+   {
+    "id": 8156,
+    "attributes": [
+     {
+      "name": "Hmotnost",
+      "value": "1000-g"
+     }
+    ]
+   }
+  ],
+  "is_in_stock": true
+ },
+ {
+  "id": 8198,
+  "name": "Peru (El Palto)",
+  "permalink": "https://www.longberry.cz/produkt/peru/",
+  "sku": "31241",
+  "short_description": "<p>Káva z Peru se vyznačuje vyváženou chutí a vkusnou kyselostí. Nejlepší kávy se vyvážejí do Evropy, Japonska a Spojených států, z toho se dá usoudit jejich vysoký jakostní standard. Peru by za předpokladu hospodářské a politické stability mohlo být jedním z největších producentů výborné kávy. Ze zrn je možné připravit nepříliš hustou kávu se silnou chutí a vkusnou kyselostí. Větší část peruánské kávy se dodává na trh jako &#8222;biokáva&#8220;. Velice oblíbené jsou odrůdy z vysokohorských oblastí And, jako je San Martin, Cajamarca či Piura.</p>\n<p>&nbsp;</p>",
+  "description": "<h4><strong>Družstvo producentů Juan Marco “El Palto” </strong></h4>\n<p>Družstvo s názvem The Asociación de Productores Cafetaleros Juan Marco “El Palto” (JUMARP) založil José Carranza Barboza v roce 2003 společně s 35 dalšími drobnými farmáři. Vytvořili družstvo s myšlenkou rozvinout nový model pěstování a vývozu kávy. V roce 2012 JUMARP “El Palto” rozběhlo ambiciózní program pro zlepšení kvality mezi svými členy. <img class=\"alignright wp-image-8931\" src=\"https://longberry.cz/wp-content/uploads/2018/08/Drying-parchment-at-JUMARP-El-Palto-member-farm-e1543923184720-768x563.jpg\" alt=\"\" width=\"417\" height=\"306\" />Získali finanční prostředky z programu Fairtrade &amp; Organic, z vládního fondu a z příspěvků samotných členů družstva. Do roku 2021 plánuje družstvo producentů zvýšit cuppingové skóre na 85-86. Aby takového výsledku dosáhli, musí vybudovat sušárny na všech členských farmách s tím, že největší potřeba takových sušáren je v nižších nadmořských výškách. Nezbytným zařízením každé farmy jsou mechanické stroje na oddělování dužiny od zrna a fermentační nádrže a kávovníkové farmy by měly na svých plantážích pěstovat odrůdy vyšší kvality.</p>\n<h4><strong>Sociální a ekologické povědomí</strong></h4>\n<p>Produkce kávy v amazonských Andách severního Peru, kde působí družstvo JUMARP, začala v 50. letech 20. století. Zdejší zemědělské postupy byly dlouhodobě založeny na používání agrochemikálií. Po dlouhé době se místní farmáři rozhodli změnit zaběhnuté postupy a začali se orientovat na udržitelnou výrobu kávy v souladu s přirozeným lesem. Zároveň si uvědomili, že pokud se sjednotí, budou mnohem silnější v komercializaci své kávy. Tímto způsobem a získáním certifikace chce družstvo zajistit svým členům stálý příjem a zlepšení životní úrovně celého společenství. Všech 188 členů družstva produkuje certifikovanou kávu s označením “Organic” a “Fair<br />\nTrade”. V posledních několika letech je prioritou družstva zvyšování produktivity. Za tímto účelem dává JUMARP polovinu tzv. sociální prémie (část výdělku uložená do společného fondu družstva) na obnovu plodin a na přechod k ekologickému zemědělství. Další výraznou část výdělku vynakládá na vzdělávací programy a výstavbu škol. Zbývající finance jsou použity na výplaty stálých zaměstanců družstva.</p>\n<h4><strong>Biosféra Selva Alta</strong></h4>\n<p>Producenti sdružili pod JUMARP všechny drobné zemědělce. Společně obhospodařují 549 ha v oblasti Selva Alta v severním Peru. Jedná se o specifický druh ekosystému v podobě hustých vlhkých lesů, které najdeme pouze v této části Peru a v Mexiku. Družstvo JUMARP spojuje farmáře v oblasti El Palto ležící v okrese Yamón, který je součástí provincie Utcubamba v regionu Amazonas na severu Peru.</p>\n<h4><strong>Peru </strong></h4>\n<p>Peru se rozkládá na západním pobřeží Jižní Ameriky omývaném Tichým oceánem. Severní hranici sdílí s Ekvádorem a Kolumbií, na východě sousedí s Brazílií a na jihovýchodě přiléhá k Bolívii a Chile. Podnebí je zde velmi rozmanité. V nížinaté východní části se rozkládá tropický deštný prales, pobřeží zaujímá suchá poušť a v horských oblastech And panuje mírné až chladné klima.</p>\n<h4><strong>Oblasti pěstování kávy</strong></h4>\n<p>Kávovníky rostou na východních svazích horského pásu Peruánských And. Produkce kávovníkových zrn pochází ze tří hlavních pěstitelských oblastí. Z centrální vysočiny v oblasti Chanchamayo (28 %) se pěstování kávy postupně přesunulo k severu do regionů Amazonas a San Martin (49 % celkové produkce). Jižní oblast zajišťuje 23 % z celkového množství produkce kávy. <img class=\" wp-image-8913 alignleft\" src=\"https://longberry.cz/wp-content/uploads/2018/08/cielito-lindo-farm-768x576.jpg\" alt=\"\" width=\"466\" height=\"349\" />V Peru se pěstuje téměř výhradně kávovník arabský, a to v několika varietách: odrůda Typica představuje 70 %, Caturra okolo 20 % a zbylých 10 % peruánské kávy tvoří ostatní odrůdy. Období sklizně začíná v dubnu a vrcholí během tří letních měsíců od června do září. Tradice pěstování kávy Většina produkce peruánské kávy pochází ze zalesněných oblastí v nadmořské výšce mezi 1000 a 1800m. Kávovníky rostou pod stínovým krytem s průměrnou hustotou 2000 rostlin na hektar. Správně zralé kávovníkové třešně jsou česány ručně do sběrných košů, v nichž se dopravují do zpracovatelského střediska, kde jsou zbaveny dužiny a nechávají se sušit na slunci. Jako světový lídr v oblasti exportu ekologicky pěstované kávy, je Peru patrně nejznámější pro svou certifikovanou produkci kávy. V poslední době se Peru také objevuje v hledáčku speciálního kávového průmyslu.</p>\n<h4></h4>\n<h4><strong>Organizace producentů</strong></h4>\n<p>Většina výrobců peruánské kávy jsou drobní farmáři, kteří vlastní v průměru 3 ha půdy. Tito producenti se sdružují do asociací či družstev, což jim umožňuje vyjednávat výhodnější ceny, zlepšovat výrobní postupy a rozvíjet marketingové strategie. Větší družstva mají až 2000<br />\nčlenů a vlastní více než 7000 ha. Ta nejsofistikovanější mohou mít dokonce finanční pobočku, která poskytuje půjčky producentům, jiná zajišťují technickou pomoc farmářům. Tato družstva prodávají kávu přímo konečnému zákazníkovi nebo mají dlouhodobý obchodní<br />\nvztah s obchodníkem s kávou, který ji prodává za ně.</p>\n<p>&nbsp;</p>\n<p><strong>Země: Peru</strong><br />\n<strong>Farma/mycí stanice: Juan Marco El Palto association</strong><br />\n<strong>Odrůda: Caturra / Pacas</strong><br />\n<strong>Sklizeň: 2025</strong><br />\n<strong>Region/oblast: El Palto, distrikt Yamón, Utcubamba, department Amazonas, severní</strong><br />\n<strong>Peru</strong><br />\n<strong>Pohoří: Peruánské Andy</strong><br />\n<strong>Nadmořská výška: 1300-1800 m</strong></p>",
+  "prices": {
+   "price": "26500",
+   "regular_price": "26500",
+   "sale_price": "26500",
+   "price_range": {
+    "min_amount": "26500",
+    "max_amount": "89600"
+   },
+   "currency_code": "CZK",
+   "currency_symbol": "Kč",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ".",
+   "currency_thousand_separator": " ",
+   "currency_prefix": "",
+   "currency_suffix": " Kč"
+  },
+  "images": [
+   {
+    "id": 34386,
+    "src": "https://www.longberry.cz/wp-content/uploads/2026/03/PERU-1.jpg",
+    "thumbnail": "https://www.longberry.cz/wp-content/uploads/2026/03/PERU-1-300x383.jpg",
+    "srcset": "https://www.longberry.cz/wp-content/uploads/2026/03/PERU-1.jpg 936w, https://www.longberry.cz/wp-content/uploads/2026/03/PERU-1-300x383.jpg 300w, https://www.longberry.cz/wp-content/uploads/2026/03/PERU-1-600x765.jpg 600w",
+    "sizes": "(max-width: 936px) 100vw, 936px",
+    "thumbnail_srcset": "https://www.longberry.cz/wp-content/uploads/2026/03/PERU-1-300x383.jpg 300w, https://www.longberry.cz/wp-content/uploads/2026/03/PERU-1-600x765.jpg 600w, https://www.longberry.cz/wp-content/uploads/2026/03/PERU-1.jpg 936w",
+    "thumbnail_sizes": "(max-width: 300px) 100vw, 300px",
+    "name": "PERU",
+    "alt": ""
+   }
+  ],
+  "categories": [
+   {
+    "id": 157,
+    "name": "Jednodruhová",
+    "slug": "jednodruhova",
+    "link": "https://www.longberry.cz/kategorie-produktu/kava/jednodruhova/"
+   },
+   {
+    "id": 156,
+    "name": "Káva",
+    "slug": "kava",
+    "link": "https://www.longberry.cz/kategorie-produktu/kava/"
+   }
+  ],
+  "attributes": [
+   {
+    "id": 2,
+    "name": "Hmotnost",
+    "taxonomy": "pa_hmotnost",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 164,
+      "name": "1000 g",
+      "slug": "1000-g"
+     },
+     {
+      "id": 163,
+      "name": "250 g",
+      "slug": "250-g"
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 8200,
+    "attributes": [
+     {
+      "name": "Hmotnost",
+      "value": "250-g"
+     }
+    ]
+   },
+   {
+    "id": 8201,
+    "attributes": [
+     {
+      "name": "Hmotnost",
+      "value": "1000-g"
+     }
+    ]
+   }
+  ],
+  "is_in_stock": true
+ }
+]

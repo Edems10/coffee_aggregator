@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import threading
+import time
 from datetime import date
 from decimal import Decimal
 from typing import TYPE_CHECKING, cast
@@ -9,7 +11,22 @@ import pytest
 from coffee_aggregator.fx import FxRate
 from coffee_aggregator.http import FetchDisallowed, FetchError, FetchResult
 from coffee_aggregator.models import Variant
-from coffee_aggregator.pipeline import MAX_REPORTED_ERRORS, RunReport, derive, run
+from coffee_aggregator.pipeline import (
+    MAX_REPORTED_ERRORS,
+    PRODUCTS_PER_LISTING_PAGE,
+    Deadline,
+    RunReport,
+    ShardError,
+    derive,
+    estimated_requests,
+    host_costs,
+    host_of,
+    run,
+    run_many,
+    shard_hosts,
+    shard_sites,
+    wrote_nothing,
+)
 from coffee_aggregator.sinks.base import SinkResult
 from coffee_aggregator.sites.base import ProductRef, SiteAdapter
 from conftest import make_coffee
@@ -480,3 +497,296 @@ def test_a_crawl_proceeds_when_no_rate_could_be_had() -> None:
     assert report.written == 3
     assert all(coffee.price_czk is None for coffee in sink.written)
     assert all(coffee.fx_rate_eur_czk is None for coffee in sink.written)
+
+
+# --- several shops at once ----------------------------------------------------
+
+
+def _run_many(
+    shops: Sequence[FakeSite],
+    fetcher: FakeFetcher,
+    sink: FakeSink,
+    *,
+    site_workers: int,
+) -> list[RunReport]:
+    return run_many(
+        cast("Sequence[SiteAdapter]", shops),
+        cast("PoliteFetcher", fetcher),
+        cast("Sink", sink),
+        site_workers=site_workers,
+    )
+
+
+class SlowSite(FakeSite):
+    """A shop that takes its time answering, like a real one."""
+
+    def __init__(self, site_id: str, barrier: threading.Barrier) -> None:
+        super().__init__(1)
+        self.site_id = site_id
+        self._barrier = barrier
+
+    def discover(
+        self,
+        fetcher: PoliteFetcher,
+        *,
+        max_pages: int | None = None,
+    ) -> Iterator[ProductRef]:
+        # Every shop must be inside discover at the same moment, or the barrier
+        # times out: that is the proof they really do overlap.
+        self._barrier.wait(timeout=5)
+        yield from super().discover(fetcher, max_pages=max_pages)
+
+
+def test_shops_are_crawled_at_the_same_time() -> None:
+    barrier = threading.Barrier(3)
+    shops = [SlowSite(f"shop{index}", barrier) for index in range(3)]
+    fetcher, sink = FakeFetcher(), FakeSink()
+
+    reports = _run_many(shops, fetcher, sink, site_workers=3)
+
+    assert [report.site_id for report in reports] == ["shop0", "shop1", "shop2"]
+    assert all(report.written == 1 for report in reports)
+
+
+def test_one_shop_failing_does_not_stop_the_others() -> None:
+    class Broken(FakeSite):
+        site_id = "broken"
+
+        def discover(
+            self,
+            fetcher: PoliteFetcher,
+            *,
+            max_pages: int | None = None,
+        ) -> Iterator[ProductRef]:
+            msg = "the shop moved its catalogue"
+            raise RuntimeError(msg)
+
+    shops = [FakeSite(2), Broken(0), FakeSite(2)]
+    reports = _run_many(shops, FakeFetcher(), FakeSink(), site_workers=3)
+
+    assert len(reports) == 3
+    broken = next(report for report in reports if report.site_id == "broken")
+    assert broken.complete is False
+    assert any("RuntimeError" in error for error in broken.errors)
+    assert [report.written for report in reports if report.site_id != "broken"] == [2, 2]
+
+
+def test_a_single_worker_keeps_the_plain_sequential_path() -> None:
+    shops = [FakeSite(1), FakeSite(1)]
+
+    reports = _run_many(shops, FakeFetcher(), FakeSink(), site_workers=1)
+
+    assert [report.written for report in reports] == [1, 1]
+
+
+# --- the deadline -------------------------------------------------------------
+
+
+class SlowDiscovery(FakeSite):
+    """A shop whose listing walk costs a little time per product."""
+
+    def __init__(self, count: int, step_s: float) -> None:
+        super().__init__(count)
+        self.step_s = step_s
+
+    def discover(
+        self,
+        fetcher: PoliteFetcher,
+        *,
+        max_pages: int | None = None,
+    ) -> Iterator[ProductRef]:
+        for ref in super().discover(fetcher, max_pages=max_pages):
+            time.sleep(self.step_s)
+            yield ref
+
+
+def test_a_deadline_already_passed_stops_before_the_first_product() -> None:
+    site, fetcher, sink = FakeSite(5), FakeFetcher(), FakeSink()
+
+    report = _run(site, fetcher, sink, deadline=Deadline(at=time.monotonic() - 1))
+
+    assert report.discovered == 0
+    assert fetcher.requested == []
+    assert report.deadline_reached is True
+    assert report.complete is False
+
+
+def test_a_truncated_run_never_delists() -> None:
+    """The whole reason the deadline is reported rather than raised."""
+    site, fetcher, sink = SlowDiscovery(20, 0.01), FakeFetcher(), FakeSink()
+
+    report = _run(site, fetcher, sink, batch_size=2, deadline=Deadline.after(0.03))
+
+    assert report.deadline_reached is True
+    assert sink.delisted == []
+    assert report.delisted == 0
+    assert 0 < report.discovered < 20
+
+
+def test_a_run_inside_its_deadline_is_complete_and_delists() -> None:
+    site, fetcher, sink = FakeSite(3), FakeFetcher(), FakeSink()
+
+    report = _run(site, fetcher, sink, deadline=Deadline.after(30))
+
+    assert report.deadline_reached is False
+    assert report.complete is True
+    assert sink.delisted == [("fake", {"0", "1", "2"})]
+
+
+def test_the_deadline_stops_between_batches_not_inside_one() -> None:
+    site, fetcher, sink = SlowDiscovery(10, 0.01), FakeFetcher(), FakeSink()
+
+    report = _run(site, fetcher, sink, batch_size=3, deadline=Deadline.after(0.045))
+
+    # every product that was discovered was also fetched and written: a batch is
+    # never abandoned half-way through
+    assert report.written == report.discovered
+    assert report.discovered % 3 == 0
+
+
+def test_one_deadline_covers_every_shop_of_a_run() -> None:
+    shops = [SlowDiscovery(10, 0.01) for _ in range(3)]
+    for index, shop in enumerate(shops):
+        shop.site_id = f"shop{index}"
+
+    reports = run_many(
+        cast("Sequence[SiteAdapter]", shops),
+        cast("PoliteFetcher", FakeFetcher()),
+        cast("Sink", FakeSink()),
+        site_workers=1,
+        batch_size=2,
+        deadline=Deadline.after(0.03),
+    )
+
+    assert len(reports) == 3
+    assert any(report.deadline_reached for report in reports)
+    assert reports[-1].discovered < 10
+
+
+def test_a_deadline_reached_report_is_recorded_as_incomplete() -> None:
+    site, fetcher, sink = FakeSite(2), FakeFetcher(), FakeSink()
+    report = _run(site, fetcher, sink, deadline=Deadline(at=time.monotonic() - 1))
+    assert report.complete is False
+    assert report.started_at is not None
+    assert report.finished_at is not None
+    assert report.finished_at >= report.started_at
+
+
+# --- sharding -----------------------------------------------------------------
+
+
+class Shop(FakeSite):
+    """A registered shop at a given URL, for the shard arithmetic."""
+
+    def __init__(self, site_id: str, base_url: str, max_pages: int = 4) -> None:
+        super().__init__(0)
+        self.site_id = site_id
+        self.base_url = base_url
+        self.max_pages = max_pages
+
+
+def _flat(_host: str) -> float:
+    return 1.0
+
+
+def test_two_shops_on_one_host_never_land_in_different_shards() -> None:
+    """Splitting an origin would have each shard pace it on its own."""
+    shops = [
+        Shop("a", "https://one.sk/"),
+        Shop("b", "https://www.one.sk/"),
+        Shop("c", "https://two.sk/"),
+        Shop("d", "https://three.sk/"),
+    ]
+
+    picked = [
+        {site.site_id for site in shard_sites(shops, index, 3, delay_for=_flat)}
+        for index in (1, 2, 3)
+    ]
+
+    together = next(chosen for chosen in picked if "a" in chosen)
+    assert "b" in together
+    assert sorted(site_id for chosen in picked for site_id in chosen) == ["a", "b", "c", "d"]
+
+
+def test_every_shop_lands_in_exactly_one_shard() -> None:
+    shops = [Shop(f"s{index}", f"https://s{index}.sk/", max_pages=index + 1) for index in range(12)]
+
+    seen = [
+        site.site_id
+        for index in (1, 2, 3, 4)
+        for site in shard_sites(shops, index, 4, delay_for=_flat)
+    ]
+
+    assert sorted(seen) == sorted(site.site_id for site in shops)
+
+
+def test_a_shard_selection_is_deterministic() -> None:
+    shops = [Shop(f"s{index}", f"https://s{index}.sk/", max_pages=index + 1) for index in range(9)]
+
+    first = [site.site_id for site in shard_sites(shops, 2, 3, delay_for=_flat)]
+    second = [site.site_id for site in shard_sites(list(reversed(shops)), 2, 3, delay_for=_flat)]
+
+    assert sorted(first) == sorted(second)
+
+
+def test_shards_are_balanced_by_cost_and_not_by_count() -> None:
+    """One 30-second crawl-delay shop outweighs a dozen fast ones."""
+    slow = Shop("slow", "https://caffeoro.sk/", max_pages=5)
+    fast = [Shop(f"f{index}", f"https://f{index}.sk/", max_pages=5) for index in range(6)]
+
+    def delay_for(host: str) -> float:
+        return 30.0 if host == "caffeoro.sk" else 1.0
+
+    costs = host_costs([slow, *fast], delay_for=delay_for)
+    shards = [shard_hosts(costs, index, 2) for index in (1, 2)]
+
+    holding_slow = next(shard for shard in shards if any(c.host == "caffeoro.sk" for c in shard))
+    assert [cost.host for cost in holding_slow] == ["caffeoro.sk"]
+    assert len(shards[0]) + len(shards[1]) == 7
+
+
+def test_the_cost_of_a_host_is_requests_times_its_delay() -> None:
+    costs = host_costs([Shop("a", "https://a.sk/", max_pages=2)], delay_for=lambda _host: 3.0)
+
+    assert len(costs) == 1
+    assert costs[0].requests == 2 * (1 + PRODUCTS_PER_LISTING_PAGE)
+    assert costs[0].seconds == costs[0].requests * 3.0
+
+
+def test_max_pages_lowers_the_estimate_but_never_raises_it() -> None:
+    shop = Shop("a", "https://a.sk/", max_pages=4)
+
+    assert estimated_requests(shop, max_pages=1) == 1 + PRODUCTS_PER_LISTING_PAGE
+    assert estimated_requests(shop, max_pages=99) == estimated_requests(shop)
+
+
+@pytest.mark.parametrize(("index", "count"), [(0, 4), (5, 4), (1, 0), (-1, 2)])
+def test_a_nonsense_shard_is_rejected(index: int, count: int) -> None:
+    with pytest.raises(ShardError):
+        shard_hosts([], index, count)
+
+
+def test_one_shard_is_the_whole_list() -> None:
+    shops = [Shop("a", "https://a.sk/"), Shop("b", "https://b.sk/")]
+    assert [site.site_id for site in shard_sites(shops, 1, 1, delay_for=_flat)] == ["a", "b"]
+
+
+def test_a_shard_with_more_shards_than_hosts_can_be_empty() -> None:
+    shops = [Shop("a", "https://a.sk/")]
+    assert shard_sites(shops, 2, 4, delay_for=_flat) == []
+
+
+def test_a_shop_without_a_base_url_falls_back_to_its_id() -> None:
+    assert host_of(Shop("lonely", "")) == "lonely"
+
+
+# --- the run summary ----------------------------------------------------------
+
+
+def test_wrote_nothing_names_only_the_empty_shops() -> None:
+    reports = [
+        RunReport(site_id="empty"),
+        RunReport(site_id="full", written=3),
+        RunReport(site_id="also-empty", written=0),
+    ]
+    assert wrote_nothing(reports) == ["also-empty", "empty"]

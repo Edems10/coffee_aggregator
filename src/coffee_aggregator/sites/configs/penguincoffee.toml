@@ -1,0 +1,24 @@
+# Penguin Coffee — a Czech roastery (Kladno) on Shopify. Its variants carry a
+# real `grams` value (250 / 500 / 1000), so the pack weight needs no parsing at
+# all, and its "Dark Edition" line writes the whole coffee passport as one
+# pipe-joined line: "Region: … | Nadmořská výška: … | Odrůda: … | Zpracování: …".
+platform = "shopify"
+site_id = "penguincoffee"
+name = "Penguin Coffee"
+country = "CZ"
+base_url = "https://penguincoffee.cz/"
+# products.json quotes bare decimal strings and names no currency anywhere.
+currency = "CZK"
+max_pages = 10
+
+# "kava" is the parent of jednodruhova-kava (11), vyberova-kava (22), blendy (5)
+# and dark-edition (4) and holds exactly those 42 products — the gift boxes and
+# the brewing gear live in sibling collections it does not contain.
+collections = ["kava"]
+
+# The catalogue also sells grinders, kettles, gift cards and subscription boxes.
+ignore = [
+  "darkova karta",
+  "darkovy poukaz",
+  "predplatne",
+]

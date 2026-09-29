@@ -1,0 +1,24 @@
+# Three flat bean categories with no root: 15 arabica, 16 robusta,
+# 17 smesi. Origin facts are label lines, abbreviated ("Nadm. vyska:").
+platform = "woocommerce"
+site_id = "prazirnagrain"
+name = "Pražírna Grain"
+country = "CZ"
+base_url = "https://www.prazirnagrain.cz/"
+currency = "CZK"
+mode = "api"
+max_pages = 10
+
+# Pinned ids, not slugs: ids survive a re-theme, slugs do not.
+api_category_ids = [15, 16, 17]
+
+# The HTML fallback, used only if /wp-json/ ever stops answering.
+category_urls = [
+  "https://www.prazirnagrain.cz/e-shop/",
+]
+
+# The catalogue also sells things that are not coffee beans.
+ignore = [
+  "poukaz",
+  "mandle",
+]

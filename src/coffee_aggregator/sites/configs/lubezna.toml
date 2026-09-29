@@ -1,0 +1,19 @@
+# 16 kava is not the bean root — it parents 25 prislusenstvo as well — so
+# 23 lubezna-kava is pinned instead. This is also a wine and tea shop; its
+# coffee carries the richest attribute set of the batch (13 attributes).
+platform = "woocommerce"
+site_id = "lubezna"
+name = "Ľubezná"
+country = "SK"
+base_url = "https://lubezna.sk/"
+currency = "EUR"
+mode = "api"
+max_pages = 10
+
+# Pinned ids, not slugs: ids survive a re-theme, slugs do not.
+api_category_ids = [23]
+
+# The HTML fallback, used only if /wp-json/ ever stops answering.
+category_urls = [
+  "https://lubezna.sk/kategoria-produktu/kava/",
+]

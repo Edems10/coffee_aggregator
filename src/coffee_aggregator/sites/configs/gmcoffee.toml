@@ -1,0 +1,19 @@
+# Pražírna GMcoffee — the survey recorded the blends category alone; the
+# arabica single origins are the larger of the two and are walked first.
+platform = "shoptet"
+site_id = "gmcoffee"
+name = "Pražírna GMcoffee"
+country = "CZ"
+base_url = "https://www.gmcoffee.cz/"
+category_urls = [
+  "https://www.gmcoffee.cz/arabika/",
+  "https://www.gmcoffee.cz/kavove-smesi/",
+]
+currency = "CZK"
+max_pages = 10
+pagination = "path"
+
+ignore = [
+  "darkovy balicek",
+  "darkovy poukaz",
+]

@@ -1,0 +1,1372 @@
+[
+ {
+  "id": 7392,
+  "name": "Káva BRAZÍLIA CHOCOLATE",
+  "permalink": "https://www.praziarenepera.sk/produkt/kava-brazilia-chocolate/",
+  "short_description": "<p>Brazília Chocolate je naša novinka, ktorá zaujme jemnou a vyváženou čokoládovou chuťou. Táto 100% arabika je ideálnou voľbou pre tých, ktorí si radi vychutnávajú espresso, ale skvele sa hodí aj na prípravu cappuccina. Jej chuťový profil je charakteristický bohatou čokoládovou sladkosťou je vhodná pre kávových nadšencov, ktorí obľubujú horkú chuť kávy.</p>\n<p>Odporúčaná príprava: espresso, moka, french press<br />\nChuťový profil: čokoláda, karamel, mandle</p>",
+  "description": "<p>Brazília Chocolate je naša novinka, ktorá zaujme jemnou a vyváženou čokoládovou chuťou. Táto 100% arabika je ideálnou voľbou pre tých, ktorí si radi vychutnávajú espresso, ale skvele sa hodí aj na prípravu cappuccina. Jej chuťový profil je charakteristický bohatou čokoládovou sladkosťou je vhodná pre kávových nadšencov, ktorí obľubujú horkú chuť kávy.</p>\n<p>Odporúčaná príprava: espresso, moka, french press<br />\nChuťový profil: čokoláda, karamel, mandle</p>\n<p>Krajina: Brazília</p>\n<p>Región: Triangulo Mineiro</p>\n<p>Typ: Chocolate do Brasil</p>\n<p>SCA: 84</p>",
+  "prices": {
+   "price": "970",
+   "regular_price": "970",
+   "sale_price": "970",
+   "price_range": {
+    "min_amount": "970",
+    "max_amount": "3190"
+   },
+   "currency_code": "EUR",
+   "currency_symbol": "€",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ",",
+   "currency_thousand_separator": "",
+   "currency_prefix": "",
+   "currency_suffix": " €"
+  },
+  "average_rating": "4.83",
+  "review_count": 6,
+  "images": [
+   {
+    "id": 7396,
+    "src": "https://www.praziarenepera.sk/wp-content/uploads/2025/01/brazilia_coko-002-scaled.jpg",
+    "thumbnail": "https://www.praziarenepera.sk/wp-content/uploads/2025/01/brazilia_coko-002-310x413.jpg",
+    "srcset": "https://www.praziarenepera.sk/wp-content/uploads/2025/01/brazilia_coko-002-scaled.jpg 2560w, https://www.praziarenepera.sk/wp-content/uploads/2025/01/brazilia_coko-002-300x200.jpg 300w, https://www.praziarenepera.sk/wp-content/uploads/2025/01/brazilia_coko-002-1024x683.jpg 1024w, https://www.praziarenepera.sk/wp-content/uploads/2025/01/brazilia_coko-002-768x512.jpg 768w, https://www.praziarenepera.sk/wp-content/uploads/2025/01/brazilia_coko-002-1536x1024.jpg 1536w, https://www.praziarenepera.sk/wp-content/uploads/2025/01/brazilia_coko-002-2048x1365.jpg 2048w, https://www.praziarenepera.sk/wp-content/uploads/2025/01/brazilia_coko-002-600x400.jpg 600w",
+    "sizes": "(max-width: 2560px) 100vw, 2560px",
+    "thumbnail_srcset": "",
+    "thumbnail_sizes": "(max-width: 310px) 100vw, 310px",
+    "name": "brazilia_coko (002)",
+    "alt": ""
+   },
+   {
+    "id": 1084,
+    "src": "https://www.praziarenepera.sk/wp-content/uploads/2022/06/9.jpg",
+    "thumbnail": "https://www.praziarenepera.sk/wp-content/uploads/2022/06/9-310x413.jpg",
+    "srcset": "https://www.praziarenepera.sk/wp-content/uploads/2022/06/9.jpg 1200w, https://www.praziarenepera.sk/wp-content/uploads/2022/06/9-300x200.jpg 300w, https://www.praziarenepera.sk/wp-content/uploads/2022/06/9-1024x683.jpg 1024w, https://www.praziarenepera.sk/wp-content/uploads/2022/06/9-768x512.jpg 768w, https://www.praziarenepera.sk/wp-content/uploads/2022/06/9-600x400.jpg 600w",
+    "sizes": "(max-width: 1200px) 100vw, 1200px",
+    "thumbnail_srcset": "",
+    "thumbnail_sizes": "(max-width: 310px) 100vw, 310px",
+    "name": "9",
+    "alt": ""
+   }
+  ],
+  "categories": [
+   {
+    "id": 20,
+    "name": "Čerstvá káva",
+    "slug": "cerstva-kava",
+    "link": "https://www.praziarenepera.sk/kategoria-produktu/cerstva-kava/"
+   }
+  ],
+  "attributes": [
+   {
+    "id": 9,
+    "name": "Druh",
+    "taxonomy": "pa_druh",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 261,
+      "name": "100% arabika výberová",
+      "slug": "100-arabika-vyberova"
+     }
+    ]
+   },
+   {
+    "id": 7,
+    "name": "Odporúčaná príprava",
+    "taxonomy": "pa_odporucana-priprava",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 41,
+      "name": "Espresso",
+      "slug": "espresso"
+     },
+     {
+      "id": 78,
+      "name": "French press",
+      "slug": "french-press"
+     },
+     {
+      "id": 77,
+      "name": "Moka",
+      "slug": "moka"
+     }
+    ]
+   },
+   {
+    "id": 8,
+    "name": "Chuťový profil",
+    "taxonomy": "pa_chutovy-profil",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 91,
+      "name": "Čokoláda",
+      "slug": "cokolada"
+     },
+     {
+      "id": 85,
+      "name": "Karamel",
+      "slug": "karamel"
+     },
+     {
+      "id": 44,
+      "name": "Mandle",
+      "slug": "mandle"
+     }
+    ]
+   },
+   {
+    "id": 5,
+    "name": "Krajina",
+    "taxonomy": "pa_krajina",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 94,
+      "name": "Brazília",
+      "slug": "brazilia"
+     }
+    ]
+   },
+   {
+    "id": 6,
+    "name": "Región",
+    "taxonomy": "pa_region",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 418,
+      "name": "Triangulo Mineiro",
+      "slug": "triangulo-mineiro"
+     }
+    ]
+   },
+   {
+    "id": 14,
+    "name": "Farma",
+    "taxonomy": "pa_farma",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 421,
+      "name": "Fazenda Pereira",
+      "slug": "fazenda-pereira"
+     }
+    ]
+   },
+   {
+    "id": 31,
+    "name": "Farmár",
+    "taxonomy": "pa_farmar",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 422,
+      "name": "Enivaldo Marinho Pereira",
+      "slug": "enivaldo-marinho-pereira"
+     }
+    ]
+   },
+   {
+    "id": 13,
+    "name": "Odroda",
+    "taxonomy": "pa_odroda",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 419,
+      "name": "Yellow Catuai",
+      "slug": "yellow-catuai"
+     }
+    ]
+   },
+   {
+    "id": 12,
+    "name": "Nadmorská výška",
+    "taxonomy": "pa_nadmorska-vyska",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 420,
+      "name": "942 - 1094 m.n.m.",
+      "slug": "942-1094-m-n-m"
+     }
+    ]
+   },
+   {
+    "id": 11,
+    "name": "Spracovanie",
+    "taxonomy": "pa_spracovanie",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 66,
+      "name": "Natural",
+      "slug": "natural"
+     }
+    ]
+   },
+   {
+    "id": 3,
+    "name": "Veľkosť balenia",
+    "taxonomy": "pa_velkost-balenia",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 31,
+      "name": "1000g",
+      "slug": "1000g"
+     },
+     {
+      "id": 29,
+      "name": "250g",
+      "slug": "250g"
+     },
+     {
+      "id": 30,
+      "name": "500g",
+      "slug": "500g"
+     }
+    ]
+   },
+   {
+    "id": 1,
+    "name": "Praženie",
+    "taxonomy": "pa_prazenie",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 23,
+      "name": "Espresso (tmavé)",
+      "slug": "espresso-tmave"
+     }
+    ]
+   },
+   {
+    "id": 4,
+    "name": "Mletie",
+    "taxonomy": "pa_mletie",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 37,
+      "name": "Aeropress",
+      "slug": "mletie-aeropress"
+     },
+     {
+      "id": 33,
+      "name": "Espresso",
+      "slug": "mletie-espresso"
+     },
+     {
+      "id": 38,
+      "name": "Filter (chemex/V60)",
+      "slug": "mletie-filter-chemex-v60"
+     },
+     {
+      "id": 36,
+      "name": "French press",
+      "slug": "mletie-french-press"
+     },
+     {
+      "id": 35,
+      "name": "Moka (koťogo)",
+      "slug": "mletie-moka-kotogo"
+     },
+     {
+      "id": 34,
+      "name": "Zalievanie",
+      "slug": "mletie-zalievanie"
+     },
+     {
+      "id": 32,
+      "name": "Zrno (bez mletia)",
+      "slug": "ziadne-zrno"
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 7393,
+    "attributes": [
+     {
+      "name": "Veľkosť balenia",
+      "value": "250g"
+     },
+     {
+      "name": "Praženie",
+      "value": null
+     },
+     {
+      "name": "Mletie",
+      "value": null
+     }
+    ]
+   },
+   {
+    "id": 7394,
+    "attributes": [
+     {
+      "name": "Veľkosť balenia",
+      "value": "500g"
+     },
+     {
+      "name": "Praženie",
+      "value": null
+     },
+     {
+      "name": "Mletie",
+      "value": null
+     }
+    ]
+   },
+   {
+    "id": 7395,
+    "attributes": [
+     {
+      "name": "Veľkosť balenia",
+      "value": "1000g"
+     },
+     {
+      "name": "Praženie",
+      "value": null
+     },
+     {
+      "name": "Mletie",
+      "value": null
+     }
+    ]
+   }
+  ],
+  "is_in_stock": true
+ },
+ {
+  "id": 864,
+  "name": "Káva PERU",
+  "permalink": "https://www.praziarenepera.sk/produkt/peru/",
+  "short_description": "<p>Peru je 100% arabika so stredným telom, jemnou aciditou v dochuti a korenistou arómou. Príjemne sladká vôňa peruánskej kávy Vás očarí lahodným prepojením chutí.</p>",
+  "description": "<p>Peru je 100% arabika so stredným telom, jemnou aciditou v dochuti a korenistou arómou. Príjemne sladká vôňa peruánskej kávy Vás očarí lahodným prepojením chutí.</p>\n<p>Peru sa teší neustále väčšiemu dopytu po ich kávach. Hrdo si drží prvé miesto v rebríčku najväčších producentov organických káv na svete. Pestovaním a spracovaním kávy sa v Peru živí približne 125 tisíc rodín.</p>\n<p>Odporúčaná príprava: moka, french press, espresso.<br />\nChuťový profil: korenie, orechy, med</p>\n<p>Krajina: Peru<br />\nRegión: San Martin<br />\nDružstvo: Oro Verde</p>",
+  "prices": {
+   "price": "890",
+   "regular_price": "890",
+   "sale_price": "890",
+   "price_range": {
+    "min_amount": "890",
+    "max_amount": "2890"
+   },
+   "currency_code": "EUR",
+   "currency_symbol": "€",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ",",
+   "currency_thousand_separator": "",
+   "currency_prefix": "",
+   "currency_suffix": " €"
+  },
+  "average_rating": "5.00",
+  "review_count": 4,
+  "images": [
+   {
+    "id": 1049,
+    "src": "https://www.praziarenepera.sk/wp-content/uploads/2022/06/peru.jpg",
+    "thumbnail": "https://www.praziarenepera.sk/wp-content/uploads/2022/06/peru-310x413.jpg",
+    "srcset": "https://www.praziarenepera.sk/wp-content/uploads/2022/06/peru.jpg 1200w, https://www.praziarenepera.sk/wp-content/uploads/2022/06/peru-300x200.jpg 300w, https://www.praziarenepera.sk/wp-content/uploads/2022/06/peru-1024x683.jpg 1024w, https://www.praziarenepera.sk/wp-content/uploads/2022/06/peru-768x512.jpg 768w, https://www.praziarenepera.sk/wp-content/uploads/2022/06/peru-600x400.jpg 600w",
+    "sizes": "(max-width: 1200px) 100vw, 1200px",
+    "thumbnail_srcset": "",
+    "thumbnail_sizes": "(max-width: 310px) 100vw, 310px",
+    "name": "peru",
+    "alt": ""
+   },
+   {
+    "id": 1084,
+    "src": "https://www.praziarenepera.sk/wp-content/uploads/2022/06/9.jpg",
+    "thumbnail": "https://www.praziarenepera.sk/wp-content/uploads/2022/06/9-310x413.jpg",
+    "srcset": "https://www.praziarenepera.sk/wp-content/uploads/2022/06/9.jpg 1200w, https://www.praziarenepera.sk/wp-content/uploads/2022/06/9-300x200.jpg 300w, https://www.praziarenepera.sk/wp-content/uploads/2022/06/9-1024x683.jpg 1024w, https://www.praziarenepera.sk/wp-content/uploads/2022/06/9-768x512.jpg 768w, https://www.praziarenepera.sk/wp-content/uploads/2022/06/9-600x400.jpg 600w",
+    "sizes": "(max-width: 1200px) 100vw, 1200px",
+    "thumbnail_srcset": "",
+    "thumbnail_sizes": "(max-width: 310px) 100vw, 310px",
+    "name": "9",
+    "alt": ""
+   }
+  ],
+  "categories": [
+   {
+    "id": 20,
+    "name": "Čerstvá káva",
+    "slug": "cerstva-kava",
+    "link": "https://www.praziarenepera.sk/kategoria-produktu/cerstva-kava/"
+   }
+  ],
+  "attributes": [
+   {
+    "id": 1,
+    "name": "Praženie",
+    "taxonomy": "pa_prazenie",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 23,
+      "name": "Espresso (tmavé)",
+      "slug": "espresso-tmave"
+     }
+    ]
+   },
+   {
+    "id": 3,
+    "name": "Veľkosť balenia",
+    "taxonomy": "pa_velkost-balenia",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 31,
+      "name": "1000g",
+      "slug": "1000g"
+     },
+     {
+      "id": 29,
+      "name": "250g",
+      "slug": "250g"
+     },
+     {
+      "id": 30,
+      "name": "500g",
+      "slug": "500g"
+     }
+    ]
+   },
+   {
+    "id": 4,
+    "name": "Mletie",
+    "taxonomy": "pa_mletie",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 37,
+      "name": "Aeropress",
+      "slug": "mletie-aeropress"
+     },
+     {
+      "id": 33,
+      "name": "Espresso",
+      "slug": "mletie-espresso"
+     },
+     {
+      "id": 38,
+      "name": "Filter (chemex/V60)",
+      "slug": "mletie-filter-chemex-v60"
+     },
+     {
+      "id": 36,
+      "name": "French press",
+      "slug": "mletie-french-press"
+     },
+     {
+      "id": 35,
+      "name": "Moka (koťogo)",
+      "slug": "mletie-moka-kotogo"
+     },
+     {
+      "id": 34,
+      "name": "Zalievanie",
+      "slug": "mletie-zalievanie"
+     },
+     {
+      "id": 32,
+      "name": "Zrno (bez mletia)",
+      "slug": "ziadne-zrno"
+     }
+    ]
+   },
+   {
+    "id": 9,
+    "name": "Druh",
+    "taxonomy": "pa_druh",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 46,
+      "name": "100% arabika odrodová",
+      "slug": "100-arabika"
+     }
+    ]
+   },
+   {
+    "id": 7,
+    "name": "Odporúčaná príprava",
+    "taxonomy": "pa_odporucana-priprava",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 41,
+      "name": "Espresso",
+      "slug": "espresso"
+     },
+     {
+      "id": 42,
+      "name": "Filter",
+      "slug": "filter"
+     }
+    ]
+   },
+   {
+    "id": 8,
+    "name": "Chuťový profil",
+    "taxonomy": "pa_chutovy-profil",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 79,
+      "name": "Korenie",
+      "slug": "korenie"
+     },
+     {
+      "id": 81,
+      "name": "Med",
+      "slug": "med"
+     },
+     {
+      "id": 80,
+      "name": "Orechy",
+      "slug": "orechy"
+     }
+    ]
+   },
+   {
+    "id": 5,
+    "name": "Krajina",
+    "taxonomy": "pa_krajina",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 126,
+      "name": "Peru",
+      "slug": "peru"
+     }
+    ]
+   },
+   {
+    "id": 6,
+    "name": "Región",
+    "taxonomy": "pa_region",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 127,
+      "name": "San Martin",
+      "slug": "san-martin"
+     }
+    ]
+   },
+   {
+    "id": 14,
+    "name": "Farma",
+    "taxonomy": "pa_farma",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 128,
+      "name": "Oro Verde",
+      "slug": "oro-verde"
+     }
+    ]
+   },
+   {
+    "id": 13,
+    "name": "Odroda",
+    "taxonomy": "pa_odroda",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 129,
+      "name": "Caturra",
+      "slug": "caturra"
+     },
+     {
+      "id": 86,
+      "name": "Typica",
+      "slug": "typica"
+     }
+    ]
+   },
+   {
+    "id": 12,
+    "name": "Nadmorská výška",
+    "taxonomy": "pa_nadmorska-vyska",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 130,
+      "name": "1000 - 1200 m.n.m.",
+      "slug": "1000-1200-m-n-m"
+     }
+    ]
+   },
+   {
+    "id": 10,
+    "name": "Zber",
+    "taxonomy": "pa_zber",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 98,
+      "name": "Manuálny",
+      "slug": "manualny"
+     },
+     {
+      "id": 131,
+      "name": "marec - október",
+      "slug": "marec-oktober"
+     }
+    ]
+   },
+   {
+    "id": 11,
+    "name": "Spracovanie",
+    "taxonomy": "pa_spracovanie",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 117,
+      "name": "Fermentácia",
+      "slug": "fermentacia"
+     },
+     {
+      "id": 88,
+      "name": "Mokré",
+      "slug": "mokre"
+     }
+    ]
+   },
+   {
+    "id": 16,
+    "name": "Sušenie",
+    "taxonomy": "pa_susenie",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 100,
+      "name": "Slnečné žiarenie",
+      "slug": "slnecne-ziarenie"
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 865,
+    "attributes": [
+     {
+      "name": "Praženie",
+      "value": null
+     },
+     {
+      "name": "Veľkosť balenia",
+      "value": "250g"
+     },
+     {
+      "name": "Mletie",
+      "value": null
+     }
+    ]
+   },
+   {
+    "id": 866,
+    "attributes": [
+     {
+      "name": "Praženie",
+      "value": null
+     },
+     {
+      "name": "Veľkosť balenia",
+      "value": "500g"
+     },
+     {
+      "name": "Mletie",
+      "value": null
+     }
+    ]
+   },
+   {
+    "id": 867,
+    "attributes": [
+     {
+      "name": "Praženie",
+      "value": null
+     },
+     {
+      "name": "Veľkosť balenia",
+      "value": "1000g"
+     },
+     {
+      "name": "Mletie",
+      "value": null
+     }
+    ]
+   }
+  ],
+  "is_in_stock": true
+ },
+ {
+  "id": 3735,
+  "name": "Káva KOLUMBIA la CLAUDINA",
+  "permalink": "https://www.praziarenepera.sk/produkt/kava-kolumbia-la-claudina/",
+  "short_description": "<p>Lahodná vôňa do ktorej sa zamilujete ihneď po otvorení balíka kávy Kolumbia la Claudina. Jemná chuť prepojená s ovocnými tónmi sladkej slivky a finálnou chuťou sušených datlí si získa chuťové poháriky nie jedného nadšenca filtrovanej kávy. La Claudina pochádza z jedného z najvýznamnejších kávových regiónov Kolumbie, ktorý sa nachádza vo vyšších nadmorských výškach, čo má pozitívny vplyv na kvalitu zrna.</p>",
+  "description": "<p>Lahodná vôňa do ktorej sa zamilujete ihneď po otvorení balíka kávy Kolumbia la Claudina. Jemná chuť prepojená s ovocnými tónmi sladkej slivky a finálnou chuťou sušených datlí si získa chuťové poháriky nie jedného nadšenca filtrovanej kávy. La Claudina pochádza z jedného z najvýznamnejších kávových regiónov Kolumbie, ktorý sa nachádza vo vyšších nadmorských výškach, čo má pozitívny vplyv na kvalitu zrna.</p>\n<p>Odporúčaná príprava: filter<br />\nChuťový profil: slivky, hrozienka, sušené datle</p>\n<p>Krajina: Kolumbia<br />\nRegión: Ciudad Bolívar, Antioquia</p>\n<p>SCA: 86</p>",
+  "prices": {
+   "price": "1220",
+   "regular_price": "1220",
+   "sale_price": "1220",
+   "price_range": {
+    "min_amount": "1220",
+    "max_amount": "3890"
+   },
+   "currency_code": "EUR",
+   "currency_symbol": "€",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ",",
+   "currency_thousand_separator": "",
+   "currency_prefix": "",
+   "currency_suffix": " €"
+  },
+  "average_rating": "5.00",
+  "review_count": 1,
+  "images": [
+   {
+    "id": 3739,
+    "src": "https://www.praziarenepera.sk/wp-content/uploads/2023/09/kolumbia_la-claudina-scaled.jpg",
+    "thumbnail": "https://www.praziarenepera.sk/wp-content/uploads/2023/09/kolumbia_la-claudina-310x413.jpg",
+    "srcset": "https://www.praziarenepera.sk/wp-content/uploads/2023/09/kolumbia_la-claudina-scaled.jpg 2560w, https://www.praziarenepera.sk/wp-content/uploads/2023/09/kolumbia_la-claudina-300x200.jpg 300w, https://www.praziarenepera.sk/wp-content/uploads/2023/09/kolumbia_la-claudina-1024x683.jpg 1024w, https://www.praziarenepera.sk/wp-content/uploads/2023/09/kolumbia_la-claudina-768x512.jpg 768w, https://www.praziarenepera.sk/wp-content/uploads/2023/09/kolumbia_la-claudina-1536x1024.jpg 1536w, https://www.praziarenepera.sk/wp-content/uploads/2023/09/kolumbia_la-claudina-2048x1365.jpg 2048w, https://www.praziarenepera.sk/wp-content/uploads/2023/09/kolumbia_la-claudina-600x400.jpg 600w",
+    "sizes": "(max-width: 2560px) 100vw, 2560px",
+    "thumbnail_srcset": "",
+    "thumbnail_sizes": "(max-width: 310px) 100vw, 310px",
+    "name": "kolumbia_la claudina",
+    "alt": ""
+   },
+   {
+    "id": 1084,
+    "src": "https://www.praziarenepera.sk/wp-content/uploads/2022/06/9.jpg",
+    "thumbnail": "https://www.praziarenepera.sk/wp-content/uploads/2022/06/9-310x413.jpg",
+    "srcset": "https://www.praziarenepera.sk/wp-content/uploads/2022/06/9.jpg 1200w, https://www.praziarenepera.sk/wp-content/uploads/2022/06/9-300x200.jpg 300w, https://www.praziarenepera.sk/wp-content/uploads/2022/06/9-1024x683.jpg 1024w, https://www.praziarenepera.sk/wp-content/uploads/2022/06/9-768x512.jpg 768w, https://www.praziarenepera.sk/wp-content/uploads/2022/06/9-600x400.jpg 600w",
+    "sizes": "(max-width: 1200px) 100vw, 1200px",
+    "thumbnail_srcset": "",
+    "thumbnail_sizes": "(max-width: 310px) 100vw, 310px",
+    "name": "9",
+    "alt": ""
+   }
+  ],
+  "categories": [
+   {
+    "id": 20,
+    "name": "Čerstvá káva",
+    "slug": "cerstva-kava",
+    "link": "https://www.praziarenepera.sk/kategoria-produktu/cerstva-kava/"
+   }
+  ],
+  "attributes": [
+   {
+    "id": 1,
+    "name": "Praženie",
+    "taxonomy": "pa_prazenie",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 24,
+      "name": "Filter (svetlé)",
+      "slug": "filter-svetle",
+      "default": true
+     }
+    ]
+   },
+   {
+    "id": 3,
+    "name": "Veľkosť balenia",
+    "taxonomy": "pa_velkost-balenia",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 31,
+      "name": "1000g",
+      "slug": "1000g"
+     },
+     {
+      "id": 29,
+      "name": "250g",
+      "slug": "250g"
+     },
+     {
+      "id": 30,
+      "name": "500g",
+      "slug": "500g"
+     }
+    ]
+   },
+   {
+    "id": 4,
+    "name": "Mletie",
+    "taxonomy": "pa_mletie",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 37,
+      "name": "Aeropress",
+      "slug": "mletie-aeropress"
+     },
+     {
+      "id": 33,
+      "name": "Espresso",
+      "slug": "mletie-espresso"
+     },
+     {
+      "id": 38,
+      "name": "Filter (chemex/V60)",
+      "slug": "mletie-filter-chemex-v60"
+     },
+     {
+      "id": 36,
+      "name": "French press",
+      "slug": "mletie-french-press"
+     },
+     {
+      "id": 35,
+      "name": "Moka (koťogo)",
+      "slug": "mletie-moka-kotogo"
+     },
+     {
+      "id": 34,
+      "name": "Zalievanie",
+      "slug": "mletie-zalievanie"
+     },
+     {
+      "id": 32,
+      "name": "Zrno (bez mletia)",
+      "slug": "ziadne-zrno"
+     }
+    ]
+   },
+   {
+    "id": 9,
+    "name": "Druh",
+    "taxonomy": "pa_druh",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 261,
+      "name": "100% arabika výberová",
+      "slug": "100-arabika-vyberova"
+     }
+    ]
+   },
+   {
+    "id": 12,
+    "name": "Nadmorská výška",
+    "taxonomy": "pa_nadmorska-vyska",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 313,
+      "name": "1320 - 1870",
+      "slug": "1320-1870"
+     }
+    ]
+   },
+   {
+    "id": 11,
+    "name": "Spracovanie",
+    "taxonomy": "pa_spracovanie",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 66,
+      "name": "Natural",
+      "slug": "natural"
+     }
+    ]
+   },
+   {
+    "id": 10,
+    "name": "Zber",
+    "taxonomy": "pa_zber",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 116,
+      "name": "september - december",
+      "slug": "september-december"
+     }
+    ]
+   },
+   {
+    "id": 13,
+    "name": "Odroda",
+    "taxonomy": "pa_odroda",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 68,
+      "name": "Castillo",
+      "slug": "castillo"
+     },
+     {
+      "id": 315,
+      "name": "Caturro",
+      "slug": "caturro"
+     }
+    ]
+   },
+   {
+    "id": 5,
+    "name": "Krajina",
+    "taxonomy": "pa_krajina",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 70,
+      "name": "Kolumbia",
+      "slug": "kolumbia"
+     }
+    ]
+   },
+   {
+    "id": 6,
+    "name": "Región",
+    "taxonomy": "pa_region",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 316,
+      "name": "Ciudad Bolívar, Antioquia",
+      "slug": "ciudad-bolivar-antioquia"
+     }
+    ]
+   },
+   {
+    "id": 8,
+    "name": "Chuťový profil",
+    "taxonomy": "pa_chutovy-profil",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 73,
+      "name": "Hrozienka",
+      "slug": "hrozienka"
+     },
+     {
+      "id": 317,
+      "name": "Slivky",
+      "slug": "slivky"
+     },
+     {
+      "id": 318,
+      "name": "Sušené datle",
+      "slug": "susene-datle"
+     }
+    ]
+   },
+   {
+    "id": 7,
+    "name": "Odporúčaná príprava",
+    "taxonomy": "pa_odporucana-priprava",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 42,
+      "name": "Filter",
+      "slug": "filter"
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 3736,
+    "attributes": [
+     {
+      "name": "Praženie",
+      "value": null
+     },
+     {
+      "name": "Veľkosť balenia",
+      "value": "1000g"
+     },
+     {
+      "name": "Mletie",
+      "value": null
+     }
+    ]
+   },
+   {
+    "id": 3737,
+    "attributes": [
+     {
+      "name": "Praženie",
+      "value": null
+     },
+     {
+      "name": "Veľkosť balenia",
+      "value": "500g"
+     },
+     {
+      "name": "Mletie",
+      "value": null
+     }
+    ]
+   },
+   {
+    "id": 3738,
+    "attributes": [
+     {
+      "name": "Praženie",
+      "value": null
+     },
+     {
+      "name": "Veľkosť balenia",
+      "value": "250g"
+     },
+     {
+      "name": "Mletie",
+      "value": null
+     }
+    ]
+   }
+  ],
+  "is_in_stock": true
+ },
+ {
+  "id": 13228,
+  "name": "Káva Burundi TURACO",
+  "permalink": "https://www.praziarenepera.sk/produkt/kava-burundi-turaco/",
+  "short_description": "<p class=\"isSelectedEnd\">Burundi Turaco je šťavnatá, sladká a osviežujúca výberová káva. V šálke ponúka príjemnú sviežosť, jemnú čajovosť a sladký dozvuk, ktoré spolu vytvárajú čistý a harmonický chuťový zážitok.</p>\n<p class=\"isSelectedEnd\">Turaco je pomenovaná podľa pestrofarebných vtákov, ktoré sú typické pre Burundi. Ide o fully washed kávu s hodnotením 84 bodov podľa SCA. Káva je zároveň IMPACT-verified, čo znamená, že pochádza z programu zameraného na zodpovedné získavanie kávy a podporu farmárov.</p>\n<p>Odporúčame ju na filtrovanú kávu, ale aj ako ovocné espresso.</p>\n<p>&nbsp;</p>",
+  "description": "<p class=\"isSelectedEnd\">V Burundi pestuje kávu veľké množstvo malých farmárov. Priemerný pestovateľ má približne 250 kávovníkov, často priamo vo svojej záhrade a ročne predá približne 200–300 kg kávových čerešní. Väčšina kávovníkov v krajine patrí k odrode Red Bourbon, ktorá je známa svojou vysokou kvalitou a príjemnou sladkosťou.</p>\n<p>Zaujímavé je aj postupné obnovovanie starých kávovníkov. Niektoré stromy v Burundi majú viac ako 50 rokov, no pre malých farmárov je ich kompletná výmena náročná, pretože nové stromy začínajú rodiť až po niekoľkých rokoch. Miestni partneri preto zakladajú škôlky a poskytujú farmárom nové sadenice za dostupné ceny.</p>\n<p>Odporúčaná príprava: filter, ovocné espresso, moka<br />\nChuťový profil: citrusy, čierny čaj, trstinový cukor</p>\n<p>Krajina: Burundi<br />\nRegión: Ngozi, Kayanza</p>\n<p>SCA: 84</p>",
+  "prices": {
+   "price": "1050",
+   "regular_price": "1050",
+   "sale_price": "1050",
+   "price_range": {
+    "min_amount": "1050",
+    "max_amount": "3390"
+   },
+   "currency_code": "EUR",
+   "currency_symbol": "€",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ",",
+   "currency_thousand_separator": "",
+   "currency_prefix": "",
+   "currency_suffix": " €"
+  },
+  "images": [
+   {
+    "id": 13232,
+    "src": "https://www.praziarenepera.sk/wp-content/uploads/2026/08/burundi_Turaco-scaled.jpg",
+    "thumbnail": "https://www.praziarenepera.sk/wp-content/uploads/2026/08/burundi_Turaco-310x413.jpg",
+    "srcset": "https://www.praziarenepera.sk/wp-content/uploads/2026/08/burundi_Turaco-scaled.jpg 2560w, https://www.praziarenepera.sk/wp-content/uploads/2026/08/burundi_Turaco-300x200.jpg 300w, https://www.praziarenepera.sk/wp-content/uploads/2026/08/burundi_Turaco-1024x683.jpg 1024w, https://www.praziarenepera.sk/wp-content/uploads/2026/08/burundi_Turaco-768x512.jpg 768w, https://www.praziarenepera.sk/wp-content/uploads/2026/08/burundi_Turaco-1536x1024.jpg 1536w, https://www.praziarenepera.sk/wp-content/uploads/2026/08/burundi_Turaco-2048x1365.jpg 2048w, https://www.praziarenepera.sk/wp-content/uploads/2026/08/burundi_Turaco-600x400.jpg 600w",
+    "sizes": "(max-width: 2560px) 100vw, 2560px",
+    "thumbnail_srcset": "",
+    "thumbnail_sizes": "(max-width: 310px) 100vw, 310px",
+    "name": "burundi_Turaco",
+    "alt": ""
+   },
+   {
+    "id": 13234,
+    "src": "https://www.praziarenepera.sk/wp-content/uploads/2026/08/Burundi-Turaco.png",
+    "thumbnail": "https://www.praziarenepera.sk/wp-content/uploads/2026/08/Burundi-Turaco-310x413.png",
+    "srcset": "https://www.praziarenepera.sk/wp-content/uploads/2026/08/Burundi-Turaco.png 1535w, https://www.praziarenepera.sk/wp-content/uploads/2026/08/Burundi-Turaco-300x248.png 300w, https://www.praziarenepera.sk/wp-content/uploads/2026/08/Burundi-Turaco-1024x847.png 1024w, https://www.praziarenepera.sk/wp-content/uploads/2026/08/Burundi-Turaco-768x635.png 768w, https://www.praziarenepera.sk/wp-content/uploads/2026/08/Burundi-Turaco-600x496.png 600w",
+    "sizes": "(max-width: 1535px) 100vw, 1535px",
+    "thumbnail_srcset": "",
+    "thumbnail_sizes": "(max-width: 310px) 100vw, 310px",
+    "name": "Burundi Turaco",
+    "alt": ""
+   },
+   {
+    "id": 1084,
+    "src": "https://www.praziarenepera.sk/wp-content/uploads/2022/06/9.jpg",
+    "thumbnail": "https://www.praziarenepera.sk/wp-content/uploads/2022/06/9-310x413.jpg",
+    "srcset": "https://www.praziarenepera.sk/wp-content/uploads/2022/06/9.jpg 1200w, https://www.praziarenepera.sk/wp-content/uploads/2022/06/9-300x200.jpg 300w, https://www.praziarenepera.sk/wp-content/uploads/2022/06/9-1024x683.jpg 1024w, https://www.praziarenepera.sk/wp-content/uploads/2022/06/9-768x512.jpg 768w, https://www.praziarenepera.sk/wp-content/uploads/2022/06/9-600x400.jpg 600w",
+    "sizes": "(max-width: 1200px) 100vw, 1200px",
+    "thumbnail_srcset": "",
+    "thumbnail_sizes": "(max-width: 310px) 100vw, 310px",
+    "name": "9",
+    "alt": ""
+   }
+  ],
+  "categories": [
+   {
+    "id": 20,
+    "name": "Čerstvá káva",
+    "slug": "cerstva-kava",
+    "link": "https://www.praziarenepera.sk/kategoria-produktu/cerstva-kava/"
+   }
+  ],
+  "attributes": [
+   {
+    "id": 1,
+    "name": "Praženie",
+    "taxonomy": "pa_prazenie",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 23,
+      "name": "Espresso (tmavé)",
+      "slug": "espresso-tmave"
+     },
+     {
+      "id": 24,
+      "name": "Filter (svetlé)",
+      "slug": "filter-svetle"
+     }
+    ]
+   },
+   {
+    "id": 3,
+    "name": "Veľkosť balenia",
+    "taxonomy": "pa_velkost-balenia",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 31,
+      "name": "1000g",
+      "slug": "1000g"
+     },
+     {
+      "id": 29,
+      "name": "250g",
+      "slug": "250g"
+     },
+     {
+      "id": 30,
+      "name": "500g",
+      "slug": "500g"
+     }
+    ]
+   },
+   {
+    "id": 4,
+    "name": "Mletie",
+    "taxonomy": "pa_mletie",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 37,
+      "name": "Aeropress",
+      "slug": "mletie-aeropress"
+     },
+     {
+      "id": 33,
+      "name": "Espresso",
+      "slug": "mletie-espresso"
+     },
+     {
+      "id": 38,
+      "name": "Filter (chemex/V60)",
+      "slug": "mletie-filter-chemex-v60"
+     },
+     {
+      "id": 36,
+      "name": "French press",
+      "slug": "mletie-french-press"
+     },
+     {
+      "id": 35,
+      "name": "Moka (koťogo)",
+      "slug": "mletie-moka-kotogo"
+     },
+     {
+      "id": 34,
+      "name": "Zalievanie",
+      "slug": "mletie-zalievanie"
+     },
+     {
+      "id": 32,
+      "name": "Zrno (bez mletia)",
+      "slug": "ziadne-zrno"
+     }
+    ]
+   },
+   {
+    "id": 9,
+    "name": "Druh",
+    "taxonomy": "pa_druh",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 261,
+      "name": "100% arabika výberová",
+      "slug": "100-arabika-vyberova"
+     }
+    ]
+   },
+   {
+    "id": 12,
+    "name": "Nadmorská výška",
+    "taxonomy": "pa_nadmorska-vyska",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 65,
+      "name": "1600 - 1900 m.n.m.",
+      "slug": "1600-1900-m-n-m"
+     }
+    ]
+   },
+   {
+    "id": 11,
+    "name": "Spracovanie",
+    "taxonomy": "pa_spracovanie",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 109,
+      "name": "Fully washed",
+      "slug": "fully-washed"
+     }
+    ]
+   },
+   {
+    "id": 13,
+    "name": "Odroda",
+    "taxonomy": "pa_odroda",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 265,
+      "name": "Red Bourbon",
+      "slug": "red-bourbon"
+     }
+    ]
+   },
+   {
+    "id": 5,
+    "name": "Krajina",
+    "taxonomy": "pa_krajina",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 266,
+      "name": "Burundi",
+      "slug": "burundi"
+     }
+    ]
+   },
+   {
+    "id": 6,
+    "name": "Región",
+    "taxonomy": "pa_region",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 502,
+      "name": "Ngozi, Kayanza",
+      "slug": "ngozi-kayanza"
+     }
+    ]
+   },
+   {
+    "id": 8,
+    "name": "Chuťový profil",
+    "taxonomy": "pa_chutovy-profil",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 462,
+      "name": "čierny čaj",
+      "slug": "cierny-caj"
+     },
+     {
+      "id": 503,
+      "name": "Citrusy",
+      "slug": "citrusy"
+     },
+     {
+      "id": 93,
+      "name": "Trstinový cukor",
+      "slug": "trstinovy-cukor"
+     }
+    ]
+   },
+   {
+    "id": 7,
+    "name": "Odporúčaná príprava",
+    "taxonomy": "pa_odporucana-priprava",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 41,
+      "name": "Espresso",
+      "slug": "espresso"
+     },
+     {
+      "id": 42,
+      "name": "Filter",
+      "slug": "filter"
+     }
+    ]
+   },
+   {
+    "id": 10,
+    "name": "Zber",
+    "taxonomy": "pa_zber",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 504,
+      "name": "marec - júl",
+      "slug": "marec-jul"
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 13229,
+    "attributes": [
+     {
+      "name": "Praženie",
+      "value": null
+     },
+     {
+      "name": "Veľkosť balenia",
+      "value": "1000g"
+     },
+     {
+      "name": "Mletie",
+      "value": null
+     }
+    ]
+   },
+   {
+    "id": 13230,
+    "attributes": [
+     {
+      "name": "Praženie",
+      "value": null
+     },
+     {
+      "name": "Veľkosť balenia",
+      "value": "500g"
+     },
+     {
+      "name": "Mletie",
+      "value": null
+     }
+    ]
+   },
+   {
+    "id": 13231,
+    "attributes": [
+     {
+      "name": "Praženie",
+      "value": null
+     },
+     {
+      "name": "Veľkosť balenia",
+      "value": "250g"
+     },
+     {
+      "name": "Mletie",
+      "value": null
+     }
+    ]
+   }
+  ],
+  "is_in_stock": true
+ }
+]

@@ -2,15 +2,14 @@ from __future__ import annotations
 
 import json
 import tomllib
-import urllib.robotparser
-from typing import TYPE_CHECKING, cast
+from typing import TYPE_CHECKING, Final, cast
 
 import pytest
 
 from coffee_aggregator import platforms, sites
-from coffee_aggregator.http import FetchDisallowed, FetchResult
+from coffee_aggregator.http import FetchDisallowed, FetchResult, parse_robots
+from coffee_aggregator.labels import KNOWN_FIELDS
 from coffee_aggregator.models import ProcessMethod, RoastLevel, RoastProfile
-from coffee_aggregator.platforms.shoptet import KNOWN_FIELDS
 from coffee_aggregator.platforms.woocommerce import (
     DEFAULT_LABEL_MAP,
     WooConfigError,
@@ -520,8 +519,8 @@ def test_html_detail_page_prices_every_weight(ebenica: WooSite) -> None:
 
 
 def test_robots_txt_closes_the_store_api_on_the_html_mode_shop() -> None:
-    parser = urllib.robotparser.RobotFileParser()
-    parser.parse((FIXTURE_ROOT / EBENICA / "robots.txt").read_text("utf-8").splitlines())
+    """Read through the fetcher's own parser, which is what gates a real crawl."""
+    parser = parse_robots((FIXTURE_ROOT / EBENICA / "robots.txt").read_text("utf-8"))
 
     assert not parser.can_fetch(
         "coffee-aggregator", "https://ebenica.sk/wp-json/wc/store/v1/products"
@@ -531,10 +530,7 @@ def test_robots_txt_closes_the_store_api_on_the_html_mode_shop() -> None:
 
 def test_the_open_shops_allow_the_store_api() -> None:
     for site_id, host in (("kavaloka", "https://www.kavaloka.cz"), ("ripit", "https://ripit.sk")):
-        parser = urllib.robotparser.RobotFileParser()
-        parser.parse(
-            (FIXTURE_ROOT / f"woo_{site_id}" / "robots.txt").read_text("utf-8").splitlines()
-        )
+        parser = parse_robots((FIXTURE_ROOT / f"woo_{site_id}" / "robots.txt").read_text("utf-8"))
         assert parser.can_fetch("coffee-aggregator", f"{host}/wp-json/wc/store/v1/products")
 
 
@@ -599,8 +595,15 @@ def _woo_config_ids() -> list[str]:
 SHIPPED = _woo_config_ids()
 
 
-def test_the_shipped_woo_configs_are_the_ones_under_test() -> None:
-    assert SHIPPED == ["ebenica", "kavaloka", "ripit"]
+#: Most shops are onboarded by writing a config and validating it against the
+#: live shop, so only the few that exercise a parsing path of their own keep a
+#: saved page here. tests/test_site_configs.py is what checks every config.
+WITH_FIXTURES = [name for name in SHIPPED if (FIXTURE_ROOT / f"woo_{name}").is_dir()]
+
+
+def test_some_shops_still_keep_a_saved_page() -> None:
+    """The saved pages are the regression net under the parser; never let it empty."""
+    assert len(WITH_FIXTURES) >= 3
 
 
 @pytest.mark.parametrize("site_id", SHIPPED)
@@ -609,11 +612,10 @@ def test_every_shipped_config_is_registered(site_id: str) -> None:
     assert site_id in registered
 
 
-@pytest.mark.parametrize("site_id", SHIPPED)
-def test_every_shipped_config_reads_its_saved_pages(site_id: str) -> None:
+@pytest.mark.parametrize("site_id", WITH_FIXTURES)
+def test_every_saved_page_still_parses(site_id: str) -> None:
     site = cast("WooSite", get_site(site_id))
     directory = FIXTURE_ROOT / f"woo_{site_id}"
-    assert directory.is_dir(), f"{site_id} ships no fixtures"
 
     coffees = [
         parse_api(site, item) for item in (_items(site_id) if site.config.mode == "api" else [])[:3]
@@ -643,3 +645,405 @@ def test_every_shipped_config_lists_a_reachable_fallback(site_id: str) -> None:
     site = cast("WooSite", get_site(site_id))
     assert site.config.category_urls, f"{site_id} has no HTML fallback"
     assert all(url.startswith(site.base_url) for url in site.config.category_urls)
+
+
+# --- the onboarded shops recover what their own payload states ---------------
+
+#: One captured product per shop onboarded from the Store API survey, with the
+#: values that shop's configuration must recover. Every value was read off the
+#: shop's own payload, which ``tests/fixtures/woo_<id>/`` keeps beside it.
+ONBOARDED: Final[dict[str, dict[str, object]]] = {
+    "25coffee": {
+        "id": 11584,
+        "name": "Peru Amazonas",
+        "price": 9.8,
+        "currency": "EUR",
+        "weight_g": 250,
+        "country": "PE",
+        "region": "Amazonas",
+        "variety": ["Bourbon", "Typica"],
+        "altitude_min_m": 1500,
+        "producer": "drobní farmári",
+        "process": ProcessMethod.WASHED,
+        "flavor_notes": ["čokoláda", "oriešky", "sušené ovocie"],
+    },
+    "aurelica": {
+        "id": 3669,
+        "name": "Guatemala – Finca La Bolsa – espresso roast",
+        "price": 13.0,
+        "currency": "EUR",
+        "weight_g": 250,
+        "country": "GT",
+        "region": "La Libertad",
+        "variety": ["Caturra & Bourbon"],
+        "altitude_min_m": 1300,
+        "farm": "Finca La Bolsa",
+        "process": ProcessMethod.OTHER,
+    },
+    "bozinroastery": {
+        "id": 16430,
+        "name": "Brazilian Honey Propolis – Pražená zrnková káva",
+        "price": 12.0,
+        "currency": "EUR",
+        "weight_g": 200,
+        "country": "BR",
+        "region": "Cerrado Mineiro",
+        "variety": ["Topázio"],
+        "altitude_min_m": 960,
+        "farm": "Fazenda Recanto",
+        "producer": "Rafael Vinhal",
+        "process": ProcessMethod.HONEY,
+        "flavor_notes": ["Kvetinový", "medový", "sladký", "stredné telo", "dlhotrvajúci povrchový"],
+    },
+    "caffe4u": {
+        "id": 637,
+        "name": "Panama Geisha",
+        "price": 15.0,
+        "currency": "EUR",
+        "weight_g": 150,
+        "country": "PA",
+        "region": "Boquete",
+        "variety": ["Geisha"],
+        "altitude_min_m": 1700,
+        "farm": "Hacienda La Esmeralda",
+        "process": ProcessMethod.WASHED,
+        "roast": RoastLevel.DARK,
+        "sca_score": 91.5,
+        "flavor_notes": ["jahody v čokoláde", "jazmín", "med"],
+    },
+    "cokafe": {
+        "id": 20937,
+        "name": "Etiopie Chelbesa – filtr",
+        "price": 400.0,
+        "currency": "CZK",
+        "weight_g": 250,
+        "country": "ET",
+        "region": "Gedeb, Etiopie",
+        "variety": ["Heirloom"],
+        "altitude_min_m": 2200,
+        "farm": "Chelbesa",
+        "producer": "Ephtah Specialty Coffee",
+        "process": ProcessMethod.WASHED,
+        "flavor_notes": ["Broskev", "černý čaj", "jasmín", "hnědý cukr"],
+    },
+    "finecoffee": {
+        "id": 211,
+        "name": "Fine Coffee Keňa AA TOP",
+        "price": 7.9,
+        "currency": "EUR",
+        "weight_g": 250,
+        "country": "KE",
+        "variety": ["Ruiru", "Batian hybrid"],
+        "altitude_min_m": 1500,
+        "farm": "Var. Small coffee growers",
+        "process": ProcessMethod.WASHED,
+        "roast": RoastLevel.MEDIUM,
+        "flavor_notes": ["citrusový charakter", "trpkejší grepový tón", "chuť karamelu"],
+    },
+    "goodtimes": {
+        "id": 1138,
+        "name": "Brazil Doce Diamantina",
+        "price": 9.0,
+        "currency": "EUR",
+        "weight_g": 200,
+        "country": "BR",
+        "region": "Cerrado",
+        "variety": ["Catuaí", "Mundo Novo"],
+        "altitude_min_m": 800,
+        "process": ProcessMethod.NATURAL,
+        "roast": RoastLevel.MEDIUM_DARK,
+        "flavor_notes": ["Lieskovce", "kakaové bôby", "cukrová trstina"],
+    },
+    "goriffee": {
+        "id": 4142,
+        "name": "Burundi Gakenke Washed",
+        "price": 16.0,
+        "currency": "EUR",
+        "weight_g": 250,
+        "country": "BI",
+        "roast": RoastLevel.LIGHT,
+        "flavor_notes": ["Citrusová", "Ovocná", "Sladká"],
+    },
+    "illimite": {
+        "id": 145847,
+        "name": "Colombia – Satus Geisha",
+        "price": 15.0,
+        "currency": "EUR",
+        "weight_g": 100,
+        "country": "CO",
+        "region": "Pitalito, Huila",
+        "variety": ["Geisha"],
+        "altitude_min_m": 1600,
+        "farm": "Satus",
+        "process": ProcessMethod.NATURAL,
+    },
+    "industra": {
+        "id": 26384,
+        "name": "KOLUMBIE, El Mandarino, espresso",
+        "price": 360.0,
+        "currency": "CZK",
+        "weight_g": 250,
+        "country": "CO",
+        "variety": ["Caturra", "Colombia", "Castillo"],
+        "farm": "Pitalito, Huila",
+        "process": ProcessMethod.WASHED,
+        "flavor_notes": ["Hrozny", "sušené švestky", "nugát"],
+    },
+    "kmen": {
+        "id": 22383,
+        "name": "Endebess",
+        "price": 360.0,
+        "currency": "CZK",
+        "weight_g": 250,
+        "country": "KE",
+        "region": "Trans Nzoiya/Northern Rift Valley",
+        "variety": ["Batian", "Ruiru11", "SL28", "SL34"],
+        "farm": "Endebess Estate",
+        "producer": "Kaitet Tea Plntation",
+        "process": ProcessMethod.NATURAL,
+        "flavor_notes": ["čokoládový likér", "grepová marmeláda", "lesní jahody"],
+    },
+    "longberry": {
+        "id": 28759,
+        "name": "JAMAICA BLUE M.",
+        "price": 399.0,
+        "currency": "CZK",
+        "weight_g": 100,
+        "country": "JM",
+        "region": "Mountains",
+        "variety": ["Catimor", "Typica"],
+        "altitude_min_m": 1800,
+        "farm": "St. Andrew parish Blue",
+        "process": ProcessMethod.WASHED,
+        "flavor_notes": ["Ořechy", "Jasmín", "Koření"],
+    },
+    "praziarenepera": {
+        "id": 7392,
+        "name": "Káva BRAZÍLIA CHOCOLATE",
+        "price": 9.7,
+        "currency": "EUR",
+        "weight_g": 250,
+        "country": "BR",
+        "region": "Triangulo Mineiro",
+        "variety": ["Yellow Catuai"],
+        "altitude_min_m": 942,
+        "farm": "Fazenda Pereira",
+        "producer": "Enivaldo Marinho Pereira",
+        "process": ProcessMethod.NATURAL,
+        "roast": RoastLevel.DARK,
+        "sca_score": 84.0,
+        "flavor_notes": ["Čokoláda", "Karamel", "Mandle"],
+    },
+    "riksakava": {
+        "id": 854,
+        "name": "Ethiopia Yirgacheffe",
+        "price": 13.78,
+        "currency": "EUR",
+        "weight_g": 250,
+        "country": "ET",
+        "variety": ["Bourbon"],
+        "altitude_min_m": 1700,
+        "producer": "Belcho Rufo",
+        "process": ProcessMethod.WASHED,
+        "sca_score": 86.0,
+    },
+    "seriouscoffee": {
+        "id": 3531,
+        "name": "Etiopia Guji GR1",
+        "price": 12.9,
+        "currency": "EUR",
+        "weight_g": 250,
+        "country": "ET",
+        "region": "Guji",
+        "variety": ["heirloom"],
+        "altitude_min_m": 1850,
+        "farm": "Dambi Uddo",
+        "process": ProcessMethod.NATURAL,
+        "flavor_notes": ["sušené ovocie", "čučoriedka", "jazmín"],
+    },
+    "severan": {
+        "id": 2608,
+        "name": "BRAZÍLIA – SUL DE MINAS",
+        "price": 8.6,
+        "currency": "EUR",
+        "weight_g": 250,
+        "country": "BR",
+        "variety": ["Yellow Catuaí"],
+        "altitude_min_m": 950,
+        "producer": "Viac farmárov",
+        "process": ProcessMethod.NATURAL,
+        "flavor_notes": ["Kakao", "čokoláda", "karamel", "citrón"],
+    },
+    "spiritcoffee": {
+        "id": 4358,
+        "name": "Etiópska káva: Ethiopia SIDAMO Grade 2",
+        "price": 9.9,
+        "currency": "EUR",
+        "weight_g": 250,
+        "country": "ET",
+        "region": "Sidamo",
+        "variety": ["Bourbon"],
+        "process": ProcessMethod.WASHED,
+        "roast": RoastLevel.MEDIUM,
+    },
+    "sweetbeans": {
+        "id": 12002,
+        "name": "Colombia Attia | washed",
+        "price": 14.0,
+        "currency": "EUR",
+        "weight_g": 200,
+        "country": "CO",
+        "region": "Cafe Agario, Ortega, Tolima",
+        "variety": ["Nyasaland", "SL14", "SL28"],
+        "altitude_min_m": 800,
+        "process": ProcessMethod.WASHED,
+        "sca_score": 86.5,
+        "flavor_notes": [
+            "Blackberry",
+            "red plum",
+            "honeyed tone",
+            "red fruit",
+            "dark chocolate",
+            "sweet finish",
+            "cola",
+        ],
+    },
+    "tokycaffe": {
+        "id": 33172,
+        "name": "Signature Brazil Espresso 250\xa0g",
+        "price": 11.5,
+        "currency": "EUR",
+        "weight_g": 250,
+        "country": "BR",
+        "variety": ["SIGNATURE BRAZIL Espresso"],
+        "farm": "Carolina Atalla.",
+        "process": ProcessMethod.HONEY,
+        "roast": RoastLevel.MEDIUM_DARK,
+        "sca_score": 84.5,
+        "flavor_notes": [
+            "Tropické ovocie",
+            "karamel",
+            "vanilka",
+            "med",
+            "pomarančový kvet",
+            "horká čokoláda",
+        ],
+    },
+    "trinitybeans": {
+        "id": 652,
+        "name": "El Salvador Santa Lucia",
+        "price": 14.0,
+        "currency": "EUR",
+        "weight_g": 250,
+        "country": "SV",
+        "region": "Santa Ana Volcano, Apaneca Ilamatepeq Mountain Range",
+        "variety": ["Sarchimor"],
+        "altitude_min_m": 1150,
+        "producer": "Santa Lucia, Hernandez family - René a Eduardo Hernandez",
+        "process": ProcessMethod.NATURAL,
+        "flavor_notes": ["černice", "karamel", "citrusové plody"],
+    },
+    "triplefivecoffee": {
+        "id": 5675853,
+        "name": "Brazil Mogiana (espresso) – B2B",
+        "price": 13.0,
+        "currency": "EUR",
+        "weight_g": 250,
+        "country": "BR",
+        "region": "Mogiana, São Paulo",
+        "variety": ["Caturra", "Catuaí"],
+        "altitude_min_m": 900,
+        "producer": "Smallholder farmers",
+        "process": ProcessMethod.NATURAL,
+        "flavor_notes": ["Sweet", "creamy", "chocolate fudge", "nougat", "nutty"],
+    },
+    "triproasters": {
+        "id": 1468,
+        "name": "PANAMA – FINCA HARTMANN",
+        "price": 16.0,
+        "currency": "EUR",
+        "weight_g": 250,
+        "country": "PA",
+        "region": "Santa Clara",
+        "variety": ["Catuai"],
+        "altitude_min_m": 1400,
+        "farm": "Finca Hartmann",
+        "process": ProcessMethod.HONEY,
+        "sca_score": 88.0,
+        "flavor_notes": ["Biela čokoláda", "Čučoriedky", "Slivky"],
+    },
+    "twohands": {
+        "id": 287,
+        "name": "Columbia La Secreta",
+        "price": 12.0,
+        "currency": "EUR",
+        "weight_g": 200,
+        "region": "Antioquia",
+        "altitude_min_m": 1700,
+        "producer": "Juan Carlos Mejia",
+        "process": ProcessMethod.WASHED,
+        "roast": RoastLevel.MEDIUM,
+        "flavor_notes": ["Mirabelky", "bylinné tóny", "šťavnatá papaja"],
+    },
+    "viemcoffee": {
+        "id": 5398,
+        "name": "Kolumbia Pink Bourbon by Hugo Gualaco",
+        "price": 8.6,
+        "currency": "EUR",
+        "weight_g": 200,
+        "country": "CO",
+        "region": "Huila, San Adolfo",
+        "variety": ["Pink bourbon"],
+        "altitude_min_m": 600,
+        "farm": "La Vega,",
+        "producer": "Hugo Gualaco",
+        "process": ProcessMethod.MIXED,
+        "roast": RoastLevel.MEDIUM,
+        "flavor_notes": ["pomelo", "biele hrozno", "kvetový med"],
+    },
+    "zrnco": {
+        "id": 4720,
+        "name": "Brazília",
+        "price": 9.9,
+        "currency": "EUR",
+        "weight_g": 250,
+        "country": "BR",
+        "roast": RoastLevel.MEDIUM_DARK,
+    },
+}
+
+#: A shop counts as onboarded when its name, price, currency and weight come
+#: through together with at least two of these.
+ORIGIN_KEYS: Final = ("country", "region", "variety", "altitude_min_m", "process", "roast")
+
+
+def _actual(coffee: Coffee) -> dict[str, object]:
+    return {
+        "name": coffee.name,
+        "price": coffee.price,
+        "currency": coffee.currency,
+        "weight_g": coffee.weight_g,
+        "country": coffee.origin.country,
+        "region": coffee.origin.region,
+        "variety": coffee.origin.variety,
+        "altitude_min_m": coffee.origin.altitude_min_m,
+        "farm": coffee.origin.farm,
+        "producer": coffee.origin.producer,
+        "process": coffee.processing.method,
+        "roast": coffee.roast.level,
+        "sca_score": coffee.taste.sca_score,
+        "flavor_notes": coffee.taste.flavor_notes,
+    }
+
+
+@pytest.mark.parametrize("site_id", sorted(ONBOARDED))
+def test_an_onboarded_shop_recovers_the_values_its_payload_states(site_id: str) -> None:
+    expected = dict(ONBOARDED[site_id])
+    product_id = cast("int", expected.pop("id"))
+    site = cast("WooSite", get_site(site_id))
+
+    coffee = parse_api(site, _by_id(site_id, product_id))
+
+    actual = _actual(coffee)
+    assert {key: actual[key] for key in expected} == expected
+    assert sum(1 for key in ORIGIN_KEYS if key in expected) >= 2

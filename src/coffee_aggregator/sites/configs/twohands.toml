@@ -1,0 +1,33 @@
+# Two Hands Roastery — a 28-field schema with only a bundle attribute, but
+# the description carries a full "Label: value" block. The catalogue also
+# sells brewing gear and merch.
+platform = "woocommerce"
+site_id = "twohands"
+name = "Two Hands Roastery"
+country = "SK"
+base_url = "https://www.twohands.sk/"
+currency = "EUR"
+mode = "api"
+max_pages = 10
+
+# Pinned ids, not slugs: ids survive a re-theme, slugs do not.
+# 25 kava (11).
+api_category_ids = [25]
+
+# The HTML fallback, used only if /wp-json/ ever stops answering.
+category_urls = [
+  "https://www.twohands.sk/kava/",
+]
+
+# The catalogue also sells things that are not coffee beans.
+ignore = [
+  "pins",
+  "tote bag",
+  "siltovka",
+  "t-shirt",
+  "ciapka",
+  "kanvica",
+  "dripper",
+  "chemex",
+  "aeropress",
+]

@@ -63,11 +63,16 @@ def register[AdapterT: type[SiteAdapter]](cls: AdapterT) -> AdapterT:
     return cls
 
 
-def register_instance(adapter: SiteAdapter) -> SiteAdapter:
+def register_instance(adapter: SiteAdapter, *, replace: bool = False) -> SiteAdapter:
     """Register an already-built adapter, as TOML-configured shops need.
 
     Args:
         adapter: The adapter instance to publish.
+        replace: Whether an instance already under that id may be overwritten.
+            Discovery passes it: it rebuilds every configured shop from its
+            TOML, so meeting the shop it built last time is not a clash. A
+            bespoke module's id is never replaceable — that collision means two
+            shops really do claim one name.
 
     Returns:
         The adapter unchanged.
@@ -75,7 +80,8 @@ def register_instance(adapter: SiteAdapter) -> SiteAdapter:
     Raises:
         DuplicateSiteError: When the id is already taken.
     """
-    if adapter.site_id in _REGISTRY or adapter.site_id in _INSTANCES:
+    taken = adapter.site_id in _REGISTRY or (adapter.site_id in _INSTANCES and not replace)
+    if taken:
         raise DuplicateSiteError(adapter.site_id)
     _INSTANCES[adapter.site_id] = adapter
     logger.debug("registered configured site %s", adapter.site_id)
@@ -115,6 +121,14 @@ def instance(site_id: str) -> SiteAdapter:
 
 
 def clear() -> None:
-    """Forget every registration (used by the tests)."""
+    """Forget every registration, and that discovery ever ran (used by the tests).
+
+    The loader's "did we import yet" flag is part of this state: leaving it set
+    over an emptied registry is how a cleared registry stays empty for the rest
+    of the process.
+    """
+    from coffee_aggregator.sites import loader  # noqa: PLC0415  (avoids an import cycle)
+
     _REGISTRY.clear()
     _INSTANCES.clear()
+    loader.reset()

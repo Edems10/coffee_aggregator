@@ -1,0 +1,11 @@
+# APe pražírna — a small certified-organic listing; every product name carries
+# the CZ-BIO-003 certification code.
+platform = "shoptet"
+site_id = "apecafe"
+name = "APe Pražírna a balírna"
+country = "CZ"
+base_url = "https://www.apecafe.cz/"
+category_urls = ["https://www.apecafe.cz/vyberova-kava/"]
+currency = "CZK"
+max_pages = 10
+pagination = "path"

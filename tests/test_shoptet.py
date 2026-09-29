@@ -6,15 +6,12 @@ import pytest
 
 from coffee_aggregator import platforms, sites
 from coffee_aggregator.http import FetchResult
+from coffee_aggregator.labels import F_PROCESS, F_WEIGHT, KNOWN_FIELDS, Labels
 from coffee_aggregator.models import ProcessMethod, RoastLevel, RoastProfile
 from coffee_aggregator.platforms.shoptet import (
     DEFAULT_LABEL_MAP,
-    F_PROCESS,
-    F_WEIGHT,
-    KNOWN_FIELDS,
     ShoptetConfigError,
     ShoptetSite,
-    _Labels,
 )
 from coffee_aggregator.sites import get as get_site
 from coffee_aggregator.sites.base import ProductRef
@@ -340,18 +337,7 @@ def test_a_page_without_a_product_block_parses_to_none(redfawn: ShoptetSite) -> 
 # --- configuration -----------------------------------------------------------
 
 
-def _write(tmp_path: Path, body: str, name: str = "shop.toml") -> Path:
-    path = tmp_path / name
-    path.write_text(body, encoding="utf-8")
-    return path
-
-
-def test_label_map_override_maps_a_label_the_defaults_do_not_know(
-    tmp_path: Path,
-    fixture_html: Callable[[str, str], str],
-) -> None:
-    """``Bližší určení`` is this shop's own word for the region."""
-    base = """
+_PROBE = """
 platform = "shoptet"
 site_id = "kavypitel-probe"
 name = "probe"
@@ -359,18 +345,45 @@ country = "CZ"
 base_url = "https://www.kavypitel.cz/"
 category_urls = ["/kava-z-ruznych-koutu-sveta/"]
 """
-    html = fixture_html(KAVYPITEL, "detail_brasil.html")
-    plain = cast("ShoptetSite", platforms.build_from_config(_write(tmp_path, base, "plain.toml")))
-    assert parse(plain, html, "1775", "https://x/").origin.region is None
 
-    override = base + '\n[label_map]\n"Bližší určení" = "region"\n'
+
+def _write(tmp_path: Path, body: str, name: str = "shop.toml") -> Path:
+    path = tmp_path / name
+    path.write_text(body, encoding="utf-8")
+    return path
+
+
+def test_the_shared_vocabulary_reads_a_shop_label_without_any_override(
+    tmp_path: Path,
+    fixture_html: Callable[[str, str], str],
+) -> None:
+    """``Bližší určení`` is ordinary Czech, so no shop has to spell it out."""
+    html = fixture_html(KAVYPITEL, "detail_brasil.html")
+    plain = cast("ShoptetSite", platforms.build_from_config(_write(tmp_path, _PROBE, "plain.toml")))
+
+    coffee = parse(plain, html, "1775", "https://x/")
+
+    assert coffee.origin.region == "Brasil, Sul De Minas"
+    assert "BLIŽŠÍ URČENÍ" in coffee.raw_attributes
+
+
+def test_a_shop_label_map_overrules_the_shared_vocabulary(
+    tmp_path: Path,
+    fixture_html: Callable[[str, str], str],
+) -> None:
+    """A shop that means something else by a term says so in its own TOML."""
+    html = fixture_html(KAVYPITEL, "detail_brasil.html")
+    override = _PROBE + '\n[label_map]\n"Bližší určení" = ""\n'
     mapped = cast(
         "ShoptetSite",
         platforms.build_from_config(_write(tmp_path, override, "mapped.toml")),
     )
-    assert parse(mapped, html, "1775", "https://x/").origin.region == "Brasil, Sul De Minas"
-    # the label is in raw_attributes either way
-    assert "BLIŽŠÍ URČENÍ" in parse(plain, html, "1775", "https://x/").raw_attributes
+
+    coffee = parse(mapped, html, "1775", "https://x/")
+
+    assert coffee.origin.region is None
+    # dropping it from the typed field never drops it from the record
+    assert "BLIŽŠÍ URČENÍ" in coffee.raw_attributes
 
 
 def test_a_minimal_toml_yields_a_working_adapter(tmp_path: Path) -> None:
@@ -426,7 +439,7 @@ def test_a_broken_toml_is_rejected_with_an_actionable_message(
 
 
 def _mapped(label: str, value: str) -> dict[str, str]:
-    labels = _Labels()
+    labels = Labels()
     labels.add(label, value, DEFAULT_LABEL_MAP)
     return labels.by_field
 
@@ -479,7 +492,7 @@ def test_an_implausible_value_never_feeds_its_field(
     field_name: str,
 ) -> None:
     assert field_name not in _mapped(label, value)
-    assert _Labels().raw == {}  # …but the raw dictionary of a real page keeps it
+    assert Labels().raw == {}  # …but the raw dictionary of a real page keeps it
 
 
 def test_a_country_label_that_names_no_country_is_not_used() -> None:

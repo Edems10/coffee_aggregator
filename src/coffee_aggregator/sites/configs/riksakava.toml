@@ -1,0 +1,24 @@
+# Rikša Káva — the oldest Store API schema in the survey (27 fields, no
+# slug/weight/_links). Origin data is a "Label: value" block.
+platform = "woocommerce"
+site_id = "riksakava"
+name = "Rikša Káva"
+country = "SK"
+base_url = "https://www.riksakava.sk/"
+currency = "EUR"
+mode = "api"
+max_pages = 10
+
+# Pinned ids, not slugs: ids survive a re-theme, slugs do not.
+# 16 ponuka-kav (11).
+api_category_ids = [16]
+
+# The HTML fallback, used only if /wp-json/ ever stops answering.
+category_urls = [
+  "https://www.riksakava.sk/product-category/ponuka-kav/",
+]
+
+# The catalogue also sells things that are not coffee beans.
+ignore = [
+  "kavostroj",
+]

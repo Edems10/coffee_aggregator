@@ -1,0 +1,1091 @@
+[
+ {
+  "id": 22383,
+  "name": "Endebess",
+  "permalink": "https://kmen.coffee/product/endebess/",
+  "sku": "Endebess",
+  "short_description": "<p><span style=\"font-weight: 400\">Espresso, co vítá hřejivé sluneční paprsky po zimním spánku! Tuhle naturální Keňu jsme si loni zamilovali my i vy, a proto bylo více než jasné, že ji musíme mít zas. Při prvním doušku ucítíte svěžest grepové marmelády, lesních jahod a může vás překvapit vyšší acidita. Dochuť je však velmi dlouhá a plná čokoládového likéru. Přestože má espresso vyšší aciditu, je komplexní, plné a rozumí si dobře i s mlékem.</span></p>",
+  "description": "<p><span style=\"font-weight: 400\">Farma Endebess Estate se nachází v severní části keňského údolí Ri, nedaleko tržního města Kitale v okrese Trans Nzoiya. Endebess Estate má přibližně 750 hektarů celkové rozlohy a z toho 1/3 připadá na kávu. Zralé kávové třešně farmáři plně promyli sladkou říční vodou z řeky Koitobos a poté je sušili téměř 28 dní na slunci na afrických postelích. Každý den je nejméně čtyřikrát za den otáčeli, aby schly rovnoměrně. To znamená celkem 112x je otočit, wau. Po usušení ze zrnek odstranili dužinu ve speciální loupačce a nechali je ještě několik dní odpočívat. </span></p>\n<p><span style=\"font-weight: 400\">V údolí Ri se nachází pohoří Cherang&#8217;any a řetězec sopek, z nichž některé jsou stále aktivní. Cherang&#8217;any Hills jsou jedním z pěti hlavních keňských lesů a povodí a rozkládají se na území tří okresů, a to Trans Nzoia, Elgeyo Marakwet a West Pokot. Farma Endebess Estate se nachází na úpatí hory Elgon, vyhaslé štítové sopky na hranicích Ugandy a Keni.</span></p>",
+  "prices": {
+   "price": "360",
+   "regular_price": "360",
+   "sale_price": "360",
+   "price_range": {
+    "min_amount": "360",
+    "max_amount": "1270"
+   },
+   "currency_code": "CZK",
+   "currency_symbol": "Kč",
+   "currency_minor_unit": 0,
+   "currency_decimal_separator": ",",
+   "currency_thousand_separator": "",
+   "currency_prefix": "",
+   "currency_suffix": " Kč"
+  },
+  "images": [
+   {
+    "id": 26556,
+    "src": "https://kmen.coffee/wp-content/uploads/2025/01/158_Kenya-Endebess250g.png",
+    "thumbnail": "https://kmen.coffee/wp-content/uploads/2025/01/158_Kenya-Endebess250g-600x800.png",
+    "srcset": "https://kmen.coffee/wp-content/uploads/2025/01/158_Kenya-Endebess250g.png 2410w, https://kmen.coffee/wp-content/uploads/2025/01/158_Kenya-Endebess250g-300x300.png 300w, https://kmen.coffee/wp-content/uploads/2025/01/158_Kenya-Endebess250g-1024x1024.png 1024w, https://kmen.coffee/wp-content/uploads/2025/01/158_Kenya-Endebess250g-150x150.png 150w, https://kmen.coffee/wp-content/uploads/2025/01/158_Kenya-Endebess250g-768x768.png 768w, https://kmen.coffee/wp-content/uploads/2025/01/158_Kenya-Endebess250g-1536x1536.png 1536w, https://kmen.coffee/wp-content/uploads/2025/01/158_Kenya-Endebess250g-2048x2048.png 2048w, https://kmen.coffee/wp-content/uploads/2025/01/158_Kenya-Endebess250g-100x100.png 100w, https://kmen.coffee/wp-content/uploads/2025/01/158_Kenya-Endebess250g-800x800.png 800w, https://kmen.coffee/wp-content/uploads/2025/01/158_Kenya-Endebess250g-50x50.png 50w",
+    "sizes": "(max-width: 2410px) 100vw, 2410px",
+    "thumbnail_srcset": "",
+    "thumbnail_sizes": "(max-width: 600px) 100vw, 600px",
+    "name": "Kenya Endebess(250g)",
+    "alt": ""
+   },
+   {
+    "id": 22411,
+    "src": "https://kmen.coffee/wp-content/uploads/2023/07/kena-endebess-3.jpg",
+    "thumbnail": "https://kmen.coffee/wp-content/uploads/2023/07/kena-endebess-3-600x714.jpg",
+    "srcset": "https://kmen.coffee/wp-content/uploads/2023/07/kena-endebess-3.jpg 715w, https://kmen.coffee/wp-content/uploads/2023/07/kena-endebess-3-300x300.jpg 300w, https://kmen.coffee/wp-content/uploads/2023/07/kena-endebess-3-150x150.jpg 150w, https://kmen.coffee/wp-content/uploads/2023/07/kena-endebess-3-100x100.jpg 100w, https://kmen.coffee/wp-content/uploads/2023/07/kena-endebess-3-50x50.jpg 50w",
+    "sizes": "(max-width: 715px) 100vw, 715px",
+    "thumbnail_srcset": "",
+    "thumbnail_sizes": "(max-width: 600px) 100vw, 600px",
+    "name": "kena endebess",
+    "alt": ""
+   },
+   {
+    "id": 22409,
+    "src": "https://kmen.coffee/wp-content/uploads/2023/07/KenyaEndebess1.webp",
+    "thumbnail": "https://kmen.coffee/wp-content/uploads/2023/07/KenyaEndebess1-600x700.webp",
+    "srcset": "https://kmen.coffee/wp-content/uploads/2023/07/KenyaEndebess1.webp 700w, https://kmen.coffee/wp-content/uploads/2023/07/KenyaEndebess1-300x300.webp 300w, https://kmen.coffee/wp-content/uploads/2023/07/KenyaEndebess1-150x150.webp 150w, https://kmen.coffee/wp-content/uploads/2023/07/KenyaEndebess1-100x100.webp 100w, https://kmen.coffee/wp-content/uploads/2023/07/KenyaEndebess1-50x50.webp 50w",
+    "sizes": "(max-width: 700px) 100vw, 700px",
+    "thumbnail_srcset": "",
+    "thumbnail_sizes": "(max-width: 600px) 100vw, 600px",
+    "name": "KenyaEndebess1",
+    "alt": ""
+   },
+   {
+    "id": 22410,
+    "src": "https://kmen.coffee/wp-content/uploads/2023/07/KenyaEndebess2.webp",
+    "thumbnail": "https://kmen.coffee/wp-content/uploads/2023/07/KenyaEndebess2-600x700.webp",
+    "srcset": "https://kmen.coffee/wp-content/uploads/2023/07/KenyaEndebess2.webp 700w, https://kmen.coffee/wp-content/uploads/2023/07/KenyaEndebess2-300x300.webp 300w, https://kmen.coffee/wp-content/uploads/2023/07/KenyaEndebess2-150x150.webp 150w, https://kmen.coffee/wp-content/uploads/2023/07/KenyaEndebess2-100x100.webp 100w, https://kmen.coffee/wp-content/uploads/2023/07/KenyaEndebess2-50x50.webp 50w",
+    "sizes": "(max-width: 700px) 100vw, 700px",
+    "thumbnail_srcset": "",
+    "thumbnail_sizes": "(max-width: 600px) 100vw, 600px",
+    "name": "KenyaEndebess2",
+    "alt": ""
+   },
+   {
+    "id": 22412,
+    "src": "https://kmen.coffee/wp-content/uploads/2023/07/kena-endebess-scaled.jpg",
+    "thumbnail": "https://kmen.coffee/wp-content/uploads/2023/07/kena-endebess-600x800.jpg",
+    "srcset": "https://kmen.coffee/wp-content/uploads/2023/07/kena-endebess-scaled.jpg 2560w, https://kmen.coffee/wp-content/uploads/2023/07/kena-endebess-300x300.jpg 300w, https://kmen.coffee/wp-content/uploads/2023/07/kena-endebess-1024x1024.jpg 1024w, https://kmen.coffee/wp-content/uploads/2023/07/kena-endebess-150x150.jpg 150w, https://kmen.coffee/wp-content/uploads/2023/07/kena-endebess-768x768.jpg 768w, https://kmen.coffee/wp-content/uploads/2023/07/kena-endebess-1536x1536.jpg 1536w, https://kmen.coffee/wp-content/uploads/2023/07/kena-endebess-2048x2048.jpg 2048w, https://kmen.coffee/wp-content/uploads/2023/07/kena-endebess-100x100.jpg 100w, https://kmen.coffee/wp-content/uploads/2023/07/kena-endebess-800x800.jpg 800w, https://kmen.coffee/wp-content/uploads/2023/07/kena-endebess-50x50.jpg 50w",
+    "sizes": "(max-width: 2560px) 100vw, 2560px",
+    "thumbnail_srcset": "",
+    "thumbnail_sizes": "(max-width: 600px) 100vw, 600px",
+    "name": "keňa endebess natural",
+    "alt": ""
+   },
+   {
+    "id": 22415,
+    "src": "https://kmen.coffee/wp-content/uploads/2023/07/endebess-4.jpeg",
+    "thumbnail": "https://kmen.coffee/wp-content/uploads/2023/07/endebess-4-600x800.jpeg",
+    "srcset": "https://kmen.coffee/wp-content/uploads/2023/07/endebess-4.jpeg 960w, https://kmen.coffee/wp-content/uploads/2023/07/endebess-4-300x300.jpeg 300w, https://kmen.coffee/wp-content/uploads/2023/07/endebess-4-150x150.jpeg 150w, https://kmen.coffee/wp-content/uploads/2023/07/endebess-4-768x768.jpeg 768w, https://kmen.coffee/wp-content/uploads/2023/07/endebess-4-100x100.jpeg 100w, https://kmen.coffee/wp-content/uploads/2023/07/endebess-4-800x800.jpeg 800w, https://kmen.coffee/wp-content/uploads/2023/07/endebess-4-50x50.jpeg 50w",
+    "sizes": "(max-width: 960px) 100vw, 960px",
+    "thumbnail_srcset": "",
+    "thumbnail_sizes": "(max-width: 600px) 100vw, 600px",
+    "name": "endebess farm",
+    "alt": ""
+   }
+  ],
+  "categories": [
+   {
+    "id": 322,
+    "name": "Espresso",
+    "slug": "espresso",
+    "link": "https://kmen.coffee/kava/espresso/"
+   },
+   {
+    "id": 306,
+    "name": "Káva",
+    "slug": "kava",
+    "link": "https://kmen.coffee/kava/"
+   }
+  ],
+  "attributes": [
+   {
+    "id": 5,
+    "name": "Farma",
+    "taxonomy": "pa_farma",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 574,
+      "name": "Endebess Estate",
+      "slug": "endebess-estate"
+     }
+    ]
+   },
+   {
+    "id": 7,
+    "name": "Země původu",
+    "taxonomy": "pa_zeme-puvodu",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 353,
+      "name": "Keňa",
+      "slug": "kena"
+     }
+    ]
+   },
+   {
+    "id": 6,
+    "name": "Producent",
+    "taxonomy": "pa_producent",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 575,
+      "name": "Kaitet Tea Plntation",
+      "slug": "kaitet-tea-plntation"
+     }
+    ]
+   },
+   {
+    "id": 8,
+    "name": "Oblast",
+    "taxonomy": "pa_oblast",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 576,
+      "name": "Trans Nzoiya/Northern Rift Valley",
+      "slug": "trans-nzoiya-northern-rift-valley"
+     }
+    ]
+   },
+   {
+    "id": 11,
+    "name": "Zpracování",
+    "taxonomy": "pa_zpracovani",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 334,
+      "name": "natural",
+      "slug": "naturalni"
+     }
+    ]
+   },
+   {
+    "id": 12,
+    "name": "Odrůda",
+    "taxonomy": "pa_odruda",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 577,
+      "name": "Batian",
+      "slug": "batian"
+     },
+     {
+      "id": 351,
+      "name": "Ruiru11",
+      "slug": "ruiru11"
+     },
+     {
+      "id": 349,
+      "name": "SL28",
+      "slug": "sl28"
+     },
+     {
+      "id": 350,
+      "name": "SL34",
+      "slug": "sl34"
+     }
+    ]
+   },
+   {
+    "id": 15,
+    "name": "Typ balení",
+    "taxonomy": "pa_typ-baleni",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 304,
+      "name": "1000g",
+      "slug": "1000g",
+      "default": false
+     },
+     {
+      "id": 303,
+      "name": "250g",
+      "slug": "250g",
+      "default": true
+     }
+    ]
+   },
+   {
+    "id": 13,
+    "name": "Chuťový profil",
+    "taxonomy": "pa_chutovy-profil",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 1014,
+      "name": "čokoládový likér",
+      "slug": "cokoladovy-liker"
+     },
+     {
+      "id": 1013,
+      "name": "grepová marmeláda",
+      "slug": "grepova-marmelada"
+     },
+     {
+      "id": 710,
+      "name": "lesní jahody",
+      "slug": "lesni-jahody"
+     }
+    ]
+   },
+   {
+    "id": 14,
+    "name": "Použití",
+    "taxonomy": "pa_pouziti",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 305,
+      "name": "vhodná na espresso",
+      "slug": "vhodna-na-espresso"
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 22384,
+    "attributes": [
+     {
+      "name": "Typ balení",
+      "value": "1000g"
+     }
+    ]
+   },
+   {
+    "id": 22385,
+    "attributes": [
+     {
+      "name": "Typ balení",
+      "value": "250g"
+     }
+    ]
+   }
+  ],
+  "is_in_stock": false
+ },
+ {
+  "id": 23816,
+  "name": "Shakisso BEZKOFEINOVÁ",
+  "permalink": "https://kmen.coffee/product/shakisso-bezkofeinova/",
+  "sku": "Shakisso-BEZKOFEINOVÁ",
+  "short_description": "<p><span style=\"font-weight: 400\">Bezkofeinová káva nejen pro maminky a těhotné. Připravte si jarní lehký šálek etiopské kávy. V chuti vynikne svěžest citrusového čaje, lehkost sedmikrásek a sladkost našich oblíbených sušenek Knoppers. Jediné, co téhle kávě chybí, je kofein. A o tom to celé je! </span></p>\n<p><span style=\"font-weight: 400\">A proč ji milujeme i my, kterým v žilách koluje čistý kofein? Můžeme ji pít i večer a pak jít klidně spát. A to je náš největší life hack! 🥱Upražili jsme ji omni tak, jak jste zvyklí, takže si ji můžete připravit jak na espresso tak na filtr.</span></p>",
+  "description": "<p><span style=\"font-weight: 400\">Za vznikem této kávy najdeme komplikovanou cestu životem farmáře </span><span style=\"font-weight: 400\">Haile Gebre. </span><span style=\"font-weight: 400\">Příběh začíná u zlomové události z dětství, během níž feud</span><span style=\"font-weight: 400\">álové odebrali jeho rodině pěstitelskou půdu, a tím zásadně ovlivnili další životní kroky, které směřovaly do politiky s cílem, aby už žádní pěstitelé nemuseli zažívat takové příkoří. Následně procházel mnohými životními etapami od studia na vysoké škole přes narukování k námořnictvu a práci na ministerstvu pro pozemkovou reformu až po tříleté vězení za názory, které se nebál vyslovit nahlas. Díky kuráži však naplnil své poslání a založil Družstevní banku se specifickým zaměřením na kávová družstva.</span></p>\n<p>Farmář zbavil tato zrnka kofeinu metodou<strong> superkritického CO2 (sCO2)</strong>, která je šetrná k zrnům i k přírodě, protože sCO2 je netoxický a lze ho využívat znovu a znovu. Extrahuje pouze kofein a minimum ostatních látek. A jak takový proces probíhá? Jako první se zelená kávová zrna vloží do horké vodní lázně, aby zvýšily svůj objem. Dále se zrna s vodou vloží do velkých nerezových nádob (představte si sudy na pivo), nádoba se uzavře a začne se naplňovat sCO2. Tlak a teplota se postupně zvyšují až na 90 °C a 270 atmosfér. Pak se to vše nechá spolu 8 hodin kamarádit. Následně se sníží teplota na 30 &#8211; 40 °C a sCO2 spolu s vodou se odčerpají. Voda nese veškerý kofein, který se pak dá dál využít třeba ve výrobních procesech v kosmetice nebo léčivech. Zrna se poté vysuší na přibližně 10 % vlhkosti a můžou se vesele pražit.</p>",
+  "prices": {
+   "price": "349",
+   "regular_price": "349",
+   "sale_price": "349",
+   "price_range": {
+    "min_amount": "349",
+    "max_amount": "1312"
+   },
+   "currency_code": "CZK",
+   "currency_symbol": "Kč",
+   "currency_minor_unit": 0,
+   "currency_decimal_separator": ",",
+   "currency_thousand_separator": "",
+   "currency_prefix": "",
+   "currency_suffix": " Kč"
+  },
+  "images": [
+   {
+    "id": 23863,
+    "src": "https://kmen.coffee/wp-content/uploads/2024/03/101-Ethiopia-Shakisso-DECAF250g-1.png",
+    "thumbnail": "https://kmen.coffee/wp-content/uploads/2024/03/101-Ethiopia-Shakisso-DECAF250g-1-600x800.png",
+    "srcset": "https://kmen.coffee/wp-content/uploads/2024/03/101-Ethiopia-Shakisso-DECAF250g-1.png 2410w, https://kmen.coffee/wp-content/uploads/2024/03/101-Ethiopia-Shakisso-DECAF250g-1-300x300.png 300w, https://kmen.coffee/wp-content/uploads/2024/03/101-Ethiopia-Shakisso-DECAF250g-1-1024x1024.png 1024w, https://kmen.coffee/wp-content/uploads/2024/03/101-Ethiopia-Shakisso-DECAF250g-1-150x150.png 150w, https://kmen.coffee/wp-content/uploads/2024/03/101-Ethiopia-Shakisso-DECAF250g-1-768x768.png 768w, https://kmen.coffee/wp-content/uploads/2024/03/101-Ethiopia-Shakisso-DECAF250g-1-1536x1536.png 1536w, https://kmen.coffee/wp-content/uploads/2024/03/101-Ethiopia-Shakisso-DECAF250g-1-2048x2048.png 2048w, https://kmen.coffee/wp-content/uploads/2024/03/101-Ethiopia-Shakisso-DECAF250g-1-100x100.png 100w, https://kmen.coffee/wp-content/uploads/2024/03/101-Ethiopia-Shakisso-DECAF250g-1-800x800.png 800w, https://kmen.coffee/wp-content/uploads/2024/03/101-Ethiopia-Shakisso-DECAF250g-1-50x50.png 50w",
+    "sizes": "(max-width: 2410px) 100vw, 2410px",
+    "thumbnail_srcset": "",
+    "thumbnail_sizes": "(max-width: 600px) 100vw, 600px",
+    "name": "Ethiopia Shakisso DECAF(250g)",
+    "alt": ""
+   },
+   {
+    "id": 23864,
+    "src": "https://kmen.coffee/wp-content/uploads/2024/03/Etiopie-Shakisso-DECAF.jpg",
+    "thumbnail": "https://kmen.coffee/wp-content/uploads/2024/03/Etiopie-Shakisso-DECAF.jpg",
+    "srcset": "https://kmen.coffee/wp-content/uploads/2024/03/Etiopie-Shakisso-DECAF.jpg 474w, https://kmen.coffee/wp-content/uploads/2024/03/Etiopie-Shakisso-DECAF-300x300.jpg 300w, https://kmen.coffee/wp-content/uploads/2024/03/Etiopie-Shakisso-DECAF-150x150.jpg 150w, https://kmen.coffee/wp-content/uploads/2024/03/Etiopie-Shakisso-DECAF-100x100.jpg 100w, https://kmen.coffee/wp-content/uploads/2024/03/Etiopie-Shakisso-DECAF-50x50.jpg 50w",
+    "sizes": "(max-width: 474px) 100vw, 474px",
+    "thumbnail_srcset": "https://kmen.coffee/wp-content/uploads/2024/03/Etiopie-Shakisso-DECAF.jpg 474w, https://kmen.coffee/wp-content/uploads/2024/03/Etiopie-Shakisso-DECAF-300x300.jpg 300w, https://kmen.coffee/wp-content/uploads/2024/03/Etiopie-Shakisso-DECAF-150x150.jpg 150w, https://kmen.coffee/wp-content/uploads/2024/03/Etiopie-Shakisso-DECAF-100x100.jpg 100w, https://kmen.coffee/wp-content/uploads/2024/03/Etiopie-Shakisso-DECAF-50x50.jpg 50w",
+    "thumbnail_sizes": "(max-width: 474px) 100vw, 474px",
+    "name": "Rwanda La Salama",
+    "alt": ""
+   },
+   {
+    "id": 23867,
+    "src": "https://kmen.coffee/wp-content/uploads/2024/03/Etiopie-Shakisso-DECAF-4.jpg",
+    "thumbnail": "https://kmen.coffee/wp-content/uploads/2024/03/Etiopie-Shakisso-DECAF-4-600x713.jpg",
+    "srcset": "https://kmen.coffee/wp-content/uploads/2024/03/Etiopie-Shakisso-DECAF-4.jpg 713w, https://kmen.coffee/wp-content/uploads/2024/03/Etiopie-Shakisso-DECAF-4-300x300.jpg 300w, https://kmen.coffee/wp-content/uploads/2024/03/Etiopie-Shakisso-DECAF-4-150x150.jpg 150w, https://kmen.coffee/wp-content/uploads/2024/03/Etiopie-Shakisso-DECAF-4-100x100.jpg 100w, https://kmen.coffee/wp-content/uploads/2024/03/Etiopie-Shakisso-DECAF-4-50x50.jpg 50w",
+    "sizes": "(max-width: 713px) 100vw, 713px",
+    "thumbnail_srcset": "",
+    "thumbnail_sizes": "(max-width: 600px) 100vw, 600px",
+    "name": "Rwanda La Salama",
+    "alt": ""
+   },
+   {
+    "id": 23865,
+    "src": "https://kmen.coffee/wp-content/uploads/2024/03/Etiopie-Shakisso-DECAF-2.jpg",
+    "thumbnail": "https://kmen.coffee/wp-content/uploads/2024/03/Etiopie-Shakisso-DECAF-2-600x713.jpg",
+    "srcset": "https://kmen.coffee/wp-content/uploads/2024/03/Etiopie-Shakisso-DECAF-2.jpg 713w, https://kmen.coffee/wp-content/uploads/2024/03/Etiopie-Shakisso-DECAF-2-300x300.jpg 300w, https://kmen.coffee/wp-content/uploads/2024/03/Etiopie-Shakisso-DECAF-2-150x150.jpg 150w, https://kmen.coffee/wp-content/uploads/2024/03/Etiopie-Shakisso-DECAF-2-100x100.jpg 100w, https://kmen.coffee/wp-content/uploads/2024/03/Etiopie-Shakisso-DECAF-2-50x50.jpg 50w",
+    "sizes": "(max-width: 713px) 100vw, 713px",
+    "thumbnail_srcset": "",
+    "thumbnail_sizes": "(max-width: 600px) 100vw, 600px",
+    "name": "Rwanda La Salama",
+    "alt": ""
+   }
+  ],
+  "categories": [
+   {
+    "id": 322,
+    "name": "Espresso",
+    "slug": "espresso",
+    "link": "https://kmen.coffee/kava/espresso/"
+   },
+   {
+    "id": 321,
+    "name": "Filtr",
+    "slug": "filtr",
+    "link": "https://kmen.coffee/kava/filtr/"
+   },
+   {
+    "id": 306,
+    "name": "Káva",
+    "slug": "kava",
+    "link": "https://kmen.coffee/kava/"
+   }
+  ],
+  "attributes": [
+   {
+    "id": 5,
+    "name": "Farma",
+    "taxonomy": "pa_farma",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 725,
+      "name": "Shakisso farm",
+      "slug": "shakisso-farm"
+     }
+    ]
+   },
+   {
+    "id": 6,
+    "name": "Producent",
+    "taxonomy": "pa_producent",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 726,
+      "name": "Haile Gebre",
+      "slug": "haile-gebre"
+     }
+    ]
+   },
+   {
+    "id": 8,
+    "name": "Oblast",
+    "taxonomy": "pa_oblast",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 724,
+      "name": "Guji",
+      "slug": "guji"
+     }
+    ]
+   },
+   {
+    "id": 11,
+    "name": "Zpracování",
+    "taxonomy": "pa_zpracovani",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 316,
+      "name": "washed",
+      "slug": "promyte"
+     }
+    ]
+   },
+   {
+    "id": 12,
+    "name": "Odrůda",
+    "taxonomy": "pa_odruda",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 325,
+      "name": "Heirloom",
+      "slug": "heirloom"
+     }
+    ]
+   },
+   {
+    "id": 13,
+    "name": "Chuťový profil",
+    "taxonomy": "pa_chutovy-profil",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 723,
+      "name": "citrusový čaj",
+      "slug": "citrusovy-caj"
+     },
+     {
+      "id": 721,
+      "name": "sedmikrásky",
+      "slug": "sedmikrasky"
+     },
+     {
+      "id": 722,
+      "name": "sušenky Knoppers",
+      "slug": "susenky-knoppers"
+     }
+    ]
+   },
+   {
+    "id": 7,
+    "name": "Země původu",
+    "taxonomy": "pa_zeme-puvodu",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 354,
+      "name": "Etiopie",
+      "slug": "etiopie"
+     }
+    ]
+   },
+   {
+    "id": 14,
+    "name": "Použití",
+    "taxonomy": "pa_pouziti",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 305,
+      "name": "vhodná na espresso",
+      "slug": "vhodna-na-espresso"
+     },
+     {
+      "id": 302,
+      "name": "vhodná na filtr",
+      "slug": "vhodna-na-filtr"
+     }
+    ]
+   },
+   {
+    "id": 15,
+    "name": "Typ balení",
+    "taxonomy": "pa_typ-baleni",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 304,
+      "name": "1000g",
+      "slug": "1000g",
+      "default": false
+     },
+     {
+      "id": 303,
+      "name": "250g",
+      "slug": "250g",
+      "default": true
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 23817,
+    "attributes": [
+     {
+      "name": "Typ balení",
+      "value": "250g"
+     }
+    ]
+   },
+   {
+    "id": 23818,
+    "attributes": [
+     {
+      "name": "Typ balení",
+      "value": "1000g"
+     }
+    ]
+   }
+  ],
+  "is_in_stock": false
+ },
+ {
+  "id": 27461,
+  "name": "Humure",
+  "permalink": "https://kmen.coffee/product/humure/",
+  "sku": "rwanda-humure",
+  "short_description": "<p>Tohle je filtr, který zaručeně rozparádí vaše chuťové pohárky. Šťavnatost, sladkost a dlouhá dochuť – přesně to přinášejí lesní jahody, fíkový džem a pečený čaj v šálku filtrované kávy. Společně tvoří plné, sladké tělo s lehkou fermentační jiskrou. Žádná tíha, jen šťavnatá radost. Zkrátka káva, která má šťávu.</p>\n<p>Kávu zpracovali ve stanici Humure, kterou provozuje společnost Baho Coffee a výjimečná je tím, že ji kompletně řídí ženský tým. Stanice nese název podle nejvyššího kopce v okolí, který místní vnímají jako symbol celé oblasti.</p>",
+  "description": "<p><span style=\"font-weight: 400\">Kávu do stanice Humure Washing Station nosí drobní farmáři z oblasti Gatsibo ve východní Rwandě. Většina z nich hospodaří na malých pozemcích s několika stovkami kávovníků, které často rostou spolu s kukuřicí nebo bramborami. Přesto pro ně káva zůstává hlavním zdrojem příjmu.</span></p>\n<p><span style=\"font-weight: 400\">Stanici provozuje společnost Baho Coffee a výjimečná je tím, že ji kompletně řídí ženský tým. Stanice nese název podle nejvyššího kopce v okolí, který místní vnímají jako symbol celé oblasti. Baho Coffee zde dlouhodobě investuje do zázemí i lidí – letos například vybudovala nové třídící kanály a velké skladovací prostory, aby mohli ještě lépe pracovat s kvalitou. Společnost zároveň motivuje farmáře k lepší sklizni spravedlivějšími výkupními cenami, školeními a podporou. Stanice zajišťuje ochranné pomůcky, malé celoroční půjčky, sazenice na obnovu keřů i vzdělávání v oblasti hygieny, vody a péče o půdu. Prostřednictvím farmářských skupin pak předává znalosti dál přímo do komunit.</span></p>\n<p><span style=\"font-weight: 400\">Během sklizně farmáři ručně sbírají pouze zralé třešně a ještě doma je přebírají. Na stanici je tým znovu třídí ručně a poté je testuje ve vodě podle hustoty. Přijímají jen třešně, které projdou oběma kontrolami. Vybrané třešně následně rozprostřou na vyvýšená africká lůžka, kde je pracovníci pravidelně obracejí a pečlivě sledují. Inspirací pro způsob sušení se stal princip pomalého vaření – stejně jako u jídla totiž i u kávy platí, že čím pomalejší proces, tím hlubší a bohatší chuť. V Humure proto suší kávu v průměru 47 dní, což je na naturální zpracování výjimečně dlouhá doba. Díky tomuto přístupu získává káva výraznou sladkost, šťavnaté ovocné tóny a dlouhou dochuť.</span></p>",
+  "prices": {
+   "price": "395",
+   "regular_price": "395",
+   "sale_price": "395",
+   "price_range": {
+    "min_amount": "395",
+    "max_amount": "1410"
+   },
+   "currency_code": "CZK",
+   "currency_symbol": "Kč",
+   "currency_minor_unit": 0,
+   "currency_decimal_separator": ",",
+   "currency_thousand_separator": "",
+   "currency_prefix": "",
+   "currency_suffix": " Kč"
+  },
+  "images": [
+   {
+    "id": 30102,
+    "src": "https://kmen.coffee/wp-content/uploads/2026/02/242_Rwanda-Humure250g.jpg",
+    "thumbnail": "https://kmen.coffee/wp-content/uploads/2026/02/242_Rwanda-Humure250g-600x800.jpg",
+    "srcset": "https://kmen.coffee/wp-content/uploads/2026/02/242_Rwanda-Humure250g.jpg 2409w, https://kmen.coffee/wp-content/uploads/2026/02/242_Rwanda-Humure250g-300x300.jpg 300w, https://kmen.coffee/wp-content/uploads/2026/02/242_Rwanda-Humure250g-1024x1024.jpg 1024w, https://kmen.coffee/wp-content/uploads/2026/02/242_Rwanda-Humure250g-150x150.jpg 150w, https://kmen.coffee/wp-content/uploads/2026/02/242_Rwanda-Humure250g-768x768.jpg 768w, https://kmen.coffee/wp-content/uploads/2026/02/242_Rwanda-Humure250g-1536x1536.jpg 1536w, https://kmen.coffee/wp-content/uploads/2026/02/242_Rwanda-Humure250g-2048x2048.jpg 2048w, https://kmen.coffee/wp-content/uploads/2026/02/242_Rwanda-Humure250g-39x39.jpg 39w, https://kmen.coffee/wp-content/uploads/2026/02/242_Rwanda-Humure250g-18x18.jpg 18w, https://kmen.coffee/wp-content/uploads/2026/02/242_Rwanda-Humure250g-25x25.jpg 25w, https://kmen.coffee/wp-content/uploads/2026/02/242_Rwanda-Humure250g-100x100.jpg 100w, https://kmen.coffee/wp-content/uploads/2026/02/242_Rwanda-Humure250g-800x800.jpg 800w, https://kmen.coffee/wp-content/uploads/2026/02/242_Rwanda-Humure250g-50x50.jpg 50w",
+    "sizes": "(max-width: 2409px) 100vw, 2409px",
+    "thumbnail_srcset": "",
+    "thumbnail_sizes": "(max-width: 600px) 100vw, 600px",
+    "name": "Rwanda-Humure(250g)",
+    "alt": ""
+   },
+   {
+    "id": 30224,
+    "src": "https://kmen.coffee/wp-content/uploads/2026/02/rwanda_recept.jpg",
+    "thumbnail": "https://kmen.coffee/wp-content/uploads/2026/02/rwanda_recept-600x800.jpg",
+    "srcset": "https://kmen.coffee/wp-content/uploads/2026/02/rwanda_recept.jpg 1080w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda_recept-300x300.jpg 300w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda_recept-1024x1024.jpg 1024w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda_recept-150x150.jpg 150w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda_recept-768x768.jpg 768w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda_recept-39x39.jpg 39w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda_recept-18x18.jpg 18w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda_recept-25x25.jpg 25w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda_recept-100x100.jpg 100w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda_recept-800x800.jpg 800w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda_recept-50x50.jpg 50w",
+    "sizes": "(max-width: 1080px) 100vw, 1080px",
+    "thumbnail_srcset": "",
+    "thumbnail_sizes": "(max-width: 600px) 100vw, 600px",
+    "name": "rwanda_recept V60",
+    "alt": ""
+   },
+   {
+    "id": 30238,
+    "src": "https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure.jpg",
+    "thumbnail": "https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-600x667.jpg",
+    "srcset": "https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure.jpg 667w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-300x300.jpg 300w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-150x150.jpg 150w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-39x39.jpg 39w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-18x18.jpg 18w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-25x25.jpg 25w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-100x100.jpg 100w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-50x50.jpg 50w",
+    "sizes": "(max-width: 667px) 100vw, 667px",
+    "thumbnail_srcset": "",
+    "thumbnail_sizes": "(max-width: 600px) 100vw, 600px",
+    "name": "rwanda",
+    "alt": ""
+   },
+   {
+    "id": 30240,
+    "src": "https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-5-scaled.jpg",
+    "thumbnail": "https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-5-600x800.jpg",
+    "srcset": "https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-5-scaled.jpg 2560w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-5-300x300.jpg 300w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-5-1024x1024.jpg 1024w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-5-150x150.jpg 150w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-5-768x768.jpg 768w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-5-1536x1536.jpg 1536w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-5-2048x2048.jpg 2048w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-5-39x39.jpg 39w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-5-18x18.jpg 18w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-5-25x25.jpg 25w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-5-100x100.jpg 100w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-5-800x800.jpg 800w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-5-50x50.jpg 50w",
+    "sizes": "(max-width: 2560px) 100vw, 2560px",
+    "thumbnail_srcset": "",
+    "thumbnail_sizes": "(max-width: 600px) 100vw, 600px",
+    "name": "rwanda",
+    "alt": ""
+   },
+   {
+    "id": 27488,
+    "src": "https://kmen.coffee/wp-content/uploads/2025/06/Rwanda-Muzo3.jpg",
+    "thumbnail": "https://kmen.coffee/wp-content/uploads/2025/06/Rwanda-Muzo3-600x800.jpg",
+    "srcset": "https://kmen.coffee/wp-content/uploads/2025/06/Rwanda-Muzo3.jpg 960w, https://kmen.coffee/wp-content/uploads/2025/06/Rwanda-Muzo3-300x300.jpg 300w, https://kmen.coffee/wp-content/uploads/2025/06/Rwanda-Muzo3-150x150.jpg 150w, https://kmen.coffee/wp-content/uploads/2025/06/Rwanda-Muzo3-768x768.jpg 768w, https://kmen.coffee/wp-content/uploads/2025/06/Rwanda-Muzo3-100x100.jpg 100w, https://kmen.coffee/wp-content/uploads/2025/06/Rwanda-Muzo3-800x800.jpg 800w, https://kmen.coffee/wp-content/uploads/2025/06/Rwanda-Muzo3-50x50.jpg 50w",
+    "sizes": "(max-width: 960px) 100vw, 960px",
+    "thumbnail_srcset": "",
+    "thumbnail_sizes": "(max-width: 600px) 100vw, 600px",
+    "name": "Rwanda Muzo",
+    "alt": ""
+   },
+   {
+    "id": 27489,
+    "src": "https://kmen.coffee/wp-content/uploads/2025/06/Rwanda-Muzo2.jpg",
+    "thumbnail": "https://kmen.coffee/wp-content/uploads/2025/06/Rwanda-Muzo2-600x800.jpg",
+    "srcset": "https://kmen.coffee/wp-content/uploads/2025/06/Rwanda-Muzo2.jpg 1145w, https://kmen.coffee/wp-content/uploads/2025/06/Rwanda-Muzo2-300x300.jpg 300w, https://kmen.coffee/wp-content/uploads/2025/06/Rwanda-Muzo2-1024x1024.jpg 1024w, https://kmen.coffee/wp-content/uploads/2025/06/Rwanda-Muzo2-150x150.jpg 150w, https://kmen.coffee/wp-content/uploads/2025/06/Rwanda-Muzo2-768x768.jpg 768w, https://kmen.coffee/wp-content/uploads/2025/06/Rwanda-Muzo2-100x100.jpg 100w, https://kmen.coffee/wp-content/uploads/2025/06/Rwanda-Muzo2-800x800.jpg 800w, https://kmen.coffee/wp-content/uploads/2025/06/Rwanda-Muzo2-50x50.jpg 50w",
+    "sizes": "(max-width: 1145px) 100vw, 1145px",
+    "thumbnail_srcset": "",
+    "thumbnail_sizes": "(max-width: 600px) 100vw, 600px",
+    "name": "Rwanda Muzo",
+    "alt": ""
+   },
+   {
+    "id": 30239,
+    "src": "https://kmen.coffee/wp-content/uploads/2026/02/Rwanda-Humure-6.jpg",
+    "thumbnail": "https://kmen.coffee/wp-content/uploads/2026/02/Rwanda-Humure-6-600x800.jpg",
+    "srcset": "https://kmen.coffee/wp-content/uploads/2026/02/Rwanda-Humure-6.jpg 1920w, https://kmen.coffee/wp-content/uploads/2026/02/Rwanda-Humure-6-300x300.jpg 300w, https://kmen.coffee/wp-content/uploads/2026/02/Rwanda-Humure-6-1024x1024.jpg 1024w, https://kmen.coffee/wp-content/uploads/2026/02/Rwanda-Humure-6-150x150.jpg 150w, https://kmen.coffee/wp-content/uploads/2026/02/Rwanda-Humure-6-768x768.jpg 768w, https://kmen.coffee/wp-content/uploads/2026/02/Rwanda-Humure-6-1536x1536.jpg 1536w, https://kmen.coffee/wp-content/uploads/2026/02/Rwanda-Humure-6-39x39.jpg 39w, https://kmen.coffee/wp-content/uploads/2026/02/Rwanda-Humure-6-18x18.jpg 18w, https://kmen.coffee/wp-content/uploads/2026/02/Rwanda-Humure-6-25x25.jpg 25w, https://kmen.coffee/wp-content/uploads/2026/02/Rwanda-Humure-6-100x100.jpg 100w, https://kmen.coffee/wp-content/uploads/2026/02/Rwanda-Humure-6-800x800.jpg 800w, https://kmen.coffee/wp-content/uploads/2026/02/Rwanda-Humure-6-50x50.jpg 50w",
+    "sizes": "(max-width: 1920px) 100vw, 1920px",
+    "thumbnail_srcset": "",
+    "thumbnail_sizes": "(max-width: 600px) 100vw, 600px",
+    "name": "Rwanda",
+    "alt": ""
+   },
+   {
+    "id": 30241,
+    "src": "https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-4-scaled.jpg",
+    "thumbnail": "https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-4-600x800.jpg",
+    "srcset": "https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-4-scaled.jpg 2560w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-4-300x300.jpg 300w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-4-1024x1024.jpg 1024w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-4-150x150.jpg 150w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-4-768x768.jpg 768w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-4-1536x1536.jpg 1536w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-4-2048x2048.jpg 2048w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-4-39x39.jpg 39w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-4-18x18.jpg 18w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-4-25x25.jpg 25w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-4-100x100.jpg 100w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-4-800x800.jpg 800w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-4-50x50.jpg 50w",
+    "sizes": "(max-width: 2560px) 100vw, 2560px",
+    "thumbnail_srcset": "",
+    "thumbnail_sizes": "(max-width: 600px) 100vw, 600px",
+    "name": "rwanda",
+    "alt": ""
+   },
+   {
+    "id": 30242,
+    "src": "https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-3-scaled.jpg",
+    "thumbnail": "https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-3-600x800.jpg",
+    "srcset": "https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-3-scaled.jpg 2560w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-3-300x300.jpg 300w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-3-1024x1024.jpg 1024w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-3-150x150.jpg 150w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-3-768x768.jpg 768w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-3-1536x1536.jpg 1536w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-3-2048x2048.jpg 2048w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-3-39x39.jpg 39w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-3-18x18.jpg 18w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-3-25x25.jpg 25w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-3-100x100.jpg 100w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-3-800x800.jpg 800w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-3-50x50.jpg 50w",
+    "sizes": "(max-width: 2560px) 100vw, 2560px",
+    "thumbnail_srcset": "",
+    "thumbnail_sizes": "(max-width: 600px) 100vw, 600px",
+    "name": "rwanda",
+    "alt": ""
+   },
+   {
+    "id": 30237,
+    "src": "https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-2.jpg",
+    "thumbnail": "https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-2.jpg",
+    "srcset": "https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-2.jpg 533w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-2-300x300.jpg 300w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-2-150x150.jpg 150w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-2-39x39.jpg 39w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-2-18x18.jpg 18w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-2-25x25.jpg 25w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-2-100x100.jpg 100w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-2-50x50.jpg 50w",
+    "sizes": "(max-width: 533px) 100vw, 533px",
+    "thumbnail_srcset": "https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-2.jpg 533w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-2-300x300.jpg 300w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-2-150x150.jpg 150w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-2-39x39.jpg 39w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-2-18x18.jpg 18w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-2-25x25.jpg 25w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-2-100x100.jpg 100w, https://kmen.coffee/wp-content/uploads/2026/02/rwanda-humure-2-50x50.jpg 50w",
+    "thumbnail_sizes": "(max-width: 533px) 100vw, 533px",
+    "name": "rwanda",
+    "alt": ""
+   }
+  ],
+  "categories": [
+   {
+    "id": 321,
+    "name": "Filtr",
+    "slug": "filtr",
+    "link": "https://kmen.coffee/kava/filtr/"
+   },
+   {
+    "id": 306,
+    "name": "Káva",
+    "slug": "kava",
+    "link": "https://kmen.coffee/kava/"
+   }
+  ],
+  "attributes": [
+   {
+    "id": 6,
+    "name": "Producent",
+    "taxonomy": "pa_producent",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 1042,
+      "name": "Baho coffee team",
+      "slug": "baho-coffee-team"
+     }
+    ]
+   },
+   {
+    "id": 7,
+    "name": "Země původu",
+    "taxonomy": "pa_zeme-puvodu",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 494,
+      "name": "Rwanda",
+      "slug": "rwanda"
+     }
+    ]
+   },
+   {
+    "id": 5,
+    "name": "Farma",
+    "taxonomy": "pa_farma",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 1315,
+      "name": "Humure Washing Station",
+      "slug": "humure-washing-station"
+     }
+    ]
+   },
+   {
+    "id": 8,
+    "name": "Oblast",
+    "taxonomy": "pa_oblast",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 1314,
+      "name": "Gatsibo",
+      "slug": "gatsibo"
+     }
+    ]
+   },
+   {
+    "id": 11,
+    "name": "Zpracování",
+    "taxonomy": "pa_zpracovani",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 334,
+      "name": "natural",
+      "slug": "naturalni"
+     }
+    ]
+   },
+   {
+    "id": 12,
+    "name": "Odrůda",
+    "taxonomy": "pa_odruda",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 535,
+      "name": "Red Bourbon",
+      "slug": "red-bourbon"
+     }
+    ]
+   },
+   {
+    "id": 13,
+    "name": "Chuťový profil",
+    "taxonomy": "pa_chutovy-profil",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 1313,
+      "name": "fíkový džem",
+      "slug": "fikovy-dzem"
+     },
+     {
+      "id": 710,
+      "name": "lesní jahody",
+      "slug": "lesni-jahody"
+     },
+     {
+      "id": 1093,
+      "name": "pečený čaj",
+      "slug": "peceny-caj"
+     }
+    ]
+   },
+   {
+    "id": 15,
+    "name": "Typ balení",
+    "taxonomy": "pa_typ-baleni",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 304,
+      "name": "1000g",
+      "slug": "1000g",
+      "default": false
+     },
+     {
+      "id": 303,
+      "name": "250g",
+      "slug": "250g",
+      "default": true
+     }
+    ]
+   },
+   {
+    "id": 14,
+    "name": "Použití",
+    "taxonomy": "pa_pouziti",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 302,
+      "name": "vhodná na filtr",
+      "slug": "vhodna-na-filtr"
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 27462,
+    "attributes": [
+     {
+      "name": "Typ balení",
+      "value": "250g"
+     }
+    ]
+   },
+   {
+    "id": 27463,
+    "attributes": [
+     {
+      "name": "Typ balení",
+      "value": "1000g"
+     }
+    ]
+   }
+  ],
+  "is_in_stock": false
+ },
+ {
+  "id": 28047,
+  "name": "Shakisso BEZKOFEINOVÁ",
+  "permalink": "https://kmen.coffee/product/shakisso-bezkofeinova2/",
+  "sku": "Shakisso-BEZKOFEINOVÁ-1",
+  "short_description": "<p><span style=\"font-weight: 400\">Sedmikrásky znovu rozkvétají. Alá Etiopie Shakisso zpátky v nabídce. Bezkofeinová káva nejen pro maminky a těhotné. V chuti vynikne meruňkomandlový flapjack, černý čaj a lehkost sedmikrásek. Milujeme ji i my, kterým v žilách koluje čistý kofein. Můžete ji pít i večer a pak jít klidně spát. A to je náš největší life hack! Upražili jsme ji omni, takže si ji vychutnáte na filtr i na espresso. </span></p>",
+  "description": "<p><span style=\"font-weight: 400\">Za vznikem této kávy najdeme komplikovanou cestu životem farmáře </span><span style=\"font-weight: 400\">Haile Gebre. </span><span style=\"font-weight: 400\">Příběh začíná u zlomové události z dětství, během níž feud</span><span style=\"font-weight: 400\">álové odebrali jeho rodině pěstitelskou půdu, a tím zásadně ovlivnili další životní kroky, které směřovaly do politiky s cílem, aby už žádní pěstitelé nemuseli zažívat takové příkoří. Následně procházel mnohými životními etapami od studia na vysoké škole přes narukování k námořnictvu a práci na ministerstvu pro pozemkovou reformu až po tříleté vězení za názory, které se nebál vyslovit nahlas. Díky kuráži však naplnil své poslání a založil Družstevní banku se specifickým zaměřením na kávová družstva.</span></p>\n<p>Farmář zbavil tato zrnka kofeinu metodou<strong> superkritického CO2 (sCO2)</strong>, která je šetrná k zrnům i k přírodě, protože sCO2 je netoxický a lze ho využívat znovu a znovu. Extrahuje pouze kofein a minimum ostatních látek. A jak takový proces probíhá? Jako první se zelená kávová zrna vloží do horké vodní lázně, aby zvýšily svůj objem. Dále se zrna s vodou vloží do velkých nerezových nádob (představte si sudy na pivo), nádoba se uzavře a začne se naplňovat sCO2. Tlak a teplota se postupně zvyšují až na 90 °C a 270 atmosfér. Pak se to vše nechá spolu 8 hodin kamarádit. Následně se sníží teplota na 30 &#8211; 40 °C a sCO2 spolu s vodou se odčerpají. Voda nese veškerý kofein, který se pak dá dál využít třeba ve výrobních procesech v kosmetice nebo léčivech. Zrna se poté vysuší na přibližně 10 % vlhkosti a můžou se vesele pražit.</p>",
+  "prices": {
+   "price": "395",
+   "regular_price": "395",
+   "sale_price": "395",
+   "price_range": {
+    "min_amount": "395",
+    "max_amount": "1410"
+   },
+   "currency_code": "CZK",
+   "currency_symbol": "Kč",
+   "currency_minor_unit": 0,
+   "currency_decimal_separator": ",",
+   "currency_thousand_separator": "",
+   "currency_prefix": "",
+   "currency_suffix": " Kč"
+  },
+  "images": [
+   {
+    "id": 23863,
+    "src": "https://kmen.coffee/wp-content/uploads/2024/03/101-Ethiopia-Shakisso-DECAF250g-1.png",
+    "thumbnail": "https://kmen.coffee/wp-content/uploads/2024/03/101-Ethiopia-Shakisso-DECAF250g-1-600x800.png",
+    "srcset": "https://kmen.coffee/wp-content/uploads/2024/03/101-Ethiopia-Shakisso-DECAF250g-1.png 2410w, https://kmen.coffee/wp-content/uploads/2024/03/101-Ethiopia-Shakisso-DECAF250g-1-300x300.png 300w, https://kmen.coffee/wp-content/uploads/2024/03/101-Ethiopia-Shakisso-DECAF250g-1-1024x1024.png 1024w, https://kmen.coffee/wp-content/uploads/2024/03/101-Ethiopia-Shakisso-DECAF250g-1-150x150.png 150w, https://kmen.coffee/wp-content/uploads/2024/03/101-Ethiopia-Shakisso-DECAF250g-1-768x768.png 768w, https://kmen.coffee/wp-content/uploads/2024/03/101-Ethiopia-Shakisso-DECAF250g-1-1536x1536.png 1536w, https://kmen.coffee/wp-content/uploads/2024/03/101-Ethiopia-Shakisso-DECAF250g-1-2048x2048.png 2048w, https://kmen.coffee/wp-content/uploads/2024/03/101-Ethiopia-Shakisso-DECAF250g-1-100x100.png 100w, https://kmen.coffee/wp-content/uploads/2024/03/101-Ethiopia-Shakisso-DECAF250g-1-800x800.png 800w, https://kmen.coffee/wp-content/uploads/2024/03/101-Ethiopia-Shakisso-DECAF250g-1-50x50.png 50w",
+    "sizes": "(max-width: 2410px) 100vw, 2410px",
+    "thumbnail_srcset": "",
+    "thumbnail_sizes": "(max-width: 600px) 100vw, 600px",
+    "name": "Ethiopia Shakisso DECAF(250g)",
+    "alt": ""
+   },
+   {
+    "id": 23864,
+    "src": "https://kmen.coffee/wp-content/uploads/2024/03/Etiopie-Shakisso-DECAF.jpg",
+    "thumbnail": "https://kmen.coffee/wp-content/uploads/2024/03/Etiopie-Shakisso-DECAF.jpg",
+    "srcset": "https://kmen.coffee/wp-content/uploads/2024/03/Etiopie-Shakisso-DECAF.jpg 474w, https://kmen.coffee/wp-content/uploads/2024/03/Etiopie-Shakisso-DECAF-300x300.jpg 300w, https://kmen.coffee/wp-content/uploads/2024/03/Etiopie-Shakisso-DECAF-150x150.jpg 150w, https://kmen.coffee/wp-content/uploads/2024/03/Etiopie-Shakisso-DECAF-100x100.jpg 100w, https://kmen.coffee/wp-content/uploads/2024/03/Etiopie-Shakisso-DECAF-50x50.jpg 50w",
+    "sizes": "(max-width: 474px) 100vw, 474px",
+    "thumbnail_srcset": "https://kmen.coffee/wp-content/uploads/2024/03/Etiopie-Shakisso-DECAF.jpg 474w, https://kmen.coffee/wp-content/uploads/2024/03/Etiopie-Shakisso-DECAF-300x300.jpg 300w, https://kmen.coffee/wp-content/uploads/2024/03/Etiopie-Shakisso-DECAF-150x150.jpg 150w, https://kmen.coffee/wp-content/uploads/2024/03/Etiopie-Shakisso-DECAF-100x100.jpg 100w, https://kmen.coffee/wp-content/uploads/2024/03/Etiopie-Shakisso-DECAF-50x50.jpg 50w",
+    "thumbnail_sizes": "(max-width: 474px) 100vw, 474px",
+    "name": "Rwanda La Salama",
+    "alt": ""
+   },
+   {
+    "id": 23867,
+    "src": "https://kmen.coffee/wp-content/uploads/2024/03/Etiopie-Shakisso-DECAF-4.jpg",
+    "thumbnail": "https://kmen.coffee/wp-content/uploads/2024/03/Etiopie-Shakisso-DECAF-4-600x713.jpg",
+    "srcset": "https://kmen.coffee/wp-content/uploads/2024/03/Etiopie-Shakisso-DECAF-4.jpg 713w, https://kmen.coffee/wp-content/uploads/2024/03/Etiopie-Shakisso-DECAF-4-300x300.jpg 300w, https://kmen.coffee/wp-content/uploads/2024/03/Etiopie-Shakisso-DECAF-4-150x150.jpg 150w, https://kmen.coffee/wp-content/uploads/2024/03/Etiopie-Shakisso-DECAF-4-100x100.jpg 100w, https://kmen.coffee/wp-content/uploads/2024/03/Etiopie-Shakisso-DECAF-4-50x50.jpg 50w",
+    "sizes": "(max-width: 713px) 100vw, 713px",
+    "thumbnail_srcset": "",
+    "thumbnail_sizes": "(max-width: 600px) 100vw, 600px",
+    "name": "Rwanda La Salama",
+    "alt": ""
+   },
+   {
+    "id": 23865,
+    "src": "https://kmen.coffee/wp-content/uploads/2024/03/Etiopie-Shakisso-DECAF-2.jpg",
+    "thumbnail": "https://kmen.coffee/wp-content/uploads/2024/03/Etiopie-Shakisso-DECAF-2-600x713.jpg",
+    "srcset": "https://kmen.coffee/wp-content/uploads/2024/03/Etiopie-Shakisso-DECAF-2.jpg 713w, https://kmen.coffee/wp-content/uploads/2024/03/Etiopie-Shakisso-DECAF-2-300x300.jpg 300w, https://kmen.coffee/wp-content/uploads/2024/03/Etiopie-Shakisso-DECAF-2-150x150.jpg 150w, https://kmen.coffee/wp-content/uploads/2024/03/Etiopie-Shakisso-DECAF-2-100x100.jpg 100w, https://kmen.coffee/wp-content/uploads/2024/03/Etiopie-Shakisso-DECAF-2-50x50.jpg 50w",
+    "sizes": "(max-width: 713px) 100vw, 713px",
+    "thumbnail_srcset": "",
+    "thumbnail_sizes": "(max-width: 600px) 100vw, 600px",
+    "name": "Rwanda La Salama",
+    "alt": ""
+   }
+  ],
+  "categories": [
+   {
+    "id": 322,
+    "name": "Espresso",
+    "slug": "espresso",
+    "link": "https://kmen.coffee/kava/espresso/"
+   },
+   {
+    "id": 321,
+    "name": "Filtr",
+    "slug": "filtr",
+    "link": "https://kmen.coffee/kava/filtr/"
+   },
+   {
+    "id": 306,
+    "name": "Káva",
+    "slug": "kava",
+    "link": "https://kmen.coffee/kava/"
+   }
+  ],
+  "attributes": [
+   {
+    "id": 5,
+    "name": "Farma",
+    "taxonomy": "pa_farma",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 725,
+      "name": "Shakisso farm",
+      "slug": "shakisso-farm"
+     }
+    ]
+   },
+   {
+    "id": 6,
+    "name": "Producent",
+    "taxonomy": "pa_producent",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 726,
+      "name": "Haile Gebre",
+      "slug": "haile-gebre"
+     }
+    ]
+   },
+   {
+    "id": 8,
+    "name": "Oblast",
+    "taxonomy": "pa_oblast",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 724,
+      "name": "Guji",
+      "slug": "guji"
+     }
+    ]
+   },
+   {
+    "id": 11,
+    "name": "Zpracování",
+    "taxonomy": "pa_zpracovani",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 316,
+      "name": "washed",
+      "slug": "promyte"
+     }
+    ]
+   },
+   {
+    "id": 12,
+    "name": "Odrůda",
+    "taxonomy": "pa_odruda",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 325,
+      "name": "Heirloom",
+      "slug": "heirloom"
+     }
+    ]
+   },
+   {
+    "id": 13,
+    "name": "Chuťový profil",
+    "taxonomy": "pa_chutovy-profil",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 461,
+      "name": "černý čaj",
+      "slug": "cerny-caj"
+     },
+     {
+      "id": 1120,
+      "name": "meruňkovomandlový flapjack",
+      "slug": "merunkovomandlovy-flapjack"
+     },
+     {
+      "id": 721,
+      "name": "sedmikrásky",
+      "slug": "sedmikrasky"
+     }
+    ]
+   },
+   {
+    "id": 7,
+    "name": "Země původu",
+    "taxonomy": "pa_zeme-puvodu",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 354,
+      "name": "Etiopie",
+      "slug": "etiopie"
+     }
+    ]
+   },
+   {
+    "id": 14,
+    "name": "Použití",
+    "taxonomy": "pa_pouziti",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 305,
+      "name": "vhodná na espresso",
+      "slug": "vhodna-na-espresso"
+     },
+     {
+      "id": 302,
+      "name": "vhodná na filtr",
+      "slug": "vhodna-na-filtr"
+     }
+    ]
+   },
+   {
+    "id": 15,
+    "name": "Typ balení",
+    "taxonomy": "pa_typ-baleni",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 304,
+      "name": "1000g",
+      "slug": "1000g",
+      "default": false
+     },
+     {
+      "id": 303,
+      "name": "250g",
+      "slug": "250g",
+      "default": true
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 28048,
+    "attributes": [
+     {
+      "name": "Typ balení",
+      "value": "250g"
+     }
+    ]
+   },
+   {
+    "id": 28049,
+    "attributes": [
+     {
+      "name": "Typ balení",
+      "value": "1000g"
+     }
+    ]
+   }
+  ],
+  "is_in_stock": false
+ }
+]

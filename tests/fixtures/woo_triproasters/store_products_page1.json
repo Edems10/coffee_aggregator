@@ -1,0 +1,1097 @@
+[
+ {
+  "id": 1468,
+  "name": "PANAMA &#8211; FINCA HARTMANN",
+  "permalink": "https://triproasters.sk/panama-finca-hartmann/",
+  "sku": "PAFIHA-006",
+  "short_description": "<p>Výberová káva z Panamy s príbehom siahajúcim až do Československa. Odroda Catuai spracovaná honey metódou prináša tóny bielej čokolády, sliviek a čučoriedok. Cup score 88.</p>",
+  "description": "<p data-start=\"295\" data-end=\"666\"><strong data-start=\"295\" data-end=\"333\">Panama – Catuai od rodiny Hartmann</strong> je výnimočná výberová káva s bohatým príbehom a pôvodom prepojeným so Slovenskom. Farmu Hartmann Estate založil v Paname Alois St. Hartmann, rodák z bývalého Československa, ktorý emigroval v roku 1914. Dnes farmu vedie jeho rodina a pestuje na nej špičkovú kávu v regióne <strong data-start=\"607\" data-end=\"622\">Santa Clara</strong>, v nadmorskej výške <strong data-start=\"643\" data-end=\"666\">1400 – 2000 m n. m.</strong></p>\n<p data-start=\"668\" data-end=\"915\">Táto káva je spracovaná <strong data-start=\"692\" data-end=\"709\">honey metódou</strong>, ktorá zachováva prirodzenú sladkosť z kávového slizu a zaručuje komplexný chuťový profil. Suší sa na vyvýšených záhonoch a dôkladne sa prehrabáva, čím sa zabraňuje skazeniu a podporuje rovnomerné sušenie.</p>\n<p data-start=\"917\" data-end=\"1152\">V šálke očakávajte elegantné tóny <strong data-start=\"1078\" data-end=\"1119\">bielej čokolády, sliviek a čučoriedok</strong>, vyvážené <strong data-start=\"1130\" data-end=\"1151\">strednou aciditou</strong>.</p>",
+  "prices": {
+   "price": "1600",
+   "regular_price": "1600",
+   "sale_price": "1600",
+   "price_range": null,
+   "currency_code": "EUR",
+   "currency_symbol": "€",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ",",
+   "currency_thousand_separator": "",
+   "currency_prefix": "",
+   "currency_suffix": " €"
+  },
+  "images": [
+   {
+    "id": 16860,
+    "src": "https://triproasters.sk/wp-content/uploads/2024/07/trip_limit_panama-finca-hartmann-scaled.jpg",
+    "thumbnail": "https://triproasters.sk/wp-content/uploads/2024/07/trip_limit_panama-finca-hartmann-scaled-310x310.jpg",
+    "srcset": "https://triproasters.sk/wp-content/uploads/2024/07/trip_limit_panama-finca-hartmann-scaled.jpg 1440w, https://triproasters.sk/wp-content/uploads/2024/07/trip_limit_panama-finca-hartmann-scaled-410x410.jpg 410w, https://triproasters.sk/wp-content/uploads/2024/07/trip_limit_panama-finca-hartmann-scaled-1366x1366.jpg 1366w, https://triproasters.sk/wp-content/uploads/2024/07/trip_limit_panama-finca-hartmann-scaled-200x200.jpg 200w, https://triproasters.sk/wp-content/uploads/2024/07/trip_limit_panama-finca-hartmann-scaled-768x768.jpg 768w, https://triproasters.sk/wp-content/uploads/2024/07/trip_limit_panama-finca-hartmann-scaled-310x310.jpg 310w, https://triproasters.sk/wp-content/uploads/2024/07/trip_limit_panama-finca-hartmann-scaled-680x680.jpg 680w, https://triproasters.sk/wp-content/uploads/2024/07/trip_limit_panama-finca-hartmann-scaled-150x150.jpg 150w",
+    "sizes": "(max-width: 1440px) 100vw, 1440px",
+    "thumbnail_srcset": "https://triproasters.sk/wp-content/uploads/2024/07/trip_limit_panama-finca-hartmann-scaled-310x310.jpg 310w, https://triproasters.sk/wp-content/uploads/2024/07/trip_limit_panama-finca-hartmann-scaled-410x410.jpg 410w, https://triproasters.sk/wp-content/uploads/2024/07/trip_limit_panama-finca-hartmann-scaled-1366x1366.jpg 1366w, https://triproasters.sk/wp-content/uploads/2024/07/trip_limit_panama-finca-hartmann-scaled-200x200.jpg 200w, https://triproasters.sk/wp-content/uploads/2024/07/trip_limit_panama-finca-hartmann-scaled-768x768.jpg 768w, https://triproasters.sk/wp-content/uploads/2024/07/trip_limit_panama-finca-hartmann-scaled-680x680.jpg 680w, https://triproasters.sk/wp-content/uploads/2024/07/trip_limit_panama-finca-hartmann-scaled-150x150.jpg 150w, https://triproasters.sk/wp-content/uploads/2024/07/trip_limit_panama-finca-hartmann-scaled.jpg 1440w",
+    "thumbnail_sizes": "(max-width: 310px) 100vw, 310px",
+    "name": "PANAMA &#8211; FINCA HARTMANN",
+    "alt": ""
+   }
+  ],
+  "categories": [
+   {
+    "id": 281,
+    "name": "Espresso",
+    "slug": "espresso",
+    "link": "https://triproasters.sk/espresso/"
+   },
+   {
+    "id": 282,
+    "name": "Filter",
+    "slug": "filter",
+    "link": "https://triproasters.sk/filter/"
+   }
+  ],
+  "attributes": [
+   {
+    "id": 26,
+    "name": "Druh",
+    "taxonomy": "pa_druh",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 312,
+      "name": "Pražená zrnková káva",
+      "slug": "prazena-zrnkova-kava"
+     }
+    ]
+   },
+   {
+    "id": 1,
+    "name": "Hmotnosť produktu",
+    "taxonomy": "pa_hmotnost",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 26,
+      "name": "250 g",
+      "slug": "250-g",
+      "default": true
+     }
+    ]
+   },
+   {
+    "id": 2,
+    "name": "Spôsob praženia",
+    "taxonomy": "pa_sposob-prazenia",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 28,
+      "name": "Espresso",
+      "slug": "espresso",
+      "default": true
+     },
+     {
+      "id": 27,
+      "name": "Filter",
+      "slug": "filter",
+      "default": false
+     }
+    ]
+   },
+   {
+    "id": 14,
+    "name": "Spôsob spracovania",
+    "taxonomy": "pa_sposob-spracovania",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 257,
+      "name": "Honey",
+      "slug": "honey"
+     }
+    ]
+   },
+   {
+    "id": 15,
+    "name": "Odroda kávy",
+    "taxonomy": "pa_odroda-kavy",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 253,
+      "name": "Catuai",
+      "slug": "catuai"
+     }
+    ]
+   },
+   {
+    "id": 16,
+    "name": "Nadmorská výška",
+    "taxonomy": "pa_nadmorska-vyska",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 290,
+      "name": "1400 - 2000 m n. m.",
+      "slug": "1400-2000-m-n-m"
+     }
+    ]
+   },
+   {
+    "id": 25,
+    "name": "Farma",
+    "taxonomy": "pa_farma",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 300,
+      "name": "Finca Hartmann",
+      "slug": "finca-hartmann"
+     }
+    ]
+   },
+   {
+    "id": 24,
+    "name": "Oblasť",
+    "taxonomy": "pa_oblast",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 298,
+      "name": "Santa Clara",
+      "slug": "santa-clara"
+     }
+    ]
+   },
+   {
+    "id": 23,
+    "name": "Cup score",
+    "taxonomy": "pa_cup-score",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 294,
+      "name": "88",
+      "slug": "88"
+     }
+    ]
+   },
+   {
+    "id": 21,
+    "name": "Zloženie kávy",
+    "taxonomy": "pa_zlozenie-kavy",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 286,
+      "name": "100% arabika",
+      "slug": "100-arabica"
+     }
+    ]
+   },
+   {
+    "id": 18,
+    "name": "Chuťový profil",
+    "taxonomy": "pa_chutovy-profil",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 255,
+      "name": "Biela čokoláda",
+      "slug": "biela-cokolada"
+     },
+     {
+      "id": 232,
+      "name": "Čučoriedky",
+      "slug": "cucoriedky"
+     },
+     {
+      "id": 256,
+      "name": "Slivky",
+      "slug": "slivky"
+     }
+    ]
+   },
+   {
+    "id": 17,
+    "name": "Kyslosť kávy",
+    "taxonomy": "pa_kyslost-kavy",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 228,
+      "name": "Stredná",
+      "slug": "stredna"
+     }
+    ]
+   },
+   {
+    "id": 20,
+    "name": "Horkosť kávy",
+    "taxonomy": "pa_horkost-kavy",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 277,
+      "name": "Stredná",
+      "slug": "stredna"
+     }
+    ]
+   },
+   {
+    "id": 10,
+    "name": "Obal",
+    "taxonomy": "pa_obal",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 73,
+      "name": "Hliníková vrstva proti vlhkosti a vzduchu",
+      "slug": "hlinikova-vrstva"
+     },
+     {
+      "id": 74,
+      "name": "Jednosmerný aróma ventil",
+      "slug": "aroma-ventil"
+     },
+     {
+      "id": 75,
+      "name": "Znovu uzatvárateľný zip",
+      "slug": "znovu-uzatvaratelny-zip"
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 16900,
+    "attributes": [
+     {
+      "name": "Hmotnosť produktu",
+      "value": "250-g"
+     },
+     {
+      "name": "Spôsob praženia",
+      "value": null
+     }
+    ]
+   }
+  ],
+  "is_in_stock": true
+ },
+ {
+  "id": 1739,
+  "name": "INDONESIA &#8211; FLOWERTRON",
+  "permalink": "https://triproasters.sk/indonesia-flowertron/",
+  "sku": "INFL-011",
+  "short_description": "<p>Svieža káva s výraznou aciditou, s chuťou hrozna, jahody a čiernej ríbezle. Spracovaná inovatívnou metódou hybridnej fermentácie, ktorá zvýrazňuje jej šťavnatosť, arómu a likérové tóny. Vhodná najmä na filtrované metódy. Cup score 88.</p>",
+  "description": "<p>Káva spracovaná inovatívnou fermentáciou. Indonézia má dlhú históriu v spracovaní kávy, avšak v poslednej dobe boli ich kávy na trhu s výberovou kávou prehliadané.</p>\n<p>Indonézia je neuveriteľne rozmanitá a rozľahlá krajina. Každý región pestovania kávy má svoj vlastný jedinečný systém výroby a obchodu, pričom miestne odrody a klíma prispievajú k ich odlišným profilom. My sme pre vás vybrali kávu z regiónu West Java.</p>\n<p>Káva Flowertron je spracovaná inovatívnym spôsobom hybridnej fermentácie. Spočíva v kombinácií so 72 hodinovým naturálnym spracovaním a následným 160 hodinovým karbonickým naturálnym procesom. Karbonická fermentácia sa odohráva v nerezovej nádrži, v ktorej sa káva uzatvorí a vtlačí sa do nej dusík. Dusík z nádoby vytlačí kyslík.</p>\n<p>Týmto inovatívnym spôsobom dokážeme z kávy dostať šťavnatosť, výraznú arómu a likérové tóny.</p>\n<p>Pre intenzívne vychutnanie kávy ju odporúčame pripravovať alternatívnymi spôsobmi prípravy ako napr. hario V60, chemex, či aeropress. <strong>Najlepší chuťový zážitok sa prejaví jeden mesiac po pražení kávy.</strong></p>",
+  "prices": {
+   "price": "1400",
+   "regular_price": "1400",
+   "sale_price": "1400",
+   "price_range": null,
+   "currency_code": "EUR",
+   "currency_symbol": "€",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ",",
+   "currency_thousand_separator": "",
+   "currency_prefix": "",
+   "currency_suffix": " €"
+  },
+  "images": [
+   {
+    "id": 16859,
+    "src": "https://triproasters.sk/wp-content/uploads/2024/07/trip_limit_indonesia-flowertron-scaled.jpg",
+    "thumbnail": "https://triproasters.sk/wp-content/uploads/2024/07/trip_limit_indonesia-flowertron-scaled-310x310.jpg",
+    "srcset": "https://triproasters.sk/wp-content/uploads/2024/07/trip_limit_indonesia-flowertron-scaled.jpg 1440w, https://triproasters.sk/wp-content/uploads/2024/07/trip_limit_indonesia-flowertron-scaled-410x410.jpg 410w, https://triproasters.sk/wp-content/uploads/2024/07/trip_limit_indonesia-flowertron-scaled-1366x1366.jpg 1366w, https://triproasters.sk/wp-content/uploads/2024/07/trip_limit_indonesia-flowertron-scaled-200x200.jpg 200w, https://triproasters.sk/wp-content/uploads/2024/07/trip_limit_indonesia-flowertron-scaled-768x768.jpg 768w, https://triproasters.sk/wp-content/uploads/2024/07/trip_limit_indonesia-flowertron-scaled-310x310.jpg 310w, https://triproasters.sk/wp-content/uploads/2024/07/trip_limit_indonesia-flowertron-scaled-680x680.jpg 680w, https://triproasters.sk/wp-content/uploads/2024/07/trip_limit_indonesia-flowertron-scaled-150x150.jpg 150w",
+    "sizes": "(max-width: 1440px) 100vw, 1440px",
+    "thumbnail_srcset": "https://triproasters.sk/wp-content/uploads/2024/07/trip_limit_indonesia-flowertron-scaled-310x310.jpg 310w, https://triproasters.sk/wp-content/uploads/2024/07/trip_limit_indonesia-flowertron-scaled-410x410.jpg 410w, https://triproasters.sk/wp-content/uploads/2024/07/trip_limit_indonesia-flowertron-scaled-1366x1366.jpg 1366w, https://triproasters.sk/wp-content/uploads/2024/07/trip_limit_indonesia-flowertron-scaled-200x200.jpg 200w, https://triproasters.sk/wp-content/uploads/2024/07/trip_limit_indonesia-flowertron-scaled-768x768.jpg 768w, https://triproasters.sk/wp-content/uploads/2024/07/trip_limit_indonesia-flowertron-scaled-680x680.jpg 680w, https://triproasters.sk/wp-content/uploads/2024/07/trip_limit_indonesia-flowertron-scaled-150x150.jpg 150w, https://triproasters.sk/wp-content/uploads/2024/07/trip_limit_indonesia-flowertron-scaled.jpg 1440w",
+    "thumbnail_sizes": "(max-width: 310px) 100vw, 310px",
+    "name": "INDONESIA &#8211; FLOWERTRON",
+    "alt": ""
+   }
+  ],
+  "categories": [
+   {
+    "id": 281,
+    "name": "Espresso",
+    "slug": "espresso",
+    "link": "https://triproasters.sk/espresso/"
+   },
+   {
+    "id": 282,
+    "name": "Filter",
+    "slug": "filter",
+    "link": "https://triproasters.sk/filter/"
+   }
+  ],
+  "attributes": [
+   {
+    "id": 26,
+    "name": "Druh",
+    "taxonomy": "pa_druh",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 312,
+      "name": "Pražená zrnková káva",
+      "slug": "prazena-zrnkova-kava"
+     }
+    ]
+   },
+   {
+    "id": 24,
+    "name": "Oblasť",
+    "taxonomy": "pa_oblast",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 296,
+      "name": "West Java",
+      "slug": "west-java"
+     }
+    ]
+   },
+   {
+    "id": 1,
+    "name": "Hmotnosť produktu",
+    "taxonomy": "pa_hmotnost",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 26,
+      "name": "250 g",
+      "slug": "250-g",
+      "default": true
+     }
+    ]
+   },
+   {
+    "id": 2,
+    "name": "Spôsob praženia",
+    "taxonomy": "pa_sposob-prazenia",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 28,
+      "name": "Espresso",
+      "slug": "espresso",
+      "default": false
+     },
+     {
+      "id": 27,
+      "name": "Filter",
+      "slug": "filter",
+      "default": true
+     }
+    ]
+   },
+   {
+    "id": 14,
+    "name": "Spôsob spracovania",
+    "taxonomy": "pa_sposob-spracovania",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 274,
+      "name": "Anearóbna fermentácia",
+      "slug": "anearobna-fermentacia"
+     }
+    ]
+   },
+   {
+    "id": 15,
+    "name": "Odroda kávy",
+    "taxonomy": "pa_odroda-kavy",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 268,
+      "name": "Lini s-795",
+      "slug": "lini-s-795"
+     },
+     {
+      "id": 267,
+      "name": "Red caturra",
+      "slug": "red-caturra"
+     }
+    ]
+   },
+   {
+    "id": 16,
+    "name": "Nadmorská výška",
+    "taxonomy": "pa_nadmorska-vyska",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 234,
+      "name": "1800 m n. m.",
+      "slug": "1800-m-n-m"
+     }
+    ]
+   },
+   {
+    "id": 25,
+    "name": "Farma",
+    "taxonomy": "pa_farma",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 299,
+      "name": "Muhlis Walida Agropuro",
+      "slug": "muhlis-walida-agropuro"
+     }
+    ]
+   },
+   {
+    "id": 23,
+    "name": "Cup score",
+    "taxonomy": "pa_cup-score",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 294,
+      "name": "88",
+      "slug": "88"
+     }
+    ]
+   },
+   {
+    "id": 21,
+    "name": "Zloženie kávy",
+    "taxonomy": "pa_zlozenie-kavy",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 286,
+      "name": "100% arabika",
+      "slug": "100-arabica"
+     }
+    ]
+   },
+   {
+    "id": 18,
+    "name": "Chuťový profil",
+    "taxonomy": "pa_chutovy-profil",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 266,
+      "name": "Čierna ríbezľa",
+      "slug": "cierna-ribezla"
+     },
+     {
+      "id": 264,
+      "name": "Hrozno",
+      "slug": "hrozno"
+     },
+     {
+      "id": 265,
+      "name": "Jahoda",
+      "slug": "jahoda"
+     }
+    ]
+   },
+   {
+    "id": 17,
+    "name": "Kyslosť kávy",
+    "taxonomy": "pa_kyslost-kavy",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 244,
+      "name": "Vysoká",
+      "slug": "vysoka"
+     }
+    ]
+   },
+   {
+    "id": 20,
+    "name": "Horkosť kávy",
+    "taxonomy": "pa_horkost-kavy",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 276,
+      "name": "Žiadna",
+      "slug": "ziadna"
+     }
+    ]
+   },
+   {
+    "id": 10,
+    "name": "Obal",
+    "taxonomy": "pa_obal",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 73,
+      "name": "Hliníková vrstva proti vlhkosti a vzduchu",
+      "slug": "hlinikova-vrstva"
+     },
+     {
+      "id": 74,
+      "name": "Jednosmerný aróma ventil",
+      "slug": "aroma-ventil"
+     },
+     {
+      "id": 75,
+      "name": "Znovu uzatvárateľný zip",
+      "slug": "znovu-uzatvaratelny-zip"
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 16896,
+    "attributes": [
+     {
+      "name": "Hmotnosť produktu",
+      "value": "250-g"
+     },
+     {
+      "name": "Spôsob praženia",
+      "value": null
+     }
+    ]
+   }
+  ],
+  "is_in_stock": true
+ },
+ {
+  "id": 2210,
+  "name": "INDONESIA &#8211; KAMALA",
+  "permalink": "https://triproasters.sk/indonesia-kamala/",
+  "sku": "INKA-009",
+  "short_description": "<p>Lahodná káva s kvetinovou vôňou, chuťou grapefruitu, citrónovej trávy a hrozienok. Spracovanie inovatívnou anaeróbnou fermentáciou zvýrazňuje jej komplexnosť a rozmanitosť. Vhodná najmä na filtrované metódy. Cup score 84,5.</p>\n<p>&nbsp;</p>\n<p>&nbsp;</p>",
+  "description": "<p>Kávové zrná z oblasti Kamala Batukaang sú jedinečnou a voňavou kávou, ktorá určite ulahodí aj tým najnáročnejším kávičkárom.</p>\n<p>Zrná pestované v Indonézii sú spracované inovatívnou anaeróbnou prírodnou metódou, ktorej výsledkom je komplexná a zároveň lahodná šálka kávy. Chuťový profil kávy pripomína kvetinovú vôňu, grapefruit, citrónovú trávu a v závere s dochuťou hrozienok.</p>\n<p>Kamala je komplexná a rozmanitá káva na všetky chute. Odroda Catuai, ktorú v roku 1949 vyšľachtil Instituto Agronômico de Campinas (IAC) je vysoko výnosná a silná rastlina. Ide o kríženca Mundo novo a Yellow Caturra.</p>\n<p><strong>Najlepší chuťový zážitok sa prejaví jeden mesiac po pražení kávy.</strong></p>",
+  "prices": {
+   "price": "1400",
+   "regular_price": "1400",
+   "sale_price": "1400",
+   "price_range": null,
+   "currency_code": "EUR",
+   "currency_symbol": "€",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ",",
+   "currency_thousand_separator": "",
+   "currency_prefix": "",
+   "currency_suffix": " €"
+  },
+  "images": [
+   {
+    "id": 16849,
+    "src": "https://triproasters.sk/wp-content/uploads/2024/11/trip_indonesia-kamala-scaled.jpg",
+    "thumbnail": "https://triproasters.sk/wp-content/uploads/2024/11/trip_indonesia-kamala-scaled-310x310.jpg",
+    "srcset": "https://triproasters.sk/wp-content/uploads/2024/11/trip_indonesia-kamala-scaled.jpg 1440w, https://triproasters.sk/wp-content/uploads/2024/11/trip_indonesia-kamala-scaled-410x410.jpg 410w, https://triproasters.sk/wp-content/uploads/2024/11/trip_indonesia-kamala-scaled-1366x1366.jpg 1366w, https://triproasters.sk/wp-content/uploads/2024/11/trip_indonesia-kamala-scaled-200x200.jpg 200w, https://triproasters.sk/wp-content/uploads/2024/11/trip_indonesia-kamala-scaled-768x768.jpg 768w, https://triproasters.sk/wp-content/uploads/2024/11/trip_indonesia-kamala-scaled-310x310.jpg 310w, https://triproasters.sk/wp-content/uploads/2024/11/trip_indonesia-kamala-scaled-680x680.jpg 680w, https://triproasters.sk/wp-content/uploads/2024/11/trip_indonesia-kamala-scaled-150x150.jpg 150w",
+    "sizes": "(max-width: 1440px) 100vw, 1440px",
+    "thumbnail_srcset": "https://triproasters.sk/wp-content/uploads/2024/11/trip_indonesia-kamala-scaled-310x310.jpg 310w, https://triproasters.sk/wp-content/uploads/2024/11/trip_indonesia-kamala-scaled-410x410.jpg 410w, https://triproasters.sk/wp-content/uploads/2024/11/trip_indonesia-kamala-scaled-1366x1366.jpg 1366w, https://triproasters.sk/wp-content/uploads/2024/11/trip_indonesia-kamala-scaled-200x200.jpg 200w, https://triproasters.sk/wp-content/uploads/2024/11/trip_indonesia-kamala-scaled-768x768.jpg 768w, https://triproasters.sk/wp-content/uploads/2024/11/trip_indonesia-kamala-scaled-680x680.jpg 680w, https://triproasters.sk/wp-content/uploads/2024/11/trip_indonesia-kamala-scaled-150x150.jpg 150w, https://triproasters.sk/wp-content/uploads/2024/11/trip_indonesia-kamala-scaled.jpg 1440w",
+    "thumbnail_sizes": "(max-width: 310px) 100vw, 310px",
+    "name": "",
+    "alt": ""
+   }
+  ],
+  "categories": [
+   {
+    "id": 281,
+    "name": "Espresso",
+    "slug": "espresso",
+    "link": "https://triproasters.sk/espresso/"
+   },
+   {
+    "id": 282,
+    "name": "Filter",
+    "slug": "filter",
+    "link": "https://triproasters.sk/filter/"
+   }
+  ],
+  "attributes": [
+   {
+    "id": 26,
+    "name": "Druh",
+    "taxonomy": "pa_druh",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 312,
+      "name": "Pražená zrnková káva",
+      "slug": "prazena-zrnkova-kava"
+     }
+    ]
+   },
+   {
+    "id": 1,
+    "name": "Hmotnosť produktu",
+    "taxonomy": "pa_hmotnost",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 26,
+      "name": "250 g",
+      "slug": "250-g",
+      "default": true
+     }
+    ]
+   },
+   {
+    "id": 2,
+    "name": "Spôsob praženia",
+    "taxonomy": "pa_sposob-prazenia",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 28,
+      "name": "Espresso",
+      "slug": "espresso",
+      "default": false
+     },
+     {
+      "id": 27,
+      "name": "Filter",
+      "slug": "filter",
+      "default": true
+     }
+    ]
+   },
+   {
+    "id": 14,
+    "name": "Spôsob spracovania",
+    "taxonomy": "pa_sposob-spracovania",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 274,
+      "name": "Anearóbna fermentácia",
+      "slug": "anearobna-fermentacia"
+     }
+    ]
+   },
+   {
+    "id": 15,
+    "name": "Odroda kávy",
+    "taxonomy": "pa_odroda-kavy",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 253,
+      "name": "Catuai",
+      "slug": "catuai"
+     }
+    ]
+   },
+   {
+    "id": 16,
+    "name": "Nadmorská výška",
+    "taxonomy": "pa_nadmorska-vyska",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 301,
+      "name": "1200 - 1350 m n. m.",
+      "slug": "1200-1350-m-n-m"
+     }
+    ]
+   },
+   {
+    "id": 24,
+    "name": "Oblasť",
+    "taxonomy": "pa_oblast",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 297,
+      "name": "Kamala Batukaang",
+      "slug": "kamala-batukaang"
+     }
+    ]
+   },
+   {
+    "id": 23,
+    "name": "Cup score",
+    "taxonomy": "pa_cup-score",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 295,
+      "name": "84,5",
+      "slug": "845"
+     }
+    ]
+   },
+   {
+    "id": 21,
+    "name": "Zloženie kávy",
+    "taxonomy": "pa_zlozenie-kavy",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 286,
+      "name": "100% arabika",
+      "slug": "100-arabica"
+     }
+    ]
+   },
+   {
+    "id": 18,
+    "name": "Chuťový profil",
+    "taxonomy": "pa_chutovy-profil",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 270,
+      "name": "Citrónová tráva",
+      "slug": "citronova-trava"
+     },
+     {
+      "id": 243,
+      "name": "Grapefruit",
+      "slug": "grapefruit"
+     },
+     {
+      "id": 271,
+      "name": "Hrozienka",
+      "slug": "hrozienka"
+     },
+     {
+      "id": 269,
+      "name": "Kvetinová",
+      "slug": "kvetinova"
+     }
+    ]
+   },
+   {
+    "id": 17,
+    "name": "Kyslosť kávy",
+    "taxonomy": "pa_kyslost-kavy",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 244,
+      "name": "Vysoká",
+      "slug": "vysoka"
+     }
+    ]
+   },
+   {
+    "id": 20,
+    "name": "Horkosť kávy",
+    "taxonomy": "pa_horkost-kavy",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 276,
+      "name": "Žiadna",
+      "slug": "ziadna"
+     }
+    ]
+   },
+   {
+    "id": 10,
+    "name": "Obal",
+    "taxonomy": "pa_obal",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 73,
+      "name": "Hliníková vrstva proti vlhkosti a vzduchu",
+      "slug": "hlinikova-vrstva"
+     },
+     {
+      "id": 74,
+      "name": "Jednosmerný aróma ventil",
+      "slug": "aroma-ventil"
+     },
+     {
+      "id": 75,
+      "name": "Znovu uzatvárateľný zip",
+      "slug": "znovu-uzatvaratelny-zip"
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 2214,
+    "attributes": [
+     {
+      "name": "Hmotnosť produktu",
+      "value": "250-g"
+     },
+     {
+      "name": "Spôsob praženia",
+      "value": "espresso"
+     }
+    ]
+   },
+   {
+    "id": 2215,
+    "attributes": [
+     {
+      "name": "Hmotnosť produktu",
+      "value": "250-g"
+     },
+     {
+      "name": "Spôsob praženia",
+      "value": null
+     }
+    ]
+   }
+  ],
+  "is_in_stock": true
+ },
+ {
+  "id": 147,
+  "name": "PAPUA NEW GUINEA &#8211; LAMARI",
+  "permalink": "https://triproasters.sk/papua-new-guinea-lamari/",
+  "sku": "PANEGU-001",
+  "short_description": "<p>Káva s chuťou jablka, čierneho korenia, hnedého cukru a čokolády. Vyznačujúca sa svojou horkosťou. Ideálna na espresso.</p>",
+  "description": "<p>Nováčik na scéne výberových káv. Odľahlé miesta malých farmárov v krajine – ktorí produkujú 85 % celkovej kávy v krajine – v kombinácii s historicky slabou infraštruktúrou sťažili prechod na výberovú kávu. Napriek tomu krajina pracuje na inovatívnych riešeniach. Lamari je pomenovaná podľa rieky Lamari, ktorá preteká cez Východnú vysočinu.</p>\n<p>Je vybraná z rozsiahleho výberu káv, ktoré pochádzajú z obrovskej siete malých farmárov v údolí rieky Lamari. Pozoruhodná kvalita tejto kávy je priamym výsledkom rokov rozširovania služieb a práce s malými pestovateľskými skupinami na zlepšovaní postupov zberu, drvenia, triedenia, fermentácie a sušenia.</p>",
+  "prices": {
+   "price": "1100",
+   "regular_price": "1100",
+   "sale_price": "1100",
+   "price_range": {
+    "min_amount": "1100",
+    "max_amount": "3400"
+   },
+   "currency_code": "EUR",
+   "currency_symbol": "€",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ",",
+   "currency_thousand_separator": "",
+   "currency_prefix": "",
+   "currency_suffix": " €"
+  },
+  "images": [
+   {
+    "id": 16863,
+    "src": "https://triproasters.sk/wp-content/uploads/2024/07/trip_papua-new-guinera-lamari-scaled.jpg",
+    "thumbnail": "https://triproasters.sk/wp-content/uploads/2024/07/trip_papua-new-guinera-lamari-scaled-310x310.jpg",
+    "srcset": "https://triproasters.sk/wp-content/uploads/2024/07/trip_papua-new-guinera-lamari-scaled.jpg 1440w, https://triproasters.sk/wp-content/uploads/2024/07/trip_papua-new-guinera-lamari-scaled-410x410.jpg 410w, https://triproasters.sk/wp-content/uploads/2024/07/trip_papua-new-guinera-lamari-scaled-1366x1366.jpg 1366w, https://triproasters.sk/wp-content/uploads/2024/07/trip_papua-new-guinera-lamari-scaled-200x200.jpg 200w, https://triproasters.sk/wp-content/uploads/2024/07/trip_papua-new-guinera-lamari-scaled-768x768.jpg 768w, https://triproasters.sk/wp-content/uploads/2024/07/trip_papua-new-guinera-lamari-scaled-310x310.jpg 310w, https://triproasters.sk/wp-content/uploads/2024/07/trip_papua-new-guinera-lamari-scaled-680x680.jpg 680w, https://triproasters.sk/wp-content/uploads/2024/07/trip_papua-new-guinera-lamari-scaled-150x150.jpg 150w",
+    "sizes": "(max-width: 1440px) 100vw, 1440px",
+    "thumbnail_srcset": "https://triproasters.sk/wp-content/uploads/2024/07/trip_papua-new-guinera-lamari-scaled-310x310.jpg 310w, https://triproasters.sk/wp-content/uploads/2024/07/trip_papua-new-guinera-lamari-scaled-410x410.jpg 410w, https://triproasters.sk/wp-content/uploads/2024/07/trip_papua-new-guinera-lamari-scaled-1366x1366.jpg 1366w, https://triproasters.sk/wp-content/uploads/2024/07/trip_papua-new-guinera-lamari-scaled-200x200.jpg 200w, https://triproasters.sk/wp-content/uploads/2024/07/trip_papua-new-guinera-lamari-scaled-768x768.jpg 768w, https://triproasters.sk/wp-content/uploads/2024/07/trip_papua-new-guinera-lamari-scaled-680x680.jpg 680w, https://triproasters.sk/wp-content/uploads/2024/07/trip_papua-new-guinera-lamari-scaled-150x150.jpg 150w, https://triproasters.sk/wp-content/uploads/2024/07/trip_papua-new-guinera-lamari-scaled.jpg 1440w",
+    "thumbnail_sizes": "(max-width: 310px) 100vw, 310px",
+    "name": "PAPUA NEW GUINEA &#8211; LAMARI",
+    "alt": ""
+   }
+  ],
+  "categories": [
+   {
+    "id": 281,
+    "name": "Espresso",
+    "slug": "espresso",
+    "link": "https://triproasters.sk/espresso/"
+   }
+  ],
+  "attributes": [
+   {
+    "id": 26,
+    "name": "Druh",
+    "taxonomy": "pa_druh",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 312,
+      "name": "Pražená zrnková káva",
+      "slug": "prazena-zrnkova-kava"
+     }
+    ]
+   },
+   {
+    "id": 1,
+    "name": "Hmotnosť produktu",
+    "taxonomy": "pa_hmotnost",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 25,
+      "name": "1000 g",
+      "slug": "1000-g",
+      "default": false
+     },
+     {
+      "id": 26,
+      "name": "250 g",
+      "slug": "250-g",
+      "default": true
+     }
+    ]
+   },
+   {
+    "id": 2,
+    "name": "Spôsob praženia",
+    "taxonomy": "pa_sposob-prazenia",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 28,
+      "name": "Espresso",
+      "slug": "espresso",
+      "default": true
+     }
+    ]
+   },
+   {
+    "id": 14,
+    "name": "Spôsob spracovania",
+    "taxonomy": "pa_sposob-spracovania",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 223,
+      "name": "Mokré",
+      "slug": "mokre"
+     }
+    ]
+   },
+   {
+    "id": 15,
+    "name": "Odroda kávy",
+    "taxonomy": "pa_odroda-kavy",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 220,
+      "name": "Arusha",
+      "slug": "arusha"
+     },
+     {
+      "id": 221,
+      "name": "Blue montain",
+      "slug": "blue-montain"
+     }
+    ]
+   },
+   {
+    "id": 16,
+    "name": "Nadmorská výška",
+    "taxonomy": "pa_nadmorska-vyska",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 219,
+      "name": "2000 m n. m.",
+      "slug": "2000-m-n-m"
+     }
+    ]
+   },
+   {
+    "id": 21,
+    "name": "Zloženie kávy",
+    "taxonomy": "pa_zlozenie-kavy",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 286,
+      "name": "100% arabika",
+      "slug": "100-arabica"
+     }
+    ]
+   },
+   {
+    "id": 18,
+    "name": "Chuťový profil",
+    "taxonomy": "pa_chutovy-profil",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 213,
+      "name": "Čierne korenie",
+      "slug": "cierne-korenie"
+     },
+     {
+      "id": 215,
+      "name": "Čokoláda",
+      "slug": "cokolada"
+     },
+     {
+      "id": 214,
+      "name": "Hnedý cukor",
+      "slug": "hnedy-cukor"
+     },
+     {
+      "id": 212,
+      "name": "Jablko",
+      "slug": "jablko"
+     }
+    ]
+   },
+   {
+    "id": 17,
+    "name": "Kyslosť kávy",
+    "taxonomy": "pa_kyslost-kavy",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 218,
+      "name": "Žiadna",
+      "slug": "ziadna"
+     }
+    ]
+   },
+   {
+    "id": 20,
+    "name": "Horkosť kávy",
+    "taxonomy": "pa_horkost-kavy",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 278,
+      "name": "Silná",
+      "slug": "silna"
+     }
+    ]
+   },
+   {
+    "id": 10,
+    "name": "Obal",
+    "taxonomy": "pa_obal",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 73,
+      "name": "Hliníková vrstva proti vlhkosti a vzduchu",
+      "slug": "hlinikova-vrstva"
+     },
+     {
+      "id": 74,
+      "name": "Jednosmerný aróma ventil",
+      "slug": "aroma-ventil"
+     },
+     {
+      "id": 75,
+      "name": "Znovu uzatvárateľný zip",
+      "slug": "znovu-uzatvaratelny-zip"
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 263,
+    "attributes": [
+     {
+      "name": "Hmotnosť produktu",
+      "value": "250-g"
+     },
+     {
+      "name": "Spôsob praženia",
+      "value": "espresso"
+     }
+    ]
+   },
+   {
+    "id": 264,
+    "attributes": [
+     {
+      "name": "Hmotnosť produktu",
+      "value": "1000-g"
+     },
+     {
+      "name": "Spôsob praženia",
+      "value": "espresso"
+     }
+    ]
+   }
+  ],
+  "is_in_stock": true
+ }
+]

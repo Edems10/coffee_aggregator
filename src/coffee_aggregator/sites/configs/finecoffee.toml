@@ -1,0 +1,26 @@
+# Fine Coffee SK — a weight-only attribute; the origin facts are either
+# "Label: value" lines or a two-column table inside the description.
+platform = "woocommerce"
+site_id = "finecoffee"
+name = "Fine Coffee SK"
+country = "SK"
+base_url = "https://www.finecoffee.sk/"
+currency = "EUR"
+mode = "api"
+max_pages = 10
+
+# Pinned ids, not slugs: ids survive a re-theme, slugs do not.
+# 15 prazena-kava (9).
+api_category_ids = [15]
+
+# The HTML fallback, used only if /wp-json/ ever stops answering.
+category_urls = [
+  "https://www.finecoffee.sk/kategoria-produktu/prazena-kava/",
+]
+
+[label_map]
+"Výška nad morom" = "altitude"
+"Najlepší spôsob prípravy" = "brewing"
+"Trieda" = ""
+"Vlastnosť" = ""
+"Parameter" = ""

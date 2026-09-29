@@ -1,0 +1,26 @@
+# Aurelica — a Slovak roastery behind Cloudflare that answers a plain UA.
+# Origin, process, roast, farm, altitude and variety all arrive as attributes.
+platform = "woocommerce"
+site_id = "aurelica"
+name = "Aurelica"
+country = "SK"
+base_url = "https://www.aurelica.coffee/"
+currency = "EUR"
+mode = "api"
+max_pages = 10
+
+# Pinned ids, not slugs: ids survive a re-theme, slugs do not.
+# 39 kava (10).
+api_category_ids = [39]
+
+# The HTML fallback, used only if /wp-json/ ever stops answering.
+category_urls = [
+  "https://www.aurelica.coffee/product-category/kava/",
+]
+
+# The catalogue also sells things that are not coffee beans.
+ignore = [
+  "kapsule",
+  "darcek",
+  "box",
+]

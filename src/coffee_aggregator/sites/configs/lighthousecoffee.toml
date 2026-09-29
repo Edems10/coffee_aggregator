@@ -1,0 +1,16 @@
+# Lighthouse Coffee — a Slovak roastery pricing in EUR; every bean product name
+# ends in ", zrnková káva", and the category also holds tasting packs.
+platform = "shoptet"
+site_id = "lighthousecoffee"
+name = "Lighthouse Coffee"
+country = "SK"
+base_url = "https://www.lighthousecoffee.sk/"
+category_urls = ["https://www.lighthousecoffee.sk/cerstvo-prazena-kava-lighthouse/"]
+currency = "EUR"
+max_pages = 10
+pagination = "path"
+
+ignore = [
+  "degustacny balicek",
+  "darcekovy poukaz",
+]

@@ -1,0 +1,19 @@
+# A tiny catalogue: 27 prazena_kava holds three coffees, split further by
+# continent (16 afrika, 17 amerika). currency_minor_unit = 0, so the price
+# string is already whole crowns.
+platform = "woocommerce"
+site_id = "cafemontecintu"
+name = "Café Monte Cintu"
+country = "CZ"
+base_url = "https://www.cafemontecintu.cz/"
+currency = "CZK"
+mode = "api"
+max_pages = 10
+
+# Pinned ids, not slugs: ids survive a re-theme, slugs do not.
+api_category_ids = [27]
+
+# The HTML fallback, used only if /wp-json/ ever stops answering.
+category_urls = [
+  "https://www.cafemontecintu.cz/kategorie-produktu/prazena_kava/",
+]

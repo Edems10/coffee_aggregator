@@ -8,6 +8,7 @@ from decimal import Decimal, InvalidOperation
 from pathlib import Path
 from typing import TYPE_CHECKING, Any
 
+from coffee_aggregator.db.connect import connect
 from coffee_aggregator.fx.rates import BASE_CURRENCY, QUOTE_CURRENCY, FxRate
 
 if TYPE_CHECKING:
@@ -69,7 +70,7 @@ class FileFxStore:
         """
         try:
             loaded = json.loads(self.path.read_text("utf-8"))
-        except (OSError, ValueError):
+        except OSError, ValueError:
             return {}
         if not isinstance(loaded, dict):
             return {}
@@ -139,12 +140,11 @@ class PostgresFxStore:
         """Return the live connection, opening it on first access.
 
         Returns:
-            An open psycopg connection with autocommit disabled.
+            An open psycopg connection with autocommit disabled, both timeouts
+            set and no server-side prepared statements.
         """
-        import psycopg  # noqa: PLC0415  (only the postgres path pays for the driver)
-
         if self._connection is None or self._connection.closed:
-            self._connection = psycopg.connect(self.dsn, autocommit=False)
+            self._connection = connect(self.dsn)
         return self._connection
 
     def get(self, day: date) -> FxRate | None:
@@ -244,7 +244,7 @@ def _from_record(record: dict[str, str] | None) -> FxRate | None:
     try:
         day = date.fromisoformat(str(record["date"]))
         rate = Decimal(str(record["rate"]))
-    except (KeyError, ValueError, InvalidOperation):
+    except KeyError, ValueError, InvalidOperation:
         logger.warning("ignoring an unreadable entry in the rate cache")
         return None
     return FxRate(

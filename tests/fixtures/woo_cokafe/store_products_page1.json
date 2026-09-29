@@ -1,0 +1,667 @@
+[
+ {
+  "id": 20937,
+  "name": "Etiopie Chelbesa &#8211; filtr",
+  "permalink": "https://cokafe.com/produkt/columbia-chelbesa-filtr/",
+  "short_description": "<p><span style=\"font-weight: 400\">Chuťový profil:<br />\n</span><span style=\"font-weight: 400\">Broskev, černý čaj, jasmín, hnědý cukr</span></p>\n<p>&nbsp;</p>\n<p>&nbsp;</p>",
+  "description": "<p><span style=\"font-weight: 400\">Káva Chelbesa pochází z oblasti Gedeb, kde společnost Ephtah Specialty Coffee provozuje pronajatou mycí stanici v Chelbese. Farma o rozloze 2 hektarů se nachází ve výšce 2150–2200 m n. m. a zaměstnává 17 stálých pracovníků a až 150 sezónních během sklizně. Zpracování probíhá bez vody suchou fermentací a sušením po dobu 10–15 dní, což přispívá k vysoké kvalitě výsledného šálku.</span></p>\n<p><span style=\"font-weight: 400\">Ephtah klade důraz na udržitelnost, férové ohodnocení farmářů a podporu žen v kávovém průmyslu. Ačkoli pro tento konkrétní lot nejsou uvedeny konkrétní sociální projekty, firma se aktivně zapojuje do rozvoje místních komunit a plánuje další zlepšení zpracovatelské infrastruktury.</span></p>",
+  "prices": {
+   "price": "40000",
+   "regular_price": "40000",
+   "sale_price": "40000",
+   "price_range": {
+    "min_amount": "40000",
+    "max_amount": "128000"
+   },
+   "currency_code": "CZK",
+   "currency_symbol": "Kč",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ",",
+   "currency_thousand_separator": " ",
+   "currency_prefix": "",
+   "currency_suffix": " Kč"
+  },
+  "images": [
+   {
+    "id": 20785,
+    "src": "https://cokafe.com/wp-content/uploads/2024/01/2062x2560_ETIOPIE.png",
+    "thumbnail": "https://cokafe.com/wp-content/uploads/2024/01/2062x2560_ETIOPIE-350x435.png",
+    "srcset": "https://cokafe.com/wp-content/uploads/2024/01/2062x2560_ETIOPIE.png 2062w, https://cokafe.com/wp-content/uploads/2024/01/2062x2560_ETIOPIE-242x300.png 242w, https://cokafe.com/wp-content/uploads/2024/01/2062x2560_ETIOPIE-825x1024.png 825w, https://cokafe.com/wp-content/uploads/2024/01/2062x2560_ETIOPIE-768x953.png 768w, https://cokafe.com/wp-content/uploads/2024/01/2062x2560_ETIOPIE-1237x1536.png 1237w, https://cokafe.com/wp-content/uploads/2024/01/2062x2560_ETIOPIE-1650x2048.png 1650w, https://cokafe.com/wp-content/uploads/2024/01/2062x2560_ETIOPIE-350x435.png 350w, https://cokafe.com/wp-content/uploads/2024/01/2062x2560_ETIOPIE-680x844.png 680w",
+    "sizes": "(max-width: 2062px) 100vw, 2062px",
+    "thumbnail_srcset": "https://cokafe.com/wp-content/uploads/2024/01/2062x2560_ETIOPIE-350x435.png 350w, https://cokafe.com/wp-content/uploads/2024/01/2062x2560_ETIOPIE-242x300.png 242w, https://cokafe.com/wp-content/uploads/2024/01/2062x2560_ETIOPIE-825x1024.png 825w, https://cokafe.com/wp-content/uploads/2024/01/2062x2560_ETIOPIE-768x953.png 768w, https://cokafe.com/wp-content/uploads/2024/01/2062x2560_ETIOPIE-1237x1536.png 1237w, https://cokafe.com/wp-content/uploads/2024/01/2062x2560_ETIOPIE-1650x2048.png 1650w, https://cokafe.com/wp-content/uploads/2024/01/2062x2560_ETIOPIE-680x844.png 680w",
+    "thumbnail_sizes": "(max-width: 350px) 100vw, 350px",
+    "name": "2062x2560_ETIOPIE",
+    "alt": ""
+   }
+  ],
+  "categories": [
+   {
+    "id": 56,
+    "name": "Káva",
+    "slug": "kava",
+    "link": "https://cokafe.com/produkty/kava/"
+   }
+  ],
+  "attributes": [
+   {
+    "id": 5,
+    "name": "Farma",
+    "taxonomy": "pa_farma",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 579,
+      "name": "Chelbesa",
+      "slug": "chelbesa"
+     }
+    ]
+   },
+   {
+    "id": 6,
+    "name": "Farmář",
+    "taxonomy": "pa_farmar",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 580,
+      "name": "Ephtah Specialty Coffee",
+      "slug": "ephtah-specialty-coffee"
+     }
+    ]
+   },
+   {
+    "id": 7,
+    "name": "Odrůda",
+    "taxonomy": "pa_odruda",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 441,
+      "name": "Heirloom",
+      "slug": "heirloom"
+     }
+    ]
+   },
+   {
+    "id": 9,
+    "name": "Region",
+    "taxonomy": "pa_region",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 581,
+      "name": "Gedeb, Etiopie",
+      "slug": "gedeb-etiopie"
+     }
+    ]
+   },
+   {
+    "id": 10,
+    "name": "Zpracování",
+    "taxonomy": "pa_zpracovani",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 76,
+      "name": "Promyté",
+      "slug": "promyte"
+     }
+    ]
+   },
+   {
+    "id": 11,
+    "name": "Nadmořská výška",
+    "taxonomy": "pa_nadmorska-vyska",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 582,
+      "name": "2 200 m n. m.",
+      "slug": "2-200-m-n-m"
+     }
+    ]
+   },
+   {
+    "id": 8,
+    "name": "Sklizeň",
+    "taxonomy": "pa_sklizen",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 583,
+      "name": "jaro 2025",
+      "slug": "jaro-2025"
+     }
+    ]
+   },
+   {
+    "id": 3,
+    "name": "Balení",
+    "taxonomy": "pa_baleni",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 59,
+      "name": "1000 g",
+      "slug": "baleni-1000g"
+     },
+     {
+      "id": 57,
+      "name": "250 g",
+      "slug": "baleni-250g"
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 20938,
+    "attributes": [
+     {
+      "name": "Balení",
+      "value": "baleni-250g"
+     }
+    ]
+   },
+   {
+    "id": 20939,
+    "attributes": [
+     {
+      "name": "Balení",
+      "value": "baleni-1000g"
+     }
+    ]
+   }
+  ],
+  "is_in_stock": false
+ },
+ {
+  "id": 21054,
+  "name": "Nikaragua Los Papales &#8211; espresso",
+  "permalink": "https://cokafe.com/produkt/nikaragua-los-papales-espresso/",
+  "short_description": "<p><span style=\"font-weight: 400\">Chuťový profil:<br />\n</span><span class=\"html-span xdj266r x14z9mp xat24cr x1lziwak xexx8yu xyri2b x18d9i69 x1c1uobl x1hl2dhg x16tdsg8 x1vvkbs x4k7w5x x1h91t0o x1h9r5lt x1jfb8zj xv2umb2 x1beo9mf xaigb6o x12ejxvf x3igimt xarpa2k xedcshv x1lytzrv x1t2pt76 x7ja8zs x1qrby5j\"><span class=\"x193iq5w xeuugli x13faqbe x1vvkbs x1xmvt09 x1lliihq x1s928wv xhkezso x1gmr53x x1cpjm7i x1fgarty x1943h6x xudqn12 x3x7a5m x6prxxf xvq8zen xo1l8bm xzsf02u\" dir=\"auto\">Švestky, mléčná čokoláda, červené jablko</span></span></p>\n<p>&nbsp;</p>\n<p>&nbsp;</p>",
+  "description": "<p>Rodina López založila své první kávové plantáže před více než sto lety pod vedením Vicenta Lópeze Lópeze. Jeho syn Vicente López Herrera později vybudoval vlastní farmu Betania, která zůstala rodinným statkem až do konfiskace během nikaragujského konfliktu v 80. letech. Dnes rodina provozuje dvě farmy, Los Papales a novou Betanii, a pěstuje tradiční i modernější odrůdy kávovníků.</p>\n<p>Los Papales leží pět kilometrů od města Jinotega na svazích Cerro Chimborazo, jednoho z nejvyšších vrcholů pohoří Cordillera Isabelia. Topografie farmy, klima mlžného lesa a důraz na agroekologické hospodaření a biodiverzitu vytvářejí velmi dobré podmínky pro kvalitní arabiku. Farma má přibližně 210 hektarů a v době sklizně zaměstnává až 450 lidí.</p>\n<p>Sklizeň probíhá od ledna do konce března a třešně se sbírají ručně při plné zralosti. Zpracování začíná na ekologicky úsporném mokrém mlýně, který minimalizuje spotřebu vody. Tento lot je po depulpaci a odstranění mucilage sušen na afrických vyvýšených lůžkách 12–16 dní, dokud nedosáhne přibližně 11% vlhkosti. Poté káva nejméně 21 dní odpočívá v pergamenu.</p>\n<p>Finca Los Papales je certifikovaná Rainforest Alliance a dlouhodobě podporuje místní komunitu. Přímo na farmě funguje škola pro děti zaměstnanců i okolních rodin, která poskytuje výuku, školní pomůcky a každodenní jídlo. Součástí farmy je také zdravotní středisko s bezplatnými konzultacemi pro zaměstnance i obyvatele okolí.</p>",
+  "prices": {
+   "price": "38000",
+   "regular_price": "38000",
+   "sale_price": "38000",
+   "price_range": {
+    "min_amount": "38000",
+    "max_amount": "120000"
+   },
+   "currency_code": "CZK",
+   "currency_symbol": "Kč",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ",",
+   "currency_thousand_separator": " ",
+   "currency_prefix": "",
+   "currency_suffix": " Kč"
+  },
+  "images": [
+   {
+    "id": 21057,
+    "src": "https://cokafe.com/wp-content/uploads/2025/08/nikaragua_filtr-scaled.jpg",
+    "thumbnail": "https://cokafe.com/wp-content/uploads/2025/08/nikaragua_filtr-350x435.jpg",
+    "srcset": "https://cokafe.com/wp-content/uploads/2025/08/nikaragua_filtr-scaled.jpg 2061w, https://cokafe.com/wp-content/uploads/2025/08/nikaragua_filtr-242x300.jpg 242w, https://cokafe.com/wp-content/uploads/2025/08/nikaragua_filtr-824x1024.jpg 824w, https://cokafe.com/wp-content/uploads/2025/08/nikaragua_filtr-768x954.jpg 768w, https://cokafe.com/wp-content/uploads/2025/08/nikaragua_filtr-1237x1536.jpg 1237w, https://cokafe.com/wp-content/uploads/2025/08/nikaragua_filtr-1649x2048.jpg 1649w, https://cokafe.com/wp-content/uploads/2025/08/nikaragua_filtr-350x435.jpg 350w, https://cokafe.com/wp-content/uploads/2025/08/nikaragua_filtr-680x845.jpg 680w",
+    "sizes": "(max-width: 2061px) 100vw, 2061px",
+    "thumbnail_srcset": "https://cokafe.com/wp-content/uploads/2025/08/nikaragua_filtr-350x435.jpg 350w, https://cokafe.com/wp-content/uploads/2025/08/nikaragua_filtr-242x300.jpg 242w, https://cokafe.com/wp-content/uploads/2025/08/nikaragua_filtr-824x1024.jpg 824w, https://cokafe.com/wp-content/uploads/2025/08/nikaragua_filtr-768x954.jpg 768w, https://cokafe.com/wp-content/uploads/2025/08/nikaragua_filtr-1237x1536.jpg 1237w, https://cokafe.com/wp-content/uploads/2025/08/nikaragua_filtr-1649x2048.jpg 1649w, https://cokafe.com/wp-content/uploads/2025/08/nikaragua_filtr-680x845.jpg 680w",
+    "thumbnail_sizes": "(max-width: 350px) 100vw, 350px",
+    "name": "nikaragua_filtr",
+    "alt": ""
+   }
+  ],
+  "categories": [
+   {
+    "id": 56,
+    "name": "Káva",
+    "slug": "kava",
+    "link": "https://cokafe.com/produkty/kava/"
+   }
+  ],
+  "attributes": [
+   {
+    "id": 5,
+    "name": "Farma",
+    "taxonomy": "pa_farma",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 623,
+      "name": "Finca Los Papales",
+      "slug": "finca-los-papales"
+     }
+    ]
+   },
+   {
+    "id": 6,
+    "name": "Farmář",
+    "taxonomy": "pa_farmar",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 624,
+      "name": "rodina López",
+      "slug": "rodina-lopez"
+     }
+    ]
+   },
+   {
+    "id": 7,
+    "name": "Odrůda",
+    "taxonomy": "pa_odruda",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 625,
+      "name": "Red Pacamara",
+      "slug": "red-pacamara"
+     }
+    ]
+   },
+   {
+    "id": 9,
+    "name": "Region",
+    "taxonomy": "pa_region",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 626,
+      "name": "Jinotega",
+      "slug": "jinotega"
+     }
+    ]
+   },
+   {
+    "id": 10,
+    "name": "Zpracování",
+    "taxonomy": "pa_zpracovani",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 76,
+      "name": "Promyté",
+      "slug": "promyte"
+     }
+    ]
+   },
+   {
+    "id": 11,
+    "name": "Nadmořská výška",
+    "taxonomy": "pa_nadmorska-vyska",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 627,
+      "name": "1 350–1 500 m n. m.",
+      "slug": "1-350-1-500-m-n-m"
+     }
+    ]
+   },
+   {
+    "id": 3,
+    "name": "Balení",
+    "taxonomy": "pa_baleni",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 59,
+      "name": "1000 g",
+      "slug": "baleni-1000g"
+     },
+     {
+      "id": 57,
+      "name": "250 g",
+      "slug": "baleni-250g"
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 21055,
+    "attributes": [
+     {
+      "name": "Balení",
+      "value": "baleni-250g"
+     }
+    ]
+   },
+   {
+    "id": 21056,
+    "attributes": [
+     {
+      "name": "Balení",
+      "value": "baleni-1000g"
+     }
+    ]
+   }
+  ],
+  "is_in_stock": false
+ },
+ {
+  "id": 21280,
+  "name": "Peru – San José  &#8211; filtr",
+  "permalink": "https://cokafe.com/produkt/peru-el-condor-filtr/",
+  "short_description": "<p><span style=\"font-weight: 400\">Chuťový profil</span></p>\n<p>Černý čaj, karamelový fudge, vlašský ořech, sušená meruňka</p>\n<p>&nbsp;</p>\n<p>&nbsp;</p>",
+  "description": "<p>San José de Lourdes leží v provincii San Ignacio v Cajamarce, nedaleko hranic s Ekvádorem. Jde o vysokohorský district drobných farem rozprostřených podél hřebenů a vlhkých údolí. Vyšší nadmořská výška, pravidelné srážky a smíšené agrolesnictví s dostatkem původního stínu podporují pomalé zrání třešní a sladký, čistý charakter kávy.</p>\n<p>Parchment z komunit v San José de Lourdes se přijímá v malých, každodenních dodávkách do skladu Falcon Coffees v Jaénu. Každá dodávka prochází fyzickou analýzou a cuppingem. Jakmile je lot ohodnocen, farmář dostává nabídku ceny ještě tentýž den a platba probíhá okamžitým bankovním převodem. Kvalita fyzického zrna i skóre v šálku tak přímo ovlivňují cenu.</p>\n<p>Tam, kde objem a chuťový profil dávají smysl, se z jednotlivých producentů nebo komunit skládají loty San José de Lourdes, které se rychle posouvají k mletí a exportu. Falcon Coffees Peru tímto modelem propojuje lokální skladování, rychlou kontrolu kvality, transparentní ceny a dlouhodobé vztahy s producenty. Součástí práce v regionu jsou také farmářská školení, agronomická podpora a programy zaměřené na kvalitu, produktivitu i zdraví půdy.</p>",
+  "prices": {
+   "price": "35500",
+   "regular_price": "35500",
+   "sale_price": "35500",
+   "price_range": {
+    "min_amount": "35500",
+    "max_amount": "105000"
+   },
+   "currency_code": "CZK",
+   "currency_symbol": "Kč",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ",",
+   "currency_thousand_separator": " ",
+   "currency_prefix": "",
+   "currency_suffix": " Kč"
+  },
+  "images": [
+   {
+    "id": 20784,
+    "src": "https://cokafe.com/wp-content/uploads/2024/01/2062x2560_PERU.png",
+    "thumbnail": "https://cokafe.com/wp-content/uploads/2024/01/2062x2560_PERU-350x435.png",
+    "srcset": "https://cokafe.com/wp-content/uploads/2024/01/2062x2560_PERU.png 2062w, https://cokafe.com/wp-content/uploads/2024/01/2062x2560_PERU-242x300.png 242w, https://cokafe.com/wp-content/uploads/2024/01/2062x2560_PERU-825x1024.png 825w, https://cokafe.com/wp-content/uploads/2024/01/2062x2560_PERU-768x953.png 768w, https://cokafe.com/wp-content/uploads/2024/01/2062x2560_PERU-1237x1536.png 1237w, https://cokafe.com/wp-content/uploads/2024/01/2062x2560_PERU-1650x2048.png 1650w, https://cokafe.com/wp-content/uploads/2024/01/2062x2560_PERU-350x435.png 350w, https://cokafe.com/wp-content/uploads/2024/01/2062x2560_PERU-680x844.png 680w",
+    "sizes": "(max-width: 2062px) 100vw, 2062px",
+    "thumbnail_srcset": "https://cokafe.com/wp-content/uploads/2024/01/2062x2560_PERU-350x435.png 350w, https://cokafe.com/wp-content/uploads/2024/01/2062x2560_PERU-242x300.png 242w, https://cokafe.com/wp-content/uploads/2024/01/2062x2560_PERU-825x1024.png 825w, https://cokafe.com/wp-content/uploads/2024/01/2062x2560_PERU-768x953.png 768w, https://cokafe.com/wp-content/uploads/2024/01/2062x2560_PERU-1237x1536.png 1237w, https://cokafe.com/wp-content/uploads/2024/01/2062x2560_PERU-1650x2048.png 1650w, https://cokafe.com/wp-content/uploads/2024/01/2062x2560_PERU-680x844.png 680w",
+    "thumbnail_sizes": "(max-width: 350px) 100vw, 350px",
+    "name": "2062x2560_PERU",
+    "alt": ""
+   }
+  ],
+  "categories": [
+   {
+    "id": 56,
+    "name": "Káva",
+    "slug": "kava",
+    "link": "https://cokafe.com/produkty/kava/"
+   }
+  ],
+  "attributes": [
+   {
+    "id": 5,
+    "name": "Farma",
+    "taxonomy": "pa_farma",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 628,
+      "name": "San José de Lourdes",
+      "slug": "san-jose-de-lourdes"
+     }
+    ]
+   },
+   {
+    "id": 6,
+    "name": "Farmář",
+    "taxonomy": "pa_farmar",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 629,
+      "name": "drobní producenti z komunit San José de Lourdes",
+      "slug": "drobni-producenti-z-komunit-san-jose-de-lourdes"
+     }
+    ]
+   },
+   {
+    "id": 7,
+    "name": "Odrůda",
+    "taxonomy": "pa_odruda",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 630,
+      "name": "Caturra, Catuaí",
+      "slug": "caturra-catuai"
+     }
+    ]
+   },
+   {
+    "id": 9,
+    "name": "Region",
+    "taxonomy": "pa_region",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 632,
+      "name": "San José de Lourdes, San Ignacio, Cajamarca",
+      "slug": "san-jose-de-lourdes-san-ignacio-cajamarca-2"
+     }
+    ]
+   },
+   {
+    "id": 10,
+    "name": "Zpracování",
+    "taxonomy": "pa_zpracovani",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 76,
+      "name": "Promyté",
+      "slug": "promyte"
+     }
+    ]
+   },
+   {
+    "id": 11,
+    "name": "Nadmořská výška",
+    "taxonomy": "pa_nadmorska-vyska",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 633,
+      "name": "1 650–1 850 m n. m.",
+      "slug": "1-650-1-850-m-n-m"
+     }
+    ]
+   },
+   {
+    "id": 3,
+    "name": "Balení",
+    "taxonomy": "pa_baleni",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 59,
+      "name": "1000 g",
+      "slug": "baleni-1000g"
+     },
+     {
+      "id": 57,
+      "name": "250 g",
+      "slug": "baleni-250g"
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 21281,
+    "attributes": [
+     {
+      "name": "Balení",
+      "value": "baleni-250g"
+     }
+    ]
+   },
+   {
+    "id": 21282,
+    "attributes": [
+     {
+      "name": "Balení",
+      "value": "baleni-1000g"
+     }
+    ]
+   }
+  ],
+  "is_in_stock": true
+ },
+ {
+  "id": 22052,
+  "name": "Peru – San José  &#8211; espresso",
+  "permalink": "https://cokafe.com/produkt/peru-san-jose-espresso/",
+  "short_description": "<p><span style=\"font-weight: 400\">Chuťový profil</span></p>\n<p>Černý čaj, karamelový fudge, vlašský ořech, sušená meruňka</p>\n<p>&nbsp;</p>\n<p>&nbsp;</p>",
+  "description": "<p>San José de Lourdes leží v provincii San Ignacio v Cajamarce, nedaleko hranic s Ekvádorem. Jde o vysokohorský district drobných farem rozprostřených podél hřebenů a vlhkých údolí. Vyšší nadmořská výška, pravidelné srážky a smíšené agrolesnictví s dostatkem původního stínu podporují pomalé zrání třešní a sladký, čistý charakter kávy.</p>\n<p>Parchment z komunit v San José de Lourdes se přijímá v malých, každodenních dodávkách do skladu Falcon Coffees v Jaénu. Každá dodávka prochází fyzickou analýzou a cuppingem. Jakmile je lot ohodnocen, farmář dostává nabídku ceny ještě tentýž den a platba probíhá okamžitým bankovním převodem. Kvalita fyzického zrna i skóre v šálku tak přímo ovlivňují cenu.</p>\n<p>Tam, kde objem a chuťový profil dávají smysl, se z jednotlivých producentů nebo komunit skládají loty San José de Lourdes, které se rychle posouvají k mletí a exportu. Falcon Coffees Peru tímto modelem propojuje lokální skladování, rychlou kontrolu kvality, transparentní ceny a dlouhodobé vztahy s producenty. Součástí práce v regionu jsou také farmářská školení, agronomická podpora a programy zaměřené na kvalitu, produktivitu i zdraví půdy.</p>",
+  "prices": {
+   "price": "35500",
+   "regular_price": "35500",
+   "sale_price": "35500",
+   "price_range": {
+    "min_amount": "35500",
+    "max_amount": "105000"
+   },
+   "currency_code": "CZK",
+   "currency_symbol": "Kč",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ",",
+   "currency_thousand_separator": " ",
+   "currency_prefix": "",
+   "currency_suffix": " Kč"
+  },
+  "images": [
+   {
+    "id": 20776,
+    "src": "https://cokafe.com/wp-content/uploads/2025/04/2062x2560_PERU-1.png",
+    "thumbnail": "https://cokafe.com/wp-content/uploads/2025/04/2062x2560_PERU-1-350x435.png",
+    "srcset": "https://cokafe.com/wp-content/uploads/2025/04/2062x2560_PERU-1.png 2062w, https://cokafe.com/wp-content/uploads/2025/04/2062x2560_PERU-1-242x300.png 242w, https://cokafe.com/wp-content/uploads/2025/04/2062x2560_PERU-1-825x1024.png 825w, https://cokafe.com/wp-content/uploads/2025/04/2062x2560_PERU-1-768x953.png 768w, https://cokafe.com/wp-content/uploads/2025/04/2062x2560_PERU-1-1237x1536.png 1237w, https://cokafe.com/wp-content/uploads/2025/04/2062x2560_PERU-1-1650x2048.png 1650w, https://cokafe.com/wp-content/uploads/2025/04/2062x2560_PERU-1-350x435.png 350w, https://cokafe.com/wp-content/uploads/2025/04/2062x2560_PERU-1-680x844.png 680w",
+    "sizes": "(max-width: 2062px) 100vw, 2062px",
+    "thumbnail_srcset": "https://cokafe.com/wp-content/uploads/2025/04/2062x2560_PERU-1-350x435.png 350w, https://cokafe.com/wp-content/uploads/2025/04/2062x2560_PERU-1-242x300.png 242w, https://cokafe.com/wp-content/uploads/2025/04/2062x2560_PERU-1-825x1024.png 825w, https://cokafe.com/wp-content/uploads/2025/04/2062x2560_PERU-1-768x953.png 768w, https://cokafe.com/wp-content/uploads/2025/04/2062x2560_PERU-1-1237x1536.png 1237w, https://cokafe.com/wp-content/uploads/2025/04/2062x2560_PERU-1-1650x2048.png 1650w, https://cokafe.com/wp-content/uploads/2025/04/2062x2560_PERU-1-680x844.png 680w",
+    "thumbnail_sizes": "(max-width: 350px) 100vw, 350px",
+    "name": "2062x2560_PERU-1",
+    "alt": ""
+   }
+  ],
+  "categories": [
+   {
+    "id": 56,
+    "name": "Káva",
+    "slug": "kava",
+    "link": "https://cokafe.com/produkty/kava/"
+   }
+  ],
+  "attributes": [
+   {
+    "id": 5,
+    "name": "Farma",
+    "taxonomy": "pa_farma",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 628,
+      "name": "San José de Lourdes",
+      "slug": "san-jose-de-lourdes"
+     }
+    ]
+   },
+   {
+    "id": 6,
+    "name": "Farmář",
+    "taxonomy": "pa_farmar",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 629,
+      "name": "drobní producenti z komunit San José de Lourdes",
+      "slug": "drobni-producenti-z-komunit-san-jose-de-lourdes"
+     }
+    ]
+   },
+   {
+    "id": 7,
+    "name": "Odrůda",
+    "taxonomy": "pa_odruda",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 630,
+      "name": "Caturra, Catuaí",
+      "slug": "caturra-catuai"
+     }
+    ]
+   },
+   {
+    "id": 9,
+    "name": "Region",
+    "taxonomy": "pa_region",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 632,
+      "name": "San José de Lourdes, San Ignacio, Cajamarca",
+      "slug": "san-jose-de-lourdes-san-ignacio-cajamarca-2"
+     }
+    ]
+   },
+   {
+    "id": 10,
+    "name": "Zpracování",
+    "taxonomy": "pa_zpracovani",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 76,
+      "name": "Promyté",
+      "slug": "promyte"
+     }
+    ]
+   },
+   {
+    "id": 11,
+    "name": "Nadmořská výška",
+    "taxonomy": "pa_nadmorska-vyska",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 633,
+      "name": "1 650–1 850 m n. m.",
+      "slug": "1-650-1-850-m-n-m"
+     }
+    ]
+   },
+   {
+    "id": 3,
+    "name": "Balení",
+    "taxonomy": "pa_baleni",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 59,
+      "name": "1000 g",
+      "slug": "baleni-1000g"
+     },
+     {
+      "id": 57,
+      "name": "250 g",
+      "slug": "baleni-250g"
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 22053,
+    "attributes": [
+     {
+      "name": "Balení",
+      "value": "baleni-250g"
+     }
+    ]
+   },
+   {
+    "id": 22054,
+    "attributes": [
+     {
+      "name": "Balení",
+      "value": "baleni-1000g"
+     }
+    ]
+   }
+  ],
+  "is_in_stock": true
+ }
+]

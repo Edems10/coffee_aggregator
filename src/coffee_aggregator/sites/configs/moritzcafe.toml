@@ -1,0 +1,25 @@
+# 23 kava parents one child per brew method, every one of which repeats the
+# same beans, so only the root is pinned. Names are prefixed "Zrnkova
+# kava-<origin>".
+platform = "woocommerce"
+site_id = "moritzcafe"
+name = "Moritz Café"
+country = "SK"
+base_url = "https://www.moritzcafe.sk/"
+currency = "EUR"
+mode = "api"
+max_pages = 10
+
+# Pinned ids, not slugs: ids survive a re-theme, slugs do not.
+api_category_ids = [23]
+
+# The HTML fallback, used only if /wp-json/ ever stops answering.
+category_urls = [
+  "https://www.moritzcafe.sk/kategoria-produktu/kava/",
+]
+
+# The catalogue also sells things that are not coffee beans.
+ignore = [
+  "predplatne",
+  "darcek pre",
+]

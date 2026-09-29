@@ -1,0 +1,374 @@
+[
+ {
+  "id": 4358,
+  "name": "Etiópska káva: Ethiopia SIDAMO Grade 2",
+  "permalink": "https://spiritcoffee.sk/p/ethiopia-sidamo-grade-2/",
+  "short_description": "<p>Etiópske kávy sa nie nadarmo považujú za jedny z najlepších na svete. Plantážová káva zo Sidama je obľúbená po celom svete. <strong>Našu BIO Ethiopia Sidamo Gr 2</strong> a jej nezameniteľnú ovocnú chuť si obľúbil nejeden kávičkár.</p>\n<p><strong>Chuť:</strong> Jemná s výrazným ovocným aftertaste a intenzívnou chuťou<br />\n<strong>Spracovanie:</strong> Mokrá praná metóda (wet-washed), solárne sušenie<br />\n<strong>Typ:</strong> 100% Arabica</p>",
+  "description": "<p><strong>Etiópia </strong>je nazývaná aj &#8222;pravlasťou kávy.&#8220; Hovorí sa, že pastier oviec si raz všimol nezvykle aktívneho capa, ktorý predtým zjedol dovtedy neznáme kávové bobule. Rozhodol sa teda otestovať túto plodinu a onedlho sa už káva začala objavovať po celom svete. Oblasť pestovania kávy <strong>Sidamo</strong> je dodnes producentom <strong>najlepších</strong> svetových káv,<strong> oceňovaných</strong> odborníkmi.</p>\n<p><strong>Ethiopia &#8211; Sidamo Gr. 2</strong> je oceňovaná káva, ktorá so svojou <strong>dlhotrvajúcou výraznou chuťou</strong> očarila už množstvo chuťových buniek. Patrí medzi takzvané &#8222;<strong>lesné kávy</strong>&#8220; &#8211; je pestovaná v lese. Keďže v Etiópií je dodnes možné nájsť aj divokú kávu, tento spôsob pestovania kávy tam patrí k obľubeným.</p>\n<p><strong>Región pestovania: </strong>Sidamo</p>\n<p><strong>Typ kávy</strong>: 100% Arabica</p>\n<p><strong>Chuťový profil</strong>: plná chuť kávy s nižšími ovocnými tónmi</p>\n<p><strong>Praženie</strong>: City Plus</p>\n<p><strong>Varieta</strong>: Bourbon</p>",
+  "prices": {
+   "price": "990",
+   "regular_price": "990",
+   "sale_price": "990",
+   "price_range": {
+    "min_amount": "990",
+    "max_amount": "3590"
+   },
+   "currency_code": "EUR",
+   "currency_symbol": "€",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ",",
+   "currency_thousand_separator": ".",
+   "currency_prefix": "",
+   "currency_suffix": "€"
+  },
+  "images": [
+   {
+    "id": 4730,
+    "src": "https://spiritcoffee.sk/wp-content/uploads/2021/09/Ethiopia-1-scaled.jpg",
+    "thumbnail": "https://spiritcoffee.sk/wp-content/uploads/2021/09/Ethiopia-1-600x625.jpg",
+    "srcset": "https://spiritcoffee.sk/wp-content/uploads/2021/09/Ethiopia-1-scaled.jpg 2459w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Ethiopia-1-288x300.jpg 288w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Ethiopia-1-983x1024.jpg 983w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Ethiopia-1-768x800.jpg 768w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Ethiopia-1-1475x1536.jpg 1475w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Ethiopia-1-1967x2048.jpg 1967w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Ethiopia-1-1600x1666.jpg 1600w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Ethiopia-1-1200x1249.jpg 1200w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Ethiopia-1-800x833.jpg 800w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Ethiopia-1-560x583.jpg 560w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Ethiopia-1-600x625.jpg 600w",
+    "sizes": "(max-width: 2459px) 100vw, 2459px",
+    "thumbnail_srcset": "https://spiritcoffee.sk/wp-content/uploads/2021/09/Ethiopia-1-600x625.jpg 600w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Ethiopia-1-288x300.jpg 288w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Ethiopia-1-983x1024.jpg 983w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Ethiopia-1-768x800.jpg 768w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Ethiopia-1-1475x1536.jpg 1475w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Ethiopia-1-1967x2048.jpg 1967w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Ethiopia-1-1600x1666.jpg 1600w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Ethiopia-1-1200x1249.jpg 1200w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Ethiopia-1-800x833.jpg 800w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Ethiopia-1-560x583.jpg 560w",
+    "thumbnail_sizes": "(max-width: 600px) 100vw, 600px",
+    "name": "Káva Ethiopia",
+    "alt": "Etiópska káva"
+   }
+  ],
+  "categories": [
+   {
+    "id": 53,
+    "name": "Káva",
+    "slug": "kava",
+    "link": "https://spiritcoffee.sk/c/kava/"
+   }
+  ],
+  "tags": [
+   {
+    "id": 75,
+    "name": "Arabica káva",
+    "slug": "arabica-kava",
+    "link": "https://spiritcoffee.sk/t/arabica-kava/"
+   }
+  ],
+  "attributes": [
+   {
+    "id": 1,
+    "name": "Hmotnosť:",
+    "taxonomy": "pa_hmotnost",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 58,
+      "name": "1000g",
+      "slug": "1000g"
+     },
+     {
+      "id": 57,
+      "name": "250g",
+      "slug": "250g"
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 4384,
+    "attributes": [
+     {
+      "name": "Hmotnosť:",
+      "value": "250g"
+     }
+    ]
+   },
+   {
+    "id": 5052,
+    "attributes": [
+     {
+      "name": "Hmotnosť:",
+      "value": "1000g"
+     }
+    ]
+   }
+  ],
+  "is_in_stock": true
+ },
+ {
+  "id": 4359,
+  "name": "Káva Colombia: Excelso Sol Naciente Organic",
+  "permalink": "https://spiritcoffee.sk/p/colombia-arabica/",
+  "short_description": "<p>Špičková kolumbijská káva &#8211; varieta kolumbijských odrôd Arabicy pestovaná na vulkanickej pôde. Vyvážená, jemná a mierne kyslá chuť 100% Arabica kávy z Kolumbie nesmie chýbať v žiadnej domácnosti.</p>\n<p><strong>Chuť:</strong> Intenzívna, jemná ale zároveň kyslá<br />\n<strong>Spracovanie:</strong> Washed (praná) metóda, solárne sušenie<br />\n<strong>Typ:</strong> 100% Arabica</p>",
+  "description": "<p>Kolumbia je najväčším producentom pranej kávy a pestovanie sa sústreďuje najmä na odrodu Arabica. Pravé <strong>kolumbijské kávy sú veľmi kvalitné</strong> a vďaka rozdielnym klimatickým podmienkam je možné v tejto krajine pestovanie kávy počas celého roka. BIO Colombia Arabica si na svoj účet pripísala <strong>niekoľko ocenení</strong> a prechádza minimálne tromi skúškami kvality, kým sa dostane na Váš stôl.</p>\n<p><strong>Hlavné regióny odrôd: </strong>Severná Kolumbia, Sierra Nevada de Santa Marta</p>\n<p><strong>Typ kávy:</strong> 100% Arabica</p>\n<p><strong>Chuťový profil</strong>: V káve môžete nájsť tóny tmavej čokolády, sladkých lieskových orechov doplnené o tóny vanilky. Káva má intenzívne krémové telo s jemnou aciditou, no napriek tomu sa udržuje jemná a vyvážená</p>\n<p><strong>Praženie: </strong>City Plus</p>\n<p><strong>Varieta: </strong>Colombia Castillo</p>",
+  "prices": {
+   "price": "930",
+   "regular_price": "930",
+   "sale_price": "930",
+   "price_range": {
+    "min_amount": "930",
+    "max_amount": "3390"
+   },
+   "currency_code": "EUR",
+   "currency_symbol": "€",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ",",
+   "currency_thousand_separator": ".",
+   "currency_prefix": "",
+   "currency_suffix": "€"
+  },
+  "images": [
+   {
+    "id": 4736,
+    "src": "https://spiritcoffee.sk/wp-content/uploads/2021/09/Columbia-scaled.jpg",
+    "thumbnail": "https://spiritcoffee.sk/wp-content/uploads/2021/09/Columbia-600x625.jpg",
+    "srcset": "https://spiritcoffee.sk/wp-content/uploads/2021/09/Columbia-scaled.jpg 2459w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Columbia-288x300.jpg 288w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Columbia-983x1024.jpg 983w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Columbia-768x800.jpg 768w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Columbia-1475x1536.jpg 1475w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Columbia-1967x2048.jpg 1967w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Columbia-1600x1666.jpg 1600w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Columbia-1200x1249.jpg 1200w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Columbia-800x833.jpg 800w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Columbia-560x583.jpg 560w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Columbia-600x625.jpg 600w",
+    "sizes": "(max-width: 2459px) 100vw, 2459px",
+    "thumbnail_srcset": "https://spiritcoffee.sk/wp-content/uploads/2021/09/Columbia-600x625.jpg 600w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Columbia-288x300.jpg 288w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Columbia-983x1024.jpg 983w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Columbia-768x800.jpg 768w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Columbia-1475x1536.jpg 1475w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Columbia-1967x2048.jpg 1967w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Columbia-1600x1666.jpg 1600w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Columbia-1200x1249.jpg 1200w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Columbia-800x833.jpg 800w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Columbia-560x583.jpg 560w",
+    "thumbnail_sizes": "(max-width: 600px) 100vw, 600px",
+    "name": "Colombia",
+    "alt": "Kolumbijská káva"
+   }
+  ],
+  "categories": [
+   {
+    "id": 53,
+    "name": "Káva",
+    "slug": "kava",
+    "link": "https://spiritcoffee.sk/c/kava/"
+   }
+  ],
+  "tags": [
+   {
+    "id": 75,
+    "name": "Arabica káva",
+    "slug": "arabica-kava",
+    "link": "https://spiritcoffee.sk/t/arabica-kava/"
+   }
+  ],
+  "attributes": [
+   {
+    "id": 1,
+    "name": "Hmotnosť:",
+    "taxonomy": "pa_hmotnost",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 58,
+      "name": "1000g",
+      "slug": "1000g"
+     },
+     {
+      "id": 57,
+      "name": "250g",
+      "slug": "250g"
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 4361,
+    "attributes": [
+     {
+      "name": "Hmotnosť:",
+      "value": "250g"
+     }
+    ]
+   },
+   {
+    "id": 5048,
+    "attributes": [
+     {
+      "name": "Hmotnosť:",
+      "value": "1000g"
+     }
+    ]
+   }
+  ],
+  "is_in_stock": true
+ },
+ {
+  "id": 4375,
+  "name": "Káva Peru: Cajamarca Grade 1",
+  "permalink": "https://spiritcoffee.sk/p/peru-cajamarca-grade-1/",
+  "short_description": "<p>Peruánska káva je ďalšou <strong>svetovou špičkou</strong> kvality v našej ponuke. Bio káva Peru &#8211; Cajamarca Grade 1 je pestovaná malými rodinnými farmami vo vysokých nadmorských výškach, vďaka ktorým sa predlžuje doba dozrievania a vypestovaná káva patrí k <strong>najlepším arabikám sveta</strong>.</p>\n<p><strong>Chuť:</strong> Krémová chuť s tónmi čokolády a jemným podtónom karamelu a nugátu doplnená o citrusovú aciditu.<br />\n<strong>Spracovanie:</strong> Mokrá praná metóda (wet-washed), solárne sušenie<br />\n<strong>Typ:</strong> 100% Arabica</p>",
+  "description": "<p>Táto výnimočná arabica káva pochádza z <strong>vysokých nadmorských výšok Ánd</strong> v oblasti Cajamarca. Pochádza z rúk <strong>malých farmárov a rodinných fariem</strong>, pre ktoré je táto káva zároveň živobytím.  Vysoké nadmorské výšky <strong>spomaľujú dobu dozrievania</strong> kávy a dodávajú jej výnimočné vlastnosti a chuť, pre ktoré je táto káva veľmi oceňovanou.  Okrem toho farmári ochraňujú aj <strong>životné prostredie</strong> kompostovaním kávovej dužiny a správnym manažmentom zvyškových vôd, aby predišli znečisťovaniu vôd a pôdy v okolí.</p>\n<p><strong>Región pestovania: </strong>Jean, San Ignacio</p>\n<p><strong>Typ kávy</strong>: 100% Arabica</p>\n<p><strong>Chuťový profil</strong>: Jedinenčná krémová chuť vyvážená s jemným telom tejto kávy je osviežená trochou kakaa a doplnená o citrusové tóny. S karamelovým a nugátovým aftertaste.</p>\n<p><strong>Praženie</strong>: full-city roast</p>\n<p><strong>Varieta</strong>: Caturra, Catuai a Typica</p>",
+  "prices": {
+   "price": "930",
+   "regular_price": "930",
+   "sale_price": "930",
+   "price_range": {
+    "min_amount": "930",
+    "max_amount": "3390"
+   },
+   "currency_code": "EUR",
+   "currency_symbol": "€",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ",",
+   "currency_thousand_separator": ".",
+   "currency_prefix": "",
+   "currency_suffix": "€"
+  },
+  "images": [
+   {
+    "id": 4732,
+    "src": "https://spiritcoffee.sk/wp-content/uploads/2021/09/Peru-1-scaled.jpg",
+    "thumbnail": "https://spiritcoffee.sk/wp-content/uploads/2021/09/Peru-1-600x625.jpg",
+    "srcset": "https://spiritcoffee.sk/wp-content/uploads/2021/09/Peru-1-scaled.jpg 2459w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Peru-1-288x300.jpg 288w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Peru-1-983x1024.jpg 983w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Peru-1-768x800.jpg 768w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Peru-1-1475x1536.jpg 1475w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Peru-1-1967x2048.jpg 1967w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Peru-1-1600x1666.jpg 1600w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Peru-1-1200x1249.jpg 1200w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Peru-1-800x833.jpg 800w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Peru-1-560x583.jpg 560w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Peru-1-600x625.jpg 600w",
+    "sizes": "(max-width: 2459px) 100vw, 2459px",
+    "thumbnail_srcset": "https://spiritcoffee.sk/wp-content/uploads/2021/09/Peru-1-600x625.jpg 600w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Peru-1-288x300.jpg 288w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Peru-1-983x1024.jpg 983w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Peru-1-768x800.jpg 768w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Peru-1-1475x1536.jpg 1475w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Peru-1-1967x2048.jpg 1967w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Peru-1-1600x1666.jpg 1600w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Peru-1-1200x1249.jpg 1200w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Peru-1-800x833.jpg 800w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Peru-1-560x583.jpg 560w",
+    "thumbnail_sizes": "(max-width: 600px) 100vw, 600px",
+    "name": "Peruánska káva",
+    "alt": "Peru káva"
+   }
+  ],
+  "categories": [
+   {
+    "id": 53,
+    "name": "Káva",
+    "slug": "kava",
+    "link": "https://spiritcoffee.sk/c/kava/"
+   }
+  ],
+  "tags": [
+   {
+    "id": 75,
+    "name": "Arabica káva",
+    "slug": "arabica-kava",
+    "link": "https://spiritcoffee.sk/t/arabica-kava/"
+   }
+  ],
+  "attributes": [
+   {
+    "id": 1,
+    "name": "Hmotnosť:",
+    "taxonomy": "pa_hmotnost",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 58,
+      "name": "1000g",
+      "slug": "1000g"
+     },
+     {
+      "id": 57,
+      "name": "250g",
+      "slug": "250g"
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 4386,
+    "attributes": [
+     {
+      "name": "Hmotnosť:",
+      "value": "250g"
+     }
+    ]
+   },
+   {
+    "id": 5046,
+    "attributes": [
+     {
+      "name": "Hmotnosť:",
+      "value": "1000g"
+     }
+    ]
+   }
+  ],
+  "is_in_stock": true
+ },
+ {
+  "id": 4377,
+  "name": "Brazílska káva: Brazil Organic Fazenda Klem",
+  "permalink": "https://spiritcoffee.sk/p/brazil-organic-fazenda-klem/",
+  "short_description": "<p>Ideálne podmienky &#8211; kombinácia nadmorskej výšky a horskej klímy Atlantických lesov &#8211; zabezpečujú dokonalosť a vyváženosť tejto brazílskej kávy. Naša <strong>BIO Brazil Ogranic Fazenda Klem </strong>sa vyznačuje jedinečnou rozmanitosťou chutí a aróm, ktorá nesmie chýbať vo Vašej kuchyni.</p>\n<p><strong>Chuť:</strong> Jemná a zároveň výrazná ovocná chuť, sladká a dymová aróma s jemnou aciditou a aftertastom z jedinečného spojenia orieškov, pečených mandlí a černíc.<br />\n<strong>Spracovanie:</strong> natural &#8211; nepraná, solárne sušenie<br />\n<strong>Typ:</strong> 100% Arabica</p>",
+  "description": "<p>Brazília je známa výrobou a pestovaním kávy už desaťročia. Neďaleko malého mesta Luisburgo ležia farmy <strong>Fazenda Klem</strong>, ktoré pestovaním naozaj vynikajú! Ich kávy s <strong>dôslednosťou na organiku a naturálnu chuť</strong> sú známe po celom svete. Práve vďaka pestovaniu kávy v <strong>Atlantických lesoch Brazílie</strong> sú jedinečné nielen v organickom spracovaní s prihliadnutím na životné prostredie, ale aj v<strong> zaujímavej a nečakanej kombinácií chutí</strong>, ktoré spolu dokonale ladia.</p>\n<p><strong>Región pestovania: </strong>Luisburgo &#8211; juhovýchodne od<br />\nMinas Gerais</p>\n<p><strong>Typ kávy</strong>: 100% Arabica</p>\n<p><strong>Chuťový profil</strong>: Sladká a ovocná chuť s jemnou arómou tvorenou sladkými a dymovými tónmi, doplnené o zaoblené telo a aftertaste v jedinečnom spojení pražených mandlí, černíc a orieškov.</p>\n<p><strong>Praženie</strong>: full-city roast</p>\n<p><strong>Varieta</strong>: Mundo Novo, Catuai</p>",
+  "prices": {
+   "price": "960",
+   "regular_price": "960",
+   "sale_price": "960",
+   "price_range": {
+    "min_amount": "960",
+    "max_amount": "3490"
+   },
+   "currency_code": "EUR",
+   "currency_symbol": "€",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ",",
+   "currency_thousand_separator": ".",
+   "currency_prefix": "",
+   "currency_suffix": "€"
+  },
+  "images": [
+   {
+    "id": 4729,
+    "src": "https://spiritcoffee.sk/wp-content/uploads/2021/09/Brazil-1-scaled.jpg",
+    "thumbnail": "https://spiritcoffee.sk/wp-content/uploads/2021/09/Brazil-1-600x625.jpg",
+    "srcset": "https://spiritcoffee.sk/wp-content/uploads/2021/09/Brazil-1-scaled.jpg 2459w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Brazil-1-288x300.jpg 288w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Brazil-1-983x1024.jpg 983w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Brazil-1-768x800.jpg 768w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Brazil-1-1475x1536.jpg 1475w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Brazil-1-1967x2048.jpg 1967w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Brazil-1-1600x1666.jpg 1600w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Brazil-1-1200x1249.jpg 1200w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Brazil-1-800x833.jpg 800w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Brazil-1-560x583.jpg 560w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Brazil-1-600x625.jpg 600w",
+    "sizes": "(max-width: 2459px) 100vw, 2459px",
+    "thumbnail_srcset": "https://spiritcoffee.sk/wp-content/uploads/2021/09/Brazil-1-600x625.jpg 600w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Brazil-1-288x300.jpg 288w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Brazil-1-983x1024.jpg 983w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Brazil-1-768x800.jpg 768w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Brazil-1-1475x1536.jpg 1475w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Brazil-1-1967x2048.jpg 1967w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Brazil-1-1600x1666.jpg 1600w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Brazil-1-1200x1249.jpg 1200w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Brazil-1-800x833.jpg 800w, https://spiritcoffee.sk/wp-content/uploads/2021/09/Brazil-1-560x583.jpg 560w",
+    "thumbnail_sizes": "(max-width: 600px) 100vw, 600px",
+    "name": "Káva Brazil",
+    "alt": "Brazílska káva"
+   }
+  ],
+  "categories": [
+   {
+    "id": 53,
+    "name": "Káva",
+    "slug": "kava",
+    "link": "https://spiritcoffee.sk/c/kava/"
+   }
+  ],
+  "tags": [
+   {
+    "id": 75,
+    "name": "Arabica káva",
+    "slug": "arabica-kava",
+    "link": "https://spiritcoffee.sk/t/arabica-kava/"
+   }
+  ],
+  "attributes": [
+   {
+    "id": 1,
+    "name": "Hmotnosť:",
+    "taxonomy": "pa_hmotnost",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 58,
+      "name": "1000g",
+      "slug": "1000g"
+     },
+     {
+      "id": 57,
+      "name": "250g",
+      "slug": "250g"
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 4392,
+    "attributes": [
+     {
+      "name": "Hmotnosť:",
+      "value": "250g"
+     }
+    ]
+   },
+   {
+    "id": 5041,
+    "attributes": [
+     {
+      "name": "Hmotnosť:",
+      "value": "1000g"
+     }
+    ]
+   }
+  ],
+  "is_in_stock": true
+ }
+]

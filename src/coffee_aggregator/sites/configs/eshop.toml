@@ -1,0 +1,16 @@
+# NEBE-SKY Pražírna — the site_id is the subdomain the shop runs on; the
+# survey recorded a product page, its parent /vyberova-kava/ is the category.
+platform = "shoptet"
+site_id = "eshop"
+name = "NEBE-SKY Pražírna"
+country = "CZ"
+base_url = "https://eshop.nebe-sky.cz/"
+category_urls = ["https://eshop.nebe-sky.cz/vyberova-kava/"]
+currency = "CZK"
+max_pages = 10
+pagination = "path"
+
+ignore = [
+  "darkove baleni",
+  "degustacni sada",
+]

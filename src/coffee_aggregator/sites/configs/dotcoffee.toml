@@ -1,0 +1,11 @@
+# Dot Coffee Roastery — product names end in "FL" or "ES" for the filter and
+# espresso roast of the same lot, so a coffee appears twice.
+platform = "shoptet"
+site_id = "dotcoffee"
+name = "Dot Coffee Roastery"
+country = "CZ"
+base_url = "https://www.dotcoffee.cz/"
+category_urls = ["https://www.dotcoffee.cz/kava/"]
+currency = "CZK"
+max_pages = 10
+pagination = "path"

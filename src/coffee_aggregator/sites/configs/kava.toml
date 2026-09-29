@@ -1,0 +1,12 @@
+# KAVA.CZ — a multi-brand retailer, not a roastery: 38 pages of Lavazza,
+# Pellini and Bazzara alongside its own label, so the roaster comes from the
+# brand row rather than from the shop.
+platform = "shoptet"
+site_id = "kava"
+name = "KAVA.CZ"
+country = "CZ"
+base_url = "https://www.kava.cz/"
+category_urls = ["https://www.kava.cz/zrnkova-kava/"]
+currency = "CZK"
+max_pages = 40
+pagination = "path"

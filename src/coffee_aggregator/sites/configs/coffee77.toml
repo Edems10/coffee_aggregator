@@ -1,0 +1,15 @@
+# Coffee77 — the survey recorded /priprava-kavy/, which is brewing gear; the
+# beans live in three species categories instead.
+platform = "shoptet"
+site_id = "coffee77"
+name = "Coffee77"
+country = "CZ"
+base_url = "https://www.coffee77.eu/"
+category_urls = [
+  "https://www.coffee77.eu/arabica/",
+  "https://www.coffee77.eu/robusta/",
+  "https://www.coffee77.eu/kavove-smesi/",
+]
+currency = "CZK"
+max_pages = 10
+pagination = "path"

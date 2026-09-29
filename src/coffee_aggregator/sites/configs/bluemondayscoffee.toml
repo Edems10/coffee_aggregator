@@ -1,0 +1,31 @@
+# Blue Mondays — a Slovak roastery on Shopify, trading on bluemondays.sk (the
+# .com the survey recorded is the brand name, not the storefront). Every variant
+# leaves `grams` at 0, so the pack weight comes from the variant title
+# ("250g", "1kg"). The coffee passport is written as a bare heading with its
+# value on the line under it ("Odroda" / "Batian, Ruiru 11, SL28, SL34"), and
+# the altitude is not a row of its own: it is appended to the processing value
+# ("Washed, 1800 - 2050 m.n.m."). The roast heading is the one line that is
+# written "Praženie:" with a trailing colon and no value, so the roast profile
+# is picked up from the line under it as "Light roast" and its value is the
+# brewing list, which the roast reader then misreads.
+platform = "shopify"
+site_id = "bluemondayscoffee"
+name = "Blue Mondays Coffee"
+country = "SK"
+base_url = "https://bluemondays.sk/"
+# products.json quotes bare decimal strings and names no currency anywhere.
+currency = "EUR"
+max_pages = 3
+
+# The shop has no "all coffee" collection: its catalogue is sliced by brewing
+# style and by what a customer is after, and the slices overlap. Walking all
+# seven covers the whole offer; the adapter yields each product once.
+collections = [
+  "kavy-na-filter",
+  "moderne-espresso",
+  "prazenie-na-filter",
+  "special-edition",
+  "nechcem-kyslu-kavu",
+  "odporucame-do-automatu",
+  "perfektne-cappuccino",
+]

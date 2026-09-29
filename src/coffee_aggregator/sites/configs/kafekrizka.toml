@@ -1,0 +1,11 @@
+# Kafe Křižka — a plain two-page /vyberova-kava/ listing of single origins
+# named "country + farm".
+platform = "shoptet"
+site_id = "kafekrizka"
+name = "Kafe Křižka"
+country = "CZ"
+base_url = "https://www.kafekrizka.cz/"
+category_urls = ["https://www.kafekrizka.cz/vyberova-kava/"]
+currency = "CZK"
+max_pages = 10
+pagination = "path"

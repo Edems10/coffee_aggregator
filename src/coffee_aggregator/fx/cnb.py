@@ -1,10 +1,10 @@
 from __future__ import annotations
 
+import json
 import logging
-from dataclasses import dataclass, field
 from datetime import date, datetime
 from decimal import Decimal, InvalidOperation
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Any, Final
 
 from coffee_aggregator.fx.rates import BASE_CURRENCY, FxRate
 
@@ -13,148 +13,126 @@ if TYPE_CHECKING:
 
 logger = logging.getLogger(__name__)
 
-#: The Czech National Bank's daily fixing, the authoritative CZK reference rate.
-CNB_URL = (
-    "https://www.cnb.cz/cs/financni-trhy/devizovy-trh/"
-    "kurzy-devizoveho-trhu/kurzy-devizoveho-trhu/denni_kurz.txt"
-)
-SOURCE = "cnb"
+#: The Czech National Bank's own JSON service. It answers with the newest fixing
+#: on or before the date asked for, so a weekend, a holiday or a run before the
+#: afternoon publication all return the last working day by themselves.
+CNB_URL: Final = "https://api.cnb.cz/cnbapi/exrates/daily"
+SOURCE: Final = "cnb"
 
-_SEPARATOR = "|"
-#: ``země|měna|množství|kód|kurz`` — five fields, the last two the ones we read.
-_COLUMNS = 5
-_AMOUNT_INDEX = 2
-_CODE_INDEX = 3
-_RATE_INDEX = 4
-_DATE_FORMAT = "%d.%m.%Y"
-#: Length of an ISO 4217 code, used to skip the header row and any stray line.
-_CODE_LENGTH = 3
+_DATE_FORMAT: Final = "%Y-%m-%d"
+_CODE_LENGTH: Final = 3
 
 
-@dataclass(slots=True, frozen=True)
-class Fixing:
-    """One published day of the CNB table, as CZK per one unit of each currency."""
-
-    date: date
-    rates: dict[str, Decimal] = field(default_factory=dict)
-
-
-def _decimal(raw: str) -> Decimal | None:
-    """Read a number written with a decimal comma.
+def url_for(day: date | None = None) -> str:
+    """Build the request URL for one day.
 
     Args:
-        raw: The cell as published, e.g. ``"24,260"`` or ``"1 234,5"``.
+        day: The day wanted; today when omitted.
 
     Returns:
-        The value, or None when the cell is not a number.
+        The absolute URL, always asking for the English payload so the country
+        and currency names cannot change under a Czech locale.
     """
-    cleaned = raw.strip().replace(" ", "").replace(" ", "").replace(",", ".")
-    if not cleaned:
-        return None
-    try:
-        return Decimal(cleaned)
-    except InvalidOperation:
-        return None
-
-
-def parse_fixing(text: str) -> Fixing | None:
-    """Parse the whole ``denni_kurz.txt`` table.
-
-    The first line carries the date the fixing belongs to — on a weekend or a
-    public holiday that is the last working day, and it is kept as published
-    rather than replaced with today. Every rate is divided by its ``množství``
-    column, so the currencies quoted per 100 units (JPY, HUF) come out per unit
-    like all the others.
-
-    Args:
-        text: The file as served.
-
-    Returns:
-        The fixing, or None when the file carried no date or no usable row.
-    """
-    lines = [line for line in text.splitlines() if line.strip()]
-    if not lines:
-        return None
-    day = _parse_date(lines[0])
-    if day is None:
-        return None
-    rates: dict[str, Decimal] = {}
-    for line in lines[1:]:
-        parsed = _parse_row(line)
-        if parsed is not None:
-            rates[parsed[0]] = parsed[1]
-    if not rates:
-        logger.warning("the CNB fixing for %s carried no readable row", day)
-        return None
-    return Fixing(date=day, rates=rates)
-
-
-def _parse_date(line: str) -> date | None:
-    """Read the ``DD.MM.YYYY #NNN`` header line.
-
-    Args:
-        line: The first line of the file.
-
-    Returns:
-        The fixing date, or None when the line is not shaped like one.
-    """
-    head = line.strip().split("#", maxsplit=1)[0].strip()
-    try:
-        return datetime.strptime(head, _DATE_FORMAT).date()  # noqa: DTZ007  (a date, not a moment)
-    except ValueError:
-        logger.warning("unexpected first line in the CNB fixing: %r", line[:60])
-        return None
-
-
-def _parse_row(line: str) -> tuple[str, Decimal] | None:
-    """Read one ``země|měna|množství|kód|kurz`` row.
-
-    Args:
-        line: The row, header line included (which is skipped).
-
-    Returns:
-        The ISO code and the CZK price of one unit, or None for the header and
-        for anything unreadable.
-    """
-    cells = line.split(_SEPARATOR)
-    if len(cells) != _COLUMNS:
-        return None
-    amount = _decimal(cells[_AMOUNT_INDEX])
-    rate = _decimal(cells[_RATE_INDEX])
-    code = cells[_CODE_INDEX].strip().upper()
-    if amount is None or rate is None or not amount or len(code) != _CODE_LENGTH:
-        return None
-    return code, rate / amount
+    asked = day or datetime.now(tz=None).date()  # noqa: DTZ005  (a bank day, not an instant)
+    return f"{CNB_URL}?date={asked.isoformat()}&lang=EN"
 
 
 def parse_rate(text: str, code: str = BASE_CURRENCY) -> FxRate | None:
-    """Pull one currency's rate out of the CNB table.
+    """Pull one currency's rate out of the bank's JSON answer.
 
     Args:
-        text: The file as served.
+        text: The response body.
         code: The ISO code wanted; the project only ever asks for EUR.
 
     Returns:
-        The rate, or None when the file is unusable or lists no such currency.
+        The rate, or None when the answer is unusable or lists no such currency.
     """
-    fixing = parse_fixing(text)
-    if fixing is None:
+    rows = _rows(text)
+    if rows is None:
         return None
-    rate = fixing.rates.get(code.upper())
-    if rate is None:
-        logger.warning("the CNB fixing for %s lists no %s row", fixing.date, code)
-        return None
-    return FxRate(date=fixing.date, rate=rate, source=SOURCE, base=code.upper())
+    wanted = code.upper()
+    for row in rows:
+        if str(row.get("currencyCode", "")).upper() != wanted:
+            continue
+        rate = _rate_of(row)
+        day = _day_of(row)
+        if rate is None or day is None:
+            return None
+        return FxRate(date=day, rate=rate, source=SOURCE, base=wanted)
+    logger.warning("the CNB answer lists no %s row", wanted)
+    return None
 
 
-def fetch_rate(fetcher: PoliteFetcher) -> FxRate | None:
-    """Download and parse the current CNB fixing.
+def _rows(text: str) -> list[dict[str, Any]] | None:
+    """Read the ``rates`` array out of the response.
+
+    Args:
+        text: The response body.
+
+    Returns:
+        The rows, or None when the body is not the JSON the bank documents.
+    """
+    try:
+        # Money never goes through a float: parse_float keeps the wire's own digits.
+        payload = json.loads(text, parse_float=Decimal)
+    except ValueError:
+        logger.warning("the CNB answer is not JSON")
+        return None
+    rows = payload.get("rates") if isinstance(payload, dict) else None
+    if not isinstance(rows, list) or not rows:
+        logger.warning("the CNB answer carries no rates")
+        return None
+    return [row for row in rows if isinstance(row, dict)]
+
+
+def _rate_of(row: dict[str, Any]) -> Decimal | None:
+    """Read one row's rate per single unit of the currency.
+
+    The bank quotes some currencies per hundred, which ``amount`` states, so the
+    rate is only comparable once divided by it.
+
+    Args:
+        row: One entry of the ``rates`` array.
+
+    Returns:
+        The rate for one unit, or None when the row does not state a usable one.
+    """
+    try:
+        rate = Decimal(str(row["rate"]))
+        amount = Decimal(str(row.get("amount", 1)))
+    except KeyError, TypeError, ValueError, InvalidOperation:
+        return None
+    if not amount or rate <= 0:
+        return None
+    return rate / amount
+
+
+def _day_of(row: dict[str, Any]) -> date | None:
+    """Read the day a row is the fixing for.
+
+    Args:
+        row: One entry of the ``rates`` array.
+
+    Returns:
+        The day, or None when it is missing or malformed.
+    """
+    stamp = str(row.get("validFor", "")).strip()
+    try:
+        return datetime.strptime(stamp, _DATE_FORMAT).replace(tzinfo=None).date()  # noqa: DTZ007
+    except ValueError:
+        logger.warning("the CNB answer states an unreadable date %r", stamp)
+        return None
+
+
+def fetch_rate(fetcher: PoliteFetcher, day: date | None = None) -> FxRate | None:
+    """Ask the bank for the fixing in force on one day.
 
     Args:
         fetcher: The project's polite fetcher; robots.txt and the per-host delay
             apply to the bank exactly as they do to a shop.
+        day: The day wanted; today when omitted.
 
     Returns:
-        The EUR/CZK rate, or None when the file could not be read.
+        The EUR/CZK rate, or None when the answer could not be read.
     """
-    return parse_rate(fetcher.get(CNB_URL).text)
+    return parse_rate(fetcher.get(url_for(day)).text)
