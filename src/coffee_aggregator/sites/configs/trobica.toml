@@ -1,0 +1,19 @@
+# Káva Trobica — the shop lives on kavatrobica.cz, not on trobica.cz, and the
+# surveyed /coffeeshop/ is a landing page; /kava/ is the real beans parent.
+platform = "shoptet"
+site_id = "trobica"
+name = "Káva Trobica"
+country = "CZ"
+base_url = "https://www.kavatrobica.cz/"
+category_urls = ["https://www.kavatrobica.cz/kava/"]
+currency = "CZK"
+max_pages = 12
+pagination = "path"
+
+ignore = [
+  "predplatne",
+  "degustacni",
+  "darkove baleni",
+  "kavovar",
+  "mlynek",
+]

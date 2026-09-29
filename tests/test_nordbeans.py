@@ -5,7 +5,7 @@ from typing import TYPE_CHECKING, cast
 import pytest
 
 from coffee_aggregator.http import FetchResult
-from coffee_aggregator.models import ProcessMethod, RoastProfile
+from coffee_aggregator.models import ProcessMethod, RoastLevel, RoastProfile
 from coffee_aggregator.sites import get as get_site
 from coffee_aggregator.sites.base import ProductRef
 from coffee_aggregator.sites.nordbeans import NordbeansSite, external_id_of, split_notes
@@ -208,8 +208,14 @@ def test_house_blend_is_marked_as_a_blend(house_blend: Coffee) -> None:
     assert house_blend.name == "House Blend"
     assert house_blend.species.is_blend is True
     assert house_blend.origin_text == "Brazílie/Vietnam"
-    assert house_blend.origin.country == "BR"
+    # A blend states the countries of its components; naming one of them as THE
+    # country of the coffee is the claim the blend gate exists to refuse.
+    assert house_blend.origin.country is None
     assert house_blend.roast.profile is RoastProfile.ESPRESSO
+    # "Stupeň pražení" is the shop's own declension of a term the shared
+    # vocabulary knows; the private label table only ever looked for "pražení".
+    assert house_blend.roast.raw == "Tmavé - Sweet City"
+    assert house_blend.roast.level is RoastLevel.DARK
     assert house_blend.taste.body == 5
     assert house_blend.taste.acidity == 1
     assert house_blend.price == 246.0

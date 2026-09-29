@@ -1,0 +1,19 @@
+# Good Times Coffee Roasters — no "kava" slug exists at all; the whole
+# coffee offer lives in category 47 premium. Origin from description lines.
+platform = "woocommerce"
+site_id = "goodtimes"
+name = "Good Times Coffee Roasters"
+country = "SK"
+base_url = "https://goodtimes.coffee/"
+currency = "EUR"
+mode = "api"
+max_pages = 10
+
+# Pinned ids, not slugs: ids survive a re-theme, slugs do not.
+# 47 premium (3).
+api_category_ids = [47]
+
+# The HTML fallback, used only if /wp-json/ ever stops answering.
+category_urls = [
+  "https://goodtimes.coffee/kategoria-produktu/premium/",
+]

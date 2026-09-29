@@ -1,0 +1,26 @@
+# Split by brew method: 71 kava-na-filtr and 72 kava-na-espresso, with no
+# root above them. Whole crowns (minor unit 0), and the label lines are
+# lower case ("odruda:", "zpracovani:").
+platform = "woocommerce"
+site_id = "naturpark12"
+name = "Naturpark 12"
+country = "CZ"
+base_url = "https://www.naturpark12.cz/"
+currency = "CZK"
+mode = "api"
+max_pages = 10
+
+# Pinned ids, not slugs: ids survive a re-theme, slugs do not.
+api_category_ids = [71, 72]
+
+# The HTML fallback, used only if /wp-json/ ever stops answering.
+category_urls = [
+  "https://www.naturpark12.cz/kava-na-filtr/",
+]
+
+# The catalogue also sells things that are not coffee beans.
+ignore = [
+  "drip bag",
+  "kapsle",
+  "degustacni",
+]

@@ -1,0 +1,31 @@
+# Severan — the one shop that ships its facts as an HTML
+# <table class="coffee-table"> inside short_description rather than as
+# attributes or label lines. Categories are flavour-shaped (horká, ovocná).
+platform = "woocommerce"
+site_id = "severan"
+name = "Severan"
+country = "SK"
+base_url = "https://severan.eu/"
+currency = "EUR"
+mode = "api"
+max_pages = 10
+
+# Pinned ids, not slugs: ids survive a re-theme, slugs do not.
+# 172 horka (8), 173 ovocna (8), 66 bezkofeinova (1).
+api_category_ids = [172, 173, 66]
+
+# The HTML fallback, used only if /wp-json/ ever stops answering.
+category_urls = [
+  "https://severan.eu/product-category/horka/",
+  "https://severan.eu/product-category/ovocna/",
+  "https://severan.eu/product-category/bezkofeinova/",
+]
+
+# The catalogue also sells things that are not coffee beans.
+ignore = [
+  "darcek",
+]
+
+[label_map]
+"Vhodné" = "brewing"
+"Úprava" = "process"

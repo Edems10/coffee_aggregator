@@ -1,0 +1,38 @@
+# Industra Coffee — bilingual (CZ/EN) with per-language category ids; the
+# Czech tree is pinned. The catalogue also sells soap, courses and matcha.
+platform = "woocommerce"
+site_id = "industra"
+name = "Industra Coffee"
+country = "CZ"
+base_url = "https://industra.coffee/"
+currency = "CZK"
+mode = "api"
+max_pages = 10
+
+# Pinned ids, not slugs: ids survive a re-theme, slugs do not.
+# 17 filtrovana-kava (14), 53 espresso-2 (12).
+api_category_ids = [17, 53]
+
+# The HTML fallback, used only if /wp-json/ ever stops answering.
+category_urls = [
+  "https://industra.coffee/kategorie-produktu/filtrovana-kava/",
+  "https://industra.coffee/kategorie-produktu/espresso-2/",
+]
+
+# The catalogue also sells things that are not coffee beans.
+ignore = [
+  "mydlo",
+  "soap",
+  "kurz",
+  "matcha",
+  "chawan",
+]
+
+[label_map]
+"Cultivar" = "variety"
+"Type of coffee" = "species"
+"Výrobce" = ""
+"Manufacturer" = ""
+"Barva" = ""
+"Color" = ""
+"Size" = ""

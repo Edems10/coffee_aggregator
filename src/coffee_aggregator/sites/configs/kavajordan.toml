@@ -1,0 +1,15 @@
+# Prémiová káva Jordán — every coffee is listed once per pack size (250 g and
+# 1000 g are separate products), and the category also carries a leaf tea.
+platform = "shoptet"
+site_id = "kavajordan"
+name = "Prémiová káva Jordán"
+country = "CZ"
+base_url = "https://www.kavajordan.cz/"
+category_urls = ["https://www.kavajordan.cz/zrnkova-kava/"]
+currency = "CZK"
+max_pages = 10
+pagination = "path"
+
+ignore = [
+  "caj z kavovych listku",
+]

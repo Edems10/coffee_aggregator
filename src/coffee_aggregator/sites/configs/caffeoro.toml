@@ -1,0 +1,26 @@
+# robots.txt declares Crawl-delay: 30, so this shop is deliberately slow to
+# walk; max_pages is kept low. 30 zrnkova-kava is the bean root, with the
+# 35 kavovary-a-mlynceky tree kept out.
+platform = "woocommerce"
+site_id = "caffeoro"
+name = "Caffe Oro"
+country = "SK"
+base_url = "https://caffeoro.sk/"
+currency = "EUR"
+mode = "api"
+max_pages = 5
+
+# Pinned ids, not slugs: ids survive a re-theme, slugs do not.
+api_category_ids = [30]
+
+# The HTML fallback, used only if /wp-json/ ever stops answering.
+category_urls = [
+  "https://caffeoro.sk/kategoria-produktu/zrnkova-kava/",
+]
+
+# The catalogue also sells things that are not coffee beans.
+ignore = [
+  "kavovar",
+  "mlyncek",
+  "salka",
+]

@@ -23,4 +23,3 @@ ignore = [
 # Labels this shop invents that the built-in CZ/SK/EN map does not know.
 [label_map]
 # "Bližší určení" is this shop's own name for the growing region.
-"Bližší určení" = "region"

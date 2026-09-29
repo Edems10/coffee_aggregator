@@ -1,0 +1,11 @@
+# Mohaji — the surveyed /zrnkova-kava/ redirects to the merged beans-and-ground
+# category, which is used directly so no crawl spends a hop on the redirect.
+platform = "shoptet"
+site_id = "mohaji"
+name = "Mohaji"
+country = "CZ"
+base_url = "https://www.mohaji.cz/"
+category_urls = ["https://www.mohaji.cz/zrnkova-kava-a-mleta-kava/"]
+currency = "CZK"
+max_pages = 10
+pagination = "path"

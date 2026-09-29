@@ -1,0 +1,638 @@
+[
+ {
+  "id": 26384,
+  "name": "KOLUMBIE, El Mandarino, espresso",
+  "permalink": "https://industra.coffee/produkt/kolumbie-el-mandarino-espresso/",
+  "description": "<p>Čerstvá sklizeň z Kolumbie právě dorazila k nám do pražírny a my se moc těšíme, jak vám představíme parádní novinky, ale i naše stálice opět v top kvalitě! Začínáme se skvělým reprezentantem kvalitní čisté promyté Kolumbie &#8211; El Mandarino, v jehož šálku si můžete vychutnat plné šťavnaté tělo a sladkost sušených švestek s červenými hrozny. Spolu s příjemnou nugátovou dochutí tvoří super každodenní pitíčko!</p>",
+  "prices": {
+   "price": "36000",
+   "regular_price": "36000",
+   "sale_price": "36000",
+   "price_range": {
+    "min_amount": "36000",
+    "max_amount": "127500"
+   },
+   "currency_code": "CZK",
+   "currency_symbol": "Kč",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ",",
+   "currency_thousand_separator": " ",
+   "currency_prefix": "",
+   "currency_suffix": " Kč"
+  },
+  "images": [
+   {
+    "id": 26448,
+    "src": "https://industra.coffee/wp-content/uploads/2025/03/KOLUMBIE_ElMandarino_250g2.jpg",
+    "thumbnail": "https://industra.coffee/wp-content/uploads/2025/03/KOLUMBIE_ElMandarino_250g2-600x600.jpg",
+    "srcset": "https://industra.coffee/wp-content/uploads/2025/03/KOLUMBIE_ElMandarino_250g2.jpg 3402w, https://industra.coffee/wp-content/uploads/2025/03/KOLUMBIE_ElMandarino_250g2-300x300.jpg 300w, https://industra.coffee/wp-content/uploads/2025/03/KOLUMBIE_ElMandarino_250g2-1024x1024.jpg 1024w, https://industra.coffee/wp-content/uploads/2025/03/KOLUMBIE_ElMandarino_250g2-150x150.jpg 150w, https://industra.coffee/wp-content/uploads/2025/03/KOLUMBIE_ElMandarino_250g2-600x600.jpg 600w, https://industra.coffee/wp-content/uploads/2025/03/KOLUMBIE_ElMandarino_250g2-900x900.jpg 900w, https://industra.coffee/wp-content/uploads/2025/03/KOLUMBIE_ElMandarino_250g2-100x100.jpg 100w",
+    "sizes": "(max-width: 3402px) 100vw, 3402px",
+    "thumbnail_srcset": "https://industra.coffee/wp-content/uploads/2025/03/KOLUMBIE_ElMandarino_250g2-600x600.jpg 600w, https://industra.coffee/wp-content/uploads/2025/03/KOLUMBIE_ElMandarino_250g2-300x300.jpg 300w, https://industra.coffee/wp-content/uploads/2025/03/KOLUMBIE_ElMandarino_250g2-1024x1024.jpg 1024w, https://industra.coffee/wp-content/uploads/2025/03/KOLUMBIE_ElMandarino_250g2-150x150.jpg 150w, https://industra.coffee/wp-content/uploads/2025/03/KOLUMBIE_ElMandarino_250g2-900x900.jpg 900w, https://industra.coffee/wp-content/uploads/2025/03/KOLUMBIE_ElMandarino_250g2-100x100.jpg 100w",
+    "thumbnail_sizes": "(max-width: 600px) 100vw, 600px",
+    "name": "KOLUMBIE_ElMandarino_250g(2)",
+    "alt": ""
+   }
+  ],
+  "categories": [
+   {
+    "id": 53,
+    "name": "Espresso",
+    "slug": "espresso-2",
+    "link": "https://industra.coffee/kategorie-produktu/espresso-2/"
+   }
+  ],
+  "attributes": [
+   {
+    "id": 1,
+    "name": "Hmotnost",
+    "taxonomy": "pa_hmotnost",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 20,
+      "name": "1kg",
+      "slug": "1kg",
+      "default": false
+     },
+     {
+      "id": 19,
+      "name": "250g",
+      "slug": "250g",
+      "default": true
+     }
+    ]
+   },
+   {
+    "id": 3,
+    "name": "Farma",
+    "taxonomy": "pa_farma",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 1288,
+      "name": "Pitalito, Huila",
+      "slug": "pitalito-huila"
+     }
+    ]
+   },
+   {
+    "id": 5,
+    "name": "Zpracování",
+    "taxonomy": "pa_zpracovani",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 51,
+      "name": "promyté",
+      "slug": "promyte"
+     }
+    ]
+   },
+   {
+    "id": 4,
+    "name": "Kultivar",
+    "taxonomy": "pa_kultivar",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 103,
+      "name": "Caturra, Colombia, Castillo",
+      "slug": "caturra-colombia-castillo"
+     }
+    ]
+   },
+   {
+    "id": 13,
+    "name": "Chuťový profil",
+    "taxonomy": "pa_profil",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 1694,
+      "name": "Hrozny, sušené švestky, nugát",
+      "slug": "hrozny-susene-svestky-nugat"
+     }
+    ]
+   },
+   {
+    "id": 8,
+    "name": "Typ kávy",
+    "taxonomy": "pa_typ-kavy",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 52,
+      "name": "100% arabica, výběrová káva, zrnková káva",
+      "slug": "100-arabica-vyberova-kava-zrnkova-kava"
+     }
+    ]
+   },
+   {
+    "id": 14,
+    "name": "Výrobce",
+    "taxonomy": "pa_vyrobce",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 1506,
+      "name": "IC ROASTERS s.r.o., Kainarova 2672/26, 61600, Brno, ČR",
+      "slug": "ic-roasters-s-r-o-kainarova-2672-26-61600-brno-cr"
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 26432,
+    "attributes": [
+     {
+      "name": "Hmotnost",
+      "value": "1kg"
+     }
+    ]
+   },
+   {
+    "id": 26434,
+    "attributes": [
+     {
+      "name": "Hmotnost",
+      "value": "250g"
+     }
+    ]
+   }
+  ],
+  "is_in_stock": true
+ },
+ {
+  "id": 26385,
+  "name": "COLOMBIA, El Mandarino, espresso",
+  "permalink": "https://industra.coffee/en/product/colombia-el-mandarino-espresso/",
+  "description": "<p>The fresh harvest from Colombia has just arrived at our roastery and we are looking forward to introducing you to some great new coffees, as well as our stable coffees in top quality again!  We start with a great representative of quality clean washed Colombia &#8211; El Mandarino, in a cup of which you can enjoy the full juicy body and sweetness of prunes with red grapes. Together with a pleasant nougat aftertaste, it makes a super everyday coffee!</p>",
+  "prices": {
+   "price": "36000",
+   "regular_price": "36000",
+   "sale_price": "36000",
+   "price_range": {
+    "min_amount": "36000",
+    "max_amount": "127500"
+   },
+   "currency_code": "CZK",
+   "currency_symbol": "Kč",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ",",
+   "currency_thousand_separator": " ",
+   "currency_prefix": "",
+   "currency_suffix": " Kč"
+  },
+  "images": [
+   {
+    "id": 26448,
+    "src": "https://industra.coffee/wp-content/uploads/2025/03/KOLUMBIE_ElMandarino_250g2.jpg",
+    "thumbnail": "https://industra.coffee/wp-content/uploads/2025/03/KOLUMBIE_ElMandarino_250g2-600x600.jpg",
+    "srcset": "https://industra.coffee/wp-content/uploads/2025/03/KOLUMBIE_ElMandarino_250g2.jpg 3402w, https://industra.coffee/wp-content/uploads/2025/03/KOLUMBIE_ElMandarino_250g2-300x300.jpg 300w, https://industra.coffee/wp-content/uploads/2025/03/KOLUMBIE_ElMandarino_250g2-1024x1024.jpg 1024w, https://industra.coffee/wp-content/uploads/2025/03/KOLUMBIE_ElMandarino_250g2-150x150.jpg 150w, https://industra.coffee/wp-content/uploads/2025/03/KOLUMBIE_ElMandarino_250g2-600x600.jpg 600w, https://industra.coffee/wp-content/uploads/2025/03/KOLUMBIE_ElMandarino_250g2-900x900.jpg 900w, https://industra.coffee/wp-content/uploads/2025/03/KOLUMBIE_ElMandarino_250g2-100x100.jpg 100w",
+    "sizes": "(max-width: 3402px) 100vw, 3402px",
+    "thumbnail_srcset": "https://industra.coffee/wp-content/uploads/2025/03/KOLUMBIE_ElMandarino_250g2-600x600.jpg 600w, https://industra.coffee/wp-content/uploads/2025/03/KOLUMBIE_ElMandarino_250g2-300x300.jpg 300w, https://industra.coffee/wp-content/uploads/2025/03/KOLUMBIE_ElMandarino_250g2-1024x1024.jpg 1024w, https://industra.coffee/wp-content/uploads/2025/03/KOLUMBIE_ElMandarino_250g2-150x150.jpg 150w, https://industra.coffee/wp-content/uploads/2025/03/KOLUMBIE_ElMandarino_250g2-900x900.jpg 900w, https://industra.coffee/wp-content/uploads/2025/03/KOLUMBIE_ElMandarino_250g2-100x100.jpg 100w",
+    "thumbnail_sizes": "(max-width: 600px) 100vw, 600px",
+    "name": "KOLUMBIE_ElMandarino_250g(2)",
+    "alt": ""
+   }
+  ],
+  "categories": [
+   {
+    "id": 364,
+    "name": "Espresso",
+    "slug": "espresso-2",
+    "link": "https://industra.coffee/en/product-category/espresso-2/"
+   }
+  ],
+  "attributes": [
+   {
+    "id": 1,
+    "name": "Weight",
+    "taxonomy": "pa_hmotnost",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 308,
+      "name": "1kg",
+      "slug": "1kg",
+      "default": false
+     },
+     {
+      "id": 352,
+      "name": "250g",
+      "slug": "250g",
+      "default": true
+     }
+    ]
+   },
+   {
+    "id": 3,
+    "name": "Farm",
+    "taxonomy": "pa_farma",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 1295,
+      "name": "Pitalito, Huila",
+      "slug": "pitalito-huila"
+     }
+    ]
+   },
+   {
+    "id": 5,
+    "name": "Processing",
+    "taxonomy": "pa_zpracovani",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 317,
+      "name": "washed",
+      "slug": "promyte"
+     }
+    ]
+   },
+   {
+    "id": 4,
+    "name": "Cultivar",
+    "taxonomy": "pa_kultivar",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 1445,
+      "name": "Caturra, Castillo, Colombia",
+      "slug": "caturra-castillo-colombia"
+     }
+    ]
+   },
+   {
+    "id": 13,
+    "name": "Flavor profile",
+    "taxonomy": "pa_profil",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 1696,
+      "name": "Grape, dried plum, nougat",
+      "slug": "grape-dried-plum-nougat"
+     }
+    ]
+   },
+   {
+    "id": 8,
+    "name": "Type of coffee",
+    "taxonomy": "pa_typ-kavy",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 311,
+      "name": "100%arabica, specialty coffee, coffee beans",
+      "slug": "100-arabica-vyberova-kava-zrnkova-kava"
+     }
+    ]
+   },
+   {
+    "id": 14,
+    "name": "Manufacturer",
+    "taxonomy": "pa_vyrobce",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 1508,
+      "name": "IC ROASTERS s.r.o., Kainarova 2672/26, 61600, Brno, CZ",
+      "slug": "ic-roasters-s-r-o-kainarova-2672-26-61600-brno-cz"
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 26433,
+    "attributes": [
+     {
+      "name": "Weight",
+      "value": "1kg"
+     }
+    ]
+   },
+   {
+    "id": 26435,
+    "attributes": [
+     {
+      "name": "Weight",
+      "value": "250g"
+     }
+    ]
+   }
+  ],
+  "is_in_stock": true
+ },
+ {
+  "id": 28925,
+  "name": "PERU, Hugo Pareja a Flor Lopez , filtr",
+  "permalink": "https://industra.coffee/produkt/peru-hugo-pareja-a-flor-lopez-filtr/",
+  "description": "<p>Mňam! Promytá geisha od Huga Pareju a jeho ženy Flor Lopez je po roce zpátky v naší nabídce a za nás je to naprostá pecka! Nabízí všechno, co by jsme od ní očekávali: úžasně čistá, aroma plná růží a v šálku hromada sladkých zralých malin a pomerančů. Rozhodně není na co čekat:)</p>",
+  "prices": {
+   "price": "49900",
+   "regular_price": "49900",
+   "sale_price": "49900",
+   "price_range": null,
+   "currency_code": "CZK",
+   "currency_symbol": "Kč",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ",",
+   "currency_thousand_separator": " ",
+   "currency_prefix": "",
+   "currency_suffix": " Kč"
+  },
+  "images": [
+   {
+    "id": 28976,
+    "src": "https://industra.coffee/wp-content/uploads/2025/05/PERU_HugoPareja_200g.jpg",
+    "thumbnail": "https://industra.coffee/wp-content/uploads/2025/05/PERU_HugoPareja_200g-600x600.jpg",
+    "srcset": "https://industra.coffee/wp-content/uploads/2025/05/PERU_HugoPareja_200g.jpg 3402w, https://industra.coffee/wp-content/uploads/2025/05/PERU_HugoPareja_200g-300x300.jpg 300w, https://industra.coffee/wp-content/uploads/2025/05/PERU_HugoPareja_200g-1024x1024.jpg 1024w, https://industra.coffee/wp-content/uploads/2025/05/PERU_HugoPareja_200g-150x150.jpg 150w, https://industra.coffee/wp-content/uploads/2025/05/PERU_HugoPareja_200g-600x600.jpg 600w, https://industra.coffee/wp-content/uploads/2025/05/PERU_HugoPareja_200g-900x900.jpg 900w, https://industra.coffee/wp-content/uploads/2025/05/PERU_HugoPareja_200g-100x100.jpg 100w",
+    "sizes": "(max-width: 3402px) 100vw, 3402px",
+    "thumbnail_srcset": "https://industra.coffee/wp-content/uploads/2025/05/PERU_HugoPareja_200g-600x600.jpg 600w, https://industra.coffee/wp-content/uploads/2025/05/PERU_HugoPareja_200g-300x300.jpg 300w, https://industra.coffee/wp-content/uploads/2025/05/PERU_HugoPareja_200g-1024x1024.jpg 1024w, https://industra.coffee/wp-content/uploads/2025/05/PERU_HugoPareja_200g-150x150.jpg 150w, https://industra.coffee/wp-content/uploads/2025/05/PERU_HugoPareja_200g-900x900.jpg 900w, https://industra.coffee/wp-content/uploads/2025/05/PERU_HugoPareja_200g-100x100.jpg 100w",
+    "thumbnail_sizes": "(max-width: 600px) 100vw, 600px",
+    "name": "PERU_HugoPareja_200g",
+    "alt": ""
+   }
+  ],
+  "categories": [
+   {
+    "id": 17,
+    "name": "Filtrovaná káva",
+    "slug": "filtrovana-kava",
+    "link": "https://industra.coffee/kategorie-produktu/filtrovana-kava/"
+   }
+  ],
+  "tags": [
+   {
+    "id": 21,
+    "name": "Novinka",
+    "slug": "novinka",
+    "link": "https://industra.coffee/stitek-produktu/novinka/"
+   }
+  ],
+  "attributes": [
+   {
+    "id": 1,
+    "name": "Hmotnost",
+    "taxonomy": "pa_hmotnost",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 1630,
+      "name": "200g",
+      "slug": "200g",
+      "default": true
+     }
+    ]
+   },
+   {
+    "id": 5,
+    "name": "Zpracování",
+    "taxonomy": "pa_zpracovani",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 51,
+      "name": "promyté",
+      "slug": "promyte"
+     }
+    ]
+   },
+   {
+    "id": 3,
+    "name": "Farma",
+    "taxonomy": "pa_farma",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 1204,
+      "name": "La Convención, Cusco",
+      "slug": "la-convencion-cusco"
+     }
+    ]
+   },
+   {
+    "id": 4,
+    "name": "Kultivar",
+    "taxonomy": "pa_kultivar",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 726,
+      "name": "Gesha",
+      "slug": "gesha"
+     }
+    ]
+   },
+   {
+    "id": 13,
+    "name": "Chuťový profil",
+    "taxonomy": "pa_profil",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 1804,
+      "name": "Maliny, pomeranč, růže",
+      "slug": "maliny-pomeranc-ruze"
+     }
+    ]
+   },
+   {
+    "id": 8,
+    "name": "Typ kávy",
+    "taxonomy": "pa_typ-kavy",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 52,
+      "name": "100% arabica, výběrová káva, zrnková káva",
+      "slug": "100-arabica-vyberova-kava-zrnkova-kava"
+     }
+    ]
+   },
+   {
+    "id": 14,
+    "name": "Výrobce",
+    "taxonomy": "pa_vyrobce",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 1506,
+      "name": "IC ROASTERS s.r.o., Kainarova 2672/26, 61600, Brno, ČR",
+      "slug": "ic-roasters-s-r-o-kainarova-2672-26-61600-brno-cr"
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 28966,
+    "attributes": [
+     {
+      "name": "Hmotnost",
+      "value": "200g"
+     }
+    ]
+   }
+  ],
+  "is_in_stock": true
+ },
+ {
+  "id": 28979,
+  "name": "PERU, Hugo Pareja and Flor Lopez, filter",
+  "permalink": "https://industra.coffee/en/product/peru-hugo-pareja-and-flor-lopez-filter/",
+  "description": "<p>Yummy! The washed geisha from Hugo Pareja and his wife Flor Lopez is back in our offer after a year and for us it&#8217;s a total blast! It offers everything we&#8217;d expect from it: wonderfully clean, full of rose aromas and a lot of sweet ripe raspberries and oranges in the cup. Definitely nothing to wait for:)</p>",
+  "prices": {
+   "price": "49900",
+   "regular_price": "49900",
+   "sale_price": "49900",
+   "price_range": null,
+   "currency_code": "CZK",
+   "currency_symbol": "Kč",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ",",
+   "currency_thousand_separator": " ",
+   "currency_prefix": "",
+   "currency_suffix": " Kč"
+  },
+  "images": [
+   {
+    "id": 28976,
+    "src": "https://industra.coffee/wp-content/uploads/2025/05/PERU_HugoPareja_200g.jpg",
+    "thumbnail": "https://industra.coffee/wp-content/uploads/2025/05/PERU_HugoPareja_200g-600x600.jpg",
+    "srcset": "https://industra.coffee/wp-content/uploads/2025/05/PERU_HugoPareja_200g.jpg 3402w, https://industra.coffee/wp-content/uploads/2025/05/PERU_HugoPareja_200g-300x300.jpg 300w, https://industra.coffee/wp-content/uploads/2025/05/PERU_HugoPareja_200g-1024x1024.jpg 1024w, https://industra.coffee/wp-content/uploads/2025/05/PERU_HugoPareja_200g-150x150.jpg 150w, https://industra.coffee/wp-content/uploads/2025/05/PERU_HugoPareja_200g-600x600.jpg 600w, https://industra.coffee/wp-content/uploads/2025/05/PERU_HugoPareja_200g-900x900.jpg 900w, https://industra.coffee/wp-content/uploads/2025/05/PERU_HugoPareja_200g-100x100.jpg 100w",
+    "sizes": "(max-width: 3402px) 100vw, 3402px",
+    "thumbnail_srcset": "https://industra.coffee/wp-content/uploads/2025/05/PERU_HugoPareja_200g-600x600.jpg 600w, https://industra.coffee/wp-content/uploads/2025/05/PERU_HugoPareja_200g-300x300.jpg 300w, https://industra.coffee/wp-content/uploads/2025/05/PERU_HugoPareja_200g-1024x1024.jpg 1024w, https://industra.coffee/wp-content/uploads/2025/05/PERU_HugoPareja_200g-150x150.jpg 150w, https://industra.coffee/wp-content/uploads/2025/05/PERU_HugoPareja_200g-900x900.jpg 900w, https://industra.coffee/wp-content/uploads/2025/05/PERU_HugoPareja_200g-100x100.jpg 100w",
+    "thumbnail_sizes": "(max-width: 600px) 100vw, 600px",
+    "name": "PERU_HugoPareja_200g",
+    "alt": ""
+   }
+  ],
+  "categories": [
+   {
+    "id": 296,
+    "name": "Filter coffee",
+    "slug": "filter-coffee",
+    "link": "https://industra.coffee/en/product-category/filter-coffee/"
+   }
+  ],
+  "tags": [
+   {
+    "id": 299,
+    "name": "New",
+    "slug": "new",
+    "link": "https://industra.coffee/en/stitek-produktu/new/"
+   }
+  ],
+  "attributes": [
+   {
+    "id": 1,
+    "name": "Weight",
+    "taxonomy": "pa_hmotnost",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 1634,
+      "name": "200 g",
+      "slug": "200-g",
+      "default": true
+     }
+    ]
+   },
+   {
+    "id": 5,
+    "name": "Processing",
+    "taxonomy": "pa_zpracovani",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 317,
+      "name": "washed",
+      "slug": "promyte"
+     }
+    ]
+   },
+   {
+    "id": 3,
+    "name": "Farm",
+    "taxonomy": "pa_farma",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 1222,
+      "name": "La Convención, Cusco",
+      "slug": "la-convencion-cusco"
+     }
+    ]
+   },
+   {
+    "id": 4,
+    "name": "Cultivar",
+    "taxonomy": "pa_kultivar",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 1593,
+      "name": "Gesha",
+      "slug": "gesha"
+     }
+    ]
+   },
+   {
+    "id": 13,
+    "name": "Flavor profile",
+    "taxonomy": "pa_profil",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 1806,
+      "name": "Raspberry, orange, rose",
+      "slug": "raspberry-orange-rose"
+     }
+    ]
+   },
+   {
+    "id": 8,
+    "name": "Type of coffee",
+    "taxonomy": "pa_typ-kavy",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 311,
+      "name": "100%arabica, specialty coffee, coffee beans",
+      "slug": "100-arabica-vyberova-kava-zrnkova-kava"
+     }
+    ]
+   },
+   {
+    "id": 14,
+    "name": "Manufacturer",
+    "taxonomy": "pa_vyrobce",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 1508,
+      "name": "IC ROASTERS s.r.o., Kainarova 2672/26, 61600, Brno, CZ",
+      "slug": "ic-roasters-s-r-o-kainarova-2672-26-61600-brno-cz"
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 28980,
+    "attributes": [
+     {
+      "name": "Weight",
+      "value": "200-g"
+     }
+    ]
+   }
+  ],
+  "is_in_stock": true
+ }
+]

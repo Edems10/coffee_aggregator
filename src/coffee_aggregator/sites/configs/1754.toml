@@ -1,0 +1,11 @@
+# 1754 ROASTERY — one flat /kava/ category that mixes single origins, espresso
+# blends and an India robusta; the 500 g bags are listed as separate products.
+platform = "shoptet"
+site_id = "1754"
+name = "1754 ROASTERY"
+country = "CZ"
+base_url = "https://www.1754.cz/"
+category_urls = ["https://www.1754.cz/kava/"]
+currency = "CZK"
+max_pages = 10
+pagination = "path"

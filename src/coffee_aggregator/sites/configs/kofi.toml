@@ -24,4 +24,3 @@ ignore = [
 [label_map]
 # This shop's own name for the roast the beans were built for ("Espresso",
 # "Filter", "Omni"); it feeds the roast block, whose profile is derived from it.
-"Štýl praženia" = "roast"

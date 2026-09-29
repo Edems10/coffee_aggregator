@@ -1,0 +1,524 @@
+[
+ {
+  "id": 3531,
+  "name": "Etiopia Guji GR1",
+  "permalink": "https://www.seriouscoffee.sk/produkt/etiopia-guji/",
+  "short_description": "<p><strong>Etiopia Guji Dambi Uddo</strong></p>\n<p>Etiópia Guji Dambi Uddo označuje <i>špecifický pôvod kávy, ktorá je známa svojimi vysoko kvalitnými zrnami pestovanými v oblasti Guji v Etiópii</i>. Dambi Uddo je farma a región v oblasti Guji, známy svojimi jedinečnými chuťovými profilmi a prírodnými spracovateľskými metódami. Káva sa vyznačuje sladkosťou, ovocnými chuťami (vrátane jahôd a tmavých bobúľ), kvetinovými tónmi a živou, často čokoládovou arómou.</p>",
+  "description": "<p><b>Výberová káva &#8211; espresso/filter</b></p>\n<p><strong>Región:</strong> Guji<br />\n<strong>Farma:</strong> Dambi Uddo<br />\n<strong>Odroda:</strong> heirloom<br />\n<strong>Nadmorská výška:</strong> 1850 metrov n.m.<br />\n<strong>Spracovanie:</strong> natural<br />\n<strong>Stupeň praženia:</strong> light<br />\n<strong>Chuťový profil:</strong> sušené ovocie, čučoriedka, jazmín<br />\n<strong>Microlot GR1</strong></p>",
+  "prices": {
+   "price": "1290",
+   "regular_price": "1290",
+   "sale_price": "1290",
+   "price_range": {
+    "min_amount": "1290",
+    "max_amount": "3590"
+   },
+   "currency_code": "EUR",
+   "currency_symbol": "€",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ".",
+   "currency_thousand_separator": ",",
+   "currency_prefix": "",
+   "currency_suffix": " €"
+  },
+  "images": [
+   {
+    "id": 4200,
+    "src": "https://www.seriouscoffee.sk/wp-content/uploads/2022/10/PhotoRoom_20221114_132952-e1668431356333.png",
+    "thumbnail": "https://www.seriouscoffee.sk/wp-content/uploads/2022/10/PhotoRoom_20221114_132952-e1668431356333-300x300.png",
+    "srcset": "https://www.seriouscoffee.sk/wp-content/uploads/2022/10/PhotoRoom_20221114_132952-e1668431356333.png 1280w, https://www.seriouscoffee.sk/wp-content/uploads/2022/10/PhotoRoom_20221114_132952-e1668431356333-300x273.png 300w, https://www.seriouscoffee.sk/wp-content/uploads/2022/10/PhotoRoom_20221114_132952-e1668431356333-1024x931.png 1024w, https://www.seriouscoffee.sk/wp-content/uploads/2022/10/PhotoRoom_20221114_132952-e1668431356333-768x698.png 768w, https://www.seriouscoffee.sk/wp-content/uploads/2022/10/PhotoRoom_20221114_132952-e1668431356333-600x546.png 600w",
+    "sizes": "(max-width: 1280px) 100vw, 1280px",
+    "thumbnail_srcset": "https://www.seriouscoffee.sk/wp-content/uploads/2022/10/PhotoRoom_20221114_132952-e1668431356333-300x300.png 300w, https://www.seriouscoffee.sk/wp-content/uploads/2022/10/PhotoRoom_20221114_132952-e1668431356333-150x150.png 150w, https://www.seriouscoffee.sk/wp-content/uploads/2022/10/PhotoRoom_20221114_132952-e1668431356333-550x550.png 550w, https://www.seriouscoffee.sk/wp-content/uploads/2022/10/PhotoRoom_20221114_132952-e1668431356333-1100x1100.png 1100w, https://www.seriouscoffee.sk/wp-content/uploads/2022/10/PhotoRoom_20221114_132952-e1668431356333-100x100.png 100w",
+    "thumbnail_sizes": "(max-width: 300px) 100vw, 300px",
+    "name": "Výberová káva Etiopia Gedeb",
+    "alt": "Výberová káva Etiopia Gedeb"
+   }
+  ],
+  "categories": [
+   {
+    "id": 191,
+    "name": "Výberová",
+    "slug": "vyberova",
+    "link": "https://www.seriouscoffee.sk/kategoria-produktu/vyberova/"
+   }
+  ],
+  "attributes": [
+   {
+    "id": 0,
+    "name": "Veľkosť",
+    "taxonomy": null,
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 0,
+      "name": "250g",
+      "slug": "250g"
+     },
+     {
+      "id": 0,
+      "name": "1000g",
+      "slug": "1000g"
+     }
+    ]
+   },
+   {
+    "id": 0,
+    "name": "Praženie",
+    "taxonomy": null,
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 0,
+      "name": "Espresso",
+      "slug": "Espresso"
+     },
+     {
+      "id": 0,
+      "name": "Filter",
+      "slug": "Filter"
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 4161,
+    "attributes": [
+     {
+      "name": "Veľkosť",
+      "value": "250g"
+     },
+     {
+      "name": "Praženie",
+      "value": "Espresso"
+     }
+    ]
+   },
+   {
+    "id": 4162,
+    "attributes": [
+     {
+      "name": "Veľkosť",
+      "value": "250g"
+     },
+     {
+      "name": "Praženie",
+      "value": "Filter"
+     }
+    ]
+   },
+   {
+    "id": 4163,
+    "attributes": [
+     {
+      "name": "Veľkosť",
+      "value": "1000g"
+     },
+     {
+      "name": "Praženie",
+      "value": "Espresso"
+     }
+    ]
+   },
+   {
+    "id": 4164,
+    "attributes": [
+     {
+      "name": "Veľkosť",
+      "value": "1000g"
+     },
+     {
+      "name": "Praženie",
+      "value": "Filter"
+     }
+    ]
+   }
+  ],
+  "is_in_stock": true
+ },
+ {
+  "id": 4078,
+  "name": "Guatemala Antiqua",
+  "permalink": "https://www.seriouscoffee.sk/produkt/guatemala-antiqua/",
+  "short_description": "<p><strong>Guatemala Antigua Finca Medina</strong></p>\n<p>&nbsp;</p>\n<p style=\"text-align: justify\">Finca Medina bola založená v roku 1842. So 100 hektármi sa nachádza na úpätí sopky Agua na okraji mesta Antigua Guatemala. Farma pracuje priateľským spôsobom s environmentálnymi usmerneniami pre udržateľnú produkciu a má rôzne iniciatívy zamerané na zachovanie džungle a blahobyt rodín, ktoré žijú a pracujú na farme.</p>\n<p>&nbsp;</p>\n<p style=\"text-align: justify\">Čo sa týka prípravy týchto microlotov, pred zberom sa vyberú konkrétne oblasti farmy, kde sa budú zbierať čerešne na honey a naturálne spracovanie. V čase zberu sa používajú techniky, ako je meranie stupňov Brix, ktoré pomáhajú určiť vhodný hraničný bod. Proces vyžaduje pomalé, dôkladné sušenie a čistenie, detekciu a odstránenie chybných čerešní.</p>",
+  "description": "<p><b>Výberová káva &#8211; espresso/filter</b></p>\n<p><strong>Región:</strong> Antigua<br />\n<strong>Farma:</strong> Finca Medina<br />\n<strong>Odroda:</strong> bourbon, caturra<br />\n<strong>Nadmorská výška:</strong> 1400 metrov n.m.<br />\n<strong>Spracovanie:</strong> natural<br />\n<strong>Stupeň praženia:</strong> light<br />\n<strong>Chuťový profil:</strong> sušené ovocie, šípka, červené hrozno</p>",
+  "prices": {
+   "price": "1390",
+   "regular_price": "1390",
+   "sale_price": "1390",
+   "price_range": {
+    "min_amount": "1390",
+    "max_amount": "3390"
+   },
+   "currency_code": "EUR",
+   "currency_symbol": "€",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ".",
+   "currency_thousand_separator": ",",
+   "currency_prefix": "",
+   "currency_suffix": " €"
+  },
+  "images": [
+   {
+    "id": 4198,
+    "src": "https://www.seriouscoffee.sk/wp-content/uploads/2022/10/PhotoRoom_20221114_133102-e1668430589440.png",
+    "thumbnail": "https://www.seriouscoffee.sk/wp-content/uploads/2022/10/PhotoRoom_20221114_133102-e1668430589440-300x300.png",
+    "srcset": "https://www.seriouscoffee.sk/wp-content/uploads/2022/10/PhotoRoom_20221114_133102-e1668430589440.png 1280w, https://www.seriouscoffee.sk/wp-content/uploads/2022/10/PhotoRoom_20221114_133102-e1668430589440-300x274.png 300w, https://www.seriouscoffee.sk/wp-content/uploads/2022/10/PhotoRoom_20221114_133102-e1668430589440-1024x934.png 1024w, https://www.seriouscoffee.sk/wp-content/uploads/2022/10/PhotoRoom_20221114_133102-e1668430589440-768x701.png 768w, https://www.seriouscoffee.sk/wp-content/uploads/2022/10/PhotoRoom_20221114_133102-e1668430589440-600x548.png 600w",
+    "sizes": "(max-width: 1280px) 100vw, 1280px",
+    "thumbnail_srcset": "https://www.seriouscoffee.sk/wp-content/uploads/2022/10/PhotoRoom_20221114_133102-e1668430589440-300x300.png 300w, https://www.seriouscoffee.sk/wp-content/uploads/2022/10/PhotoRoom_20221114_133102-e1668430589440-150x150.png 150w, https://www.seriouscoffee.sk/wp-content/uploads/2022/10/PhotoRoom_20221114_133102-e1668430589440-550x550.png 550w, https://www.seriouscoffee.sk/wp-content/uploads/2022/10/PhotoRoom_20221114_133102-e1668430589440-1100x1100.png 1100w, https://www.seriouscoffee.sk/wp-content/uploads/2022/10/PhotoRoom_20221114_133102-e1668430589440-100x100.png 100w",
+    "thumbnail_sizes": "(max-width: 300px) 100vw, 300px",
+    "name": "Výberová káva Guatemala Antiqua",
+    "alt": "Výberová káva Guatemala Antiqua"
+   }
+  ],
+  "categories": [
+   {
+    "id": 191,
+    "name": "Výberová",
+    "slug": "vyberova",
+    "link": "https://www.seriouscoffee.sk/kategoria-produktu/vyberova/"
+   }
+  ],
+  "attributes": [
+   {
+    "id": 0,
+    "name": "Veľkosť",
+    "taxonomy": null,
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 0,
+      "name": "250g",
+      "slug": "250g"
+     },
+     {
+      "id": 0,
+      "name": "1000g",
+      "slug": "1000g"
+     }
+    ]
+   },
+   {
+    "id": 0,
+    "name": "Praženie",
+    "taxonomy": null,
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 0,
+      "name": "Espresso",
+      "slug": "Espresso"
+     },
+     {
+      "id": 0,
+      "name": "Filter",
+      "slug": "Filter"
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 4155,
+    "attributes": [
+     {
+      "name": "Veľkosť",
+      "value": "250g"
+     },
+     {
+      "name": "Praženie",
+      "value": "Espresso"
+     }
+    ]
+   },
+   {
+    "id": 4156,
+    "attributes": [
+     {
+      "name": "Veľkosť",
+      "value": "250g"
+     },
+     {
+      "name": "Praženie",
+      "value": "Filter"
+     }
+    ]
+   },
+   {
+    "id": 4157,
+    "attributes": [
+     {
+      "name": "Veľkosť",
+      "value": "1000g"
+     },
+     {
+      "name": "Praženie",
+      "value": "Espresso"
+     }
+    ]
+   },
+   {
+    "id": 4158,
+    "attributes": [
+     {
+      "name": "Veľkosť",
+      "value": "1000g"
+     },
+     {
+      "name": "Praženie",
+      "value": "Filter"
+     }
+    ]
+   }
+  ],
+  "is_in_stock": false
+ },
+ {
+  "id": 4081,
+  "name": "Brazil Minas",
+  "permalink": "https://www.seriouscoffee.sk/produkt/brazil-minas/",
+  "short_description": "<p><strong>Brazil Minas Gerais Microlot 89SCA</strong></p>\n<p style=\"text-align: justify\">Sitio Vargem Grande sa nachádza v meste Lambari v kávovej oblasti Mantiqueira de Minas Sul de Minas. Edimar pochádza z rodiny pestovateľov kávy a spolu s manželkou Gabrielou pokračujú v tomto dedičstve pestovaním kávy na pôde, ktorú Edimar zdedil, a zväčšujú veľkosť farmy, ktorá má dnes 15 zo svojich 16 hektárov vysadených kávou.</p>\n<p>&nbsp;</p>\n<p style=\"text-align: justify\">Edimar a jeho rodina zabezpečujú všetku prácu na farme, ktorá je jediným zdrojom príjmu rodiny. Zaviazali sa vyrábať špeciálne kávy s pridanou hodnotou, aby priniesli uznanie ich tvrdej práci. Vysoká nadmorská výška regiónu v kombinácii s dobre vykonanou prácou umožňuje produkciu skutočne výnimočných káv.</p>\n<p>&nbsp;</p>\n<p style=\"text-align: justify\">Láska k pestovaniu kávy sa prenáša z otca na syna, keď Eduardo, Edimarov syn, sprevádza svojho otca pri každodenných aktivitách na farme.</p>",
+  "description": "<p><b>Výberová káva &#8211; espresso/filter</b></p>\n<p><strong>Región:</strong> Minas Gerais<br />\n<strong>Farma:</strong> Sitio Vargem Grande<br />\n<strong>Odroda:</strong> Red Catuai<br />\n<strong>Nadmorská výška:</strong> 1300 metrov n.m.<br />\n<strong>Spracovanie:</strong> natural<br />\n<strong>Stupeň praženia:</strong> light<br />\n<strong>Chuťový profil:</strong> broskyňa, karamel, ovocná, sladká</p>",
+  "prices": {
+   "price": "1490",
+   "regular_price": "1490",
+   "sale_price": "1490",
+   "price_range": {
+    "min_amount": "1490",
+    "max_amount": "3990"
+   },
+   "currency_code": "EUR",
+   "currency_symbol": "€",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ".",
+   "currency_thousand_separator": ",",
+   "currency_prefix": "",
+   "currency_suffix": " €"
+  },
+  "images": [
+   {
+    "id": 4196,
+    "src": "https://www.seriouscoffee.sk/wp-content/uploads/2022/10/PhotoRoom_20221114_134350-e1668430396747.png",
+    "thumbnail": "https://www.seriouscoffee.sk/wp-content/uploads/2022/10/PhotoRoom_20221114_134350-e1668430396747-300x300.png",
+    "srcset": "https://www.seriouscoffee.sk/wp-content/uploads/2022/10/PhotoRoom_20221114_134350-e1668430396747.png 1280w, https://www.seriouscoffee.sk/wp-content/uploads/2022/10/PhotoRoom_20221114_134350-e1668430396747-300x273.png 300w, https://www.seriouscoffee.sk/wp-content/uploads/2022/10/PhotoRoom_20221114_134350-e1668430396747-1024x931.png 1024w, https://www.seriouscoffee.sk/wp-content/uploads/2022/10/PhotoRoom_20221114_134350-e1668430396747-768x698.png 768w, https://www.seriouscoffee.sk/wp-content/uploads/2022/10/PhotoRoom_20221114_134350-e1668430396747-600x546.png 600w",
+    "sizes": "(max-width: 1280px) 100vw, 1280px",
+    "thumbnail_srcset": "https://www.seriouscoffee.sk/wp-content/uploads/2022/10/PhotoRoom_20221114_134350-e1668430396747-300x300.png 300w, https://www.seriouscoffee.sk/wp-content/uploads/2022/10/PhotoRoom_20221114_134350-e1668430396747-150x150.png 150w, https://www.seriouscoffee.sk/wp-content/uploads/2022/10/PhotoRoom_20221114_134350-e1668430396747-550x550.png 550w, https://www.seriouscoffee.sk/wp-content/uploads/2022/10/PhotoRoom_20221114_134350-e1668430396747-1100x1100.png 1100w, https://www.seriouscoffee.sk/wp-content/uploads/2022/10/PhotoRoom_20221114_134350-e1668430396747-100x100.png 100w",
+    "thumbnail_sizes": "(max-width: 300px) 100vw, 300px",
+    "name": "Výberová káva Brazil Minas",
+    "alt": "Výberová káva Brazil Minas"
+   }
+  ],
+  "categories": [
+   {
+    "id": 191,
+    "name": "Výberová",
+    "slug": "vyberova",
+    "link": "https://www.seriouscoffee.sk/kategoria-produktu/vyberova/"
+   }
+  ],
+  "attributes": [
+   {
+    "id": 0,
+    "name": "Veľkosť",
+    "taxonomy": null,
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 0,
+      "name": "250g",
+      "slug": "250g"
+     },
+     {
+      "id": 0,
+      "name": "1000g",
+      "slug": "1000g"
+     }
+    ]
+   },
+   {
+    "id": 0,
+    "name": "Praženie",
+    "taxonomy": null,
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 0,
+      "name": "Espresso",
+      "slug": "Espresso"
+     },
+     {
+      "id": 0,
+      "name": "Filter",
+      "slug": "Filter"
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 4082,
+    "attributes": [
+     {
+      "name": "Veľkosť",
+      "value": "250g"
+     },
+     {
+      "name": "Praženie",
+      "value": null
+     }
+    ]
+   },
+   {
+    "id": 4083,
+    "attributes": [
+     {
+      "name": "Veľkosť",
+      "value": "1000g"
+     },
+     {
+      "name": "Praženie",
+      "value": null
+     }
+    ]
+   }
+  ],
+  "is_in_stock": false
+ },
+ {
+  "id": 4075,
+  "name": "Columbia Quindio Genova Excelso EP",
+  "permalink": "https://www.seriouscoffee.sk/produkt/columbia-quindio-genova/",
+  "short_description": "<p><strong>Columbia Atioquia El Retiro</strong></p>\n<p>El Retiro bolo v kolónii známe ako &#8222;Aventaderos del cuarzo&#8220; (neskôr len ako &#8222;El cuarzo&#8220;) kvôli bohatým baniam na kremeň a zlato, ktoré existujú v jurisdikcii Rionegro. Neďaleko jednej z týchto kremenných baní je usadlosť pána Martina Villadu, ktorý má 100% odrodovú kávu Castillo. S manželkou a svokrou zbierajú zrelé kávové čerešne, extrahujú dužinu a fermentujú 24 hodín. V blízkosti kávovej plantáže vysadil pán Martin rastliny citrónovníka, pomaranča, citrónovej verbeny a rozmarínu. Mineralizovaná pôda a produkčné prostredie Villadovej farmy robia z tejto kávy vynikajúcu kvalitu.</p>",
+  "description": "<p><b>Výberová káva &#8211; espresso/filter</b></p>\n<p><strong>Región:</strong> Antioquia<br />\n<strong>Farma:</strong> El Cuarzo<br />\n<strong>Odroda:</strong> Castillo<br />\n<strong>Nadmorská výška:</strong> 1890 metrov n.m.<br />\n<strong>Spracovanie:</strong> washed<br />\n<strong>Stupeň praženia:</strong> light<br />\n<strong>Chuťový profil:</strong> broskyňa, tropické ovocie, sladká<br />\n<strong>Microlot &#8211; 29 vriec</strong></p>",
+  "prices": {
+   "price": "1390",
+   "regular_price": "1390",
+   "sale_price": "1390",
+   "price_range": {
+    "min_amount": "1390",
+    "max_amount": "3490"
+   },
+   "currency_code": "EUR",
+   "currency_symbol": "€",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ".",
+   "currency_thousand_separator": ",",
+   "currency_prefix": "",
+   "currency_suffix": " €"
+  },
+  "images": [
+   {
+    "id": 4199,
+    "src": "https://www.seriouscoffee.sk/wp-content/uploads/2022/10/PhotoRoom_20221114_133022-e1668430636726.png",
+    "thumbnail": "https://www.seriouscoffee.sk/wp-content/uploads/2022/10/PhotoRoom_20221114_133022-e1668430636726-300x300.png",
+    "srcset": "https://www.seriouscoffee.sk/wp-content/uploads/2022/10/PhotoRoom_20221114_133022-e1668430636726.png 1280w, https://www.seriouscoffee.sk/wp-content/uploads/2022/10/PhotoRoom_20221114_133022-e1668430636726-300x273.png 300w, https://www.seriouscoffee.sk/wp-content/uploads/2022/10/PhotoRoom_20221114_133022-e1668430636726-1024x931.png 1024w, https://www.seriouscoffee.sk/wp-content/uploads/2022/10/PhotoRoom_20221114_133022-e1668430636726-768x698.png 768w, https://www.seriouscoffee.sk/wp-content/uploads/2022/10/PhotoRoom_20221114_133022-e1668430636726-600x546.png 600w",
+    "sizes": "(max-width: 1280px) 100vw, 1280px",
+    "thumbnail_srcset": "https://www.seriouscoffee.sk/wp-content/uploads/2022/10/PhotoRoom_20221114_133022-e1668430636726-300x300.png 300w, https://www.seriouscoffee.sk/wp-content/uploads/2022/10/PhotoRoom_20221114_133022-e1668430636726-150x150.png 150w, https://www.seriouscoffee.sk/wp-content/uploads/2022/10/PhotoRoom_20221114_133022-e1668430636726-550x550.png 550w, https://www.seriouscoffee.sk/wp-content/uploads/2022/10/PhotoRoom_20221114_133022-e1668430636726-1100x1100.png 1100w, https://www.seriouscoffee.sk/wp-content/uploads/2022/10/PhotoRoom_20221114_133022-e1668430636726-100x100.png 100w",
+    "thumbnail_sizes": "(max-width: 300px) 100vw, 300px",
+    "name": "Výberová káva Columbia El Retiro",
+    "alt": "Výberová káva Columbia El Retiro"
+   }
+  ],
+  "categories": [
+   {
+    "id": 191,
+    "name": "Výberová",
+    "slug": "vyberova",
+    "link": "https://www.seriouscoffee.sk/kategoria-produktu/vyberova/"
+   }
+  ],
+  "attributes": [
+   {
+    "id": 0,
+    "name": "Veľkosť",
+    "taxonomy": null,
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 0,
+      "name": "250g",
+      "slug": "250g"
+     },
+     {
+      "id": 0,
+      "name": "1000g",
+      "slug": "1000g"
+     }
+    ]
+   },
+   {
+    "id": 0,
+    "name": "Praženie",
+    "taxonomy": null,
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 0,
+      "name": "Espresso",
+      "slug": "Espresso"
+     },
+     {
+      "id": 0,
+      "name": "Filter",
+      "slug": "Filter"
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 4150,
+    "attributes": [
+     {
+      "name": "Veľkosť",
+      "value": "250g"
+     },
+     {
+      "name": "Praženie",
+      "value": "Espresso"
+     }
+    ]
+   },
+   {
+    "id": 4151,
+    "attributes": [
+     {
+      "name": "Veľkosť",
+      "value": "250g"
+     },
+     {
+      "name": "Praženie",
+      "value": "Filter"
+     }
+    ]
+   },
+   {
+    "id": 4152,
+    "attributes": [
+     {
+      "name": "Veľkosť",
+      "value": "1000g"
+     },
+     {
+      "name": "Praženie",
+      "value": "Espresso"
+     }
+    ]
+   },
+   {
+    "id": 4153,
+    "attributes": [
+     {
+      "name": "Veľkosť",
+      "value": "1000g"
+     },
+     {
+      "name": "Praženie",
+      "value": "Filter"
+     }
+    ]
+   }
+  ],
+  "is_in_stock": true
+ }
+]

@@ -1,0 +1,354 @@
+[
+ {
+  "id": 5675853,
+  "name": "Brazil Mogiana (espresso) &#8211; B2B",
+  "permalink": "https://triplefivecoffee.com/product/brazil-mogiana-espresso-b2b/",
+  "short_description": "<p><strong>Krajina:</strong> Brazil<br />\n<strong>Oblasť: </strong>Mogiana, São Paulo<br />\n<strong>Spracovateľ: </strong>Smallholder farmers<br />\n<strong>Varieta: </strong>Caturra, Catuaí<br />\n<strong>Spracovanie:</strong> Natural<br />\n<strong>Nadmorská výška:</strong> 900 – 1.000 masl<br />\n<strong>Zber:</strong> 2024<br />\n<strong>Chuťový profil: </strong><span class=\"s1\">Sweet, creamy, chocolate fudge, nougat, nutty<br />\n</span><strong>Profil praženia:</strong> espresso<br />\n<strong>Spôsob prípravy:</strong> pákový espresso stroj, moka konvička, automatický kávovar<br />\n<strong>                                                                                                       </strong><br />\n<em>Káva je zabalená do recyklovateľného vrecka bez hliníkovej vrstvy.</em></p>",
+  "description": "<div class=\"content-column one_half\"><h3>Info o produkte</h3>\n<p>Brazílska káva z oblasti Mogiana je pestovaná v nadmorskej výške 900 až 1000m v štáte San Paulo. Brazílska história pestovania kávy je dlhá a bohatá. Táto krajina je posledných zhruba 150 rokov najväčším producentom kávy an svete. Naša Brazilka pochádza od malých farmárov a kvalitatívne sa radí k top 10% produkcii tejto krajiny.</p>\n<p>Táto stálica našej ponuky je po stránke chuťového profilu vhodná na prípravu &#8220;konzervatívnejšieho&#8221; espressa a mliečnych nápojov. Profil chuti dobre vystihuje horká čokoláda, oriešky, nájdeme v nej aj karamelovú sladkosť a krémovejšie telo. Patrí medzi obľúbenú voľbu zákazníkov, ktorí preferujú kávu bez acidity.</p></div><br />\n<div class=\"content-column one_half last_column\"><p>&nbsp;</p></div><div class=\"clear_column\"></div></p>",
+  "prices": {
+   "price": "1300",
+   "regular_price": "1300",
+   "sale_price": "1300",
+   "price_range": {
+    "min_amount": "1300",
+    "max_amount": "3200"
+   },
+   "currency_code": "EUR",
+   "currency_symbol": "€",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ",",
+   "currency_thousand_separator": " ",
+   "currency_prefix": "",
+   "currency_suffix": " €"
+  },
+  "images": [
+   {
+    "id": 5676856,
+    "src": "https://triplefivecoffee.com/wp-content/uploads/2023/04/Mockup-Brazil-scaled-e1768330440582.jpg",
+    "thumbnail": "https://triplefivecoffee.com/wp-content/uploads/2023/04/Mockup-Brazil-scaled-e1768330440582.jpg",
+    "srcset": "",
+    "sizes": "(max-width: 1200px) 100vw, 1200px",
+    "thumbnail_srcset": "",
+    "thumbnail_sizes": "(max-width: 1200px) 100vw, 1200px",
+    "name": "Mockup Brazil",
+    "alt": "Balíček kávy Brazil Mogiana"
+   }
+  ],
+  "categories": [
+   {
+    "id": 27,
+    "name": "Káva",
+    "slug": "kava",
+    "link": "https://triplefivecoffee.com/product-category/kava/"
+   }
+  ],
+  "attributes": [
+   {
+    "id": 1,
+    "name": "Výber hmotnosti",
+    "taxonomy": "pa_vaha",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 31,
+      "name": "1000g",
+      "slug": "1000g"
+     },
+     {
+      "id": 30,
+      "name": "250g",
+      "slug": "250g"
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 5675854,
+    "attributes": [
+     {
+      "name": "Výber hmotnosti",
+      "value": "1000g"
+     }
+    ]
+   },
+   {
+    "id": 5675855,
+    "attributes": [
+     {
+      "name": "Výber hmotnosti",
+      "value": "250g"
+     }
+    ]
+   }
+  ],
+  "is_in_stock": true
+ },
+ {
+  "id": 5675856,
+  "name": "Colombia Tumbaga Sugarcane Decaf (espresso) &#8211; B2B",
+  "permalink": "https://triplefivecoffee.com/product/colombia-tumbaga-sugarcane-decaf-espresso-b2b/",
+  "short_description": "<p><strong>Krajina:</strong> Colombia<br />\n<strong>Oblasť: </strong>Cauca, Tolima<br />\n<strong>Spracovateľ: </strong>Smallholder farmers<br />\n<strong>Varieta: </strong>Various<br />\n<strong>Spracovanie:</strong> Fully washed<br />\n<strong>Nadmorská výška:</strong> 1.400 – 2.100 masl<br />\n<strong>Zber:</strong> 2024<br />\n<strong>Chuťový profil: </strong>Cane sugar, dried fig, molasses, red ripe fruit</p>\n<p><strong>Profil praženia:</strong> espresso<br />\n<strong>Spôsob prípravy:</strong> pákový espresso stroj, moka konvička, automatický kávovar<strong>           </strong><br />\n<em>Káva je zabalená do recyklovateľného vrecka bez hliníkovej vrstvy.</em></p>",
+  "description": "<p>&nbsp;</p>\n<div class=\"content-column one_half\"><h3>Info o produkte</h3>\n<p>Táto káva pochádza z Kolumbijského Valle del Cauca (údolie Cauca), ktorá sa nachádza medzi západným a stredným pohorím severozápadných Ánd. Veľké hory obklopujúce tento región sa vyznačujú sopečnou pôdou bohatou na organickú hmotu, nespočetnými vodnými prameňmi, ktoré pomáhajú pri výrobe kávy vysokej kvality a neuveriteľnej jemnosti.</p>\n<div dir=\"ltr\">\n<p>95 % kávy v tomto regióne pochádza od malých producentov, ktorí žijú a pracujú na farmách s rozlohou 5 hektárov alebo menšou. Káva sa ručne zbiera, zbavuje dužiny pomocou tradičných metód a fermentuje v nádržiach pred umytím a sušením na slnku.</p>\n<p>Colsuaves spolupracuje s Descafecol, na procese odstránenia kofeinu zo zŕn. Descafecol využíva prirodzený proces dekofeinácie, ktorý kombinuje vysokohorskú pramenitú vodu a etyl-acetát (EA) prírodného pôvodu. Tento prírodný EA, získaný z cukrovej trstiny, spolu s pramenitou vodou sú jediné prvky použité v procese. Tento proces umožňuje šetrnú extrakciu kofeínu zo zŕn, vyhýbajúc sa nadmernému teplu alebo tlaku, pri zachovaní ich prirodzenej štruktúry. Výsledok: Kolumbijská káva so všetkými požadovanými vlastnosťami, ktorá je z 99,9 % bez kofeínu.</p>\n</div>\n<p>&nbsp;</p></div><br />\n<div class=\"content-column one_half last_column\"><p><img class=\"alignnone size-full wp-image-5674757\" src=\"https://triplefivecoffee.com/wp-content/uploads/2023/04/DSCF2565-scaled.jpg\" alt=\"\" width=\"2560\" height=\"1707\" /></p></div><div class=\"clear_column\"></div></p>",
+  "prices": {
+   "price": "1800",
+   "regular_price": "1800",
+   "sale_price": "1800",
+   "price_range": {
+    "min_amount": "1800",
+    "max_amount": "2700"
+   },
+   "currency_code": "EUR",
+   "currency_symbol": "€",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ",",
+   "currency_thousand_separator": " ",
+   "currency_prefix": "",
+   "currency_suffix": " €"
+  },
+  "images": [
+   {
+    "id": 5676852,
+    "src": "https://triplefivecoffee.com/wp-content/uploads/2025/05/Mockup-Just-Decaf-scaled-e1768329244664.jpg",
+    "thumbnail": "https://triplefivecoffee.com/wp-content/uploads/2025/05/Mockup-Just-Decaf-scaled-e1768329244664.jpg",
+    "srcset": "",
+    "sizes": "(max-width: 1200px) 100vw, 1200px",
+    "thumbnail_srcset": "",
+    "thumbnail_sizes": "(max-width: 1200px) 100vw, 1200px",
+    "name": "Mockup Just Decaf",
+    "alt": "Balíček bezkofeínovej kávy Just Decaf"
+   }
+  ],
+  "categories": [
+   {
+    "id": 27,
+    "name": "Káva",
+    "slug": "kava",
+    "link": "https://triplefivecoffee.com/product-category/kava/"
+   }
+  ],
+  "attributes": [
+   {
+    "id": 1,
+    "name": "Výber hmotnosti",
+    "taxonomy": "pa_vaha",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 30,
+      "name": "250g",
+      "slug": "250g"
+     },
+     {
+      "id": 42,
+      "name": "500g",
+      "slug": "500g"
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 5675857,
+    "attributes": [
+     {
+      "name": "Výber hmotnosti",
+      "value": "500g"
+     }
+    ]
+   },
+   {
+    "id": 5675858,
+    "attributes": [
+     {
+      "name": "Výber hmotnosti",
+      "value": "250g"
+     }
+    ]
+   }
+  ],
+  "is_in_stock": true
+ },
+ {
+  "id": 5674001,
+  "name": "Colombia Tumbaga Sugarcane Decaf (espresso)",
+  "permalink": "https://triplefivecoffee.com/product/sevilla-sugarcane-decaf/",
+  "short_description": "<p><strong>Krajina:</strong> Colombia<br />\n<strong>Oblasť: </strong>Cauca, Tolima<br />\n<strong>Spracovateľ: </strong>Smallholder farmers<br />\n<strong>Varieta: </strong>Various<br />\n<strong>Spracovanie:</strong> Fully washed<br />\n<strong>Nadmorská výška:</strong> 1.400 – 2.100 masl<br />\n<strong>Chuťový profil: </strong>Cane sugar, dried fig, molasses, red ripe fruit<br />\n<strong>Profil praženia:</strong> espresso<br />\n<strong>Spôsob prípravy:</strong> pákový espresso stroj, moka konvička, automatický kávovar<strong>           </strong><br />\n<em>Káva je zabalená do recyklovateľného vrecka bez hliníkovej vrstvy.</em></p>",
+  "description": "<div class=\"content-column one_half\"><h3>Info o produkte</h3>\n<p>Táto káva pochádza z Kolumbijského Valle del Cauca (údolie Cauca), ktorá sa nachádza medzi západným a stredným pohorím severozápadných Ánd. Veľké hory obklopujúce tento región sa vyznačujú sopečnou pôdou bohatou na organickú hmotu, nespočetnými vodnými prameňmi, ktoré pomáhajú pri výrobe kávy vysokej kvality a neuveriteľnej jemnosti.</p>\n<div dir=\"ltr\">\n<p>95 % kávy v tomto regióne pochádza od malých producentov, ktorí žijú a pracujú na farmách s rozlohou 5 hektárov alebo menšou. Káva sa ručne zbiera, zbavuje dužiny pomocou tradičných metód a fermentuje v nádržiach pred umytím a sušením na slnku.</p>\n<p>Colsuaves spolupracuje s Descafecol, na procese odstránenia kofeinu zo zŕn. Descafecol využíva prirodzený proces dekofeinácie, ktorý kombinuje vysokohorskú pramenitú vodu a etyl-acetát (EA) prírodného pôvodu. Tento prírodný EA, získaný z cukrovej trstiny, spolu s pramenitou vodou sú jediné prvky použité v procese. Tento proces umožňuje šetrnú extrakciu kofeínu zo zŕn, vyhýbajúc sa nadmernému teplu alebo tlaku, pri zachovaní ich prirodzenej štruktúry. Výsledok: Kolumbijská káva so všetkými požadovanými vlastnosťami, ktorá je z 99,9 % bez kofeínu.</p>\n</div>\n<p>&nbsp;</p></div><br />\n<div class=\"content-column one_half last_column\"><p><img class=\"alignnone size-full wp-image-5674757\" src=\"https://triplefivecoffee.com/wp-content/uploads/2023/04/DSCF2565-scaled.jpg\" alt=\"\" width=\"2560\" height=\"1707\" /></p></div><div class=\"clear_column\"></div></p>",
+  "prices": {
+   "price": "1700",
+   "regular_price": "1700",
+   "sale_price": "1700",
+   "price_range": {
+    "min_amount": "1700",
+    "max_amount": "2600"
+   },
+   "currency_code": "EUR",
+   "currency_symbol": "€",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ",",
+   "currency_thousand_separator": " ",
+   "currency_prefix": "",
+   "currency_suffix": " €"
+  },
+  "images": [
+   {
+    "id": 5676852,
+    "src": "https://triplefivecoffee.com/wp-content/uploads/2025/05/Mockup-Just-Decaf-scaled-e1768329244664.jpg",
+    "thumbnail": "https://triplefivecoffee.com/wp-content/uploads/2025/05/Mockup-Just-Decaf-scaled-e1768329244664.jpg",
+    "srcset": "",
+    "sizes": "(max-width: 1200px) 100vw, 1200px",
+    "thumbnail_srcset": "",
+    "thumbnail_sizes": "(max-width: 1200px) 100vw, 1200px",
+    "name": "Mockup Just Decaf",
+    "alt": "Balíček bezkofeínovej kávy Just Decaf"
+   }
+  ],
+  "categories": [
+   {
+    "id": 145,
+    "name": "Aktuálna ponuka",
+    "slug": "novinka",
+    "link": "https://triplefivecoffee.com/product-category/kava/novinka/"
+   },
+   {
+    "id": 27,
+    "name": "Káva",
+    "slug": "kava",
+    "link": "https://triplefivecoffee.com/product-category/kava/"
+   }
+  ],
+  "attributes": [
+   {
+    "id": 1,
+    "name": "Výber hmotnosti",
+    "taxonomy": "pa_vaha",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 30,
+      "name": "250g",
+      "slug": "250g"
+     },
+     {
+      "id": 42,
+      "name": "500g",
+      "slug": "500g"
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 5674002,
+    "attributes": [
+     {
+      "name": "Výber hmotnosti",
+      "value": "500g"
+     }
+    ]
+   },
+   {
+    "id": 5674003,
+    "attributes": [
+     {
+      "name": "Výber hmotnosti",
+      "value": "250g"
+     }
+    ]
+   }
+  ],
+  "is_in_stock": true
+ },
+ {
+  "id": 5674006,
+  "name": "Brazil Mogiana (espresso)",
+  "permalink": "https://triplefivecoffee.com/product/brazil-mogiana-espresso/",
+  "short_description": "<p><strong>Krajina:</strong> Brazil<br />\n<strong>Oblasť: </strong>Mogiana, São Paulo<br />\n<strong>Spracovateľ: </strong>Smallholder farmers<br />\n<strong>Varieta: </strong>Caturra, Catuaí<br />\n<strong>Spracovanie:</strong> Natural<br />\n<strong>Nadmorská výška:</strong> 900 – 1.000 masl<br />\n<strong>Chuťový profil: </strong><span class=\"s1\">Sweet, creamy, chocolate fudge, nougat, nutty<br />\n</span><strong>Profil praženia:</strong> espresso<br />\n<strong>Spôsob prípravy:</strong> pákový espresso stroj, moka konvička, automatický kávovar<br />\n<strong>                                                                                                       </strong><br />\n<em>Káva je zabalená do recyklovateľného vrecka bez hliníkovej vrstvy.</em></p>",
+  "description": "<div class=\"content-column one_half\"><h3>Info o produkte</h3>\n<p>Brazílska káva z oblasti Mogiana je pestovaná v nadmorskej výške 900 až 1000m v štáte San Paulo. Brazílska história pestovania kávy je dlhá a bohatá. Táto krajina je posledných zhruba 150 rokov najväčším producentom kávy an svete. Naša Brazilka pochádza od malých farmárov a kvalitatívne sa radí k top 10% produkcii tejto krajiny.</p>\n<p>Táto stálica našej ponuky je po stránke chuťového profilu vhodná na prípravu &#8220;konzervatívnejšieho&#8221; espressa a mliečnych nápojov. Profil chuti dobre vystihuje horká čokoláda, oriešky, nájdeme v nej aj karamelovú sladkosť a krémovejšie telo. Patrí medzi obľúbenú voľbu zákazníkov, ktorí preferujú kávu bez acidity.</p></div><br />\n<div class=\"content-column one_half last_column\"><p>&nbsp;</p></div><div class=\"clear_column\"></div></p>",
+  "prices": {
+   "price": "1300",
+   "regular_price": "1300",
+   "sale_price": "1300",
+   "price_range": {
+    "min_amount": "1300",
+    "max_amount": "3100"
+   },
+   "currency_code": "EUR",
+   "currency_symbol": "€",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ",",
+   "currency_thousand_separator": " ",
+   "currency_prefix": "",
+   "currency_suffix": " €"
+  },
+  "images": [
+   {
+    "id": 5676856,
+    "src": "https://triplefivecoffee.com/wp-content/uploads/2023/04/Mockup-Brazil-scaled-e1768330440582.jpg",
+    "thumbnail": "https://triplefivecoffee.com/wp-content/uploads/2023/04/Mockup-Brazil-scaled-e1768330440582.jpg",
+    "srcset": "",
+    "sizes": "(max-width: 1200px) 100vw, 1200px",
+    "thumbnail_srcset": "",
+    "thumbnail_sizes": "(max-width: 1200px) 100vw, 1200px",
+    "name": "Mockup Brazil",
+    "alt": "Balíček kávy Brazil Mogiana"
+   }
+  ],
+  "categories": [
+   {
+    "id": 145,
+    "name": "Aktuálna ponuka",
+    "slug": "novinka",
+    "link": "https://triplefivecoffee.com/product-category/kava/novinka/"
+   },
+   {
+    "id": 27,
+    "name": "Káva",
+    "slug": "kava",
+    "link": "https://triplefivecoffee.com/product-category/kava/"
+   }
+  ],
+  "attributes": [
+   {
+    "id": 1,
+    "name": "Výber hmotnosti",
+    "taxonomy": "pa_vaha",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 31,
+      "name": "1000g",
+      "slug": "1000g"
+     },
+     {
+      "id": 30,
+      "name": "250g",
+      "slug": "250g"
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 5674007,
+    "attributes": [
+     {
+      "name": "Výber hmotnosti",
+      "value": "1000g"
+     }
+    ]
+   },
+   {
+    "id": 5674008,
+    "attributes": [
+     {
+      "name": "Výber hmotnosti",
+      "value": "250g"
+     }
+    ]
+   }
+  ],
+  "is_in_stock": true
+ }
+]

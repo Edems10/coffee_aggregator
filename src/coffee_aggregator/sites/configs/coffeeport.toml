@@ -1,0 +1,11 @@
+# Coffeeport — the shop rebranded: coffeeport.sk now redirects to
+# lighthousecoffee.sk, so the base URL and the category follow the new host.
+platform = "shoptet"
+site_id = "coffeeport"
+name = "Lighthouse Coffee"
+country = "SK"
+base_url = "https://www.lighthousecoffee.sk/"
+category_urls = ["https://www.lighthousecoffee.sk/cerstvo-prazena-kava-lighthouse/"]
+currency = "EUR"
+max_pages = 10
+pagination = "path"

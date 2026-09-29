@@ -1,0 +1,11 @@
+# Caffe Delizia — an Italian-style roastery: half the /kava/ listing is house
+# espresso blends, the rest single origins including an India robusta.
+platform = "shoptet"
+site_id = "caffedelizia"
+name = "Caffe Delizia"
+country = "CZ"
+base_url = "https://www.caffedelizia.cz/"
+category_urls = ["https://www.caffedelizia.cz/kava/"]
+currency = "CZK"
+max_pages = 10
+pagination = "path"

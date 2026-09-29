@@ -1,0 +1,20 @@
+# Kromka (Káva Kroměříž) — a roaster-retailer whose /kava/ tree also carries
+# chocolate, keychains and subscriptions, so those are ignored by name.
+platform = "shoptet"
+site_id = "kavakromeriz"
+name = "Kromka - Káva Kroměříž"
+country = "CZ"
+base_url = "https://www.kava-kromeriz.cz/"
+category_urls = ["https://www.kava-kromeriz.cz/kava/"]
+currency = "CZK"
+max_pages = 12
+pagination = "path"
+
+ignore = [
+  "kavolada",
+  "klicenka",
+  "kavove predplatne",
+  "darkovy poukaz",
+  "degustacni",
+  "kapsle",
+]

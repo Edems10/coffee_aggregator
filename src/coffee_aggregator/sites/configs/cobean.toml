@@ -1,0 +1,30 @@
+# Co-Bean — a Czech e-shop that resells two roasteries, Black Star and
+# Charisma, alongside a very large catalogue of espresso machines and grinders.
+# Only the Black Star single origins carry a passport, and they write the
+# altitude as "Nadmořská výška plantáže", which the shared vocabulary still
+# matches on its first two words.
+platform = "shopify"
+site_id = "cobean"
+name = "Co-Bean"
+country = "CZ"
+base_url = "https://co-bean.cz/"
+# products.json quotes bare decimal strings and names no currency anywhere.
+currency = "CZK"
+max_pages = 3
+
+# The parent "kava" collection (80) also holds the gift boxes, so the four
+# roastery collections are walked instead: the Black Star single origins (62)
+# and blends (2), and the Charisma single origins (5) and blends (10).
+collections = [
+  "jednodruhovky-blackstar",
+  "smesi-blackstar",
+  "jednodruhovky-charisma",
+  "smesi-charisma",
+]
+
+# The catalogue also sells machines, courses, vouchers and gift boxes of beans.
+ignore = [
+  "darkova sada",
+  "voucher",
+  "kavovy kurz",
+]

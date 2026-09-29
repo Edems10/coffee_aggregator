@@ -1,0 +1,196 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+# A superseded push to the same branch has nothing to tell us: cancel it.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    name: lint (ruff + mypy)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # No python-version pin here on purpose: uv installs the interpreter the
+      # repo's .python-version names (3.14), so CI and local runs cannot diverge.
+      - uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+      # --locked fails the job when uv.lock no longer matches pyproject.toml,
+      # so a dependency change cannot land without its lockfile update.
+      - run: uv sync --locked
+      # --output-format=github emits workflow annotations, so every finding
+      # shows up inline on the pull request diff instead of only in the log.
+      - run: uv run ruff check --output-format=github
+      - run: uv run ruff format --check
+      - run: uv run mypy
+
+  hooks:
+    name: pre-commit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # No python-version pin here on purpose: uv installs the interpreter the
+      # repo's .python-version names (3.14), so CI and local runs cannot diverge.
+      - uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+      - run: uv sync --locked
+      # Runs the same hooks contributors run locally, so the two cannot drift.
+      # The repo's ruff hooks are fixers (`ruff check --fix`, `ruff format`):
+      # when they fail they have already rewritten the files, and the failure
+      # message alone says nothing useful. --show-diff-on-failure prints the
+      # rewrite the hook wants, which is what makes the CI failure readable.
+      # The pytest hook is pre-push only, so it does not run here; the `test`
+      # job below covers it with a real database.
+      - run: uv run pre-commit run --all-files --show-diff-on-failure
+
+  test:
+    name: pytest (with PostgreSQL)
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:18-alpine
+        env:
+          POSTGRES_USER: coffee
+          POSTGRES_PASSWORD: coffee
+          POSTGRES_DB: coffee_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U coffee -d coffee_test"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      TEST_DATABASE_URL: postgresql://coffee:coffee@localhost:5432/coffee_test
+    steps:
+      - uses: actions/checkout@v4
+      # No python-version pin here on purpose: uv installs the interpreter the
+      # repo's .python-version names (3.14), so CI and local runs cannot diverge.
+      - uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+      - run: uv sync --locked
+      # The whole suite runs in seconds, so it always runs whole. Selecting
+      # tests from the diff would silently skip regressions: a change to the
+      # shared normaliser or the label vocabulary breaks adapters whose files
+      # the pull request never touched. Speed is not a reason here.
+      # TEST_DATABASE_URL is set above, so the PostgreSQL integration tests
+      # actually execute in CI instead of skipping.
+      - run: uv run pytest -q
+
+  image:
+    name: docker image
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # uv is here for the smoke test below, which compares what the image
+      # ships against what the repo has; the build itself needs nothing but
+      # docker, and reads only the four paths .dockerignore admits.
+      - uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+      - run: uv sync --locked
+      - run: docker build -t coffee-aggregator:ci .
+      # The shop configs are TOML files inside the package, so they reach the
+      # image only because hatchling packages them. Nothing else would notice
+      # if they stopped: the build succeeds and the crawl finds no shops. This
+      # compares the image's registry against the working tree's, so a shop
+      # added in the same pull request has to arrive in both.
+      - name: The image ships every shop the repo has
+        run: |
+          set -euo pipefail
+          ids() { sed -E 's/^.*coffee_aggregator: //' | cut -f1 | sort; }
+          docker run --rm coffee-aggregator:ci list-sites 2>&1 | ids > image-sites.txt
+          uv run coffee-aggregator list-sites 2>&1 | ids > repo-sites.txt
+          diff repo-sites.txt image-sites.txt
+          echo "$(wc -l < image-sites.txt) shops in the image" >> "$GITHUB_STEP_SUMMARY"
+      - name: It runs unprivileged, and refuses to run unconfigured
+        run: |
+          set -euo pipefail
+          test "$(docker run --rm --entrypoint id coffee-aggregator:ci -u)" = 10001
+          # No DATABASE_URL: exit 2 is the configuration error. A 0 here would
+          # mean the crawl started against something it found on its own.
+          rc=0
+          docker run --rm coffee-aggregator:ci crawl --sink postgres >/dev/null 2>&1 || rc=$?
+          test "$rc" -eq 2
+
+  diff-summary:
+    name: changed files
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      # Purely informational: classifies the pull request's files against the
+      # merge base so a reviewer sees at a glance whether this is code, a new
+      # shop, or captured pages. It never gates or filters the test run.
+      - name: Summarise the diff
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          set -euo pipefail
+          MERGE_BASE="$(git merge-base "$BASE_SHA" "$HEAD_SHA")"
+          git diff --name-status "$MERGE_BASE" "$HEAD_SHA" > /tmp/changed.txt
+          python3 - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import collections
+          import pathlib
+
+          rows = []
+          for line in pathlib.Path("/tmp/changed.txt").read_text().splitlines():
+              if not line.strip():
+                  continue
+              status, _, rest = line.partition("\t")
+              path = rest.split("\t")[-1]
+              rows.append((status[0], path))
+
+          buckets: dict[str, set[str]] = collections.defaultdict(set)
+          for status, path in rows:
+              parts = path.split("/")
+              if path.startswith("src/coffee_aggregator/sites/configs/"):
+                  buckets["Shop configs"].add(f"`{parts[-1].removesuffix('.toml')}` ({status})")
+              elif path.startswith(
+                  ("src/coffee_aggregator/platforms/", "src/coffee_aggregator/sites/")
+              ):
+                  buckets["Adapters"].add(f"`{parts[-1]}` ({status})")
+              elif path.startswith("src/coffee_aggregator/db/migrations/"):
+                  buckets["Migrations"].add(f"`{parts[-1]}` ({status})")
+              elif path.startswith("src/"):
+                  buckets["Library code"].add(f"`{path}` ({status})")
+              elif path.startswith("tests/fixtures/"):
+                  buckets["Captured pages"].add(f"`{parts[2]}`" if len(parts) > 2 else f"`{path}`")
+              elif path.startswith("tests/"):
+                  buckets["Tests"].add(f"`{parts[-1]}` ({status})")
+              elif path.startswith(".github/") or path.endswith((".yml", ".yaml")):
+                  buckets["CI / tooling"].add(f"`{path}` ({status})")
+              else:
+                  buckets["Other"].add(f"`{path}` ({status})")
+
+          print("## Changed files")
+          print()
+          print(f"{len(rows)} file(s) against the merge base.")
+          print()
+          for name in (
+              "Adapters",
+              "Shop configs",
+              "Captured pages",
+              "Library code",
+              "Migrations",
+              "Tests",
+              "CI / tooling",
+              "Other",
+          ):
+              if name in buckets:
+                  print(f"- **{name}**: " + ", ".join(sorted(buckets[name])))
+          PY

@@ -1,0 +1,34 @@
+# TOKY Caffé — no attributes beyond packaging; the facts live in the
+# description as "Druh: ... Obal: ... Hmotnosť: ..." lines. The catalogue
+# also sells NIVONA espresso machines and their consumables.
+platform = "woocommerce"
+site_id = "tokycaffe"
+name = "TOKY Caffé"
+country = "SK"
+base_url = "https://tokycaffe.sk/"
+currency = "EUR"
+mode = "api"
+max_pages = 10
+
+# Pinned ids, not slugs: ids survive a re-theme, slugs do not.
+# 169 kava-podla-krajiny-povodu (17), 178 speciality-coffee (11), 177 bezkofeinovakavaplechovky (4).
+api_category_ids = [169, 178, 177]
+
+# The HTML fallback, used only if /wp-json/ ever stops answering.
+category_urls = [
+  "https://tokycaffe.sk/kategoria-produktu/kava-podla-krajiny-povodu/",
+  "https://tokycaffe.sk/kategoria-produktu/speciality-coffee/",
+  "https://tokycaffe.sk/kategoria-produktu/bezkofeinovakavaplechovky/",
+]
+
+# The catalogue also sells things that are not coffee beans.
+ignore = [
+  "nivona",
+  "pressovar",
+  "kavomlyn",
+  "tablety",
+  "odstranovac",
+]
+
+[label_map]
+"Cuping score" = "sca_score"

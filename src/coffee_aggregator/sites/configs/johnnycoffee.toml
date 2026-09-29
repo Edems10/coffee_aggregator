@@ -1,0 +1,15 @@
+# Johnny Coffee — an Italian-style roastery whose product names spell out the
+# roast level and species in full; the listing shows 40 products per page.
+platform = "shoptet"
+site_id = "johnnycoffee"
+name = "Johnny Coffee"
+country = "CZ"
+base_url = "https://www.johnnycoffee.cz/"
+category_urls = ["https://www.johnnycoffee.cz/prazena-kava/"]
+currency = "CZK"
+max_pages = 10
+pagination = "path"
+
+ignore = [
+  "ochutnavkovy set",
+]

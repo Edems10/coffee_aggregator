@@ -1,0 +1,17 @@
+# Belko Coffee Roasters — the recorded /chut-kavy/ is a flavour landing page
+# that lists nothing; the real bean category is /koupit-kavu/.
+platform = "shoptet"
+site_id = "belkocoffee"
+name = "Belko Coffee Roasters"
+country = "CZ"
+base_url = "https://www.belkocoffee.cz/"
+category_urls = ["https://www.belkocoffee.cz/koupit-kavu/"]
+currency = "CZK"
+max_pages = 10
+pagination = "path"
+
+# The bean category also sells a jute sack and a voucher.
+ignore = [
+  "jutovy pytel",
+  "darkovy poukaz",
+]

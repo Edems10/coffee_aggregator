@@ -8,6 +8,8 @@ from coffee_aggregator.http.fetcher import (
     PoliteFetcher,
     RateLimiter,
     RobotsCache,
+    RobotsEntry,
+    parse_robots,
 )
 
 __all__ = [
@@ -18,4 +20,6 @@ __all__ = [
     "PoliteFetcher",
     "RateLimiter",
     "RobotsCache",
+    "RobotsEntry",
+    "parse_robots",
 ]

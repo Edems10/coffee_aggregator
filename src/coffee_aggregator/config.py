@@ -2,8 +2,9 @@ from __future__ import annotations
 
 import logging
 import os
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
+from typing import Final
 
 from dotenv import load_dotenv
 
@@ -12,7 +13,30 @@ logger = logging.getLogger(__name__)
 DEFAULT_USER_AGENT_NAME = "coffee-aggregator"
 DEFAULT_CONTACT = "https://github.com/coffee-aggregator"
 DEFAULT_DELAY_S = 1.0
-DEFAULT_WORKERS = 4
+#: Fetch threads inside one shop. Every URL of a batch belongs to one host, and
+#: the per-host delay is the real bound, so this buys overlap and nothing else:
+#: four workers measured slightly *slower* than one. Two is the measured best.
+DEFAULT_WORKERS = 2
+DEFAULT_SITE_WORKERS = 1
+#: Transport knobs. They used to be reachable only by constructing a
+#: :class:`~coffee_aggregator.http.PoliteFetcher` by hand; a run that has to
+#: finish inside a Lambda invocation needs them on the command line.
+DEFAULT_TIMEOUT_S = 15.0
+DEFAULT_RETRIES = 3
+DEFAULT_MAX_RETRY_WAIT_S = 60.0
+DEFAULT_ROBOTS_RETRY_S = 300.0
+#: How many products are fetched and written per round. It lived in
+#: ``pipeline.run`` and was reachable from nowhere.
+DEFAULT_BATCH_SIZE = 50
+
+#: Crawl-delays known before a single request is made. ``robots.txt`` is the
+#: authority and the fetcher always re-reads it, but sharding has to weigh the
+#: shops *before* anything is fetched, so the surveyed values live here.
+#: Keyed by host without ``www.``.
+KNOWN_CRAWL_DELAYS: Final[dict[str, float]] = {
+    "caffeoro.sk": 30.0,
+}
+CRAWL_DELAYS_VARIABLE = "COFFEE_AGG_CRAWL_DELAYS"
 
 USER_AGENT_VARIABLE = "COFFEE_AGG_USER_AGENT"
 UA_TOKEN_VARIABLE = "COFFEE_AGG_UA_TOKEN"  # noqa: S105  (an env var name, not a secret)
@@ -128,6 +152,56 @@ def _env_int(name: str, default: int) -> int:
         raise ConfigError(name, f"expected an integer, got {raw!r}") from exc
 
 
+def _env_optional_float(name: str) -> float | None:
+    """Read a float variable that is allowed to be absent entirely.
+
+    Args:
+        name: The variable to read.
+
+    Returns:
+        The value, or None when the variable is unset or empty.
+
+    Raises:
+        ConfigError: If the value cannot be parsed as a number.
+    """
+    raw = os.environ.get(name)
+    if raw is None or not raw.strip():
+        return None
+    try:
+        return float(raw)
+    except ValueError as exc:
+        raise ConfigError(name, f"expected a number, got {raw!r}") from exc
+
+
+def parse_crawl_delays(raw: str) -> dict[str, float]:
+    """Read a ``host=seconds,host=seconds`` list of per-host crawl-delays.
+
+    Args:
+        raw: The variable's value; empty means "nothing to add".
+
+    Returns:
+        The parsed pairs, hosts folded to lower case without ``www.``.
+
+    Raises:
+        ConfigError: If an entry has no ``=`` or an unparsable number.
+    """
+    delays: dict[str, float] = {}
+    for item in raw.split(","):
+        entry = item.strip()
+        if not entry:
+            continue
+        host, separator, seconds = entry.partition("=")
+        if not separator:
+            raise ConfigError(CRAWL_DELAYS_VARIABLE, f"expected host=seconds, got {entry!r}")
+        try:
+            delays[host.strip().lower().removeprefix("www.")] = float(seconds)
+        except ValueError as exc:
+            raise ConfigError(
+                CRAWL_DELAYS_VARIABLE, f"expected host=seconds, got {entry!r}"
+            ) from exc
+    return delays
+
+
 @dataclass(slots=True)
 class Settings:
     """Everything the CLI needs that can come from the environment.
@@ -139,7 +213,19 @@ class Settings:
             one is not what the shops' rules name.
         contact: Contact URL or e-mail advertised in the User-Agent.
         delay_s: Minimum delay between two request starts to one host.
-        workers: Size of the fetch thread pool.
+        workers: Size of the fetch thread pool, within one shop.
+        site_workers: How many shops are crawled at the same time.
+        timeout_s: Per-request timeout.
+        retries: How often a 429/5xx is retried before the URL is given up.
+        max_retry_wait_s: Longest a single retry may wait before giving up.
+        robots_retry_s: How long an unreadable robots.txt keeps a host closed.
+        batch_size: How many products are fetched and written per round.
+        deadline_s: Wall-clock budget for one whole crawl, or None for "take as
+            long as it takes". A run that hits it stops at the next batch
+            boundary and is reported incomplete, so nothing is ever delisted on
+            the strength of a truncated catalogue.
+        crawl_delays: Per-host crawl-delays known up front, used to weigh the
+            shards; the fetcher still reads the real value from robots.txt.
         cache_dir: Optional on-disk HTTP cache directory.
         fx_cache: Where the file-backed EUR/CZK rate store lives; unset means
             ``<cache_dir>/fx_rates.json``, or the same file under
@@ -152,6 +238,17 @@ class Settings:
     contact: str = DEFAULT_CONTACT
     delay_s: float = DEFAULT_DELAY_S
     workers: int = DEFAULT_WORKERS
+    #: How many shops may be crawled at once. The work is waiting on shops to
+    #: answer, so this is the knob that turns hours into minutes; the per-host
+    #: limiter keeps each shop asked at its own pace whatever this is set to.
+    site_workers: int = DEFAULT_SITE_WORKERS
+    timeout_s: float = DEFAULT_TIMEOUT_S
+    retries: int = DEFAULT_RETRIES
+    max_retry_wait_s: float = DEFAULT_MAX_RETRY_WAIT_S
+    robots_retry_s: float = DEFAULT_ROBOTS_RETRY_S
+    batch_size: int = DEFAULT_BATCH_SIZE
+    deadline_s: float | None = None
+    crawl_delays: dict[str, float] = field(default_factory=lambda: dict(KNOWN_CRAWL_DELAYS))
     cache_dir: Path | None = None
     fx_cache: Path | None = None
 
@@ -186,6 +283,15 @@ class Settings:
             contact=contact,
             delay_s=_env_float("COFFEE_AGG_DELAY", DEFAULT_DELAY_S),
             workers=_env_int("COFFEE_AGG_WORKERS", DEFAULT_WORKERS),
+            site_workers=_env_int("COFFEE_AGG_SITE_WORKERS", DEFAULT_SITE_WORKERS),
+            timeout_s=_env_float("COFFEE_AGG_TIMEOUT", DEFAULT_TIMEOUT_S),
+            retries=_env_int("COFFEE_AGG_RETRIES", DEFAULT_RETRIES),
+            max_retry_wait_s=_env_float("COFFEE_AGG_MAX_RETRY_WAIT", DEFAULT_MAX_RETRY_WAIT_S),
+            robots_retry_s=_env_float("COFFEE_AGG_ROBOTS_RETRY", DEFAULT_ROBOTS_RETRY_S),
+            batch_size=_env_int("COFFEE_AGG_BATCH_SIZE", DEFAULT_BATCH_SIZE),
+            deadline_s=_env_optional_float("COFFEE_AGG_DEADLINE"),
+            crawl_delays=KNOWN_CRAWL_DELAYS
+            | parse_crawl_delays(os.environ.get(CRAWL_DELAYS_VARIABLE, "")),
             cache_dir=Path(cache_raw) if cache_raw else None,
             fx_cache=Path(fx_cache_raw) if fx_cache_raw else None,
         )
@@ -200,6 +306,18 @@ class Settings:
         from coffee_aggregator.fx import default_cache_path  # noqa: PLC0415  (avoids a cycle)
 
         return self.fx_cache or default_cache_path(self.cache_dir)
+
+    def crawl_delay_for(self, host: str) -> float:
+        """Return the delay one host must be asked at, before robots.txt is read.
+
+        Args:
+            host: The shop's host, with or without ``www.``.
+
+        Returns:
+            The larger of the configured delay and any known crawl-delay.
+        """
+        known = self.crawl_delays.get(host.lower().removeprefix("www."), 0.0)
+        return max(self.delay_s, known)
 
     def require_database_url(self, override: str | None = None) -> str:
         """Return the PostgreSQL DSN, failing loudly when it is unset.

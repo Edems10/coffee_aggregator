@@ -1,0 +1,1386 @@
+[
+ {
+  "id": 637,
+  "name": "Panama Geisha",
+  "permalink": "https://caffe4u.sk/produkt/panama-geisha/",
+  "sku": "e7ac41d0e37c",
+  "description": "<p>Panama Geisha z legendárnej farmy La Esmeralda patrí medzi najvyhľadávanejšie kávy na svete. V šálke očarí mimoriadne elegantným a komplexným profilom s výraznými tónmi jazmínu, bergamotu, bielych kvetov a šťavnatého kôstkového ovocia. Jej čajové telo, iskrivá acidita a dlhá, sladká dochuť vytvárajú jedinečný chuťový zážitok, ktorý dokonale vystihuje výnimočný terroir panamského regiónu Boquete.</p>",
+  "prices": {
+   "price": "1500",
+   "regular_price": "1500",
+   "sale_price": "1500",
+   "price_range": {
+    "min_amount": "1500",
+    "max_amount": "9000"
+   },
+   "currency_code": "EUR",
+   "currency_symbol": "€",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ",",
+   "currency_thousand_separator": ".",
+   "currency_prefix": "",
+   "currency_suffix": "€"
+  },
+  "images": [
+   {
+    "id": 9003241324706300,
+    "src": "https://caffe4u.sk/wp-content/uploads/2025/08/geisha.png",
+    "thumbnail": "https://caffe4u.sk/wp-content/uploads/2025/08/geisha.png",
+    "srcset": "https://caffe4u.sk/wp-content/uploads/2025/08/geisha.png 709w, https://caffe4u.sk/wp-content/uploads/2025/08/geisha-416x420.png 416w",
+    "sizes": "(max-width: 709px) 100vw, 709px",
+    "name": "geisha",
+    "alt": ""
+   }
+  ],
+  "categories": [
+   {
+    "id": 17,
+    "name": "Pražená zrnková káva",
+    "slug": "prazena-zrnkova-kava",
+    "link": "https://caffe4u.sk/prazena-zrnkova-kava/"
+   },
+   {
+    "id": 33,
+    "name": "Akciové kávy",
+    "slug": "akciove-kavy",
+    "link": "https://caffe4u.sk/akciove-kavy/"
+   },
+   {
+    "id": 360,
+    "name": "Limitované zrnkové kávy",
+    "slug": "limitovane-zrnkove-kavy",
+    "link": "https://caffe4u.sk/limitovane-zrnkove-kavy/"
+   },
+   {
+    "id": 27,
+    "name": "Novinky pražená káva",
+    "slug": "novinky-prazena-kava",
+    "link": "https://caffe4u.sk/novinky-prazena-kava/"
+   },
+   {
+    "id": 9003241321018644,
+    "name": "Pražená káva",
+    "slug": "prazena-kava",
+    "link": "https://caffe4u.sk/prazena-kava/"
+   }
+  ],
+  "attributes": [
+   {
+    "id": 9003241321014661,
+    "name": "Typ kávy",
+    "taxonomy": "pa_typ-kavy",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 9003241324416052,
+      "name": "100% Arabika",
+      "slug": "100-arabika"
+     }
+    ]
+   },
+   {
+    "id": 9003241321014635,
+    "name": "Krajina pôvodu",
+    "taxonomy": "pa_krajina-povodu",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 9003241324416554,
+      "name": "Panama",
+      "slug": "panama"
+     }
+    ]
+   },
+   {
+    "id": 9003241321014351,
+    "name": "Región",
+    "taxonomy": "pa_region",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 9003241324416557,
+      "name": "Boquete",
+      "slug": "boquete"
+     }
+    ]
+   },
+   {
+    "id": 0,
+    "name": "Farma",
+    "taxonomy": null,
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 0,
+      "name": "Hacienda La Esmeralda",
+      "slug": "Hacienda La Esmeralda"
+     }
+    ]
+   },
+   {
+    "id": 9003241324418575,
+    "name": "Odroda alebo varieta",
+    "taxonomy": "pa_odroda-alebo-varieta",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 9003241324418777,
+      "name": "Geisha",
+      "slug": "geisha"
+     }
+    ]
+   },
+   {
+    "id": 9003241324418552,
+    "name": "Chuťový profil",
+    "taxonomy": "pa_chutovy-profil",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 9003241324418783,
+      "name": "jahody v čokoláde",
+      "slug": "jahody-v-cokolade"
+     },
+     {
+      "id": 9003241324418786,
+      "name": "jazmín",
+      "slug": "jazmin"
+     },
+     {
+      "id": 9003241324418780,
+      "name": "med",
+      "slug": "med"
+     }
+    ]
+   },
+   {
+    "id": 9003241321014494,
+    "name": "Kyslosť kávy",
+    "taxonomy": "pa_kyslost-kavy",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 9003241321014516,
+      "name": "Stredná",
+      "slug": "stredna"
+     }
+    ]
+   },
+   {
+    "id": 9003241321014337,
+    "name": "Nadmorská výška",
+    "taxonomy": "pa_nadmorska-vyska",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 9003241324416214,
+      "name": "1700",
+      "slug": "1700"
+     }
+    ]
+   },
+   {
+    "id": 9003241321014390,
+    "name": "Obdobie zberu",
+    "taxonomy": "pa_obdobie-zberu",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 9003241324416569,
+      "name": "2023/2024",
+      "slug": "2023-2024"
+     }
+    ]
+   },
+   {
+    "id": 9003241321014417,
+    "name": "Skóre kvality",
+    "taxonomy": "pa_skore-kvality",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 9003241324416572,
+      "name": "91.5",
+      "slug": "91-5"
+     }
+    ]
+   },
+   {
+    "id": 9003241321014403,
+    "name": "Spôsob spracovania",
+    "taxonomy": "pa_sposob-spracovania",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 9003241324416082,
+      "name": "Mokré (washed)",
+      "slug": "mokre-washed"
+     }
+    ]
+   },
+   {
+    "id": 9003241321014648,
+    "name": "Stupeň praženia",
+    "taxonomy": "pa_stupen-prazenia",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 9003241324416088,
+      "name": "Tmavé",
+      "slug": "tmave"
+     }
+    ]
+   },
+   {
+    "id": 9003241321014706,
+    "name": "Decaf - bez kofeínu",
+    "taxonomy": "pa_decaf-bez-kofeinu",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 9003241321838333,
+      "name": "Nie",
+      "slug": "nie"
+     }
+    ]
+   },
+   {
+    "id": 9003241321014758,
+    "name": "Nepražená káva",
+    "taxonomy": "pa_neprazena-kava",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 9003241324416091,
+      "name": "Nie",
+      "slug": "nie"
+     }
+    ]
+   },
+   {
+    "id": 9003241324491875,
+    "name": "Hmotnosť",
+    "taxonomy": "pa_hmotnost",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 9003241324491888,
+      "name": "1000g",
+      "slug": "1000g"
+     },
+     {
+      "id": 9003241324649002,
+      "name": "150g",
+      "slug": "150g"
+     },
+     {
+      "id": 9003241324491911,
+      "name": "500g",
+      "slug": "500g"
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 638,
+    "attributes": [
+     {
+      "name": "Hmotnosť",
+      "value": "150g"
+     }
+    ]
+   },
+   {
+    "id": 9003241324706475,
+    "attributes": [
+     {
+      "name": "Hmotnosť",
+      "value": "500g"
+     }
+    ]
+   },
+   {
+    "id": 9003241324706473,
+    "attributes": [
+     {
+      "name": "Hmotnosť",
+      "value": "1000g"
+     }
+    ]
+   }
+  ],
+  "is_in_stock": true
+ },
+ {
+  "id": 101,
+  "name": "Papua Nová Guinea",
+  "permalink": "https://caffe4u.sk/produkt/papua/",
+  "sku": "d5f4ca4f85ad",
+  "prices": {
+   "price": "1300",
+   "regular_price": "1300",
+   "sale_price": "1300",
+   "price_range": {
+    "min_amount": "1300",
+    "max_amount": "4000"
+   },
+   "currency_code": "EUR",
+   "currency_symbol": "€",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ",",
+   "currency_thousand_separator": ".",
+   "currency_prefix": "",
+   "currency_suffix": "€"
+  },
+  "images": [
+   {
+    "id": 9003241324706437,
+    "src": "https://caffe4u.sk/wp-content/uploads/2025/08/papua.png",
+    "thumbnail": "https://caffe4u.sk/wp-content/uploads/2025/08/papua.png",
+    "srcset": "https://caffe4u.sk/wp-content/uploads/2025/08/papua.png 709w, https://caffe4u.sk/wp-content/uploads/2025/08/papua-416x420.png 416w",
+    "sizes": "(max-width: 709px) 100vw, 709px",
+    "name": "papua",
+    "alt": ""
+   }
+  ],
+  "categories": [
+   {
+    "id": 17,
+    "name": "Pražená zrnková káva",
+    "slug": "prazena-zrnkova-kava",
+    "link": "https://caffe4u.sk/prazena-zrnkova-kava/"
+   },
+   {
+    "id": 360,
+    "name": "Limitované zrnkové kávy",
+    "slug": "limitovane-zrnkove-kavy",
+    "link": "https://caffe4u.sk/limitovane-zrnkove-kavy/"
+   },
+   {
+    "id": 27,
+    "name": "Novinky pražená káva",
+    "slug": "novinky-prazena-kava",
+    "link": "https://caffe4u.sk/novinky-prazena-kava/"
+   },
+   {
+    "id": 9003241321018644,
+    "name": "Pražená káva",
+    "slug": "prazena-kava",
+    "link": "https://caffe4u.sk/prazena-kava/"
+   }
+  ],
+  "attributes": [
+   {
+    "id": 9003241321014661,
+    "name": "Typ kávy",
+    "taxonomy": "pa_typ-kavy",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 9003241324416052,
+      "name": "100% Arabika",
+      "slug": "100-arabika"
+     }
+    ]
+   },
+   {
+    "id": 9003241321014595,
+    "name": "Druh kávy",
+    "taxonomy": "pa_druh-kavy",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 9003241324419872,
+      "name": "Zrnková káva",
+      "slug": "zrnkova-kava"
+     }
+    ]
+   },
+   {
+    "id": 9003241321014635,
+    "name": "Krajina pôvodu",
+    "taxonomy": "pa_krajina-povodu",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 9003241324649003,
+      "name": "Papua Nová Guinea",
+      "slug": "papua-nova-guinea"
+     }
+    ]
+   },
+   {
+    "id": 9003241321014351,
+    "name": "Región",
+    "taxonomy": "pa_region",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 9003241324649004,
+      "name": "Chimbu",
+      "slug": "chimbu"
+     }
+    ]
+   },
+   {
+    "id": 9003241324418575,
+    "name": "Odroda alebo varieta",
+    "taxonomy": "pa_odroda-alebo-varieta",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 9003241324418625,
+      "name": "Bourbon",
+      "slug": "bourbon"
+     },
+     {
+      "id": 9003241324418737,
+      "name": "Typica",
+      "slug": "typica"
+     }
+    ]
+   },
+   {
+    "id": 9003241324418552,
+    "name": "Chuťový profil",
+    "taxonomy": "pa_chutovy-profil",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 9003241324418985,
+      "name": "horká čokoláda",
+      "slug": "horka-cokolada"
+     },
+     {
+      "id": 9003241324649006,
+      "name": "papája",
+      "slug": "papaja"
+     },
+     {
+      "id": 9003241324649005,
+      "name": "trstinová šťava",
+      "slug": "trstinova-stava"
+     }
+    ]
+   },
+   {
+    "id": 9003241324416041,
+    "name": "Klasifikácia kávy",
+    "taxonomy": "pa_klasifikacia-kavy",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 9003241324416351,
+      "name": "Plantation AA",
+      "slug": "plantation-aa"
+     }
+    ]
+   },
+   {
+    "id": 9003241321014494,
+    "name": "Kyslosť kávy",
+    "taxonomy": "pa_kyslost-kavy",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 9003241321014509,
+      "name": "Žiadna",
+      "slug": "ziadna"
+     }
+    ]
+   },
+   {
+    "id": 9003241321014337,
+    "name": "Nadmorská výška",
+    "taxonomy": "pa_nadmorska-vyska",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 9003241324416618,
+      "name": "1400",
+      "slug": "1400"
+     },
+     {
+      "id": 9003241324416826,
+      "name": "1800",
+      "slug": "1800"
+     }
+    ]
+   },
+   {
+    "id": 9003241321014390,
+    "name": "Obdobie zberu",
+    "taxonomy": "pa_obdobie-zberu",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 9003241324416357,
+      "name": "2025",
+      "slug": "2025"
+     }
+    ]
+   },
+   {
+    "id": 9003241321014417,
+    "name": "Skóre kvality",
+    "taxonomy": "pa_skore-kvality",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 9003241324416220,
+      "name": "83",
+      "slug": "83"
+     }
+    ]
+   },
+   {
+    "id": 9003241321014403,
+    "name": "Spôsob spracovania",
+    "taxonomy": "pa_sposob-spracovania",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 9003241324416082,
+      "name": "Mokré (washed)",
+      "slug": "mokre-washed"
+     }
+    ]
+   },
+   {
+    "id": 9003241324419875,
+    "name": "Odporúčaný spôsob prípravy",
+    "taxonomy": "pa_odporucany-sposob-pripravy",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 9003241324419877,
+      "name": "Espresso",
+      "slug": "espresso"
+     },
+     {
+      "id": 9003241324420213,
+      "name": "Frenchpress",
+      "slug": "frenchpress"
+     },
+     {
+      "id": 9003241324419880,
+      "name": "Moka",
+      "slug": "moka"
+     },
+     {
+      "id": 9003241324419883,
+      "name": "Zalievaná",
+      "slug": "zalievana"
+     }
+    ]
+   },
+   {
+    "id": 9003241321014648,
+    "name": "Stupeň praženia",
+    "taxonomy": "pa_stupen-prazenia",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 9003241324416088,
+      "name": "Tmavé",
+      "slug": "tmave"
+     }
+    ]
+   },
+   {
+    "id": 9003241321014706,
+    "name": "Decaf - bez kofeínu",
+    "taxonomy": "pa_decaf-bez-kofeinu",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 9003241321838333,
+      "name": "Nie",
+      "slug": "nie"
+     }
+    ]
+   },
+   {
+    "id": 9003241321014758,
+    "name": "Nepražená káva",
+    "taxonomy": "pa_neprazena-kava",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 9003241324416091,
+      "name": "Nie",
+      "slug": "nie"
+     }
+    ]
+   },
+   {
+    "id": 9003241324491875,
+    "name": "Hmotnosť",
+    "taxonomy": "pa_hmotnost",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 9003241324491888,
+      "name": "1000g",
+      "slug": "1000g",
+      "default": false
+     },
+     {
+      "id": 9003241324491895,
+      "name": "200g",
+      "slug": "200g",
+      "default": true
+     },
+     {
+      "id": 9003241324491911,
+      "name": "500g",
+      "slug": "500g",
+      "default": false
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 107,
+    "attributes": [
+     {
+      "name": "Hmotnosť",
+      "value": "200g"
+     }
+    ]
+   },
+   {
+    "id": 9003241324568175,
+    "attributes": [
+     {
+      "name": "Hmotnosť",
+      "value": "500g"
+     }
+    ]
+   },
+   {
+    "id": 5205,
+    "attributes": [
+     {
+      "name": "Hmotnosť",
+      "value": "1000g"
+     }
+    ]
+   }
+  ],
+  "is_in_stock": false
+ },
+ {
+  "id": 102,
+  "name": "Tanzánia Burka",
+  "permalink": "https://caffe4u.sk/produkt/tanzania-burka/",
+  "sku": "c2d80983c602",
+  "prices": {
+   "price": "1150",
+   "regular_price": "1150",
+   "sale_price": "1150",
+   "price_range": {
+    "min_amount": "1150",
+    "max_amount": "3500"
+   },
+   "currency_code": "EUR",
+   "currency_symbol": "€",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ",",
+   "currency_thousand_separator": ".",
+   "currency_prefix": "",
+   "currency_suffix": "€"
+  },
+  "images": [
+   {
+    "id": 9003241324705835,
+    "src": "https://caffe4u.sk/wp-content/uploads/2025/08/tanzania-burka.png",
+    "thumbnail": "https://caffe4u.sk/wp-content/uploads/2025/08/tanzania-burka.png",
+    "srcset": "https://caffe4u.sk/wp-content/uploads/2025/08/tanzania-burka.png 709w, https://caffe4u.sk/wp-content/uploads/2025/08/tanzania-burka-416x420.png 416w",
+    "sizes": "(max-width: 709px) 100vw, 709px",
+    "name": "tanzania burka",
+    "alt": ""
+   }
+  ],
+  "categories": [
+   {
+    "id": 17,
+    "name": "Pražená zrnková káva",
+    "slug": "prazena-zrnkova-kava",
+    "link": "https://caffe4u.sk/prazena-zrnkova-kava/"
+   },
+   {
+    "id": 360,
+    "name": "Limitované zrnkové kávy",
+    "slug": "limitovane-zrnkove-kavy",
+    "link": "https://caffe4u.sk/limitovane-zrnkove-kavy/"
+   },
+   {
+    "id": 27,
+    "name": "Novinky pražená káva",
+    "slug": "novinky-prazena-kava",
+    "link": "https://caffe4u.sk/novinky-prazena-kava/"
+   },
+   {
+    "id": 9003241321018644,
+    "name": "Pražená káva",
+    "slug": "prazena-kava",
+    "link": "https://caffe4u.sk/prazena-kava/"
+   }
+  ],
+  "attributes": [
+   {
+    "id": 9003241321014661,
+    "name": "Typ kávy",
+    "taxonomy": "pa_typ-kavy",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 9003241324416052,
+      "name": "100% Arabika",
+      "slug": "100-arabika"
+     }
+    ]
+   },
+   {
+    "id": 9003241321014595,
+    "name": "Druh kávy",
+    "taxonomy": "pa_druh-kavy",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 9003241324419872,
+      "name": "Zrnková káva",
+      "slug": "zrnkova-kava"
+     }
+    ]
+   },
+   {
+    "id": 9003241321014635,
+    "name": "Krajina pôvodu",
+    "taxonomy": "pa_krajina-povodu",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 9003241324416102,
+      "name": "Tanzánia",
+      "slug": "tanzania"
+     }
+    ]
+   },
+   {
+    "id": 9003241321014351,
+    "name": "Región",
+    "taxonomy": "pa_region",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 9003241324416105,
+      "name": "Burka",
+      "slug": "burka"
+     }
+    ]
+   },
+   {
+    "id": 9003241324418575,
+    "name": "Odroda alebo varieta",
+    "taxonomy": "pa_odroda-alebo-varieta",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 9003241324418625,
+      "name": "Bourbon",
+      "slug": "bourbon"
+     }
+    ]
+   },
+   {
+    "id": 9003241324418552,
+    "name": "Chuťový profil",
+    "taxonomy": "pa_chutovy-profil",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 9003241324418631,
+      "name": "bergamot",
+      "slug": "bergamot"
+     },
+     {
+      "id": 9003241324418628,
+      "name": "citrón",
+      "slug": "citron"
+     },
+     {
+      "id": 9003241324418634,
+      "name": "tmavá čokoláda",
+      "slug": "tmava-cokolada"
+     }
+    ]
+   },
+   {
+    "id": 9003241324416041,
+    "name": "Klasifikácia kávy",
+    "taxonomy": "pa_klasifikacia-kavy",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 9003241324416114,
+      "name": "AB",
+      "slug": "ab"
+     }
+    ]
+   },
+   {
+    "id": 9003241321014494,
+    "name": "Kyslosť kávy",
+    "taxonomy": "pa_kyslost-kavy",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 9003241321014516,
+      "name": "Stredná",
+      "slug": "stredna"
+     }
+    ]
+   },
+   {
+    "id": 9003241321014337,
+    "name": "Nadmorská výška",
+    "taxonomy": "pa_nadmorska-vyska",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 9003241324416117,
+      "name": "1600",
+      "slug": "1600"
+     }
+    ]
+   },
+   {
+    "id": 9003241321014390,
+    "name": "Obdobie zberu",
+    "taxonomy": "pa_obdobie-zberu",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 9003241324416076,
+      "name": "2024/2025",
+      "slug": "2024-2025"
+     }
+    ]
+   },
+   {
+    "id": 9003241321014417,
+    "name": "Skóre kvality",
+    "taxonomy": "pa_skore-kvality",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 9003241324416220,
+      "name": "83",
+      "slug": "83"
+     }
+    ]
+   },
+   {
+    "id": 9003241321014403,
+    "name": "Spôsob spracovania",
+    "taxonomy": "pa_sposob-spracovania",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 9003241324416082,
+      "name": "Mokré (washed)",
+      "slug": "mokre-washed"
+     }
+    ]
+   },
+   {
+    "id": 9003241324419875,
+    "name": "Odporúčaný spôsob prípravy",
+    "taxonomy": "pa_odporucany-sposob-pripravy",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 9003241324419877,
+      "name": "Espresso",
+      "slug": "espresso"
+     },
+     {
+      "id": 9003241324419880,
+      "name": "Moka",
+      "slug": "moka"
+     },
+     {
+      "id": 9003241324419883,
+      "name": "Zalievaná",
+      "slug": "zalievana"
+     }
+    ]
+   },
+   {
+    "id": 9003241321014648,
+    "name": "Stupeň praženia",
+    "taxonomy": "pa_stupen-prazenia",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 9003241324416088,
+      "name": "Tmavé",
+      "slug": "tmave"
+     }
+    ]
+   },
+   {
+    "id": 9003241321014706,
+    "name": "Decaf - bez kofeínu",
+    "taxonomy": "pa_decaf-bez-kofeinu",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 9003241321838333,
+      "name": "Nie",
+      "slug": "nie"
+     }
+    ]
+   },
+   {
+    "id": 9003241321014758,
+    "name": "Nepražená káva",
+    "taxonomy": "pa_neprazena-kava",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 9003241324416091,
+      "name": "Nie",
+      "slug": "nie"
+     }
+    ]
+   },
+   {
+    "id": 9003241324491875,
+    "name": "Hmotnosť",
+    "taxonomy": "pa_hmotnost",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 9003241324491888,
+      "name": "1000g",
+      "slug": "1000g",
+      "default": false
+     },
+     {
+      "id": 9003241324491895,
+      "name": "200g",
+      "slug": "200g",
+      "default": true
+     },
+     {
+      "id": 9003241324491911,
+      "name": "500g",
+      "slug": "500g",
+      "default": false
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 9003241324567839,
+    "attributes": [
+     {
+      "name": "Hmotnosť",
+      "value": "500g"
+     }
+    ]
+   },
+   {
+    "id": 108,
+    "attributes": [
+     {
+      "name": "Hmotnosť",
+      "value": "1000g"
+     }
+    ]
+   },
+   {
+    "id": 109,
+    "attributes": [
+     {
+      "name": "Hmotnosť",
+      "value": "200g"
+     }
+    ]
+   }
+  ],
+  "is_in_stock": true
+ },
+ {
+  "id": 344,
+  "name": "Kolumbia Cauca",
+  "permalink": "https://caffe4u.sk/produkt/kolumbia-cauca/",
+  "sku": "21cc2f486748",
+  "prices": {
+   "price": "1500",
+   "regular_price": "1500",
+   "sale_price": "1500",
+   "price_range": {
+    "min_amount": "1500",
+    "max_amount": "5000"
+   },
+   "currency_code": "EUR",
+   "currency_symbol": "€",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ",",
+   "currency_thousand_separator": ".",
+   "currency_prefix": "",
+   "currency_suffix": "€"
+  },
+  "images": [
+   {
+    "id": 9003241324705828,
+    "src": "https://caffe4u.sk/wp-content/uploads/2025/08/Kol-cauca.png",
+    "thumbnail": "https://caffe4u.sk/wp-content/uploads/2025/08/Kol-cauca.png",
+    "srcset": "https://caffe4u.sk/wp-content/uploads/2025/08/Kol-cauca.png 709w, https://caffe4u.sk/wp-content/uploads/2025/08/Kol-cauca-416x420.png 416w",
+    "sizes": "(max-width: 709px) 100vw, 709px",
+    "name": "Kol cauca",
+    "alt": ""
+   }
+  ],
+  "categories": [
+   {
+    "id": 17,
+    "name": "Pražená zrnková káva",
+    "slug": "prazena-zrnkova-kava",
+    "link": "https://caffe4u.sk/prazena-zrnkova-kava/"
+   },
+   {
+    "id": 33,
+    "name": "Akciové kávy",
+    "slug": "akciove-kavy",
+    "link": "https://caffe4u.sk/akciove-kavy/"
+   },
+   {
+    "id": 360,
+    "name": "Limitované zrnkové kávy",
+    "slug": "limitovane-zrnkove-kavy",
+    "link": "https://caffe4u.sk/limitovane-zrnkove-kavy/"
+   },
+   {
+    "id": 27,
+    "name": "Novinky pražená káva",
+    "slug": "novinky-prazena-kava",
+    "link": "https://caffe4u.sk/novinky-prazena-kava/"
+   },
+   {
+    "id": 9003241321018644,
+    "name": "Pražená káva",
+    "slug": "prazena-kava",
+    "link": "https://caffe4u.sk/prazena-kava/"
+   }
+  ],
+  "attributes": [
+   {
+    "id": 9003241321014706,
+    "name": "Decaf - bez kofeínu",
+    "taxonomy": "pa_decaf-bez-kofeinu",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 9003241321838333,
+      "name": "Nie",
+      "slug": "nie"
+     }
+    ]
+   },
+   {
+    "id": 9003241324418552,
+    "name": "Chuťový profil",
+    "taxonomy": "pa_chutovy-profil",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 9003241324648981,
+      "name": "červené jalbko",
+      "slug": "cervene-jalbko"
+     },
+     {
+      "id": 9003241324648980,
+      "name": "hrozno",
+      "slug": "hrozno"
+     },
+     {
+      "id": 9003241324419566,
+      "name": "marhuľový džem",
+      "slug": "marhulovy-dzem"
+     }
+    ]
+   },
+   {
+    "id": 9003241324491875,
+    "name": "Hmotnosť",
+    "taxonomy": "pa_hmotnost",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 9003241324491888,
+      "name": "1000g",
+      "slug": "1000g"
+     },
+     {
+      "id": 9003241324491895,
+      "name": "200g",
+      "slug": "200g"
+     },
+     {
+      "id": 9003241324491911,
+      "name": "500g",
+      "slug": "500g"
+     }
+    ]
+   },
+   {
+    "id": 9003241321014595,
+    "name": "Druh kávy",
+    "taxonomy": "pa_druh-kavy",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 9003241324419872,
+      "name": "Zrnková káva",
+      "slug": "zrnkova-kava"
+     }
+    ]
+   },
+   {
+    "id": 9003241321014481,
+    "name": "Horkosť kávy",
+    "taxonomy": "pa_horkost-kavy",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 9003241321014539,
+      "name": "Stredná",
+      "slug": "stredna"
+     }
+    ]
+   },
+   {
+    "id": 9003241324416041,
+    "name": "Klasifikácia kávy",
+    "taxonomy": "pa_klasifikacia-kavy",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 9003241324648983,
+      "name": "NY Scr. 16/17",
+      "slug": "ny-scr-16-17"
+     }
+    ]
+   },
+   {
+    "id": 9003241321014494,
+    "name": "Kyslosť kávy",
+    "taxonomy": "pa_kyslost-kavy",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 9003241324416070,
+      "name": "Jemná",
+      "slug": "jemna"
+     }
+    ]
+   },
+   {
+    "id": 9003241321014635,
+    "name": "Krajina pôvodu",
+    "taxonomy": "pa_krajina-povodu",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 9003241324417409,
+      "name": "Kolumbia",
+      "slug": "kolumbia"
+     }
+    ]
+   },
+   {
+    "id": 9003241321014337,
+    "name": "Nadmorská výška",
+    "taxonomy": "pa_nadmorska-vyska",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 9003241324648984,
+      "name": "1550-1800",
+      "slug": "1550-1800"
+     }
+    ]
+   },
+   {
+    "id": 9003241321014758,
+    "name": "Nepražená káva",
+    "taxonomy": "pa_neprazena-kava",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 9003241324416091,
+      "name": "Nie",
+      "slug": "nie"
+     }
+    ]
+   },
+   {
+    "id": 9003241321014390,
+    "name": "Obdobie zberu",
+    "taxonomy": "pa_obdobie-zberu",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 9003241324416357,
+      "name": "2025",
+      "slug": "2025"
+     }
+    ]
+   },
+   {
+    "id": 9003241324419875,
+    "name": "Odporúčaný spôsob prípravy",
+    "taxonomy": "pa_odporucany-sposob-pripravy",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 9003241324419877,
+      "name": "Espresso",
+      "slug": "espresso"
+     },
+     {
+      "id": 9003241324420213,
+      "name": "Frenchpress",
+      "slug": "frenchpress"
+     },
+     {
+      "id": 9003241324419880,
+      "name": "Moka",
+      "slug": "moka"
+     },
+     {
+      "id": 9003241324419883,
+      "name": "Zalievaná",
+      "slug": "zalievana"
+     }
+    ]
+   },
+   {
+    "id": 9003241324418575,
+    "name": "Odroda alebo varieta",
+    "taxonomy": "pa_odroda-alebo-varieta",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 9003241324418601,
+      "name": "Red Bourbon",
+      "slug": "red-bourbon"
+     }
+    ]
+   },
+   {
+    "id": 9003241321014351,
+    "name": "Región",
+    "taxonomy": "pa_region",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 9003241324648985,
+      "name": "Piendamó - Cauca",
+      "slug": "piendamo-cauca"
+     }
+    ]
+   },
+   {
+    "id": 9003241321014417,
+    "name": "Skóre kvality",
+    "taxonomy": "pa_skore-kvality",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 9003241324417367,
+      "name": "87.5",
+      "slug": "87-5"
+     }
+    ]
+   },
+   {
+    "id": 9003241321014403,
+    "name": "Spôsob spracovania",
+    "taxonomy": "pa_sposob-spracovania",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 9003241324648986,
+      "name": "Thermal schock - washed",
+      "slug": "thermal-schock-washed"
+     }
+    ]
+   },
+   {
+    "id": 9003241321014648,
+    "name": "Stupeň praženia",
+    "taxonomy": "pa_stupen-prazenia",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 9003241324416838,
+      "name": "Stredné",
+      "slug": "stredne"
+     }
+    ]
+   },
+   {
+    "id": 9003241321014661,
+    "name": "Typ kávy",
+    "taxonomy": "pa_typ-kavy",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 9003241324416052,
+      "name": "100% Arabika",
+      "slug": "100-arabika"
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 345,
+    "attributes": [
+     {
+      "name": "Hmotnosť",
+      "value": "200g"
+     }
+    ]
+   },
+   {
+    "id": 346,
+    "attributes": [
+     {
+      "name": "Hmotnosť",
+      "value": "500g"
+     }
+    ]
+   },
+   {
+    "id": 5783,
+    "attributes": [
+     {
+      "name": "Hmotnosť",
+      "value": "1000g"
+     }
+    ]
+   }
+  ],
+  "is_in_stock": true
+ }
+]

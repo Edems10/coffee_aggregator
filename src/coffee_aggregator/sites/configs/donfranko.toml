@@ -1,0 +1,18 @@
+# Don Franko — arabica single origins and espresso blends are separate
+# top-level categories, with no whole-bean parent above them.
+platform = "shoptet"
+site_id = "donfranko"
+name = "Don Franko"
+country = "CZ"
+base_url = "https://www.donfranko.cz/"
+category_urls = [
+  "https://www.donfranko.cz/kava-arabica/",
+  "https://www.donfranko.cz/espresso-smesi/",
+]
+currency = "CZK"
+max_pages = 10
+pagination = "path"
+
+ignore = [
+  "balicek degustator",
+]

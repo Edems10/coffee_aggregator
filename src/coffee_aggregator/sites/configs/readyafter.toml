@@ -23,4 +23,3 @@ ignore = [
 [label_map]
 # The built-in map knows "praženie"/"pražení"; this shop declines the noun,
 # so "Stupeň praženia" matches nothing and the roast level would be lost.
-"Stupeň praženia" = "roast"

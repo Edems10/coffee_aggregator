@@ -10,42 +10,29 @@ from urllib.parse import urlencode, urljoin
 from bs4 import BeautifulSoup, Tag
 
 from coffee_aggregator import normalize
-from coffee_aggregator.models import Coffee, Popularity, Variant
-from coffee_aggregator.platforms.shoptet import (
-    F_ACIDITY,
-    F_ALTITUDE,
-    F_BITTERNESS,
-    F_BODY,
-    F_BREWING,
+from coffee_aggregator.labels import (
     F_CERTIFICATIONS,
     F_COUNTRY,
-    F_DECAF,
-    F_FARM,
-    F_FLAVOR,
-    F_HARVEST,
-    F_IGNORE,
     F_PROCESS,
-    F_PRODUCER,
-    F_REGION,
-    F_ROAST,
-    F_SCA,
-    F_SPECIES,
-    F_STATION,
-    F_SWEETNESS,
-    F_VARIETY,
     F_WEIGHT,
     KNOWN_FIELDS,
-    _available,
-    _is_decaf,
-    _Labels,
-    _option_list,
-    _parse_origin,
-    _parse_roast,
-    _parse_species,
-    _parse_taste,
-    _score,
-    _specialty_grade,
+    TERMS,
+    Labels,
+    build_map,
+    headline_weight,
+    is_decaf,
+    option_list,
+    parse_origin,
+    parse_roast,
+    parse_species,
+    parse_taste,
+    plausible_weight,
+    read_lines,
+    score,
+    specialty_grade,
 )
+from coffee_aggregator.models import Coffee, Popularity, Variant
+from coffee_aggregator.platforms.shoptet import schema_available
 from coffee_aggregator.sites import html as dom
 from coffee_aggregator.sites.base import DEFAULT_IGNORED, ProductRef, SiteAdapter
 
@@ -75,176 +62,15 @@ _MAX_REAL_CATEGORY_ID: Final = 10**9
 #: ``woo_survey/label_union.json``). It is deliberately *not* Shoptet's map:
 #: WooCommerce shops use "Hmotnosť" for the bag of beans, where Shoptet uses it
 #: for the parcel, and the Slovak spellings dominate this cohort.
-DEFAULT_LABEL_MAP: Final[dict[str, str]] = {
-    # decoys: merchandise and shop mechanics that merely contain a real key
-    "doplnky": F_IGNORE,
-    "velkost drippera": F_IGNORE,
-    "potlac": F_IGNORE,
-    "rozmer": F_IGNORE,
-    "balicek": F_IGNORE,
-    "skladovanie": F_IGNORE,
-    "uskladneni": F_IGNORE,
-    "storage": F_IGNORE,
-    "kategorie": F_IGNORE,
-    "kategoria": F_IGNORE,
-    "podla oblasti": F_IGNORE,  # a shop menu ("Kávy z Afriky"), not a region
-    "ean": F_IGNORE,
-    # origin
-    "krajina povodu": F_COUNTRY,
-    "zeme puvodu": F_COUNTRY,
-    "krajina": F_COUNTRY,
-    "povod": F_COUNTRY,
-    "puvod": F_COUNTRY,
-    "povod kavy": F_COUNTRY,
-    "country of origin": F_COUNTRY,
-    "country": F_COUNTRY,
-    "origin": F_COUNTRY,
-    "region": F_REGION,
-    "oblast": F_REGION,
-    "lokalita": F_REGION,
-    "location": F_REGION,
-    "farma": F_FARM,
-    "farm": F_FARM,
-    "finca": F_FARM,
-    "plantaz": F_FARM,
-    "farmar": F_PRODUCER,
-    "farmari": F_PRODUCER,
-    "farmar / plantaz": F_PRODUCER,
-    "producent": F_PRODUCER,
-    "producer": F_PRODUCER,
-    "pestovatel": F_PRODUCER,
-    "spracovatel": F_PRODUCER,
-    "majitel": F_PRODUCER,
-    "vyrobil": F_PRODUCER,
-    "spracovatelska stanica": F_STATION,
-    "zpracovatelska stanice": F_STATION,
-    "washing station": F_STATION,
-    "nadmorska vyska": F_ALTITUDE,
-    "altitude": F_ALTITUDE,
-    "vyska": F_ALTITUDE,
-    "masl": F_ALTITUDE,
-    "odroda": F_VARIETY,
-    "odruda": F_VARIETY,
-    "odroda kavy": F_VARIETY,
-    "odroda alebo varieta": F_VARIETY,
-    "varieta": F_VARIETY,
-    "variety": F_VARIETY,
-    "varieties": F_VARIETY,
-    "kultivar": F_VARIETY,
-    "zber": F_HARVEST,
-    "sber": F_HARVEST,
-    "sklizen": F_HARVEST,
-    "obdobie zberu": F_HARVEST,
-    "uroda": F_HARVEST,
-    "harvest": F_HARVEST,
-    # processing and roast
-    "spracovanie": F_PROCESS,
-    "zpracovani": F_PROCESS,
-    "sposob spracovania": F_PROCESS,
-    "process": F_PROCESS,
-    "processing": F_PROCESS,
-    "prazenie": F_ROAST,
-    "prazeni": F_ROAST,
-    "stupen prazenia": F_ROAST,
-    "stupen prazeni": F_ROAST,
-    "typ prazenia": F_ROAST,
-    "typ prazeni": F_ROAST,
-    "sposob prazenia": F_ROAST,
-    "roast": F_ROAST,
-    # brewing: what the shop says to make with it, and how it will grind it
-    "priprava": F_BREWING,
-    "pripravu": F_BREWING,
-    "priprava kavy": F_BREWING,
-    "odporucana priprava": F_BREWING,
-    "odporucany sposob pripravy": F_BREWING,
-    "sposoby pripravy": F_BREWING,
-    "podla pripravy kavy": F_BREWING,
-    "preparation method": F_BREWING,
-    "vhodne pro": F_BREWING,
-    "vhodna pro": F_BREWING,
-    "vhodne na": F_BREWING,
-    "pouzitie": F_BREWING,
-    "pouziti": F_BREWING,
-    "brewing": F_BREWING,
-    "mletie": F_BREWING,
-    "mleti": F_BREWING,
-    "typ mletia": F_BREWING,
-    "hrubost kavy": F_BREWING,
-    "hrubost mletia": F_BREWING,
-    # sensory
-    "chut": F_FLAVOR,
-    "chute": F_FLAVOR,
-    "chut a tony": F_FLAVOR,
-    "chutovy profil": F_FLAVOR,
-    "chutove tony": F_FLAVOR,
-    "profil": F_FLAVOR,
-    "tony": F_FLAVOR,
-    "aroma": F_FLAVOR,
-    "notes": F_FLAVOR,
-    "tasting notes": F_FLAVOR,
-    "taste profile": F_FLAVOR,
-    "primary flavour note": F_FLAVOR,
-    "our baristas notes": F_FLAVOR,
-    "telo": F_BODY,
-    "body": F_BODY,
-    "kyslost": F_ACIDITY,
-    "kyselost": F_ACIDITY,
-    "acidita": F_ACIDITY,
-    "kyslost kavy": F_ACIDITY,
-    "acidity": F_ACIDITY,
-    "horkost": F_BITTERNESS,
-    "horkost kavy": F_BITTERNESS,
-    "bitterness": F_BITTERNESS,
-    "sladkost": F_SWEETNESS,
-    "sweetness": F_SWEETNESS,
-    "sca": F_SCA,
-    "sca skore": F_SCA,
-    "skore": F_SCA,
-    "score": F_SCA,
-    "cupping": F_SCA,
-    "cupping score": F_SCA,
-    "cuppingove skore": F_SCA,
-    "skore kvality": F_SCA,
-    # composition and packaging
-    "druh": F_SPECIES,
-    "druh kavy": F_SPECIES,
-    "typ kavy": F_SPECIES,
-    "zlozenie": F_SPECIES,
-    "slozeni": F_SPECIES,
-    "zlozenie kavy": F_SPECIES,
-    "zlozenie podla druhu": F_SPECIES,
-    "arabica": F_SPECIES,
-    "arabika": F_SPECIES,
-    "robusta": F_SPECIES,
-    "pomer": F_SPECIES,
-    "species": F_SPECIES,
-    "bezkofeinova": F_DECAF,
-    "decaf": F_DECAF,
-    "obsah kofeinu": F_DECAF,
-    # A WooCommerce weight attribute is the bag of beans, not the parcel.
+#: WooCommerce's own reading of two terms the shared vocabulary leaves out: a
+#: WooCommerce attribute named "Hmotnost" is the weight of the coffee in the bag,
+#: unlike the Shoptet parameter of the same name, which weighs the parcel.
+PLATFORM_TERMS: Final[dict[str, str]] = {
     "hmotnost": F_WEIGHT,
-    "hmotnost produktu": F_WEIGHT,
-    "vaha": F_WEIGHT,
-    "vaha balenia": F_WEIGHT,
-    "gramaz": F_WEIGHT,
-    "velkost balenia": F_WEIGHT,
-    "velikost baleni": F_WEIGHT,
-    "velkost": F_WEIGHT,
-    "balenie": F_WEIGHT,
-    "baleni": F_WEIGHT,
-    "typ balenia": F_WEIGHT,
-    "typ baleni": F_WEIGHT,
-    "obsah balenia": F_WEIGHT,
-    "obal": F_WEIGHT,
     "weight": F_WEIGHT,
-    "package weight": F_WEIGHT,
-    "package size": F_WEIGHT,
-    "net weight": F_WEIGHT,
-    "certifikacia": F_CERTIFICATIONS,
-    "certifikace": F_CERTIFICATIONS,
-    "certifikat": F_CERTIFICATIONS,
-    "certification": F_CERTIFICATIONS,
 }
+
+DEFAULT_LABEL_MAP: Final[dict[str, str]] = build_map(TERMS, extra=PLATFORM_TERMS)
 
 
 class WooConfigError(ValueError):
@@ -595,7 +421,7 @@ def _variant_weight(labels: list[str]) -> int | None:
     """
     for label in labels:
         grams = normalize.parse_weight_grams(label)
-        if grams is not None:
+        if plausible_weight(grams):
             return grams
     return None
 
@@ -645,31 +471,6 @@ def _api_variants(item: dict[str, Any], ref: ProductRef, currency: str | None) -
             )
         )
     return variants
-
-
-def _headline_weight(labels: _Labels, name: str, variants: list[Variant]) -> int | None:
-    """Work out the weight the headline price refers to.
-
-    ``prices.price`` is the cheapest variant of a variable product, so the
-    weight that goes with it is the *smallest* one on offer — not the first the
-    weight attribute happens to list, which for ``ripit.sk`` is ``"1000 g"``
-    against a price for 250 g.
-
-    Args:
-        labels: Every labelled value the payload states.
-        name: The product name, which often ends in ``250g``.
-        variants: The parsed variants.
-
-    Returns:
-        The weight in grams, or None.
-    """
-    weights = [variant.weight_g for variant in variants if variant.weight_g is not None]
-    if weights:
-        return min(weights)
-    from_label = normalize.parse_weight_grams(labels.get(F_WEIGHT))
-    if from_label is not None:
-        return from_label
-    return normalize.parse_weight_grams(name)
 
 
 def _popularity(item: dict[str, Any]) -> Popularity:
@@ -1198,7 +999,7 @@ class WooSite(SiteAdapter):
             return self._parse_api(ref.payload, ref)
         return self._parse_html(html, ref)
 
-    def _labels(self, item: dict[str, Any]) -> tuple[_Labels, list[str], str | None]:
+    def _labels(self, item: dict[str, Any]) -> tuple[Labels, list[str], str | None]:
         """Read every labelled value a Store API product states.
 
         Three tiers, in descending reliability: the ``attributes`` array, the
@@ -1211,7 +1012,7 @@ class WooSite(SiteAdapter):
         Returns:
             The labels, the description prose, and the short description.
         """
-        labels = _Labels()
+        labels = Labels()
         for attribute in item.get("attributes", []):
             if isinstance(attribute, dict):
                 labels.add(
@@ -1222,10 +1023,12 @@ class WooSite(SiteAdapter):
         blocks = _blocks(item)
         for label, value in _table_rows(blocks):
             labels.add(label, value, self.label_map)
-        parsed = dom.parse_label_lines(blocks)
-        for label, value in parsed.pairs:
+        pairs, prose = read_lines(
+            [line for block in blocks for line in dom.lines(block)], self.label_map
+        )
+        for label, value in pairs:
             labels.add(label, value, self.label_map)
-        return labels, parsed.prose, _text_of(item.get("short_description"))
+        return labels, prose, _text_of(item.get("short_description"))
 
     def _parse_api(self, payload: str, ref: ProductRef) -> Coffee | None:
         """Turn one Store API product into a coffee.
@@ -1255,7 +1058,7 @@ class WooSite(SiteAdapter):
         price = minor_amount(prices.get("price"), minor_unit)
         currency = str(prices.get("currency_code") or "") or self.config.currency
         categories = _names(item.get("categories"))
-        species = _parse_species(labels, name)
+        species = parse_species(labels, name)
         variants = _api_variants(item, ref, currency)
         if item.get("sku"):
             labels.raw.setdefault("SKU", str(item["sku"]))
@@ -1267,21 +1070,21 @@ class WooSite(SiteAdapter):
             site_country=self.country,
             price=price,
             currency=currency if price is not None else None,
-            weight_g=_headline_weight(labels, name, variants),
+            weight_g=headline_weight(labels, name, variants, price=price),
             available=bool(item["is_in_stock"]) if "is_in_stock" in item else None,
-            decaf=_is_decaf(labels, name, categories),
-            origin=_parse_origin(labels, name, blend=species.is_blend),
+            decaf=is_decaf(labels, name, categories),
+            origin=parse_origin(labels, name, blend=species.is_blend),
             processing=normalize.parse_processing(labels.get(F_PROCESS)),
-            roast=_parse_roast(labels, categories),
+            roast=parse_roast(labels, categories),
             species=species,
-            taste=_parse_taste(labels, summary),
+            taste=parse_taste(labels, summary),
             popularity=_popularity(item),
             variants=variants,
             images=_images(item),
             tags=_names(item.get("tags")),
             categories=categories,
-            certifications=_option_list(labels.get(F_CERTIFICATIONS)),
-            specialty_grade=_specialty_grade(name, categories, _score(labels)),
+            certifications=option_list(labels.get(F_CERTIFICATIONS)),
+            specialty_grade=specialty_grade(name, categories, score(labels)),
             original_price=_original_price(prices, minor_unit, price),
             description="\n".join(prose) or summary,
             origin_text=labels.get(F_COUNTRY),
@@ -1334,11 +1137,14 @@ class WooSite(SiteAdapter):
         Returns:
             The parsed coffee.
         """
-        labels = _Labels()
+        labels = Labels()
         for label, value in _attribute_rows(root):
             labels.add(label, value, self.label_map)
-        parsed = dom.parse_label_lines(_description_blocks(soup))
-        for label, value in parsed.pairs:
+        pairs, prose = read_lines(
+            [line for block in _description_blocks(soup) for line in dom.lines(block)],
+            self.label_map,
+        )
+        for label, value in pairs:
             labels.add(label, value, self.label_map)
         for key, value in dom.page_meta(soup).items():
             labels.raw.setdefault(key, value)
@@ -1346,7 +1152,7 @@ class WooSite(SiteAdapter):
         price, currency = self._html_price(root, offer, ref)
         variants = _html_variants(soup, ref, currency)
         categories = _categories_of(soup, root)
-        species = _parse_species(labels, name)
+        species = parse_species(labels, name)
         summary = dom.text(soup.select_one(".woocommerce-product-details__short-description"))
         return Coffee(
             site=self.site_id,
@@ -1356,22 +1162,22 @@ class WooSite(SiteAdapter):
             site_country=self.country,
             price=price,
             currency=currency if price is not None else None,
-            weight_g=_headline_weight(labels, name, variants),
-            available=_available(str(offer.get("availability") or "")),
-            decaf=_is_decaf(labels, name, categories),
-            origin=_parse_origin(labels, name, blend=species.is_blend),
+            weight_g=headline_weight(labels, name, variants, price=price),
+            available=schema_available(str(offer.get("availability") or "")),
+            decaf=is_decaf(labels, name, categories),
+            origin=parse_origin(labels, name, blend=species.is_blend),
             processing=normalize.parse_processing(labels.get(F_PROCESS)),
-            roast=_parse_roast(labels, categories),
+            roast=parse_roast(labels, categories),
             species=species,
-            taste=_parse_taste(labels, summary),
+            taste=parse_taste(labels, summary),
             popularity=Popularity(),
             variants=variants,
             images=_html_images(soup, node, self.base_url),
             tags=_tags_of(root),
             categories=categories,
-            certifications=_option_list(labels.get(F_CERTIFICATIONS)),
-            specialty_grade=_specialty_grade(name, categories, _score(labels)),
-            description="\n".join(parsed.prose) or summary,
+            certifications=option_list(labels.get(F_CERTIFICATIONS)),
+            specialty_grade=specialty_grade(name, categories, score(labels)),
+            description="\n".join(prose) or summary,
             origin_text=labels.get(F_COUNTRY),
             raw_attributes=labels.raw,
         )

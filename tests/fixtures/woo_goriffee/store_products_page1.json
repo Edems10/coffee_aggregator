@@ -1,0 +1,763 @@
+[
+ {
+  "id": 4142,
+  "name": "Burundi Gakenke Washed",
+  "permalink": "https://www.goriffee.com/shop/kava/vyberova-kava-na-filter/burundi-gakenke-washed/",
+  "sku": "54877",
+  "short_description": "<p data-start=\"0\" data-end=\"293\">Burundi Gakenke ponúka jedinečný chuťový profil, ktorý poteší podnebie tónmi karamelu, černíc a brusníc. Táto premytá káva je výsledkom práce približne 1 780 drobných farmárov v obci Gatara v provincii Kayanza, pričom každý z nich pestuje priemerne 250 kávovníkov.</p>\n<p data-start=\"295\" data-end=\"633\">Spracovateľská stanica Gakenke, založená v roku 1991, zohráva kľúčovú úlohu pri spracovaní tejto výnimočnej kávy. Nachádza sa v nadmorskej výške 1 670 metrov a disponuje 224 sušiacimi lôžkami s kapacitou na spracovanie až 750 ton kávy za sezónu. Precízne metódy spracovania prispievajú k jej šťavnatej textúre a kvetinovej komplexnosti.</p>\n<p data-start=\"635\" data-end=\"950\">V šálke sa káva Gakenke prejavuje harmonickou zmesou chutí. Karamelizovaná sladkosť vytvára bohatý a hladký základ, ktorý dopĺňajú svieže citrusové tóny pripomínajúce citrón. Jemné podtóny čierneho čaju pridávajú hĺbku a rafinovaný záver, vďaka čomu je táto káva nezabudnuteľným zážitkom pre milovníkov špecialít.</p>\n<p data-start=\"952\" data-end=\"1069\" data-is-last-node=\"\" data-is-only-node=\"\">Táto káva je dôkazom oddanosti burundských farmárov a významu spolupráce pri produkcii vysoko kvalitných výberových káv.</p>\n<p data-start=\"952\" data-end=\"1069\" data-is-last-node=\"\" data-is-only-node=\"\"><strong>Výberová káva Burundi Gakenke Washed</strong> odporúčame na filtrovanú prípravu.</p>",
+  "prices": {
+   "price": "1600",
+   "regular_price": "1600",
+   "sale_price": "1600",
+   "price_range": {
+    "min_amount": "1600",
+    "max_amount": "6200"
+   },
+   "currency_code": "EUR",
+   "currency_symbol": "€",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ",",
+   "currency_thousand_separator": " ",
+   "currency_prefix": "",
+   "currency_suffix": " €"
+  },
+  "average_rating": "4.25",
+  "review_count": 4,
+  "images": [
+   {
+    "id": 79619,
+    "src": "https://www.goriffee.com/wp-content/uploads/2026/01/2026-262-BUR-Gakenke-1000x1000-1.png",
+    "thumbnail": "https://www.goriffee.com/wp-content/uploads/2026/01/2026-262-BUR-Gakenke-1000x1000-1-300x300.png",
+    "srcset": "https://www.goriffee.com/wp-content/uploads/2026/01/2026-262-BUR-Gakenke-1000x1000-1.png 1000w, https://www.goriffee.com/wp-content/uploads/2026/01/2026-262-BUR-Gakenke-1000x1000-1-300x300.png 300w, https://www.goriffee.com/wp-content/uploads/2026/01/2026-262-BUR-Gakenke-1000x1000-1-150x150.png 150w, https://www.goriffee.com/wp-content/uploads/2026/01/2026-262-BUR-Gakenke-1000x1000-1-768x768.png 768w, https://www.goriffee.com/wp-content/uploads/2026/01/2026-262-BUR-Gakenke-1000x1000-1-600x600.png 600w, https://www.goriffee.com/wp-content/uploads/2026/01/2026-262-BUR-Gakenke-1000x1000-1-100x100.png 100w",
+    "sizes": "(max-width: 1000px) 100vw, 1000px",
+    "thumbnail_srcset": "https://www.goriffee.com/wp-content/uploads/2026/01/2026-262-BUR-Gakenke-1000x1000-1-300x300.png 300w, https://www.goriffee.com/wp-content/uploads/2026/01/2026-262-BUR-Gakenke-1000x1000-1-150x150.png 150w, https://www.goriffee.com/wp-content/uploads/2026/01/2026-262-BUR-Gakenke-1000x1000-1-768x768.png 768w, https://www.goriffee.com/wp-content/uploads/2026/01/2026-262-BUR-Gakenke-1000x1000-1-600x600.png 600w, https://www.goriffee.com/wp-content/uploads/2026/01/2026-262-BUR-Gakenke-1000x1000-1-100x100.png 100w, https://www.goriffee.com/wp-content/uploads/2026/01/2026-262-BUR-Gakenke-1000x1000-1.png 1000w",
+    "thumbnail_sizes": "(max-width: 300px) 100vw, 300px",
+    "name": "2026-262-BUR-Gakenke-1000&#215;1000",
+    "alt": ""
+   }
+  ],
+  "categories": [
+   {
+    "id": 24,
+    "name": "Výberová káva na filter",
+    "slug": "vyberova-kava-na-filter",
+    "link": "https://www.goriffee.com/kategorie-produktov/kava/vyberova-kava-na-filter/"
+   }
+  ],
+  "tags": [
+   {
+    "id": 39,
+    "name": "100% arabika",
+    "slug": "100-arabika",
+    "link": "https://www.goriffee.com/tag-produktu/100-arabika/"
+   },
+   {
+    "id": 42,
+    "name": "filter",
+    "slug": "filter",
+    "link": "https://www.goriffee.com/tag-produktu/filter/"
+   },
+   {
+    "id": 82,
+    "name": "káva na filter",
+    "slug": "kava-na-filter",
+    "link": "https://www.goriffee.com/tag-produktu/kava-na-filter/"
+   },
+   {
+    "id": 117,
+    "name": "výberová káva",
+    "slug": "vyberova-kava",
+    "link": "https://www.goriffee.com/tag-produktu/vyberova-kava/"
+   }
+  ],
+  "attributes": [
+   {
+    "id": 5,
+    "name": "Chuťový profil",
+    "taxonomy": "pa_chutovy-profil",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 126,
+      "name": "Citrusová",
+      "slug": "citrusova"
+     },
+     {
+      "id": 100,
+      "name": "Ovocná",
+      "slug": "ovocna"
+     },
+     {
+      "id": 66,
+      "name": "Sladká",
+      "slug": "sladka"
+     }
+    ]
+   },
+   {
+    "id": 8,
+    "name": "Podľa oblasti",
+    "taxonomy": "pa_podla-oblasti",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 101,
+      "name": "Kávy z Afriky",
+      "slug": "kavy-z-afriky"
+     }
+    ]
+   },
+   {
+    "id": 9,
+    "name": "Podľa prípravy kávy",
+    "taxonomy": "pa_podla-pripravy-kavy",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 95,
+      "name": "Aeropress",
+      "slug": "aeropress"
+     },
+     {
+      "id": 96,
+      "name": "Chemex",
+      "slug": "chemex"
+     },
+     {
+      "id": 127,
+      "name": "Cold Brew",
+      "slug": "cold-brew"
+     },
+     {
+      "id": 97,
+      "name": "French press",
+      "slug": "french-press"
+     },
+     {
+      "id": 98,
+      "name": "Hario V60",
+      "slug": "hario-v60"
+     }
+    ]
+   },
+   {
+    "id": 4,
+    "name": "Príprava kávy",
+    "taxonomy": "pa_priprava-kavy",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 75,
+      "name": "Filter",
+      "slug": "filter"
+     }
+    ]
+   },
+   {
+    "id": 6,
+    "name": "Stupeň praženia (Roast)",
+    "taxonomy": "pa_stupen-prazenia-roast",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 136,
+      "name": "Light roast",
+      "slug": "light-roast",
+      "default": true
+     }
+    ]
+   },
+   {
+    "id": 7,
+    "name": "Váha",
+    "taxonomy": "pa_vaha",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 68,
+      "name": "1000g",
+      "slug": "1000g",
+      "default": false
+     },
+     {
+      "id": 69,
+      "name": "250g",
+      "slug": "250g",
+      "default": true
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 79621,
+    "attributes": [
+     {
+      "name": "Stupeň praženia (Roast)",
+      "value": "light-roast"
+     },
+     {
+      "name": "Váha",
+      "value": "250g"
+     }
+    ]
+   },
+   {
+    "id": 79620,
+    "attributes": [
+     {
+      "name": "Stupeň praženia (Roast)",
+      "value": "light-roast"
+     },
+     {
+      "name": "Váha",
+      "value": "1000g"
+     }
+    ]
+   }
+  ],
+  "is_in_stock": true
+ },
+ {
+  "id": 4168,
+  "name": "Guatemala Finca La Senda Champagne Yeast",
+  "permalink": "https://www.goriffee.com/shop/kava/vyberova-kava-na-filter/guatemala-finca-la-senda-champagne-yeast/",
+  "sku": "61214",
+  "short_description": "<p data-start=\"137\" data-end=\"690\">Na svahoch guatemalskej farmy <strong data-start=\"167\" data-end=\"185\">Finca La Senda</strong> je káva viac než len plodina – je to neustály experiment. Farmári tu neustále posúvajú hranice a so spracovaním pracujú spôsobmi, ktoré pripomínajú skôr vinárstvo než tradičnú kávu. Tento lot z odrody <strong data-start=\"387\" data-end=\"396\">Pache</strong> prešiel fermentáciou s <strong data-start=\"420\" data-end=\"446\">kvasinkami šampanského priamo z regióna Champagne</strong>, čo vytvorilo šálku, ktorá pôsobí sviežo a elegantne. Je hravá, osviežujúca,<strong> s tónmi citrusov, hrozna a sladkých egrešov</strong>. Toto je káva od ľudí, ktorí sa neboja experimentovať &#8211; a výsledok je naozaj nezabudnuteľný.</p>",
+  "prices": {
+   "price": "1700",
+   "regular_price": "1700",
+   "sale_price": "1700",
+   "price_range": {
+    "min_amount": "1700",
+    "max_amount": "6600"
+   },
+   "currency_code": "EUR",
+   "currency_symbol": "€",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ",",
+   "currency_thousand_separator": " ",
+   "currency_prefix": "",
+   "currency_suffix": " €"
+  },
+  "average_rating": "5.00",
+  "review_count": 1,
+  "images": [
+   {
+    "id": 80569,
+    "src": "https://www.goriffee.com/wp-content/uploads/2025/09/2026-289-GUA-La_Senda-1000x1000-1.png",
+    "thumbnail": "https://www.goriffee.com/wp-content/uploads/2025/09/2026-289-GUA-La_Senda-1000x1000-1-300x300.png",
+    "srcset": "https://www.goriffee.com/wp-content/uploads/2025/09/2026-289-GUA-La_Senda-1000x1000-1.png 1000w, https://www.goriffee.com/wp-content/uploads/2025/09/2026-289-GUA-La_Senda-1000x1000-1-300x300.png 300w, https://www.goriffee.com/wp-content/uploads/2025/09/2026-289-GUA-La_Senda-1000x1000-1-150x150.png 150w, https://www.goriffee.com/wp-content/uploads/2025/09/2026-289-GUA-La_Senda-1000x1000-1-768x768.png 768w, https://www.goriffee.com/wp-content/uploads/2025/09/2026-289-GUA-La_Senda-1000x1000-1-600x600.png 600w, https://www.goriffee.com/wp-content/uploads/2025/09/2026-289-GUA-La_Senda-1000x1000-1-100x100.png 100w",
+    "sizes": "(max-width: 1000px) 100vw, 1000px",
+    "thumbnail_srcset": "https://www.goriffee.com/wp-content/uploads/2025/09/2026-289-GUA-La_Senda-1000x1000-1-300x300.png 300w, https://www.goriffee.com/wp-content/uploads/2025/09/2026-289-GUA-La_Senda-1000x1000-1-150x150.png 150w, https://www.goriffee.com/wp-content/uploads/2025/09/2026-289-GUA-La_Senda-1000x1000-1-768x768.png 768w, https://www.goriffee.com/wp-content/uploads/2025/09/2026-289-GUA-La_Senda-1000x1000-1-600x600.png 600w, https://www.goriffee.com/wp-content/uploads/2025/09/2026-289-GUA-La_Senda-1000x1000-1-100x100.png 100w, https://www.goriffee.com/wp-content/uploads/2025/09/2026-289-GUA-La_Senda-1000x1000-1.png 1000w",
+    "thumbnail_sizes": "(max-width: 300px) 100vw, 300px",
+    "name": "2026-289-GUA-La_Senda-1000&#215;1000",
+    "alt": ""
+   }
+  ],
+  "categories": [
+   {
+    "id": 24,
+    "name": "Výberová káva na filter",
+    "slug": "vyberova-kava-na-filter",
+    "link": "https://www.goriffee.com/kategorie-produktov/kava/vyberova-kava-na-filter/"
+   }
+  ],
+  "attributes": [
+   {
+    "id": 5,
+    "name": "Chuťový profil",
+    "taxonomy": "pa_chutovy-profil",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 126,
+      "name": "Citrusová",
+      "slug": "citrusova"
+     },
+     {
+      "id": 99,
+      "name": "Fermentovaná",
+      "slug": "fermentovana"
+     },
+     {
+      "id": 100,
+      "name": "Ovocná",
+      "slug": "ovocna"
+     },
+     {
+      "id": 66,
+      "name": "Sladká",
+      "slug": "sladka"
+     }
+    ]
+   },
+   {
+    "id": 8,
+    "name": "Podľa oblasti",
+    "taxonomy": "pa_podla-oblasti",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 123,
+      "name": "Kávy zo Strednej Ameriky",
+      "slug": "kavy-zo-strednej-ameriky"
+     }
+    ]
+   },
+   {
+    "id": 9,
+    "name": "Podľa prípravy kávy",
+    "taxonomy": "pa_podla-pripravy-kavy",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 95,
+      "name": "Aeropress",
+      "slug": "aeropress"
+     },
+     {
+      "id": 96,
+      "name": "Chemex",
+      "slug": "chemex"
+     },
+     {
+      "id": 97,
+      "name": "French press",
+      "slug": "french-press"
+     },
+     {
+      "id": 98,
+      "name": "Hario V60",
+      "slug": "hario-v60"
+     }
+    ]
+   },
+   {
+    "id": 4,
+    "name": "Príprava kávy",
+    "taxonomy": "pa_priprava-kavy",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 75,
+      "name": "Filter",
+      "slug": "filter"
+     }
+    ]
+   },
+   {
+    "id": 6,
+    "name": "Stupeň praženia (Roast)",
+    "taxonomy": "pa_stupen-prazenia-roast",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 136,
+      "name": "Light roast",
+      "slug": "light-roast"
+     }
+    ]
+   },
+   {
+    "id": 7,
+    "name": "Váha",
+    "taxonomy": "pa_vaha",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 68,
+      "name": "1000g",
+      "slug": "1000g"
+     },
+     {
+      "id": 69,
+      "name": "250g",
+      "slug": "250g"
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 4886,
+    "attributes": [
+     {
+      "name": "Stupeň praženia (Roast)",
+      "value": "light-roast"
+     },
+     {
+      "name": "Váha",
+      "value": "250g"
+     }
+    ]
+   },
+   {
+    "id": 4885,
+    "attributes": [
+     {
+      "name": "Stupeň praženia (Roast)",
+      "value": "light-roast"
+     },
+     {
+      "name": "Váha",
+      "value": "1000g"
+     }
+    ]
+   }
+  ],
+  "is_in_stock": true
+ },
+ {
+  "id": 4189,
+  "name": "Ethiopia Aricha Washed",
+  "permalink": "https://www.goriffee.com/shop/kava/vyberova-kava-na-filter/ethiopia-aricha-washed/",
+  "sku": "68801",
+  "short_description": "<p data-path-to-node=\"3\">Táto výberová káva pochádza z legendárnej spracovateľskej stanice Aricha, ktorá sa nachádza v srdci presláveného regiónu Yirgacheffe. Kávové čerešne tu dozrievajú vo vysokých nadmorských výškach (približne 1900 &#8211; 2100 m n. m.), čo zrnám dodáva výnimočnú hustotu a komplexnosť.</p>\n<p data-path-to-node=\"4\">Vďaka precíznemu mokrému spracovaniu vyniká káva svojou čistotou a eleganciou. V šálke ponúka klasický a vyhľadávaný profil etiópskych káv. Očakávajte jemné, čajové telo s výraznými kvetinovými tónmi, doplnené o sladkosť broskýň.</p>\n<p data-path-to-node=\"5\">Je to ideálna voľba pre milovníkov jemných, aromatických káv a najlepšie vynikne pri príprave na filter.</p>\n<p data-path-to-node=\"6\">",
+  "prices": {
+   "price": "1600",
+   "regular_price": "1600",
+   "sale_price": "1600",
+   "price_range": {
+    "min_amount": "1600",
+    "max_amount": "6200"
+   },
+   "currency_code": "EUR",
+   "currency_symbol": "€",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ",",
+   "currency_thousand_separator": " ",
+   "currency_prefix": "",
+   "currency_suffix": " €"
+  },
+  "images": [
+   {
+    "id": 81282,
+    "src": "https://www.goriffee.com/wp-content/uploads/2026/01/2026-268-ETH-Aricha-1000x1000-1.png",
+    "thumbnail": "https://www.goriffee.com/wp-content/uploads/2026/01/2026-268-ETH-Aricha-1000x1000-1-300x300.png",
+    "srcset": "https://www.goriffee.com/wp-content/uploads/2026/01/2026-268-ETH-Aricha-1000x1000-1.png 1000w, https://www.goriffee.com/wp-content/uploads/2026/01/2026-268-ETH-Aricha-1000x1000-1-300x300.png 300w, https://www.goriffee.com/wp-content/uploads/2026/01/2026-268-ETH-Aricha-1000x1000-1-150x150.png 150w, https://www.goriffee.com/wp-content/uploads/2026/01/2026-268-ETH-Aricha-1000x1000-1-768x768.png 768w, https://www.goriffee.com/wp-content/uploads/2026/01/2026-268-ETH-Aricha-1000x1000-1-600x600.png 600w, https://www.goriffee.com/wp-content/uploads/2026/01/2026-268-ETH-Aricha-1000x1000-1-100x100.png 100w",
+    "sizes": "(max-width: 1000px) 100vw, 1000px",
+    "thumbnail_srcset": "https://www.goriffee.com/wp-content/uploads/2026/01/2026-268-ETH-Aricha-1000x1000-1-300x300.png 300w, https://www.goriffee.com/wp-content/uploads/2026/01/2026-268-ETH-Aricha-1000x1000-1-150x150.png 150w, https://www.goriffee.com/wp-content/uploads/2026/01/2026-268-ETH-Aricha-1000x1000-1-768x768.png 768w, https://www.goriffee.com/wp-content/uploads/2026/01/2026-268-ETH-Aricha-1000x1000-1-600x600.png 600w, https://www.goriffee.com/wp-content/uploads/2026/01/2026-268-ETH-Aricha-1000x1000-1-100x100.png 100w, https://www.goriffee.com/wp-content/uploads/2026/01/2026-268-ETH-Aricha-1000x1000-1.png 1000w",
+    "thumbnail_sizes": "(max-width: 300px) 100vw, 300px",
+    "name": "2026-268-ETH-Aricha-1000&#215;1000",
+    "alt": ""
+   }
+  ],
+  "categories": [
+   {
+    "id": 24,
+    "name": "Výberová káva na filter",
+    "slug": "vyberova-kava-na-filter",
+    "link": "https://www.goriffee.com/kategorie-produktov/kava/vyberova-kava-na-filter/"
+   }
+  ],
+  "attributes": [
+   {
+    "id": 5,
+    "name": "Chuťový profil",
+    "taxonomy": "pa_chutovy-profil",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 135,
+      "name": "Florálna",
+      "slug": "floralna"
+     },
+     {
+      "id": 100,
+      "name": "Ovocná",
+      "slug": "ovocna"
+     },
+     {
+      "id": 66,
+      "name": "Sladká",
+      "slug": "sladka"
+     }
+    ]
+   },
+   {
+    "id": 8,
+    "name": "Podľa oblasti",
+    "taxonomy": "pa_podla-oblasti",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 101,
+      "name": "Kávy z Afriky",
+      "slug": "kavy-z-afriky"
+     }
+    ]
+   },
+   {
+    "id": 9,
+    "name": "Podľa prípravy kávy",
+    "taxonomy": "pa_podla-pripravy-kavy",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 95,
+      "name": "Aeropress",
+      "slug": "aeropress"
+     },
+     {
+      "id": 96,
+      "name": "Chemex",
+      "slug": "chemex"
+     },
+     {
+      "id": 127,
+      "name": "Cold Brew",
+      "slug": "cold-brew"
+     },
+     {
+      "id": 97,
+      "name": "French press",
+      "slug": "french-press"
+     },
+     {
+      "id": 98,
+      "name": "Hario V60",
+      "slug": "hario-v60"
+     }
+    ]
+   },
+   {
+    "id": 4,
+    "name": "Príprava kávy",
+    "taxonomy": "pa_priprava-kavy",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 75,
+      "name": "Filter",
+      "slug": "filter"
+     }
+    ]
+   },
+   {
+    "id": 6,
+    "name": "Stupeň praženia (Roast)",
+    "taxonomy": "pa_stupen-prazenia-roast",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 136,
+      "name": "Light roast",
+      "slug": "light-roast"
+     }
+    ]
+   },
+   {
+    "id": 7,
+    "name": "Váha",
+    "taxonomy": "pa_vaha",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 68,
+      "name": "1000g",
+      "slug": "1000g"
+     },
+     {
+      "id": 69,
+      "name": "250g",
+      "slug": "250g"
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 4217,
+    "attributes": [
+     {
+      "name": "Stupeň praženia (Roast)",
+      "value": "light-roast"
+     },
+     {
+      "name": "Váha",
+      "value": "250g"
+     }
+    ]
+   },
+   {
+    "id": 4216,
+    "attributes": [
+     {
+      "name": "Stupeň praženia (Roast)",
+      "value": "light-roast"
+     },
+     {
+      "name": "Váha",
+      "value": "1000g"
+     }
+    ]
+   }
+  ],
+  "is_in_stock": true
+ },
+ {
+  "id": 79065,
+  "name": "Brazil Morada da Prata Natural",
+  "permalink": "https://www.goriffee.com/shop/kava/brazil-morada-da-prata-natural/",
+  "short_description": "<p>Typická sladká brazília na espresso? Tentokrát trochu inak.</p>\n<p>Fazenda Morada da Prata je rodinná farma s históriou siahajúcou až do roku 1936. Za desaťročia sa vypracovala na uznávaného producenta výberovej kávy &#8211; dnes hospodári na 150 hektároch s dôrazom na regeneratívne poľnohospodárstvo a ochranu pôvodného pralesa, ktorý obklopuje plantáže</p>\n<p>Táto káva vystupuje z radu svojím netypickým profilom &#8211; namiesto tradičnej čokolády a orieškov dominujú svieže ovocné tóny. Natural spracovanie, pri ktorom sa zrno suší priamo v ovocnej dužine, dodáva káve zaujímavý „funky&#8220; charakter s príjemnou, prirodzenou sladkosťou zrelého ovocia. V šálke nájdeš slivku, karamel a jemnú hĺbku para orechu.</p>\n<p>Skvelá voľba pre milovníkov moderného espressa, ktorí chcú od Brazílie niečo viac.</p>",
+  "prices": {
+   "price": "1400",
+   "regular_price": "1400",
+   "sale_price": "1400",
+   "price_range": null,
+   "currency_code": "EUR",
+   "currency_symbol": "€",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ",",
+   "currency_thousand_separator": " ",
+   "currency_prefix": "",
+   "currency_suffix": " €"
+  },
+  "average_rating": "5.00",
+  "review_count": 1,
+  "images": [
+   {
+    "id": 79066,
+    "src": "https://www.goriffee.com/wp-content/uploads/2026/06/2026-294-BRA-Morada_da_Prata-1000x1000-1.png",
+    "thumbnail": "https://www.goriffee.com/wp-content/uploads/2026/06/2026-294-BRA-Morada_da_Prata-1000x1000-1-300x300.png",
+    "srcset": "https://www.goriffee.com/wp-content/uploads/2026/06/2026-294-BRA-Morada_da_Prata-1000x1000-1.png 1000w, https://www.goriffee.com/wp-content/uploads/2026/06/2026-294-BRA-Morada_da_Prata-1000x1000-1-300x300.png 300w, https://www.goriffee.com/wp-content/uploads/2026/06/2026-294-BRA-Morada_da_Prata-1000x1000-1-150x150.png 150w, https://www.goriffee.com/wp-content/uploads/2026/06/2026-294-BRA-Morada_da_Prata-1000x1000-1-768x768.png 768w, https://www.goriffee.com/wp-content/uploads/2026/06/2026-294-BRA-Morada_da_Prata-1000x1000-1-600x600.png 600w, https://www.goriffee.com/wp-content/uploads/2026/06/2026-294-BRA-Morada_da_Prata-1000x1000-1-100x100.png 100w",
+    "sizes": "(max-width: 1000px) 100vw, 1000px",
+    "thumbnail_srcset": "https://www.goriffee.com/wp-content/uploads/2026/06/2026-294-BRA-Morada_da_Prata-1000x1000-1-300x300.png 300w, https://www.goriffee.com/wp-content/uploads/2026/06/2026-294-BRA-Morada_da_Prata-1000x1000-1-150x150.png 150w, https://www.goriffee.com/wp-content/uploads/2026/06/2026-294-BRA-Morada_da_Prata-1000x1000-1-768x768.png 768w, https://www.goriffee.com/wp-content/uploads/2026/06/2026-294-BRA-Morada_da_Prata-1000x1000-1-600x600.png 600w, https://www.goriffee.com/wp-content/uploads/2026/06/2026-294-BRA-Morada_da_Prata-1000x1000-1-100x100.png 100w, https://www.goriffee.com/wp-content/uploads/2026/06/2026-294-BRA-Morada_da_Prata-1000x1000-1.png 1000w",
+    "thumbnail_sizes": "(max-width: 300px) 100vw, 300px",
+    "name": "2026-294-BRA-Morada_da_Prata-1000&#215;1000",
+    "alt": ""
+   }
+  ],
+  "categories": [
+   {
+    "id": 23,
+    "name": "Výberová káva na espresso",
+    "slug": "vyberova-kava-na-espresso",
+    "link": "https://www.goriffee.com/kategorie-produktov/kava/vyberova-kava-na-espresso/"
+   }
+  ],
+  "attributes": [
+   {
+    "id": 5,
+    "name": "Chuťový profil",
+    "taxonomy": "pa_chutovy-profil",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 65,
+      "name": "Orechová",
+      "slug": "orechova"
+     },
+     {
+      "id": 100,
+      "name": "Ovocná",
+      "slug": "ovocna"
+     },
+     {
+      "id": 66,
+      "name": "Sladká",
+      "slug": "sladka"
+     }
+    ]
+   },
+   {
+    "id": 8,
+    "name": "Podľa oblasti",
+    "taxonomy": "pa_podla-oblasti",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 70,
+      "name": "Kávy z Južnej Ameriky",
+      "slug": "kavy-z-juznej-ameriky"
+     }
+    ]
+   },
+   {
+    "id": 9,
+    "name": "Podľa prípravy kávy",
+    "taxonomy": "pa_podla-pripravy-kavy",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 71,
+      "name": "Automatický kávovar",
+      "slug": "automaticky-kavovar"
+     },
+     {
+      "id": 72,
+      "name": "Mokka kávovar / Koťogo",
+      "slug": "mokka-kavovar-kotogo"
+     },
+     {
+      "id": 73,
+      "name": "Pákový espresso kávovar",
+      "slug": "pakovy-espresso-kavovar"
+     }
+    ]
+   },
+   {
+    "id": 4,
+    "name": "Príprava kávy",
+    "taxonomy": "pa_priprava-kavy",
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 63,
+      "name": "Espresso",
+      "slug": "espresso"
+     }
+    ]
+   },
+   {
+    "id": 6,
+    "name": "Stupeň praženia (Roast)",
+    "taxonomy": "pa_stupen-prazenia-roast",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 74,
+      "name": "Medium Roast",
+      "slug": "medium-roast",
+      "default": true
+     }
+    ]
+   },
+   {
+    "id": 7,
+    "name": "Váha",
+    "taxonomy": "pa_vaha",
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 68,
+      "name": "1000g",
+      "slug": "1000g"
+     },
+     {
+      "id": 69,
+      "name": "250g",
+      "slug": "250g"
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 79070,
+    "attributes": [
+     {
+      "name": "Stupeň praženia (Roast)",
+      "value": "medium-roast"
+     },
+     {
+      "name": "Váha",
+      "value": "250g"
+     }
+    ]
+   }
+  ],
+  "is_in_stock": true
+ }
+]

@@ -1,0 +1,22 @@
+# Typika Roastery — a Czech roastery on Shopify. Its passport sits under a
+# "Další informace:" heading in capitals, and its variants state `grams` as 250
+# whatever the bag holds (250g / 500g / 1000g all say 250), so only the headline
+# 250 g price is weighed correctly and the larger bags fall back to the variant
+# title.
+platform = "shopify"
+site_id = "typika"
+name = "Typika"
+country = "CZ"
+base_url = "https://typika.coffee/"
+# products.json quotes bare decimal strings and names no currency anywhere.
+currency = "CZK"
+max_pages = 3
+
+# "kava" holds all 67 coffees; "bestsellers" repeats them mixed with hardware.
+collections = ["kava"]
+
+# The catalogue also sells machines, books, glassware and subscriptions.
+ignore = [
+  "darkovy poukaz",
+  "predplatne",
+]

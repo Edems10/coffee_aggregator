@@ -1,0 +1,21 @@
+# Caffè diGusto — the survey recorded the blends category alone; single
+# origins, blends and decaf are three separate top-level categories.
+platform = "shoptet"
+site_id = "digusto"
+name = "Caffè diGusto"
+country = "CZ"
+base_url = "https://www.digusto.cz/"
+category_urls = [
+  "https://www.digusto.cz/jednodruhova-kava-2/",
+  "https://www.digusto.cz/smesi-kav-2/",
+  "https://www.digusto.cz/kava-bez-kofeinu/",
+]
+currency = "CZK"
+max_pages = 10
+pagination = "path"
+
+# The shop also roasts cocoa beans, which are listed beside the coffee.
+ignore = [
+  "kakaov",
+  "degustacni balicek",
+]

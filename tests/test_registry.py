@@ -6,7 +6,7 @@ from typing import TYPE_CHECKING
 
 import pytest
 
-from coffee_aggregator import sites
+from coffee_aggregator import platforms, sites
 from coffee_aggregator.sites import loader, registry
 from coffee_aggregator.sites.base import ProductRef, SiteAdapter
 
@@ -159,3 +159,114 @@ def test_load_errors_are_cleared_on_a_clean_reload(
     monkeypatch.setattr(loader, "_loaded", False)
     loader.load_all(config_dir=tmp_path / "none", force=True)
     assert loader.load_errors == []
+
+
+# --- discovery survives one bad shop, and never lies about having finished ---
+
+_SHOP_TOML = """
+platform = "shoptet"
+site_id = "{site_id}"
+name = "Test Roastery"
+country = "CZ"
+base_url = "https://{site_id}.example.cz/"
+category_urls = ["https://{site_id}.example.cz/kava/"]
+currency = "CZK"
+"""
+
+
+def _discovery_ran() -> bool:
+    # Read through a call: a direct ``loader._loaded is True`` narrows the type
+    # and makes every later line look unreachable to the type checker.
+    return loader._loaded
+
+
+def _configs(tmp_path: Path, *site_ids: str) -> Path:
+    configs = tmp_path / "configs"
+    configs.mkdir()
+    for site_id in site_ids:
+        (configs / f"{site_id}.toml").write_text(_SHOP_TOML.format(site_id=site_id), "utf-8")
+    return configs
+
+
+def test_an_unexpected_error_in_one_config_costs_only_that_shop(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    configs = _configs(tmp_path, "alpha", "beta")
+    real = platforms.build_from_config
+
+    def explode(path: Path) -> object:
+        if path.name == "alpha.toml":
+            message = "a mistyped table"
+            raise TypeError(message)
+        return real(path)
+
+    monkeypatch.setattr(platforms, "build_from_config", explode)
+    monkeypatch.setattr(loader, "_loaded", False)
+
+    loader.load_all(config_dir=configs, force=True)
+
+    assert any("alpha.toml" in problem and "TypeError" in problem for problem in loader.load_errors)
+    assert "beta" in registry.known_ids()
+
+
+def test_discovery_that_dies_half_way_is_not_marked_as_done(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    def explode(package: object) -> None:
+        message = "boom"
+        raise RuntimeError(message)
+
+    monkeypatch.setattr(loader, "_import_submodules", explode)
+    monkeypatch.setattr(loader, "_loaded", False)
+
+    with pytest.raises(RuntimeError):
+        loader.load_all(config_dir=tmp_path / "none", force=True)
+
+    assert _discovery_ran() is False
+
+
+def test_rebuilding_a_configured_shop_is_not_a_duplicate(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    configs = _configs(tmp_path, "alpha")
+    monkeypatch.setattr(loader, "_loaded", False)
+    loader.load_all(config_dir=configs, force=True)
+    loader.load_all(config_dir=configs, force=True)
+
+    assert loader.load_errors == []
+    assert "alpha" in registry.known_ids()
+
+
+def test_two_configs_claiming_one_id_are_still_reported(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    configs = _configs(tmp_path, "alpha")
+    (configs / "clash.toml").write_text(_SHOP_TOML.format(site_id="alpha"), "utf-8")
+    monkeypatch.setattr(loader, "_loaded", False)
+
+    loader.load_all(config_dir=configs, force=True)
+
+    assert any("clash.toml" in problem for problem in loader.load_errors)
+
+
+def test_clearing_the_registry_makes_discovery_run_again(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    configs = _configs(tmp_path, "alpha")
+    monkeypatch.setattr(loader, "_loaded", False)
+    loader.load_all(config_dir=configs, force=True)
+    assert _discovery_ran() is True
+
+    registry.clear()
+
+    # Without this the registry stays empty for the rest of the process: every
+    # later call sees the "already loaded" flag and returns from nothing.
+    assert _discovery_ran() is False
+    assert registry.known_ids() == []
+    loader.load_all(config_dir=configs)
+    assert "alpha" in registry.known_ids()

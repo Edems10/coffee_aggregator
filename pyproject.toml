@@ -3,13 +3,13 @@ name = "coffee-aggregator"
 version = "0.1.0"
 description = "Polite multi-site collector of Czech and Slovak coffee bean data."
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = ">=3.14"
 dependencies = [
     "beautifulsoup4>=4.13.3",
+    "httpx2>=2.13.1",
     "lxml>=5.3.0",
     "psycopg[binary]>=3.2.4",
     "python-dotenv>=1.0.1",
-    "requests>=2.32.3",
 ]
 
 [project.scripts]
@@ -29,9 +29,7 @@ dev = [
     "pre-commit>=4.1.0",
     "pytest>=8.3.4",
     "pytest-cov>=6.0.0",
-    "responses>=0.25.6",
     "ruff>=0.16.7",
-    "types-requests>=2.32.0",
 ]
 
 [tool.pytest.ini_options]
@@ -40,7 +38,7 @@ addopts = "-q"
 markers = ["integration: needs a live PostgreSQL pointed at by TEST_DATABASE_URL"]
 
 [tool.ruff]
-target-version = "py313"
+target-version = "py314"
 line-length = 100
 src = ["src", "tests"]
 
@@ -79,12 +77,12 @@ convention = "google"
 [tool.ruff.format]
 
 [tool.mypy]
-python_version = "3.13"
+python_version = "3.14"
 strict = true
 warn_unreachable = true
 warn_unused_ignores = true
 files = ["src", "tests"]
 
 [[tool.mypy.overrides]]
-module = ["responses.*", "lxml.*"]
+module = ["lxml.*"]
 ignore_missing_imports = true

@@ -1,0 +1,32 @@
+# 25COFFEE — category slugs are grind/type shaped; origin data lives in the
+# description as "Label: value" lines. The weight attribute is a whole
+# sentence, which is why it is mapped explicitly rather than guessed.
+platform = "woocommerce"
+site_id = "25coffee"
+name = "25COFFEE"
+country = "SK"
+base_url = "https://www.25coffee.sk/"
+currency = "EUR"
+mode = "api"
+max_pages = 10
+
+# Pinned ids, not slugs: ids survive a re-theme, slugs do not.
+# 23 zrnkova-kava-100-arabica (6), 25 nase-vlastne-zmesi (1), 27 zrnkova-bezkofeinova-kava (1).
+api_category_ids = [23, 25, 27]
+
+# The HTML fallback, used only if /wp-json/ ever stops answering.
+category_urls = [
+  "https://www.25coffee.sk/product-category/zrnkova-kava-100-arabica/",
+  "https://www.25coffee.sk/product-category/nase-vlastne-zmesi/",
+  "https://www.25coffee.sk/product-category/zrnkova-bezkofeinova-kava/",
+]
+
+# The catalogue also sells things that are not coffee beans.
+ignore = [
+  "cascara",
+  "raffes",
+]
+
+[label_map]
+"Ak by ste túto kávičku radi vyskúšali, prosím Vás vyberte si hmotnosť balenia." = "weight"
+"Nadm. výška" = "altitude"

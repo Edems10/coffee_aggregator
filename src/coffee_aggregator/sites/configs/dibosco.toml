@@ -19,6 +19,4 @@ ignore = [
 
 [label_map]
 # The weight axis, declined so that the built-in "balenie" never matches.
-"Veľkosť balenia" = "weight"
 # The grind axis: what the shop will mill the beans for.
-"Typ mletia" = "brewing"

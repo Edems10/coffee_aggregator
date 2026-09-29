@@ -16,7 +16,7 @@ Two product rules drive the design:
 
 ## Requirements
 
-* Python 3.13+
+* Python 3.14+
 * [uv](https://docs.astral.sh/uv/) — the only supported package manager
 * PostgreSQL 15 or newer (docker compose ships the current major, 18)
 
@@ -54,15 +54,41 @@ Nothing but `DATABASE_URL` changes — there is no vendor SDK anywhere in the co
 | Supabase | `postgresql://postgres:PASSWORD@db.PROJECT.supabase.co:5432/postgres` (the *direct* Postgres URL, not the REST API) |
 | any managed Postgres | the same `postgresql://` URL |
 
+## Running in a container
+
+`Dockerfile` builds the image the scheduled run uses: a two-stage build that
+resolves `uv.lock` into `/opt/venv` and then carries nothing but that
+environment — no source tree, no uv, no dev dependencies, ~270 MB. It runs as
+uid 10001 and needs no writable filesystem.
+
+```bash
+docker compose up -d                                  # database only
+docker compose run --rm crawler init-db               # schema, from the image
+docker compose run --rm crawler crawl --sink postgres --site kafista
+docker compose run --rm crawler                       # the daily crawl
+```
+
+The `crawler` service sits behind a compose profile, so `docker compose up -d`
+still starts only the database. Inside the compose network the database answers
+to `db:5432`, not `localhost` — from a container on this machine to a database
+on the host, use `host.docker.internal`.
+
+`DATABASE_URL` arrives from the environment at start and is never baked into a
+layer; `.dockerignore` is an allowlist, so `.env` cannot reach the build context
+at all. See [docs/docker.md](docs/docker.md) for deploying the image.
+
 ## CLI
 
 ```bash
 coffee-aggregator list-sites
-coffee-aggregator init-db [--dsn URL]
+coffee-aggregator init-db [--dsn URL] [--dry-run]
+coffee-aggregator runs [--site <id>] [--limit N] [--dsn URL]
 coffee-aggregator fx [--refresh] [--dsn URL]
 coffee-aggregator crawl --site <id>|all --sink jsonl|postgres \
     [--out PATH] [--dsn URL] [--limit N] [--max-pages N] \
-    [--workers 4] [--delay 1.0] [--cache-dir DIR]
+    [--deadline SECONDS] [--shard I/N] [--batch-size 50] \
+    [--workers 2] [--site-workers 1] [--delay 1.0] [--cache-dir DIR] \
+    [--timeout 15] [--retries 3] [--max-retry-wait 60] [--robots-retry 300]
 coffee-aggregator parse --site <id> --file page.html [--url URL]
 ```
 
@@ -71,13 +97,47 @@ coffee-aggregator parse --site <id> --file page.html [--url URL]
 * `--dsn` overrides `DATABASE_URL` for one invocation.
 * `--limit` / `--max-pages` make a run *partial*: delisting is then skipped, so a
   short debugging crawl can never mark the rest of a catalogue as gone.
+* `--deadline SECONDS` caps the whole crawl. It is checked at batch and listing-page
+  boundaries — never inside one, so no batch is ever half written — and a run that
+  hits it is reported with `deadline_reached: true` and `complete: false`, which is
+  what stops a truncated shard from delisting the catalogue it never finished
+  reading. One deadline covers every shop of the invocation, not one per shop.
+* `--shard I/N` crawls one deterministic slice of the registered shops. See
+  [Sharding the daily run](#sharding-the-daily-run).
+* `--batch-size` is how many products are fetched and written per round;
+  `--timeout`, `--retries`, `--max-retry-wait` and `--robots-retry` are the
+  transport knobs (`--timeout 8 --retries 1 --max-retry-wait 10` is the short-lived
+  profile a Lambda wants). Each one has an environment variable below.
+* `--workers` is the fetch pool *inside* one shop and defaults to **2**: every URL
+  of a batch belongs to one host, the per-host delay is the real bound, and four
+  workers measured slightly *slower* than one. `--site-workers` is the knob that
+  turns hours into minutes — it crawls that many shops at once, each still paced
+  on its own host.
+* `runs` prints the recent rows of `crawl_run`, newest first — what each shop
+  discovered, wrote and failed at, and the command line it was crawled with. It
+  needs a DSN; see [Run history](#run-history).
+* `init-db --dry-run` prints the migrations that *would* be applied and changes
+  nothing.
 * `parse` is the fixture workflow: save a page, parse it offline, print the JSON.
 * `fx` prints the EUR/CZK fixing the crawls stamp on their rows, fetching it when
   none is stored; `--refresh` fetches even when one is. See
   [Price normalisation](#price-normalisation).
-* Exit code `2` signals a configuration error (missing DSN, unknown site id) —
-  and `list-sites` also exits `2` when a shop TOML or adapter module could not be
-  loaded, printing each failure. A crawl logs how many were lost and carries on.
+### Exit codes
+
+| code | meaning |
+| --- | --- |
+| `0` | every shop that was crawled stored at least one product |
+| `1` | a shop wrote nothing, a shop's discovery failed, or there was nothing to crawl |
+| `2` | configuration error: missing DSN, unknown site id, malformed `--shard` |
+
+A daily job that always exits `0` is a daily job nobody reads, so `crawl` fails the
+run when **any** selected shop stored no product or its discovery broke — the two
+shapes a rotted selector takes. `--limit`, `--max-pages` and `--deadline` never fail
+a run by themselves: they make it *partial*, which suppresses delisting, but a cap
+of one product is still expected to produce one product. A `--site all` crawl names
+every empty shop in its summary before it exits. `list-sites` also exits `2` when a
+shop TOML or adapter module could not be loaded, printing each failure; a crawl logs
+how many were lost and carries on with the rest.
 * `--sink jsonl` writes to a `.tmp` file and moves it into place only when the
   crawl finishes, so an interrupted run never truncates the previous output.
 
@@ -90,7 +150,15 @@ coffee-aggregator parse --site <id> --file page.html [--url URL]
 | `COFFEE_AGG_UA_TOKEN` | first token of the User-Agent | the product token robots.txt rules are matched on |
 | `COFFEE_AGG_CONTACT` | project URL | how a shop can reach you |
 | `COFFEE_AGG_DELAY` | `1.0` | minimum seconds between request starts per host |
-| `COFFEE_AGG_WORKERS` | `4` | fetch thread-pool size |
+| `COFFEE_AGG_WORKERS` | `2` | fetch thread-pool size, within one shop |
+| `COFFEE_AGG_SITE_WORKERS` | `1` | how many shops are crawled at the same time |
+| `COFFEE_AGG_TIMEOUT` | `15.0` | per-request timeout in seconds |
+| `COFFEE_AGG_RETRIES` | `3` | how often a 429/5xx is retried |
+| `COFFEE_AGG_MAX_RETRY_WAIT` | `60.0` | longest a single retry may sleep |
+| `COFFEE_AGG_ROBOTS_RETRY` | `300.0` | how long an unreadable robots.txt keeps a host closed |
+| `COFFEE_AGG_BATCH_SIZE` | `50` | products fetched and written per round |
+| `COFFEE_AGG_DEADLINE` | — | seconds one whole crawl may take |
+| `COFFEE_AGG_CRAWL_DELAYS` | `caffeoro.sk=30` | `host=seconds` pairs used to weigh the shards |
 | `COFFEE_AGG_CACHE_DIR` | — | directory for the conditional-GET cache |
 | `COFFEE_AGG_FX_CACHE` | `<cache dir>/fx_rates.json`, else `~/.cache/coffee-aggregator/fx_rates.json` | the JSON rate store used when there is no database |
 | `COFFEE_DB_PORT` | `5432` | host port docker compose publishes Postgres on |
@@ -111,8 +179,10 @@ Every request in the project goes through one `PoliteFetcher`:
   `--workers` never raises the request rate against one shop. A `Crawl-delay` in
   robots.txt wins whenever it is larger than `--delay`.
 * Retries with exponential backoff on 429/500/502/503/504, honouring `Retry-After` —
-  and **through the limiter**: urllib3's own status retries are switched off, so a
-  retry re-checks robots.txt and waits out the host's delay like any first request.
+  and **through the limiter**: the `httpx2` transport is built with `retries=0`, so
+  nothing below `PoliteFetcher` ever retries behind the limiter's back and every
+  retry re-checks robots.txt and waits out the host's delay like a first request.
+  `--retries` caps how many, `--max-retry-wait` how long any one of them may sleep.
 * A `Crawl-delay` is applied to the *first* content request as well: the host's
   next slot is re-booked from the moment the robots.txt request started.
 * robots.txt itself is fetched without automatic redirects; each hop is checked
@@ -257,12 +327,14 @@ both ways, so `processing.methods` holds both and `processing.method` becomes
 `META_DESCRIPTION`, `META_KEYWORDS`) and the listing card's own strings (prefixed
 `LIST_`) join `raw_attributes`, so nothing a shop showed us is lost.
 
-Three tables:
+Five tables:
 
 * `coffee` — one row per `(site, external_id)`, with `first_seen_at`,
   `last_seen_at` and `delisted_at` bookkeeping.
+* `coffee_variant` — one row per weight/price variant of a product.
 * `price_history` — one row per product per crawl, for price tracking over time.
 * `fx_rates` — one EUR/CZK fixing per day (see below).
+* `crawl_run` — one row per shop per crawl (see [Run history](#run-history)).
 
 The sink's `COLUMNS` tuple is the single source of truth for the INSERT, and a test
 replays every migration to assert the two agree — with a second check against
@@ -271,11 +343,30 @@ live database cannot drift apart.
 
 ## Migrations
 
-The DDL lives in numbered files under
-`src/coffee_aggregator/db/migrations/` (`0001_initial.sql`, `0002_fx_rates.sql`, …)
-and is applied by the dependency-free runner in `src/coffee_aggregator/db/migrate.py`:
+The DDL lives in numbered files under `src/coffee_aggregator/db/migrations/` and is
+applied by the dependency-free runner in `src/coffee_aggregator/db/migrate.py`.
 
-* a `schema_migrations(version, applied_at)` table records what has run;
+**There is exactly one file today, `0001_initial.sql`, and that is deliberate.**
+Nothing has ever been deployed — the only databases are a developer's laptop and
+the throw-away one the integration tests own, and a full catalogue is re-crawled in
+under a minute — so the incremental files describing the road to a shape nobody ran
+were collapsed into it. Until the first real deployment, a schema change is an edit
+to that file followed by a rebuild:
+
+```bash
+dropdb coffee && createdb -O coffee coffee && coffee-aggregator init-db
+```
+
+The runner records a checksum, so an edited file is *rejected* on a database that
+already applied it (`MigrationChecksumError`) rather than silently skipped — a
+rebuild is the only way through, which is exactly the property that makes the
+collapse safe to stop doing later. **From the first real deployment onwards** every
+change is a new numbered file beside it and nothing is ever edited in place.
+
+The runner itself:
+
+* a `schema_migrations(version, checksum, applied_at)` table records what has run,
+  and a session-level advisory lock keeps two Lambdas from applying the same file;
 * pending files are applied in lexical order — hence the zero-padded prefix —
   each one in a single transaction together with the row that records it, so a
   crash can never leave a version half applied;
@@ -288,9 +379,77 @@ installed wheel exactly as it does from a checkout. Every statement is still
 `IF NOT EXISTS`, so `0001_initial` is a no-op on a database created before the
 migrations existed and only records its version.
 
-**Adding one:** drop `000N_what_it_does.sql` in that directory and re-run
-`init-db`. If it adds a column to `coffee`, add it to `Coffee`, to `to_record()`
-and to `COLUMNS` in the same commit — the drift test fails otherwise.
+**Adding one** (once something is deployed): drop `000N_what_it_does.sql` in that
+directory and re-run `init-db`. If it adds a column to `coffee`, add it to `Coffee`,
+to `to_record()` and to `COLUMNS` in the same commit — the drift test fails
+otherwise. `init-db --dry-run` prints what is pending without touching anything.
+
+## Run history
+
+Every shop of every crawl appends one row to `crawl_run`: when it started and
+finished, how long it took, every counter of its `RunReport` (`discovered`,
+`fetched`, `parsed`, `skipped_non_coffee`, `failed`, `disallowed`, `written`,
+`delisted`), whether it was `complete`, whether `discovery_ok`, whether it stopped
+on its `deadline_reached`, its first fifty errors as `jsonb`, and the command line
+it was started with. `src/coffee_aggregator/db/monitoring.py` owns the table;
+`NullMonitor` stands in when the run has no database (`--sink jsonl`), so a
+debugging crawl into a flat file never needs a DSN.
+
+The monitor keeps its own connection rather than borrowing the sink's: the sink's
+is held across a batch upsert and committed with it, and the row saying "this shop
+wrote nothing" matters most exactly when the writes are what failed. A failure to
+record is logged and swallowed — monitoring that can take the crawl down with it is
+worse than no monitoring.
+
+```bash
+coffee-aggregator runs                      # the last 20 runs, newest first
+coffee-aggregator runs --site coffeein --limit 5
+```
+
+**Which shops returned nothing today** — the morning-after query:
+
+```sql
+SELECT site,
+       max(finished_at) AS last_finished,
+       bool_and(discovery_ok) AS discovery_ok,
+       sum(written) AS written
+FROM crawl_run
+WHERE started_at >= date_trunc('day', now())
+GROUP BY site
+HAVING sum(written) = 0
+ORDER BY site
+```
+
+`tests/test_monitoring.py` runs that exact text against a live database and asserts
+this file still contains it, so the runbook cannot drift from what was tested.
+
+## Sharding the daily run
+
+`--shard I/N` crawls one deterministic slice of the registered shops, so a nightly
+job can be spread over N workers with a fifteen-minute ceiling each.
+
+* **Split by host, not by shop.** Two shops on one origin always land in the same
+  shard: the rate limiter is keyed by host, so splitting them would have each shard
+  pace that origin on its own and double the request rate the shop sees.
+* **Balanced by estimated cost, not by count.** A host costs
+  `requests × max(--delay, its crawl-delay)`, where `requests` is estimated as
+  `max_pages × (1 + 24)` — every listing page the adapter may walk, plus the detail
+  pages a page of that size holds. Hosts are then packed longest-first into the
+  emptiest shard. Balancing by count would put fifty fast shops in one shard and the
+  one slow shop in another, which is the split that misses the deadline.
+* **Crawl-delays are known up front.** robots.txt is the authority and the fetcher
+  always re-reads it, but a shard has to be weighed *before* the first request, so
+  the surveyed values live in `config.KNOWN_CRAWL_DELAYS` and `COFFEE_AGG_CRAWL_DELAYS`
+  adds to them.
+
+**caffeoro.sk declares `Crawl-delay: 30`.** At five listing pages that is an
+estimated ~3 750 s of request time — on its own, more than four times a Lambda's
+fifteen-minute ceiling, so *no* split of any N can make it fit. Sharding therefore
+does the one useful thing available: it gives that host a shard to itself, keeps it
+out of the others, and `--deadline` makes the shard that holds it stop cleanly and
+be reported incomplete, which never delists. Getting its whole catalogue needs a
+separate, longer-budgeted schedule for that one shop; nothing here pretends to
+solve a thirty-second crawl-delay.
 
 ## Price normalisation
 
@@ -333,8 +492,10 @@ uv run coffee-aggregator fx --refresh --dsn postgresql://coffee:coffee@localhost
 uv run pytest -q          # offline: no test touches the network
 ```
 
-HTTP is mocked with [`responses`](https://github.com/getsentry/responses), and real
-pages saved under `tests/fixtures/<site>/` are loaded by the `fixture_html` fixture:
+No test touches the network: `tests/test_fetcher.py` exposes a `MockHTTP` registry
+served through an [`httpx2.MockTransport`](https://www.python-httpx.org/advanced/transports/),
+which `install(monkeypatch)` puts under every fetcher the test builds. Real pages
+saved under `tests/fixtures/<site>/` are loaded by the `fixture_html` fixture:
 
 ```python
 def test_something(fixture_html):
@@ -363,7 +524,8 @@ Every package's `__init__.py` is a thin re-export — the logic lives in a named
 module next to it: `sites/loader.py` (discovery), `sites/registry.py` (the
 `@register` map), `platforms/loader.py` (platform resolution), `sinks/factory.py`
 (the sink name → factory map), `http/fetcher.py` (the only place that makes a
-request), `db/migrate.py` (the migration runner), `fx/cnb.py` and `fx/ecb.py` (the
+request), `db/migrate.py` (the migration runner), `db/monitoring.py` (the `crawl_run`
+recorder), `fx/cnb.py` and `fx/ecb.py` (the
 rate feeds), `fx/rates.py` (the once-a-day service), `fx/stores.py` and
 `fx/convert.py`. Nothing in the project starts with a module docstring or a licence
 header; `D100`, `D104` and `CPY001` are ignored for that reason.
@@ -380,3 +542,16 @@ uv run pre-commit run --all-files
 ```
 
 Dependencies are never upper-bounded; refresh them with `uv lock --upgrade && uv sync`.
+
+### Continuous integration
+
+`.github/workflows/ci.yml` runs on every pull request and every push to `main`:
+`lint` (ruff + mypy), `hooks` (`pre-commit run --all-files`), `test` (the whole
+suite against a `postgres:18-alpine` service container, so the integration tests
+run instead of skipping), `image` (builds `Dockerfile` and checks the image ships
+every shop the working tree has) and `diff-summary` (classifies the pull
+request's files into the job summary). See [docs/ci.md](docs/ci.md) for the one-command local
+equivalent of each job.
+
+`tests/test_repo_hygiene.py` keeps `tests/fixtures/` honest: every file stays
+under 300 KB, and every fixture directory must be named by some test module.

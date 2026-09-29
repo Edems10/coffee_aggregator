@@ -1,0 +1,26 @@
+# Coffee Source — a Czech roastery on Shopify with a 900-collection catalogue
+# that is mostly La Marzocco machines and spare parts. Its variants carry a real
+# `grams` value, and its passport is the richest of the batch, but it is written
+# twice: a short row block ("Farma:", "Nadmořská výška:", "Odrůda:") followed by
+# long essays that repeat the same labels as headings over whole paragraphs.
+# The first value of each label wins, which is the row.
+platform = "shopify"
+site_id = "coffeesource"
+name = "Coffee Source"
+country = "CZ"
+base_url = "https://coffeesource.eu/"
+# products.json quotes bare decimal strings and names no currency anywhere.
+currency = "CZK"
+max_pages = 3
+
+# "vyberova-kava" (105) is the specialty offer. The broader "kava" (119) and
+# "vsechny-produkty" (932) drag in chocolate, tea and hardware.
+collections = ["vyberova-kava"]
+
+# Beside the coffee the shop sells courses, subscriptions and tasting boxes.
+ignore = [
+  "degustacni sada",
+  "predplatne",
+  "kurz",
+  "darkovy poukaz",
+]

@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import logging
 import os
+import threading
 from pathlib import Path
 from typing import TYPE_CHECKING
 
@@ -36,6 +37,9 @@ class JsonlSink:
         self.path = Path(path)
         self.temporary = self.path.with_name(f"{self.path.name}.{os.getpid()}.tmp")
         self._handle: TextIO | None = None
+        # Shops crawled in parallel write into the same file; without this a
+        # line from one shop can land inside a line from another.
+        self._lock = threading.Lock()
 
     def _open(self) -> TextIO:
         """Open the temporary file on first use.
@@ -59,13 +63,25 @@ class JsonlSink:
         """
         if not coffees:
             return SinkResult()
+        with self._lock:
+            return self._write_locked(coffees)
+
+    def _write_locked(self, coffees: Sequence[Coffee]) -> SinkResult:
+        """Write one batch with the handle held.
+
+        Args:
+            coffees: The batch to write.
+
+        Returns:
+            How many lines were written and how many could not be serialised.
+        """
         handle = self._open()
         written = 0
         failed = 0
         for coffee in coffees:
             try:
                 line = json.dumps(coffee.to_record(json_safe=True), ensure_ascii=False)
-            except (TypeError, ValueError):
+            except TypeError, ValueError:
                 logger.exception("could not serialise %s", coffee.url)
                 failed += 1
                 continue
@@ -93,6 +109,11 @@ class JsonlSink:
 
     def close(self) -> None:
         """Put the finished file in place; a run that wrote nothing changes nothing."""
+        with self._lock:
+            self._close_locked()
+
+    def _close_locked(self) -> None:
+        """Replace the output with the temporary file, with the lock held."""
         if self._handle is None:
             return
         self._handle.close()

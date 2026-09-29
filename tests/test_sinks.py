@@ -3,9 +3,9 @@ from __future__ import annotations
 import json
 from typing import TYPE_CHECKING
 
-from coffee_aggregator.models import Coffee
+from coffee_aggregator.models import Coffee, Variant
 from coffee_aggregator.sinks.jsonl import JsonlSink
-from coffee_aggregator.sinks.postgres import COLUMNS
+from coffee_aggregator.sinks.postgres import COLUMNS, VARIANT_COLUMNS, variant_rows_for
 
 if TYPE_CHECKING:
     from pathlib import Path
@@ -126,3 +126,131 @@ def test_closing_twice_is_harmless(tmp_path: Path) -> None:
     sink.close()
     sink.close()
     assert (tmp_path / "c.jsonl").is_file()
+
+
+def _with_variants(*variants: Variant, price: float | None, weight_g: int | None) -> Coffee:
+    return Coffee(
+        "s",
+        "1",
+        "u",
+        "n",
+        "SK",
+        price=price,
+        currency="CZK",
+        weight_g=weight_g,
+        variants=[*variants],
+    )
+
+
+def test_the_per_kilo_price_comes_from_the_variant_that_states_the_price() -> None:
+    """The product name said 1 kg; the bag the price is for holds 125 g."""
+    coffee = _with_variants(
+        Variant(external_id="a", weight_g=125, price=690.0, currency="CZK"),
+        Variant(external_id="b", weight_g=1000, price=4200.0, currency="CZK"),
+        price=690.0,
+        weight_g=1000,
+    )
+
+    basis = coffee.price_basis
+    assert basis is not None
+    assert (basis.price, basis.weight_g, basis.source) == (690.0, 125, "variant")
+    assert coffee.price_per_kg == 5520.0
+
+
+def test_two_bags_sharing_one_price_leave_the_per_kilo_price_empty() -> None:
+    """The page simply does not say which bag 260 CZK buys."""
+    coffee = _with_variants(
+        Variant(external_id="a", weight_g=125, price=260.0),
+        Variant(external_id="b", weight_g=250, price=260.0),
+        price=260.0,
+        weight_g=125,
+    )
+
+    assert coffee.price_basis is None
+    assert coffee.price_per_kg is None
+    assert coffee.to_record()["price_per_kg"] is None
+
+
+def test_the_product_pair_is_used_when_no_variant_claims_the_price() -> None:
+    coffee = _with_variants(
+        Variant(external_id="a", weight_g=1000, price=999.0),
+        price=287.0,
+        weight_g=250,
+    )
+
+    basis = coffee.price_basis
+    assert basis is not None
+    assert (basis.weight_g, basis.source) == (250, "product")
+    assert coffee.price_per_kg == 1148.0
+
+
+def test_a_variant_with_no_weight_never_decides_anything() -> None:
+    coffee = _with_variants(
+        Variant(external_id="a", weight_g=None, price=95.0),
+        price=95.0,
+        weight_g=70,
+    )
+
+    assert coffee.price_per_kg == 1357.14
+
+
+def test_the_variant_key_prefers_the_shops_own_id_and_never_the_position() -> None:
+    assert Variant(external_id="5327/250", label="250 g").key(3) == "5327/250"
+    assert Variant(label="250 g").key(3) == "250 g"
+    assert Variant(weight_g=250).key(3) == "250g"
+    assert Variant().key(3) == "#3"
+
+
+def test_the_roaster_is_read_out_of_the_brand_attribute() -> None:
+    coffee = make_coffee(raw_attributes={"BRAND": "Doubleshot  "})
+    record = coffee.to_record()
+
+    assert record["roaster"] == "Doubleshot"
+    assert record["roaster_key"] == "doubleshot"
+
+
+def test_the_roaster_key_folds_accents_so_two_shops_match() -> None:
+    written = make_coffee(raw_attributes={"BRAND": "Pražírna Mlýnek"})
+    other = make_coffee(raw_attributes={"BRAND": "PRAZIRNA MLYNEK"})
+
+    assert written.roaster_key == other.roaster_key == "prazirna mlynek"
+
+
+def test_a_product_with_no_brand_keeps_both_roaster_columns_empty() -> None:
+    record = make_coffee().to_record()
+    assert record["roaster"] is None
+    assert record["roaster_key"] is None
+
+
+def test_an_explicit_roaster_wins_over_the_raw_attribute() -> None:
+    coffee = make_coffee(raw_attributes={"BRAND": "Shop"}, roaster="Roastery")
+    assert coffee.to_record()["roaster"] == "Roastery"
+
+
+def test_variant_rows_carry_everything_a_cross_shop_query_needs() -> None:
+    coffee = make_coffee(external_id="7")
+    rows = [dict(zip(VARIANT_COLUMNS, row, strict=True)) for row in variant_rows_for(coffee)]
+
+    assert len(rows) == 1
+    assert rows[0]["site"] == "demo"
+    assert rows[0]["external_id"] == "7"
+    assert rows[0]["variant_key"] == "1-250"
+    assert rows[0]["weight_g"] == 250
+    assert rows[0]["price"] == 11.5
+    assert rows[0]["currency"] == "EUR"
+    assert rows[0]["available"] is True
+
+
+def test_a_variant_inherits_the_products_currency_when_it_states_none() -> None:
+    coffee = make_coffee(variants=[Variant(external_id="a", weight_g=250, price=11.5)])
+    row = dict(zip(VARIANT_COLUMNS, variant_rows_for(coffee)[0], strict=True))
+    assert row["currency"] == "EUR"
+
+
+def test_two_variants_sharing_one_key_are_written_once() -> None:
+    """PostgreSQL refuses to touch the same row twice inside one statement."""
+    coffee = make_coffee(
+        variants=[Variant(label="250 g", price=11.5), Variant(label="250 g", price=12.0)]
+    )
+    rows = variant_rows_for(coffee)
+    assert [row[2] for row in rows] == ["250 g"]

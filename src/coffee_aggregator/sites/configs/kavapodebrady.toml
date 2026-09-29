@@ -1,0 +1,19 @@
+# Káva Poděbrady — one roasted-coffee category that also lists cascara,
+# subscriptions and tasting sets, so those are ignored by name.
+platform = "shoptet"
+site_id = "kavapodebrady"
+name = "Káva Poděbrady"
+country = "CZ"
+base_url = "https://www.kavapodebrady.eu/"
+category_urls = ["https://www.kavapodebrady.eu/prazena-kava/"]
+currency = "CZK"
+max_pages = 10
+pagination = "path"
+
+ignore = [
+  "cascara",
+  "kavove predplatne",
+  "darkovy poukaz",
+  "degustacni set",
+  "kapslesso",
+]

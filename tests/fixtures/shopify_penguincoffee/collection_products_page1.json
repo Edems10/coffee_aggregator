@@ -1,0 +1,659 @@
+{
+  "products": [
+    {
+      "id": 6722784821416,
+      "title": "Albatros",
+      "handle": "albatros",
+      "body_html": "<p>Albatros je středně tmavě pražená směs 100% arabiky z Brazílie, Kolumbie, Guatemaly a Hondurasu, která nabízí dokonale vyvážený chuťový profil. Těšte se na jemné ovocné a citrusové tóny, lehkou kyselinku a plnou chuť s výrazným čokoládovo-karamelovým závěrem. Díky své sametové textuře je ideální pro espresso i moka konvičku a skvěle se hodí i do mléčných nápojů.<br></p>\n<p><meta charset=\"utf-8\"><span>Penguin Coffee je pražírna kávy z Kladna, která nabízí jak jednodruhovou tak i výběrovou kávu. Naši kávu pražíme tak, aby si zachovala vždy svou jedinečnou chuť místa původu a daného zpracování.</span></p>",
+      "published_at": "2021-05-10T12:45:59+02:00",
+      "created_at": "2021-05-10T12:44:01+02:00",
+      "updated_at": "2026-09-29T11:10:31+02:00",
+      "vendor": "penguincoffee",
+      "product_type": "Blendy",
+      "tags": [
+        "Do automatického kávovaru",
+        "hořká",
+        "na espresso",
+        "sladká"
+      ],
+      "variants": [
+        {
+          "id": 39872417857704,
+          "title": "250g",
+          "option1": "250g",
+          "option2": null,
+          "option3": null,
+          "sku": "",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": null,
+          "available": true,
+          "price": "250.00",
+          "grams": 250,
+          "compare_at_price": null,
+          "position": 1,
+          "product_id": 6722784821416,
+          "created_at": "2021-05-10T12:44:01+02:00",
+          "updated_at": "2026-09-29T11:10:31+02:00"
+        },
+        {
+          "id": 39872417890472,
+          "title": "500g",
+          "option1": "500g",
+          "option2": null,
+          "option3": null,
+          "sku": "",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": null,
+          "available": true,
+          "price": "480.00",
+          "grams": 500,
+          "compare_at_price": null,
+          "position": 2,
+          "product_id": 6722784821416,
+          "created_at": "2021-05-10T12:44:01+02:00",
+          "updated_at": "2026-09-29T11:10:31+02:00"
+        },
+        {
+          "id": 39872417988776,
+          "title": "1000g",
+          "option1": "1000g",
+          "option2": null,
+          "option3": null,
+          "sku": "",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": null,
+          "available": true,
+          "price": "920.00",
+          "grams": 1000,
+          "compare_at_price": null,
+          "position": 3,
+          "product_id": 6722784821416,
+          "created_at": "2021-05-10T12:44:01+02:00",
+          "updated_at": "2026-09-29T11:10:31+02:00"
+        }
+      ],
+      "images": [
+        {
+          "id": 54167086334282,
+          "created_at": "2024-01-31T10:12:24+01:00",
+          "position": 1,
+          "updated_at": "2024-01-31T10:12:30+01:00",
+          "product_id": 6722784821416,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0566/5777/2712/files/InkedArtboard_1_LI.webp?v=1706692350",
+          "width": 2000,
+          "height": 2000
+        },
+        {
+          "id": 54167086301514,
+          "created_at": "2024-01-31T10:12:24+01:00",
+          "position": 2,
+          "updated_at": "2024-01-31T10:12:30+01:00",
+          "product_id": 6722784821416,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0566/5777/2712/files/aLB.webp?v=1706692350",
+          "width": 1077,
+          "height": 1070
+        }
+      ],
+      "options": [
+        {
+          "name": "Balení",
+          "position": 1,
+          "values": [
+            "250g",
+            "500g",
+            "1000g"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 6918401949864,
+      "title": "Colombia Decaf",
+      "handle": "colombia-decaf",
+      "body_html": "<p><meta charset=\"utf-8\">Tato výběrová káva z kolumbijského regionu Pedregal je ideální volbou pro milovníky espressa a filtru, kteří chtějí omezit kofein, ale ne kvalitu. Odrůda Castillo, pěstovaná v nadmořské výšce 1600 m n. m., je zpracována mokrou metodou a zbavena kofeinu certifikovaným procesem Swiss Water bez chemikálií. V chuti ucítíte sametové tóny čokolády, karamelu a tropického ovoce. Colombia Decaf je káva s plným chuťovým profilem, kterou si vychutnáte kdykoliv během dne – a bez kompromisů.</p>\n<p><meta charset=\"utf-8\"><span>Penguin Coffee je pražírna kávy z Kladna, která nabízí jak jednodruhovou tak i výběrovou kávu. Naši kávu pražíme tak, aby si zachovala vždy svou jedinečnou chuť místa původu a daného zpracování.</span></p>",
+      "published_at": "2025-01-28T13:33:14+01:00",
+      "created_at": "2021-07-21T11:11:42+02:00",
+      "updated_at": "2026-09-29T11:10:31+02:00",
+      "vendor": "penguincoffee",
+      "product_type": "Jednodruhová Káva",
+      "tags": [
+        "Decaf",
+        "hořká",
+        "na espresso",
+        "na filtr",
+        "sladká"
+      ],
+      "variants": [
+        {
+          "id": 40527895756968,
+          "title": "250g",
+          "option1": "250g",
+          "option2": null,
+          "option3": null,
+          "sku": "",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": null,
+          "available": true,
+          "price": "250.00",
+          "grams": 250,
+          "compare_at_price": null,
+          "position": 1,
+          "product_id": 6918401949864,
+          "created_at": "2021-07-21T11:11:42+02:00",
+          "updated_at": "2026-09-29T11:10:31+02:00"
+        },
+        {
+          "id": 40527895789736,
+          "title": "500g",
+          "option1": "500g",
+          "option2": null,
+          "option3": null,
+          "sku": "",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": null,
+          "available": true,
+          "price": "480.00",
+          "grams": 500,
+          "compare_at_price": null,
+          "position": 2,
+          "product_id": 6918401949864,
+          "created_at": "2021-07-21T11:11:42+02:00",
+          "updated_at": "2026-09-29T11:10:31+02:00"
+        },
+        {
+          "id": 40527895822504,
+          "title": "1000g",
+          "option1": "1000g",
+          "option2": null,
+          "option3": null,
+          "sku": "",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": null,
+          "available": true,
+          "price": "920.00",
+          "grams": 1000,
+          "compare_at_price": null,
+          "position": 3,
+          "product_id": 6918401949864,
+          "created_at": "2021-07-21T11:11:42+02:00",
+          "updated_at": "2026-09-29T11:10:31+02:00"
+        }
+      ],
+      "images": [
+        {
+          "id": 54167510450506,
+          "created_at": "2024-01-31T10:42:03+01:00",
+          "position": 1,
+          "updated_at": "2024-01-31T10:42:14+01:00",
+          "product_id": 6918401949864,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0566/5777/2712/files/Artboard_1_70f80c99-88bd-4336-be1c-60784ee497a4.webp?v=1706694134",
+          "width": 2000,
+          "height": 2000
+        },
+        {
+          "id": 54167510516042,
+          "created_at": "2024-01-31T10:42:03+01:00",
+          "position": 2,
+          "updated_at": "2024-01-31T10:42:14+01:00",
+          "product_id": 6918401949864,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0566/5777/2712/files/aLB_e20147e3-32a4-4097-8aa7-f2c2e6166397.webp?v=1706694134",
+          "width": 1077,
+          "height": 1070
+        },
+        {
+          "id": 54167510614346,
+          "created_at": "2024-01-31T10:42:03+01:00",
+          "position": 3,
+          "updated_at": "2024-01-31T10:42:06+01:00",
+          "product_id": 6918401949864,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0566/5777/2712/files/Screen_Shot_2021-01-26_at_6.05.56_PM.webp?v=1706694126",
+          "width": 750,
+          "height": 876
+        }
+      ],
+      "options": [
+        {
+          "name": "Balení",
+          "position": 1,
+          "values": [
+            "250g",
+            "500g",
+            "1000g"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 8726271689034,
+      "title": "Cuba Serrano Lavado Dark Edition",
+      "handle": "cuba-serrano-lavado-dark-edition",
+      "body_html": "<p data-start=\"0\" data-end=\"145\" class=\"\">Region: Sierra Maestra, Kuba | Nadmořská výška: 1000 - 2000 m n. m. | Odrůda: Typica | Zpracování: praná</p>\n<p data-start=\"147\" data-end=\"518\" class=\"\">Tato kubánská káva z pohoří Sierra Maestra nabízí jemné chutě nugátu, oříšků a tabáku, s minimální kyselostí. Pěstována ve vysokých nadmořských výškách a zpracována tradiční metodou praní, přináší bohatý a plný profil, ideální pro automatické domácí kávovary. Díky bohaté minerální půdě a šetrným pěstebním metodám je tato káva skutečným klenotem kubánské kávové kultury.</p>\n<p data-start=\"147\" data-end=\"518\" class=\"\"><meta charset=\"utf-8\"><span>Penguin Coffee je pražírna kávy z Kladna, která nabízí jak jednodruhovou tak i výběrovou kávu. Naši kávu pražíme tak, aby si zachovala vždy svou jedinečnou chuť místa původu a daného zpracování.</span></p>",
+      "published_at": "2024-03-20T15:28:02+01:00",
+      "created_at": "2024-03-19T15:16:16+01:00",
+      "updated_at": "2026-09-29T11:10:31+02:00",
+      "vendor": "penguincoffee",
+      "product_type": "Dark Edition",
+      "tags": [
+        "Do automatického kávovaru",
+        "hořká",
+        "na espresso",
+        "sladká"
+      ],
+      "variants": [
+        {
+          "id": 47784375189834,
+          "title": "250g",
+          "option1": "250g",
+          "option2": null,
+          "option3": null,
+          "sku": null,
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": null,
+          "available": true,
+          "price": "250.00",
+          "grams": 250,
+          "compare_at_price": null,
+          "position": 1,
+          "product_id": 8726271689034,
+          "created_at": "2024-03-19T15:16:16+01:00",
+          "updated_at": "2026-09-29T11:10:31+02:00"
+        },
+        {
+          "id": 47784375222602,
+          "title": "500g",
+          "option1": "500g",
+          "option2": null,
+          "option3": null,
+          "sku": null,
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": null,
+          "available": true,
+          "price": "480.00",
+          "grams": 500,
+          "compare_at_price": null,
+          "position": 2,
+          "product_id": 8726271689034,
+          "created_at": "2024-03-19T15:16:16+01:00",
+          "updated_at": "2026-09-29T11:10:31+02:00"
+        },
+        {
+          "id": 47784375255370,
+          "title": "1000g",
+          "option1": "1000g",
+          "option2": null,
+          "option3": null,
+          "sku": null,
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": null,
+          "available": true,
+          "price": "920.00",
+          "grams": 1000,
+          "compare_at_price": null,
+          "position": 3,
+          "product_id": 8726271689034,
+          "created_at": "2024-03-19T15:16:16+01:00",
+          "updated_at": "2026-09-29T11:10:31+02:00"
+        }
+      ],
+      "images": [
+        {
+          "id": 54886375293258,
+          "created_at": "2024-03-20T15:21:59+01:00",
+          "position": 1,
+          "updated_at": "2024-03-20T15:22:04+01:00",
+          "product_id": 8726271689034,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0566/5777/2712/files/Cuba_6e5356be-1550-4fe8-bf6e-cbf80fa6aef3.webp?v=1710944524",
+          "width": 2000,
+          "height": 2000
+        },
+        {
+          "id": 54886374703434,
+          "created_at": "2024-03-20T15:21:59+01:00",
+          "position": 2,
+          "updated_at": "2024-03-20T15:22:04+01:00",
+          "product_id": 8726271689034,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0566/5777/2712/files/aLB_792d640a-b93f-4d62-906e-8f76c276a692.webp?v=1710944524",
+          "width": 1077,
+          "height": 1070
+        },
+        {
+          "id": 54886375457098,
+          "created_at": "2024-03-20T15:21:59+01:00",
+          "position": 3,
+          "updated_at": "2024-03-20T15:22:02+01:00",
+          "product_id": 8726271689034,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0566/5777/2712/files/casa_medina_parque_nacional_turquino_sierra_maestra_opt_1_1.webp?v=1710944522",
+          "width": 1024,
+          "height": 683
+        },
+        {
+          "id": 54886374965578,
+          "created_at": "2024-03-20T15:21:59+01:00",
+          "position": 4,
+          "updated_at": "2024-03-20T15:22:01+01:00",
+          "product_id": 8726271689034,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0566/5777/2712/files/mujer-cosecha-cafe-recolecta_2.webp?v=1710944521",
+          "width": 580,
+          "height": 435
+        }
+      ],
+      "options": [
+        {
+          "name": "Balení",
+          "position": 1,
+          "values": [
+            "250g",
+            "500g",
+            "1000g"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9349455184202,
+      "title": "Trenggiling Indonesia",
+      "handle": "trenggiling-indonesia",
+      "body_html": "<p data-start=\"65\" data-end=\"392\" class=\"\">Objevte jedinečný chuťový profil kávy z regionu Aceh na Sumatře, známé svou metodou \"wet hulled\" (loupání za mokra). Tato káva v sobě nese bohaté tóny ostružin, rybízu, čokolády a jemného třtinového cukru. S cuppingovým skóre 86 bodů vás překvapí svou komplexností a svěžestí, s nádechem, který mnozí přirovnávají k chuti koly.</p>\n<p data-start=\"394\" data-end=\"727\" class=\"\">Pochází z několika malých farem v Acehu, kde farmáři pracují na zlepšení kvality a udržitelnosti své produkce. Tento projekt zajišťuje spravedlivé ceny pro zemědělce a transparentnost celého dodavatelského řetězce. Díky tomu mohou farmáři, kteří mají farmy o rozloze mezi 0,5 a 2,5 hektaru, sdílet zdroje a vyjednávat lepší podmínky.</p>\n<p data-start=\"729\" data-end=\"977\" class=\"\">Káva je zpracována tradičním způsobem \"wet hulled\", což je charakteristická metoda pro Indonésii, která umožňuje zachytit a zvýraznit jedinečné chuťové vlastnosti. Užijte si tuto výjimečnou kávu, která vám nabídne jedinečný zážitek s každým šálkem.</p>\n<p data-start=\"729\" data-end=\"977\" class=\"\"><meta charset=\"utf-8\"><span>Penguin Coffee je pražírna kávy z Kladna, která nabízí jak jednodruhovou tak i výběrovou kávu. Naši kávu pražíme tak, aby si zachovala vždy svou jedinečnou chuť místa původu a daného zpracování.</span></p>\n<p data-start=\"979\" data-end=\"1048\" class=\"\">Ideální pro přípravu filtrované kávy nebo espresso na pákovém stroji.</p>",
+      "published_at": "2026-06-04T14:01:32+02:00",
+      "created_at": "2024-06-25T14:55:17+02:00",
+      "updated_at": "2026-09-29T11:10:31+02:00",
+      "vendor": "penguincoffee",
+      "product_type": "Výběrová káva",
+      "tags": [
+        "na filtr",
+        "ovocná",
+        "sladká"
+      ],
+      "variants": [
+        {
+          "id": 48768320930122,
+          "title": "250g",
+          "option1": "250g",
+          "option2": null,
+          "option3": null,
+          "sku": null,
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": null,
+          "available": true,
+          "price": "305.00",
+          "grams": 0,
+          "compare_at_price": null,
+          "position": 1,
+          "product_id": 9349455184202,
+          "created_at": "2024-06-25T14:55:17+02:00",
+          "updated_at": "2026-09-29T11:10:31+02:00"
+        },
+        {
+          "id": 48768320962890,
+          "title": "500g",
+          "option1": "500g",
+          "option2": null,
+          "option3": null,
+          "sku": null,
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": null,
+          "available": true,
+          "price": "595.00",
+          "grams": 0,
+          "compare_at_price": null,
+          "position": 2,
+          "product_id": 9349455184202,
+          "created_at": "2024-06-25T14:55:17+02:00",
+          "updated_at": "2026-09-29T11:10:31+02:00"
+        },
+        {
+          "id": 48768320995658,
+          "title": "1000g",
+          "option1": "1000g",
+          "option2": null,
+          "option3": null,
+          "sku": null,
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": null,
+          "available": true,
+          "price": "1060.00",
+          "grams": 0,
+          "compare_at_price": null,
+          "position": 3,
+          "product_id": 9349455184202,
+          "created_at": "2024-06-25T14:55:17+02:00",
+          "updated_at": "2026-09-29T11:10:31+02:00"
+        }
+      ],
+      "images": [
+        {
+          "id": 56486567182666,
+          "created_at": "2024-06-25T14:57:55+02:00",
+          "position": 1,
+          "updated_at": "2024-06-25T15:01:35+02:00",
+          "product_id": 9349455184202,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0566/5777/2712/files/Artboard_1_eeab81b3-9634-4b58-b106-448a098b4414.webp?v=1719320495",
+          "width": 2000,
+          "height": 2000
+        },
+        {
+          "id": 56486567084362,
+          "created_at": "2024-06-25T14:57:55+02:00",
+          "position": 2,
+          "updated_at": "2024-06-25T15:01:35+02:00",
+          "product_id": 9349455184202,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0566/5777/2712/files/aLB_3f6735aa-a2f6-4619-a619-9abce16efef1.webp?v=1719320495",
+          "width": 1077,
+          "height": 1070
+        },
+        {
+          "id": 56486567117130,
+          "created_at": "2024-06-25T14:57:55+02:00",
+          "position": 3,
+          "updated_at": "2024-06-25T14:57:57+02:00",
+          "product_id": 9349455184202,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0566/5777/2712/files/ZOHO_RECOVERY-CODES-Lukas.webp?v=1719320277",
+          "width": 800,
+          "height": 533
+        },
+        {
+          "id": 56486690554186,
+          "created_at": "2024-06-25T15:01:54+02:00",
+          "position": 4,
+          "updated_at": "2024-06-25T15:01:56+02:00",
+          "product_id": 9349455184202,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0566/5777/2712/files/Indonesia-coffee-farm-3.webp?v=1719320516",
+          "width": 1000,
+          "height": 667
+        }
+      ],
+      "options": [
+        {
+          "name": "Balení",
+          "position": 1,
+          "values": [
+            "250g",
+            "500g",
+            "1000g"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 16010966073674,
+      "title": "Peru Trabaconas",
+      "handle": "peru-trabaconas",
+      "body_html": "<p>Vydejte se do divokých andských výšin na severu Peru. Tato výběrová šarže pochází z oblasti San Ignacio v regionu Cajamarca, kde drobní pěstitelé hospodaří na strmých svazích obklopených mlžnými lesy. Tradiční promyté zpracování v kombinaci s vysokohorským klimatem dává zrnům neobyčejnou čistotu, vyváženost a jemnou, sladkou strukturu.</p>",
+      "published_at": "2026-09-02T12:17:38+02:00",
+      "created_at": "2026-09-02T11:45:20+02:00",
+      "updated_at": "2026-09-29T11:10:31+02:00",
+      "vendor": "penguincoffee",
+      "product_type": "Výběrová káva",
+      "tags": [
+        "na espresso",
+        "na filtr",
+        "ovocná",
+        "sladká",
+        "čokoládová"
+      ],
+      "variants": [
+        {
+          "id": 63406654718282,
+          "title": "250g",
+          "option1": "250g",
+          "option2": null,
+          "option3": null,
+          "sku": null,
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": null,
+          "available": true,
+          "price": "350.00",
+          "grams": 250,
+          "compare_at_price": null,
+          "position": 1,
+          "product_id": 16010966073674,
+          "created_at": "2026-09-02T11:45:20+02:00",
+          "updated_at": "2026-09-29T11:10:31+02:00"
+        },
+        {
+          "id": 63406654751050,
+          "title": "500g",
+          "option1": "500g",
+          "option2": null,
+          "option3": null,
+          "sku": null,
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": null,
+          "available": true,
+          "price": "690.00",
+          "grams": 500,
+          "compare_at_price": null,
+          "position": 2,
+          "product_id": 16010966073674,
+          "created_at": "2026-09-02T11:45:20+02:00",
+          "updated_at": "2026-09-29T11:10:31+02:00"
+        },
+        {
+          "id": 63406654783818,
+          "title": "1000g",
+          "option1": "1000g",
+          "option2": null,
+          "option3": null,
+          "sku": null,
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": null,
+          "available": true,
+          "price": "1250.00",
+          "grams": 1000,
+          "compare_at_price": null,
+          "position": 3,
+          "product_id": 16010966073674,
+          "created_at": "2026-09-02T11:45:20+02:00",
+          "updated_at": "2026-09-29T11:10:31+02:00"
+        }
+      ],
+      "images": [
+        {
+          "id": 73842407539018,
+          "created_at": "2026-09-02T12:16:55+02:00",
+          "position": 1,
+          "updated_at": "2026-09-02T12:16:58+02:00",
+          "product_id": 16010966073674,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0566/5777/2712/files/Artboard_1_result_820bdedf-99b6-4ab8-9263-d512d9483c43.webp?v=1788344218",
+          "width": 3000,
+          "height": 3000
+        },
+        {
+          "id": 73842407571786,
+          "created_at": "2026-09-02T12:16:55+02:00",
+          "position": 2,
+          "updated_at": "2026-09-02T12:16:58+02:00",
+          "product_id": 16010966073674,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0566/5777/2712/files/aLB_result_180c9c13-d58a-48a0-9b3d-8741f237c983.webp?v=1788344218",
+          "width": 1077,
+          "height": 1070
+        },
+        {
+          "id": 73842407801162,
+          "created_at": "2026-09-02T12:16:55+02:00",
+          "position": 3,
+          "updated_at": "2026-09-02T12:16:58+02:00",
+          "product_id": 16010966073674,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0566/5777/2712/files/Peru_Trabaconas_1_result.webp?v=1788344218",
+          "width": 2048,
+          "height": 1365
+        },
+        {
+          "id": 73842407637322,
+          "created_at": "2026-09-02T12:16:55+02:00",
+          "position": 4,
+          "updated_at": "2026-09-02T12:16:58+02:00",
+          "product_id": 16010966073674,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0566/5777/2712/files/Peru_Trabaconas_2_result.webp?v=1788344218",
+          "width": 2048,
+          "height": 1365
+        },
+        {
+          "id": 73842407833930,
+          "created_at": "2026-09-02T12:16:56+02:00",
+          "position": 5,
+          "updated_at": "2026-09-02T12:16:59+02:00",
+          "product_id": 16010966073674,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0566/5777/2712/files/Peru_Trabaconas_3_result.webp?v=1788344219",
+          "width": 2048,
+          "height": 1365
+        },
+        {
+          "id": 73842407965002,
+          "created_at": "2026-09-02T12:16:56+02:00",
+          "position": 6,
+          "updated_at": "2026-09-02T12:16:59+02:00",
+          "product_id": 16010966073674,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0566/5777/2712/files/Peru_Trabaconas_6_result.webp?v=1788344219",
+          "width": 2048,
+          "height": 1537
+        }
+      ],
+      "options": [
+        {
+          "name": "Balení",
+          "position": 1,
+          "values": [
+            "250g",
+            "500g",
+            "1000g"
+          ]
+        }
+      ]
+    }
+  ]
+}

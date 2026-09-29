@@ -1,0 +1,11 @@
+# Pražiareň Veľké Zálužie — a Slovak roastery in EUR; product names are the
+# bare origin in capitals ("BURUNDI", "GUATEMALA").
+platform = "shoptet"
+site_id = "praziarenvelkezaluzie"
+name = "Pražiareň Veľké Zálužie"
+country = "SK"
+base_url = "https://www.praziarenvelkezaluzie.sk/"
+category_urls = ["https://www.praziarenvelkezaluzie.sk/cerstvo-prazena-kava/"]
+currency = "EUR"
+max_pages = 10
+pagination = "path"

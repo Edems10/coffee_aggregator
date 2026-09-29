@@ -1,0 +1,30 @@
+# Goriffee Roastery — description is empty across the catalogue, the copy
+# and the attributes carry everything. Category 22 kava also holds capsules,
+# instant coffee and multi-bag bundles.
+platform = "woocommerce"
+site_id = "goriffee"
+name = "Goriffee Roastery"
+country = "SK"
+base_url = "https://www.goriffee.com/"
+currency = "EUR"
+mode = "api"
+max_pages = 10
+
+# Pinned ids, not slugs: ids survive a re-theme, slugs do not.
+# 22 kava (26).
+api_category_ids = [22]
+
+# The HTML fallback, used only if /wp-json/ ever stops answering.
+category_urls = [
+  "https://www.goriffee.com/kategorie-produktov/kava/",
+]
+
+# The catalogue also sells things that are not coffee beans.
+ignore = [
+  "kapsul",
+  "rozpustna",
+  "vyhodny balik",
+]
+
+[label_map]
+"Stupeň praženia (Roast)" = "roast"

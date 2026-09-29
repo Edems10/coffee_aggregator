@@ -1,0 +1,388 @@
+[
+ {
+  "id": 285,
+  "name": "Keňa Jumbo Jumbo",
+  "permalink": "https://www.twohands.sk/kena/",
+  "description": "<p><strong>Spracovanie:</strong> mokré<br />\n<strong>Cupping score:</strong> 85<br />\n<strong>Region:</strong> Mount Kenya<br />\n<strong>Chuťový profil:</strong> bobuľové ovocie, citrusy, čierny čaj<br />\n<strong>Stupeň praženia:</strong> City plus<br />\n<strong>Druh:</strong> 100% Arabica<br />\n<strong>Príprava:</strong> espresso, moka pot, džezva</p>\n<p>Jambo-Jambo sme vybrali a upražili tak, aby v šálke ukázalo to, čo na káve z Kene milujeme najviac.<br />\nMá výraznú chuť bobuľového ovocia, plné telo a príjemný záver s nádychom citrusov a čierneho čaju.<br />\nPustené von s láskou a oboma rukami.</p>",
+  "prices": {
+   "price": "1300",
+   "regular_price": "1299",
+   "sale_price": "1299",
+   "price_range": {
+    "min_amount": "1300",
+    "max_amount": "3700"
+   },
+   "currency_code": "EUR",
+   "currency_symbol": "€",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ".",
+   "currency_thousand_separator": "",
+   "currency_prefix": "",
+   "currency_suffix": "€"
+  },
+  "images": [
+   {
+    "id": 2304,
+    "src": "https://www.twohands.sk/wp-content/uploads/2022/11/KENYA-finall-web-fotka-1.jpg",
+    "thumbnail": "https://www.twohands.sk/wp-content/uploads/2022/11/KENYA-finall-web-fotka-1-600x600.jpg",
+    "srcset": "https://www.twohands.sk/wp-content/uploads/2022/11/KENYA-finall-web-fotka-1.jpg 1600w, https://www.twohands.sk/wp-content/uploads/2022/11/KENYA-finall-web-fotka-1-1280x1280.jpg 1280w, https://www.twohands.sk/wp-content/uploads/2022/11/KENYA-finall-web-fotka-1-980x980.jpg 980w, https://www.twohands.sk/wp-content/uploads/2022/11/KENYA-finall-web-fotka-1-480x480.jpg 480w",
+    "sizes": "(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) and (max-width: 1280px) 1280px, (min-width: 1281px) 1600px, 100vw",
+    "name": "Keňa Jambo",
+    "alt": "Pražená káva - Keňa"
+   }
+  ],
+  "categories": [
+   {
+    "id": 24,
+    "name": "Espresso",
+    "slug": "espresso",
+    "link": "https://www.twohands.sk/espresso/"
+   },
+   {
+    "id": 25,
+    "name": "Káva",
+    "slug": "kava",
+    "link": "https://www.twohands.sk/kava/"
+   }
+  ],
+  "attributes": [
+   {
+    "id": 0,
+    "name": "Balíček",
+    "taxonomy": null,
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 0,
+      "name": "200g",
+      "slug": "200g"
+     },
+     {
+      "id": 0,
+      "name": "500g",
+      "slug": "500g"
+     },
+     {
+      "id": 0,
+      "name": "1000g",
+      "slug": "1000g"
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 472,
+    "attributes": [
+     {
+      "name": "Balíček",
+      "value": "200g"
+     }
+    ]
+   },
+   {
+    "id": 473,
+    "attributes": [
+     {
+      "name": "Balíček",
+      "value": "500g"
+     }
+    ]
+   },
+   {
+    "id": 474,
+    "attributes": [
+     {
+      "name": "Balíček",
+      "value": "1000g"
+     }
+    ]
+   }
+  ],
+  "is_in_stock": true
+ },
+ {
+  "id": 287,
+  "name": "Columbia La Secreta",
+  "permalink": "https://www.twohands.sk/prazena-kava-columbia-la-secreta/",
+  "description": "<p>Pražená káva Columbia La Secreta, ako už jej názov naznačuje, ponúka tajomstvo dokonalé chuti. Na farme o rozlohe 30 hektárov v nadmorskej výške medzi 1 700 a 2 050 m n. m. sa pestujú kávovníky, ktoré dotvárajú výnimočné chuťové vlastnosti tejto výberovej kávy (SCA 84). V šálke dominuje chuť šťavnatej papaje, ktorú jemne dopĺňa mirabelková sladká dochuť.</p>\n<p>Táto káva sa pestuje s oddanosťou kvalite a starostlivo sa spracováva na dosiahnutie optimálneho profilu chuti. Columbia La Secreta je viac než len nápoj; je to pohlcujúce dobrodružstvo, ktoré vás zavedie do srdca kávového sveta v Kolumbii. Každá šálka ponúka nezabudnuteľnú paletu chutí, ktorá vystihuje jedinečné prostredie a starostlivosť, ktorou je táto káva vypestovaná. Odkryte tajomstvo v každej šálke s Columbia La Secreta a zasiahnite do sveta, kde sa spojila príroda, vášeň a kvalita.</p>\n<p><strong>Spracovanie:</strong> mokré<br />\n<strong>Farmár:</strong> Juan Carlos Mejia<br />\n<strong>Región:</strong> Antioquia<br />\n<strong>Chuťový profil:</strong> Mirabelky, bylinné tóny, šťavnatá papaja<br />\n<strong>Nadmorská výška:</strong> 1700-2050 m.n.m<br />\n<strong>Stupeň praženia:</strong> City plus</p>",
+  "prices": {
+   "price": "1200",
+   "regular_price": "1200",
+   "sale_price": "1200",
+   "price_range": {
+    "min_amount": "1200",
+    "max_amount": "3400"
+   },
+   "currency_code": "EUR",
+   "currency_symbol": "€",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ".",
+   "currency_thousand_separator": "",
+   "currency_prefix": "",
+   "currency_suffix": "€"
+  },
+  "images": [
+   {
+    "id": 1441,
+    "src": "https://www.twohands.sk/wp-content/uploads/2022/11/COLUMBIA-SECRETA-SQUARE.jpg",
+    "thumbnail": "https://www.twohands.sk/wp-content/uploads/2022/11/COLUMBIA-SECRETA-SQUARE-600x600.jpg",
+    "srcset": "https://www.twohands.sk/wp-content/uploads/2022/11/COLUMBIA-SECRETA-SQUARE.jpg 1800w, https://www.twohands.sk/wp-content/uploads/2022/11/COLUMBIA-SECRETA-SQUARE-1280x1280.jpg 1280w, https://www.twohands.sk/wp-content/uploads/2022/11/COLUMBIA-SECRETA-SQUARE-980x980.jpg 980w, https://www.twohands.sk/wp-content/uploads/2022/11/COLUMBIA-SECRETA-SQUARE-480x480.jpg 480w",
+    "sizes": "(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) and (max-width: 1280px) 1280px, (min-width: 1281px) 1800px, 100vw",
+    "name": "Pražená káva COLUMBIA SECRETA",
+    "alt": "Pražená káva COLUMBIA SECRETA"
+   }
+  ],
+  "categories": [
+   {
+    "id": 24,
+    "name": "Espresso",
+    "slug": "espresso",
+    "link": "https://www.twohands.sk/espresso/"
+   },
+   {
+    "id": 25,
+    "name": "Káva",
+    "slug": "kava",
+    "link": "https://www.twohands.sk/kava/"
+   }
+  ],
+  "attributes": [
+   {
+    "id": 0,
+    "name": "Balíček",
+    "taxonomy": null,
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 0,
+      "name": "200g",
+      "slug": "200g"
+     },
+     {
+      "id": 0,
+      "name": "500g",
+      "slug": "500g"
+     },
+     {
+      "id": 0,
+      "name": "1000g",
+      "slug": "1000g"
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 466,
+    "attributes": [
+     {
+      "name": "Balíček",
+      "value": "200g"
+     }
+    ]
+   },
+   {
+    "id": 467,
+    "attributes": [
+     {
+      "name": "Balíček",
+      "value": "500g"
+     }
+    ]
+   },
+   {
+    "id": 468,
+    "attributes": [
+     {
+      "name": "Balíček",
+      "value": "1000g"
+     }
+    ]
+   }
+  ],
+  "is_in_stock": true
+ },
+ {
+  "id": 1841,
+  "name": "Guatemala Las Moritas",
+  "permalink": "https://www.twohands.sk/prazena-kava-guatemala-two-hands/",
+  "description": "<p><strong>Spracovanie:</strong> mokré<br />\n<strong>Cupping score:</strong> 88<br />\n<strong>Chuťový profil:</strong> červené zrelé ovocie, vanilka, mliečna čokoláda, mandle<br />\n<strong>Odroda:</strong> Pacamara<br />\n<strong>Stupeň praženia:</strong> City<br />\n<strong>Druh:</strong> 100% arabika<br />\n<strong>Príprava</strong> espresso, moka pot, džezva</p>\n<p>Farma Las Moritas sa nachádza v pohori Sierra de Las Minas v okrese El Progreso a môže sa pochváliť<br />\n60 krásnými hektarármi pôdy. Farma leží v nadmorskej výške medzi 1700 až 1900 m.n.m. Všeobecne<br />\nkáva z Guatemaly má vyváženú chuť s jemnou, sviežou kyslosťou. Guatemalské zrná sú skvelou<br />\nalternatívou klasickým brazílským zrnám pre tých, ktorí chcú zmeniť čokoládovo-orieškové tóny na<br />\novocné akcenty s lyžičkou sladkej vanilky a nízkou kyslosťou.</p>",
+  "prices": {
+   "price": "1300",
+   "regular_price": "1299",
+   "sale_price": "1299",
+   "price_range": {
+    "min_amount": "1300",
+    "max_amount": "3700"
+   },
+   "currency_code": "EUR",
+   "currency_symbol": "€",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ".",
+   "currency_thousand_separator": "",
+   "currency_prefix": "",
+   "currency_suffix": "€"
+  },
+  "images": [
+   {
+    "id": 1846,
+    "src": "https://www.twohands.sk/wp-content/uploads/2024/05/GUATEMALA.png",
+    "thumbnail": "https://www.twohands.sk/wp-content/uploads/2024/05/GUATEMALA-600x600.png",
+    "srcset": "https://www.twohands.sk/wp-content/uploads/2024/05/GUATEMALA.png 1600w, https://www.twohands.sk/wp-content/uploads/2024/05/GUATEMALA-1280x1280.png 1280w, https://www.twohands.sk/wp-content/uploads/2024/05/GUATEMALA-980x980.png 980w, https://www.twohands.sk/wp-content/uploads/2024/05/GUATEMALA-480x480.png 480w",
+    "sizes": "(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) and (max-width: 1280px) 1280px, (min-width: 1281px) 1600px, 100vw",
+    "name": "GUATEMALA",
+    "alt": "Pražená káva - GUATEMALA - LAS MORITAS"
+   }
+  ],
+  "categories": [
+   {
+    "id": 24,
+    "name": "Espresso",
+    "slug": "espresso",
+    "link": "https://www.twohands.sk/espresso/"
+   },
+   {
+    "id": 25,
+    "name": "Káva",
+    "slug": "kava",
+    "link": "https://www.twohands.sk/kava/"
+   }
+  ],
+  "attributes": [
+   {
+    "id": 0,
+    "name": "Balíček",
+    "taxonomy": null,
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 0,
+      "name": "200g",
+      "slug": "200g"
+     },
+     {
+      "id": 0,
+      "name": "500g",
+      "slug": "500g"
+     },
+     {
+      "id": 0,
+      "name": "1000g",
+      "slug": "1000g"
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 1844,
+    "attributes": [
+     {
+      "name": "Balíček",
+      "value": "200g"
+     }
+    ]
+   },
+   {
+    "id": 1845,
+    "attributes": [
+     {
+      "name": "Balíček",
+      "value": "500g"
+     }
+    ]
+   },
+   {
+    "id": 1843,
+    "attributes": [
+     {
+      "name": "Balíček",
+      "value": "1000g"
+     }
+    ]
+   }
+  ],
+  "is_in_stock": true
+ },
+ {
+  "id": 2038,
+  "name": "Pink Honey",
+  "permalink": "https://www.twohands.sk/pink-honey/",
+  "description": "<p><strong>Spracovanie:</strong> anaeróbna fermentácia<br />\n<strong>Odroda:</strong> Pink Borbon <br />\n<strong>Cupping score:</strong> 88 <br />\n<strong>Chuťový profil:</strong> Čučoriedka, mandarínka, pomaranč, lieskový orech  <br />\n<strong>Stupeň praženia:</strong> City<br />\n<strong>Krajina:</strong> Kolumbia<br />\n<strong> Odroda:</strong> Pink borbon<br />\n<strong> Druh:</strong> 100% arabika<br />\n<strong> Príprava:</strong> V60, aeropress, chemex</p>\n<p>Pink Honey spája aciditu s jemnou sladkosťou, vďaka čomu je dokonale vyvážená a šťavnatá. Spracovanie honey zvýrazňuje jej ovocný charakter a dodáva jej lahodnú medovú dochuť. Ideálna na filter, ak hľadáš kávu, ktorá je svieža, ovocná a krásne zaobalená.</p>",
+  "prices": {
+   "price": "1450",
+   "regular_price": "1449",
+   "sale_price": "1449",
+   "price_range": null,
+   "currency_code": "EUR",
+   "currency_symbol": "€",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ".",
+   "currency_thousand_separator": "",
+   "currency_prefix": "",
+   "currency_suffix": "€"
+  },
+  "images": [
+   {
+    "id": 2040,
+    "src": "https://www.twohands.sk/wp-content/uploads/2025/03/pink-honey-.jpg",
+    "thumbnail": "https://www.twohands.sk/wp-content/uploads/2025/03/pink-honey--600x600.jpg",
+    "srcset": "https://www.twohands.sk/wp-content/uploads/2025/03/pink-honey-.jpg 1800w, https://www.twohands.sk/wp-content/uploads/2025/03/pink-honey--1280x1280.jpg 1280w, https://www.twohands.sk/wp-content/uploads/2025/03/pink-honey--980x980.jpg 980w, https://www.twohands.sk/wp-content/uploads/2025/03/pink-honey--480x480.jpg 480w",
+    "sizes": "(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) and (max-width: 1280px) 1280px, (min-width: 1281px) 1800px, 100vw",
+    "name": "pink honey",
+    "alt": "Pražená káva - Pink Honey"
+   },
+   {
+    "id": 2040,
+    "src": "https://www.twohands.sk/wp-content/uploads/2025/03/pink-honey-.jpg",
+    "thumbnail": "https://www.twohands.sk/wp-content/uploads/2025/03/pink-honey--600x600.jpg",
+    "srcset": "https://www.twohands.sk/wp-content/uploads/2025/03/pink-honey-.jpg 1800w, https://www.twohands.sk/wp-content/uploads/2025/03/pink-honey--1280x1280.jpg 1280w, https://www.twohands.sk/wp-content/uploads/2025/03/pink-honey--980x980.jpg 980w, https://www.twohands.sk/wp-content/uploads/2025/03/pink-honey--480x480.jpg 480w",
+    "sizes": "(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) and (max-width: 1280px) 1280px, (min-width: 1281px) 1800px, 100vw",
+    "name": "pink honey",
+    "alt": "Pražená káva - Pink Honey"
+   }
+  ],
+  "categories": [
+   {
+    "id": 23,
+    "name": "Filter",
+    "slug": "filter",
+    "link": "https://www.twohands.sk/filter/"
+   },
+   {
+    "id": 25,
+    "name": "Káva",
+    "slug": "kava",
+    "link": "https://www.twohands.sk/kava/"
+   }
+  ],
+  "attributes": [
+   {
+    "id": 0,
+    "name": "Balíček",
+    "taxonomy": null,
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 0,
+      "name": "200g",
+      "slug": "200g"
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 2041,
+    "attributes": [
+     {
+      "name": "Balíček",
+      "value": "200g"
+     }
+    ]
+   }
+  ],
+  "is_in_stock": true
+ }
+]

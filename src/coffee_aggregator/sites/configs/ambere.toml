@@ -1,0 +1,11 @@
+# Ambere — a plain /zrnkova-kava/ listing, three pages, single origins plus
+# two house espresso blends.
+platform = "shoptet"
+site_id = "ambere"
+name = "Ambere"
+country = "CZ"
+base_url = "https://www.ambere.cz/"
+category_urls = ["https://www.ambere.cz/zrnkova-kava/"]
+currency = "CZK"
+max_pages = 10
+pagination = "path"

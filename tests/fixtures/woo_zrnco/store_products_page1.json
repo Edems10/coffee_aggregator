@@ -1,0 +1,1620 @@
+[
+ {
+  "id": 4720,
+  "name": "Brazília",
+  "permalink": "https://www.zrnco.sk/obchod/brazilia/",
+  "short_description": "<p>Sladká a čistá s krémovým, príjemným telom s chuťou mliečnej čokolády, karamelu a orechov, s jemnou citrickou aciditou.</p>",
+  "prices": {
+   "price": "990",
+   "regular_price": "990",
+   "sale_price": "990",
+   "price_range": {
+    "min_amount": "990",
+    "max_amount": "3810"
+   },
+   "currency_code": "EUR",
+   "currency_symbol": "€",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ",",
+   "currency_thousand_separator": "",
+   "currency_prefix": "",
+   "currency_suffix": " €"
+  },
+  "images": [
+   {
+    "id": 5866,
+    "src": "https://www.zrnco.sk/wp-content/uploads/2023/02/0226_ZRNCO_Brazilia_s.jpg",
+    "thumbnail": "https://www.zrnco.sk/wp-content/uploads/2023/02/0226_ZRNCO_Brazilia_s-300x300.jpg",
+    "srcset": "https://www.zrnco.sk/wp-content/uploads/2023/02/0226_ZRNCO_Brazilia_s.jpg 1920w, https://www.zrnco.sk/wp-content/uploads/2023/02/0226_ZRNCO_Brazilia_s-225x300.jpg 225w, https://www.zrnco.sk/wp-content/uploads/2023/02/0226_ZRNCO_Brazilia_s-768x1024.jpg 768w, https://www.zrnco.sk/wp-content/uploads/2023/02/0226_ZRNCO_Brazilia_s-1152x1536.jpg 1152w, https://www.zrnco.sk/wp-content/uploads/2023/02/0226_ZRNCO_Brazilia_s-1536x2048.jpg 1536w, https://www.zrnco.sk/wp-content/uploads/2023/02/0226_ZRNCO_Brazilia_s-600x800.jpg 600w",
+    "sizes": "(max-width: 1920px) 100vw, 1920px",
+    "thumbnail_srcset": "https://www.zrnco.sk/wp-content/uploads/2023/02/0226_ZRNCO_Brazilia_s-300x300.jpg 300w, https://www.zrnco.sk/wp-content/uploads/2023/02/0226_ZRNCO_Brazilia_s-150x150.jpg 150w, https://www.zrnco.sk/wp-content/uploads/2023/02/0226_ZRNCO_Brazilia_s-100x100.jpg 100w",
+    "thumbnail_sizes": "(max-width: 300px) 100vw, 300px",
+    "name": "Brazilia",
+    "alt": ""
+   },
+   {
+    "id": 3703,
+    "src": "https://www.zrnco.sk/wp-content/uploads/2021/11/Brazilia-e1653059544659.jpg",
+    "thumbnail": "https://www.zrnco.sk/wp-content/uploads/2021/11/Brazilia-e1653059544659-300x300.jpg",
+    "srcset": "https://www.zrnco.sk/wp-content/uploads/2021/11/Brazilia-e1653059544659.jpg 1024w, https://www.zrnco.sk/wp-content/uploads/2021/11/Brazilia-e1653059544659-225x300.jpg 225w, https://www.zrnco.sk/wp-content/uploads/2021/11/Brazilia-e1653059544659-768x1024.jpg 768w, https://www.zrnco.sk/wp-content/uploads/2021/11/Brazilia-e1653059544659-600x800.jpg 600w",
+    "sizes": "(max-width: 1024px) 100vw, 1024px",
+    "thumbnail_srcset": "https://www.zrnco.sk/wp-content/uploads/2021/11/Brazilia-e1653059544659-300x300.jpg 300w, https://www.zrnco.sk/wp-content/uploads/2021/11/Brazilia-e1653059544659-150x150.jpg 150w, https://www.zrnco.sk/wp-content/uploads/2021/11/Brazilia-e1653059544659-100x100.jpg 100w",
+    "thumbnail_sizes": "(max-width: 300px) 100vw, 300px",
+    "name": "Brazilia",
+    "alt": ""
+   },
+   {
+    "id": 3704,
+    "src": "https://www.zrnco.sk/wp-content/uploads/2021/11/Brazilia1-e1653059617758.jpg",
+    "thumbnail": "https://www.zrnco.sk/wp-content/uploads/2021/11/Brazilia1-e1653059617758-300x300.jpg",
+    "srcset": "https://www.zrnco.sk/wp-content/uploads/2021/11/Brazilia1-e1653059617758.jpg 1024w, https://www.zrnco.sk/wp-content/uploads/2021/11/Brazilia1-e1653059617758-225x300.jpg 225w, https://www.zrnco.sk/wp-content/uploads/2021/11/Brazilia1-e1653059617758-768x1024.jpg 768w, https://www.zrnco.sk/wp-content/uploads/2021/11/Brazilia1-e1653059617758-600x800.jpg 600w",
+    "sizes": "(max-width: 1024px) 100vw, 1024px",
+    "thumbnail_srcset": "https://www.zrnco.sk/wp-content/uploads/2021/11/Brazilia1-e1653059617758-300x300.jpg 300w, https://www.zrnco.sk/wp-content/uploads/2021/11/Brazilia1-e1653059617758-150x150.jpg 150w, https://www.zrnco.sk/wp-content/uploads/2021/11/Brazilia1-e1653059617758-100x100.jpg 100w",
+    "thumbnail_sizes": "(max-width: 300px) 100vw, 300px",
+    "name": "Brazilia1",
+    "alt": ""
+   },
+   {
+    "id": 3705,
+    "src": "https://www.zrnco.sk/wp-content/uploads/2021/11/Brazilia1-1-e1653059731869.jpg",
+    "thumbnail": "https://www.zrnco.sk/wp-content/uploads/2021/11/Brazilia1-1-e1653059731869-300x300.jpg",
+    "srcset": "https://www.zrnco.sk/wp-content/uploads/2021/11/Brazilia1-1-e1653059731869.jpg 1024w, https://www.zrnco.sk/wp-content/uploads/2021/11/Brazilia1-1-e1653059731869-225x300.jpg 225w, https://www.zrnco.sk/wp-content/uploads/2021/11/Brazilia1-1-e1653059731869-768x1024.jpg 768w, https://www.zrnco.sk/wp-content/uploads/2021/11/Brazilia1-1-e1653059731869-600x800.jpg 600w",
+    "sizes": "(max-width: 1024px) 100vw, 1024px",
+    "thumbnail_srcset": "https://www.zrnco.sk/wp-content/uploads/2021/11/Brazilia1-1-e1653059731869-300x300.jpg 300w, https://www.zrnco.sk/wp-content/uploads/2021/11/Brazilia1-1-e1653059731869-150x150.jpg 150w, https://www.zrnco.sk/wp-content/uploads/2021/11/Brazilia1-1-e1653059731869-100x100.jpg 100w",
+    "thumbnail_sizes": "(max-width: 300px) 100vw, 300px",
+    "name": "Brazilia1",
+    "alt": ""
+   },
+   {
+    "id": 5742,
+    "src": "https://www.zrnco.sk/wp-content/uploads/2023/02/Fazenda-Pereira1.jpg",
+    "thumbnail": "https://www.zrnco.sk/wp-content/uploads/2023/02/Fazenda-Pereira1-300x300.jpg",
+    "srcset": "https://www.zrnco.sk/wp-content/uploads/2023/02/Fazenda-Pereira1.jpg 794w, https://www.zrnco.sk/wp-content/uploads/2023/02/Fazenda-Pereira1-300x167.jpg 300w, https://www.zrnco.sk/wp-content/uploads/2023/02/Fazenda-Pereira1-768x428.jpg 768w, https://www.zrnco.sk/wp-content/uploads/2023/02/Fazenda-Pereira1-600x334.jpg 600w",
+    "sizes": "(max-width: 794px) 100vw, 794px",
+    "thumbnail_srcset": "https://www.zrnco.sk/wp-content/uploads/2023/02/Fazenda-Pereira1-300x300.jpg 300w, https://www.zrnco.sk/wp-content/uploads/2023/02/Fazenda-Pereira1-150x150.jpg 150w, https://www.zrnco.sk/wp-content/uploads/2023/02/Fazenda-Pereira1-100x100.jpg 100w",
+    "thumbnail_sizes": "(max-width: 300px) 100vw, 300px",
+    "name": "Fazenda Pereira1",
+    "alt": ""
+   },
+   {
+    "id": 5743,
+    "src": "https://www.zrnco.sk/wp-content/uploads/2023/02/Fazenda-Pereira.jpg",
+    "thumbnail": "https://www.zrnco.sk/wp-content/uploads/2023/02/Fazenda-Pereira-300x300.jpg",
+    "srcset": "https://www.zrnco.sk/wp-content/uploads/2023/02/Fazenda-Pereira.jpg 779w, https://www.zrnco.sk/wp-content/uploads/2023/02/Fazenda-Pereira-300x164.jpg 300w, https://www.zrnco.sk/wp-content/uploads/2023/02/Fazenda-Pereira-768x419.jpg 768w, https://www.zrnco.sk/wp-content/uploads/2023/02/Fazenda-Pereira-600x327.jpg 600w",
+    "sizes": "(max-width: 779px) 100vw, 779px",
+    "thumbnail_srcset": "https://www.zrnco.sk/wp-content/uploads/2023/02/Fazenda-Pereira-300x300.jpg 300w, https://www.zrnco.sk/wp-content/uploads/2023/02/Fazenda-Pereira-150x150.jpg 150w, https://www.zrnco.sk/wp-content/uploads/2023/02/Fazenda-Pereira-100x100.jpg 100w",
+    "thumbnail_sizes": "(max-width: 300px) 100vw, 300px",
+    "name": "Fazenda Pereira",
+    "alt": ""
+   }
+  ],
+  "categories": [
+   {
+    "id": 25,
+    "name": "Výberová káva",
+    "slug": "kava",
+    "link": "https://www.zrnco.sk/kategoria-produktu/kava/"
+   }
+  ],
+  "tags": [
+   {
+    "id": 92,
+    "name": "Brazília",
+    "slug": "brazilia",
+    "link": "https://www.zrnco.sk/znacka-produktu/brazilia/"
+   },
+   {
+    "id": 88,
+    "name": "čerstvo pražená káva",
+    "slug": "cerstvo-prazena-kava",
+    "link": "https://www.zrnco.sk/znacka-produktu/cerstvo-prazena-kava/"
+   },
+   {
+    "id": 89,
+    "name": "specialty coffee",
+    "slug": "specialty-coffee",
+    "link": "https://www.zrnco.sk/znacka-produktu/specialty-coffee/"
+   },
+   {
+    "id": 86,
+    "name": "výberová káva",
+    "slug": "vyberova-kava",
+    "link": "https://www.zrnco.sk/znacka-produktu/vyberova-kava/"
+   },
+   {
+    "id": 87,
+    "name": "zrnková káva",
+    "slug": "zrnkova-kava",
+    "link": "https://www.zrnco.sk/znacka-produktu/zrnkova-kava/"
+   }
+  ],
+  "attributes": [
+   {
+    "id": 0,
+    "name": "Veľkosť balenia",
+    "taxonomy": null,
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 0,
+      "name": "Malé balenie (250g)",
+      "slug": "Malé balenie (250g)"
+     },
+     {
+      "id": 0,
+      "name": "Stredné balenie (500g)",
+      "slug": "Stredné balenie (500g)"
+     },
+     {
+      "id": 0,
+      "name": "Veľké balenie (1kg)",
+      "slug": "Veľké balenie (1kg)"
+     }
+    ]
+   },
+   {
+    "id": 0,
+    "name": "Čerstvo pražená výberová káva",
+    "taxonomy": null,
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 0,
+      "name": "ZRNCOvá",
+      "slug": "ZRNCOvá"
+     }
+    ]
+   },
+   {
+    "id": 0,
+    "name": "Praženie (od 500g)",
+    "taxonomy": null,
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 0,
+      "name": "Stredne tmavé (na espresso)",
+      "slug": "Stredne tmavé (na espresso)"
+     },
+     {
+      "id": 0,
+      "name": "Svetlé (na filter)",
+      "slug": "Svetlé (na filter)"
+     }
+    ]
+   },
+   {
+    "id": 0,
+    "name": "&quot;Vylepši&quot; si kávu sám",
+    "taxonomy": null,
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 0,
+      "name": "100% Arabica (bez kompromisov :-)",
+      "slug": "100% Arabica (bez kompromisov :-)"
+     },
+     {
+      "id": 0,
+      "name": "+10% Robusty (navyše)",
+      "slug": "+10% Robusty (navyše)"
+     },
+     {
+      "id": 0,
+      "name": "+ 20% Robusty (navyše)",
+      "slug": "+ 20% Robusty (navyše)"
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 4721,
+    "attributes": [
+     {
+      "name": "Veľkosť balenia",
+      "value": "Malé balenie (250g)"
+     },
+     {
+      "name": "Praženie (od 500g)",
+      "value": "Stredne tmavé (na espresso)"
+     },
+     {
+      "name": "&quot;Vylepši&quot; si kávu sám",
+      "value": "100% Arabica (bez kompromisov :-)"
+     }
+    ]
+   },
+   {
+    "id": 4731,
+    "attributes": [
+     {
+      "name": "Veľkosť balenia",
+      "value": "Malé balenie (250g)"
+     },
+     {
+      "name": "Praženie (od 500g)",
+      "value": "Stredne tmavé (na espresso)"
+     },
+     {
+      "name": "&quot;Vylepši&quot; si kávu sám",
+      "value": "+10% Robusty (navyše)"
+     }
+    ]
+   },
+   {
+    "id": 4727,
+    "attributes": [
+     {
+      "name": "Veľkosť balenia",
+      "value": "Malé balenie (250g)"
+     },
+     {
+      "name": "Praženie (od 500g)",
+      "value": "Stredne tmavé (na espresso)"
+     },
+     {
+      "name": "&quot;Vylepši&quot; si kávu sám",
+      "value": "+ 20% Robusty (navyše)"
+     }
+    ]
+   },
+   {
+    "id": 4722,
+    "attributes": [
+     {
+      "name": "Veľkosť balenia",
+      "value": "Stredné balenie (500g)"
+     },
+     {
+      "name": "Praženie (od 500g)",
+      "value": "Stredne tmavé (na espresso)"
+     },
+     {
+      "name": "&quot;Vylepši&quot; si kávu sám",
+      "value": "100% Arabica (bez kompromisov :-)"
+     }
+    ]
+   },
+   {
+    "id": 4732,
+    "attributes": [
+     {
+      "name": "Veľkosť balenia",
+      "value": "Stredné balenie (500g)"
+     },
+     {
+      "name": "Praženie (od 500g)",
+      "value": "Stredne tmavé (na espresso)"
+     },
+     {
+      "name": "&quot;Vylepši&quot; si kávu sám",
+      "value": "+10% Robusty (navyše)"
+     }
+    ]
+   },
+   {
+    "id": 4728,
+    "attributes": [
+     {
+      "name": "Veľkosť balenia",
+      "value": "Stredné balenie (500g)"
+     },
+     {
+      "name": "Praženie (od 500g)",
+      "value": "Stredne tmavé (na espresso)"
+     },
+     {
+      "name": "&quot;Vylepši&quot; si kávu sám",
+      "value": "+ 20% Robusty (navyše)"
+     }
+    ]
+   },
+   {
+    "id": 4723,
+    "attributes": [
+     {
+      "name": "Veľkosť balenia",
+      "value": "Veľké balenie (1kg)"
+     },
+     {
+      "name": "Praženie (od 500g)",
+      "value": "Stredne tmavé (na espresso)"
+     },
+     {
+      "name": "&quot;Vylepši&quot; si kávu sám",
+      "value": "100% Arabica (bez kompromisov :-)"
+     }
+    ]
+   },
+   {
+    "id": 4733,
+    "attributes": [
+     {
+      "name": "Veľkosť balenia",
+      "value": "Veľké balenie (1kg)"
+     },
+     {
+      "name": "Praženie (od 500g)",
+      "value": "Stredne tmavé (na espresso)"
+     },
+     {
+      "name": "&quot;Vylepši&quot; si kávu sám",
+      "value": "+10% Robusty (navyše)"
+     }
+    ]
+   },
+   {
+    "id": 4729,
+    "attributes": [
+     {
+      "name": "Veľkosť balenia",
+      "value": "Veľké balenie (1kg)"
+     },
+     {
+      "name": "Praženie (od 500g)",
+      "value": "Stredne tmavé (na espresso)"
+     },
+     {
+      "name": "&quot;Vylepši&quot; si kávu sám",
+      "value": "+ 20% Robusty (navyše)"
+     }
+    ]
+   },
+   {
+    "id": 4724,
+    "attributes": [
+     {
+      "name": "Veľkosť balenia",
+      "value": "Stredné balenie (500g)"
+     },
+     {
+      "name": "Praženie (od 500g)",
+      "value": "Svetlé (na filter)"
+     },
+     {
+      "name": "&quot;Vylepši&quot; si kávu sám",
+      "value": "100% Arabica (bez kompromisov :-)"
+     }
+    ]
+   },
+   {
+    "id": 4725,
+    "attributes": [
+     {
+      "name": "Veľkosť balenia",
+      "value": "Veľké balenie (1kg)"
+     },
+     {
+      "name": "Praženie (od 500g)",
+      "value": "Svetlé (na filter)"
+     },
+     {
+      "name": "&quot;Vylepši&quot; si kávu sám",
+      "value": "100% Arabica (bez kompromisov :-)"
+     }
+    ]
+   }
+  ],
+  "is_in_stock": true
+ },
+ {
+  "id": 4897,
+  "name": "Peru",
+  "permalink": "https://www.zrnco.sk/obchod/peru/",
+  "short_description": "<p>S jemnou chuťou panely, vanilky, varených citrusov a čerstvého ovocia s miernou vínnou kyslosťou a sladkosťou zároveň.</p>",
+  "prices": {
+   "price": "1090",
+   "regular_price": "1090",
+   "sale_price": "1090",
+   "price_range": {
+    "min_amount": "1090",
+    "max_amount": "4110"
+   },
+   "currency_code": "EUR",
+   "currency_symbol": "€",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ",",
+   "currency_thousand_separator": "",
+   "currency_prefix": "",
+   "currency_suffix": " €"
+  },
+  "images": [
+   {
+    "id": 5912,
+    "src": "https://www.zrnco.sk/wp-content/uploads/2023/05/0226_ZRNCO_Peru_s.jpg",
+    "thumbnail": "https://www.zrnco.sk/wp-content/uploads/2023/05/0226_ZRNCO_Peru_s-300x300.jpg",
+    "srcset": "https://www.zrnco.sk/wp-content/uploads/2023/05/0226_ZRNCO_Peru_s.jpg 1920w, https://www.zrnco.sk/wp-content/uploads/2023/05/0226_ZRNCO_Peru_s-225x300.jpg 225w, https://www.zrnco.sk/wp-content/uploads/2023/05/0226_ZRNCO_Peru_s-768x1024.jpg 768w, https://www.zrnco.sk/wp-content/uploads/2023/05/0226_ZRNCO_Peru_s-1152x1536.jpg 1152w, https://www.zrnco.sk/wp-content/uploads/2023/05/0226_ZRNCO_Peru_s-1536x2048.jpg 1536w, https://www.zrnco.sk/wp-content/uploads/2023/05/0226_ZRNCO_Peru_s-600x800.jpg 600w",
+    "sizes": "(max-width: 1920px) 100vw, 1920px",
+    "thumbnail_srcset": "https://www.zrnco.sk/wp-content/uploads/2023/05/0226_ZRNCO_Peru_s-300x300.jpg 300w, https://www.zrnco.sk/wp-content/uploads/2023/05/0226_ZRNCO_Peru_s-150x150.jpg 150w, https://www.zrnco.sk/wp-content/uploads/2023/05/0226_ZRNCO_Peru_s-100x100.jpg 100w",
+    "thumbnail_sizes": "(max-width: 300px) 100vw, 300px",
+    "name": "Peru",
+    "alt": ""
+   },
+   {
+    "id": 3699,
+    "src": "https://www.zrnco.sk/wp-content/uploads/2021/11/IMG_3778-scaled-e1653057723448.jpg",
+    "thumbnail": "https://www.zrnco.sk/wp-content/uploads/2021/11/IMG_3778-scaled-e1653057723448-300x300.jpg",
+    "srcset": "https://www.zrnco.sk/wp-content/uploads/2021/11/IMG_3778-scaled-e1653057723448.jpg 1280w, https://www.zrnco.sk/wp-content/uploads/2021/11/IMG_3778-scaled-e1653057723448-225x300.jpg 225w, https://www.zrnco.sk/wp-content/uploads/2021/11/IMG_3778-scaled-e1653057723448-768x1024.jpg 768w, https://www.zrnco.sk/wp-content/uploads/2021/11/IMG_3778-scaled-e1653057723448-1152x1536.jpg 1152w, https://www.zrnco.sk/wp-content/uploads/2021/11/IMG_3778-scaled-e1653057723448-600x800.jpg 600w",
+    "sizes": "(max-width: 1280px) 100vw, 1280px",
+    "thumbnail_srcset": "https://www.zrnco.sk/wp-content/uploads/2021/11/IMG_3778-scaled-e1653057723448-300x300.jpg 300w, https://www.zrnco.sk/wp-content/uploads/2021/11/IMG_3778-scaled-e1653057723448-150x150.jpg 150w, https://www.zrnco.sk/wp-content/uploads/2021/11/IMG_3778-scaled-e1653057723448-100x100.jpg 100w",
+    "thumbnail_sizes": "(max-width: 300px) 100vw, 300px",
+    "name": "IMG_3778",
+    "alt": ""
+   },
+   {
+    "id": 4190,
+    "src": "https://www.zrnco.sk/wp-content/uploads/2021/11/1035_ZRNCO_Produktove-obrazky-Peru-web_110x150_priprava-na-mockup4.jpg",
+    "thumbnail": "https://www.zrnco.sk/wp-content/uploads/2021/11/1035_ZRNCO_Produktove-obrazky-Peru-web_110x150_priprava-na-mockup4-300x300.jpg",
+    "srcset": "https://www.zrnco.sk/wp-content/uploads/2021/11/1035_ZRNCO_Produktove-obrazky-Peru-web_110x150_priprava-na-mockup4.jpg 1920w, https://www.zrnco.sk/wp-content/uploads/2021/11/1035_ZRNCO_Produktove-obrazky-Peru-web_110x150_priprava-na-mockup4-225x300.jpg 225w, https://www.zrnco.sk/wp-content/uploads/2021/11/1035_ZRNCO_Produktove-obrazky-Peru-web_110x150_priprava-na-mockup4-768x1024.jpg 768w, https://www.zrnco.sk/wp-content/uploads/2021/11/1035_ZRNCO_Produktove-obrazky-Peru-web_110x150_priprava-na-mockup4-1152x1536.jpg 1152w, https://www.zrnco.sk/wp-content/uploads/2021/11/1035_ZRNCO_Produktove-obrazky-Peru-web_110x150_priprava-na-mockup4-1536x2048.jpg 1536w, https://www.zrnco.sk/wp-content/uploads/2021/11/1035_ZRNCO_Produktove-obrazky-Peru-web_110x150_priprava-na-mockup4-600x800.jpg 600w",
+    "sizes": "(max-width: 1920px) 100vw, 1920px",
+    "thumbnail_srcset": "https://www.zrnco.sk/wp-content/uploads/2021/11/1035_ZRNCO_Produktove-obrazky-Peru-web_110x150_priprava-na-mockup4-300x300.jpg 300w, https://www.zrnco.sk/wp-content/uploads/2021/11/1035_ZRNCO_Produktove-obrazky-Peru-web_110x150_priprava-na-mockup4-150x150.jpg 150w, https://www.zrnco.sk/wp-content/uploads/2021/11/1035_ZRNCO_Produktove-obrazky-Peru-web_110x150_priprava-na-mockup4-100x100.jpg 100w",
+    "thumbnail_sizes": "(max-width: 300px) 100vw, 300px",
+    "name": "1035_ZRNCO_Produktové obrázky Peru &#8211; web_110x150_príprava na mockup4",
+    "alt": ""
+   },
+   {
+    "id": 4191,
+    "src": "https://www.zrnco.sk/wp-content/uploads/2021/11/1035_ZRNCO_Produktove-obrazky-Peru-web_110x150_priprava-na-mockup5.jpg",
+    "thumbnail": "https://www.zrnco.sk/wp-content/uploads/2021/11/1035_ZRNCO_Produktove-obrazky-Peru-web_110x150_priprava-na-mockup5-300x300.jpg",
+    "srcset": "https://www.zrnco.sk/wp-content/uploads/2021/11/1035_ZRNCO_Produktove-obrazky-Peru-web_110x150_priprava-na-mockup5.jpg 1920w, https://www.zrnco.sk/wp-content/uploads/2021/11/1035_ZRNCO_Produktove-obrazky-Peru-web_110x150_priprava-na-mockup5-225x300.jpg 225w, https://www.zrnco.sk/wp-content/uploads/2021/11/1035_ZRNCO_Produktove-obrazky-Peru-web_110x150_priprava-na-mockup5-768x1024.jpg 768w, https://www.zrnco.sk/wp-content/uploads/2021/11/1035_ZRNCO_Produktove-obrazky-Peru-web_110x150_priprava-na-mockup5-1152x1536.jpg 1152w, https://www.zrnco.sk/wp-content/uploads/2021/11/1035_ZRNCO_Produktove-obrazky-Peru-web_110x150_priprava-na-mockup5-1536x2048.jpg 1536w, https://www.zrnco.sk/wp-content/uploads/2021/11/1035_ZRNCO_Produktove-obrazky-Peru-web_110x150_priprava-na-mockup5-600x800.jpg 600w",
+    "sizes": "(max-width: 1920px) 100vw, 1920px",
+    "thumbnail_srcset": "https://www.zrnco.sk/wp-content/uploads/2021/11/1035_ZRNCO_Produktove-obrazky-Peru-web_110x150_priprava-na-mockup5-300x300.jpg 300w, https://www.zrnco.sk/wp-content/uploads/2021/11/1035_ZRNCO_Produktove-obrazky-Peru-web_110x150_priprava-na-mockup5-150x150.jpg 150w, https://www.zrnco.sk/wp-content/uploads/2021/11/1035_ZRNCO_Produktove-obrazky-Peru-web_110x150_priprava-na-mockup5-100x100.jpg 100w",
+    "thumbnail_sizes": "(max-width: 300px) 100vw, 300px",
+    "name": "1035_ZRNCO_Produktové obrázky Peru &#8211; web_110x150_príprava na mockup5",
+    "alt": ""
+   },
+   {
+    "id": 4192,
+    "src": "https://www.zrnco.sk/wp-content/uploads/2021/11/1035_ZRNCO_Produktove-obrazky-Peru-web_110x150_priprava-na-mockup6.jpg",
+    "thumbnail": "https://www.zrnco.sk/wp-content/uploads/2021/11/1035_ZRNCO_Produktove-obrazky-Peru-web_110x150_priprava-na-mockup6-300x300.jpg",
+    "srcset": "https://www.zrnco.sk/wp-content/uploads/2021/11/1035_ZRNCO_Produktove-obrazky-Peru-web_110x150_priprava-na-mockup6.jpg 1920w, https://www.zrnco.sk/wp-content/uploads/2021/11/1035_ZRNCO_Produktove-obrazky-Peru-web_110x150_priprava-na-mockup6-225x300.jpg 225w, https://www.zrnco.sk/wp-content/uploads/2021/11/1035_ZRNCO_Produktove-obrazky-Peru-web_110x150_priprava-na-mockup6-768x1024.jpg 768w, https://www.zrnco.sk/wp-content/uploads/2021/11/1035_ZRNCO_Produktove-obrazky-Peru-web_110x150_priprava-na-mockup6-1152x1536.jpg 1152w, https://www.zrnco.sk/wp-content/uploads/2021/11/1035_ZRNCO_Produktove-obrazky-Peru-web_110x150_priprava-na-mockup6-1536x2048.jpg 1536w, https://www.zrnco.sk/wp-content/uploads/2021/11/1035_ZRNCO_Produktove-obrazky-Peru-web_110x150_priprava-na-mockup6-600x800.jpg 600w",
+    "sizes": "(max-width: 1920px) 100vw, 1920px",
+    "thumbnail_srcset": "https://www.zrnco.sk/wp-content/uploads/2021/11/1035_ZRNCO_Produktove-obrazky-Peru-web_110x150_priprava-na-mockup6-300x300.jpg 300w, https://www.zrnco.sk/wp-content/uploads/2021/11/1035_ZRNCO_Produktove-obrazky-Peru-web_110x150_priprava-na-mockup6-150x150.jpg 150w, https://www.zrnco.sk/wp-content/uploads/2021/11/1035_ZRNCO_Produktove-obrazky-Peru-web_110x150_priprava-na-mockup6-100x100.jpg 100w",
+    "thumbnail_sizes": "(max-width: 300px) 100vw, 300px",
+    "name": "1035_ZRNCO_Produktové obrázky Peru &#8211; web_110x150_príprava na mockup6",
+    "alt": ""
+   },
+   {
+    "id": 4193,
+    "src": "https://www.zrnco.sk/wp-content/uploads/2021/11/1035_ZRNCO_Produktove-obrazky-Peru-web_110x150_priprava-na-mockup7.jpg",
+    "thumbnail": "https://www.zrnco.sk/wp-content/uploads/2021/11/1035_ZRNCO_Produktove-obrazky-Peru-web_110x150_priprava-na-mockup7-300x300.jpg",
+    "srcset": "https://www.zrnco.sk/wp-content/uploads/2021/11/1035_ZRNCO_Produktove-obrazky-Peru-web_110x150_priprava-na-mockup7.jpg 1920w, https://www.zrnco.sk/wp-content/uploads/2021/11/1035_ZRNCO_Produktove-obrazky-Peru-web_110x150_priprava-na-mockup7-225x300.jpg 225w, https://www.zrnco.sk/wp-content/uploads/2021/11/1035_ZRNCO_Produktove-obrazky-Peru-web_110x150_priprava-na-mockup7-768x1024.jpg 768w, https://www.zrnco.sk/wp-content/uploads/2021/11/1035_ZRNCO_Produktove-obrazky-Peru-web_110x150_priprava-na-mockup7-1152x1536.jpg 1152w, https://www.zrnco.sk/wp-content/uploads/2021/11/1035_ZRNCO_Produktove-obrazky-Peru-web_110x150_priprava-na-mockup7-1536x2048.jpg 1536w, https://www.zrnco.sk/wp-content/uploads/2021/11/1035_ZRNCO_Produktove-obrazky-Peru-web_110x150_priprava-na-mockup7-600x800.jpg 600w",
+    "sizes": "(max-width: 1920px) 100vw, 1920px",
+    "thumbnail_srcset": "https://www.zrnco.sk/wp-content/uploads/2021/11/1035_ZRNCO_Produktove-obrazky-Peru-web_110x150_priprava-na-mockup7-300x300.jpg 300w, https://www.zrnco.sk/wp-content/uploads/2021/11/1035_ZRNCO_Produktove-obrazky-Peru-web_110x150_priprava-na-mockup7-150x150.jpg 150w, https://www.zrnco.sk/wp-content/uploads/2021/11/1035_ZRNCO_Produktove-obrazky-Peru-web_110x150_priprava-na-mockup7-100x100.jpg 100w",
+    "thumbnail_sizes": "(max-width: 300px) 100vw, 300px",
+    "name": "1035_ZRNCO_Produktové obrázky Peru &#8211; web_110x150_príprava na mockup7",
+    "alt": ""
+   }
+  ],
+  "categories": [
+   {
+    "id": 25,
+    "name": "Výberová káva",
+    "slug": "kava",
+    "link": "https://www.zrnco.sk/kategoria-produktu/kava/"
+   }
+  ],
+  "tags": [
+   {
+    "id": 88,
+    "name": "čerstvo pražená káva",
+    "slug": "cerstvo-prazena-kava",
+    "link": "https://www.zrnco.sk/znacka-produktu/cerstvo-prazena-kava/"
+   },
+   {
+    "id": 91,
+    "name": "Peru",
+    "slug": "peru",
+    "link": "https://www.zrnco.sk/znacka-produktu/peru/"
+   },
+   {
+    "id": 89,
+    "name": "specialty coffee",
+    "slug": "specialty-coffee",
+    "link": "https://www.zrnco.sk/znacka-produktu/specialty-coffee/"
+   },
+   {
+    "id": 86,
+    "name": "výberová káva",
+    "slug": "vyberova-kava",
+    "link": "https://www.zrnco.sk/znacka-produktu/vyberova-kava/"
+   },
+   {
+    "id": 87,
+    "name": "zrnková káva",
+    "slug": "zrnkova-kava",
+    "link": "https://www.zrnco.sk/znacka-produktu/zrnkova-kava/"
+   }
+  ],
+  "attributes": [
+   {
+    "id": 0,
+    "name": "Veľkosť balenia",
+    "taxonomy": null,
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 0,
+      "name": "Malé balenie (250g)",
+      "slug": "Malé balenie (250g)"
+     },
+     {
+      "id": 0,
+      "name": "Stredné balenie (500g)",
+      "slug": "Stredné balenie (500g)"
+     },
+     {
+      "id": 0,
+      "name": "Veľké balenie (1kg)",
+      "slug": "Veľké balenie (1kg)"
+     }
+    ]
+   },
+   {
+    "id": 0,
+    "name": "Čerstvo pražená výberová káva",
+    "taxonomy": null,
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 0,
+      "name": "ZRNCOvá",
+      "slug": "ZRNCOvá"
+     }
+    ]
+   },
+   {
+    "id": 0,
+    "name": "Praženie (od 500g)",
+    "taxonomy": null,
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 0,
+      "name": "Stredne tmavé (na espresso)",
+      "slug": "Stredne tmavé (na espresso)"
+     },
+     {
+      "id": 0,
+      "name": "Svetlé (na filter)",
+      "slug": "Svetlé (na filter)"
+     }
+    ]
+   },
+   {
+    "id": 0,
+    "name": "&quot;Vylepši&quot; si kávu sám",
+    "taxonomy": null,
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 0,
+      "name": "100% Arabica (bez kompromisov :-)",
+      "slug": "100% Arabica (bez kompromisov :-)"
+     },
+     {
+      "id": 0,
+      "name": "+10% Robusty (navyše)",
+      "slug": "+10% Robusty (navyše)"
+     },
+     {
+      "id": 0,
+      "name": "+ 20% Robusty (navyše)",
+      "slug": "+ 20% Robusty (navyše)"
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 4898,
+    "attributes": [
+     {
+      "name": "Veľkosť balenia",
+      "value": "Malé balenie (250g)"
+     },
+     {
+      "name": "Praženie (od 500g)",
+      "value": "Stredne tmavé (na espresso)"
+     },
+     {
+      "name": "&quot;Vylepši&quot; si kávu sám",
+      "value": "100% Arabica (bez kompromisov :-)"
+     }
+    ]
+   },
+   {
+    "id": 4899,
+    "attributes": [
+     {
+      "name": "Veľkosť balenia",
+      "value": "Malé balenie (250g)"
+     },
+     {
+      "name": "Praženie (od 500g)",
+      "value": "Stredne tmavé (na espresso)"
+     },
+     {
+      "name": "&quot;Vylepši&quot; si kávu sám",
+      "value": "+10% Robusty (navyše)"
+     }
+    ]
+   },
+   {
+    "id": 4900,
+    "attributes": [
+     {
+      "name": "Veľkosť balenia",
+      "value": "Malé balenie (250g)"
+     },
+     {
+      "name": "Praženie (od 500g)",
+      "value": "Stredne tmavé (na espresso)"
+     },
+     {
+      "name": "&quot;Vylepši&quot; si kávu sám",
+      "value": "+ 20% Robusty (navyše)"
+     }
+    ]
+   },
+   {
+    "id": 4901,
+    "attributes": [
+     {
+      "name": "Veľkosť balenia",
+      "value": "Stredné balenie (500g)"
+     },
+     {
+      "name": "Praženie (od 500g)",
+      "value": "Stredne tmavé (na espresso)"
+     },
+     {
+      "name": "&quot;Vylepši&quot; si kávu sám",
+      "value": "100% Arabica (bez kompromisov :-)"
+     }
+    ]
+   },
+   {
+    "id": 4902,
+    "attributes": [
+     {
+      "name": "Veľkosť balenia",
+      "value": "Stredné balenie (500g)"
+     },
+     {
+      "name": "Praženie (od 500g)",
+      "value": "Stredne tmavé (na espresso)"
+     },
+     {
+      "name": "&quot;Vylepši&quot; si kávu sám",
+      "value": "+10% Robusty (navyše)"
+     }
+    ]
+   },
+   {
+    "id": 4903,
+    "attributes": [
+     {
+      "name": "Veľkosť balenia",
+      "value": "Stredné balenie (500g)"
+     },
+     {
+      "name": "Praženie (od 500g)",
+      "value": "Stredne tmavé (na espresso)"
+     },
+     {
+      "name": "&quot;Vylepši&quot; si kávu sám",
+      "value": "+ 20% Robusty (navyše)"
+     }
+    ]
+   },
+   {
+    "id": 4904,
+    "attributes": [
+     {
+      "name": "Veľkosť balenia",
+      "value": "Veľké balenie (1kg)"
+     },
+     {
+      "name": "Praženie (od 500g)",
+      "value": "Stredne tmavé (na espresso)"
+     },
+     {
+      "name": "&quot;Vylepši&quot; si kávu sám",
+      "value": "100% Arabica (bez kompromisov :-)"
+     }
+    ]
+   },
+   {
+    "id": 4905,
+    "attributes": [
+     {
+      "name": "Veľkosť balenia",
+      "value": "Veľké balenie (1kg)"
+     },
+     {
+      "name": "Praženie (od 500g)",
+      "value": "Stredne tmavé (na espresso)"
+     },
+     {
+      "name": "&quot;Vylepši&quot; si kávu sám",
+      "value": "+10% Robusty (navyše)"
+     }
+    ]
+   },
+   {
+    "id": 4906,
+    "attributes": [
+     {
+      "name": "Veľkosť balenia",
+      "value": "Veľké balenie (1kg)"
+     },
+     {
+      "name": "Praženie (od 500g)",
+      "value": "Stredne tmavé (na espresso)"
+     },
+     {
+      "name": "&quot;Vylepši&quot; si kávu sám",
+      "value": "+ 20% Robusty (navyše)"
+     }
+    ]
+   },
+   {
+    "id": 4907,
+    "attributes": [
+     {
+      "name": "Veľkosť balenia",
+      "value": "Stredné balenie (500g)"
+     },
+     {
+      "name": "Praženie (od 500g)",
+      "value": "Svetlé (na filter)"
+     },
+     {
+      "name": "&quot;Vylepši&quot; si kávu sám",
+      "value": "100% Arabica (bez kompromisov :-)"
+     }
+    ]
+   },
+   {
+    "id": 4908,
+    "attributes": [
+     {
+      "name": "Veľkosť balenia",
+      "value": "Veľké balenie (1kg)"
+     },
+     {
+      "name": "Praženie (od 500g)",
+      "value": "Svetlé (na filter)"
+     },
+     {
+      "name": "&quot;Vylepši&quot; si kávu sám",
+      "value": "100% Arabica (bez kompromisov :-)"
+     }
+    ]
+   }
+  ],
+  "is_in_stock": true
+ },
+ {
+  "id": 5867,
+  "name": "Etiópia",
+  "permalink": "https://www.zrnco.sk/obchod/etiopia/",
+  "short_description": "<p>Jemná s chuťou praženého cukru, karamelu, varenej hrušky a zeleného hrozna, s miernou vyváženou kyslosťou a ovocnou sladkosťou.</p>",
+  "prices": {
+   "price": "1150",
+   "regular_price": "1150",
+   "sale_price": "1150",
+   "price_range": {
+    "min_amount": "1150",
+    "max_amount": "4210"
+   },
+   "currency_code": "EUR",
+   "currency_symbol": "€",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ",",
+   "currency_thousand_separator": "",
+   "currency_prefix": "",
+   "currency_suffix": " €"
+  },
+  "images": [
+   {
+    "id": 5879,
+    "src": "https://www.zrnco.sk/wp-content/uploads/2026/02/0226_ZRNCO_Etiopia_s.jpg",
+    "thumbnail": "https://www.zrnco.sk/wp-content/uploads/2026/02/0226_ZRNCO_Etiopia_s-300x300.jpg",
+    "srcset": "https://www.zrnco.sk/wp-content/uploads/2026/02/0226_ZRNCO_Etiopia_s.jpg 1920w, https://www.zrnco.sk/wp-content/uploads/2026/02/0226_ZRNCO_Etiopia_s-225x300.jpg 225w, https://www.zrnco.sk/wp-content/uploads/2026/02/0226_ZRNCO_Etiopia_s-768x1024.jpg 768w, https://www.zrnco.sk/wp-content/uploads/2026/02/0226_ZRNCO_Etiopia_s-1152x1536.jpg 1152w, https://www.zrnco.sk/wp-content/uploads/2026/02/0226_ZRNCO_Etiopia_s-1536x2048.jpg 1536w, https://www.zrnco.sk/wp-content/uploads/2026/02/0226_ZRNCO_Etiopia_s-600x800.jpg 600w",
+    "sizes": "(max-width: 1920px) 100vw, 1920px",
+    "thumbnail_srcset": "https://www.zrnco.sk/wp-content/uploads/2026/02/0226_ZRNCO_Etiopia_s-300x300.jpg 300w, https://www.zrnco.sk/wp-content/uploads/2026/02/0226_ZRNCO_Etiopia_s-150x150.jpg 150w, https://www.zrnco.sk/wp-content/uploads/2026/02/0226_ZRNCO_Etiopia_s-100x100.jpg 100w",
+    "thumbnail_sizes": "(max-width: 300px) 100vw, 300px",
+    "name": "Etiopia",
+    "alt": ""
+   },
+   {
+    "id": 5103,
+    "src": "https://www.zrnco.sk/wp-content/uploads/2023/08/Etiopia.jpg",
+    "thumbnail": "https://www.zrnco.sk/wp-content/uploads/2023/08/Etiopia-300x300.jpg",
+    "srcset": "https://www.zrnco.sk/wp-content/uploads/2023/08/Etiopia.jpg 2048w, https://www.zrnco.sk/wp-content/uploads/2023/08/Etiopia-300x200.jpg 300w, https://www.zrnco.sk/wp-content/uploads/2023/08/Etiopia-1024x683.jpg 1024w, https://www.zrnco.sk/wp-content/uploads/2023/08/Etiopia-768x512.jpg 768w, https://www.zrnco.sk/wp-content/uploads/2023/08/Etiopia-1536x1024.jpg 1536w, https://www.zrnco.sk/wp-content/uploads/2023/08/Etiopia-600x400.jpg 600w",
+    "sizes": "(max-width: 2048px) 100vw, 2048px",
+    "thumbnail_srcset": "https://www.zrnco.sk/wp-content/uploads/2023/08/Etiopia-300x300.jpg 300w, https://www.zrnco.sk/wp-content/uploads/2023/08/Etiopia-150x150.jpg 150w, https://www.zrnco.sk/wp-content/uploads/2023/08/Etiopia-100x100.jpg 100w",
+    "thumbnail_sizes": "(max-width: 300px) 100vw, 300px",
+    "name": "Etiopia",
+    "alt": ""
+   },
+   {
+    "id": 5880,
+    "src": "https://www.zrnco.sk/wp-content/uploads/2026/02/Cafe_Imports_Ethiopia_Heirlooms-2022-08-02-025913.jpg",
+    "thumbnail": "https://www.zrnco.sk/wp-content/uploads/2026/02/Cafe_Imports_Ethiopia_Heirlooms-2022-08-02-025913-300x300.jpg",
+    "srcset": "https://www.zrnco.sk/wp-content/uploads/2026/02/Cafe_Imports_Ethiopia_Heirlooms-2022-08-02-025913.jpg 550w, https://www.zrnco.sk/wp-content/uploads/2026/02/Cafe_Imports_Ethiopia_Heirlooms-2022-08-02-025913-300x200.jpg 300w",
+    "sizes": "(max-width: 550px) 100vw, 550px",
+    "thumbnail_srcset": "https://www.zrnco.sk/wp-content/uploads/2026/02/Cafe_Imports_Ethiopia_Heirlooms-2022-08-02-025913-300x300.jpg 300w, https://www.zrnco.sk/wp-content/uploads/2026/02/Cafe_Imports_Ethiopia_Heirlooms-2022-08-02-025913-150x150.jpg 150w, https://www.zrnco.sk/wp-content/uploads/2026/02/Cafe_Imports_Ethiopia_Heirlooms-2022-08-02-025913-100x100.jpg 100w",
+    "thumbnail_sizes": "(max-width: 300px) 100vw, 300px",
+    "name": "Cafe_Imports_Ethiopia_Heirlooms-2022-08-02-025913",
+    "alt": ""
+   },
+   {
+    "id": 5881,
+    "src": "https://www.zrnco.sk/wp-content/uploads/2026/02/Cafe_Imports_Sidama-2022-01-28-150958.jpg",
+    "thumbnail": "https://www.zrnco.sk/wp-content/uploads/2026/02/Cafe_Imports_Sidama-2022-01-28-150958-300x300.jpg",
+    "srcset": "https://www.zrnco.sk/wp-content/uploads/2026/02/Cafe_Imports_Sidama-2022-01-28-150958.jpg 550w, https://www.zrnco.sk/wp-content/uploads/2026/02/Cafe_Imports_Sidama-2022-01-28-150958-300x200.jpg 300w",
+    "sizes": "(max-width: 550px) 100vw, 550px",
+    "thumbnail_srcset": "https://www.zrnco.sk/wp-content/uploads/2026/02/Cafe_Imports_Sidama-2022-01-28-150958-300x300.jpg 300w, https://www.zrnco.sk/wp-content/uploads/2026/02/Cafe_Imports_Sidama-2022-01-28-150958-150x150.jpg 150w, https://www.zrnco.sk/wp-content/uploads/2026/02/Cafe_Imports_Sidama-2022-01-28-150958-100x100.jpg 100w",
+    "thumbnail_sizes": "(max-width: 300px) 100vw, 300px",
+    "name": "Cafe_Imports_Sidama-2022-01-28-150958",
+    "alt": ""
+   },
+   {
+    "id": 5882,
+    "src": "https://www.zrnco.sk/wp-content/uploads/2026/02/Cafe_Imports_GEthiopia_DP-2022-05-10-130635.jpg",
+    "thumbnail": "https://www.zrnco.sk/wp-content/uploads/2026/02/Cafe_Imports_GEthiopia_DP-2022-05-10-130635-300x300.jpg",
+    "srcset": "https://www.zrnco.sk/wp-content/uploads/2026/02/Cafe_Imports_GEthiopia_DP-2022-05-10-130635.jpg 550w, https://www.zrnco.sk/wp-content/uploads/2026/02/Cafe_Imports_GEthiopia_DP-2022-05-10-130635-300x200.jpg 300w",
+    "sizes": "(max-width: 550px) 100vw, 550px",
+    "thumbnail_srcset": "https://www.zrnco.sk/wp-content/uploads/2026/02/Cafe_Imports_GEthiopia_DP-2022-05-10-130635-300x300.jpg 300w, https://www.zrnco.sk/wp-content/uploads/2026/02/Cafe_Imports_GEthiopia_DP-2022-05-10-130635-150x150.jpg 150w, https://www.zrnco.sk/wp-content/uploads/2026/02/Cafe_Imports_GEthiopia_DP-2022-05-10-130635-100x100.jpg 100w",
+    "thumbnail_sizes": "(max-width: 300px) 100vw, 300px",
+    "name": "Cafe_Imports_GEthiopia_DP-2022-05-10-130635",
+    "alt": ""
+   }
+  ],
+  "categories": [
+   {
+    "id": 25,
+    "name": "Výberová káva",
+    "slug": "kava",
+    "link": "https://www.zrnco.sk/kategoria-produktu/kava/"
+   }
+  ],
+  "tags": [
+   {
+    "id": 88,
+    "name": "čerstvo pražená káva",
+    "slug": "cerstvo-prazena-kava",
+    "link": "https://www.zrnco.sk/znacka-produktu/cerstvo-prazena-kava/"
+   },
+   {
+    "id": 85,
+    "name": "Etiópia",
+    "slug": "etiopia",
+    "link": "https://www.zrnco.sk/znacka-produktu/etiopia/"
+   },
+   {
+    "id": 89,
+    "name": "specialty coffee",
+    "slug": "specialty-coffee",
+    "link": "https://www.zrnco.sk/znacka-produktu/specialty-coffee/"
+   },
+   {
+    "id": 86,
+    "name": "výberová káva",
+    "slug": "vyberova-kava",
+    "link": "https://www.zrnco.sk/znacka-produktu/vyberova-kava/"
+   },
+   {
+    "id": 87,
+    "name": "zrnková káva",
+    "slug": "zrnkova-kava",
+    "link": "https://www.zrnco.sk/znacka-produktu/zrnkova-kava/"
+   }
+  ],
+  "attributes": [
+   {
+    "id": 0,
+    "name": "Veľkosť balenia",
+    "taxonomy": null,
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 0,
+      "name": "Malé balenie (250g)",
+      "slug": "Malé balenie (250g)"
+     },
+     {
+      "id": 0,
+      "name": "Stredné balenie (500g)",
+      "slug": "Stredné balenie (500g)"
+     },
+     {
+      "id": 0,
+      "name": "Veľké balenie (1kg)",
+      "slug": "Veľké balenie (1kg)"
+     }
+    ]
+   },
+   {
+    "id": 0,
+    "name": "Čerstvo pražená výberová káva",
+    "taxonomy": null,
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 0,
+      "name": "ZRNCOvá",
+      "slug": "ZRNCOvá"
+     }
+    ]
+   },
+   {
+    "id": 0,
+    "name": "Praženie (od 500g)",
+    "taxonomy": null,
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 0,
+      "name": "Stredne tmavé (na espresso)",
+      "slug": "Stredne tmavé (na espresso)"
+     },
+     {
+      "id": 0,
+      "name": "Svetlé (na filter)",
+      "slug": "Svetlé (na filter)"
+     }
+    ]
+   },
+   {
+    "id": 0,
+    "name": "&quot;Vylepši&quot; si kávu sám",
+    "taxonomy": null,
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 0,
+      "name": "100% Arabica (bez kompromisov :-)",
+      "slug": "100% Arabica (bez kompromisov :-)"
+     },
+     {
+      "id": 0,
+      "name": "+10% Robusty (navyše)",
+      "slug": "+10% Robusty (navyše)"
+     },
+     {
+      "id": 0,
+      "name": "+ 20% Robusty (navyše)",
+      "slug": "+ 20% Robusty (navyše)"
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 5868,
+    "attributes": [
+     {
+      "name": "Veľkosť balenia",
+      "value": "Malé balenie (250g)"
+     },
+     {
+      "name": "Praženie (od 500g)",
+      "value": "Stredne tmavé (na espresso)"
+     },
+     {
+      "name": "&quot;Vylepši&quot; si kávu sám",
+      "value": "100% Arabica (bez kompromisov :-)"
+     }
+    ]
+   },
+   {
+    "id": 5869,
+    "attributes": [
+     {
+      "name": "Veľkosť balenia",
+      "value": "Malé balenie (250g)"
+     },
+     {
+      "name": "Praženie (od 500g)",
+      "value": "Stredne tmavé (na espresso)"
+     },
+     {
+      "name": "&quot;Vylepši&quot; si kávu sám",
+      "value": "+10% Robusty (navyše)"
+     }
+    ]
+   },
+   {
+    "id": 5870,
+    "attributes": [
+     {
+      "name": "Veľkosť balenia",
+      "value": "Malé balenie (250g)"
+     },
+     {
+      "name": "Praženie (od 500g)",
+      "value": "Stredne tmavé (na espresso)"
+     },
+     {
+      "name": "&quot;Vylepši&quot; si kávu sám",
+      "value": "+ 20% Robusty (navyše)"
+     }
+    ]
+   },
+   {
+    "id": 5871,
+    "attributes": [
+     {
+      "name": "Veľkosť balenia",
+      "value": "Stredné balenie (500g)"
+     },
+     {
+      "name": "Praženie (od 500g)",
+      "value": "Stredne tmavé (na espresso)"
+     },
+     {
+      "name": "&quot;Vylepši&quot; si kávu sám",
+      "value": "100% Arabica (bez kompromisov :-)"
+     }
+    ]
+   },
+   {
+    "id": 5872,
+    "attributes": [
+     {
+      "name": "Veľkosť balenia",
+      "value": "Stredné balenie (500g)"
+     },
+     {
+      "name": "Praženie (od 500g)",
+      "value": "Stredne tmavé (na espresso)"
+     },
+     {
+      "name": "&quot;Vylepši&quot; si kávu sám",
+      "value": "+10% Robusty (navyše)"
+     }
+    ]
+   },
+   {
+    "id": 5873,
+    "attributes": [
+     {
+      "name": "Veľkosť balenia",
+      "value": "Stredné balenie (500g)"
+     },
+     {
+      "name": "Praženie (od 500g)",
+      "value": "Stredne tmavé (na espresso)"
+     },
+     {
+      "name": "&quot;Vylepši&quot; si kávu sám",
+      "value": "+ 20% Robusty (navyše)"
+     }
+    ]
+   },
+   {
+    "id": 5874,
+    "attributes": [
+     {
+      "name": "Veľkosť balenia",
+      "value": "Veľké balenie (1kg)"
+     },
+     {
+      "name": "Praženie (od 500g)",
+      "value": "Stredne tmavé (na espresso)"
+     },
+     {
+      "name": "&quot;Vylepši&quot; si kávu sám",
+      "value": "100% Arabica (bez kompromisov :-)"
+     }
+    ]
+   },
+   {
+    "id": 5875,
+    "attributes": [
+     {
+      "name": "Veľkosť balenia",
+      "value": "Veľké balenie (1kg)"
+     },
+     {
+      "name": "Praženie (od 500g)",
+      "value": "Stredne tmavé (na espresso)"
+     },
+     {
+      "name": "&quot;Vylepši&quot; si kávu sám",
+      "value": "+10% Robusty (navyše)"
+     }
+    ]
+   },
+   {
+    "id": 5876,
+    "attributes": [
+     {
+      "name": "Veľkosť balenia",
+      "value": "Veľké balenie (1kg)"
+     },
+     {
+      "name": "Praženie (od 500g)",
+      "value": "Stredne tmavé (na espresso)"
+     },
+     {
+      "name": "&quot;Vylepši&quot; si kávu sám",
+      "value": "+ 20% Robusty (navyše)"
+     }
+    ]
+   },
+   {
+    "id": 5877,
+    "attributes": [
+     {
+      "name": "Veľkosť balenia",
+      "value": "Stredné balenie (500g)"
+     },
+     {
+      "name": "Praženie (od 500g)",
+      "value": "Svetlé (na filter)"
+     },
+     {
+      "name": "&quot;Vylepši&quot; si kávu sám",
+      "value": "100% Arabica (bez kompromisov :-)"
+     }
+    ]
+   },
+   {
+    "id": 5878,
+    "attributes": [
+     {
+      "name": "Veľkosť balenia",
+      "value": "Veľké balenie (1kg)"
+     },
+     {
+      "name": "Praženie (od 500g)",
+      "value": "Svetlé (na filter)"
+     },
+     {
+      "name": "&quot;Vylepši&quot; si kávu sám",
+      "value": "100% Arabica (bez kompromisov :-)"
+     }
+    ]
+   }
+  ],
+  "is_in_stock": true
+ },
+ {
+  "id": 5883,
+  "name": "Kolumbia",
+  "permalink": "https://www.zrnco.sk/obchod/kolumbia/",
+  "short_description": "<p>S náznakom chutí čerstvej hrušky, vareného jablka, pomaranča a horkej čokolády so šťavnatou kyslosťou a sladkosťou zároveň.</p>",
+  "prices": {
+   "price": "1050",
+   "regular_price": "1050",
+   "sale_price": "1050",
+   "price_range": {
+    "min_amount": "1050",
+    "max_amount": "3910"
+   },
+   "currency_code": "EUR",
+   "currency_symbol": "€",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ",",
+   "currency_thousand_separator": "",
+   "currency_prefix": "",
+   "currency_suffix": " €"
+  },
+  "images": [
+   {
+    "id": 5895,
+    "src": "https://www.zrnco.sk/wp-content/uploads/2026/02/0226_ZRNCO_Kolumbia_s.jpg",
+    "thumbnail": "https://www.zrnco.sk/wp-content/uploads/2026/02/0226_ZRNCO_Kolumbia_s-300x300.jpg",
+    "srcset": "https://www.zrnco.sk/wp-content/uploads/2026/02/0226_ZRNCO_Kolumbia_s.jpg 1920w, https://www.zrnco.sk/wp-content/uploads/2026/02/0226_ZRNCO_Kolumbia_s-225x300.jpg 225w, https://www.zrnco.sk/wp-content/uploads/2026/02/0226_ZRNCO_Kolumbia_s-768x1024.jpg 768w, https://www.zrnco.sk/wp-content/uploads/2026/02/0226_ZRNCO_Kolumbia_s-1152x1536.jpg 1152w, https://www.zrnco.sk/wp-content/uploads/2026/02/0226_ZRNCO_Kolumbia_s-1536x2048.jpg 1536w, https://www.zrnco.sk/wp-content/uploads/2026/02/0226_ZRNCO_Kolumbia_s-600x800.jpg 600w",
+    "sizes": "(max-width: 1920px) 100vw, 1920px",
+    "thumbnail_srcset": "https://www.zrnco.sk/wp-content/uploads/2026/02/0226_ZRNCO_Kolumbia_s-300x300.jpg 300w, https://www.zrnco.sk/wp-content/uploads/2026/02/0226_ZRNCO_Kolumbia_s-150x150.jpg 150w, https://www.zrnco.sk/wp-content/uploads/2026/02/0226_ZRNCO_Kolumbia_s-100x100.jpg 100w",
+    "thumbnail_sizes": "(max-width: 300px) 100vw, 300px",
+    "name": "Kolumbia",
+    "alt": ""
+   },
+   {
+    "id": 3702,
+    "src": "https://www.zrnco.sk/wp-content/uploads/2021/11/Kolumbia2-e1653059168114.jpg",
+    "thumbnail": "https://www.zrnco.sk/wp-content/uploads/2021/11/Kolumbia2-e1653059168114-300x300.jpg",
+    "srcset": "https://www.zrnco.sk/wp-content/uploads/2021/11/Kolumbia2-e1653059168114.jpg 1024w, https://www.zrnco.sk/wp-content/uploads/2021/11/Kolumbia2-e1653059168114-225x300.jpg 225w, https://www.zrnco.sk/wp-content/uploads/2021/11/Kolumbia2-e1653059168114-768x1024.jpg 768w, https://www.zrnco.sk/wp-content/uploads/2021/11/Kolumbia2-e1653059168114-600x800.jpg 600w",
+    "sizes": "(max-width: 1024px) 100vw, 1024px",
+    "thumbnail_srcset": "https://www.zrnco.sk/wp-content/uploads/2021/11/Kolumbia2-e1653059168114-300x300.jpg 300w, https://www.zrnco.sk/wp-content/uploads/2021/11/Kolumbia2-e1653059168114-150x150.jpg 150w, https://www.zrnco.sk/wp-content/uploads/2021/11/Kolumbia2-e1653059168114-100x100.jpg 100w",
+    "thumbnail_sizes": "(max-width: 300px) 100vw, 300px",
+    "name": "Kolumbia2",
+    "alt": ""
+   },
+   {
+    "id": 3701,
+    "src": "https://www.zrnco.sk/wp-content/uploads/2021/11/Kolumbia1-e1653059101601.jpg",
+    "thumbnail": "https://www.zrnco.sk/wp-content/uploads/2021/11/Kolumbia1-e1653059101601-300x300.jpg",
+    "srcset": "https://www.zrnco.sk/wp-content/uploads/2021/11/Kolumbia1-e1653059101601.jpg 1024w, https://www.zrnco.sk/wp-content/uploads/2021/11/Kolumbia1-e1653059101601-225x300.jpg 225w, https://www.zrnco.sk/wp-content/uploads/2021/11/Kolumbia1-e1653059101601-768x1024.jpg 768w, https://www.zrnco.sk/wp-content/uploads/2021/11/Kolumbia1-e1653059101601-600x800.jpg 600w",
+    "sizes": "(max-width: 1024px) 100vw, 1024px",
+    "thumbnail_srcset": "https://www.zrnco.sk/wp-content/uploads/2021/11/Kolumbia1-e1653059101601-300x300.jpg 300w, https://www.zrnco.sk/wp-content/uploads/2021/11/Kolumbia1-e1653059101601-150x150.jpg 150w, https://www.zrnco.sk/wp-content/uploads/2021/11/Kolumbia1-e1653059101601-100x100.jpg 100w",
+    "thumbnail_sizes": "(max-width: 300px) 100vw, 300px",
+    "name": "Kolumbia1",
+    "alt": ""
+   },
+   {
+    "id": 3700,
+    "src": "https://www.zrnco.sk/wp-content/uploads/2021/11/Kolumbia-e1653058990253.jpg",
+    "thumbnail": "https://www.zrnco.sk/wp-content/uploads/2021/11/Kolumbia-e1653058990253-300x300.jpg",
+    "srcset": "https://www.zrnco.sk/wp-content/uploads/2021/11/Kolumbia-e1653058990253.jpg 1024w, https://www.zrnco.sk/wp-content/uploads/2021/11/Kolumbia-e1653058990253-225x300.jpg 225w, https://www.zrnco.sk/wp-content/uploads/2021/11/Kolumbia-e1653058990253-768x1024.jpg 768w, https://www.zrnco.sk/wp-content/uploads/2021/11/Kolumbia-e1653058990253-600x800.jpg 600w",
+    "sizes": "(max-width: 1024px) 100vw, 1024px",
+    "thumbnail_srcset": "https://www.zrnco.sk/wp-content/uploads/2021/11/Kolumbia-e1653058990253-300x300.jpg 300w, https://www.zrnco.sk/wp-content/uploads/2021/11/Kolumbia-e1653058990253-150x150.jpg 150w, https://www.zrnco.sk/wp-content/uploads/2021/11/Kolumbia-e1653058990253-100x100.jpg 100w",
+    "thumbnail_sizes": "(max-width: 300px) 100vw, 300px",
+    "name": "Kolumbia",
+    "alt": ""
+   },
+   {
+    "id": 5896,
+    "src": "https://www.zrnco.sk/wp-content/uploads/2026/02/Cafe_Imports_Colombia_Gran_Galope-4-2022-09-27-194713.jpg",
+    "thumbnail": "https://www.zrnco.sk/wp-content/uploads/2026/02/Cafe_Imports_Colombia_Gran_Galope-4-2022-09-27-194713-300x300.jpg",
+    "srcset": "https://www.zrnco.sk/wp-content/uploads/2026/02/Cafe_Imports_Colombia_Gran_Galope-4-2022-09-27-194713.jpg 550w, https://www.zrnco.sk/wp-content/uploads/2026/02/Cafe_Imports_Colombia_Gran_Galope-4-2022-09-27-194713-200x300.jpg 200w",
+    "sizes": "(max-width: 550px) 100vw, 550px",
+    "thumbnail_srcset": "https://www.zrnco.sk/wp-content/uploads/2026/02/Cafe_Imports_Colombia_Gran_Galope-4-2022-09-27-194713-300x300.jpg 300w, https://www.zrnco.sk/wp-content/uploads/2026/02/Cafe_Imports_Colombia_Gran_Galope-4-2022-09-27-194713-150x150.jpg 150w, https://www.zrnco.sk/wp-content/uploads/2026/02/Cafe_Imports_Colombia_Gran_Galope-4-2022-09-27-194713-100x100.jpg 100w",
+    "thumbnail_sizes": "(max-width: 300px) 100vw, 300px",
+    "name": "Cafe_Imports_Colombia_Gran_Galope-4-2022-09-27-194713",
+    "alt": ""
+   },
+   {
+    "id": 5897,
+    "src": "https://www.zrnco.sk/wp-content/uploads/2026/02/Cafe_Imports_Colombia_Gran_Galope1-2022-04-26-125525.jpg",
+    "thumbnail": "https://www.zrnco.sk/wp-content/uploads/2026/02/Cafe_Imports_Colombia_Gran_Galope1-2022-04-26-125525-300x300.jpg",
+    "srcset": "https://www.zrnco.sk/wp-content/uploads/2026/02/Cafe_Imports_Colombia_Gran_Galope1-2022-04-26-125525.jpg 550w, https://www.zrnco.sk/wp-content/uploads/2026/02/Cafe_Imports_Colombia_Gran_Galope1-2022-04-26-125525-300x200.jpg 300w",
+    "sizes": "(max-width: 550px) 100vw, 550px",
+    "thumbnail_srcset": "https://www.zrnco.sk/wp-content/uploads/2026/02/Cafe_Imports_Colombia_Gran_Galope1-2022-04-26-125525-300x300.jpg 300w, https://www.zrnco.sk/wp-content/uploads/2026/02/Cafe_Imports_Colombia_Gran_Galope1-2022-04-26-125525-150x150.jpg 150w, https://www.zrnco.sk/wp-content/uploads/2026/02/Cafe_Imports_Colombia_Gran_Galope1-2022-04-26-125525-100x100.jpg 100w",
+    "thumbnail_sizes": "(max-width: 300px) 100vw, 300px",
+    "name": "Cafe_Imports_Colombia_Gran_Galope1-2022-04-26-125525",
+    "alt": ""
+   },
+   {
+    "id": 5898,
+    "src": "https://www.zrnco.sk/wp-content/uploads/2026/02/Cafe_Imports_Colombia_Gran_Galope4-2022-04-26-125525.jpg",
+    "thumbnail": "https://www.zrnco.sk/wp-content/uploads/2026/02/Cafe_Imports_Colombia_Gran_Galope4-2022-04-26-125525-300x300.jpg",
+    "srcset": "https://www.zrnco.sk/wp-content/uploads/2026/02/Cafe_Imports_Colombia_Gran_Galope4-2022-04-26-125525.jpg 550w, https://www.zrnco.sk/wp-content/uploads/2026/02/Cafe_Imports_Colombia_Gran_Galope4-2022-04-26-125525-300x200.jpg 300w",
+    "sizes": "(max-width: 550px) 100vw, 550px",
+    "thumbnail_srcset": "https://www.zrnco.sk/wp-content/uploads/2026/02/Cafe_Imports_Colombia_Gran_Galope4-2022-04-26-125525-300x300.jpg 300w, https://www.zrnco.sk/wp-content/uploads/2026/02/Cafe_Imports_Colombia_Gran_Galope4-2022-04-26-125525-150x150.jpg 150w, https://www.zrnco.sk/wp-content/uploads/2026/02/Cafe_Imports_Colombia_Gran_Galope4-2022-04-26-125525-100x100.jpg 100w",
+    "thumbnail_sizes": "(max-width: 300px) 100vw, 300px",
+    "name": "Cafe_Imports_Colombia_Gran_Galope4-2022-04-26-125525",
+    "alt": ""
+   },
+   {
+    "id": 5899,
+    "src": "https://www.zrnco.sk/wp-content/uploads/2026/02/Cafe_Imports_Colombia_Gran_Galope2-2022-04-26-125525.jpg",
+    "thumbnail": "https://www.zrnco.sk/wp-content/uploads/2026/02/Cafe_Imports_Colombia_Gran_Galope2-2022-04-26-125525-300x300.jpg",
+    "srcset": "https://www.zrnco.sk/wp-content/uploads/2026/02/Cafe_Imports_Colombia_Gran_Galope2-2022-04-26-125525.jpg 550w, https://www.zrnco.sk/wp-content/uploads/2026/02/Cafe_Imports_Colombia_Gran_Galope2-2022-04-26-125525-300x200.jpg 300w",
+    "sizes": "(max-width: 550px) 100vw, 550px",
+    "thumbnail_srcset": "https://www.zrnco.sk/wp-content/uploads/2026/02/Cafe_Imports_Colombia_Gran_Galope2-2022-04-26-125525-300x300.jpg 300w, https://www.zrnco.sk/wp-content/uploads/2026/02/Cafe_Imports_Colombia_Gran_Galope2-2022-04-26-125525-150x150.jpg 150w, https://www.zrnco.sk/wp-content/uploads/2026/02/Cafe_Imports_Colombia_Gran_Galope2-2022-04-26-125525-100x100.jpg 100w",
+    "thumbnail_sizes": "(max-width: 300px) 100vw, 300px",
+    "name": "Cafe_Imports_Colombia_Gran_Galope2-2022-04-26-125525",
+    "alt": ""
+   },
+   {
+    "id": 5900,
+    "src": "https://www.zrnco.sk/wp-content/uploads/2026/02/Cafe_Imports_Colombia_Gran_Galope3-2022-04-26-125525.jpg",
+    "thumbnail": "https://www.zrnco.sk/wp-content/uploads/2026/02/Cafe_Imports_Colombia_Gran_Galope3-2022-04-26-125525-300x300.jpg",
+    "srcset": "https://www.zrnco.sk/wp-content/uploads/2026/02/Cafe_Imports_Colombia_Gran_Galope3-2022-04-26-125525.jpg 550w, https://www.zrnco.sk/wp-content/uploads/2026/02/Cafe_Imports_Colombia_Gran_Galope3-2022-04-26-125525-300x200.jpg 300w",
+    "sizes": "(max-width: 550px) 100vw, 550px",
+    "thumbnail_srcset": "https://www.zrnco.sk/wp-content/uploads/2026/02/Cafe_Imports_Colombia_Gran_Galope3-2022-04-26-125525-300x300.jpg 300w, https://www.zrnco.sk/wp-content/uploads/2026/02/Cafe_Imports_Colombia_Gran_Galope3-2022-04-26-125525-150x150.jpg 150w, https://www.zrnco.sk/wp-content/uploads/2026/02/Cafe_Imports_Colombia_Gran_Galope3-2022-04-26-125525-100x100.jpg 100w",
+    "thumbnail_sizes": "(max-width: 300px) 100vw, 300px",
+    "name": "Cafe_Imports_Colombia_Gran_Galope3-2022-04-26-125525",
+    "alt": ""
+   }
+  ],
+  "categories": [
+   {
+    "id": 25,
+    "name": "Výberová káva",
+    "slug": "kava",
+    "link": "https://www.zrnco.sk/kategoria-produktu/kava/"
+   }
+  ],
+  "tags": [
+   {
+    "id": 88,
+    "name": "čerstvo pražená káva",
+    "slug": "cerstvo-prazena-kava",
+    "link": "https://www.zrnco.sk/znacka-produktu/cerstvo-prazena-kava/"
+   },
+   {
+    "id": 94,
+    "name": "Kolumbia",
+    "slug": "kolumbia",
+    "link": "https://www.zrnco.sk/znacka-produktu/kolumbia/"
+   },
+   {
+    "id": 89,
+    "name": "specialty coffee",
+    "slug": "specialty-coffee",
+    "link": "https://www.zrnco.sk/znacka-produktu/specialty-coffee/"
+   },
+   {
+    "id": 86,
+    "name": "výberová káva",
+    "slug": "vyberova-kava",
+    "link": "https://www.zrnco.sk/znacka-produktu/vyberova-kava/"
+   },
+   {
+    "id": 87,
+    "name": "zrnková káva",
+    "slug": "zrnkova-kava",
+    "link": "https://www.zrnco.sk/znacka-produktu/zrnkova-kava/"
+   }
+  ],
+  "attributes": [
+   {
+    "id": 0,
+    "name": "Veľkosť balenia",
+    "taxonomy": null,
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 0,
+      "name": "Malé balenie (250g)",
+      "slug": "Malé balenie (250g)"
+     },
+     {
+      "id": 0,
+      "name": "Stredné balenie (500g)",
+      "slug": "Stredné balenie (500g)"
+     },
+     {
+      "id": 0,
+      "name": "Veľké balenie (1kg)",
+      "slug": "Veľké balenie (1kg)"
+     }
+    ]
+   },
+   {
+    "id": 0,
+    "name": "Čerstvo pražená výberová káva",
+    "taxonomy": null,
+    "has_variations": false,
+    "terms": [
+     {
+      "id": 0,
+      "name": "ZRNCOvá",
+      "slug": "ZRNCOvá"
+     }
+    ]
+   },
+   {
+    "id": 0,
+    "name": "Praženie (od 500g)",
+    "taxonomy": null,
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 0,
+      "name": "Stredne tmavé (na espresso)",
+      "slug": "Stredne tmavé (na espresso)"
+     },
+     {
+      "id": 0,
+      "name": "Svetlé (na filter)",
+      "slug": "Svetlé (na filter)"
+     }
+    ]
+   },
+   {
+    "id": 0,
+    "name": "&quot;Vylepši&quot; si kávu sám",
+    "taxonomy": null,
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 0,
+      "name": "100% Arabica (bez kompromisov :-)",
+      "slug": "100% Arabica (bez kompromisov :-)"
+     },
+     {
+      "id": 0,
+      "name": "+10% Robusty (navyše)",
+      "slug": "+10% Robusty (navyše)"
+     },
+     {
+      "id": 0,
+      "name": "+ 20% Robusty (navyše)",
+      "slug": "+ 20% Robusty (navyše)"
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 5884,
+    "attributes": [
+     {
+      "name": "Veľkosť balenia",
+      "value": "Malé balenie (250g)"
+     },
+     {
+      "name": "Praženie (od 500g)",
+      "value": "Stredne tmavé (na espresso)"
+     },
+     {
+      "name": "&quot;Vylepši&quot; si kávu sám",
+      "value": "100% Arabica (bez kompromisov :-)"
+     }
+    ]
+   },
+   {
+    "id": 5885,
+    "attributes": [
+     {
+      "name": "Veľkosť balenia",
+      "value": "Malé balenie (250g)"
+     },
+     {
+      "name": "Praženie (od 500g)",
+      "value": "Stredne tmavé (na espresso)"
+     },
+     {
+      "name": "&quot;Vylepši&quot; si kávu sám",
+      "value": "+10% Robusty (navyše)"
+     }
+    ]
+   },
+   {
+    "id": 5886,
+    "attributes": [
+     {
+      "name": "Veľkosť balenia",
+      "value": "Malé balenie (250g)"
+     },
+     {
+      "name": "Praženie (od 500g)",
+      "value": "Stredne tmavé (na espresso)"
+     },
+     {
+      "name": "&quot;Vylepši&quot; si kávu sám",
+      "value": "+ 20% Robusty (navyše)"
+     }
+    ]
+   },
+   {
+    "id": 5887,
+    "attributes": [
+     {
+      "name": "Veľkosť balenia",
+      "value": "Stredné balenie (500g)"
+     },
+     {
+      "name": "Praženie (od 500g)",
+      "value": "Stredne tmavé (na espresso)"
+     },
+     {
+      "name": "&quot;Vylepši&quot; si kávu sám",
+      "value": "100% Arabica (bez kompromisov :-)"
+     }
+    ]
+   },
+   {
+    "id": 5888,
+    "attributes": [
+     {
+      "name": "Veľkosť balenia",
+      "value": "Stredné balenie (500g)"
+     },
+     {
+      "name": "Praženie (od 500g)",
+      "value": "Stredne tmavé (na espresso)"
+     },
+     {
+      "name": "&quot;Vylepši&quot; si kávu sám",
+      "value": "+10% Robusty (navyše)"
+     }
+    ]
+   },
+   {
+    "id": 5889,
+    "attributes": [
+     {
+      "name": "Veľkosť balenia",
+      "value": "Stredné balenie (500g)"
+     },
+     {
+      "name": "Praženie (od 500g)",
+      "value": "Stredne tmavé (na espresso)"
+     },
+     {
+      "name": "&quot;Vylepši&quot; si kávu sám",
+      "value": "+ 20% Robusty (navyše)"
+     }
+    ]
+   },
+   {
+    "id": 5890,
+    "attributes": [
+     {
+      "name": "Veľkosť balenia",
+      "value": "Veľké balenie (1kg)"
+     },
+     {
+      "name": "Praženie (od 500g)",
+      "value": "Stredne tmavé (na espresso)"
+     },
+     {
+      "name": "&quot;Vylepši&quot; si kávu sám",
+      "value": "100% Arabica (bez kompromisov :-)"
+     }
+    ]
+   },
+   {
+    "id": 5891,
+    "attributes": [
+     {
+      "name": "Veľkosť balenia",
+      "value": "Veľké balenie (1kg)"
+     },
+     {
+      "name": "Praženie (od 500g)",
+      "value": "Stredne tmavé (na espresso)"
+     },
+     {
+      "name": "&quot;Vylepši&quot; si kávu sám",
+      "value": "+10% Robusty (navyše)"
+     }
+    ]
+   },
+   {
+    "id": 5892,
+    "attributes": [
+     {
+      "name": "Veľkosť balenia",
+      "value": "Veľké balenie (1kg)"
+     },
+     {
+      "name": "Praženie (od 500g)",
+      "value": "Stredne tmavé (na espresso)"
+     },
+     {
+      "name": "&quot;Vylepši&quot; si kávu sám",
+      "value": "+ 20% Robusty (navyše)"
+     }
+    ]
+   },
+   {
+    "id": 5893,
+    "attributes": [
+     {
+      "name": "Veľkosť balenia",
+      "value": "Stredné balenie (500g)"
+     },
+     {
+      "name": "Praženie (od 500g)",
+      "value": "Svetlé (na filter)"
+     },
+     {
+      "name": "&quot;Vylepši&quot; si kávu sám",
+      "value": "100% Arabica (bez kompromisov :-)"
+     }
+    ]
+   },
+   {
+    "id": 5894,
+    "attributes": [
+     {
+      "name": "Veľkosť balenia",
+      "value": "Veľké balenie (1kg)"
+     },
+     {
+      "name": "Praženie (od 500g)",
+      "value": "Svetlé (na filter)"
+     },
+     {
+      "name": "&quot;Vylepši&quot; si kávu sám",
+      "value": "100% Arabica (bez kompromisov :-)"
+     }
+    ]
+   }
+  ],
+  "is_in_stock": true
+ }
+]

@@ -1,0 +1,27 @@
+# Spirit Coffee — simple products; every fact is a "Label: value" line in
+# the description, and the weight attribute is spelled with its colon.
+platform = "woocommerce"
+site_id = "spiritcoffee"
+name = "Spirit Coffee"
+country = "SK"
+base_url = "https://spiritcoffee.sk/"
+currency = "EUR"
+mode = "api"
+max_pages = 10
+
+# Pinned ids, not slugs: ids survive a re-theme, slugs do not.
+# 53 kava (10).
+api_category_ids = [53]
+
+# The HTML fallback, used only if /wp-json/ ever stops answering.
+category_urls = [
+  "https://spiritcoffee.sk/c/kava/",
+]
+
+# The catalogue also sells things that are not coffee beans.
+ignore = [
+  "flow",
+]
+
+[label_map]
+"Región pestovania" = "region"

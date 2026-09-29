@@ -1,0 +1,17 @@
+# ORO Caffe — an importer of one Italian brand; names are
+# "ORO Caffe <blend> <size> | Zrnková káva" and tasting sets share the category.
+platform = "shoptet"
+site_id = "orocaffe"
+name = "ORO Caffe"
+country = "CZ"
+base_url = "https://www.orocaffe.cz/"
+category_urls = ["https://www.orocaffe.cz/zrnkova-kava/"]
+currency = "CZK"
+max_pages = 10
+pagination = "path"
+
+ignore = [
+  "degustacni sada",
+  "darkova sada",
+  "darkova kazeta",
+]

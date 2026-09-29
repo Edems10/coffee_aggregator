@@ -28,4 +28,3 @@ ignore = [
 # is a link to the importer — both would otherwise be claimed by the fuzzy
 # whole-word matcher.
 "Typ" = ""
-"Zdroj" = ""

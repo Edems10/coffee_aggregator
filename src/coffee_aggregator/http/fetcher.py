@@ -6,18 +6,18 @@ import json
 import logging
 import os
 import random
+import re
 import threading
 import time
-import urllib.robotparser
 from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
 from pathlib import Path
 from typing import TYPE_CHECKING
 from urllib.parse import urljoin, urlsplit
 
-import requests
-from requests.adapters import HTTPAdapter
-from urllib3.util.retry import Retry
+import httpx2
+
+from coffee_aggregator.robots import RobotsRules
 
 if TYPE_CHECKING:
     from collections.abc import Iterable, Sequence
@@ -26,8 +26,17 @@ logger = logging.getLogger(__name__)
 
 ACCEPT_LANGUAGE = "sk,cs;q=0.9,en;q=0.5"
 RETRY_STATUSES = (429, 500, 502, 503, 504)
+#: Statuses that mean "you are asking too often": they slow the whole host down,
+#: not just the URL that happened to collect them.
+THROTTLE_STATUSES = (429, 503)
 #: Multiplier of the exponential backoff between two attempts at the same URL.
 RETRY_BACKOFF_FACTOR = 0.5
+#: Longest wait a single retry may ask for. A shop answering 429 with
+#: ``Retry-After: 3600`` is not asking us to sleep for an hour, it is asking us
+#: to go away, so anything above this gives the URL up instead of waiting.
+MAX_RETRY_WAIT_S = 60.0
+#: How long an unreachable robots.txt stays unreachable before it is tried again.
+ROBOTS_RETRY_S = 300.0
 #: Redirects are followed by hand so every hop passes robots.txt and the limiter.
 REDIRECT_STATUSES = (301, 302, 303, 307, 308)
 MAX_REDIRECTS = 5
@@ -40,21 +49,69 @@ _SERVER_ERROR_FLOOR = 500
 _NOT_MODIFIED = 304
 #: RFC 9309 §2.3.1.3: an unauthorized or forbidden robots.txt means "stay out".
 _ROBOTS_CLOSED_STATUSES = (401, 403)
-#: requests' fallback for a ``text/*`` body whose Content-Type names no charset.
+#: RFC 2616's fallback for a ``text/*`` body that names no charset. Anything
+#: claiming it is re-sniffed: no Czech or Slovak page is really Latin-1, so the
+#: header is either a framework default or a copy of the obsolete rule.
 _LATIN1 = "iso-8859-1"
+#: How far into a body a ``<meta charset>`` is looked for. The HTML spec puts
+#: the declaration in the first 1024 bytes; shops with a long ``<head>`` do not.
+_CHARSET_SNIFF_BYTES = 4096
+#: Tried in order when nothing states a charset. ``cp1250`` is the Central
+#: European code page the shops that omit it fall back to, and it maps all but
+#: five byte values, so it is the terminal guess rather than a candidate.
+_SNIFF_ENCODINGS = ("utf-8", "cp1250")
+_META_CHARSET_RE = re.compile(rb"""charset\s*=\s*["']?\s*([A-Za-z0-9_.:-]+)""", re.IGNORECASE)
+#: How long an idle connection is kept. urllib3 held a pooled connection until
+#: the pool evicted it; httpx2 expires it after five seconds, which is shorter
+#: than the gap a polite crawler leaves between two visits to the same shop.
+KEEPALIVE_EXPIRY_S = 30.0
 
 
 class FetchDisallowed(Exception):  # noqa: N818  (the name is fixed by the architecture contract)
-    """Raised when robots.txt forbids the requested URL."""
+    """Raised when robots.txt forbids the requested URL.
 
-    def __init__(self, url: str) -> None:
+    A shop that writes ``Disallow`` and a shop whose robots.txt we could not
+    read both end here, because an unreadable robots.txt fails closed — but they
+    are not the same event, and :attr:`robots_reachable` tells them apart so a
+    caller can count a refusal separately from a two-second outage.
+    """
+
+    def __init__(self, url: str, *, robots_reachable: bool = True) -> None:
         """Build the error.
 
         Args:
             url: The URL that robots.txt refuses.
+            robots_reachable: False when the refusal is really an unreadable
+                robots.txt rather than a rule the shop wrote.
         """
-        super().__init__(f"robots.txt disallows {url}")
+        if robots_reachable:
+            super().__init__(f"robots.txt disallows {url}")
+        else:
+            super().__init__(f"robots.txt unreachable, refusing {url}")
         self.url = url
+        self.robots_reachable = robots_reachable
+
+
+#: Everything ``httpx2`` raises instead of returning a response. ``RequestError``
+#: is the whole transport tree — connect and read timeouts, connect/read/write
+#: errors, protocol errors, proxy failures — and is the exact counterpart of the
+#: ``requests.RequestException`` this module used to catch. ``InvalidURL`` sits
+#: outside that tree in ``httpx2`` but inside it in ``requests``, so it is named
+#: here too: a shop linking ``htttp://...`` is a bad page, not a crash.
+TRANSPORT_ERRORS = (httpx2.RequestError, httpx2.InvalidURL)
+
+
+class _NetworkError(Exception):
+    """Internal: one attempt never reached a response.
+
+    It never leaves the module — :meth:`PoliteFetcher.get` either retries it or
+    turns it into a :class:`FetchError`, which is what callers have always seen.
+    """
+
+    def __init__(self, url: str, reason: str) -> None:
+        super().__init__(f"{url}: {reason}")
+        self.url = url
+        self.reason = reason
 
 
 class FetchError(Exception):
@@ -161,7 +218,7 @@ def retry_after_seconds(header: str | None) -> float | None:
         pass
     try:
         when = email.utils.parsedate_to_datetime(raw)
-    except (TypeError, ValueError):
+    except TypeError, ValueError:
         return None
     return max(0.0, when.timestamp() - time.time())
 
@@ -204,7 +261,7 @@ class DiskCache:
         _, meta_path = self._paths(url)
         try:
             loaded = json.loads(meta_path.read_text("utf-8"))
-        except (OSError, ValueError):
+        except OSError, ValueError:
             return None
         return loaded if isinstance(loaded, dict) else None
 
@@ -369,10 +426,38 @@ class RateLimiter:
 
 @dataclass(slots=True, frozen=True)
 class RobotsEntry:
-    """The robots.txt verdict for one origin."""
+    """The robots.txt verdict for one origin.
 
-    parser: urllib.robotparser.RobotFileParser | None
+    Attributes:
+        parser: The parsed rules, or None when there are none to apply.
+        allow_all: True when the origin has no robots.txt at all, which is the
+            one case where "no rules" means "everything is allowed".
+        reachable: False when the file could not be read — a connection error, a
+            5xx or a redirect loop. The verdict is still "stay out", but it is
+            our failure rather than the shop's decision, so it is counted apart
+            and retried instead of being believed for the rest of the process.
+        checked_at: The :func:`time.monotonic` reading of when this verdict was
+            reached, which is what the retry interval is measured from.
+    """
+
+    parser: RobotsRules | None
     allow_all: bool
+    reachable: bool = True
+    checked_at: float = 0.0
+
+    def allows(self, ua_token: str, url: str) -> bool:
+        """Say whether this verdict lets one URL be requested.
+
+        Args:
+            ua_token: The product token of our User-Agent.
+            url: The absolute URL we want.
+
+        Returns:
+            True when the fetch is allowed.
+        """
+        if self.parser is None:
+            return self.allow_all
+        return self.parser.can_fetch(ua_token, url)
 
 
 class RobotsCache:
@@ -380,25 +465,31 @@ class RobotsCache:
 
     def __init__(
         self,
-        session: requests.Session,
+        client: httpx2.Client,
         timeout_s: float,
         limiter: RateLimiter | None = None,
         ua_token: str = ANY_USER_AGENT,
+        unreachable_retry_s: float = ROBOTS_RETRY_S,
     ) -> None:
         """Build the cache.
 
         Args:
-            session: The session robots.txt is fetched with.
+            client: The HTTP client robots.txt is fetched with.
             timeout_s: Per-request timeout.
             limiter: The shared rate limiter, so robots.txt is paced like any
                 other request to that host.
             ua_token: Our robots.txt product token, used to read the
                 ``Crawl-delay`` that applies to us as soon as it is parsed.
+            unreachable_retry_s: How long an unreachable robots.txt is believed
+                before it is fetched again. A verdict the shop actually wrote is
+                cached for the whole process; one we failed to read is not, or a
+                two-second blip would close the shop until the process exits.
         """
-        self._session = session
+        self._client = client
         self._timeout_s = timeout_s
         self._limiter = limiter
         self._ua_token = ua_token
+        self._unreachable_retry_s = max(0.0, unreachable_retry_s)
         self._lock = threading.Lock()
         self._entries: dict[str, RobotsEntry] = {}
         self._origin_locks: dict[str, threading.Lock] = {}
@@ -410,16 +501,41 @@ class RobotsCache:
                 lock = self._origin_locks[origin] = threading.Lock()
             return lock
 
-    def _entry(self, origin: str) -> RobotsEntry:
+    def _usable(self, entry: RobotsEntry) -> bool:
+        """Say whether a cached verdict may still be used.
+
+        Args:
+            entry: The cached verdict.
+
+        Returns:
+            True for anything the shop itself told us, and for an unreachable
+            verdict that is younger than the retry interval.
+        """
+        if entry.reachable:
+            return True
+        return time.monotonic() - entry.checked_at < self._unreachable_retry_s
+
+    def _cached(self, origin: str) -> RobotsEntry | None:
+        """Return the stored verdict for an origin when it may still be used.
+
+        Args:
+            origin: The scheme-plus-host to look up.
+
+        Returns:
+            The verdict, or None when there is none or it has expired.
+        """
         with self._lock:
-            cached = self._entries.get(origin)
+            entry = self._entries.get(origin)
+        return entry if entry is not None and self._usable(entry) else None
+
+    def _entry(self, origin: str) -> RobotsEntry:
+        cached = self._cached(origin)
         if cached is not None:
             return cached
         # One fetch per origin even with a thread pool: the losers of the race
         # wait on the origin lock and then find the entry already cached.
         with self._origin_lock(origin):
-            with self._lock:
-                cached = self._entries.get(origin)
+            cached = self._cached(origin)
             if cached is not None:
                 return cached
             entry = self._load(origin)
@@ -441,16 +557,12 @@ class RobotsCache:
         for _hop in range(MAX_REDIRECTS + 1):
             started = self._acquire(current)
             try:
-                response = self._session.get(
-                    current,
-                    timeout=self._timeout_s,
-                    allow_redirects=False,
-                )
-            except requests.RequestException as exc:
+                response = self._client.get(current, timeout=self._timeout_s)
+            except TRANSPORT_ERRORS as exc:
                 logger.warning(
                     "robots.txt unreachable at %s (%s); disallowing the host", current, exc
                 )
-                return RobotsEntry(parser=None, allow_all=False)
+                return self._unreachable()
             location = response.headers.get("Location")
             if response.status_code in REDIRECT_STATUSES and location:
                 current = urljoin(current, location)
@@ -462,7 +574,21 @@ class RobotsCache:
             url,
             MAX_REDIRECTS,
         )
-        return RobotsEntry(parser=None, allow_all=False)
+        return self._unreachable()
+
+    def _unreachable(self) -> RobotsEntry:
+        """Build the verdict for a robots.txt we could not read.
+
+        Returns:
+            A closed verdict stamped as unreachable, so it is counted apart and
+            refetched once the retry interval is over.
+        """
+        return RobotsEntry(
+            parser=None,
+            allow_all=False,
+            reachable=False,
+            checked_at=time.monotonic(),
+        )
 
     def _acquire(self, url: str) -> float:
         """Clear one robots.txt hop with the limiter, like any other request.
@@ -479,7 +605,7 @@ class RobotsCache:
 
     def _verdict(
         self,
-        response: requests.Response,
+        response: httpx2.Response,
         url: str,
         host: str,
         started: float,
@@ -496,27 +622,32 @@ class RobotsCache:
         Returns:
             The verdict for the origin.
         """
-        if response.status_code >= _SERVER_ERROR_FLOOR or (
-            response.status_code in _ROBOTS_CLOSED_STATUSES
-        ):
+        if response.status_code >= _SERVER_ERROR_FLOOR:
+            # The shop said nothing, its server broke. Stay out, but say so as a
+            # failure of ours so the next batch may ask again.
+            logger.warning(
+                "robots.txt returned %s at %s; disallowing the host for now",
+                response.status_code,
+                url,
+            )
+            return self._unreachable()
+        if response.status_code in _ROBOTS_CLOSED_STATUSES:
             logger.warning(
                 "robots.txt returned %s at %s; disallowing the host",
                 response.status_code,
                 url,
             )
-            return RobotsEntry(parser=None, allow_all=False)
+            return RobotsEntry(parser=None, allow_all=False, checked_at=time.monotonic())
         if response.status_code >= _HTTP_ERROR_FLOOR:
             logger.debug("no robots.txt at %s (%s); allowing all", url, response.status_code)
-            return RobotsEntry(parser=None, allow_all=True)
-        parser = urllib.robotparser.RobotFileParser()
-        parser.set_url(url)
-        parser.parse(_decode(response).splitlines())
+            return RobotsEntry(parser=None, allow_all=True, checked_at=time.monotonic())
+        parser = parse_robots(_decode(response))
         self._book_crawl_delay(parser, host, started)
-        return RobotsEntry(parser=parser, allow_all=False)
+        return RobotsEntry(parser=parser, allow_all=False, checked_at=time.monotonic())
 
     def _book_crawl_delay(
         self,
-        parser: urllib.robotparser.RobotFileParser,
+        parser: RobotsRules,
         host: str,
         started: float,
     ) -> None:
@@ -536,6 +667,32 @@ class RobotsCache:
         self._limiter.set_host_delay(host, delay)
         self._limiter.defer(host, delay, since=started)
 
+    def entry_for(self, url: str) -> RobotsEntry:
+        """Return the verdict for a URL's origin, fetching robots.txt if needed.
+
+        Args:
+            url: Any URL on the origin of interest.
+
+        Returns:
+            The verdict, which says both whether the URL may be fetched and
+            whether the file behind that answer could be read at all.
+        """
+        return self._entry(origin_of(url))
+
+    def unreachable_origins(self) -> tuple[str, ...]:
+        """Return the origins whose robots.txt could not be read.
+
+        These are the hosts we are refusing out of caution rather than because
+        they refused us, so a run can report them apart from real disallows.
+
+        Returns:
+            The origins, sorted, as of this moment.
+        """
+        with self._lock:
+            return tuple(
+                sorted(origin for origin, entry in self._entries.items() if not entry.reachable)
+            )
+
     def can_fetch(self, ua_token: str, url: str) -> bool:
         """Ask robots.txt whether this URL may be requested.
 
@@ -546,10 +703,7 @@ class RobotsCache:
         Returns:
             True when the fetch is allowed.
         """
-        entry = self._entry(origin_of(url))
-        if entry.parser is None:
-            return entry.allow_all
-        return entry.parser.can_fetch(ua_token, url)
+        return self._entry(origin_of(url)).allows(ua_token, url)
 
     def crawl_delay(self, ua_token: str, url: str) -> float | None:
         """Return the crawl-delay robots.txt asks for, when it states one.
@@ -567,7 +721,22 @@ class RobotsCache:
         return _crawl_delay_of(entry.parser, ua_token)
 
 
-def _crawl_delay_of(parser: urllib.robotparser.RobotFileParser, ua_token: str) -> float | None:
+def parse_robots(text: str) -> RobotsRules:
+    """Parse a robots.txt the way RFC 9309 reads it.
+
+    See :class:`coffee_aggregator.robots.RobotsRules` for the two places where
+    Python's own parser hands out permission a shop never gave.
+
+    Args:
+        text: The body of a robots.txt.
+
+    Returns:
+        The parsed rules.
+    """
+    return RobotsRules(text)
+
+
+def _crawl_delay_of(parser: RobotsRules, ua_token: str) -> float | None:
     """Read a parsed robots.txt's crawl delay as a float.
 
     Args:
@@ -582,17 +751,52 @@ def _crawl_delay_of(parser: urllib.robotparser.RobotFileParser, ua_token: str) -
         return None
     try:
         return float(raw)
-    except (TypeError, ValueError):  # pragma: no cover - robotparser returns numbers
+    except TypeError, ValueError:  # pragma: no cover - robotparser returns numbers
         return None
 
 
-def _decode(response: requests.Response) -> str:
+def _sniff_encoding(content: bytes) -> str:
+    """Guess the charset of a body whose headers would not say.
+
+    ``requests`` answered this with ``apparent_encoding``, i.e. chardet.
+    ``httpx2`` has no such hook — an undeclared body is simply decoded as UTF-8,
+    with anything undecodable replaced — so the guess is made here: the page's
+    own ``<meta charset>`` first, then UTF-8, then the Central European code
+    page. Each candidate has to decode the whole body before it is believed, so
+    a shop that declares UTF-8 and serves cp1250 still comes out readable.
+
+    Args:
+        content: The raw body.
+
+    Returns:
+        The name of an encoding that decodes ``content`` without loss.
+    """
+    candidates: list[str] = []
+    declared = _META_CHARSET_RE.search(content[:_CHARSET_SNIFF_BYTES])
+    if declared is not None:
+        candidates.append(declared.group(1).decode("ascii", "ignore"))
+    candidates.extend(_SNIFF_ENCODINGS)
+    for name in candidates:
+        if name.lower() == _LATIN1:
+            # Latin-1 decodes every byte, so believing it would end the search
+            # on the one answer that is never right for a Czech or Slovak shop.
+            continue
+        try:
+            content.decode(name)
+        except LookupError, UnicodeDecodeError:
+            continue
+        return name
+    return _SNIFF_ENCODINGS[-1]
+
+
+def _decode(response: httpx2.Response) -> str:
     """Return a response body as text, guessing the charset when none is stated.
 
-    ``requests`` falls back to ISO-8859-1 for any ``text/*`` body whose
-    Content-Type names no charset — the rule in RFC 2616, dropped in RFC 7231 —
-    and Czech and Slovak shops that omit the charset are common enough that the
-    fallback would turn every diacritic into mojibake.
+    ``httpx2`` decodes an undeclared body as UTF-8 and replaces what will not
+    fit, so a Czech or Slovak shop serving cp1250 under a bare ``text/html``
+    would come back as mojibake with no error anywhere. A declared ISO-8859-1 is
+    treated as no declaration at all: it is RFC 2616's dropped default, and a
+    page with diacritics is never really Latin-1.
 
     Args:
         response: The response to read.
@@ -600,15 +804,66 @@ def _decode(response: requests.Response) -> str:
     Returns:
         The decoded body.
     """
-    declared = response.headers.get("Content-Type", "")
-    encoding = (response.encoding or "").lower()
-    if "charset=" not in declared.lower() or not encoding or encoding == _LATIN1:
-        response.encoding = response.apparent_encoding or "utf-8"
+    declared = (response.charset_encoding or "").lower()
+    if declared and declared != _LATIN1:
+        return response.text
+    response.encoding = _sniff_encoding(response.content)
     return response.text
 
 
+def _build_transport(limits: httpx2.Limits) -> httpx2.BaseTransport:
+    """Build the transport every request of a fetcher goes through.
+
+    It is a module-level function so a test can put an
+    :class:`httpx2.MockTransport` in its place without reaching into a client.
+
+    Args:
+        limits: The connection-pool ceilings, already sized by the caller.
+
+    Returns:
+        The transport, which never retries anything on its own — see
+        :class:`PoliteFetcher` for why that is deliberate.
+    """
+    return httpx2.HTTPTransport(limits=limits, retries=0, http2=False)
+
+
 class PoliteFetcher:
-    """The only object in the project allowed to make an HTTP request."""
+    """The only object in the project allowed to make an HTTP request.
+
+    **What one dead URL costs.** Every attempt can burn ``timeout_s``, and every
+    retry waits at most ``max_retry_wait_s`` before it is given up on, so the
+    worst case for a single URL is::
+
+        (retries + 1) * timeout_s + retries * max_retry_wait_s
+
+    With the defaults below that is ``2 * 15 + 1 * 60 = 90`` s, and the wait cap
+    is what keeps it there: a shop answering ``429`` with ``Retry-After: 3600``
+    would otherwise hold a worker for an hour, three times over, for one URL. A
+    short-lived caller should lower the knobs — ``timeout_s=8, retries=1`` gives
+    ``2 * 8 + 1 * 60``, and ``max_retry_wait_s=10`` brings that to 26 s.
+
+    **The connection limits are a global ceiling, not a per-host reservation.**
+    ``urllib3`` counted two separate things: ``pool_connections`` kept one pool
+    per host, so a run holding twenty shops open never had to re-handshake the
+    other twelve, and ``pool_maxsize`` sized the connections inside one host's
+    pool. ``httpx2`` has neither; :class:`httpx2.Limits` caps the connections of
+    the whole client at once. :attr:`limits` is therefore set to
+    ``hosts_in_flight * workers`` — the same total ``urllib3`` could have
+    reached — with every one of them allowed to stay alive, which is what
+    ``pool_maxsize`` really bought. What is gone is the *guarantee*: a single
+    busy host can now take the whole budget, where before each host had its own.
+    In this crawler nothing notices, because :class:`RateLimiter` lets one
+    request per host per delay window through and is the real bound on
+    concurrency; a future run over many hosts at once should size
+    ``hosts_in_flight`` and not assume the pool reserves anything for it.
+
+    **Nothing below this class retries.** ``urllib3`` retried connect and read
+    errors inside the adapter, silently and behind the rate limiter's back.
+    :func:`_build_transport` asks ``httpx2`` for ``retries=0``, and the loop in
+    :meth:`get` retries those failures instead, exactly like a 429 or a 5xx: one
+    trip through :meth:`_preflight` per attempt, so robots.txt and the host's
+    delay window are honoured on the retry as much as on the first try.
+    """
 
     def __init__(  # noqa: PLR0913, PLR0917  (one knob per politeness requirement)
         self,
@@ -616,25 +871,41 @@ class PoliteFetcher:
         contact: str,
         delay_s: float = 1.0,
         jitter_s: float = 0.5,
-        workers: int = 4,
+        workers: int = 2,
         timeout_s: float = 15.0,
         retries: int = 3,
         cache_dir: Path | None = None,
         ua_token: str | None = None,
+        hosts_in_flight: int = 1,
+        max_retry_wait_s: float = MAX_RETRY_WAIT_S,
+        robots_retry_s: float = ROBOTS_RETRY_S,
     ) -> None:
-        """Build the fetcher and its session.
+        """Build the fetcher and its client.
 
         Args:
             user_agent: Full User-Agent string; its product token is used for robots.
             contact: Contact URL or e-mail, appended to the User-Agent when missing.
             delay_s: Minimum seconds between request starts to the same host.
             jitter_s: Extra uniform random delay on top of ``delay_s``.
-            workers: Thread-pool size used by :meth:`fetch_many`.
-            timeout_s: Per-request timeout.
+            workers: Thread-pool size used by :meth:`fetch_many`. Every URL of a
+                batch belongs to one shop, so throughput is fixed by that host's
+                delay and not by this number: four workers measured slightly
+                slower than one. Two is enough to overlap a slow response with
+                the next request, and more only buys queueing.
+            timeout_s: Per-request timeout. See the class docstring for what it
+                and ``retries`` cost together on a dead URL.
             retries: How often a 429/5xx is retried before giving up.
             cache_dir: Optional directory for the conditional-GET cache.
             ua_token: Override for the robots.txt product token, for the rare
                 shop whose rules name something else than our first token.
+            hosts_in_flight: How many hosts a run keeps open at once. Together
+                with ``workers`` it sizes the connection limits; see
+                :attr:`limits` for why that product is a ceiling rather than the
+                per-host reservation ``urllib3`` used to make.
+            max_retry_wait_s: Longest a retry may wait. A URL whose next wait
+                would be longer is given up on instead of slept through.
+            robots_retry_s: How long an unreadable robots.txt keeps a host
+                closed before it is fetched again.
         """
         has_contact = f"+{contact}" in user_agent
         self.user_agent = user_agent if has_contact else f"{user_agent} (+{contact})"
@@ -642,47 +913,39 @@ class PoliteFetcher:
         self.timeout_s = timeout_s
         self.retries = max(0, retries)
         self.workers = max(1, workers)
+        self.max_retry_wait_s = max(0.0, max_retry_wait_s)
         self.ua_token = (ua_token or "").strip() or robots_token(self.user_agent)
         logger.info(
             "identifying as %r; robots.txt rules are matched on %r",
             self.user_agent,
             self.ua_token,
         )
-        self.session = requests.Session()
-        self.session.headers.update(
-            {"User-Agent": self.user_agent, "Accept-Language": ACCEPT_LANGUAGE}
+        self.hosts_in_flight = max(1, hosts_in_flight)
+        self.limits = httpx2.Limits(
+            max_connections=self.hosts_in_flight * self.workers,
+            max_keepalive_connections=self.hosts_in_flight * self.workers,
+            keepalive_expiry=KEEPALIVE_EXPIRY_S,
         )
-        adapter = HTTPAdapter(
-            pool_connections=8,
-            pool_maxsize=16,
-            max_retries=Retry(
-                total=self.retries,
-                backoff_factor=RETRY_BACKOFF_FACTOR,
-                # Connect and read errors only. Status retries happen in get(),
-                # which re-enters the limiter; urllib3 would repeat them at once
-                # and behind its back. respect_retry_after_header must go too:
-                # on its own it makes urllib3 retry 413/429/503 whenever the
-                # response carries a Retry-After, empty forcelist or not.
-                status=0,
-                status_forcelist=(),
-                respect_retry_after_header=False,
-                allowed_methods=("GET", "HEAD"),
-            ),
+        self.client = httpx2.Client(
+            headers={"User-Agent": self.user_agent, "Accept-Language": ACCEPT_LANGUAGE},
+            # Off, and never turned on: every hop is cleared against robots.txt
+            # by hand, which is the point of this module.
+            follow_redirects=False,
+            transport=_build_transport(self.limits),
         )
-        self.session.mount("http://", adapter)
-        self.session.mount("https://", adapter)
         self.limiter = RateLimiter(delay_s=delay_s, jitter_s=jitter_s)
         self.robots = RobotsCache(
-            self.session,
+            self.client,
             timeout_s=timeout_s,
             limiter=self.limiter,
             ua_token=self.ua_token,
+            unreachable_retry_s=robots_retry_s,
         )
         self.cache = DiskCache(cache_dir) if cache_dir is not None else None
 
     def close(self) -> None:
-        """Close the underlying session."""
-        self.session.close()
+        """Close the underlying client."""
+        self.client.close()
 
     def _conditional_headers(self, entry: CacheEntry | None) -> dict[str, str]:
         headers: dict[str, str] = {}
@@ -707,8 +970,9 @@ class PoliteFetcher:
         Raises:
             FetchDisallowed: When robots.txt forbids the URL.
         """
-        if not self.robots.can_fetch(self.ua_token, url):
-            raise FetchDisallowed(url)
+        entry = self.robots.entry_for(url)
+        if not entry.allows(self.ua_token, url):
+            raise FetchDisallowed(url, robots_reachable=entry.reachable)
         host = host_of(url)
         crawl_delay = self.robots.crawl_delay(self.ua_token, url)
         if crawl_delay is not None:
@@ -721,7 +985,7 @@ class PoliteFetcher:
             waited,
         )
 
-    def _request(self, url: str, headers: dict[str, str]) -> requests.Response:
+    def _request(self, url: str, headers: dict[str, str]) -> httpx2.Response:
         """Issue one hop after clearing it, never following redirects itself.
 
         Args:
@@ -733,18 +997,13 @@ class PoliteFetcher:
 
         Raises:
             FetchDisallowed: When robots.txt forbids the URL.
-            FetchError: When the request could not be made at all.
+            _NetworkError: When the request never reached a response.
         """
         self._preflight(url)
         try:
-            return self.session.get(
-                url,
-                headers=headers,
-                timeout=self.timeout_s,
-                allow_redirects=False,
-            )
-        except requests.RequestException as exc:
-            raise FetchError(url, f"{type(exc).__name__}: {exc}") from exc
+            return self.client.get(url, headers=headers, timeout=self.timeout_s)
+        except TRANSPORT_ERRORS as exc:
+            raise _NetworkError(url, f"{type(exc).__name__}: {exc}") from exc
 
     def get(self, url: str) -> FetchResult:
         """Fetch one URL, obeying robots.txt and the per-host rate limit.
@@ -758,6 +1017,7 @@ class PoliteFetcher:
         Raises:
             FetchDisallowed: When robots.txt forbids the URL or any redirect hop.
             FetchError: When the URL could not be retrieved after every retry,
+                when the host asked for a longer wait than ``max_retry_wait_s``,
                 or when the redirect chain is longer than :data:`MAX_REDIRECTS`.
         """
         resolved = self.cache.resolve(url) if self.cache is not None else url
@@ -766,11 +1026,20 @@ class PoliteFetcher:
         started = time.monotonic()
         status = 0
         for attempt in range(1, self.retries + 2):
-            response, final_url = self._chain(url, resolved, validators)
+            try:
+                response, final_url = self._chain(url, resolved, validators)
+            except _NetworkError as failure:
+                if attempt > self.retries or not self._wait_before_network_retry(url, attempt):
+                    raise FetchError(url, failure.reason) from failure
+                continue
             status = response.status_code
             if status not in RETRY_STATUSES or attempt > self.retries:
                 return self._result(url, final_url, response, entry, time.monotonic() - started)
-            self._wait_before_retry(url, response, attempt)
+            if not self._wait_before_retry(url, response, attempt):
+                raise FetchError(
+                    url,
+                    f"HTTP {status}, and the next wait is over the {self.max_retry_wait_s:g}s cap",
+                )
         raise FetchError(url, f"HTTP {status} after {self.retries + 1} attempts")
 
     def _chain(
@@ -778,7 +1047,7 @@ class PoliteFetcher:
         url: str,
         resolved: str,
         validators: dict[str, str],
-    ) -> tuple[requests.Response, str]:
+    ) -> tuple[httpx2.Response, str]:
         """Walk one redirect chain by hand, clearing every hop on its own.
 
         Args:
@@ -801,23 +1070,43 @@ class PoliteFetcher:
             if response.status_code in REDIRECT_STATUSES and location:
                 current = urljoin(current, location)
                 headers = dict(validators) if current == resolved else {}
-                logger.debug("%s redirects to %s", response.url, current)
+                logger.debug("%s redirects to %s", response.request.url, current)
                 continue
             return response, current
         raise FetchError(url, f"more than {MAX_REDIRECTS} redirects")
 
-    def _wait_before_retry(self, url: str, response: requests.Response, attempt: int) -> None:
+    def _wait_before_retry(self, url: str, response: httpx2.Response, attempt: int) -> bool:
         """Wait out a retryable status before asking the same host again.
+
+        A ``429`` or ``503`` is the host talking about itself, not about this
+        one URL, so the wait is pushed onto the shared limiter: every sibling
+        URL of the same shop slows down too, instead of each of sixty products
+        rediscovering the same refusal on its own.
 
         Args:
             url: The URL being retried.
             response: The response that asked us to come back later.
             attempt: Which attempt has just failed, counting from one.
+
+        Returns:
+            True when the wait was taken and the URL may be tried again; False
+            when the host asked for longer than ``max_retry_wait_s``, which is
+            an answer in itself and ends the URL.
         """
         host = host_of(url)
         asked = retry_after_seconds(response.headers.get("Retry-After")) or 0.0
         backoff = RETRY_BACKOFF_FACTOR * 2 ** (attempt - 1)
         wait = max(self.limiter.delay_for(host), asked, backoff)
+        if wait > self.max_retry_wait_s:
+            logger.warning(
+                "%s returned %s and asked for %.0fs, over the %.0fs cap; giving the URL up",
+                url,
+                response.status_code,
+                wait,
+                self.max_retry_wait_s,
+            )
+            self._throttle_host(host, response.status_code, self.max_retry_wait_s)
+            return False
         logger.warning(
             "%s returned %s; retrying in %.2fs (attempt %d of %d)",
             url,
@@ -826,13 +1115,60 @@ class PoliteFetcher:
             attempt,
             self.retries + 1,
         )
+        self._throttle_host(host, response.status_code, wait)
         _sleep(wait)
+        return True
+
+    def _wait_before_network_retry(self, url: str, attempt: int) -> bool:
+        """Wait out a request that never reached a response.
+
+        This is the retrying ``urllib3`` used to do inside the adapter, moved up
+        here so it goes through :meth:`_preflight` like everything else. There is
+        no response to read a ``Retry-After`` from and nothing the host said
+        about itself, so the host is not throttled — only this URL waits.
+
+        Args:
+            url: The URL being retried.
+            attempt: Which attempt has just failed, counting from one.
+
+        Returns:
+            True when the wait was taken and the URL may be tried again; False
+            when it would be longer than ``max_retry_wait_s``.
+        """
+        host = host_of(url)
+        wait = max(self.limiter.delay_for(host), RETRY_BACKOFF_FACTOR * 2 ** (attempt - 1))
+        if wait > self.max_retry_wait_s:
+            return False
+        logger.warning(
+            "%s could not be reached; retrying in %.2fs (attempt %d of %d)",
+            url,
+            wait,
+            attempt,
+            self.retries + 1,
+        )
+        _sleep(wait)
+        return True
+
+    def _throttle_host(self, host: str, status: int, wait: float) -> None:
+        """Make one host's refusal slow down every URL queued behind it.
+
+        Args:
+            host: The host that refused.
+            status: The status it refused with; only ``429`` and ``503`` count.
+            wait: The delay it effectively asked for, in seconds.
+        """
+        if status not in THROTTLE_STATUSES or wait <= 0:
+            return
+        if wait > self.limiter.delay_for(host):
+            logger.warning("%s returned %s; pacing the whole host at %.1fs", host, status, wait)
+        self.limiter.set_host_delay(host, wait)
+        self.limiter.defer(host, wait)
 
     def _result(
         self,
         url: str,
         final_url: str,
-        response: requests.Response,
+        response: httpx2.Response,
         entry: CacheEntry | None,
         elapsed: float,
     ) -> FetchResult:
@@ -898,7 +1234,7 @@ class PoliteFetcher:
         except Exception as exc:  # noqa: BLE001
             # A worker thread must never die with an exception the caller cannot
             # see: a malformed header, a decoding bug in a dependency or an
-            # unexpected urllib3 error would otherwise abort a whole batch and
+            # unexpected httpcore error would otherwise abort a whole batch and
             # take every sibling URL's result with it.
             logger.warning("unexpected failure fetching %s: %r", url, exc)
             return FetchError(url, f"{type(exc).__name__}: {exc}")

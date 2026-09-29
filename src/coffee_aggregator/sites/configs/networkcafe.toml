@@ -1,0 +1,24 @@
+# The permalink base is /produkt-kategorie/, not the usual
+# /kategoria-produktu/. The shop publishes no attributes at all: every fact
+# is a "Label: value" line, food-label boilerplate included.
+platform = "woocommerce"
+site_id = "networkcafe"
+name = "Network Café"
+country = "SK"
+base_url = "https://www.networkcafe.sk/"
+currency = "EUR"
+mode = "api"
+max_pages = 10
+
+# Pinned ids, not slugs: ids survive a re-theme, slugs do not.
+api_category_ids = [48]
+
+# The HTML fallback, used only if /wp-json/ ever stops answering.
+category_urls = [
+  "https://www.networkcafe.sk/produkt-kategorie/kava/",
+]
+
+# The catalogue also sells things that are not coffee beans.
+ignore = [
+  "darcek",
+]

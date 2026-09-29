@@ -1,0 +1,15 @@
+# Zrníčko — some product names repeat the pack size ("- 250g"); the category
+# also lists gift sets and a seasonal edition.
+platform = "shoptet"
+site_id = "zrnicko"
+name = "Zrníčko"
+country = "CZ"
+base_url = "https://www.zrnicko.cz/"
+category_urls = ["https://www.zrnicko.cz/prazena-kava/"]
+currency = "CZK"
+max_pages = 10
+pagination = "path"
+
+ignore = [
+  "darkova sada",
+]

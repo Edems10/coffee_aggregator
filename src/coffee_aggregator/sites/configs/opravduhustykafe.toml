@@ -1,0 +1,11 @@
+# Opravdu hustý kafe — a tiny catalogue of themed blends named after Czech
+# emergency services; one page holds the whole shop.
+platform = "shoptet"
+site_id = "opravduhustykafe"
+name = "Opravdu hustý kafe"
+country = "CZ"
+base_url = "https://www.opravduhustykafe.cz/"
+category_urls = ["https://www.opravduhustykafe.cz/kafe/"]
+currency = "CZK"
+max_pages = 5
+pagination = "path"

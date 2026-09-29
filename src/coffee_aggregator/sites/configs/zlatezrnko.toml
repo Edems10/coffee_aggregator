@@ -1,0 +1,32 @@
+# The categories endpoint fills its whole 100-row page: the shop models
+# taste, strength and caffeine as categories (563 chut-kava, 557 kofein-kava)
+# beside the real tree, so 758 kava is pinned and nothing is resolved by slug.
+# Its listing base is /kategoria/, not /kategoria-produktu/.
+platform = "woocommerce"
+site_id = "zlatezrnko"
+name = "Zlaté Zrnko"
+country = "SK"
+base_url = "https://zlatezrnko.sk/"
+currency = "EUR"
+mode = "api"
+max_pages = 10
+
+# Pinned ids, not slugs: ids survive a re-theme, slugs do not.
+api_category_ids = [758]
+
+# The HTML fallback, used only if /wp-json/ ever stops answering.
+category_urls = [
+  "https://zlatezrnko.sk/kategoria/kava/",
+]
+
+# The catalogue also sells things that are not coffee beans.
+ignore = [
+  "balicek",
+  "kapsul",
+  "mleta kava",
+  "predplatne",
+  "poukaz",
+  "cukor",
+  "sirup",
+  "cokolad",
+]

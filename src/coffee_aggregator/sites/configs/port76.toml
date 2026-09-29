@@ -1,0 +1,11 @@
+# Port 76 — a small harbour-themed roastery; blends carry invented names
+# ("Sailor", "Pirate") with the origin only in the parameter table.
+platform = "shoptet"
+site_id = "port76"
+name = "Port 76"
+country = "CZ"
+base_url = "https://www.port76.cz/"
+category_urls = ["https://www.port76.cz/zrnkova-kava/"]
+currency = "CZK"
+max_pages = 10
+pagination = "path"

@@ -1,0 +1,15 @@
+# Hippo Cafe — Vietnamese coffee: the listing names varieties and local styles
+# ("Cà Phê Phin", "Queen Moccha") rather than origin countries.
+platform = "shoptet"
+site_id = "hippocafe"
+name = "Hippo Cafe"
+country = "CZ"
+base_url = "https://www.hippocafe.cz/"
+category_urls = ["https://www.hippocafe.cz/kavy/"]
+currency = "CZK"
+max_pages = 10
+pagination = "path"
+
+ignore = [
+  "degustacni box",
+]

@@ -14,7 +14,5 @@ pagination = "path"
 # Parameter names this shop invents that the built-in CZ/SK/EN map
 # does not already cover.
 [label_map]
-"Odrůdy" = "variety"
 "Stanice" = "washing_station"
-"Země" = "country"
 "Varianta" = "weight"

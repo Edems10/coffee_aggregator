@@ -1,0 +1,15 @@
+# Daniela's Roastery — house blends are named in English capitals ("AMBER DAY")
+# while single origins are named after their country.
+platform = "shoptet"
+site_id = "danielasroastery"
+name = "Daniela's Roastery"
+country = "CZ"
+base_url = "https://www.danielasroastery.cz/"
+category_urls = ["https://www.danielasroastery.cz/kava/"]
+currency = "CZK"
+max_pages = 10
+pagination = "path"
+
+ignore = [
+  "degustacni sada",
+]

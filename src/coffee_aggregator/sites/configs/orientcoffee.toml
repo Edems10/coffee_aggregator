@@ -1,0 +1,15 @@
+# Orient Coffee — a Czech shop on a .com domain, pricing in CZK; single-origin
+# names carry a flag emoji that is part of the product name.
+platform = "shoptet"
+site_id = "orientcoffee"
+name = "Orient Coffee"
+country = "CZ"
+base_url = "https://www.orientcoffee.com/"
+category_urls = ["https://www.orientcoffee.com/kava/"]
+currency = "CZK"
+max_pages = 10
+pagination = "path"
+
+ignore = [
+  "darkove balicky",
+]

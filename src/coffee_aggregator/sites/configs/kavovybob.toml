@@ -1,0 +1,11 @@
+# Kávový Bob — every product name starts with "Arabica"; single origins only,
+# no blends and no gear in the category.
+platform = "shoptet"
+site_id = "kavovybob"
+name = "Kávový Bob"
+country = "CZ"
+base_url = "https://www.kavovybob.cz/"
+category_urls = ["https://www.kavovybob.cz/prazena-kava/"]
+currency = "CZK"
+max_pages = 5
+pagination = "path"

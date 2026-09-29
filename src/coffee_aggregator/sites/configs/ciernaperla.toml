@@ -1,0 +1,26 @@
+# A flat taxonomy with no parents at all and a duplicated coffee term
+# (49 pure-arabica and 219 pure-arabica-2 hold the same nine products), so
+# every bean term is pinned and the adapter de-duplicates by product id.
+platform = "woocommerce"
+site_id = "ciernaperla"
+name = "Čierna perla"
+country = "SK"
+base_url = "https://www.ciernaperla.sk/"
+currency = "EUR"
+mode = "api"
+max_pages = 10
+
+# Pinned ids, not slugs: ids survive a re-theme, slugs do not.
+api_category_ids = [34, 49, 219, 132, 342, 309]
+
+# The HTML fallback, used only if /wp-json/ ever stops answering.
+category_urls = [
+  "https://www.ciernaperla.sk/kategoria-produktu/alexs-specialty-coffee/",
+]
+
+# The catalogue also sells things that are not coffee beans.
+ignore = [
+  "poukazka",
+  "caje",
+  "cokolad",
+]

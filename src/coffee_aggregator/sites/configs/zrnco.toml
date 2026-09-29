@@ -1,0 +1,30 @@
+# ZRNCO — description is empty (page builder) and the attributes are upsell
+# labels, so the facts come from the short description's label lines.
+platform = "woocommerce"
+site_id = "zrnco"
+name = "ZRNCO"
+country = "SK"
+base_url = "https://www.zrnco.sk/"
+currency = "EUR"
+mode = "api"
+max_pages = 10
+
+# Pinned ids, not slugs: ids survive a re-theme, slugs do not.
+# 25 kava (5).
+api_category_ids = [25]
+
+# The HTML fallback, used only if /wp-json/ ever stops answering.
+category_urls = [
+  "https://www.zrnco.sk/kategoria-produktu/kava/",
+]
+
+# The catalogue also sells things that are not coffee beans.
+ignore = [
+  "degustac",
+  "sada",
+]
+
+[label_map]
+"Čerstvo pražená výberová káva" = ""
+'"Vylepši" si kávu sám' = ""
+"Praženie (od 500g)" = "roast"

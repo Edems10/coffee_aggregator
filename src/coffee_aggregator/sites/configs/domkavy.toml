@@ -1,0 +1,17 @@
+# Dom kávy — a machine dealer whose /kava/ category mixes capsules and pods
+# in; /zrnkova/ is the whole-bean subcategory and is walked instead.
+platform = "shoptet"
+site_id = "domkavy"
+name = "Dom kávy"
+country = "SK"
+base_url = "https://www.domkavy.sk/"
+category_urls = ["https://www.domkavy.sk/zrnkova/"]
+currency = "EUR"
+max_pages = 10
+pagination = "path"
+
+# Green (unroasted) beans and a subscription box share the listing.
+ignore = [
+  "zelena zrnkova",
+  "predplatne",
+]

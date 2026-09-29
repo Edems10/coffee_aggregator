@@ -1,0 +1,299 @@
+[
+ {
+  "id": 1138,
+  "name": "Brazil Doce Diamantina",
+  "permalink": "https://goodtimes.coffee/produkt/brazil-doce-diamantina/",
+  "short_description": "<p><strong>Región:</strong> Cerrado</p>\n<p><strong>Nadmorská výška:</strong> 800-1100 m.n.m</p>\n<p><strong>Odroda:</strong> Catuaí, Mundo Novo</p>\n<p><strong>Spracovanie:</strong> Suché (natural)</p>\n<p><strong>Chuťový profil:</strong> Lieskovce, kakaové bôby, cukrová trstina</p>\n<p><strong>Stupeň praženia:</strong> Full City roast</p>\n<p><strong>Príprava:</strong>Vhodné pre pákové kávovary, automatické kávovary a koťogo.</p>",
+  "description": "<p class=\"pb-2\"><strong>Brazil Doce Diamantina – prémiová brazílska káva s nízkou aciditou a bohatou chuťou</strong></p>\n<p class=\"pb-2\">Objavte jedinečný chuťový zážitok s kávou <strong>Brazil Doce Diamantina</strong>, ktorá patrí medzi najlepšie brazílske výberové kávy. Táto 100 % arabika pochádza z oblasti <strong>Cerrado Mineiro</strong>, známej ideálnymi podmienkami na pestovanie kávy. Zrná sú pestované v nadmorskej výške <strong>800 – 1100 m.n.m.</strong> a spracované tradičnou <strong>natural (suchou) metódou</strong>, ktorá im dodáva bohatý a plný chuťový profil.</p>\n<p class=\"py-4 text-bodybold14\"><strong>Chuťový profil:</strong></p>\n<ul class=\"marker:text-green list-outside list-disc\">\n<li class=\"text-black\"><strong>Horká čokoláda, karamel, lieskové orechy</strong> – harmonická kombinácia sladkosti a jemnej horkosti, ktorá vás poteší pri každom dúšku.</li>\n<li class=\"text-black\"><strong>Nízka acidita</strong> – ideálna pre tých, ktorí preferujú jemnú a vyváženú chuť.</li>\n<li class=\"text-black\"><strong>Hladké telo</strong> a príjemná dochuť, ktorá zanechá nezabudnuteľný dojem.</li>\n</ul>\n<p class=\"py-4 text-bodybold14\"><strong>Prečo si vybrať Brazil Doce Diamantina?</strong></p>\n<ul class=\"marker:text-green list-outside list-disc\">\n<li class=\"text-black\"><strong>Univerzálna káva vhodná na rôzne metódy prípravy</strong> – od espressa cez moka kanvicu, french press až po alternatívne metódy.</li>\n<li class=\"text-black\"><strong>Káva s certifikáciou</strong>, ktorá zaručuje kvalitu a udržateľnosť pestovania.</li>\n<li class=\"text-black\">Skvelo sa hodí na každodenné chvíle pohody, no taktiež ako perfektný darček pre milovníkov kávy.</li>\n<li class=\"text-black\"><strong>Prémiová výberová káva</strong> s dokonalým chuťovým zážitkom, ktorý si môžete vychutnať priamo doma.</li>\n</ul>\n<p class=\"py-4 text-bodybold14\"><strong>Ideálna pre kávových nadšencov</strong></p>\n<p class=\"pb-2\">Brazil Doce Diamantina je dokonalou voľbou pre tých, ktorí hľadajú kávu s plnou arómou, nízkou aciditou a bohatou chuťou, ktorá vás zavedie priamo na slnečné plantáže Brazílie.</p>\n<p class=\"pb-2\"><strong>Objednajte si teraz kávu Brazil Doce Diamantina z nášho eshopu</strong> a doprajte si pravý brazílsky kávový zážitok pri každom dúšku!</p>",
+  "prices": {
+   "price": "900",
+   "regular_price": "900",
+   "sale_price": "900",
+   "price_range": {
+    "min_amount": "900",
+    "max_amount": "3500"
+   },
+   "currency_code": "EUR",
+   "currency_symbol": "€",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ",",
+   "currency_thousand_separator": "",
+   "currency_prefix": "",
+   "currency_suffix": " €"
+  },
+  "images": [
+   {
+    "id": 4036,
+    "src": "https://goodtimes.coffee/wp-content/uploads/2024/03/diamantina.png",
+    "thumbnail": "https://goodtimes.coffee/wp-content/uploads/2024/03/diamantina-600x600.png",
+    "srcset": "https://goodtimes.coffee/wp-content/uploads/2024/03/diamantina.png 1450w, https://goodtimes.coffee/wp-content/uploads/2024/03/diamantina-400x400.png 400w, https://goodtimes.coffee/wp-content/uploads/2024/03/diamantina-1024x1024.png 1024w, https://goodtimes.coffee/wp-content/uploads/2024/03/diamantina-250x250.png 250w, https://goodtimes.coffee/wp-content/uploads/2024/03/diamantina-768x768.png 768w, https://goodtimes.coffee/wp-content/uploads/2024/03/diamantina-600x600.png 600w, https://goodtimes.coffee/wp-content/uploads/2024/03/diamantina-700x700.png 700w, https://goodtimes.coffee/wp-content/uploads/2024/03/diamantina-100x100.png 100w",
+    "sizes": "(max-width: 1450px) 100vw, 1450px",
+    "thumbnail_srcset": "https://goodtimes.coffee/wp-content/uploads/2024/03/diamantina-600x600.png 600w, https://goodtimes.coffee/wp-content/uploads/2024/03/diamantina-400x400.png 400w, https://goodtimes.coffee/wp-content/uploads/2024/03/diamantina-1024x1024.png 1024w, https://goodtimes.coffee/wp-content/uploads/2024/03/diamantina-250x250.png 250w, https://goodtimes.coffee/wp-content/uploads/2024/03/diamantina-768x768.png 768w, https://goodtimes.coffee/wp-content/uploads/2024/03/diamantina-700x700.png 700w, https://goodtimes.coffee/wp-content/uploads/2024/03/diamantina-100x100.png 100w, https://goodtimes.coffee/wp-content/uploads/2024/03/diamantina.png 1450w",
+    "thumbnail_sizes": "(max-width: 600px) 100vw, 600px",
+    "name": "diamantina",
+    "alt": ""
+   }
+  ],
+  "categories": [
+   {
+    "id": 47,
+    "name": "Premium",
+    "slug": "premium",
+    "link": "https://goodtimes.coffee/kategoria-produktu/premium/"
+   }
+  ],
+  "tags": [
+   {
+    "id": 39,
+    "name": "Espresso",
+    "slug": "espresso",
+    "link": "https://goodtimes.coffee/znacka-produktu/espresso/"
+   },
+   {
+    "id": 36,
+    "name": "Tmavé Praženie",
+    "slug": "tmave-prazenie",
+    "link": "https://goodtimes.coffee/znacka-produktu/tmave-prazenie/"
+   }
+  ],
+  "attributes": [
+   {
+    "id": 0,
+    "name": "Hmotnosť",
+    "taxonomy": null,
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 0,
+      "name": "200g",
+      "slug": "200g"
+     },
+     {
+      "id": 0,
+      "name": "1000g",
+      "slug": "1000g"
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 1839,
+    "attributes": [
+     {
+      "name": "Hmotnosť",
+      "value": "200g"
+     }
+    ]
+   },
+   {
+    "id": 3529,
+    "attributes": [
+     {
+      "name": "Hmotnosť",
+      "value": "1000g"
+     }
+    ]
+   }
+  ],
+  "is_in_stock": true
+ },
+ {
+  "id": 3047,
+  "name": "Honduras COMSA co-operative",
+  "permalink": "https://goodtimes.coffee/produkt/honduras-comsa-co-operative/",
+  "short_description": "<p><strong>Región</strong>: Marcala, La paz</p>\n<p><strong>Nadmorská výška</strong>: 1450-1550 m.n.m</p>\n<p><strong>Odroda</strong>: Bourbon, caturra, catuaí</p>\n<p><strong>Spracovanie</strong>: Suché (natural)</p>\n<p><strong>Chuťový</strong> <strong>profil</strong>: Čučoriedky, portské víno</p>\n<p><strong>Stupeň praženia:</strong> Stredné praženie</p>\n<p><strong>Príprava: </strong>Vhodné pre pákové kávovary, automatické kávovary a koťogo.</p>",
+  "description": "<p class=\"pb-2\"><strong>Honduras COMSA Co-operative – výberová káva s jedinečnými ovocnými tónmi</strong></p>\n<p class=\"pb-2\">Objavte kávu <strong>Honduras COMSA Co-operative</strong>, pestovanú v regióne <strong>Marcala, La Paz</strong> v nadmorskej výške <strong>1450 – 1550 m.n.m.</strong>. Táto prémiová 100% arabika pochádza od farmárov z družstva <strong>COMSA (Café Orgánico Marcala)</strong>, ktorí sa zameriavajú na udržateľné farmárčenie a kvalitu spracovania. Káva je spracovaná <strong>suchou metódou (natural)</strong>, ktorá zvýrazňuje jej sladkosť a komplexnú ovocnú chuť. Stredné praženie umožňuje vyniknúť jej bohatým a jedinečným tónom.</p>\n<p class=\"py-4 text-bodybold14\"><strong>Chuťový profil:</strong></p>\n<ul class=\"marker:text-green list-outside list-disc\">\n<li class=\"text-black\"><strong>Čučoriedky, portské víno</strong> – silné ovocné tóny s elegantným vínnym charakterom.</li>\n</ul>\n<p class=\"py-4 text-bodybold14\"><strong>Odporúčaná príprava:</strong></p>\n<p class=\"pb-2\">Káva <strong>Honduras COMSA Co-operative</strong> je ideálna na:</p>\n<ul class=\"marker:text-green list-outside list-disc\">\n<li class=\"text-black\"><strong>Pákové kávovary</strong>,</li>\n<li class=\"text-black\"><strong>Automatické kávovary</strong>,</li>\n<li class=\"text-black\"><strong>Koťogo</strong>.</li>\n</ul>\n<p class=\"py-4 text-bodybold14\"><strong>Prečo si vybrať Honduras COMSA Co-operative?</strong></p>\n<ul class=\"marker:text-green list-outside list-disc\">\n<li class=\"text-black\"><strong>Jedinečné spracovanie</strong> – suchá metóda (natural) dodáva káve sladké a ovocné tóny.</li>\n<li class=\"text-black\"><strong>Bohatý chuťový profil</strong> – čučoriedky a portské víno pre milovníkov výrazných chutí.</li>\n<li class=\"text-black\"><strong>Stredné praženie</strong> – vyvážená plnosť a komplexnosť chuti.</li>\n<li class=\"text-black\"><strong>Káva s pôvodom</strong> – pestovaná v regióne Marcala, známom svojimi výberovými kávami.</li>\n</ul>\n<p class=\"pb-2\">Doprajte si jedinečný chuťový zážitok s kávou <strong>Honduras COMSA Co-operative</strong>, ktorá vás poteší svojou sladkou a ovocnou komplexnosťou. Objednajte si ju ešte dnes a vychutnajte si harmonickú šálku kávy!</p>",
+  "prices": {
+   "price": "1000",
+   "regular_price": "1000",
+   "sale_price": "1000",
+   "price_range": {
+    "min_amount": "1000",
+    "max_amount": "4000"
+   },
+   "currency_code": "EUR",
+   "currency_symbol": "€",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ",",
+   "currency_thousand_separator": "",
+   "currency_prefix": "",
+   "currency_suffix": " €"
+  },
+  "images": [
+   {
+    "id": 3594,
+    "src": "https://goodtimes.coffee/wp-content/uploads/2024/05/comsa-1.png",
+    "thumbnail": "https://goodtimes.coffee/wp-content/uploads/2024/05/comsa-1-600x600.png",
+    "srcset": "https://goodtimes.coffee/wp-content/uploads/2024/05/comsa-1.png 1450w, https://goodtimes.coffee/wp-content/uploads/2024/05/comsa-1-400x400.png 400w, https://goodtimes.coffee/wp-content/uploads/2024/05/comsa-1-1024x1024.png 1024w, https://goodtimes.coffee/wp-content/uploads/2024/05/comsa-1-250x250.png 250w, https://goodtimes.coffee/wp-content/uploads/2024/05/comsa-1-768x768.png 768w, https://goodtimes.coffee/wp-content/uploads/2024/05/comsa-1-700x700.png 700w, https://goodtimes.coffee/wp-content/uploads/2024/05/comsa-1-600x600.png 600w, https://goodtimes.coffee/wp-content/uploads/2024/05/comsa-1-100x100.png 100w",
+    "sizes": "(max-width: 1450px) 100vw, 1450px",
+    "thumbnail_srcset": "https://goodtimes.coffee/wp-content/uploads/2024/05/comsa-1-600x600.png 600w, https://goodtimes.coffee/wp-content/uploads/2024/05/comsa-1-400x400.png 400w, https://goodtimes.coffee/wp-content/uploads/2024/05/comsa-1-1024x1024.png 1024w, https://goodtimes.coffee/wp-content/uploads/2024/05/comsa-1-250x250.png 250w, https://goodtimes.coffee/wp-content/uploads/2024/05/comsa-1-768x768.png 768w, https://goodtimes.coffee/wp-content/uploads/2024/05/comsa-1-700x700.png 700w, https://goodtimes.coffee/wp-content/uploads/2024/05/comsa-1-100x100.png 100w, https://goodtimes.coffee/wp-content/uploads/2024/05/comsa-1.png 1450w",
+    "thumbnail_sizes": "(max-width: 600px) 100vw, 600px",
+    "name": "comsa",
+    "alt": ""
+   }
+  ],
+  "categories": [
+   {
+    "id": 47,
+    "name": "Premium",
+    "slug": "premium",
+    "link": "https://goodtimes.coffee/kategoria-produktu/premium/"
+   }
+  ],
+  "tags": [
+   {
+    "id": 39,
+    "name": "Espresso",
+    "slug": "espresso",
+    "link": "https://goodtimes.coffee/znacka-produktu/espresso/"
+   },
+   {
+    "id": 35,
+    "name": "Stredné Praženie",
+    "slug": "stredne-prazenie",
+    "link": "https://goodtimes.coffee/znacka-produktu/stredne-prazenie/"
+   }
+  ],
+  "attributes": [
+   {
+    "id": 0,
+    "name": "Hmotnosť",
+    "taxonomy": null,
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 0,
+      "name": "200g",
+      "slug": "200g"
+     },
+     {
+      "id": 0,
+      "name": "1000g",
+      "slug": "1000g"
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 3048,
+    "attributes": [
+     {
+      "name": "Hmotnosť",
+      "value": "200g"
+     }
+    ]
+   },
+   {
+    "id": 3049,
+    "attributes": [
+     {
+      "name": "Hmotnosť",
+      "value": "1000g"
+     }
+    ]
+   }
+  ],
+  "is_in_stock": true
+ },
+ {
+  "id": 1841,
+  "name": "Daily Espresso Seasonal Blend",
+  "permalink": "https://goodtimes.coffee/produkt/daily-espresso-seasonal-blend/",
+  "short_description": "<p><strong>Región</strong>: Brazil/India</p>\n<p><strong>Nadmorská výška</strong>: / m.n.m</p>\n<p><strong>Odroda</strong>: Mix</p>\n<p><strong>Spracovanie</strong>: Mix</p>\n<p><strong>Chuťový</strong> <strong>profil</strong>: Tmavá čokoláda, vlašské orechy</p>\n<p><strong>Stupeň praženia:</strong> Full City roast</p>\n<p><strong>Príprava:</strong>Vhodné pre pákové kávovary, automatické kávovary a koťogo.</p>",
+  "description": "<p class=\"pb-2\"><strong>Daily Espresso Seasonal Blend – dokonalá zmes pre milovníkov espressa</strong></p>\n<p class=\"pb-2\">Predstavujeme našu sezónnu espresso zmes <strong>Daily Espresso Seasonal Blend</strong>, ktorá je starostlivo vytvorená z výberových káv, aby priniesla dokonale vyváženú chuť a intenzívny zážitok pri každej šálke. Táto zmes je navrhnutá tak, aby vyhovovala potrebám všetkých, ktorí milujú kvalitnú kávu s nízkou aciditou a plným telom.</p>\n<p class=\"py-4 text-bodybold14\"><strong>Chuťový profil:</strong></p>\n<ul class=\"marker:text-green list-outside list-disc\">\n<li class=\"text-black\"><strong>Čokoláda, karamel, orechy</strong> – bohaté a príjemné tóny, ktoré dodávajú šálke sladkosť a harmonickú hĺbku.</li>\n<li class=\"text-black\"><strong>Nízka acidita</strong> – ideálna pre milovníkov jemnejších chutí bez prevažujúcej kyslosti.</li>\n<li class=\"text-black\"><strong>Plné telo a intenzívna crema</strong>, ktoré robia espresso perfektným.</li>\n</ul>\n<p class=\"py-4 text-bodybold14\"><strong>Prečo si vybrať Daily Espresso Seasonal Blend?</strong></p>\n<ul class=\"marker:text-green list-outside list-disc\">\n<li class=\"text-black\"><strong>Univerzálna príprava</strong> – táto zmes je navrhnutá predovšetkým na espresso, no vynikne aj v moka konvičke, automate alebo ako základ pre obľúbené mliečne nápoje, ako je cappuccino alebo latte.</li>\n<li class=\"text-black\"><strong>Sezónnosť a čerstvosť</strong> – zmes je pravidelne aktualizovaná na základe aktuálnej sezóny, čím zaručuje maximálnu kvalitu, čerstvosť a jedinečný chuťový profil.</li>\n<li class=\"text-black\"><strong>Ideálna na každodenné chvíle</strong> – perfektná voľba pre každodenné espresso alebo rýchlu rannú šálku kávy.</li>\n</ul>\n<p class=\"py-4 text-bodybold14\"><strong>Perfektná voľba pre každého</strong></p>\n<p class=\"pb-2\">Daily Espresso Seasonal Blend sa stane vaším obľúbeným partnerom každého dňa – či už hľadáte povzbudenie na ráno, alebo si chcete vychutnať chvíľku pokoja s kvalitným espressom. Táto zmes je ideálna pre tých, ktorí milujú spoľahlivú a konzistentnú chuť kávy.</p>\n<p class=\"pb-2\"><strong>Objednajte si teraz sezónnu zmes Daily Espresso v našom eshope</strong> a vychutnajte si dokonalé espresso kedykoľvek a kdekoľvek!</p>",
+  "prices": {
+   "price": "850",
+   "regular_price": "850",
+   "sale_price": "850",
+   "price_range": {
+    "min_amount": "850",
+    "max_amount": "3200"
+   },
+   "currency_code": "EUR",
+   "currency_symbol": "€",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ",",
+   "currency_thousand_separator": "",
+   "currency_prefix": "",
+   "currency_suffix": " €"
+  },
+  "images": [
+   {
+    "id": 4037,
+    "src": "https://goodtimes.coffee/wp-content/uploads/2024/03/daily.png",
+    "thumbnail": "https://goodtimes.coffee/wp-content/uploads/2024/03/daily-600x600.png",
+    "srcset": "https://goodtimes.coffee/wp-content/uploads/2024/03/daily.png 1450w, https://goodtimes.coffee/wp-content/uploads/2024/03/daily-400x400.png 400w, https://goodtimes.coffee/wp-content/uploads/2024/03/daily-1024x1024.png 1024w, https://goodtimes.coffee/wp-content/uploads/2024/03/daily-250x250.png 250w, https://goodtimes.coffee/wp-content/uploads/2024/03/daily-768x768.png 768w, https://goodtimes.coffee/wp-content/uploads/2024/03/daily-600x600.png 600w, https://goodtimes.coffee/wp-content/uploads/2024/03/daily-700x700.png 700w, https://goodtimes.coffee/wp-content/uploads/2024/03/daily-100x100.png 100w",
+    "sizes": "(max-width: 1450px) 100vw, 1450px",
+    "thumbnail_srcset": "https://goodtimes.coffee/wp-content/uploads/2024/03/daily-600x600.png 600w, https://goodtimes.coffee/wp-content/uploads/2024/03/daily-400x400.png 400w, https://goodtimes.coffee/wp-content/uploads/2024/03/daily-1024x1024.png 1024w, https://goodtimes.coffee/wp-content/uploads/2024/03/daily-250x250.png 250w, https://goodtimes.coffee/wp-content/uploads/2024/03/daily-768x768.png 768w, https://goodtimes.coffee/wp-content/uploads/2024/03/daily-700x700.png 700w, https://goodtimes.coffee/wp-content/uploads/2024/03/daily-100x100.png 100w, https://goodtimes.coffee/wp-content/uploads/2024/03/daily.png 1450w",
+    "thumbnail_sizes": "(max-width: 600px) 100vw, 600px",
+    "name": "daily",
+    "alt": ""
+   }
+  ],
+  "categories": [
+   {
+    "id": 47,
+    "name": "Premium",
+    "slug": "premium",
+    "link": "https://goodtimes.coffee/kategoria-produktu/premium/"
+   }
+  ],
+  "tags": [
+   {
+    "id": 39,
+    "name": "Espresso",
+    "slug": "espresso",
+    "link": "https://goodtimes.coffee/znacka-produktu/espresso/"
+   },
+   {
+    "id": 36,
+    "name": "Tmavé Praženie",
+    "slug": "tmave-prazenie",
+    "link": "https://goodtimes.coffee/znacka-produktu/tmave-prazenie/"
+   }
+  ],
+  "attributes": [
+   {
+    "id": 0,
+    "name": "Hmotnosť",
+    "taxonomy": null,
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 0,
+      "name": "200g",
+      "slug": "200g"
+     },
+     {
+      "id": 0,
+      "name": "1000g",
+      "slug": "1000g"
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 3032,
+    "attributes": [
+     {
+      "name": "Hmotnosť",
+      "value": "200g"
+     }
+    ]
+   },
+   {
+    "id": 3528,
+    "attributes": [
+     {
+      "name": "Hmotnosť",
+      "value": "1000g"
+     }
+    ]
+   }
+  ],
+  "is_in_stock": true
+ }
+]

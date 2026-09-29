@@ -1,0 +1,15 @@
+# BARTCOFFEE — the survey recorded a product page, not a category; the shop
+# splits its beans by species, so arabica, blends and robusta are all walked.
+platform = "shoptet"
+site_id = "bartcoffee"
+name = "BARTCOFFEE"
+country = "CZ"
+base_url = "https://www.bartcoffee.cz/"
+category_urls = [
+  "https://www.bartcoffee.cz/arabica/",
+  "https://www.bartcoffee.cz/smes/",
+  "https://www.bartcoffee.cz/robusta/",
+]
+currency = "CZK"
+max_pages = 10
+pagination = "path"

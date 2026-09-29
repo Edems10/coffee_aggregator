@@ -1,0 +1,19 @@
+# Los Muertos Coffee — the coffee category slug is misspelled on the shop's own
+# side ("certsve" for "čerstvě"); it is the live URL, so it is kept verbatim.
+platform = "shoptet"
+site_id = "losmuertos"
+name = "Los Muertos Coffee"
+country = "CZ"
+base_url = "https://www.losmuertos.cz/"
+category_urls = ["https://www.losmuertos.cz/certsve-prazena-kava/"]
+currency = "CZK"
+max_pages = 10
+pagination = "path"
+
+ignore = [
+  "darkovy voucher",
+  "degustacni sada",
+  "testovaci sada",
+  "cascara",
+  "kavove predplatne",
+]

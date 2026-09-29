@@ -1,0 +1,24 @@
+# Ajven Coffee — the survey recorded /e-shop/, which is the whole catalogue
+# (t-shirts, vouchers, green beans); the two bean categories are walked instead.
+platform = "shoptet"
+site_id = "ajvencoffee"
+name = "AJVENCOFFEE"
+country = "CZ"
+base_url = "https://www.ajvencoffee.cz/"
+category_urls = [
+  "https://www.ajvencoffee.cz/arabika/",
+  "https://www.ajvencoffee.cz/espresso-smesi/",
+]
+currency = "CZK"
+max_pages = 10
+pagination = "path"
+
+# Unroasted green beans are still listed among the roasted ones.
+ignore = [
+  "zelene zrno",
+  "neprazene",
+  "testovaci balicek",
+  "darkova kolekce",
+  "darkovy poukaz",
+  "tricko",
+]

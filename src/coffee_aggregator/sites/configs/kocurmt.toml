@@ -1,0 +1,23 @@
+# Two categories only; 127 kava is the coffee. Everything but the bag size
+# is a "Label: value" line in the description, cup score included.
+platform = "woocommerce"
+site_id = "kocurmt"
+name = "Kocúr MT"
+country = "SK"
+base_url = "https://www.kocurmt.sk/"
+currency = "EUR"
+mode = "api"
+max_pages = 10
+
+# Pinned ids, not slugs: ids survive a re-theme, slugs do not.
+api_category_ids = [127]
+
+# The HTML fallback, used only if /wp-json/ ever stops answering.
+category_urls = [
+  "https://www.kocurmt.sk/kategoria-produktu/kava/",
+]
+
+# The catalogue also sells things that are not coffee beans.
+ignore = [
+  "poukaz",
+]

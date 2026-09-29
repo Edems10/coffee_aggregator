@@ -3,26 +3,33 @@ from __future__ import annotations
 import json
 from datetime import UTC, datetime
 from decimal import Decimal
+from pathlib import Path
 from typing import TYPE_CHECKING
 
 import pytest
-import responses
 
-from coffee_aggregator import cli, sinks, sites
-from coffee_aggregator.config import Settings
+from coffee_aggregator import cli, config, sinks, sites
+from coffee_aggregator.config import ConfigError, Settings
+from coffee_aggregator.db import monitoring
 from coffee_aggregator.fx import FileFxStore, FxRate, cnb, ecb
 from coffee_aggregator.sinks.jsonl import JsonlSink
 from coffee_aggregator.sites import loader, registry
 from coffee_aggregator.sites.base import ProductRef, SiteAdapter
 from conftest import make_coffee
+from test_fetcher import MockHTTP, install
 
 if TYPE_CHECKING:
     from collections.abc import Iterator
     from datetime import date
-    from pathlib import Path
 
     from coffee_aggregator.http import PoliteFetcher
     from coffee_aggregator.models import Coffee
+
+
+@pytest.fixture
+def http(monkeypatch: pytest.MonkeyPatch) -> MockHTTP:
+    """The network, replaced for the duration of one test."""
+    return install(monkeypatch)
 
 
 def _today() -> date:
@@ -78,6 +85,31 @@ class _Fake(SiteAdapter):
         return make_coffee(site=self.site_id, external_id="1")
 
 
+class _Stocked(_Fake):
+    """A shop with one product, whose source discovery already holds.
+
+    ``payload`` is what keeps these tests offline: the pipeline parses it
+    directly and never asks the fetcher for the detail page.
+    """
+
+    site_id = "stocked"
+    name = "Stocked Roastery"
+
+    def discover(
+        self,
+        fetcher: PoliteFetcher,
+        *,
+        max_pages: int | None = None,
+    ) -> Iterator[ProductRef]:
+        yield ProductRef(
+            site_id=self.site_id,
+            external_id="1",
+            url=f"{self.base_url}/detail/1",
+            name="Kava",
+            payload="<html>kava</html>",
+        )
+
+
 def test_list_sites_works_with_zero_registered_sites(caplog: pytest.LogCaptureFixture) -> None:
     with caplog.at_level("INFO", logger="coffee_aggregator"):
         assert cli.main(["list-sites"]) == 0
@@ -117,21 +149,58 @@ def test_crawl_of_an_unknown_site_exits_non_zero(caplog: pytest.LogCaptureFixtur
 
 
 def test_crawl_writes_a_jsonl_report(tmp_path: Path, capsys: pytest.CaptureFixture[str]) -> None:
+    registry.register(_Stocked)
+    out = tmp_path / "coffees.jsonl"
+    assert cli.main(["crawl", "--site", "stocked", "--out", str(out)]) == cli.EXIT_OK
+    report = json.loads(capsys.readouterr().out)
+    assert report[0]["site_id"] == "stocked"
+    assert report[0]["written"] == 1
+    assert out.exists()
+
+
+def test_a_shop_that_wrote_nothing_fails_the_run(
+    tmp_path: Path, capsys: pytest.CaptureFixture[str], caplog: pytest.LogCaptureFixture
+) -> None:
+    """The whole point of item 3: a night where every selector rotted is not green."""
     registry.register(_Fake)
     out = tmp_path / "coffees.jsonl"
-    assert cli.main(["crawl", "--site", "fake", "--out", str(out)]) == 0
+    with caplog.at_level("ERROR", logger="coffee_aggregator"):
+        assert cli.main(["crawl", "--site", "fake", "--out", str(out)]) == cli.EXIT_INCOMPLETE
     report = json.loads(capsys.readouterr().out)
-    assert report[0]["site_id"] == "fake"
     assert report[0]["discovered"] == 0
+    assert "wrote nothing: fake" in caplog.text
     # a run that produced nothing writes nothing: no empty file, no truncation
     assert not out.exists()
 
 
-def test_crawl_all_with_no_sites_is_a_no_op(
-    tmp_path: Path, capsys: pytest.CaptureFixture[str]
+def test_a_site_all_summary_names_every_shop_that_wrote_nothing(
+    tmp_path: Path, caplog: pytest.LogCaptureFixture
 ) -> None:
-    assert cli.main(["crawl", "--site", "all", "--out", str(tmp_path / "o.jsonl")]) == 0
+    registry.register(_Fake)
+    registry.register(_Stocked)
+    with caplog.at_level("ERROR", logger="coffee_aggregator"):
+        code = cli.main(["crawl", "--site", "all", "--out", str(tmp_path / "o.jsonl")])
+    assert code == cli.EXIT_INCOMPLETE
+    assert "1 shop(s) wrote nothing: fake" in caplog.text
+    assert "stocked" not in caplog.text
+
+
+def test_crawl_all_with_no_sites_is_a_failure(
+    tmp_path: Path, capsys: pytest.CaptureFixture[str], caplog: pytest.LogCaptureFixture
+) -> None:
+    """A daily job with nothing to crawl is a broken deployment, not a quiet night."""
+    with caplog.at_level("ERROR", logger="coffee_aggregator"):
+        code = cli.main(["crawl", "--site", "all", "--out", str(tmp_path / "o.jsonl")])
+    assert code == cli.EXIT_INCOMPLETE
     assert json.loads(capsys.readouterr().out) == []
+    assert "no shops were crawled" in caplog.text
+
+
+def test_a_capped_run_is_partial_but_not_a_failure(tmp_path: Path) -> None:
+    """--limit and --max-pages suppress delisting; they do not fail the night."""
+    registry.register(_Stocked)
+    argv = ["crawl", "--site", "stocked", "--out", str(tmp_path / "o.jsonl")]
+    assert cli.main([*argv, "--limit", "1", "--max-pages", "1"]) == cli.EXIT_OK
 
 
 def test_parse_prints_the_coffee_as_json(
@@ -226,10 +295,10 @@ def test_a_crawl_logs_how_many_sites_could_not_be_loaded(
     caplog: pytest.LogCaptureFixture,
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
-    registry.register(_Fake)
+    registry.register(_Stocked)
     monkeypatch.setattr(sites, "load_errors", ["a.toml: boom", "b.toml: boom"])
     with caplog.at_level("WARNING", logger="coffee_aggregator"):
-        assert cli.main(["crawl", "--site", "fake", "--out", str(tmp_path / "o.jsonl")]) == 0
+        assert cli.main(["crawl", "--site", "stocked", "--out", str(tmp_path / "o.jsonl")]) == 0
     assert "2 site(s) could not be loaded" in caplog.text
 
 
@@ -269,7 +338,7 @@ def test_verbose_is_accepted_on_the_subcommand_too(argv: list[str]) -> None:
     assert cli.build_parser().parse_args(argv).verbose is True
 
 
-@pytest.mark.parametrize("command", ["list-sites", "init-db", "crawl", "parse"])
+@pytest.mark.parametrize("command", ["list-sites", "init-db", "crawl", "parse", "runs"])
 def test_every_subcommand_takes_verbose(command: str) -> None:
     required = {
         "crawl": ["--site", "fake"],
@@ -283,20 +352,22 @@ def test_every_subcommand_takes_verbose(command: str) -> None:
 
 # --- the fx sub-command and the once-a-day rate ------------------------------
 
-CNB_ROBOTS = "https://www.cnb.cz/robots.txt"
-CNB_TEXT = "11.09.2026 #176\nzemě|měna|množství|kód|kurz\nEMU|euro|1|EUR|24,260\n"
+CNB_ROBOTS = "https://api.cnb.cz/robots.txt"
+CNB_JSON = json.dumps(
+    {"rates": [{"validFor": "2026-09-11", "amount": 1, "currencyCode": "EUR", "rate": 24.26}]}
+)
 
 
-@responses.activate
 def test_fx_fetches_and_prints_the_rate(
+    http: MockHTTP,
     tmp_path: Path,
     monkeypatch: pytest.MonkeyPatch,
     capsys: pytest.CaptureFixture[str],
 ) -> None:
     monkeypatch.setenv("COFFEE_AGG_FX_CACHE", str(tmp_path / "fx.json"))
     monkeypatch.setenv("COFFEE_AGG_DELAY", "0")
-    responses.add(responses.GET, CNB_ROBOTS, status=404)
-    responses.add(responses.GET, cnb.CNB_URL, body=CNB_TEXT, content_type="text/plain")
+    http.add(CNB_ROBOTS, status=404)
+    http.add(cnb.CNB_URL, body=CNB_JSON, content_type="application/json")
 
     assert cli.main(["fx"]) == 0
 
@@ -305,14 +376,14 @@ def test_fx_fetches_and_prints_the_rate(
         "date": "2026-09-11",
         "base": "EUR",
         "quote": "CZK",
-        "rate": "24.260",
+        "rate": "24.26",
         "source": "cnb",
     }
     assert (tmp_path / "fx.json").is_file()
 
 
-@responses.activate
 def test_fx_without_refresh_reads_the_stored_rate(
+    http: MockHTTP,
     tmp_path: Path,
     monkeypatch: pytest.MonkeyPatch,
     capsys: pytest.CaptureFixture[str],
@@ -325,11 +396,11 @@ def test_fx_without_refresh_reads_the_stored_rate(
     assert cli.main(["fx"]) == 0
 
     assert json.loads(capsys.readouterr().out)["rate"] == "24.500"
-    assert len(responses.calls) == 0
+    assert len(http.calls) == 0
 
 
-@responses.activate
 def test_fx_refresh_goes_to_the_bank_even_with_a_stored_rate(
+    http: MockHTTP,
     tmp_path: Path,
     monkeypatch: pytest.MonkeyPatch,
     capsys: pytest.CaptureFixture[str],
@@ -338,16 +409,16 @@ def test_fx_refresh_goes_to_the_bank_even_with_a_stored_rate(
     monkeypatch.setenv("COFFEE_AGG_FX_CACHE", str(cache))
     monkeypatch.setenv("COFFEE_AGG_DELAY", "0")
     FileFxStore(cache).put(FxRate(date=_today(), rate=Decimal("1.000"), source="stale"))
-    responses.add(responses.GET, CNB_ROBOTS, status=404)
-    responses.add(responses.GET, cnb.CNB_URL, body=CNB_TEXT, content_type="text/plain")
+    http.add(CNB_ROBOTS, status=404)
+    http.add(cnb.CNB_URL, body=CNB_JSON, content_type="application/json")
 
     assert cli.main(["fx", "--refresh"]) == 0
 
-    assert json.loads(capsys.readouterr().out)["rate"] == "24.260"
+    assert json.loads(capsys.readouterr().out)["rate"] == "24.26"
 
 
-@responses.activate
 def test_fx_prints_null_when_nothing_can_be_had(
+    http: MockHTTP,
     tmp_path: Path,
     monkeypatch: pytest.MonkeyPatch,
     capsys: pytest.CaptureFixture[str],
@@ -355,10 +426,10 @@ def test_fx_prints_null_when_nothing_can_be_had(
 ) -> None:
     monkeypatch.setenv("COFFEE_AGG_FX_CACHE", str(tmp_path / "fx.json"))
     monkeypatch.setenv("COFFEE_AGG_DELAY", "0")
-    responses.add(responses.GET, CNB_ROBOTS, status=404)
-    responses.add(responses.GET, cnb.CNB_URL, status=503)
-    responses.add(responses.GET, "https://www.ecb.europa.eu/robots.txt", status=404)
-    responses.add(responses.GET, ecb.ECB_URL, status=503)
+    http.add(CNB_ROBOTS, status=404)
+    http.add(cnb.CNB_URL, status=503)
+    http.add("https://www.ecb.europa.eu/robots.txt", status=404)
+    http.add(ecb.ECB_URL, status=503)
 
     with caplog.at_level("WARNING", logger="coffee_aggregator"):
         assert cli.main(["fx"]) == 0
@@ -367,38 +438,38 @@ def test_fx_prints_null_when_nothing_can_be_had(
     assert "no EUR/CZK rate available" in caplog.text
 
 
-@responses.activate
 def test_a_crawl_stamps_the_days_rate_on_what_it_writes(
+    http: MockHTTP,
     tmp_path: Path,
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
-    registry.register(_Fake)
+    registry.register(_Stocked)
     monkeypatch.setenv("COFFEE_AGG_FX_CACHE", str(tmp_path / "fx.json"))
     monkeypatch.setenv("COFFEE_AGG_DELAY", "0")
-    responses.add(responses.GET, CNB_ROBOTS, status=404)
-    responses.add(responses.GET, cnb.CNB_URL, body=CNB_TEXT, content_type="text/plain")
+    http.add(CNB_ROBOTS, status=404)
+    http.add(cnb.CNB_URL, body=CNB_JSON, content_type="application/json")
 
-    assert cli.main(["crawl", "--site", "fake", "--out", str(tmp_path / "o.jsonl")]) == 0
+    assert cli.main(["crawl", "--site", "stocked", "--out", str(tmp_path / "o.jsonl")]) == 0
 
     stored = FileFxStore(tmp_path / "fx.json").get_latest()
     assert stored is not None
-    assert stored.rate == Decimal("24.260")
+    assert stored.rate == Decimal("24.26")
 
 
-@responses.activate
 def test_a_crawl_proceeds_when_no_rate_can_be_had(
+    http: MockHTTP,
     tmp_path: Path,
     monkeypatch: pytest.MonkeyPatch,
     capsys: pytest.CaptureFixture[str],
 ) -> None:
-    registry.register(_Fake)
+    registry.register(_Stocked)
     monkeypatch.setenv("COFFEE_AGG_FX_CACHE", str(tmp_path / "fx.json"))
     monkeypatch.setenv("COFFEE_AGG_DELAY", "0")
-    responses.add(responses.GET, CNB_ROBOTS, status=503)
-    responses.add(responses.GET, "https://www.ecb.europa.eu/robots.txt", status=503)
+    http.add(CNB_ROBOTS, status=503)
+    http.add("https://www.ecb.europa.eu/robots.txt", status=503)
 
-    assert cli.main(["crawl", "--site", "fake", "--out", str(tmp_path / "o.jsonl")]) == 0
-    assert json.loads(capsys.readouterr().out)[0]["site_id"] == "fake"
+    assert cli.main(["crawl", "--site", "stocked", "--out", str(tmp_path / "o.jsonl")]) == 0
+    assert json.loads(capsys.readouterr().out)[0]["site_id"] == "stocked"
 
 
 def test_init_db_reports_the_versions_it_applied(monkeypatch: pytest.MonkeyPatch) -> None:
@@ -430,3 +501,253 @@ def test_init_db_reports_the_versions_it_applied(monkeypatch: pytest.MonkeyPatch
 def test_every_subcommand_including_fx_takes_verbose() -> None:
     assert cli.build_parser().parse_args(["fx", "-v"]).verbose is True
     assert cli.build_parser().parse_args(["fx", "--refresh"]).refresh is True
+
+
+# --- item 2: the transport knobs reach the fetcher ---------------------------
+
+
+def _fetcher_for(argv: list[str]) -> PoliteFetcher:
+    args = cli.build_parser().parse_args(argv)
+    return cli._make_fetcher(Settings.from_env(), args)
+
+
+def test_the_default_worker_count_is_two() -> None:
+    """Four workers on one host measured slightly slower than one."""
+    assert config.DEFAULT_WORKERS == 2
+    assert Settings.from_env().workers == 2
+
+
+def test_every_transport_knob_has_a_switch_and_reaches_the_fetcher() -> None:
+    fetcher = _fetcher_for(
+        [
+            "crawl",
+            "--site",
+            "fake",
+            "--timeout",
+            "8",
+            "--retries",
+            "1",
+            "--max-retry-wait",
+            "10",
+            "--robots-retry",
+            "30",
+            "--workers",
+            "3",
+            "--site-workers",
+            "5",
+        ]
+    )
+    try:
+        assert fetcher.timeout_s == 8
+        assert fetcher.retries == 1
+        assert fetcher.max_retry_wait_s == 10
+        assert fetcher.robots._unreachable_retry_s == 30
+        assert fetcher.workers == 3
+        assert fetcher.hosts_in_flight == 5
+    finally:
+        fetcher.close()
+
+
+def test_the_transport_knobs_fall_back_to_the_environment(monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setenv("COFFEE_AGG_TIMEOUT", "7")
+    monkeypatch.setenv("COFFEE_AGG_RETRIES", "0")
+    monkeypatch.setenv("COFFEE_AGG_MAX_RETRY_WAIT", "5")
+    monkeypatch.setenv("COFFEE_AGG_ROBOTS_RETRY", "60")
+    monkeypatch.setenv("COFFEE_AGG_BATCH_SIZE", "10")
+    settings = Settings.from_env()
+    fetcher = cli._make_fetcher(settings, cli.build_parser().parse_args(["crawl", "--site", "x"]))
+    try:
+        assert (fetcher.timeout_s, fetcher.retries, fetcher.max_retry_wait_s) == (7.0, 0, 5.0)
+        assert fetcher.robots._unreachable_retry_s == 60
+        assert settings.batch_size == 10
+    finally:
+        fetcher.close()
+
+
+def test_the_batch_size_reaches_the_pipeline(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    registry.register(_Stocked)
+    seen: dict[str, object] = {}
+
+    def fake_run_many(*args: object, **kwargs: object) -> list[object]:
+        seen.update(kwargs)
+        return []
+
+    monkeypatch.setattr(cli, "run_many", fake_run_many)
+    argv = ["crawl", "--site", "stocked", "--out", str(tmp_path / "o.jsonl"), "--batch-size", "7"]
+    assert cli.main(argv) == cli.EXIT_INCOMPLETE  # no reports at all
+    assert seen["batch_size"] == 7
+
+
+def test_the_deprecated_pool_hosts_spelling_is_no_longer_used() -> None:
+    source = Path(cli.__file__).read_text("utf-8")
+    assert "pool_hosts" not in source
+    assert "hosts_in_flight" in source
+
+
+# --- item 1: the deadline ----------------------------------------------------
+
+
+def test_the_deadline_is_a_crawl_switch_and_a_setting(monkeypatch: pytest.MonkeyPatch) -> None:
+    assert cli.build_parser().parse_args(["crawl", "--site", "x", "--deadline", "900"]).deadline
+    monkeypatch.setenv("COFFEE_AGG_DEADLINE", "42")
+    assert Settings.from_env().deadline_s == 42.0
+    monkeypatch.delenv("COFFEE_AGG_DEADLINE")
+    assert Settings.from_env().deadline_s is None
+
+
+def test_a_deadline_that_has_no_time_left_stops_the_crawl(
+    tmp_path: Path, capsys: pytest.CaptureFixture[str]
+) -> None:
+    registry.register(_Stocked)
+    argv = ["crawl", "--site", "stocked", "--out", str(tmp_path / "o.jsonl"), "--deadline", "0"]
+
+    assert cli.main(argv) == cli.EXIT_INCOMPLETE
+
+    report = json.loads(capsys.readouterr().out)[0]
+    assert report["deadline_reached"] is True
+    assert report["complete"] is False
+    assert report["delisted"] == 0
+
+
+# --- item 5: sharding --------------------------------------------------------
+
+
+@pytest.mark.parametrize("raw", ["1/4", "4/4", "1/1"])
+def test_a_shard_argument_is_parsed(raw: str) -> None:
+    assert cli.build_parser().parse_args(["crawl", "--site", "all", "--shard", raw]).shard
+
+
+@pytest.mark.parametrize("raw", ["0/4", "5/4", "1/0", "nonsense", "1", "1/x"])
+def test_a_nonsense_shard_argument_is_rejected(raw: str) -> None:
+    with pytest.raises(SystemExit):
+        cli.build_parser().parse_args(["crawl", "--site", "all", "--shard", raw])
+
+
+def test_a_shard_crawls_only_its_own_shops(
+    tmp_path: Path, capsys: pytest.CaptureFixture[str]
+) -> None:
+    registry.register(_Stocked)
+    registry.register(_Fake)
+    crawled: list[set[str]] = []
+    for index in (1, 2):
+        argv = [
+            "crawl",
+            "--site",
+            "all",
+            "--out",
+            str(tmp_path / "o.jsonl"),
+            "--shard",
+            f"{index}/2",
+        ]
+        cli.main(argv)
+        crawled.append({report["site_id"] for report in json.loads(capsys.readouterr().out)})
+    assert crawled[0] | crawled[1] == {"fake", "stocked"}
+    assert not crawled[0] & crawled[1]
+
+
+def test_a_known_crawl_delay_weighs_a_host_up(monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setenv("COFFEE_AGG_CRAWL_DELAYS", "slow.sk=30")
+    settings = Settings.from_env()
+    assert settings.crawl_delay_for("www.slow.sk") == 30.0
+    assert settings.crawl_delay_for("fast.sk") == settings.delay_s
+    assert settings.crawl_delays["caffeoro.sk"] == 30.0
+
+
+def test_a_malformed_crawl_delay_list_is_a_configuration_error(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setenv("COFFEE_AGG_CRAWL_DELAYS", "slow.sk")
+    with pytest.raises(ConfigError):
+        Settings.from_env()
+
+
+# --- item 6: init-db --dry-run -----------------------------------------------
+
+
+def test_init_db_dry_run_prints_the_pending_migrations_and_applies_nothing(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    applied: list[str] = []
+
+    class FakeSink:
+        def __init__(self, dsn: str) -> None:
+            self.dsn = dsn
+
+        def pending_migrations(self) -> list[str]:
+            return ["0001_initial"]
+
+        def init_schema(self) -> list[str]:
+            applied.append("ran")
+            return []
+
+        def close(self) -> None:
+            return None
+
+    monkeypatch.setenv("DATABASE_URL", "postgresql://fake/db")
+    monkeypatch.setattr("coffee_aggregator.sinks.postgres.PostgresSink", FakeSink)
+    messages: list[str] = []
+    monkeypatch.setattr(cli.logger, "info", lambda msg, *args: messages.append(msg % args))
+
+    assert cli.main(["init-db", "--dry-run"]) == 0
+
+    assert messages == ["pending migration: 0001_initial"]
+    assert applied == []
+
+
+def test_init_db_dry_run_says_so_when_nothing_is_pending(monkeypatch: pytest.MonkeyPatch) -> None:
+    class FakeSink:
+        def __init__(self, dsn: str) -> None:
+            self.dsn = dsn
+
+        def pending_migrations(self) -> list[str]:
+            return []
+
+        def close(self) -> None:
+            return None
+
+    monkeypatch.setenv("DATABASE_URL", "postgresql://fake/db")
+    monkeypatch.setattr("coffee_aggregator.sinks.postgres.PostgresSink", FakeSink)
+    messages: list[str] = []
+    monkeypatch.setattr(cli.logger, "info", lambda msg, *args: messages.append(msg % args))
+
+    assert cli.main(["init-db", "--dry-run"]) == 0
+    assert messages == ["up to date"]
+
+
+# --- item 4: the runs command ------------------------------------------------
+
+
+def test_runs_prints_the_recent_runs(
+    monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture[str]
+) -> None:
+    rows = [{"site": "fake", "written": 0, "started_at": datetime.now(UTC)}]
+
+    class FakeMonitor:
+        def __init__(self, dsn: str) -> None:
+            self.dsn = dsn
+            self.asked: dict[str, object] = {}
+
+        def recent(self, *, site: str | None = None, limit: int = 20) -> list[dict[str, object]]:
+            self.asked = {"site": site, "limit": limit}
+            built.append(self)
+            return rows
+
+        def close(self) -> None:
+            return None
+
+    built: list[FakeMonitor] = []
+    monkeypatch.setenv("DATABASE_URL", "postgresql://fake/db")
+    monkeypatch.setattr(monitoring, "PostgresMonitor", FakeMonitor)
+
+    assert cli.main(["runs", "--site", "fake", "--limit", "5"]) == 0
+
+    assert json.loads(capsys.readouterr().out)[0]["site"] == "fake"
+    assert built[0].asked == {"site": "fake", "limit": 5}
+
+
+def test_runs_without_a_dsn_exits_non_zero(caplog: pytest.LogCaptureFixture) -> None:
+    with caplog.at_level("ERROR", logger="coffee_aggregator"):
+        assert cli.main(["runs"]) == cli.EXIT_CONFIG_ERROR
+    assert "DATABASE_URL" in caplog.text

@@ -1,0 +1,11 @@
+# FairBio — a fair-trade roastery that names every product by its brewing
+# method first ("Espresso Kolumbie…", "Filtr Etiopie…").
+platform = "shoptet"
+site_id = "fairbio"
+name = "FairBio"
+country = "CZ"
+base_url = "https://www.fairbio.cz/"
+category_urls = ["https://www.fairbio.cz/kava/"]
+currency = "CZK"
+max_pages = 10
+pagination = "path"

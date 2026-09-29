@@ -1,0 +1,31 @@
+# Caffe4U — the richest attribute set of the survey (16 attributes).
+# Its categories endpoint also returns 16-digit synthetic ids, so the real
+# category id is pinned rather than resolved from a slug.
+platform = "woocommerce"
+site_id = "caffe4u"
+name = "Caffe4U"
+country = "SK"
+base_url = "https://caffe4u.sk/"
+currency = "EUR"
+mode = "api"
+max_pages = 10
+
+# Pinned ids, not slugs: ids survive a re-theme, slugs do not.
+# 17 prazena-zrnkova-kava (45).
+api_category_ids = [17]
+
+# The HTML fallback, used only if /wp-json/ ever stops answering.
+category_urls = [
+  "https://caffe4u.sk/prazena-zrnkova-kava/",
+]
+
+# The catalogue also sells things that are not coffee beans.
+ignore = [
+  "balicek",
+  "nepraz",
+]
+
+[label_map]
+"Decaf - bez kofeínu" = "decaf"
+"Klasifikácia kávy" = ""
+"Nepražená káva" = ""

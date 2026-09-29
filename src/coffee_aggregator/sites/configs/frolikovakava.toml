@@ -1,0 +1,11 @@
+# Frolíkova káva — every product name ends in "- výběrová káva", which the
+# origin detector reads past to the country.
+platform = "shoptet"
+site_id = "frolikovakava"
+name = "Frolíkova káva"
+country = "CZ"
+base_url = "https://www.frolikovakava.cz/"
+category_urls = ["https://www.frolikovakava.cz/vyberove-kavy/"]
+currency = "CZK"
+max_pages = 10
+pagination = "path"

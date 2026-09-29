@@ -1,0 +1,14 @@
+# Káva Oliver — the survey pointed at the gift-box category; the beans live in
+# two sibling categories, blends and single-estate, with no shared parent.
+platform = "shoptet"
+site_id = "kavaoliver"
+name = "Káva Oliver"
+country = "CZ"
+base_url = "https://www.kavaoliver.cz/"
+category_urls = [
+  "https://www.kavaoliver.cz/kavove-smesi/",
+  "https://www.kavaoliver.cz/jednodruhove-plantazni-kavy/",
+]
+currency = "CZK"
+max_pages = 10
+pagination = "path"

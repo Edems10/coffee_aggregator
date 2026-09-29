@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 from datetime import UTC, date, datetime
+from decimal import ROUND_HALF_UP, Decimal, InvalidOperation
 from enum import StrEnum
 from typing import Any
 
@@ -9,6 +10,64 @@ GRAMS_PER_KG = 1000.0
 #: The scale every sensory bar is expressed on, and the default review scale.
 DEFAULT_TASTE_SCALE_MAX = 5
 DEFAULT_RATING_MAX = 5
+#: The raw attribute both platform adapters already write the roastery into.
+BRAND_ATTRIBUTE = "BRAND"
+#: Two prices this close apart are the same price: shops state them to the cent,
+#: and the halfpenny of a float round-trip must not break the match.
+_PRICE_EPSILON = 0.005
+_CENTS = Decimal("0.01")
+
+
+def per_kg(amount: float | None, weight_g: int | None) -> float | None:
+    """Extrapolate an amount for one package to one kilogram.
+
+    Args:
+        amount: The price of one package, in any currency.
+        weight_g: The net weight of that same package.
+
+    Returns:
+        The price of a kilogram rounded to the cent, or None when either input
+        is missing or the weight is zero.
+    """
+    if amount is None or not weight_g:
+        return None
+    try:
+        value = Decimal(str(amount)) * Decimal(str(GRAMS_PER_KG)) / Decimal(weight_g)
+    except InvalidOperation:
+        return None
+    if not value.is_finite():
+        return None
+    return float(value.quantize(_CENTS, rounding=ROUND_HALF_UP))
+
+
+@dataclass(slots=True, frozen=True)
+class PriceBasis:
+    """A price and the weight that price is for, taken from one single offer.
+
+    Every per-kilogram number in the project is computed from one of these and
+    from nothing else, which is what makes it impossible to divide the price of
+    a 250 g bag by the weight the product name happened to mention.
+
+    Attributes:
+        price: The amount asked for one package.
+        weight_g: The net weight of that package.
+        currency: The ISO code that amount is in.
+        source: ``"variant"`` when a packaging option stated both numbers,
+            ``"product"`` when only the product-level pair was available.
+    """
+
+    price: float
+    weight_g: int
+    currency: str | None
+    source: str
+
+    def amount_per_kg(self) -> float | None:
+        """Return the price of a kilogram in :attr:`currency`.
+
+        Returns:
+            The extrapolated amount, rounded to the cent.
+        """
+        return per_kg(self.price, self.weight_g)
 
 
 class ProcessMethod(StrEnum):
@@ -68,6 +127,30 @@ class Variant:
     #: adapter: a shop states one price, in one currency.
     price_eur: float | None = None
     price_czk: float | None = None
+    #: Filled by the same step, from this variant's own price and weight — never
+    #: from the product's, which may describe a different package entirely.
+    price_per_kg_eur: float | None = None
+    price_per_kg_czk: float | None = None
+
+    def key(self, index: int = 0) -> str:
+        """Return the identifier this variant is stored under.
+
+        The key has to survive the next crawl, so the shop's own id comes first
+        and the position in the list is only ever the last resort.
+
+        Args:
+            index: Where this variant sits in its product's list.
+
+        Returns:
+            A non-empty key, unique within one product as long as the shop does
+            not state two identical options.
+        """
+        for candidate in (self.external_id, self.label):
+            if candidate and candidate.strip():
+                return candidate.strip()
+        if self.weight_g:
+            return f"{self.weight_g}g"
+        return f"#{index}"
 
     def to_record(self) -> dict[str, Any]:
         """Return a JSON-serialisable mapping of this variant.
@@ -85,6 +168,8 @@ class Variant:
             "label": self.label,
             "price_eur": self.price_eur,
             "price_czk": self.price_czk,
+            "price_per_kg_eur": self.price_per_kg_eur,
+            "price_per_kg_czk": self.price_per_kg_czk,
         }
 
 
@@ -223,6 +308,11 @@ class Coffee:
     origin_text: str | None = None
     raw_attributes: dict[str, str] = field(default_factory=dict)
     scraped_at: datetime = field(default_factory=lambda: datetime.now(UTC))
+    #: The roastery behind the coffee, which is what makes the same lot in two
+    #: shops the same lot. An adapter that knows it may set it; every adapter
+    #: that only writes the ``BRAND`` raw attribute is read through
+    #: :attr:`roaster_name` instead, so none of them has to change.
+    roaster: str | None = None
     #: Price normalisation. All six are filled by the pipeline's derive step from
     #: the day's EUR/CZK fixing, so a Czech and a Slovak shop can be compared in
     #: one query; an adapter never touches them.
@@ -234,15 +324,98 @@ class Coffee:
     fx_date: date | None = None
 
     @property
-    def price_per_kg(self) -> float | None:
-        """Price of one kilogram of this coffee.
+    def roaster_name(self) -> str | None:
+        """The roastery as the shop wrote it.
 
         Returns:
-            The extrapolated price, or None when price or weight is unknown.
+            The explicit :attr:`roaster`, else the ``BRAND`` raw attribute both
+            platform adapters already collect, else None.
         """
-        if self.price is None or not self.weight_g:
+        written = self.roaster or self.raw_attributes.get(BRAND_ATTRIBUTE) or ""
+        return written.strip() or None
+
+    @property
+    def roaster_key(self) -> str | None:
+        """The roastery folded down to what two shops can be matched on.
+
+        Returns:
+            The de-accented, lower-cased name, or None when no roastery is known.
+        """
+        from coffee_aggregator import normalize  # noqa: PLC0415  (normalize imports this module)
+
+        return normalize.fold(self.roaster_name) or None
+
+    @property
+    def price_basis(self) -> PriceBasis | None:
+        """The one offer every per-kilogram number of this product is taken from.
+
+        A shop states a price for the package it currently shows and a weight
+        wherever it likes — in the name, in a parameter table, in a variant
+        select. Dividing the one by the other is only sound when both describe
+        the same package, so they are picked in this order:
+
+        1. the packaging options that state this product's own price together
+           with a weight of their own: when they agree on one weight, that pair
+           is certainly one option;
+        2. otherwise the product's own price and weight, when no option
+           contradicted them;
+        3. nothing, when two options state the same price for different weights —
+           the product page simply does not say which bag the price is for, and
+           a made-up answer is worse than an empty column.
+
+        Returns:
+            The basis, or None when this product has no sound one.
+        """
+        if self.price is None:
             return None
-        return round(self.price * GRAMS_PER_KG / self.weight_g, 2)
+        weights = {
+            variant.weight_g
+            for variant in self.variants
+            if variant.weight_g
+            and variant.price is not None
+            and abs(variant.price - self.price) <= _PRICE_EPSILON
+        }
+        if len(weights) == 1:
+            return self._variant_basis(weights.pop())
+        if weights:  # the same price for two different bags: unusable
+            return None
+        if not self.weight_g:
+            return None
+        return PriceBasis(self.price, self.weight_g, self.currency, "product")
+
+    def _variant_basis(self, weight_g: int) -> PriceBasis:
+        """Build the basis for a weight one of the variants agreed on.
+
+        Args:
+            weight_g: The weight those variants state.
+
+        Returns:
+            The basis, carrying the variant's currency when it states one.
+        """
+        assert self.price is not None  # noqa: S101  (only reached from price_basis)
+        currency = next(
+            (
+                variant.currency
+                for variant in self.variants
+                if variant.weight_g == weight_g and variant.currency
+            ),
+            None,
+        )
+        return PriceBasis(self.price, weight_g, currency or self.currency, "variant")
+
+    @property
+    def price_per_kg(self) -> float | None:
+        """Price of one kilogram of this coffee, in the shop's own currency.
+
+        This column mixes currencies and cannot be ordered by across shops;
+        ``price_per_kg_eur`` and ``price_per_kg_czk`` are the comparable ones.
+
+        Returns:
+            The extrapolated price, or None when there is no sound
+            :attr:`price_basis`.
+        """
+        basis = self.price_basis
+        return None if basis is None else basis.amount_per_kg()
 
     def to_record(self, *, json_safe: bool = True) -> dict[str, Any]:
         """Flatten the coffee into one row matching the ``coffee`` table.
@@ -264,6 +437,8 @@ class Coffee:
             "url": self.url,
             "name": self.name,
             "site_country": self.site_country,
+            "roaster": self.roaster_name,
+            "roaster_key": self.roaster_key,
             "price": self.price,
             "currency": self.currency,
             "weight_g": self.weight_g,

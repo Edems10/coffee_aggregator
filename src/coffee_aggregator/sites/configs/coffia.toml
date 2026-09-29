@@ -1,0 +1,28 @@
+# COFFIA — a Slovak roastery on Shopify. Every variant leaves `grams` at 0, so
+# the pack weight comes from the variant title ("Filter 250g", "Espresso 1kg"),
+# and the coffee passport is written into body_html one fact per line, half of
+# them with a colon ("Spracovanie: NATURAL") and half without ("Odroda mixed").
+platform = "shopify"
+site_id = "coffia"
+name = "Coffia"
+country = "SK"
+base_url = "https://coffia.sk/"
+# products.json quotes bare decimal strings and names no currency anywhere.
+currency = "EUR"
+max_pages = 10
+
+# The unfiltered catalogue is 5/6 brewing gear (Hario, Comandante, Fellow), so
+# the two coffee collections are walked instead: "Čerstvo pražené kávy" (18) and
+# "Old School pražené kávy" (25).
+collections = ["vsetky-kavy", "dark-roast"]
+
+# The coffee collections are clean, but a gift card slips into them now and then.
+ignore = [
+  "darcekova karta",
+  "darcekova krabicka",
+]
+
+[label_map]
+# The shop's own spelling of the cupping score; it writes "Cupping score: 86.5"
+# on some products and "CUPSCORE 85,5" on others.
+"CUPSCORE" = "sca_score"

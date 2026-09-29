@@ -1,0 +1,23 @@
+# The catalogue is exactly two categories, 40 zrnkova-kava-espresso and
+# 41 zrnkova-kava-filtr; the tasting boxes inside them are ignored by name.
+platform = "woocommerce"
+site_id = "restartcoffee"
+name = "Re-Start Coffee"
+country = "CZ"
+base_url = "https://www.restartcoffee.cz/"
+currency = "CZK"
+mode = "api"
+max_pages = 10
+
+# Pinned ids, not slugs: ids survive a re-theme, slugs do not.
+api_category_ids = [40, 41]
+
+# The HTML fallback, used only if /wp-json/ ever stops answering.
+category_urls = [
+  "https://www.restartcoffee.cz/kategorie-produktu/zrnkova-kava-espresso/",
+]
+
+# The catalogue also sells things that are not coffee beans.
+ignore = [
+  "ochutnavkova krabicka",
+]

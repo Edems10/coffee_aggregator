@@ -1,0 +1,312 @@
+[
+ {
+  "id": 211,
+  "name": "Fine Coffee Keňa AA TOP",
+  "permalink": "https://www.finecoffee.sk/produkt/kenya-aa-top/",
+  "sku": "080",
+  "short_description": "<p>Pražená zrnková káva</p>\n<p>Dobré telo, stredná až vysoká acidita evokuje tóny kandizovaného ovocia, pomarančovej kôry a bergamotu. Nuancie vanilky obohatené vôňou ruže.</p>",
+  "description": "<p>Kenya AA Top je výnimočná zrnková káva, ktorá pochádza z najlepších plantáží Keni. Vyznačuje sa výraznou ovocnou arómou, príjemnou kyslosťou a plným telom s tónmi červených bobúľ, citrusov a čierneho čaju. Táto káva je ideálna pre tých, ktorí hľadajú komplexný a zároveň svieži chuťový zážitok. Vďaka starostlivému spracovaniu a kvalitnému praženiu ponúka Kenya AA Top bohatú a harmonickú chuť, ktorá poteší aj tých najnáročnejších kávičkárov.</p>\n<table>\n<thead>\n<tr>\n<th>Parameter</th>\n<th>Hodnota</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Pôvod</td>\n<td>Nairobi</td>\n</tr>\n<tr>\n<td>Odroda</td>\n<td>Ruiru, Batian hybrid</td>\n</tr>\n<tr>\n<td>Výška nad morom</td>\n<td>1500 – 1700 m</td>\n</tr>\n<tr>\n<td>Chuťové tóny</td>\n<td>citrusový charakter, trpkejší grepový tón, chuť karamelu</td>\n</tr>\n<tr>\n<td>Praženie</td>\n<td>Medium Roast</td>\n</tr>\n<tr>\n<td>Kyslosť</td>\n<td>Stredná</td>\n</tr>\n<tr>\n<td>Telo kávy</td>\n<td>Plné</td>\n</tr>\n<tr>\n<td>Zrno</td>\n<td>Celé zrnko</td>\n</tr>\n<tr>\n<td>Farma</td>\n<td>Var. Small coffee growers</td>\n</tr>\n<tr>\n<td>Spracovanie</td>\n<td>Mokré (Fully Washed)</td>\n</tr>\n<tr>\n<td>Balenie</td>\n<td>250 g alebo 500 g</td>\n</tr>\n<tr>\n<td>Ideálne použitie</td>\n<td>Espresso, filtrovaná káva</td>\n</tr>\n</tbody>\n</table>\n<p>&nbsp;</p>",
+  "prices": {
+   "price": "790",
+   "regular_price": "790",
+   "sale_price": "790",
+   "price_range": {
+    "min_amount": "790",
+    "max_amount": "1490"
+   },
+   "currency_code": "EUR",
+   "currency_symbol": "€",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ",",
+   "currency_thousand_separator": "",
+   "currency_prefix": "",
+   "currency_suffix": "€"
+  },
+  "average_rating": "5.00",
+  "review_count": 4,
+  "images": [
+   {
+    "id": 3226,
+    "src": "https://www.finecoffee.sk/wp-content/uploads/2024/08/kava_ilustracia.png",
+    "thumbnail": "https://www.finecoffee.sk/wp-content/uploads/2024/08/kava_ilustracia-250x250.png",
+    "srcset": "https://www.finecoffee.sk/wp-content/uploads/2024/08/kava_ilustracia.png 500w, https://www.finecoffee.sk/wp-content/uploads/2024/08/kava_ilustracia-100x100.png 100w, https://www.finecoffee.sk/wp-content/uploads/2024/08/kava_ilustracia-250x250.png 250w, https://www.finecoffee.sk/wp-content/uploads/2024/08/kava_ilustracia-350x350.png 350w",
+    "sizes": "(max-width: 500px) 100vw, 500px",
+    "name": "kava_ilustracia",
+    "alt": ""
+   },
+   {
+    "id": 3447,
+    "src": "https://www.finecoffee.sk/wp-content/uploads/2016/02/etiketa-kenya-aa-top.jpg",
+    "thumbnail": "https://www.finecoffee.sk/wp-content/uploads/2016/02/etiketa-kenya-aa-top-250x250.jpg",
+    "srcset": "https://www.finecoffee.sk/wp-content/uploads/2016/02/etiketa-kenya-aa-top.jpg 910w, https://www.finecoffee.sk/wp-content/uploads/2016/02/etiketa-kenya-aa-top-632x673.jpg 632w, https://www.finecoffee.sk/wp-content/uploads/2016/02/etiketa-kenya-aa-top-350x373.jpg 350w",
+    "sizes": "(max-width: 767px) 89vw, (max-width: 1000px) 54vw, (max-width: 1071px) 543px, 580px",
+    "name": "etiketa-kenya-aa-top",
+    "alt": "Etiketa Kenya AA"
+   }
+  ],
+  "categories": [
+   {
+    "id": 15,
+    "name": "Pražená zrnková káva",
+    "slug": "prazena-kava",
+    "link": "https://www.finecoffee.sk/kategoria-produktu/prazena-kava/"
+   }
+  ],
+  "tags": [
+   {
+    "id": 16,
+    "name": "Fine Coffee SK",
+    "slug": "finecoffeesk",
+    "link": "https://www.finecoffee.sk/znacka-produktu/finecoffeesk/"
+   }
+  ],
+  "attributes": [
+   {
+    "id": 0,
+    "name": "balenie",
+    "taxonomy": null,
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 0,
+      "name": "250g",
+      "slug": "250g",
+      "default": true
+     },
+     {
+      "id": 0,
+      "name": "500g",
+      "slug": "500g",
+      "default": false
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 213,
+    "attributes": [
+     {
+      "name": "balenie",
+      "value": "250g"
+     }
+    ]
+   },
+   {
+    "id": 214,
+    "attributes": [
+     {
+      "name": "balenie",
+      "value": "500g"
+     }
+    ]
+   }
+  ],
+  "is_in_stock": true
+ },
+ {
+  "id": 2895,
+  "name": "Fine Coffee Mexico Esmeralda",
+  "permalink": "https://www.finecoffee.sk/produkt/fine-coffee-mexico-esmeralda/",
+  "sku": "220-1",
+  "short_description": "<p>Pražená zrnková káva</p>\n<p>&nbsp;</p>\n<p>Chuťový profil: lesné ovocie, biela čokoláda, višne</p>",
+  "description": "<p>Odroda: Arabica</p>\n<p>Farma: Lokálne farmy</p>\n<p>Lokalita: Pluma, Oaxaca</p>\n<p>Nadmorská výška: 1100-1600 m.n.m</p>\n<p>Spracovanie: Mokré (Fully washed)</p>\n<p>Chuťový profil: lesné ovocie, biela čokoláda, višne</p>",
+  "prices": {
+   "price": "790",
+   "regular_price": "790",
+   "sale_price": "790",
+   "price_range": {
+    "min_amount": "790",
+    "max_amount": "1490"
+   },
+   "currency_code": "EUR",
+   "currency_symbol": "€",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ",",
+   "currency_thousand_separator": "",
+   "currency_prefix": "",
+   "currency_suffix": "€"
+  },
+  "images": [
+   {
+    "id": 3226,
+    "src": "https://www.finecoffee.sk/wp-content/uploads/2024/08/kava_ilustracia.png",
+    "thumbnail": "https://www.finecoffee.sk/wp-content/uploads/2024/08/kava_ilustracia-250x250.png",
+    "srcset": "https://www.finecoffee.sk/wp-content/uploads/2024/08/kava_ilustracia.png 500w, https://www.finecoffee.sk/wp-content/uploads/2024/08/kava_ilustracia-100x100.png 100w, https://www.finecoffee.sk/wp-content/uploads/2024/08/kava_ilustracia-250x250.png 250w, https://www.finecoffee.sk/wp-content/uploads/2024/08/kava_ilustracia-350x350.png 350w",
+    "sizes": "(max-width: 500px) 100vw, 500px",
+    "name": "kava_ilustracia",
+    "alt": ""
+   },
+   {
+    "id": 3455,
+    "src": "https://www.finecoffee.sk/wp-content/uploads/2023/03/etiketa-mexiko.jpg",
+    "thumbnail": "https://www.finecoffee.sk/wp-content/uploads/2023/03/etiketa-mexiko-250x250.jpg",
+    "srcset": "https://www.finecoffee.sk/wp-content/uploads/2023/03/etiketa-mexiko.jpg 956w, https://www.finecoffee.sk/wp-content/uploads/2023/03/etiketa-mexiko-632x654.jpg 632w, https://www.finecoffee.sk/wp-content/uploads/2023/03/etiketa-mexiko-350x362.jpg 350w",
+    "sizes": "(max-width: 767px) 89vw, (max-width: 1000px) 54vw, (max-width: 1071px) 543px, 580px",
+    "name": "etiketa-mexiko",
+    "alt": "Etiketa Mexiko"
+   }
+  ],
+  "categories": [
+   {
+    "id": 15,
+    "name": "Pražená zrnková káva",
+    "slug": "prazena-kava",
+    "link": "https://www.finecoffee.sk/kategoria-produktu/prazena-kava/"
+   }
+  ],
+  "tags": [
+   {
+    "id": 16,
+    "name": "Fine Coffee SK",
+    "slug": "finecoffeesk",
+    "link": "https://www.finecoffee.sk/znacka-produktu/finecoffeesk/"
+   },
+   {
+    "id": 45,
+    "name": "Novinka",
+    "slug": "novinka",
+    "link": "https://www.finecoffee.sk/znacka-produktu/novinka/"
+   }
+  ],
+  "attributes": [
+   {
+    "id": 0,
+    "name": "balenie",
+    "taxonomy": null,
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 0,
+      "name": "250g",
+      "slug": "250g",
+      "default": true
+     },
+     {
+      "id": 0,
+      "name": "500g",
+      "slug": "500g",
+      "default": false
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 2896,
+    "attributes": [
+     {
+      "name": "balenie",
+      "value": "500g"
+     }
+    ]
+   },
+   {
+    "id": 2897,
+    "attributes": [
+     {
+      "name": "balenie",
+      "value": "250g"
+     }
+    ]
+   }
+  ],
+  "is_in_stock": true
+ },
+ {
+  "id": 567,
+  "name": "Fine Coffee India Monsooned Malabar AA",
+  "permalink": "https://www.finecoffee.sk/produkt/india-monsooned-malabar-aa/",
+  "sku": "010",
+  "short_description": "<p>Pražená zrnková káva</p>\n<p>Špecifická vôňa, chuť bez náznaku acidity a výrazná kávová chuť.</p>\n<p>Nádherná crema. Ešte dlho po dopití je cítiť v ústach táto jedinečná chuť a vôňa.</p>",
+  "description": "<p>Unikátne kávové zrno je jedinečné spôsobom spracovania a excelentnou chuťou. Kávové zrná sú po zbere a usušení vystavené vetrom a monzúnovým dažďom po dobu niekoľkých týždňov. Plantážna káva Monsooned Malabar AA sa právom vyšvihla na prvú priečku medzi všetkými indickými kávami.</p>\n<h3>Tradičná monzúnová úprava</h3>\n<p>Po usušení sú zelené zrná vystavené vlhkosti a vetrom monzúnovej sezóny medzi júnom a septembrom. V pevnom sklade v oblasti Malabar sa pravidelne premiešavajú a premiestňujú, aby dôkladne nasali vlhkosť. Výsledkom je zrno zväčšené takmer dvojnásobne, s bledozlatou farbou, minimalizovanou kyslosťou a zvýraznenou vlastnou chuťou.</p>\n<h3>Chuťový profil a aróma</h3>\n<ul>\n<li><strong>Nízká až žiadna kyslosť</strong> – šálka ideálna pre citlivé žalúdky a tých, ktorí nevyhľadávajú jasnú ovocnosť.</li>\n<li><strong>Plné telo a hrejivá textura</strong> – jemná, krémová štruktúra čeľustí zanechá trvalý dojem.Zemitý základ s korenistými tónmi – cédrové drevo, tabakové podtóny, jemný dotyk korenia ako kardamóm a škorica. Sladká oriešková dochuť uzatvára celkové spektrum.</li>\n<li><strong>Úžasná crema</strong> – tvorí bohatú, hustú penu, predovšetkým pri espressu.</li>\n</ul>\n<h3>Odporúčané spôsoby prípravy</h3>\n<ul>\n<li><strong>Espresso a mliečne nápoje (cappuccino, latte)</strong> – vynikne v spojení s mliekom, kde jemnosť prežije a zemitosť sa rozvíja v korenistých tónoch.</li>\n<li><strong>Cold brew</strong> – obľúbený spôsob prípravy; nízka kyslosť a sladkosť orieškového profilu vyniknú v studenom náleve.</li>\n<li><strong>Cappuccino elegantne</strong> – tzv. „vulkanická crema“ a bohaté telo doporučované viacerými užívateľmi a baristami.</li>\n</ul>\n<h3>Pre koho je táto káva?</h3>\n<p>Tento výber osloví konzervatívnych milovníkov kávy, ktorí vyhľadávajú silné, hrejivé dojmy bez výraznej ovocnej kyselinky. Ak si chcete dopriať šálku kávy, ktorá vám poskytne stabilný a robustný zážitok bez ostrých tónov – Monsooned Malabar AA vás nesklame.<br />\nObjavte, prečo je povestný morský vplyv monzúnu stále obdivovaný a prečo tento variant Indickej Arabicy získava srdcia náročných kávových fajnšmekrov.</p>\n<h3>Vlastnosti</h3>\n<table>\n<thead>\n<tr>\n<th>Vlastnosť</th>\n<th>Popis</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><strong>Pôvod</strong></td>\n<td>Malabar Coast, južná India (e.g. Karnataka, Kerala)</td>\n</tr>\n<tr>\n<td><strong>Nadmorská výška</strong></td>\n<td>~1 100–1 200 m n. m.</td>\n</tr>\n<tr>\n<td><strong>Odrůdy</strong></td>\n<td>Kent, SLN‑795, Catimor, Selection 9</td>\n</tr>\n<tr>\n<td><strong>Trieda</strong></td>\n<td>Arabica AA – veľké, konzistentné zrná</td>\n</tr>\n<tr>\n<td><strong>Spracovanie</strong></td>\n<td>Sun-dry + Monsooned (12–16 týždňov vystavenia vetrom)</td>\n</tr>\n<tr>\n<td><strong>Acidita</strong></td>\n<td>veľmi nízka až žiadna</td>\n</tr>\n<tr>\n<td><strong>Telo</strong></td>\n<td>silné, plné, krémové</td>\n</tr>\n<tr>\n<td><strong>Príchuť</strong></td>\n<td>tabak, cédrové drevo, korenie, oriešky</td>\n</tr>\n<tr>\n<td><strong>Aroma</strong></td>\n<td>zemité, hrejivé, korenisté</td>\n</tr>\n<tr>\n<td><strong>Najlepší spôsob prípravy</strong></td>\n<td>espresso, cappuccino, cold brew</td>\n</tr>\n</tbody>\n</table>",
+  "prices": {
+   "price": "790",
+   "regular_price": "790",
+   "sale_price": "790",
+   "price_range": {
+    "min_amount": "790",
+    "max_amount": "1490"
+   },
+   "currency_code": "EUR",
+   "currency_symbol": "€",
+   "currency_minor_unit": 2,
+   "currency_decimal_separator": ",",
+   "currency_thousand_separator": "",
+   "currency_prefix": "",
+   "currency_suffix": "€"
+  },
+  "average_rating": "5.00",
+  "review_count": 3,
+  "images": [
+   {
+    "id": 3226,
+    "src": "https://www.finecoffee.sk/wp-content/uploads/2024/08/kava_ilustracia.png",
+    "thumbnail": "https://www.finecoffee.sk/wp-content/uploads/2024/08/kava_ilustracia-250x250.png",
+    "srcset": "https://www.finecoffee.sk/wp-content/uploads/2024/08/kava_ilustracia.png 500w, https://www.finecoffee.sk/wp-content/uploads/2024/08/kava_ilustracia-100x100.png 100w, https://www.finecoffee.sk/wp-content/uploads/2024/08/kava_ilustracia-250x250.png 250w, https://www.finecoffee.sk/wp-content/uploads/2024/08/kava_ilustracia-350x350.png 350w",
+    "sizes": "(max-width: 500px) 100vw, 500px",
+    "name": "kava_ilustracia",
+    "alt": ""
+   }
+  ],
+  "categories": [
+   {
+    "id": 15,
+    "name": "Pražená zrnková káva",
+    "slug": "prazena-kava",
+    "link": "https://www.finecoffee.sk/kategoria-produktu/prazena-kava/"
+   }
+  ],
+  "tags": [
+   {
+    "id": 16,
+    "name": "Fine Coffee SK",
+    "slug": "finecoffeesk",
+    "link": "https://www.finecoffee.sk/znacka-produktu/finecoffeesk/"
+   }
+  ],
+  "attributes": [
+   {
+    "id": 0,
+    "name": "balenie",
+    "taxonomy": null,
+    "has_variations": true,
+    "terms": [
+     {
+      "id": 0,
+      "name": "250g",
+      "slug": "250g",
+      "default": true
+     },
+     {
+      "id": 0,
+      "name": "500g",
+      "slug": "500g",
+      "default": false
+     }
+    ]
+   }
+  ],
+  "variations": [
+   {
+    "id": 569,
+    "attributes": [
+     {
+      "name": "balenie",
+      "value": "500g"
+     }
+    ]
+   },
+   {
+    "id": 568,
+    "attributes": [
+     {
+      "name": "balenie",
+      "value": "250g"
+     }
+    ]
+   }
+  ],
+  "is_in_stock": true
+ }
+]
