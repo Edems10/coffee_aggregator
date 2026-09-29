@@ -16,7 +16,7 @@ Two product rules drive the design:
 
 ## Requirements
 
-* Python 3.13+
+* Python 3.14+
 * [uv](https://docs.astral.sh/uv/) — the only supported package manager
 * PostgreSQL 15 or newer (docker compose ships the current major, 18)
 
@@ -53,6 +53,29 @@ Nothing but `DATABASE_URL` changes — there is no vendor SDK anywhere in the co
 | AWS RDS | `postgresql://USER:PASSWORD@host.eu-central-1.rds.amazonaws.com:5432/coffee?sslmode=require` |
 | Supabase | `postgresql://postgres:PASSWORD@db.PROJECT.supabase.co:5432/postgres` (the *direct* Postgres URL, not the REST API) |
 | any managed Postgres | the same `postgresql://` URL |
+
+## Running in a container
+
+`Dockerfile` builds the image the scheduled run uses: a two-stage build that
+resolves `uv.lock` into `/opt/venv` and then carries nothing but that
+environment — no source tree, no uv, no dev dependencies, ~270 MB. It runs as
+uid 10001 and needs no writable filesystem.
+
+```bash
+docker compose up -d                                  # database only
+docker compose run --rm crawler init-db               # schema, from the image
+docker compose run --rm crawler crawl --sink postgres --site kafista
+docker compose run --rm crawler                       # the daily crawl
+```
+
+The `crawler` service sits behind a compose profile, so `docker compose up -d`
+still starts only the database. Inside the compose network the database answers
+to `db:5432`, not `localhost` — from a container on this machine to a database
+on the host, use `host.docker.internal`.
+
+`DATABASE_URL` arrives from the environment at start and is never baked into a
+layer; `.dockerignore` is an allowlist, so `.env` cannot reach the build context
+at all. See [docs/docker.md](docs/docker.md) for deploying the image.
 
 ## CLI
 
@@ -525,8 +548,9 @@ Dependencies are never upper-bounded; refresh them with `uv lock --upgrade && uv
 `.github/workflows/ci.yml` runs on every pull request and every push to `main`:
 `lint` (ruff + mypy), `hooks` (`pre-commit run --all-files`), `test` (the whole
 suite against a `postgres:18-alpine` service container, so the integration tests
-run instead of skipping) and `diff-summary` (classifies the pull request's files
-into the job summary). See [docs/ci.md](docs/ci.md) for the one-command local
+run instead of skipping), `image` (builds `Dockerfile` and checks the image ships
+every shop the working tree has) and `diff-summary` (classifies the pull
+request's files into the job summary). See [docs/ci.md](docs/ci.md) for the one-command local
 equivalent of each job.
 
 `tests/test_repo_hygiene.py` keeps `tests/fixtures/` honest: every file stays

@@ -1,0 +1,12 @@
+# Allowlist: everything is excluded, then the four things the build reads are
+# let back in. A new directory in the repo cannot silently enlarge the image or
+# invalidate its cache, and .env can never reach a layer.
+*
+
+!pyproject.toml
+!uv.lock
+!README.md
+!src
+
+src/**/__pycache__
+src/**/*.py[cod]

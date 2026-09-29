@@ -15,12 +15,39 @@ services:
     ports:
       - "${COFFEE_DB_PORT:-5432}:5432"
     volumes:
-      - pgdata:/var/lib/postgresql/data
+      # Postgres 18 moved its data one level down, to /var/lib/postgresql/18/docker,
+      # and refuses to start when the volume is mounted at the old .../data path.
+      - pgdata:/var/lib/postgresql
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U coffee -d coffee"]
       interval: 5s
       timeout: 5s
       retries: 10
+
+  # The crawler itself, in the image the scheduled run will use. Behind a
+  # profile, so `docker compose up -d` still starts only the database:
+  #   docker compose run --rm crawler init-db
+  #   docker compose run --rm crawler crawl --sink postgres --site kafista
+  #   docker compose run --rm crawler          # the default command below
+  crawler:
+    build: .
+    image: coffee-aggregator:local
+    profiles: ["crawler"]
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      # `db`, not localhost: inside the compose network the database answers to
+      # its service name, and 5432 is the container port, not the published one.
+      DATABASE_URL: postgresql://coffee:coffee@db:5432/coffee
+      COFFEE_AGG_FX_CACHE: /tmp/fx_rates.json
+      COFFEE_AGG_WORKERS: "10"
+    # The crawl writes to Postgres and to stdout, nothing else, so the image
+    # needs no writable layer. If this ever fails on a read-only filesystem,
+    # something started writing where it should not.
+    read_only: true
+    tmpfs:
+      - /tmp
 
 volumes:
   pgdata:

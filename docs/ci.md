@@ -15,6 +15,7 @@ Every job checks out the repo, installs uv with `astral-sh/setup-uv@v5`
 | `lint` | `ruff check --output-format=github`, `ruff format --check`, `mypy` | `uv sync --locked && uv run ruff check && uv run ruff format --check && uv run mypy` |
 | `hooks` | `pre-commit run --all-files --show-diff-on-failure` | `uv run pre-commit run --all-files --show-diff-on-failure` |
 | `test` | `pytest -q` against a `postgres:18-alpine` service container | `docker compose up -d && TEST_DATABASE_URL=postgresql://coffee:coffee@localhost:5432/coffee_test uv run pytest -q` |
+| `image` | `docker build`, then checks the image lists the same shops as the working tree, runs as uid 10001, and exits 2 with no `DATABASE_URL` | `docker build -t coffee-aggregator:ci . && docker run --rm coffee-aggregator:ci list-sites` |
 | `diff-summary` | Classifies the pull request's files against the merge base into the job summary | `git diff --name-status $(git merge-base origin/main HEAD)` |
 
 Notes:
@@ -27,6 +28,12 @@ Notes:
   rewrite the hook wants.
 * The pytest hook is a `pre-push` hook, so `pre-commit run --all-files` does not
   run it; the `test` job does, with a database attached.
+* The `image` job builds `Dockerfile` but pushes nothing; it exists because a
+  packaging mistake is silent. The shop configs are TOML files inside the
+  package and reach the image only because hatchling packages them — if they
+  stopped, the build would still succeed and the crawl would simply find no
+  shops. Comparing the image's `list-sites` against the working tree's catches
+  that, and makes a shop added in a pull request prove it arrives in both.
 * `diff-summary` is informational only. The suite runs whole on every run —
   selecting tests from the diff would silently skip regressions, because a change
   to `normalize.py` or the shared label vocabulary breaks adapters whose files

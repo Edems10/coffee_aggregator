@@ -88,6 +88,42 @@ jobs:
       # actually execute in CI instead of skipping.
       - run: uv run pytest -q
 
+  image:
+    name: docker image
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # uv is here for the smoke test below, which compares what the image
+      # ships against what the repo has; the build itself needs nothing but
+      # docker, and reads only the four paths .dockerignore admits.
+      - uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+      - run: uv sync --locked
+      - run: docker build -t coffee-aggregator:ci .
+      # The shop configs are TOML files inside the package, so they reach the
+      # image only because hatchling packages them. Nothing else would notice
+      # if they stopped: the build succeeds and the crawl finds no shops. This
+      # compares the image's registry against the working tree's, so a shop
+      # added in the same pull request has to arrive in both.
+      - name: The image ships every shop the repo has
+        run: |
+          set -euo pipefail
+          ids() { sed -E 's/^.*coffee_aggregator: //' | cut -f1 | sort; }
+          docker run --rm coffee-aggregator:ci list-sites 2>&1 | ids > image-sites.txt
+          uv run coffee-aggregator list-sites 2>&1 | ids > repo-sites.txt
+          diff repo-sites.txt image-sites.txt
+          echo "$(wc -l < image-sites.txt) shops in the image" >> "$GITHUB_STEP_SUMMARY"
+      - name: It runs unprivileged, and refuses to run unconfigured
+        run: |
+          set -euo pipefail
+          test "$(docker run --rm --entrypoint id coffee-aggregator:ci -u)" = 10001
+          # No DATABASE_URL: exit 2 is the configuration error. A 0 here would
+          # mean the crawl started against something it found on its own.
+          rc=0
+          docker run --rm coffee-aggregator:ci crawl --sink postgres >/dev/null 2>&1 || rc=$?
+          test "$rc" -eq 2
+
   diff-summary:
     name: changed files
     runs-on: ubuntu-latest
