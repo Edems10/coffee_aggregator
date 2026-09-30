@@ -1,0 +1,12 @@
+[Unit]
+Description=Run the coffee crawl every morning at 05:00
+
+[Timer]
+OnCalendar=*-*-* 05:00:00
+# A server that was off at 05:00 runs the crawl once it comes back, rather than
+# skipping the day.
+Persistent=true
+AccuracySec=1min
+
+[Install]
+WantedBy=timers.target

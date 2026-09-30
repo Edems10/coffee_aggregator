@@ -1,0 +1,13 @@
+[Unit]
+Description=Daily crawl of the Czech and Slovak coffee catalogue, then a backup
+Documentation=https://github.com/Edems10/coffee_aggregator
+Wants=docker.service
+After=docker.service network-online.target
+
+[Service]
+Type=oneshot
+EnvironmentFile=/etc/coffee-aggregator/env
+# Above the crawl's own --deadline, so the deadline stops the run cleanly and
+# records what it did; this is only the backstop for a hang beneath it.
+TimeoutStartSec=5h45m
+ExecStart=/opt/coffee-aggregator/deploy/run.sh

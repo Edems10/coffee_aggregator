@@ -1,0 +1,50 @@
+# The whole deployment for one server: the database and the crawler that fills
+# it, on one private network. Run it from this directory, or point -f at it.
+#
+# The database publishes no port. Both containers are on the same compose
+# network, so the crawler reaches it as `db:5432` and nothing outside the host
+# can reach it at all — which is the reason to keep the database local rather
+# than expose 5432 to the internet.
+
+name: coffee-aggregator
+
+services:
+  db:
+    image: postgres:18-alpine
+    container_name: coffee-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: coffee
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in the env file}
+      POSTGRES_DB: coffee
+    volumes:
+      # Postgres 18 keeps its data in /var/lib/postgresql/18/docker and refuses
+      # to start when the volume is mounted at the older .../data path.
+      - pgdata:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U coffee -d coffee"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  crawler:
+    build:
+      context: ..
+    image: coffee-aggregator:local
+    # Behind a profile: `docker compose up -d` brings up only the database, and
+    # the crawl is a `run --rm` that starts, works and exits.
+    profiles: ["crawler"]
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://coffee:${POSTGRES_PASSWORD:?}@db:5432/coffee
+      COFFEE_AGG_CONTACT: ${COFFEE_AGG_CONTACT:-}
+      COFFEE_AGG_FX_CACHE: /tmp/fx_rates.json
+    # The crawl writes to Postgres and to stdout, nothing else.
+    read_only: true
+    tmpfs:
+      - /tmp
+
+volumes:
+  pgdata:
