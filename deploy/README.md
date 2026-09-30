@@ -26,7 +26,9 @@ sudo git clone https://github.com/Edems10/coffee_aggregator /opt/coffee-aggregat
 
 sudo install -d -m 700 /etc/coffee-aggregator
 sudo install -m 600 /opt/coffee-aggregator/deploy/env.example /etc/coffee-aggregator/env
-sudo sed -i "s|^POSTGRES_PASSWORD=.*|POSTGRES_PASSWORD=$(openssl rand -base64 24)|" \
+# hex, not base64: a "/" in the password ends the URL's authority early, and the
+# DSN then reads the host as "coffee" and the rest of the password as the port.
+sudo sed -i "s|^POSTGRES_PASSWORD=.*|POSTGRES_PASSWORD=$(openssl rand -hex 24)|" \
     /etc/coffee-aggregator/env
 sudo nano /etc/coffee-aggregator/env          # set COFFEE_AGG_CONTACT and RCLONE_REMOTE
 
