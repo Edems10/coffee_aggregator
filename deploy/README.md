@@ -172,9 +172,22 @@ every night. It is uploaded beside the old one and moved into place afterwards:
 overwriting the only copy directly would leave a window in which a failed
 upload has already destroyed the backup it was replacing.
 
-Locally, `KEEP` dumps are kept, newest first, and the pruning runs only after
-the upload succeeded — a failed upload never deletes the copies you still
-have.
+Locally, `KEEP` dumps are kept (seven by default), newest first, and the
+pruning runs only after the upload succeeded — a failed upload never deletes
+the copies you still have.
+
+`BACKUP_DIR` defaults to `/var/backups/coffee-aggregator`, which on a stock
+Ubuntu is the same filesystem as `/var/lib/docker` — so the database and its
+backups would share a disk, and one failure would take both. If the host has
+more than one disk, point it at the other one. Which disk is which:
+
+```bash
+findmnt -no SOURCE,TARGET /var/lib/docker /var/backups
+lsblk -o NAME,ROTA,SIZE,TYPE,MOUNTPOINT,MODEL     # ROTA=1 is spinning, 0 is SSD
+```
+
+Size is not the deciding factor: seven dumps are tens of megabytes at a
+realistic catalogue size. Separation is.
 
 Restoring, into this database or any other Postgres anywhere:
 
