@@ -165,8 +165,16 @@ name — the pruning relies on that.
 One dump per day, `pg_dump --format=custom --compress=9`, verified with
 `pg_restore --list` before it is trusted — a dump cut off half-way still looks
 like a file, and that check is the difference between having a backup and
-believing you have one. Pruning happens only after a successful upload, so a
-failed upload never deletes the copies you still have.
+believing you have one.
+
+On Google Drive there is exactly one file, `coffee-latest.dump`, overwritten
+every night. It is uploaded beside the old one and moved into place afterwards:
+overwriting the only copy directly would leave a window in which a failed
+upload has already destroyed the backup it was replacing.
+
+Locally, `KEEP` dumps are kept, newest first, and the pruning runs only after
+the upload succeeded — a failed upload never deletes the copies you still
+have.
 
 Restoring, into this database or any other Postgres anywhere:
 
@@ -179,8 +187,10 @@ sudo docker compose -f /opt/coffee-aggregator/deploy/compose.yml exec -T db \
 Nothing in the schema is vendor-specific, so the same dump restores onto RDS,
 Neon, Aiven or a laptop.
 
-**Two dumps is a two-day window.** Break something and notice it on the third
-day and both copies already contain the breakage. For this project that is a
-reasonable trade: the catalogue rebuilds itself from one crawl, and the only
+**One dump is a one-day window.** Break something, notice it tomorrow, and the
+only copy already contains the breakage. For this project that is a defensible
+trade — the catalogue rebuilds itself from one crawl, and the only
 irreplaceable tables are `price_history` and `crawl_run`, which are also the
-small ones. Raise `KEEP`, or add a weekly copy, if that window feels short.
+small ones — but it is the trade you are making. A dump is tens of kilobytes
+today and tens of megabytes at a realistic catalogue size, so `KEEP=7` locally
+costs almost nothing and turns that window into a week.

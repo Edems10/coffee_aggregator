@@ -8,7 +8,9 @@ set -euo pipefail
 COMPOSE_FILE="${COMPOSE_FILE:-/opt/coffee-aggregator/deploy/compose.yml}"
 BACKUP_DIR="${BACKUP_DIR:-/var/backups/coffee-aggregator}"
 RCLONE_REMOTE="${RCLONE_REMOTE:-}"
-KEEP="${KEEP:-2}"
+# Dumps to keep on this machine. The remote always holds exactly one.
+KEEP="${KEEP:-1}"
+REMOTE_NAME="${REMOTE_NAME:-coffee-latest.dump}"
 
 stamp="$(date -u +%Y%m%dT%H%M%SZ)"
 name="coffee-${stamp}.dump"
@@ -34,14 +36,19 @@ fi
 mv "${BACKUP_DIR}/${name}.part" "${BACKUP_DIR}/${name}"
 echo "backup: ${name} ($(du -h "${BACKUP_DIR}/${name}" | cut -f1))"
 
+# One file on the remote, always the newest, under a fixed name. It is uploaded
+# beside the old one and moved into place afterwards: overwriting the only copy
+# directly would leave a window where a failed upload has already destroyed the
+# backup it was replacing.
 if [[ -n "$RCLONE_REMOTE" ]]; then
-    rclone copyto "${BACKUP_DIR}/${name}" "${RCLONE_REMOTE}/${name}"
-    echo "backup: uploaded to ${RCLONE_REMOTE}/${name}"
+    rclone copyto "${BACKUP_DIR}/${name}" "${RCLONE_REMOTE}/${REMOTE_NAME}.part"
+    rclone moveto "${RCLONE_REMOTE}/${REMOTE_NAME}.part" "${RCLONE_REMOTE}/${REMOTE_NAME}"
+    echo "backup: uploaded to ${RCLONE_REMOTE}/${REMOTE_NAME}"
 fi
 
-# Pruning comes last, and only on the paths above having succeeded: a failed
-# upload must never be the reason the older copies were deleted. The timestamp
-# sorts lexicographically, so the newest names are the newest dumps.
+# Local pruning comes last, and only on the paths above having succeeded: a
+# failed upload must never be the reason the older copies were deleted. The
+# timestamp sorts lexicographically, so the newest names are the newest dumps.
 shopt -s nullglob
 dumps=("${BACKUP_DIR}"/coffee-*.dump)
 shopt -u nullglob
@@ -49,11 +56,3 @@ printf '%s\n' "${dumps[@]}" | sort -r | tail -n "+$((KEEP + 1))" | while read -r
     rm -f -- "$old"
     echo "backup: pruned local $(basename "$old")"
 done
-
-if [[ -n "$RCLONE_REMOTE" ]]; then
-    rclone lsf "$RCLONE_REMOTE" --include 'coffee-*.dump' \
-        | sort -r | tail -n "+$((KEEP + 1))" | while read -r old; do
-            rclone deletefile "${RCLONE_REMOTE}/${old}"
-            echo "backup: pruned remote ${old}"
-        done
-fi
