@@ -17,6 +17,7 @@ services:
       POSTGRES_USER: coffee
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in the env file}
       POSTGRES_DB: coffee
+      TZ: ${TZ:-Europe/Prague}
     volumes:
       # Postgres 18 keeps its data in /var/lib/postgresql/18/docker and refuses
       # to start when the volume is mounted at the older .../data path.
@@ -26,6 +27,15 @@ services:
       interval: 5s
       timeout: 5s
       retries: 10
+    # This host runs other things. Postgres with the image's defaults wants
+    # ~128 MB of shared buffers and grows with connections, so it gets a
+    # ceiling rather than a share of whatever is free. A positive oom_score_adj
+    # puts it ahead of Plex and the *arr services in the queue when memory runs
+    # out: losing a crawl mid-write costs one night, and Postgres recovers from
+    # being killed — losing a media server costs the evening.
+    mem_limit: 512m
+    mem_reservation: 192m
+    oom_score_adj: 200
 
   crawler:
     build:
@@ -41,10 +51,17 @@ services:
       DATABASE_URL: postgresql://coffee:${POSTGRES_PASSWORD:?}@db:5432/coffee
       COFFEE_AGG_CONTACT: ${COFFEE_AGG_CONTACT:-}
       COFFEE_AGG_FX_CACHE: /tmp/fx_rates.json
+      TZ: ${TZ:-Europe/Prague}
     # The crawl writes to Postgres and to stdout, nothing else.
     read_only: true
     tmpfs:
       - /tmp
+    # Batches of 50 products and the parse tree of one page at a time; the
+    # ceiling is generous. Most expendable thing on the box: a killed crawl is
+    # re-run tomorrow morning.
+    mem_limit: 512m
+    mem_reservation: 128m
+    oom_score_adj: 600
 
 volumes:
   pgdata:
