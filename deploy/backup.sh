@@ -8,9 +8,9 @@ set -euo pipefail
 COMPOSE_FILE="${COMPOSE_FILE:-/opt/coffee-aggregator/deploy/compose.yml}"
 BACKUP_DIR="${BACKUP_DIR:-/var/backups/coffee-aggregator}"
 RCLONE_REMOTE="${RCLONE_REMOTE:-}"
-# Dumps to keep on this machine. The remote always holds exactly one.
-KEEP="${KEEP:-1}"
-REMOTE_NAME="${REMOTE_NAME:-coffee-latest.dump}"
+# Dumps to keep on this machine. The remote keeps its own: nothing here ever
+# deletes from it, because a bucket lock would refuse and that is the point.
+KEEP="${KEEP:-7}"
 
 stamp="$(date -u +%Y%m%dT%H%M%SZ)"
 name="coffee-${stamp}.dump"
@@ -36,19 +36,24 @@ fi
 mv "${BACKUP_DIR}/${name}.part" "${BACKUP_DIR}/${name}"
 echo "backup: ${name} ($(du -h "${BACKUP_DIR}/${name}" | cut -f1))"
 
-# One file on the remote, always the newest, under a fixed name. It is uploaded
-# beside the old one and moved into place afterwards: overwriting the only copy
-# directly would leave a window where a failed upload has already destroyed the
-# backup it was replacing.
+# A new object every night, never an overwrite, so the bucket lock on the remote
+# can refuse every delete and every overwrite — including one issued with this
+# machine's own credentials. Whoever can read the key here already has root and
+# can burn the database and the local dumps; the copy up there is the one thing
+# that should survive that, so nothing in this script is allowed to remove it.
+# Old objects are expired by a lifecycle rule on the bucket instead.
+#
+# No .part dance either: that existed to protect a single overwritten file. A
+# half-finished upload now just leaves one bad object that tomorrow supersedes,
+# while every good one before it is untouched.
 if [[ -n "$RCLONE_REMOTE" ]]; then
-    rclone copyto "${BACKUP_DIR}/${name}" "${RCLONE_REMOTE}/${REMOTE_NAME}.part"
-    rclone moveto "${RCLONE_REMOTE}/${REMOTE_NAME}.part" "${RCLONE_REMOTE}/${REMOTE_NAME}"
-    echo "backup: uploaded to ${RCLONE_REMOTE}/${REMOTE_NAME}"
+    rclone copyto "${BACKUP_DIR}/${name}" "${RCLONE_REMOTE}/${name}"
+    echo "backup: uploaded to ${RCLONE_REMOTE}/${name}"
 fi
 
 # Local pruning comes last, and only on the paths above having succeeded: a
-# failed upload must never be the reason the older copies were deleted. The
-# timestamp sorts lexicographically, so the newest names are the newest dumps.
+# failed upload must never be the reason the older local copies were deleted.
+# The timestamp sorts lexicographically, so the newest names are the newest.
 shopt -s nullglob
 dumps=("${BACKUP_DIR}"/coffee-*.dump)
 shopt -u nullglob

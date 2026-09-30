@@ -2,8 +2,8 @@
 
 One host runs both the database and the crawler, in Docker. A systemd timer
 starts the crawl every morning; when it finishes, the same run dumps the
-database, uploads the dump to Google Drive with rclone, and keeps the two
-newest dumps in both places.
+database and uploads it off-site with rclone, keeping a week of dumps on the
+machine and a locked, server-immutable history on the remote.
 
 The database publishes no port. Both containers share one compose network, so
 the crawler reaches it as `db:5432` and nothing outside the host can reach it at
@@ -85,32 +85,95 @@ credentials from the env file on top of whatever the proxy requires. It is
 read-write: rows can be edited from there, which is the point, but it is also
 why it should never be exposed without both locks.
 
-## Google Drive
+## Off-site copy: Cloudflare R2
 
-`rclone config` needs a browser once, which a server does not have. Do the
-consent step on a machine that has one:
+R2 is S3-compatible, so rclone talks to it with a static key pair that does not
+expire and needs no browser. That is the whole reason to prefer it here over a
+consumer cloud drive: a headless server should not depend on an OAuth refresh
+token that a provider can invalidate. The free allowance is 10 GB with no egress
+charge and no expiry, which is orders of magnitude more than these dumps need —
+but Cloudflare does require a payment method on the account before R2 can be
+enabled, even to stay inside it.
+
+### What this is defending against
+
+Anyone who can read the key on the server already has root there, and can
+destroy the database and every local dump directly. The copy in R2 is the one
+thing that could survive that — so the server is deliberately given credentials
+that **cannot** remove it. That shapes three settings:
+
+* the API token may read and write objects in one bucket, and nothing else;
+* a **bucket lock** refuses deletes and overwrites for a retention period, and
+  removing that lock needs permission to edit bucket configuration, which the
+  token does not have;
+* `backup.sh` therefore writes a new, timestamped object every night and never
+  deletes from the remote. Expiry is the bucket's job, not the server's.
+
+### Bucket
+
+**R2 Object Storage** → create a bucket, location Automatic. The name is what
+goes after the colon in `RCLONE_REMOTE`.
+
+Then on that bucket:
+
+* **Settings → Bucket lock** → add a rule, retention **Age**, 7 days. Nothing
+  written can be deleted or replaced for a week, by anyone holding the server's
+  key.
+* **Settings → Object lifecycle rules** → delete objects older than 14 days.
+  This has to be longer than the lock, or the lifecycle rule has nothing it is
+  allowed to remove.
+
+Fourteen dumps of tens of megabytes is a rounding error against 10 GB.
+
+### Token
+
+**R2 → API → Manage API tokens → Create Account API token**. Permission
+**Object Read & Write** — not Admin, which could edit bucket configuration and
+therefore lift the lock. Under *Specify bucket(s)* choose **Apply to specific
+buckets only** and pick the one bucket. TTL **Forever**: an expiring token would
+break the backup silently, which is the failure mode this whole setup exists to
+avoid.
+
+Keep the **Access Key ID**, the **Secret Access Key** and the **S3 API**
+endpoint, which looks like `https://<account-id>.r2.cloudflarestorage.com`.
+
+Optionally restrict the token to the server's public IP — worth it only if that
+address is actually static, since a changed IP stops the upload as surely as a
+revoked key.
+
+### rclone
+
+As root on the server, because that is who the timer runs as; a remote
+configured under your own user will not be found:
 
 ```bash
-rclone authorize "drive"          # on your laptop; copy the token it prints
+sudo rclone config create r2 s3 \
+    provider=Cloudflare \
+    access_key_id=YOUR_ACCESS_KEY_ID \
+    secret_access_key=YOUR_SECRET_ACCESS_KEY \
+    endpoint=https://YOUR_ACCOUNT_ID.r2.cloudflarestorage.com \
+    region=auto \
+    no_check_bucket=true
 ```
 
-Then on the server, `sudo rclone config` → `n` → name it `gdrive` → `drive` →
-leave client id and secret empty → scope `drive.file` (it may only touch files
-it created) → answer **no** to "Use auto config" → paste the token.
-
-Check it before relying on it:
+`no_check_bucket=true` matters: a token scoped to one bucket cannot call
+HeadBucket, so rclone's normal "does this bucket exist" check fails and takes
+every upload down with it.
 
 ```bash
-sudo rclone mkdir gdrive:coffee-aggregator
-sudo rclone lsd gdrive:
+sudo rclone ls r2:YOUR_BUCKET
+sudo chmod 600 /root/.config/rclone/rclone.conf
 ```
 
-`RCLONE_REMOTE` in the env file must match that remote and folder. Leave it
-empty to keep backups on this machine only.
+`RCLONE_REMOTE` in the env file must match the remote and bucket. Leave it empty
+to keep backups on this machine only.
 
-Note that rclone stores the token in root's `~/.config/rclone/rclone.conf`,
-because the timer runs as root. A token configured under your own user will not
-be found.
+Any other rclone remote works the same way — the script only ever uses the name
+— so Backblaze B2 or S3 need no change beyond that one variable. A Google Drive
+remote also works, but authenticates with an OAuth refresh token rather than a
+static key, and unless the Google Cloud consent screen is *published* rather
+than left in testing, Google expires that token after seven days and the upload
+stops without the crawl noticing.
 
 ## Schedule it
 
@@ -167,10 +230,10 @@ One dump per day, `pg_dump --format=custom --compress=9`, verified with
 like a file, and that check is the difference between having a backup and
 believing you have one.
 
-On Google Drive there is exactly one file, `coffee-latest.dump`, overwritten
-every night. It is uploaded beside the old one and moved into place afterwards:
-overwriting the only copy directly would leave a window in which a failed
-upload has already destroyed the backup it was replacing.
+On the remote, one new object per night, never an overwrite and never a delete
+from this side — see the R2 section above for why. Old ones are expired by the
+bucket's own lifecycle rule. A half-finished upload leaves one bad object that
+the next night supersedes, and every good one before it is untouched.
 
 Locally, `KEEP` dumps are kept (seven by default), newest first, and the
 pruning runs only after the upload succeeded — a failed upload never deletes
@@ -200,10 +263,16 @@ sudo docker compose -f /opt/coffee-aggregator/deploy/compose.yml exec -T db \
 Nothing in the schema is vendor-specific, so the same dump restores onto RDS,
 Neon, Aiven or a laptop.
 
-**One dump is a one-day window.** Break something, notice it tomorrow, and the
-only copy already contains the breakage. For this project that is a defensible
-trade — the catalogue rebuilds itself from one crawl, and the only
-irreplaceable tables are `price_history` and `crawl_run`, which are also the
-small ones — but it is the trade you are making. A dump is tens of kilobytes
-today and tens of megabytes at a realistic catalogue size, so `KEEP=7` locally
-costs almost nothing and turns that window into a week.
+From the remote, when the machine itself is what you lost:
+
+```bash
+rclone lsf r2:YOUR_BUCKET                       # newest name sorts last
+rclone copyto r2:YOUR_BUCKET/coffee-<stamp>.dump ./restore.dump
+```
+
+**How far back you can go is two weeks**, and only one of those is safe from
+the server itself: a week of local dumps, and up to fourteen days on the remote
+of which the newest seven cannot be deleted or replaced by anything holding the
+server's key. Raise the lock retention and the lifecycle age together if you
+want longer — they are two numbers in the bucket settings and the script does
+not need to change.
