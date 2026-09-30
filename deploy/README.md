@@ -33,6 +33,27 @@ sudo nano /etc/coffee-aggregator/env          # set COFFEE_AGG_CONTACT and RCLON
 sudo install -d -m 700 /var/backups/coffee-aggregator
 ```
 
+The table browser sits behind your existing nginx-proxy-manager, which runs in
+another compose stack, so the two need one shared network. Create it once:
+
+```bash
+docker network create proxy
+```
+
+Then add that network to the proxy in `/opt/stacks/services/compose.yml`:
+
+```yaml
+  nginx-proxy-manager:
+    # ... everything already there ...
+    networks:
+      - default
+      - proxy
+
+networks:                 # at the bottom of that file, if it has no networks: yet
+  proxy:
+    external: true
+```
+
 Bring the database up and build the crawler image. The build reads only four
 paths from the repo, because `.dockerignore` is an allowlist:
 
@@ -50,6 +71,19 @@ sudo docker compose --env-file /etc/coffee-aggregator/env run --rm crawler \
     crawl --site kafista --sink postgres
 sudo docker compose --env-file /etc/coffee-aggregator/env run --rm crawler runs
 ```
+
+## The table browser
+
+`pgweb` runs on the shared `proxy` network and publishes no host port, so the
+only way to it is through nginx-proxy-manager. In the NPM admin UI add a proxy
+host pointing at `coffee-pgweb` port `8081`, give it a certificate, and turn on
+websocket support.
+
+It is locked to one database — `--lock-session` means the connection cannot be
+pointed anywhere else from the browser — and it asks for the basic-auth
+credentials from the env file on top of whatever the proxy requires. It is
+read-write: rows can be edited from there, which is the point, but it is also
+why it should never be exposed without both locks.
 
 ## Google Drive
 
@@ -122,6 +156,11 @@ OnFailure=your-notify@%n.service
 ```
 
 ## Backups
+
+The timer starts the crawl at 05:00; the backup runs when the crawl finishes,
+so the dump contains that morning's data. Dumps are named by UTC timestamp
+(`coffee-20260930T050412Z.dump`), which makes them sort chronologically by
+name — the pruning relies on that.
 
 One dump per day, `pg_dump --format=custom --compress=9`, verified with
 `pg_restore --list` before it is trusted — a dump cut off half-way still looks

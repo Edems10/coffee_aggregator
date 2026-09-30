@@ -63,5 +63,44 @@ services:
     mem_reservation: 128m
     oom_score_adj: 600
 
+  # The table browser, in place of the one a hosted provider would have given
+  # you. It joins two networks: `default` to reach the database by name, and the
+  # external `proxy` network so nginx-proxy-manager — which lives in another
+  # compose stack — can reach *it* by name. No port is published on the host,
+  # so the only way in is through the proxy.
+  pgweb:
+    image: sosedoff/pgweb:latest
+    container_name: coffee-pgweb
+    restart: unless-stopped
+    environment:
+      PGWEB_DATABASE_URL: postgresql://coffee:${POSTGRES_PASSWORD:?}@db:5432/coffee?sslmode=disable
+      TZ: ${TZ:-Europe/Prague}
+    command:
+      - --bind=0.0.0.0
+      - --listen=8081
+      # One fixed database: the connection cannot be pointed elsewhere from the
+      # browser, and the URL above is the only one it will ever use.
+      - --lock-session
+      - --no-idle-timeout
+      # Basic auth as well as the proxy's own. The proxy is the front door, but
+      # a misconfigured proxy should not be the only lock on the data.
+      - --auth-user=${PGWEB_USER:-coffee}
+      - --auth-pass=${PGWEB_PASSWORD:?set PGWEB_PASSWORD in the env file}
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - default
+      - proxy
+    mem_limit: 128m
+    mem_reservation: 32m
+    oom_score_adj: 400
+
 volumes:
   pgdata:
+
+networks:
+  # Created once, by hand, and shared with the stack that runs the proxy:
+  #   docker network create proxy
+  proxy:
+    external: true
