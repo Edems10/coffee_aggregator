@@ -23,4 +23,6 @@ ignore = [
   "kavovar",
   "mlyncek",
   "salka",
+  # The Christmas box is a hamper, not a coffee.
+  "vianocne balenie",
 ]

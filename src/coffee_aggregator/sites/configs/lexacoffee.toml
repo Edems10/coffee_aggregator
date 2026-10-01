@@ -22,4 +22,6 @@ category_urls = [
 ignore = [
   "darkova sada",
   "merch",
+  # The five-coffee tasting box states no single origin.
+  "degustacni",
 ]

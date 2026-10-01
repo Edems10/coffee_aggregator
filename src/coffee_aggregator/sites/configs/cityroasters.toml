@@ -16,3 +16,10 @@ max_pages = 3
 # "Káva" holds all 130 coffees; matcha and the brewing gear live in sibling
 # collections it does not contain.
 collections = ["kava"]
+
+# The "Káva" collection also holds the two tasting boxes, each three different
+# coffees in one listing. They carry no single origin and their description
+# names all three countries, so they would otherwise be given the first one.
+ignore = [
+  "degustacni baleni",
+]

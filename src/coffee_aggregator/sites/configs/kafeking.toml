@@ -23,4 +23,7 @@ ignore = [
   "darkove baleni",
   "kavovar",
   "mlynek",
+  # A barista course, and an unnamed sample with no origin of its own.
+  "kurz",
+  "vzorek",
 ]

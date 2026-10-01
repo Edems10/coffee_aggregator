@@ -19,7 +19,10 @@ category_urls = [
   "https://zlatezrnko.sk/kategoria/kava/",
 ]
 
-# The catalogue also sells things that are not coffee beans.
+# The catalogue also sells things that are not coffee beans. Only the shop's
+# own oddities belong here: "coffeebreak" is a Dr. Coffee espresso machine
+# listed under the coffee category, and its name carries no word that any
+# other shop would recognise as a machine.
 ignore = [
   "balicek",
   "kapsul",
@@ -29,4 +32,9 @@ ignore = [
   "cukor",
   "sirup",
   "cokolad",
+  "coffeebreak",
+  # A gift box holds up to three different coffees and states no single
+  # origin; "tycinka" is a coconut bar.
+  "darcekova krabicka",
+  "tycinka",
 ]

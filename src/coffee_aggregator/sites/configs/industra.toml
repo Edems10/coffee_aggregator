@@ -26,6 +26,10 @@ ignore = [
   "kurz",
   "matcha",
   "chawan",
+  # Stickers, and the two tasting boxes of three different coffees each.
+  "sada nalepek",
+  "degustacni balicek",
+  "darkovy balicek",
 ]
 
 [label_map]

@@ -1,3 +1,9 @@
+# The roast is published on 28 of 34 products, but only ever as a sentence of
+# its own in the description — "<p>Pražíme CITY.</p>", "Pražíme Full City" —
+# never as an attribute, so read_lines sees prose and nothing feeds F_ROAST.
+# Do not add "pražíme" to a label_map: without a colon it is not a label, and
+# as a bare label it would swallow the line below it instead.
+#
 # A flat taxonomy with no parents at all and a duplicated coffee term
 # (49 pure-arabica and 219 pure-arabica-2 hold the same nine products), so
 # every bean term is pinned and the adapter de-duplicates by product id.
@@ -23,4 +29,9 @@ ignore = [
   "poukazka",
   "caje",
   "cokolad",
+  # The multi-coffee sets state no single origin. The single-coffee gift
+  # packs ("DARČEKOVÉ BALENIE CUBA Venchi") are real listings and stay.
+  "coffee set",
+  "mini black pearl",
+  "trendy black pearl",
 ]

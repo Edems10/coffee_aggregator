@@ -24,4 +24,6 @@ ignore = [
   "kakao",
   "darcek",
   "set vyberoviek",
+  # Both boxed sets hold four different coffees in one listing.
+  "set v krabicke",
 ]

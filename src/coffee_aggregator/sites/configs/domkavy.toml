@@ -1,5 +1,12 @@
 # Dom kávy — a machine dealer whose /kava/ category mixes capsules and pods
 # in; /zrnkova/ is the whole-bean subcategory and is walked instead.
+#
+# The roast IS published, on 21 of 38 products, under "Spôsob praženia" — a
+# term the shared vocabulary already knows. Only three of the 21 state a bare
+# grade ("City +"); the rest write a whole sentence ("Pražíme Full City+. Je
+# vhodná pre prípravu espressa…"), which labels.collect._plausible_roast
+# rejects at its ten-word cap, so roast_raw is dropped. Nothing per-shop can
+# fix that; it is the cap that has to learn to read an asserted grade.
 platform = "shoptet"
 site_id = "domkavy"
 name = "Dom kávy"

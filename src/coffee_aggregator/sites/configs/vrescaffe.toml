@@ -1,5 +1,14 @@
 # Vres Caffe — an Italian-blend reseller; the pack size is part of every
 # product name ("Hořká káva KLASA 1000g") and the catalogue runs five pages.
+#
+# The shop states no specification at all: table.detail-parameters holds
+# exactly two rows, "Kategorie" and "Záruka", both already ignored terms, and
+# the word "pražení" appears nowhere on any of the 13 products. A roast level
+# for this shop is therefore not parseable, it is not published — do not add a
+# label_map hunting for it. The only facts are in the marketing prose: six of
+# the thirteen products name one origin ("100 % arabika z Kolumbie"), five are
+# two- or three-country blends and two say nothing, and .p-short-description
+# carries the species split ("60 % Arabica" / "40 % Robusta").
 platform = "shoptet"
 site_id = "vrescaffe"
 name = "Vres Caffe"

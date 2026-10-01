@@ -1,7 +1,14 @@
 # Alegre Café — there is no common whole-bean parent, so the filter and
 # espresso listings are both walked. The lot data lives in a two-column
-# <table> inside the description tab, not in table.detail-parameters, so
-# no label_map reaches it; see the onboarding notes.
+# table.my-coffee-table inside the description tab; the shared vocabulary
+# does reach it (farm, region, altitude, variety, process and the cup notes
+# all come out of it on 22 of 23 products), so no label_map is needed.
+#
+# What is missing is a country: that table has a "Region" row and no country
+# row, and the roast comes from a second table.detail-parameters at the foot
+# of the page ("pražení: světlé"). The country is only ever implied by the
+# region ("Kayanza", "Tarrazú", "Huehuetenango"), so it needs a region
+# gazetteer in normalize.py, not anything per-shop.
 platform = "shoptet"
 site_id = "alegrecafe"
 name = "Alegre Café Roasters"
