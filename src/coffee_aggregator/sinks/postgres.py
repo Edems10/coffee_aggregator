@@ -142,6 +142,8 @@ PRICE_HISTORY_COLUMNS: tuple[str, ...] = (
     "available",
     "price_eur",
     "price_czk",
+    "price_per_kg_eur",
+    "price_per_kg_czk",
     "fx_rate_eur_czk",
 )
 
@@ -235,6 +237,11 @@ def price_row_for(coffee: Coffee) -> tuple[Any, ...]:
         coffee.available,
         coffee.price_eur,
         coffee.price_czk,
+        # Stored rather than left to be divided back out later: the weight is
+        # the half that goes missing when a shop changes its page, and once it
+        # has, every earlier day's kilogram price becomes uncomputable too.
+        coffee.price_per_kg_eur,
+        coffee.price_per_kg_czk,
         coffee.fx_rate_eur_czk,
     )
 
