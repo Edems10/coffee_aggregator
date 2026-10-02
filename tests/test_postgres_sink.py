@@ -152,7 +152,19 @@ def test_price_history_row_carries_price_weight_and_availability(
     postgres, connection = sink
     postgres.upsert([make_coffee(external_id="42")])
     price_call = next(call for call in connection.calls if call[1] == PRICE_HISTORY_SQL)
-    assert price_call[2][0] == ("demo", "42", 9.99, "EUR", 200, True, None, None, None)
+    assert price_call[2][0] == (
+        "demo",
+        "42",
+        9.99,
+        "EUR",
+        200,
+        True,
+        None,  # price_eur, filled by the derive step, not by the sink
+        None,  # price_czk
+        None,  # price_per_kg_eur
+        None,  # price_per_kg_czk
+        None,  # fx_rate_eur_czk
+    )
 
 
 def test_json_columns_are_wrapped_in_jsonb() -> None:
@@ -209,18 +221,32 @@ def test_the_migrations_are_packaged_next_to_the_code() -> None:
     assert "CREATE TABLE IF NOT EXISTS coffee (" in sql
     assert "CREATE TABLE IF NOT EXISTS coffee_variant (" in sql
     assert "process_methods" in sql
-    assert migrate.versions() == ["0001_initial"]
+    assert migrate.versions()[0] == "0001_initial"
 
 
-def test_one_migration_describes_the_whole_schema() -> None:
-    """Five incremental files were collapsed once nothing had been deployed."""
+def test_the_first_migration_describes_the_whole_base_schema() -> None:
+    """Five incremental files were collapsed while nothing had been deployed.
+
+    Everything since is a numbered file of its own: the project went live on
+    2026-09-30 and the runner records a checksum, so an applied file is never
+    edited again.
+    """
     migrations = migrate.load_migrations()
 
-    assert [item.version for item in migrations] == ["0001_initial"]
+    assert migrations[0].version == "0001_initial"
     for table in ("coffee", "coffee_variant", "price_history", "fx_rates"):
         assert f"CREATE TABLE IF NOT EXISTS {table} (" in migrations[0].sql
     for column in ("price_eur", "price_czk", "price_per_kg_eur", "fx_rate_eur_czk", "roaster"):
         assert column in migrations[0].sql
+
+
+def test_every_migration_is_numbered_once_and_in_order() -> None:
+    """Append-only means the order is the file names and nothing else."""
+    versions = migrate.versions()
+
+    assert versions == sorted(versions)
+    assert len(set(versions)) == len(versions)
+    assert all(version[:4].isdigit() for version in versions)
 
 
 def test_price_history_columns_match_every_migration() -> None:
