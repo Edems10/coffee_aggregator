@@ -2,8 +2,6 @@ from __future__ import annotations
 
 import json
 import re
-import sys
-import types
 from dataclasses import dataclass
 from datetime import date
 from typing import Any
@@ -324,9 +322,11 @@ def no_database(monkeypatch: pytest.MonkeyPatch) -> None:
 def detection(monkeypatch: pytest.MonkeyPatch) -> dict[str, Any]:
     """The detection half and the database, both replaced for one test.
 
-    ``cmd_report`` imports ``coffee_aggregator.db.report`` inside the function,
-    so seeding :data:`sys.modules` is enough to stand in for the other half of
-    the report without a stub file or a live database.
+    ``findings`` is replaced on the real module rather than the module being
+    replaced in :data:`sys.modules`: ``cmd_report`` resolves it with
+    ``from coffee_aggregator.db import report``, which reads the attribute off
+    the already-imported package, so swapping the ``sys.modules`` entry is
+    ignored the moment anything else has imported the real one.
     """
     asked: dict[str, Any] = {"closed": False}
 
@@ -344,9 +344,9 @@ def detection(monkeypatch: pytest.MonkeyPatch) -> dict[str, Any]:
         asked["dsn"] = dsn
         return FakeConnection()
 
-    module = types.ModuleType("coffee_aggregator.db.report")
-    module.findings = fake_findings  # type: ignore[attr-defined]
-    monkeypatch.setitem(sys.modules, "coffee_aggregator.db.report", module)
+    from coffee_aggregator.db import report  # noqa: PLC0415  (mirrors cmd_report)
+
+    monkeypatch.setattr(report, "findings", fake_findings)
     monkeypatch.setattr(cli, "connect", fake_connect)
     return asked
 
@@ -396,13 +396,13 @@ def test_report_still_exits_zero_with_serious_findings(
 def test_report_closes_the_connection_when_detection_raises(
     monkeypatch: pytest.MonkeyPatch, detection: dict[str, Any]
 ) -> None:
-    module = sys.modules["coffee_aggregator.db.report"]
+    from coffee_aggregator.db import report  # noqa: PLC0415  (mirrors cmd_report)
 
     def boom(connection: object, *, day: date, history_days: int) -> list[Finding]:
         del connection, day, history_days
         raise RuntimeError
 
-    monkeypatch.setattr(module, "findings", boom)
+    monkeypatch.setattr(report, "findings", boom)
     with pytest.raises(RuntimeError):
         cli.main(["report", "--dsn", "postgresql://x/y"])
     assert detection["closed"] is True
