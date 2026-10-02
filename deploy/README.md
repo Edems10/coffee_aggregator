@@ -193,6 +193,29 @@ sudo systemctl start coffee-aggregator.service
 journalctl -u coffee-aggregator.service -f
 ```
 
+## Updating
+
+```bash
+sudo /opt/coffee-aggregator/deploy/update.sh            # pull, rebuild, migrate
+sudo /opt/coffee-aggregator/deploy/update.sh --crawl    # …and crawl now
+```
+
+Three steps in the one order that works. The middle one is the step that is easy
+to forget and silent when forgotten: the containers run an image that was built
+once, so `git pull` on its own changes nothing and the crawl keeps running
+yesterday's code. The last one has to come before any crawl, because a sink
+writing a column the schema does not have yet fails the whole run.
+
+It refuses to do anything if the checkout has uncommitted changes, and pulls
+`--ff-only`, so a server someone edited by hand stops with a readable message
+instead of conflicting half way through a deployment. Both the rebuild and
+`init-db` are idempotent — running it when nothing has changed costs a few
+cached seconds and prints that there was nothing to apply.
+
+Parsing fixes do not touch rows already in the database; they take effect on the
+next crawl, which upserts. So the numbers move the morning after, or straight
+away with `--crawl`.
+
 ## How long it takes, and what the exit code means
 
 `--site-workers` is how many shops run at once; `--workers` is threads inside
