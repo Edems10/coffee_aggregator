@@ -9,9 +9,9 @@ import pytest
 from coffee_aggregator import normalize
 from coffee_aggregator.labels import plausible_weight, stated_weight
 from coffee_aggregator.models import RoastLevel
-from coffee_aggregator.sites import get as get_site
 from coffee_aggregator.sites import load_all
 from coffee_aggregator.sites.base import ProductRef
+from conftest import adapter_for
 
 if TYPE_CHECKING:
     from coffee_aggregator.models import Coffee
@@ -54,7 +54,7 @@ def parse_fixture_dir(directory: Path) -> list[tuple[str, Coffee]]:
     """
     load_all()
     site_id = site_id_of(directory.name)
-    site = get_site(site_id)
+    site = adapter_for(site_id)
     parsed: list[tuple[str, Coffee]] = []
     for path in sorted(directory.glob("detail_*.html")):
         ref = ProductRef(site_id=site_id, external_id="", url=f"{site.base_url}#{path.stem}")

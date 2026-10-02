@@ -1,5 +1,13 @@
 # Spirit Coffee — simple products; every fact is a "Label: value" line in
 # the description, and the weight attribute is spelled with its colon.
+#
+# Switched off on 2026-10-02: the host serves a certificate for
+# *.r2.websupport.sk with no name for its own domain, on the apex and on
+# www alike, so robots.txt cannot be read and the fetcher refuses the host —
+# as it should, since a crawler that cannot read robots.txt has no business
+# guessing. Nothing here needs changing when they fix the certificate:
+# delete the line below and the shop crawls again.
+disabled = "TLS certificate does not match the domain, 2026-10-02"
 platform = "woocommerce"
 site_id = "spiritcoffee"
 name = "Spirit Coffee"
