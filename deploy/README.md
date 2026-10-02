@@ -284,7 +284,7 @@ It is rendered to `${REPORT_HTML}.tmp` and moved into place only once it is
 whole, so a failed render leaves yesterday's page readable instead of truncating
 it to nothing. Unset the variable and no page is written.
 
-To serve it, point an nginx-proxy-manager host at that directory, the same proxy
+To serve it, how it is served, the same proxy
 that already fronts pgweb. **It is a static file on purpose.** The database
 publishes no port and nothing outside the compose network can query it, which is
 the reason the data is kept on this machine at all; a web tier would need
@@ -294,6 +294,33 @@ snapshot by nature, and pgweb is what ad-hoc querying is for.
 ```bash
 mkdir -p /var/www/coffee && chown root:root /var/www/coffee
 ```
+
+## Serving the report as a page
+
+The nightly run writes the page; a small nginx serves it, because
+nginx-proxy-manager forwards to a host and a port and does not serve a
+directory. Both come from the env file:
+
+```
+REPORT_HTML=/var/www/coffee/index.html
+REPORT_DIR=/var/www/coffee
+REPORT_BIND=100.x.y.z        # a Tailscale address, or leave it at 127.0.0.1
+```
+
+```bash
+sudo install -d /var/www/coffee
+sudo /opt/coffee-aggregator/deploy/update.sh
+```
+
+`REPORT_BIND` decides who can open it. The default, `127.0.0.1`, is the host and
+nothing else. A Tailscale address makes it readable from the tailnet — already
+private and already authenticated — without putting it on the LAN and without a
+certificate to manage. For a real hostname instead, leave the bind alone and
+point an nginx-proxy-manager host at `coffee-report` port `80`: the container
+joins the shared `proxy` network for exactly that.
+
+The directory is mounted read-only, so the web server can read the page the
+crawl wrote and nothing else.
 
 ## Backups
 
