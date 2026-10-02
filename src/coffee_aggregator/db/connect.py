@@ -1,8 +1,11 @@
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Final
+from typing import TYPE_CHECKING, Any, Final, Protocol, Self, runtime_checkable
 
 if TYPE_CHECKING:
+    from collections.abc import Sequence
+    from types import TracebackType
+
     import psycopg
 
 #: Seconds to wait for the TCP connection and the authentication handshake. The
@@ -45,3 +48,71 @@ def connect(
         connect_timeout=connect_timeout,
         options=f"-c statement_timeout={statement_timeout_ms}",
     )
+
+
+@runtime_checkable
+class Cursor(Protocol):
+    """The slice of a psycopg cursor the read-only queries use."""
+
+    def execute(self, query: str, params: Sequence[Any] | None = None, /) -> Any:  # noqa: ANN401
+        """Run one statement.
+
+        Args:
+            query: The SQL, with ``%s`` placeholders.
+            params: What to bind to them.
+
+        Returns:
+            Whatever the driver returns; callers read rows with ``fetchall``.
+        """
+        ...
+
+    def fetchall(self) -> list[Any]:
+        """Return every remaining row of the last statement.
+
+        Returns:
+            One tuple per row, in the order the query asked for.
+        """
+        ...
+
+    def __enter__(self) -> Self:
+        """Return the cursor itself, so it can be used in a ``with``.
+
+        Returns:
+            This cursor.
+        """
+        ...
+
+    def __exit__(
+        self,
+        exc_type: type[BaseException] | None,
+        exc: BaseException | None,
+        traceback: TracebackType | None,
+        /,
+    ) -> None:
+        """Close the cursor when the ``with`` block ends.
+
+        Args:
+            exc_type: The class of the exception leaving the block, if any.
+            exc: The exception itself, if any.
+            traceback: Its traceback, if any.
+        """
+        ...
+
+
+@runtime_checkable
+class Connection(Protocol):
+    """A database to read from.
+
+    Deliberately narrower than ``psycopg.Connection``: everything that only
+    reads — :mod:`coffee_aggregator.db.report` above all — takes this instead,
+    so a test can hand it a few lists of tuples rather than a live PostgreSQL.
+    A real connection satisfies it structurally; nothing has to be registered.
+    """
+
+    def cursor(self) -> Cursor:
+        """Open a cursor on this connection.
+
+        Returns:
+            A cursor usable as a context manager.
+        """
+        ...

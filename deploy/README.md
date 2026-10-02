@@ -233,7 +233,7 @@ discontinued.
 The unit fails when the crawl reports that some shop wrote nothing (exit 1) or
 when the backup failed. The backup runs either way — a night where five shops
 rotted still produced data worth keeping. `coffee-aggregator runs` says which
-shop did what.
+shop did what, and the report below says what it means.
 
 To be told about it, add a handler:
 
@@ -241,6 +241,58 @@ To be told about it, add a handler:
 # /etc/systemd/system/coffee-aggregator.service.d/notify.conf
 [Unit]
 OnFailure=your-notify@%n.service
+```
+
+## The morning report
+
+`run.sh` runs `coffee-aggregator report --format text` between the crawl and the
+backup, so the night's summary is in the journal without anyone asking:
+
+```bash
+journalctl -u coffee-aggregator.service -b --since today | grep '^report'
+```
+
+A clean night is one line — `report 2026-10-02: nothing to report`. Otherwise it
+leads with the verdict, lists every serious finding and caps the rest.
+
+**It cannot fail the run and cannot change the exit code.** The crawl's own exit
+1 is the alarm; the report is the explanation, and a night that already went
+badly must not be failed twice. Both invocations end in a way that leaves `$?`
+alone, which is the same reasoning that keeps the backup out of an
+`ExecStartPost=`: a step that exists to describe the data should never be able
+to take down the unit that stored it. Nothing there can hang the run either —
+every connection carries a 60-second `statement_timeout`.
+
+The fuller formats are run by hand against the same day:
+
+```bash
+docker compose -f deploy/compose.yml run --rm -T crawler \
+    report --day 2026-10-02 --format markdown     # to paste into a chat
+```
+
+### Serving it as a page
+
+Set `REPORT_HTML` in the env file and the run also writes last night's report as
+one standalone HTML file — styles inline, no CDN, no fonts, no images, so it
+renders from a `file://` path with no network at all:
+
+```ini
+REPORT_HTML=/var/www/coffee/index.html
+```
+
+It is rendered to `${REPORT_HTML}.tmp` and moved into place only once it is
+whole, so a failed render leaves yesterday's page readable instead of truncating
+it to nothing. Unset the variable and no page is written.
+
+To serve it, point an nginx-proxy-manager host at that directory, the same proxy
+that already fronts pgweb. **It is a static file on purpose.** The database
+publishes no port and nothing outside the compose network can query it, which is
+the reason the data is kept on this machine at all; a web tier would need
+credentials and would be one more thing listening. A post-crawl report is a
+snapshot by nature, and pgweb is what ad-hoc querying is for.
+
+```bash
+mkdir -p /var/www/coffee && chown root:root /var/www/coffee
 ```
 
 ## Backups
