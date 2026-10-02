@@ -6,12 +6,14 @@ import logging
 import shlex
 import sys
 from dataclasses import asdict
+from datetime import UTC, date, datetime
 from pathlib import Path
 from typing import TYPE_CHECKING
 
-from coffee_aggregator import __version__, pipeline, sinks, sites
+from coffee_aggregator import __version__, pipeline, reporting, sinks, sites
 from coffee_aggregator.config import ConfigError, Settings
 from coffee_aggregator.db import monitoring
+from coffee_aggregator.db.connect import connect
 from coffee_aggregator.http import PoliteFetcher
 from coffee_aggregator.pipeline import Deadline, RunReport, ShardError, run_many
 from coffee_aggregator.sinks.records import coffee_record
@@ -56,6 +58,25 @@ def shard_argument(raw: str) -> tuple[int, int]:
         message = f"shard {index} does not exist in a split of {count}"
         raise argparse.ArgumentTypeError(message)
     return index, count
+
+
+def day_argument(raw: str) -> date:
+    """Parse a ``--day`` value.
+
+    Args:
+        raw: What the user typed.
+
+    Returns:
+        The calendar day it names.
+
+    Raises:
+        ArgumentTypeError: When it is not an ISO calendar date.
+    """
+    try:
+        return date.fromisoformat(raw.strip())
+    except ValueError as exc:
+        message = f"expected YYYY-MM-DD, got {raw!r}"
+        raise argparse.ArgumentTypeError(message) from exc
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -113,6 +134,32 @@ def build_parser() -> argparse.ArgumentParser:
         help="how many runs to print",
     )
     runs.add_argument("--dsn", help="PostgreSQL DSN; overrides DATABASE_URL")
+
+    report = subparsers.add_parser(
+        "report",
+        help="print what one day's crawl did that is worth a human's attention",
+        parents=[common],
+    )
+    report.add_argument(
+        "--day",
+        type=day_argument,
+        metavar="YYYY-MM-DD",
+        help="the crawl day to report on; defaults to today",
+    )
+    report.add_argument(
+        "--history-days",
+        type=int,
+        default=reporting.DEFAULT_HISTORY_DAYS,
+        help="how many days before it that day is compared against",
+    )
+    report.add_argument(
+        "--format",
+        choices=reporting.FORMATS,
+        default="text",
+        help="text for the journal, markdown to paste into a chat, html for a browser, "
+        "json for anything else",
+    )
+    report.add_argument("--dsn", help="PostgreSQL DSN; overrides DATABASE_URL")
 
     fx = subparsers.add_parser(
         "fx",
@@ -379,6 +426,35 @@ def cmd_runs(settings: Settings, args: argparse.Namespace) -> int:
     return EXIT_OK
 
 
+def cmd_report(settings: Settings, args: argparse.Namespace) -> int:
+    """Print what one day's crawl did that somebody should know about.
+
+    It returns :data:`EXIT_OK` whatever it finds. A night that went badly is
+    already an exit 1 from ``crawl``, and a summary that could fail the nightly
+    unit a second time would only make the unit cry wolf about data that is
+    sitting safely in the database.
+
+    Args:
+        settings: Environment-derived settings.
+        args: Parsed command line arguments.
+
+    Returns:
+        The process exit code.
+    """
+    from coffee_aggregator.db import report  # noqa: PLC0415  (only the postgres paths pay)
+
+    day = args.day or datetime.now(UTC).date()
+    connection = connect(settings.require_database_url(args.dsn))
+    try:
+        found = report.findings(connection, day=day, history_days=args.history_days)
+    finally:
+        connection.close()
+    sys.stdout.write(
+        reporting.render(found, day=day, history_days=args.history_days, fmt=args.format)
+    )
+    return EXIT_OK
+
+
 def cmd_fx(settings: Settings, args: argparse.Namespace) -> int:
     """Print the EUR/CZK rate the crawls are stamping on their rows.
 
@@ -574,17 +650,16 @@ def _dispatch(settings: Settings, args: argparse.Namespace, command: str) -> int
     Returns:
         The process exit code.
     """
-    if args.command == "list-sites":
-        return cmd_list_sites()
-    if args.command == "init-db":
-        return cmd_init_db(settings, args)
-    if args.command == "runs":
-        return cmd_runs(settings, args)
-    if args.command == "fx":
-        return cmd_fx(settings, args)
-    if args.command == "crawl":
-        return cmd_crawl(settings, args, command)
-    return cmd_parse(args)
+    handlers: dict[str, Callable[[], int]] = {
+        "list-sites": cmd_list_sites,
+        "init-db": lambda: cmd_init_db(settings, args),
+        "runs": lambda: cmd_runs(settings, args),
+        "report": lambda: cmd_report(settings, args),
+        "fx": lambda: cmd_fx(settings, args),
+        "crawl": lambda: cmd_crawl(settings, args, command),
+        "parse": lambda: cmd_parse(args),
+    }
+    return handlers[args.command]()
 
 
 def main(argv: Sequence[str] | None = None) -> int:

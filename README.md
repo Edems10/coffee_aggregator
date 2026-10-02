@@ -83,6 +83,8 @@ at all. See [docs/docker.md](docs/docker.md) for deploying the image.
 coffee-aggregator list-sites
 coffee-aggregator init-db [--dsn URL] [--dry-run]
 coffee-aggregator runs [--site <id>] [--limit N] [--dsn URL]
+coffee-aggregator report [--day YYYY-MM-DD] [--history-days 7] \
+    [--format text|markdown|json|html] [--dsn URL]
 coffee-aggregator fx [--refresh] [--dsn URL]
 coffee-aggregator crawl --site <id>|all --sink jsonl|postgres \
     [--out PATH] [--dsn URL] [--limit N] [--max-pages N] \
@@ -116,6 +118,12 @@ coffee-aggregator parse --site <id> --file page.html [--url URL]
 * `runs` prints the recent rows of `crawl_run`, newest first — what each shop
   discovered, wrote and failed at, and the command line it was crawled with. It
   needs a DSN; see [Run history](#run-history).
+* `report` prints what one day's crawl did that is worth a human's attention —
+  shops that stored nothing, writes that collapsed, parsing that stopped
+  yielding a field, weights and prices that moved. `--day` defaults to today and
+  `--history-days` is what the day is measured against. It always exits `0`: a
+  bad night is already the crawl's exit `1`, and the report is the explanation,
+  not a second alarm. See [The morning report](#the-morning-report).
 * `init-db --dry-run` prints the migrations that *would* be applied and changes
   nothing.
 * `parse` is the fixture workflow: save a page, parse it offline, print the JSON.
@@ -433,6 +441,61 @@ ORDER BY site
 
 `tests/test_monitoring.py` runs that exact text against a live database and asserts
 this file still contains it, so the runbook cannot drift from what was tested.
+
+## The morning report
+
+`report` reads one day's crawl back out and says what about it is worth a
+human's attention. Detection lives in `src/coffee_aggregator/db/report.py`,
+which returns a list of findings — each one a `kind` slug (`no-products`,
+`write-drop`, `parse-gap`, `weight-change`, `price-jump`, `new-failures`,
+`coverage-drop`), the `site` it is about or `""` for the whole catalogue, a
+one-line `summary` with the numbers in it, the `detail` behind it, and a
+`severity` of `high` or `low`. They arrive most severe first.
+`src/coffee_aggregator/reporting/` turns that list into one of four formats and
+has no opinion about where the numbers came from.
+
+```bash
+coffee-aggregator report                                 # today, as text
+coffee-aggregator report --day 2026-10-02 --history-days 14
+coffee-aggregator report --format markdown
+coffee-aggregator report --format html > report.html
+```
+
+| format | for | shape |
+| --- | --- | --- |
+| `text` | the systemd journal | the verdict, then serious findings, then at most five of the rest |
+| `markdown` | pasting into a chat with an assistant | per-shop table, every finding's full detail, and what each kind means |
+| `json` | anything else | the findings as they arrived, five fields each |
+| `html` | a browser | one standalone page: verdict, price movers, per-shop numbers, catalogue totals |
+
+A clean night is one line and nothing else — `report 2026-10-02: nothing to
+report` — because it is the common case and a clean report that takes three
+paragraphs is one nobody reads when it turns dirty.
+
+`text` names every serious finding but caps the rest at
+`reporting.TEXT_LOW_LIMIT` and says how many more there are; it never prints a
+per-product line. `markdown` prints every figure, puts long lists in fenced JSON
+rather than in a table, and carries a note per kind saying what it usually means
+and which command to reach for, so the reader needs no follow-up question.
+
+The command always exits `0`. A night where a shop stored nothing is already the
+crawl's exit `1`; the report explains that exit, and a summary able to fail the
+same night a second time would only make the nightly unit cry wolf. The only
+non-zero it can return is `2`, for a missing DSN.
+
+The HTML page is a single file with its styles inline and no external request of
+any kind — no CDN, no webfont, no image — so it renders from a `file://` path
+with no network. Colours are custom properties on `:root`, redefined under
+`prefers-color-scheme: dark`, and the layout holds at phone width. Price movers
+are a table sorted by the size of the move, with the per-kilogram figure beside
+the price because that is the comparable one; a row whose weight also changed is
+marked, since those are not price moves at all but the shop's headline variant
+changing size. Every interpolated value is escaped: product names in this
+catalogue carry quotes, ampersands and angle brackets.
+
+The nightly run prints the text report to the journal and, when `REPORT_HTML` is
+set, writes the page for a proxy to serve. See
+[deploy/README.md](deploy/README.md#the-morning-report).
 
 ## Sharding the daily run
 
