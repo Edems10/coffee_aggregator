@@ -109,7 +109,11 @@ jobs:
       - name: The image ships every shop the repo has
         run: |
           set -euo pipefail
-          ids() { sed -E 's/^.*coffee_aggregator: //' | cut -f1 | sort; }
+          # Only the shop rows, which are tab separated. Stripping a log
+          # prefix is not enough: discovery logs under its own logger name and
+          # the timestamps differ between two runs, so those lines would make
+          # the diff fail on the clock rather than on the image's contents.
+          ids() { grep -P '\t' | sed -E 's/^.*coffee_aggregator[^:]*: //' | cut -f1 | sort; }
           docker run --rm coffee-aggregator:ci list-sites 2>&1 | ids > image-sites.txt
           uv run coffee-aggregator list-sites 2>&1 | ids > repo-sites.txt
           diff repo-sites.txt image-sites.txt
