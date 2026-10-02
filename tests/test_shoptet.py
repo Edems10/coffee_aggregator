@@ -16,7 +16,7 @@ from coffee_aggregator.platforms.shoptet import (
 from coffee_aggregator.sinks.records import coffee_record
 from coffee_aggregator.sites import get as get_site
 from coffee_aggregator.sites.base import ProductRef
-from conftest import FIXTURE_ROOT
+from conftest import FIXTURE_ROOT, adapter_for, is_disabled
 
 if TYPE_CHECKING:
     from collections.abc import Callable
@@ -60,7 +60,10 @@ def as_fetcher(fake: FakeFetcher) -> PoliteFetcher:
 
 @pytest.fixture
 def kavypitel() -> ShoptetSite:
-    return cast("ShoptetSite", get_site("kavypitel"))
+    # Built from the config, not the registry: the shop moved off Shoptet in
+    # October 2026 and is switched off, but its saved pages are still the
+    # regression net under this parser.
+    return cast("ShoptetSite", adapter_for("kavypitel"))
 
 
 @pytest.fixture
@@ -657,7 +660,7 @@ def _fixture_dir(site_id: str) -> Path:
 
 @pytest.mark.parametrize("site_id", SHIPPED)
 def test_every_shipped_config_reads_its_listing(site_id: str) -> None:
-    site = cast("ShoptetSite", get_site(site_id))
+    site = cast("ShoptetSite", adapter_for(site_id))
     refs = site.parse_listing((_fixture_dir(site_id) / "list_page1.html").read_text("utf-8"))
 
     assert refs, f"{site_id} found no products on its saved listing"
@@ -668,7 +671,7 @@ def test_every_shipped_config_reads_its_listing(site_id: str) -> None:
 
 @pytest.mark.parametrize("site_id", SHIPPED)
 def test_every_shipped_config_reads_a_detail_page(site_id: str) -> None:
-    site = cast("ShoptetSite", get_site(site_id))
+    site = cast("ShoptetSite", adapter_for(site_id))
     path = min(_fixture_dir(site_id).glob("detail_*.html"))
     coffee = parse(site, path.read_text("utf-8"), "1", f"{site.base_url}p/")
 
@@ -687,4 +690,9 @@ def test_every_shipped_config_reads_a_detail_page(site_id: str) -> None:
 
 def test_every_shipped_config_is_registered() -> None:
     registered = {adapter.site_id for adapter in sites.all_sites()}
-    assert set(SHIPPED) <= registered
+    # A shop switched off with `disabled` is deliberately absent; its saved
+    # pages are still parsed by the tests above, which build the adapter from
+    # the config rather than from the registry.
+    live = {site_id for site_id in SHIPPED if not is_disabled(site_id)}
+    assert live <= registered
+    assert registered.isdisjoint(set(SHIPPED) - live)

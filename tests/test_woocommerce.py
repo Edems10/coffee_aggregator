@@ -19,7 +19,7 @@ from coffee_aggregator.platforms.woocommerce import (
 from coffee_aggregator.sites import CONFIG_DIR
 from coffee_aggregator.sites import get as get_site
 from coffee_aggregator.sites.base import ProductRef
-from conftest import FIXTURE_ROOT
+from conftest import FIXTURE_ROOT, adapter_for, is_disabled
 
 if TYPE_CHECKING:
     from pathlib import Path
@@ -609,12 +609,16 @@ def test_some_shops_still_keep_a_saved_page() -> None:
 @pytest.mark.parametrize("site_id", SHIPPED)
 def test_every_shipped_config_is_registered(site_id: str) -> None:
     registered = {adapter.site_id for adapter in sites.all_sites()}
+    if is_disabled(site_id):
+        # Switched off on purpose: absent from the registry is the whole point.
+        assert site_id not in registered
+        return
     assert site_id in registered
 
 
 @pytest.mark.parametrize("site_id", WITH_FIXTURES)
 def test_every_saved_page_still_parses(site_id: str) -> None:
-    site = cast("WooSite", get_site(site_id))
+    site = cast("WooSite", adapter_for(site_id))
     directory = FIXTURE_ROOT / f"woo_{site_id}"
 
     coffees = [
@@ -642,7 +646,7 @@ def test_every_saved_page_still_parses(site_id: str) -> None:
 
 @pytest.mark.parametrize("site_id", SHIPPED)
 def test_every_shipped_config_lists_a_reachable_fallback(site_id: str) -> None:
-    site = cast("WooSite", get_site(site_id))
+    site = cast("WooSite", adapter_for(site_id))
     assert site.config.category_urls, f"{site_id} has no HTML fallback"
     assert all(url.startswith(site.base_url) for url in site.config.category_urls)
 
@@ -1040,7 +1044,7 @@ def _actual(coffee: Coffee) -> dict[str, object]:
 def test_an_onboarded_shop_recovers_the_values_its_payload_states(site_id: str) -> None:
     expected = dict(ONBOARDED[site_id])
     product_id = cast("int", expected.pop("id"))
-    site = cast("WooSite", get_site(site_id))
+    site = cast("WooSite", adapter_for(site_id))
 
     coffee = parse_api(site, _by_id(site_id, product_id))
 

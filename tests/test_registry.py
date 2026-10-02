@@ -270,3 +270,36 @@ def test_clearing_the_registry_makes_discovery_run_again(
     assert registry.known_ids() == []
     loader.load_all(config_dir=configs)
     assert "alpha" in registry.known_ids()
+
+
+def test_a_disabled_shop_is_skipped_without_being_an_error(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    configs = _configs(tmp_path, "alpha", "beta")
+    (configs / "beta.toml").write_text(
+        _SHOP_TOML.format(site_id="beta") + '\ndisabled = "its TLS stopped matching"\n',
+        "utf-8",
+    )
+    monkeypatch.setattr(loader, "_loaded", False)
+
+    loader.load_all(config_dir=configs, force=True)
+
+    assert registry.known_ids() == ["alpha"]
+    # Not an error: a shop switched off on purpose must not fail the nightly run
+    # and must not show up in `list-sites`' exit code.
+    assert loader.load_errors == []
+
+
+def test_a_disabled_shop_states_why(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    configs = _configs(tmp_path, "alpha")
+    (configs / "alpha.toml").write_text(
+        _SHOP_TOML.format(site_id="alpha") + "\ndisabled = true\n", "utf-8"
+    )
+    monkeypatch.setattr(loader, "_loaded", False)
+
+    loader.load_all(config_dir=configs, force=True)
+
+    # `true` switches a shop off too, but the point of the key is the reason, so
+    # a bare boolean is recorded as having given none.
+    assert registry.known_ids() == []

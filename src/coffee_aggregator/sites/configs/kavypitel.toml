@@ -1,6 +1,12 @@
-# Kávy pitel — a Czech family roastery near Kutná Hora, running on Shoptet.
-# Its product pages carry an unusually complete table.detail-parameters, so
-# almost everything is mapped without touching Python.
+# Kávy pitel — a Czech family roastery near Kutná Hora. It ran on Shoptet
+# until some time before 2026-10-02, when it moved to a storefront that
+# renders in the browser: /category/<slug> returns 14 kB with no product
+# link, no price and no JSON-LD in it, and the JS bundle names no API we
+# could read instead. Nothing below applies to that site any more; the
+# config is kept because its label map and ignore list still describe the
+# shop, and whoever writes the adapter for the new one will want them.
+disabled = "moved off Shoptet to a client-rendered storefront, 2026-10-02"
+
 platform = "shoptet"
 site_id = "kavypitel"
 name = "Kávy pitel"

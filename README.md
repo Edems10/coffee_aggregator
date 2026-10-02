@@ -287,6 +287,23 @@ A `ProductRef` may carry the product's own source in `payload`; the pipeline the
 parses it directly and spends no request, which is what a JSON-API or feed-driven
 shop needs.
 
+### Switching a shop off
+
+```toml
+disabled = "TLS certificate does not match the domain, 2026-10-02"
+```
+
+Discovery skips the shop and says so at INFO; it never reaches the registry,
+`list-sites` or a crawl, and it is not a load error, so it does not fail the
+run. Use it when a shop becomes unreadable through no fault of the config — its
+site moves to a platform the adapters cannot parse, or its certificate stops
+matching its domain — because two shops that write nothing every night turn the
+nightly exit code into an alarm nobody reads.
+
+The value is the reason, not a boolean. A shop is only ever switched off for
+something that will have to be re-read later, and deleting the file instead
+would take the label map and ignore list with it.
+
 ### (b) A shop on a supported platform — one TOML file
 
 Drop `src/coffee_aggregator/sites/configs/<shop>.toml`:

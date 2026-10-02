@@ -133,6 +133,12 @@ def test_the_config_builds_an_adapter(path: Path) -> None:
 def test_every_config_is_registered_and_unique() -> None:
     sites.load_all()
     registered = {site.site_id for site in sites.all_sites()}
+    # A `disabled` config is skipped on purpose and is not a load error; every
+    # other one has to be there.
+    live = {
+        path.stem for path in CONFIGS if not tomllib.loads(path.read_text("utf-8")).get("disabled")
+    }
 
     assert not sites.load_errors, sites.load_errors
-    assert {path.stem for path in CONFIGS} <= registered
+    assert live <= registered
+    assert registered.isdisjoint({path.stem for path in CONFIGS} - live)

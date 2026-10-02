@@ -9,6 +9,8 @@ import pytest
 if TYPE_CHECKING:
     from collections.abc import Callable
 
+    from coffee_aggregator.sites.base import SiteAdapter
+
 from coffee_aggregator.models import (
     Coffee,
     Origin,
@@ -103,3 +105,45 @@ def make_coffee(site: str = "demo", external_id: str = "1", **overrides: object)
     for key, value in overrides.items():
         setattr(coffee, key, value)
     return coffee
+
+
+def adapter_for(site_id: str) -> SiteAdapter:
+    """Build one shop's adapter straight from its config file.
+
+    The registry is the wrong door for a parser test: a shop switched off with
+    ``disabled`` is absent from it, yet its saved pages still exercise the same
+    adapter and are still worth regressing against. Whether the shop is live is
+    a question about the catalogue, not about the parser.
+
+    Args:
+        site_id: The config's file name without its suffix.
+
+    Returns:
+        The adapter the config describes.
+    """
+    from coffee_aggregator import platforms, sites  # noqa: PLC0415  (test helper, avoids a cycle)
+    from coffee_aggregator.sites import CONFIG_DIR  # noqa: PLC0415
+
+    config = CONFIG_DIR / f"{site_id}.toml"
+    if config.is_file():
+        return platforms.build_from_config(config)
+    # A bespoke shop is a module, not a config, and a module is never disabled:
+    # the registry is the only place it exists.
+    return sites.get(site_id)
+
+
+def is_disabled(site_id: str) -> bool:
+    """Say whether a shipped config is switched off.
+
+    Args:
+        site_id: The config's file name without its suffix.
+
+    Returns:
+        True when the config carries a ``disabled`` reason.
+    """
+    import tomllib  # noqa: PLC0415  (test helper)
+
+    from coffee_aggregator.sites import CONFIG_DIR  # noqa: PLC0415
+
+    config = tomllib.loads((CONFIG_DIR / f"{site_id}.toml").read_text("utf-8"))
+    return bool(config.get("disabled"))

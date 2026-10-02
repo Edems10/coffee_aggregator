@@ -4,7 +4,7 @@ import importlib
 import logging
 import pkgutil
 from pathlib import Path
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Any
 
 from coffee_aggregator.sites.registry import (
     DuplicateSiteError,
@@ -54,6 +54,18 @@ def _load_configs(config_dir: Path) -> None:
     built: set[str] = set()
     for path in sorted(config_dir.glob("*.toml")):
         try:
+            reason = _disabled_reason(platforms.load_config(path))
+        except Exception as exc:  # noqa: BLE001
+            _record(f"{path}: {type(exc).__name__}: {exc}")
+            continue
+        if reason:
+            # Not an error, so not in load_errors: a shop whose site moved to a
+            # platform we cannot read, or whose TLS broke, would otherwise write
+            # nothing every single night and fail the run every single morning —
+            # and an alert that cries wolf daily is an alert nobody reads.
+            logger.info("site discovery: %s is disabled (%s)", path.stem, reason)
+            continue
+        try:
             adapter = platforms.build_from_config(path)
         except Exception as exc:  # noqa: BLE001
             # As broad as the module import above, and for the same reason: one
@@ -74,6 +86,26 @@ def _load_configs(config_dir: Path) -> None:
             _record(f"{path}: {exc}")
             continue
         built.add(adapter.site_id)
+
+
+def _disabled_reason(config: dict[str, Any]) -> str:
+    """Return why a shop is switched off, or an empty string when it is not.
+
+    ``disabled`` holds the reason rather than a boolean, because a shop is only
+    ever switched off for a reason that will need re-reading later: the site
+    moved to a platform we cannot parse, or its certificate stopped matching its
+    domain. A bare ``true`` would record that someone decided something.
+
+    Args:
+        config: The parsed shop TOML.
+
+    Returns:
+        The reason, stripped; empty when the shop is live.
+    """
+    value = config.get("disabled")
+    if value is True:
+        return "no reason given"
+    return str(value).strip() if isinstance(value, str) else ""
 
 
 def _record(problem: str) -> None:
