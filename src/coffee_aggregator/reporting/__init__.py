@@ -8,7 +8,6 @@ from coffee_aggregator.reporting.finding import (
     KIND_NOTES,
     FindingLike,
 )
-from coffee_aggregator.reporting.page import Mover, document, movers
 from coffee_aggregator.reporting.render import TEXT_LOW_LIMIT, render, verdict
 
 __all__ = [
@@ -19,9 +18,6 @@ __all__ = [
     "KIND_NOTES",
     "TEXT_LOW_LIMIT",
     "FindingLike",
-    "Mover",
-    "document",
-    "movers",
     "render",
     "verdict",
 ]

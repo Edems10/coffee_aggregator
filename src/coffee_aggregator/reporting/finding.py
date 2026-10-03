@@ -7,7 +7,7 @@ if TYPE_CHECKING:
 
 #: The four audiences one report has: the systemd journal, a chat window with an
 #: assistant in it, a browser, and whatever else reads JSON.
-FORMATS: Final[tuple[str, ...]] = ("text", "markdown", "json", "html")
+FORMATS: Final[tuple[str, ...]] = ("text", "markdown", "json")
 
 #: Mirrors the default of :func:`coffee_aggregator.db.report.findings`. argparse
 #: needs a literal of its own, and the two are meant to stay equal.

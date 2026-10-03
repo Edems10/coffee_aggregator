@@ -156,8 +156,7 @@ def build_parser() -> argparse.ArgumentParser:
         "--format",
         choices=reporting.FORMATS,
         default="text",
-        help="text for the journal, markdown to paste into a chat, html for a browser, "
-        "json for anything else",
+        help="text for the journal, markdown to paste into a chat, json for anything else",
     )
     report.add_argument("--dsn", help="PostgreSQL DSN; overrides DATABASE_URL")
 
