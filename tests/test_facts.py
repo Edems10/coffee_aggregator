@@ -374,3 +374,24 @@ def test_a_decimal_kilogram_survives_both_readers(text: str, grams: int) -> None
     assert stated_pack(text) == grams
     # the label still wins when the name states no more than it
     assert weighed(label="100 g", name=f"Zrnkova kava {text}") == grams
+
+
+@pytest.mark.parametrize(
+    ("label", "name", "grams"),
+    [
+        ("250 g", "Illy Intenso 36 ks", 9000),
+        ("250 g", "Illy Intenso 12 ks", 3000),
+        (None, "Illy Intenso Dark zrnkova kava 250g 12ks", 3000),
+        ("250 g", "Etiopie Guji 250 g", 250),
+        ("250 g", "Charisma 9 BAR Blend 75/25 250 g", 250),
+    ],
+)
+def test_a_case_of_bags_is_weighed_whole(label: str | None, name: str, grams: int) -> None:
+    """Three spellings across two shops agree on ~650 CZK/kg once the count is
+    applied, and disagree by a factor of 36 without it."""
+    assert weighed(label=label, name=name) == grams
+
+
+def test_an_implausible_count_is_ignored() -> None:
+    """A count that produces something no shop sells was not a count."""
+    assert weighed(label="1 kg", name="Kava 900 ks") == 1000

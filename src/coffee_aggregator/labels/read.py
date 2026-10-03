@@ -375,6 +375,39 @@ def headline_weight(
     Returns:
         The weight in grams, or None.
     """
+    one = _one_package(labels, name, variants, price=price, fallback=fallback)
+    # "Illy Intenso 36 ks" is thirty-six tins and the page states the size of
+    # one of them, never of the case. Three spellings across two shops agree
+    # once the count is applied — 36 ks, 12 ks and "250g 12ks" all land within
+    # 30 CZK/kg of each other — and disagree wildly without it.
+    count = normalize.parse_pack_count(name)
+    if one is None or count is None:
+        return one
+    whole = one * count
+    # A count that produces something no shop sells was not a count.
+    return whole if plausible_pack(whole) else one
+
+
+def _one_package(
+    labels: Labels,
+    name: str,
+    variants: Sequence[Variant],
+    *,
+    price: float | None,
+    fallback: str | None,
+) -> int | None:
+    """Return the weight of a single package, before any count is applied.
+
+    Args:
+        labels: Every labelled value the page states.
+        name: The product name.
+        variants: The parsed variants, in the platform's own order.
+        price: The headline price.
+        fallback: A last-resort weight text.
+
+    Returns:
+        The weight in grams, or None.
+    """
     from_label = stated_weight(labels.get(F_WEIGHT))
     # A name that states more than the weight label is naming the pack while the
     # label names one bag inside it, and the price buys the pack. kava.cz sells
