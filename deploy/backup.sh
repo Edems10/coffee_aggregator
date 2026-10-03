@@ -47,18 +47,25 @@ echo "backup: ${name} ($(du -h "${BACKUP_DIR}/${name}" | cut -f1))"
 # half-finished upload now just leaves one bad object that tomorrow supersedes,
 # while every good one before it is untouched.
 if [[ -n "$RCLONE_REMOTE" ]]; then
-    # --s3-no-check-bucket on the command line, not only in the remote: without
-    # it rclone calls CreateBucket before every upload, and R2 answers 501 to a
-    # token scoped to objects. The README tells you to set it on the remote too,
-    # but the script cannot see how the remote was actually configured, and this
-    # is the one failure that costs a backup rather than logging one.
+    # --s3-no-head, because the upload is not what fails. R2 answers the PUT
+    # with 200 and an x-amz-version-id; rclone then verifies the object with
+    # HEAD <key>?versionId=..., and R2 answers 501 to a versionId-qualified
+    # request. rclone calls that "Failed to copy" although the object is there,
+    # and the retry then finds it already uploaded and reports success — which
+    # is why a backup that worked logged three ERROR lines every night.
     #
-    # It is NOT confirmed to be the cause of the nightly 501 seen on 2026-10-03:
-    # that upload succeeded on rclone's own retry, which this theory does not
-    # explain, since a refused CreateBucket would be refused again. Run
-    # `rclone -vv --retries 1 --dump headers copyto …` to find out which call
-    # R2 is actually refusing before blaming this one.
-    rclone --s3-no-check-bucket copyto "${BACKUP_DIR}/${name}" "${RCLONE_REMOTE}/${name}"
+    # Dropping rclone's own check is sound here only because the PUT carries
+    # Content-Md5, which R2 verifies server-side and rejects on a mismatch, and
+    # because the dump was already verified with pg_restore --list. The size is
+    # still read back below, with a plain HEAD that R2 does implement.
+    rclone --s3-no-head copyto "${BACKUP_DIR}/${name}" "${RCLONE_REMOTE}/${name}"
+
+    uploaded=$(rclone lsf --format s "${RCLONE_REMOTE}/${name}" | head -1)
+    local_size=$(stat -c %s "${BACKUP_DIR}/${name}")
+    if [[ "$uploaded" != "$local_size" ]]; then
+        echo "backup: ${name} is ${uploaded:-missing} bytes off-site, ${local_size} here" >&2
+        exit 1
+    fi
     echo "backup: uploaded to ${RCLONE_REMOTE}/${name}"
 fi
 
