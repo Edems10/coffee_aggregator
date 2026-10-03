@@ -309,7 +309,6 @@ def test_default_ignore_list_skips_what_has_no_sound_price_per_kg() -> None:
     """Each marker was measured against the live catalogue before being added."""
     adapter = _Fake()
     assert adapter.is_ignored("Kávové předplatné na 6 měsíců") is True
-    assert adapter.is_ignored("Porcovaný cukr 4 kg") is True
     assert adapter.is_ignored("Urnex Cafiza 2 - 900g") is True
     assert adapter.is_ignored("Dárkový poukaz Pražírna Ignác") is True
     assert adapter.is_ignored("TEST Product") is True
@@ -321,3 +320,13 @@ def test_default_ignore_list_keeps_coffee_sold_in_a_gift_box() -> None:
     assert adapter.is_ignored("BLACK STAR Dárková sada 2x250 g (espreso)") is False
     assert adapter.is_ignored("Pražená káva v černé dárkové plechovce") is False
     assert adapter.is_ignored("Hausbrandt Gourmet Columbus 24 kg") is False
+
+
+def test_an_ignore_marker_must_be_a_whole_word() -> None:
+    """ "cukr" as a bare substring also matched "Káva bez cukru", and an ignored
+    product is not hidden but delisted on the next run."""
+    adapter = _Fake()
+    assert adapter.is_ignored("Káva bez cukru 250 g") is False
+    assert adapter.is_ignored("Latest Product: Kolumbie") is False
+    assert adapter.is_ignored("Darčeková karta") is False
+    assert adapter.is_ignored("Latest Product: Kolumbie") is False

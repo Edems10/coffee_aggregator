@@ -18,7 +18,10 @@ _DASH_TRANSLATION: dict[int, str] = {ord(ch): "-" for ch in _DASHES} | {0x00A0: 
 _WHITESPACE_RE = re.compile(r"\s+")
 _PLUS_RE = re.compile(r"\s*\+")
 _NUMBER_RE = re.compile(r"\d[\d\s .,]*")
-_LIST_SPLIT_RE = re.compile(r"[,;/|•·∙‧\n\r]+")
+# A comma between two digits is a decimal point, not a list separator: Czech and
+# Slovak shops write "0,25 kg". Splitting there turned that into ["0", "25 kg"]
+# and a 250 g bag was read as 25 kg.
+_LIST_SPLIT_RE = re.compile(r"(?:[;/|•·∙‧\n\r]|(?<!\d),|,(?!\d))+")
 _MAX_PERCENT = 100
 _MIN_ALTITUDE_M = 100
 _MAX_ALTITUDE_M = 4000

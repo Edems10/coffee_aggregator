@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import re
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
 from typing import TYPE_CHECKING, Literal
@@ -16,6 +17,9 @@ if TYPE_CHECKING:
 #: against the live catalogue before being added, because a marker that is too
 #: eager silently deletes real coffee: "darkov" was rejected for exactly that,
 #: since "Dárková sada 2x250 g" is coffee in a gift box and belongs here.
+#: Rejected markers: `darkov`, because a gift set of 2x250 g is coffee, and
+#: `cukr`, because no anchoring separates "Porcovaný cukr" from "Káva bez
+#: cukru" — one sugar product is not worth delisting real coffee for.
 #: A subscription is excluded for a different reason than a cleaning tablet —
 #: its price buys several deliveries, so no weight on the page describes what
 #: the money bought, and every per-kilogram figure from it is a fiction.
@@ -25,7 +29,6 @@ DEFAULT_IGNORED = (
     "predplatne",  # CZ/SK: a subscription, priced per several deliveries
     "subscription",
     "urnex",  # a brand of machine cleaner, never coffee
-    "cukr",  # sugar
     "poukaz",  # a gift voucher, priced in money and weighing nothing
     "test product",
 )
@@ -123,7 +126,16 @@ class SiteAdapter(ABC):
             True when the product should be skipped entirely.
         """
         folded = normalize.fold(name)
-        return bool(folded) and any(marker in folded for marker in self.ignored_names())
+        if not folded:
+            return False
+        # A marker matches at the start of a word, with any ending: shops write
+        # `ignore = ["darcek"]` to catch "Darčeková karta", so a stem must keep
+        # working. Anchoring the start is still worth it — plain containment let
+        # "test product" match "Latest Product".
+        return any(
+            re.search(rf"(?<![a-z0-9]){re.escape(marker)}", folded)
+            for marker in self.ignored_names()
+        )
 
     def ignored_names(self) -> tuple[str, ...]:
         """Return the lower-case markers that mark a product as non-coffee.
