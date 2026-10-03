@@ -23,6 +23,7 @@ from coffee_aggregator.labels import (
     option_list,
     plausible,
     read_lines,
+    stated_pack,
     stated_weight,
 )
 from coffee_aggregator.models import Variant
@@ -328,3 +329,35 @@ def test_brewing_methods_split_into_a_list() -> None:
     collected.by_field[F_BREWING] = "Espresso, V60, French press"
 
     assert facts.parse_taste(collected, None).brewing_methods == ["Espresso", "V60", "French press"]
+
+
+# --- stated_pack and the pack-beats-label rule --------------------------------
+
+
+def test_stated_pack_refuses_a_size_axis_just_like_stated_weight() -> None:
+    """Reading the first entry of a size list is how a 250 g price got a 1 kg weight."""
+    assert stated_pack("250 g, 500 g, 1 kg") is None
+
+
+def test_stated_pack_believes_a_carton() -> None:
+    """A 24 kg carton is past the ceiling for a bag and is still one thing with one price."""
+    assert stated_pack("Hausbrandt Gourmet Columbus 24 kg") == 24000
+
+
+def test_a_name_that_states_a_carton_beats_the_bag_on_the_label() -> None:
+    """kava.cz sells 1, 6 and 24 kg on three pages that all carry a 1 kg label."""
+    assert weighed(label="1 kg", name="Hausbrandt Gourmet Columbus 24 kg") == 24000
+
+
+def test_a_name_that_states_a_multipack_beats_the_bag_on_the_label() -> None:
+    assert weighed(label="100 g", name="Six pack AMERIKA (6 x 100 g)") == 600
+
+
+def test_a_label_still_wins_when_the_name_states_no_more_than_it() -> None:
+    """The label stays the most trustworthy source for an ordinary single bag."""
+    assert weighed(label="1 kg", name="Brasil 250 g") == 1000
+
+
+def test_a_carton_is_not_taken_from_a_parcel_weight() -> None:
+    """The 24 kg carton read 1 kg because the name was dropped and the parcel weight won."""
+    assert weighed(name="Bristot Classico 6 kg", fallback="1 kg") == 6000

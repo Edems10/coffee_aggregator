@@ -101,6 +101,41 @@ _WEIGHT_RE = re.compile(
 )
 
 
+_PACK_RE = re.compile(
+    r"(\d{1,3})\s*[x\u00d7]\s*(\d[\d\s.,]*)\s*(kg|kilogram\w*|kilo|gram\w*|gr|g)\b",
+    re.IGNORECASE,
+)
+
+
+def parse_pack_grams(text: str | None) -> int | None:
+    """Parse the total weight a package name states, multiplier included.
+
+    ``"Six pack AMERIKA (6 x 100 g)"`` is 600 g of coffee, not 100 g, and the
+    price on that page buys all six. Reading only the second number is how a
+    four-pack came to be ranked as the dearest coffee in the catalogue.
+
+    Args:
+        text: Text such as ``"6 x 100 g"``, ``"12x250g"`` or plain ``"250 g"``.
+
+    Returns:
+        The total weight in grams, or None when the text states none.
+    """
+    if not text:
+        return None
+    match = _PACK_RE.search(text)
+    if match is None:
+        return parse_weight_grams(text)
+    count = int(match.group(1))
+    each = _to_float(match.group(2))
+    if each is None or each <= 0 or count <= 0:
+        return None
+    unit = match.group(3).lower()
+    grams = count * (each * 1000 if unit.startswith(("kg", "kilo")) else each)
+    if not math.isfinite(grams):
+        return None
+    return round(grams)
+
+
 def parse_weight_grams(text: str | None) -> int | None:
     """Parse a package weight into grams.
 

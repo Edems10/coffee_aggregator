@@ -18,6 +18,7 @@ __all__ = [
     "MAX_BEAN_WEIGHT_G",
     "MAX_FUZZY_LABEL_CHARS",
     "MAX_FUZZY_LABEL_WORDS",
+    "MAX_PACK_WEIGHT_G",
     "MIN_BEAN_WEIGHT_G",
     "Labels",
     "bare_label",
@@ -25,6 +26,7 @@ __all__ = [
     "label_pair",
     "map_label",
     "plausible",
+    "plausible_pack",
     "plausible_weight",
     "read_lines",
     "says",
@@ -36,6 +38,9 @@ MAX_FUZZY_LABEL_CHARS: Final = 30
 #: Bean weights a coffee shop plausibly sells, in grams.
 MIN_BEAN_WEIGHT_G: Final = 50
 MAX_BEAN_WEIGHT_G: Final = 5000
+#: A carton of 24 one-kilogram bags is still one thing with one price, so a
+#: weight the name spells out is believed far past the ceiling for a bag.
+MAX_PACK_WEIGHT_G: Final = 30000
 #: A processing row states a method, not a paragraph.
 _MAX_PROCESS_WORDS: Final = 6
 #: A roast row states a level or a style, not a paragraph about the roastery.
@@ -133,6 +138,19 @@ def plausible_weight(grams: int | None) -> bool:
         True when the weight is inside the range a roastery actually sells.
     """
     return grams is not None and MIN_BEAN_WEIGHT_G <= grams <= MAX_BEAN_WEIGHT_G
+
+
+def plausible_pack(grams: int | None) -> bool:
+    """Say whether a gram count is a package a shop actually sells.
+
+    Args:
+        grams: The weight a source stated, or None when it stated none.
+
+    Returns:
+        True when the weight is inside the range of a sellable package,
+        which includes the multi-kilogram cartons a wholesaler lists.
+    """
+    return grams is not None and MIN_BEAN_WEIGHT_G <= grams <= MAX_PACK_WEIGHT_G
 
 
 def plausible(field_name: str, value: str) -> bool:
