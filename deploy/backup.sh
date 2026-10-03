@@ -47,7 +47,25 @@ echo "backup: ${name} ($(du -h "${BACKUP_DIR}/${name}" | cut -f1))"
 # half-finished upload now just leaves one bad object that tomorrow supersedes,
 # while every good one before it is untouched.
 if [[ -n "$RCLONE_REMOTE" ]]; then
-    rclone copyto "${BACKUP_DIR}/${name}" "${RCLONE_REMOTE}/${name}"
+    # --s3-no-head, because the upload is not what fails. R2 answers the PUT
+    # with 200 and an x-amz-version-id; rclone then verifies the object with
+    # HEAD <key>?versionId=..., and R2 answers 501 to a versionId-qualified
+    # request. rclone calls that "Failed to copy" although the object is there,
+    # and the retry then finds it already uploaded and reports success — which
+    # is why a backup that worked logged three ERROR lines every night.
+    #
+    # Dropping rclone's own check is sound here only because the PUT carries
+    # Content-Md5, which R2 verifies server-side and rejects on a mismatch, and
+    # because the dump was already verified with pg_restore --list. The size is
+    # still read back below, with a plain HEAD that R2 does implement.
+    rclone --s3-no-head copyto "${BACKUP_DIR}/${name}" "${RCLONE_REMOTE}/${name}"
+
+    uploaded=$(rclone lsf --format s "${RCLONE_REMOTE}/${name}" | head -1)
+    local_size=$(stat -c %s "${BACKUP_DIR}/${name}")
+    if [[ "$uploaded" != "$local_size" ]]; then
+        echo "backup: ${name} is ${uploaded:-missing} bytes off-site, ${local_size} here" >&2
+        exit 1
+    fi
     echo "backup: uploaded to ${RCLONE_REMOTE}/${name}"
 fi
 
