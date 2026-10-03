@@ -154,3 +154,7 @@ networks:
   #   docker network create catalogue
   catalogue:
     external: true
+  # The broker's network, owned by the coffee-broker stack:
+  #   docker network create events
+  events:
+    external: true
