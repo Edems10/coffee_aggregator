@@ -361,3 +361,16 @@ def test_a_label_still_wins_when_the_name_states_no_more_than_it() -> None:
 def test_a_carton_is_not_taken_from_a_parcel_weight() -> None:
     """The 24 kg carton read 1 kg because the name was dropped and the parcel weight won."""
     assert weighed(name="Bristot Classico 6 kg", fallback="1 kg") == 6000
+
+
+@pytest.mark.parametrize(
+    ("text", "grams"),
+    [("0,25 kg", 250), ("0,2 kg", 200), ("0,5 kg", 500), ("1,5 kg", 1500), ("2,5 kg", 2500)],
+)
+def test_a_decimal_kilogram_survives_both_readers(text: str, grams: int) -> None:
+    """The pack ceiling let the comma-split garbage through where the bag ceiling
+    had rejected it, so a name stating 0,25 kg beat a correct 250 g label with 25 kg."""
+    assert stated_weight(text) == grams
+    assert stated_pack(text) == grams
+    # the label still wins when the name states no more than it
+    assert weighed(label="100 g", name=f"Zrnkova kava {text}") == grams

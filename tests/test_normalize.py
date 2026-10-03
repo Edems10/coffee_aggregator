@@ -466,3 +466,18 @@ def test_no_short_needle_shadows_a_later_longer_one(
 def test_parse_pack_grams_multiplies_what_the_name_spells_out(text: str, grams: int | None) -> None:
     """The price on a "6 x 100 g" page buys all six bags, not one of them."""
     assert normalize.parse_pack_grams(text) == grams
+
+
+@pytest.mark.parametrize(
+    ("text", "items"),
+    [
+        ("0,25 kg", ["0,25 kg"]),
+        ("1,5 kg", ["1,5 kg"]),
+        ("kakao, karamel", ["kakao", "karamel"]),
+        ("250 g, 500 g, 1 kg", ["250 g", "500 g", "1 kg"]),
+        ("1,5 kg, 2 kg", ["1,5 kg", "2 kg"]),
+    ],
+)
+def test_a_decimal_comma_is_not_a_list_separator(text: str, items: list[str]) -> None:
+    """Splitting "0,25 kg" into ["0", "25 kg"] read a 250 g bag as 25 kg."""
+    assert normalize.split_list(text) == items
