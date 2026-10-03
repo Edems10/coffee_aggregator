@@ -12,7 +12,23 @@ if TYPE_CHECKING:
     from coffee_aggregator.http import PoliteFetcher
     from coffee_aggregator.models import Coffee
 
-DEFAULT_IGNORED = ("tasting pack", "cascara")
+#: Markers that a product name is not a bag of coffee. Each one was measured
+#: against the live catalogue before being added, because a marker that is too
+#: eager silently deletes real coffee: "darkov" was rejected for exactly that,
+#: since "Dárková sada 2x250 g" is coffee in a gift box and belongs here.
+#: A subscription is excluded for a different reason than a cleaning tablet —
+#: its price buys several deliveries, so no weight on the page describes what
+#: the money bought, and every per-kilogram figure from it is a fiction.
+DEFAULT_IGNORED = (
+    "tasting pack",
+    "cascara",
+    "predplatne",  # CZ/SK: a subscription, priced per several deliveries
+    "subscription",
+    "urnex",  # a brand of machine cleaner, never coffee
+    "cukr",  # sugar
+    "poukaz",  # a gift voucher, priced in money and weighing nothing
+    "test product",
+)
 
 
 @dataclass(slots=True)

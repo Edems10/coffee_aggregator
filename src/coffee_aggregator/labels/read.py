@@ -4,7 +4,7 @@ import re
 from typing import TYPE_CHECKING, Final
 
 from coffee_aggregator import normalize
-from coffee_aggregator.labels.collect import plausible_weight
+from coffee_aggregator.labels.collect import plausible_pack, plausible_weight
 from coffee_aggregator.labels.terms import (
     F_ACIDITY,
     F_ALTITUDE,
@@ -54,6 +54,7 @@ __all__ = [
     "parse_taste",
     "score",
     "specialty_grade",
+    "stated_pack",
     "stated_weight",
 ]
 
@@ -308,6 +309,34 @@ def stated_weight(text: str | None) -> int | None:
     return whole if plausible_weight(whole) else None
 
 
+def stated_pack(text: str | None) -> int | None:
+    """Read the total weight a text states for one package, refusing a size list.
+
+    The same rule as :func:`stated_weight`, with two differences: a multiplier
+    the text spells out is multiplied through, and the result may be far larger
+    than a bag, because a carton is what some shops sell.
+
+    Args:
+        text: The value of a weight label, or a product name.
+
+    Returns:
+        The weight in grams, or None when the text states none or states several.
+    """
+    if not text:
+        return None
+    weights = {
+        grams
+        for item in normalize.split_list(text)
+        if plausible_pack(grams := normalize.parse_pack_grams(item))
+    }
+    if len(weights) == 1:
+        return weights.pop()
+    if weights:
+        return None
+    whole = normalize.parse_pack_grams(text)
+    return whole if plausible_pack(whole) else None
+
+
 def headline_weight(
     labels: Labels,
     name: str,
@@ -322,15 +351,18 @@ def headline_weight(
     one reading three platforms may not each invent for themselves. The
     precedence, most trustworthy first:
 
-    1. a weight the shop *states* on a weight label, when it states exactly one
+    1. a pack the product name spells out that is larger than the weight
+       label, because then the label is one bag and the name is what the price
+       buys — a carton, or a "6 x 100 g" tasting set;
+    2. a weight the shop *states* on a weight label, when it states exactly one
        — several mean the label is really the size axis, not this bag;
-    2. a weight the product name states, for the shops whose "Brasil 1000 g" is
+    3. a weight the product name states, for the shops whose "Brasil 1000 g" is
        the only place the size is written at all;
-    3. the weight of the variant whose price *is* the headline price;
-    4. the weight of the cheapest priced variant, since every platform quotes
+    4. the weight of the variant whose price *is* the headline price;
+    5. the weight of the cheapest priced variant, since every platform quotes
        the cheapest variant as the headline price of a variable product;
-    5. the smallest weight any variant states, when no variant is priced;
-    6. a caller-supplied last resort, such as Shoptet's parcel weight.
+    6. the smallest weight any variant states, when no variant is priced;
+    7. a caller-supplied last resort, such as Shoptet's parcel weight.
 
     Args:
         labels: Every labelled value the page states.
@@ -344,6 +376,13 @@ def headline_weight(
         The weight in grams, or None.
     """
     from_label = stated_weight(labels.get(F_WEIGHT))
+    # A name that states more than the weight label is naming the pack while the
+    # label names one bag inside it, and the price buys the pack. kava.cz sells
+    # the same coffee as 1 kg, 6 kg and 24 kg on three pages that all carry a
+    # 1 kg label; believing the label made the 24 kg carton 24 times too dear.
+    from_pack = stated_pack(name)
+    if from_pack is not None and (from_label is None or from_pack > from_label):
+        return from_pack
     if from_label is not None:
         return from_label
     from_name = stated_weight(name)

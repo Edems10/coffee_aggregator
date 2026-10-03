@@ -446,3 +446,23 @@ def test_no_short_needle_shadows_a_later_longer_one(
         if early in late and early_value != late_value
     ]
     assert shadowed == [], f"{name}: move the longer needle above the shorter one"
+
+
+# --- parse_pack_grams ---------------------------------------------------------
+
+
+@pytest.mark.parametrize(
+    ("text", "grams"),
+    [
+        ("Six pack AMERIKA (6 x 100 g zrnková káva)", 600),
+        ("Illy Decaf zrnková 12 ks (dóza 12x250g)", 3000),
+        ("BLACK STAR Dárková sada 2x250 g (espreso)", 500),
+        ("BANUA Café 5 kg (20x250g)", 5000),
+        ("Hausbrandt Gourmet Columbus 24 kg", 24000),
+        ("Etiopie Guji 250 g", 250),
+        ("bez váhy", None),
+    ],
+)
+def test_parse_pack_grams_multiplies_what_the_name_spells_out(text: str, grams: int | None) -> None:
+    """The price on a "6 x 100 g" page buys all six bags, not one of them."""
+    assert normalize.parse_pack_grams(text) == grams
