@@ -17,6 +17,14 @@ FROM python:${PYTHON_VERSION}-slim AS build
 
 COPY --from=uv /uv /usr/local/bin/uv
 
+# uv shells out to the git CLI for a git dependency, and the slim image has
+# none. coffee-contracts is pinned to a tag and fetched from GitHub, so without
+# this the build fails at `uv sync` with "git executable not found" — and only
+# the build stage needs it, so it never reaches the runtime image.
+RUN apt-get update \
+    && apt-get install --no-install-recommends --yes git \
+    && rm -rf /var/lib/apt/lists/*
+
 ENV UV_COMPILE_BYTECODE=1 \
     UV_LINK_MODE=copy \
     UV_PYTHON_DOWNLOADS=never \
@@ -27,6 +35,10 @@ WORKDIR /src
 # Dependencies first, without the project, so this layer is reused whenever only
 # our own code changed. --frozen refuses to update uv.lock: the image is built
 # from the resolution that was committed and tested, never from a fresh one.
+#
+# coffee-contracts is a git dependency on a tag. The repository is public —
+# it is the published interface between these services — so resolving it
+# needs no credential, and `git` in this stage is the only thing it costs.
 COPY pyproject.toml uv.lock ./
 RUN --mount=type=cache,target=/root/.cache/uv \
     uv sync --frozen --no-dev --no-install-project

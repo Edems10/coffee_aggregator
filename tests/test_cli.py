@@ -230,6 +230,32 @@ def test_robots_enforcement_has_no_cli_switch() -> None:
     assert "robots" not in help_text.lower()
 
 
+def test_publish_without_a_dsn_exits_non_zero() -> None:
+    assert cli.main(["publish"]) == cli.EXIT_CONFIG_ERROR
+
+
+def test_republish_without_a_dsn_exits_non_zero() -> None:
+    assert cli.main(["republish", "--all"]) == cli.EXIT_CONFIG_ERROR
+
+
+def test_republish_refuses_without_all(caplog: pytest.LogCaptureFixture) -> None:
+    """A bare `republish` must not re-send the whole catalogue by accident."""
+    with caplog.at_level("ERROR", logger="coffee_aggregator"):
+        assert cli.main(["republish"]) == cli.EXIT_CONFIG_ERROR
+    assert "--all" in caplog.text
+
+
+def test_publish_falls_back_to_the_configured_broker() -> None:
+    parsed = cli.build_parser().parse_args(["publish"])
+    assert parsed.nats_url is None
+    assert Settings.from_env().nats_url == config.DEFAULT_NATS_URL
+
+
+def test_the_broker_url_comes_from_the_environment(monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setenv(config.NATS_URL_VARIABLE, "nats://localhost:4222")
+    assert Settings.from_env().nats_url == "nats://localhost:4222"
+
+
 def test_unknown_subcommand_is_rejected() -> None:
     with pytest.raises(SystemExit) as excinfo:
         cli.main(["nonsense"])

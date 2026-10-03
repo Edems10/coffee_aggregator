@@ -13,6 +13,7 @@ from coffee_aggregator.db.connect import (
     DEFAULT_STATEMENT_TIMEOUT_MS,
     connect,
 )
+from coffee_aggregator.sinks import outbox
 from coffee_aggregator.sinks.base import SinkResult
 from coffee_aggregator.sinks.records import coffee_record
 
@@ -198,9 +199,15 @@ VARIANT_PRUNE_SQL = (
     "WHERE site = %s AND external_id = %s AND NOT (variant_key = ANY(%s::text[]))"
 )
 
+#: It returns the rows it stamped rather than only their count, because a
+#: delisting that never reaches the stream makes every consumer's copy of the
+#: catalogue immortal: the coffee stops being crawled, so nothing ever
+#: contradicts the last state they were sent, and a shop that closed is still
+#: selling in the recommender a year later.
 DELIST_SQL = (
-    "UPDATE coffee SET delisted_at = now() "
-    "WHERE site = %s AND delisted_at IS NULL AND NOT (external_id = ANY(%s))"
+    "UPDATE coffee SET delisted_at = now() "  # noqa: S608  (a module constant)
+    "WHERE site = %s AND delisted_at IS NULL AND NOT (external_id = ANY(%s)) "
+    f"RETURNING {outbox.STATE_SELECT}"
 )
 
 
@@ -453,7 +460,12 @@ class PostgresSink:
         return SinkResult(written=len(coffees), failed=0)
 
     def _write_chunk(self, cursor: psycopg.Cursor[Any], chunk: Sequence[Coffee]) -> None:
-        """Write one chunk's three statements on an open cursor.
+        """Write one chunk's data and the intent to publish it, on an open cursor.
+
+        The outbox row rides in the same transaction as the coffee it describes.
+        That is the whole point of the table: publishing from here instead would
+        leave a window in which the broker has an event the database rolled
+        back, or the database has a coffee the broker will never hear about.
 
         Args:
             cursor: The cursor of the open transaction.
@@ -474,6 +486,9 @@ class PostgresSink:
         variant_rows = [row for _, rows in per_coffee for row in rows]
         if variant_rows:
             cursor.executemany(VARIANT_UPSERT_SQL, variant_rows)
+        event_rows = outbox.event_rows_for(chunk)
+        if event_rows:
+            cursor.executemany(outbox.OUTBOX_SQL, event_rows)
 
     def _retry_one_by_one(self, coffees: Sequence[Coffee]) -> SinkResult:
         """Write the rows of a failed batch separately, to lose only the bad one.
@@ -543,7 +558,10 @@ class PostgresSink:
             return self._delist_locked(site_id, seen_external_ids)
 
     def _delist_locked(self, site_id: str, seen_external_ids: set[str]) -> int:
-        """Stamp the rows with the connection held.
+        """Stamp the rows, and announce each one, with the connection held.
+
+        The events are written from the rows the UPDATE returned and inside its
+        transaction, so a delisting is announced exactly when it is recorded.
 
         Args:
             site_id: The site whose catalogue was fully walked.
@@ -556,13 +574,16 @@ class PostgresSink:
         try:
             with connection.cursor() as cursor:
                 cursor.execute(DELIST_SQL, (site_id, list(seen_external_ids)))
-                count = cursor.rowcount
+                stamped = cursor.fetchall()
+                events = outbox.event_rows_from_db(stamped)
+                if events:
+                    cursor.executemany(outbox.OUTBOX_SQL, events)
             connection.commit()
         except Exception:  # one shop's failure never aborts a --site all run
             logger.exception("delisting for %s failed", site_id)
             self._rollback()
             return 0
-        return max(0, count)
+        return len(stamped)
 
     def close(self) -> None:
         """Commit anything outstanding and close the connection."""

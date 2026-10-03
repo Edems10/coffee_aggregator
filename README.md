@@ -92,6 +92,8 @@ coffee-aggregator crawl --site <id>|all --sink jsonl|postgres \
     [--workers 2] [--site-workers 1] [--delay 1.0] [--cache-dir DIR] \
     [--timeout 15] [--retries 3] [--max-retry-wait 60] [--robots-retry 300]
 coffee-aggregator parse --site <id> --file page.html [--url URL]
+coffee-aggregator publish [--dsn URL] [--nats-url URL] [--batch-size 500] [--once]
+coffee-aggregator republish --all [--dsn URL]
 ```
 
 * `-v` switches logging to DEBUG, and is accepted before *or* after the
@@ -130,6 +132,12 @@ coffee-aggregator parse --site <id> --file page.html [--url URL]
 * `fx` prints the EUR/CZK fixing the crawls stamp on their rows, fetching it when
   none is stored; `--refresh` fetches even when one is. See
   [Price normalisation](#price-normalisation).
+* `publish` drains the `outbox` table into the broker and keeps running;
+  `--once` sends what is waiting and exits, which is what a test or a one-off
+  catch-up wants. See [The outbox and the publisher](#the-outbox-and-the-publisher).
+* `republish --all` queues every coffee still on sale for publication again.
+  `--all` is the only scope there is and has to be typed, because a bare
+  `republish` must not re-send tens of thousands of events by accident.
 ### Exit codes
 
 | code | meaning |
@@ -169,6 +177,7 @@ how many were lost and carries on with the rest.
 | `COFFEE_AGG_CRAWL_DELAYS` | `caffeoro.sk=30` | `host=seconds` pairs used to weigh the shards |
 | `COFFEE_AGG_CACHE_DIR` | — | directory for the conditional-GET cache |
 | `COFFEE_AGG_FX_CACHE` | `<cache dir>/fx_rates.json`, else `~/.cache/coffee-aggregator/fx_rates.json` | the JSON rate store used when there is no database |
+| `NATS_URL` | `nats://events:4222` | where `publish` reaches the broker |
 | `COFFEE_DB_PORT` | `5432` | host port docker compose publishes Postgres on |
 | `TEST_DATABASE_URL` | — | enables the PostgreSQL integration tests |
 
@@ -567,6 +576,55 @@ uv run coffee-aggregator fx --refresh --dsn postgresql://coffee:coffee@localhost
 # {"date": "2026-09-11", "base": "EUR", "quote": "CZK", "rate": "24.260", "source": "cnb"}
 ```
 
+## The outbox and the publisher
+
+The catalogue is published as events so that a recommender, a price watcher or
+anything else can be added later without the crawler knowing. The problem that
+shapes the code is that there are two systems to write to and no transaction
+spanning both: publish inside the crawl and you get either a coffee stored and
+never announced, or announced and then rolled back.
+
+So the crawl writes no messages. `PostgresSink._write_chunk` writes `coffee`,
+`price_history`, `coffee_variant` **and** a row in `outbox`, on one cursor, in
+one transaction. `_delist_locked` does the same for a delisting: `DELIST_SQL`
+returns the rows it stamped and queues an event for each one inside its own
+transaction, because a delisting that never reaches the stream makes the coffee
+immortal in every consumer — nothing crawls it again, so nothing ever
+contradicts the last state they were sent.
+
+`coffee-aggregator publish` is a separate process that drains the table:
+
+```
+SELECT id, subject, payload FROM outbox WHERE published_at IS NULL
+ORDER BY id LIMIT 500 FOR UPDATE SKIP LOCKED
+  -> publish each, with a Nats-Msg-Id of outbox-<id>, and await the ack
+  -> UPDATE outbox SET published_at = now() WHERE id = ANY(...)
+  -> commit
+```
+
+It sleeps two seconds on an empty table and deletes rows published more than
+seven days ago. Delivery is **at-least-once** — it can send a message and die
+before the row is marked — and the message id plus the stream's duplicate
+window make the common case effectively-once. `SKIP LOCKED` is what lets a
+second publisher run beside the first and take the next batch rather than the
+same one.
+
+A product whose `external_id` is empty is **skipped with a warning, never
+raised on**: two adapters fall back to `""` when a listing gives them no id,
+and an empty token has no subject. Raising inside `_write_chunk` would abort
+the batch, send it down `_retry_one_by_one` and lose the coffee from the
+catalogue too — a data regression caused by a messaging concern.
+
+`coffee-aggregator republish --all` re-seeds the outbox from every non-delisted
+row of `coffee`. This is what makes the broker's store and every consumer's
+store disposable, and it is the honest answer to "what backs up the stream":
+nothing does, because `coffee` is the record and the stream can be refilled
+from it without a crawl and without asking a single shop for anything.
+
+The event shape is `coffee_contracts.CoffeeState`, published on
+`coffee.v1.catalogue.<site>.<external_id>`. The contract is a separate
+repository, pinned here to a tag.
+
 ## Tests
 
 ```bash
@@ -609,9 +667,11 @@ request), `db/migrate.py` (the migration runner), `db/monitoring.py` (the `crawl
 recorder), `fx/cnb.py` and `fx/ecb.py` (the
 rate feeds), `fx/rates.py` (the once-a-day service), `fx/stores.py` and
 `fx/convert.py`, `money.py` (the one place a price is rounded or extrapolated to
-the kilogram) and `sinks/records.py` (model → column dictionary, for both
-sinks). Nothing in the project starts with a module docstring or a licence
-header; `D100`, `D104` and `CPY001` are ignored for that reason.
+the kilogram), `sinks/records.py` (model → column dictionary, for both
+sinks), `sinks/outbox.py` (model → `CoffeeState` event, and the one place a
+subject is formed) and `publish.py` (the outbox drain). Nothing in the project
+starts with a module docstring or a licence header; `D100`, `D104` and
+`CPY001` are ignored for that reason.
 
 ## Development
 

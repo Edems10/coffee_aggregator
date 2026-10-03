@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import re
 from typing import TYPE_CHECKING, Any, Self
 
@@ -7,6 +8,7 @@ import pytest
 from psycopg.types.json import Jsonb
 
 from coffee_aggregator.db import migrate
+from coffee_aggregator.sinks.outbox import OUTBOX_SQL
 from coffee_aggregator.sinks.postgres import (
     COLUMNS,
     DELIST_SQL,
@@ -23,7 +25,7 @@ from coffee_aggregator.sinks.postgres import (
     row_for,
     schema_columns,
 )
-from conftest import make_coffee
+from conftest import delisted_row, make_coffee
 
 if TYPE_CHECKING:
     from collections.abc import Sequence
@@ -37,11 +39,17 @@ def _checksum_of(version: str) -> str:
 class FakeCursor:
     """Records every statement instead of talking to a server."""
 
-    def __init__(self, calls: list[tuple[str, str, Any]], applied: set[str] | None = None) -> None:
+    def __init__(
+        self,
+        calls: list[tuple[str, str, Any]],
+        applied: set[str] | None = None,
+        delisted: Sequence[tuple[Any, ...]] = (),
+    ) -> None:
         self.calls = calls
         self.rowcount = 7
         self.applied = migrate.versions() if applied is None else sorted(applied)
-        self._rows: list[tuple[str, str]] = []
+        self.delisted = delisted
+        self._rows: Sequence[tuple[Any, ...]] = []
 
     def __enter__(self) -> Self:
         return self
@@ -58,12 +66,14 @@ class FakeCursor:
         self.calls.append(("execute", sql, params))
         if sql == migrate._SELECT_VERSIONS_SQL:
             self._rows = [(version, _checksum_of(version)) for version in self.applied]
+        elif sql == DELIST_SQL:
+            self._rows = self.delisted
 
     def executemany(self, sql: str, params_seq: Sequence[Sequence[Any]]) -> None:
         self.calls.append(("executemany", sql, list(params_seq)))
 
-    def fetchall(self) -> list[tuple[str, str]]:
-        return self._rows
+    def fetchall(self) -> list[tuple[Any, ...]]:
+        return list(self._rows)
 
     def close(self) -> None:
         return None
@@ -78,9 +88,10 @@ class FakeConnection:
         self.commits = 0
         self.rollbacks = 0
         self.applied = applied
+        self.delisted: Sequence[tuple[Any, ...]] = ()
 
     def cursor(self) -> FakeCursor:
-        return FakeCursor(self.calls, self.applied)
+        return FakeCursor(self.calls, self.applied, self.delisted)
 
     def commit(self) -> None:
         self.commits += 1
@@ -192,16 +203,41 @@ def test_mark_delisted_statement_and_parameters(
     sink: tuple[PostgresSink, FakeConnection],
 ) -> None:
     postgres, connection = sink
+    connection.delisted = (delisted_row(external_id="9"), delisted_row(external_id="10"))
     count = postgres.mark_delisted("demo", {"1", "2"})
 
-    assert count == 7
-    call = connection.calls[-1]
-    assert call[0] == "execute"
-    assert call[1] == DELIST_SQL
+    assert count == 2
+    update = next(call for call in connection.calls if call[1] == DELIST_SQL)
+    assert update[0] == "execute"
     assert "delisted_at IS NULL" in DELIST_SQL
     assert "NOT (external_id = ANY(%s))" in DELIST_SQL
-    assert call[2][0] == "demo"
-    assert sorted(call[2][1]) == ["1", "2"]
+    assert update[2][0] == "demo"
+    assert sorted(update[2][1]) == ["1", "2"]
+
+
+def test_delisting_queues_one_event_per_stamped_row(
+    sink: tuple[PostgresSink, FakeConnection],
+) -> None:
+    """Without this a delisted coffee is immortal in every consumer's copy."""
+    postgres, connection = sink
+    connection.delisted = (delisted_row(external_id="9"), delisted_row(external_id="10"))
+    postgres.mark_delisted("demo", {"1", "2"})
+
+    events = next(call for call in connection.calls if call[1] == OUTBOX_SQL)
+    assert events[0] == "executemany"
+    subjects = [row[0] for row in events[2]]
+    assert subjects == ["coffee.v1.catalogue.demo.9", "coffee.v1.catalogue.demo.10"]
+    for row in events[2]:
+        assert json.loads(row[2])["delisted_at"] == "2026-10-03T05:00:00+00:00"
+    # The events are written on the cursor of the UPDATE's own transaction, so
+    # one commit covers both or neither.
+    assert connection.commits == 1
+
+
+def test_delisting_nothing_queues_nothing(sink: tuple[PostgresSink, FakeConnection]) -> None:
+    postgres, connection = sink
+    assert postgres.mark_delisted("demo", {"1", "2"}) == 0
+    assert all(call[1] != OUTBOX_SQL for call in connection.calls)
 
 
 def test_every_value_is_a_bound_parameter() -> None:
