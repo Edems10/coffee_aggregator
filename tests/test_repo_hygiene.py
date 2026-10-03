@@ -1,8 +1,10 @@
 from __future__ import annotations
 
 from pathlib import Path
+from typing import Any
 
 import pytest
+import yaml
 
 TESTS_ROOT = Path(__file__).parent
 FIXTURE_ROOT = TESTS_ROOT / "fixtures"
@@ -61,3 +63,45 @@ def test_every_fixture_directory_has_a_test(directory: Path) -> None:
         f"only earn their place when a test asserts on them: add a case naming "
         f"{' or '.join(sorted(names))}, or delete the directory."
     )
+
+
+# --- the compose file is wired to itself --------------------------------------
+
+COMPOSE = Path(__file__).resolve().parent.parent / "deploy" / "compose.yml"
+
+
+def compose() -> dict[str, Any]:
+    parsed: dict[str, Any] = yaml.safe_load(COMPOSE.read_text("utf-8"))
+    return parsed
+
+
+def test_every_network_a_service_joins_is_declared() -> None:
+    """`main` once had a publisher on an `events` network nothing declared, and
+    docker refused the whole project.
+
+    Neither pull request was wrong on its own: one added the service and its
+    network, the other added a different network to the same block, and the
+    hunks were adjacent so git merged both and silently kept one. Green plus
+    green made a broken `main`, and only a deploy found it.
+    """
+    spec = compose()
+    declared = set(spec.get("networks") or {})
+    for name, service in (spec.get("services") or {}).items():
+        for network in service.get("networks") or []:
+            assert network == "default" or network in declared, (
+                f"service {name!r} joins network {network!r}, which compose does not declare"
+            )
+
+
+def test_every_named_volume_a_service_mounts_is_declared() -> None:
+    """The same failure shape, one key over: a mount whose volume nothing declares."""
+    spec = compose()
+    declared = set(spec.get("volumes") or {})
+    for name, service in (spec.get("services") or {}).items():
+        for mount in service.get("volumes") or []:
+            source = mount.split(":", 1)[0] if isinstance(mount, str) else mount.get("source", "")
+            # A bind mount starts with . or /; anything else names a volume.
+            if source and not source.startswith((".", "/")):
+                assert source in declared, (
+                    f"service {name!r} mounts volume {source!r}, which compose does not declare"
+                )
