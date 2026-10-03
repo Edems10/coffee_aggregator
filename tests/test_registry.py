@@ -303,3 +303,21 @@ def test_a_disabled_shop_states_why(tmp_path: Path, monkeypatch: pytest.MonkeyPa
     # `true` switches a shop off too, but the point of the key is the reason, so
     # a bare boolean is recorded as having given none.
     assert registry.known_ids() == []
+
+
+def test_default_ignore_list_skips_what_has_no_sound_price_per_kg() -> None:
+    """Each marker was measured against the live catalogue before being added."""
+    adapter = _Fake()
+    assert adapter.is_ignored("Kávové předplatné na 6 měsíců") is True
+    assert adapter.is_ignored("Porcovaný cukr 4 kg") is True
+    assert adapter.is_ignored("Urnex Cafiza 2 - 900g") is True
+    assert adapter.is_ignored("Dárkový poukaz Pražírna Ignác") is True
+    assert adapter.is_ignored("TEST Product") is True
+
+
+def test_default_ignore_list_keeps_coffee_sold_in_a_gift_box() -> None:
+    """ "darkov" was rejected as a marker: a gift set of 2x250 g is coffee."""
+    adapter = _Fake()
+    assert adapter.is_ignored("BLACK STAR Dárková sada 2x250 g (espreso)") is False
+    assert adapter.is_ignored("Pražená káva v černé dárkové plechovce") is False
+    assert adapter.is_ignored("Hausbrandt Gourmet Columbus 24 kg") is False
