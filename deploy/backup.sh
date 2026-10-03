@@ -47,7 +47,18 @@ echo "backup: ${name} ($(du -h "${BACKUP_DIR}/${name}" | cut -f1))"
 # half-finished upload now just leaves one bad object that tomorrow supersedes,
 # while every good one before it is untouched.
 if [[ -n "$RCLONE_REMOTE" ]]; then
-    rclone copyto "${BACKUP_DIR}/${name}" "${RCLONE_REMOTE}/${name}"
+    # --s3-no-check-bucket on the command line, not only in the remote: without
+    # it rclone calls CreateBucket before every upload, and R2 answers 501 to a
+    # token scoped to objects. The README tells you to set it on the remote too,
+    # but the script cannot see how the remote was actually configured, and this
+    # is the one failure that costs a backup rather than logging one.
+    #
+    # It is NOT confirmed to be the cause of the nightly 501 seen on 2026-10-03:
+    # that upload succeeded on rclone's own retry, which this theory does not
+    # explain, since a refused CreateBucket would be refused again. Run
+    # `rclone -vv --retries 1 --dump headers copyto …` to find out which call
+    # R2 is actually refusing before blaming this one.
+    rclone --s3-no-check-bucket copyto "${BACKUP_DIR}/${name}" "${RCLONE_REMOTE}/${name}"
     echo "backup: uploaded to ${RCLONE_REMOTE}/${name}"
 fi
 
