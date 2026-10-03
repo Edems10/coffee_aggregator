@@ -481,3 +481,45 @@ def test_parse_pack_grams_multiplies_what_the_name_spells_out(text: str, grams: 
 def test_a_decimal_comma_is_not_a_list_separator(text: str, items: list[str]) -> None:
     """Splitting "0,25 kg" into ["0", "25 kg"] read a 250 g bag as 25 kg."""
     assert normalize.split_list(text) == items
+
+
+@pytest.mark.parametrize(
+    ("text", "grams"),
+    [
+        ("Charisma 9 BAR Blend 75/25 250 g", 250),
+        ("Indie | Bettadakhan-12 250 g", 250),
+        ("Kava 1 000 g", 1000),
+        ("Etiopie 250 g", 250),
+    ],
+)
+def test_two_numbers_are_not_one_weight(text: str, grams: int) -> None:
+    """ "75/25 250 g" read as 25250 g, which made it the cheapest coffee at 11 CZK/kg."""
+    assert normalize.parse_weight_grams(text) == grams
+
+
+@pytest.mark.parametrize(
+    ("text", "count"),
+    [
+        ("Illy Intenso 36 ks", 36),
+        ("Illy Intenso Dark zrnkova kava 250g 12ks", 12),
+        ("Etiopie 250 g", None),
+        ("Sada 1 ks", None),
+        ("Six pack AMERIKA (6 x 100 g)", None),
+    ],
+)
+def test_parse_pack_count_reads_a_case_of_bags(text: str, count: int | None) -> None:
+    """A count of one is not a pack, and an explicit multiplier is parse_pack_grams's job."""
+    assert normalize.parse_pack_count(text) == count
+
+
+@pytest.mark.parametrize(
+    ("text", "items"),
+    [
+        ("75/25 250 g", ["75/25 250 g"]),
+        ("kakao/karamel", ["kakao", "karamel"]),
+        ("Arabica 100%/Robusta", ["Arabica 100%", "Robusta"]),
+    ],
+)
+def test_a_blend_ratio_is_not_a_list(text: str, items: list[str]) -> None:
+    """A slash between digits is a ratio; between words it still separates."""
+    assert normalize.split_list(text) == items

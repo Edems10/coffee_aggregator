@@ -18,10 +18,11 @@ _DASH_TRANSLATION: dict[int, str] = {ord(ch): "-" for ch in _DASHES} | {0x00A0: 
 _WHITESPACE_RE = re.compile(r"\s+")
 _PLUS_RE = re.compile(r"\s*\+")
 _NUMBER_RE = re.compile(r"\d[\d\s .,]*")
-# A comma between two digits is a decimal point, not a list separator: Czech and
-# Slovak shops write "0,25 kg". Splitting there turned that into ["0", "25 kg"]
-# and a 250 g bag was read as 25 kg.
-_LIST_SPLIT_RE = re.compile(r"(?:[;/|•·∙‧\n\r]|(?<!\d),|,(?!\d))+")
+# A comma or a slash between two digits is part of one number, not a separator.
+# Shops write "0,25 kg" for a weight and "75/25" for a blend ratio; splitting
+# either produced a fragment that then read as a different number entirely —
+# a 250 g bag as 25 kg, and "Blend 75/25 250 g" as 25250 g at 11 CZK/kg.
+_LIST_SPLIT_RE = re.compile(r"(?:[;|•·∙‧\n\r]|(?<!\d)[,/]|[,/](?!\d))+")
 _MAX_PERCENT = 100
 _MIN_ALTITUDE_M = 100
 _MAX_ALTITUDE_M = 4000
@@ -98,8 +99,12 @@ def _to_float(raw: str) -> float | None:
     return value if math.isfinite(value) else None
 
 
+# The digit group admits spaces so "1 000 g" reads as one number. That also
+# glued two numbers together: "75/25 250 g" became 25250 g and the coffee was
+# the cheapest in the catalogue at 11 CZK/kg. A thousands separator is never
+# preceded by a digit, a slash or a dash, and a second number always is.
 _WEIGHT_RE = re.compile(
-    r"(\d[\d\s .,]*)\s*(kg|kilogram\w*|kilo|gram\w*|gr|g)\b",
+    r"(?<![\d/-])(\d[\d\s .,]*)\s*(kg|kilogram\w*|kilo|gram\w*|gr|g)\b",
     re.IGNORECASE,
 )
 
@@ -108,6 +113,34 @@ _PACK_RE = re.compile(
     r"(\d{1,3})\s*[x\u00d7]\s*(\d[\d\s.,]*)\s*(kg|kilogram\w*|kilo|gram\w*|gr|g)\b",
     re.IGNORECASE,
 )
+
+
+#: A pack written as a count rather than a multiplication: "250g 12ks", or
+#: just "36 ks" with the bag size stated elsewhere on the page.
+_COUNT_RE = re.compile(r"(?<![\d.,])(\d{1,3})\s*(?:ks|kus\w*|pcs|pack)\b", re.IGNORECASE)
+
+
+def parse_pack_count(text: str | None) -> int | None:
+    """Parse how many packages a name says the price buys.
+
+    ``"Illy Intenso 36 ks"`` is thirty-six tins, and the page states the size
+    of one of them somewhere else. Without the count the price of the whole
+    case is divided by a single tin: that read 23 196 CZK/kg against a true
+    644 CZK/kg.
+
+    Args:
+        text: The product name.
+
+    Returns:
+        The count, or None when the name states none or states one.
+    """
+    if not text:
+        return None
+    match = _COUNT_RE.search(text)
+    if match is None:
+        return None
+    count = int(match.group(1))
+    return count if count > 1 else None
 
 
 def parse_pack_grams(text: str | None) -> int | None:
