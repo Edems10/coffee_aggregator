@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import asyncio
 import json
 import logging
 import shlex
@@ -77,6 +78,44 @@ def day_argument(raw: str) -> date:
     except ValueError as exc:
         message = f"expected YYYY-MM-DD, got {raw!r}"
         raise argparse.ArgumentTypeError(message) from exc
+
+
+def _add_outbox_parsers(
+    subparsers: argparse._SubParsersAction[argparse.ArgumentParser],
+    common: argparse.ArgumentParser,
+) -> None:
+    """Add the two sub-commands that move events out of the outbox.
+
+    Args:
+        subparsers: The parser's sub-command group.
+        common: The parent carrying the options every sub-command shares.
+    """
+    publish = subparsers.add_parser(
+        "publish",
+        help="send what the crawl queued in the outbox to the broker",
+        parents=[common],
+    )
+    publish.add_argument("--dsn", help="PostgreSQL DSN; overrides DATABASE_URL")
+    publish.add_argument("--nats-url", help="broker URL; overrides NATS_URL")
+    publish.add_argument("--batch-size", type=int, help="rows claimed per transaction")
+    publish.add_argument(
+        "--once",
+        action="store_true",
+        help="publish what is waiting and exit, instead of running as a service",
+    )
+
+    republish = subparsers.add_parser(
+        "republish",
+        help="queue every coffee still on sale for publication again",
+        parents=[common],
+    )
+    republish.add_argument(
+        "--all",
+        action="store_true",
+        help="the whole catalogue — the only scope there is, and asked for explicitly "
+        "because a bare 'republish' must not re-send tens of thousands of events",
+    )
+    republish.add_argument("--dsn", help="PostgreSQL DSN; overrides DATABASE_URL")
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -167,6 +206,8 @@ def build_parser() -> argparse.ArgumentParser:
     )
     fx.add_argument("--refresh", action="store_true", help="fetch even when a rate is stored")
     fx.add_argument("--dsn", help="PostgreSQL DSN; without one the rate is cached in a file")
+
+    _add_outbox_parsers(subparsers, common)
 
     crawl = subparsers.add_parser("crawl", help="crawl one shop or every shop", parents=[common])
     crawl.add_argument("--site", required=True, help="a registered site id, or 'all'")
@@ -474,6 +515,52 @@ def cmd_fx(settings: Settings, args: argparse.Namespace) -> int:
     return EXIT_OK
 
 
+def cmd_publish(settings: Settings, args: argparse.Namespace) -> int:
+    """Drain the outbox into the broker.
+
+    Args:
+        settings: Environment-derived settings.
+        args: Parsed command line arguments.
+
+    Returns:
+        The process exit code.
+    """
+    from coffee_aggregator import publish as publisher  # noqa: PLC0415  (optional path)
+
+    dsn = settings.require_database_url(args.dsn)
+    url = (args.nats_url or "").strip() or settings.nats_url
+    sent = asyncio.run(
+        publisher.serve(
+            dsn,
+            url=url,
+            limit=args.batch_size or publisher.DEFAULT_BATCH_SIZE,
+            once=args.once,
+        )
+    )
+    logger.info("published %d event(s)", sent)
+    return EXIT_OK
+
+
+def cmd_republish(settings: Settings, args: argparse.Namespace) -> int:
+    """Queue every coffee still on sale for publication again.
+
+    Args:
+        settings: Environment-derived settings.
+        args: Parsed command line arguments.
+
+    Returns:
+        The process exit code.
+    """
+    from coffee_aggregator import publish as publisher  # noqa: PLC0415  (optional path)
+
+    if not args.all:
+        logger.error("republish needs --all; nothing else is implemented")
+        return EXIT_CONFIG_ERROR
+    queued = publisher.republish(settings.require_database_url(args.dsn))
+    logger.info("queued %d coffee(s); run publish to send them", queued)
+    return EXIT_OK
+
+
 def crawl_exit_code(reports: Sequence[RunReport]) -> int:
     """Decide whether a finished crawl counts as a successful night.
 
@@ -655,6 +742,8 @@ def _dispatch(settings: Settings, args: argparse.Namespace, command: str) -> int
         "runs": lambda: cmd_runs(settings, args),
         "report": lambda: cmd_report(settings, args),
         "fx": lambda: cmd_fx(settings, args),
+        "publish": lambda: cmd_publish(settings, args),
+        "republish": lambda: cmd_republish(settings, args),
         "crawl": lambda: cmd_crawl(settings, args, command),
         "parse": lambda: cmd_parse(args),
     }

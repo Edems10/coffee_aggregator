@@ -1,13 +1,16 @@
 from __future__ import annotations
 
+import asyncio
 import os
 from datetime import date
 from decimal import Decimal
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Any
 
 import pytest
 
+from coffee_aggregator import publish
 from coffee_aggregator.db import migrate
+from coffee_aggregator.db.connect import connect
 from coffee_aggregator.fx.rates import FxRate
 from coffee_aggregator.fx.stores import PostgresFxStore
 from coffee_aggregator.models import ProcessMethod, Variant
@@ -29,6 +32,7 @@ RATE = FxRate(date=FRIDAY, rate=Decimal("24.26"), source="cnb")
 #: the database TEST_DATABASE_URL names — never in the development database.
 #: Dropped in this order: the variants reference the products.
 TABLES = (
+    "outbox",
     "coffee_variant",
     "price_history",
     "crawl_run",
@@ -39,6 +43,20 @@ TABLES = (
 _COUNT_VERSIONS_SQL = f"SELECT count(*) FROM {migrate.VERSION_TABLE}"  # noqa: S608  (a constant)
 
 DSN = os.environ.get("TEST_DATABASE_URL", "")
+
+
+class _RecordingBroker:
+    """A broker that always acks, so the publisher's database half can be tested."""
+
+    def __init__(self) -> None:
+        self.sent: list[tuple[str, bytes, str]] = []
+
+    async def publish(self, subject: str, payload: bytes, *, message_id: str) -> None:
+        self.sent.append((subject, payload, message_id))
+
+    async def close(self) -> None:
+        return None
+
 
 pytestmark = [
     pytest.mark.integration,
@@ -419,3 +437,107 @@ def test_the_connection_is_not_pinned_by_a_prepared_statement(sink: PostgresSink
 
     assert _scalar(sink, "SELECT count(*) FROM pg_prepared_statements") == 0
     assert _scalar(sink, "SHOW statement_timeout") == "1min"
+
+
+def _outbox(sink: PostgresSink) -> list[tuple[Any, ...]]:
+    with sink.connection.cursor() as cursor:
+        cursor.execute(
+            "SELECT id, subject, event_type, payload, published_at FROM outbox ORDER BY id"
+        )
+        rows = [tuple(row) for row in cursor.fetchall()]
+    sink.connection.commit()
+    return rows
+
+
+def test_the_outbox_has_a_partial_index_over_the_queue_only(sink: PostgresSink) -> None:
+    """The table is almost entirely sent rows; a full index would be as big as it."""
+    definition = _scalar(
+        sink,
+        "SELECT indexdef FROM pg_indexes WHERE tablename = 'outbox' AND indexname = %s",
+        ("outbox_unpublished_idx",),
+    )
+    assert definition is not None
+    assert "WHERE (published_at IS NULL)" in str(definition)
+
+
+def test_an_upsert_queues_its_event_in_the_same_transaction(sink: PostgresSink) -> None:
+    sink.upsert([make_coffee(site="demo", external_id="1")])
+
+    rows = _outbox(sink)
+    assert len(rows) == 1
+    assert rows[0][1] == "coffee.v1.catalogue.demo.1"
+    assert rows[0][2] == "coffee.state"
+    assert rows[0][3]["name"] == "Kuba Serrano Superior"
+    assert rows[0][4] is None
+
+
+def test_a_coffee_with_no_external_id_is_stored_but_not_queued(sink: PostgresSink) -> None:
+    """The subject cannot be formed, and that must not cost the catalogue the row."""
+    assert sink.upsert([make_coffee(site="demo", external_id="")]).written == 1
+
+    assert _scalar(sink, "SELECT count(*) FROM coffee") == 1
+    assert _outbox(sink) == []
+
+
+def test_delisting_queues_an_event_carrying_the_delisting(sink: PostgresSink) -> None:
+    sink.upsert([make_coffee(site="demo", external_id="1")])
+    sink.upsert([make_coffee(site="demo", external_id="2")])
+
+    assert sink.mark_delisted("demo", {"1"}) == 1
+
+    gone = [row for row in _outbox(sink) if row[1].endswith(".2")]
+    assert len(gone) == 2  # the upsert, then the delisting
+    assert gone[0][3]["delisted_at"] is None
+    assert gone[1][3]["delisted_at"] is not None
+    assert gone[1][3]["site"] == "demo"
+
+
+def test_republishing_re_seeds_the_outbox_from_the_catalogue(sink: PostgresSink) -> None:
+    sink.upsert([make_coffee(site="demo", external_id="1")])
+    sink.upsert([make_coffee(site="demo", external_id="2")])
+    sink.mark_delisted("demo", {"1"})
+    with sink.connection.cursor() as cursor:
+        cursor.execute("DELETE FROM outbox")
+    sink.connection.commit()
+
+    assert publish.reseed(sink.connection) == 1
+
+    rows = _outbox(sink)
+    assert [row[1] for row in rows] == ["coffee.v1.catalogue.demo.1"]
+    assert rows[0][3]["delisted_at"] is None
+
+
+def test_the_publisher_claims_marks_and_prunes(sink: PostgresSink) -> None:
+    sink.upsert([make_coffee(site="demo", external_id="1")])
+    sink.upsert([make_coffee(site="demo", external_id="2")])
+    broker = _RecordingBroker()
+
+    assert asyncio.run(publish.drain(sink.connection, broker)) == 2
+
+    assert [message_id for _, _, message_id in broker.sent] == [
+        f"outbox-{row[0]}" for row in _outbox(sink)
+    ]
+    assert all(row[4] is not None for row in _outbox(sink))
+    # Nothing is a week old yet, so the prune is a no-op; then age them by hand.
+    assert publish.prune(sink.connection) == 0
+    with sink.connection.cursor() as cursor:
+        cursor.execute("UPDATE outbox SET published_at = now() - interval '8 days'")
+    sink.connection.commit()
+    assert publish.prune(sink.connection) == 2
+    assert _outbox(sink) == []
+
+
+def test_a_second_publisher_steps_over_the_rows_the_first_holds(sink: PostgresSink) -> None:
+    """SKIP LOCKED is what lets two publishers run without sending the same event twice."""
+    sink.upsert([make_coffee(site="demo", external_id="1")])
+    other = connect(DSN)
+    try:
+        with sink.connection.cursor() as cursor:
+            cursor.execute(publish.CLAIM_SQL, (500,))
+            assert len(cursor.fetchall()) == 1
+            with other.cursor() as second:
+                second.execute(publish.CLAIM_SQL, (500,))
+                assert second.fetchall() == []
+        sink.connection.rollback()
+    finally:
+        other.close()

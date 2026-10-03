@@ -15,8 +15,19 @@ Every job checks out the repo, installs uv with `astral-sh/setup-uv@v5`
 | `lint` | `ruff check --output-format=github`, `ruff format --check`, `mypy` | `uv sync --locked && uv run ruff check && uv run ruff format --check && uv run mypy` |
 | `hooks` | `pre-commit run --all-files --show-diff-on-failure` | `uv run pre-commit run --all-files --show-diff-on-failure` |
 | `test` | `pytest -q` against a `postgres:18-alpine` service container | `docker compose up -d && TEST_DATABASE_URL=postgresql://coffee:coffee@localhost:5432/coffee_test uv run pytest -q` |
-| `image` | `docker build`, then checks the image lists the same shops as the working tree, runs as uid 10001, and exits 2 with no `DATABASE_URL` | `docker build -t coffee-aggregator:ci . && docker run --rm coffee-aggregator:ci list-sites` |
+| `image` | `docker build` (with the contracts token as a BuildKit secret), then checks the image lists the same shops as the working tree, runs as uid 10001, and exits 2 with no `DATABASE_URL` | `docker build -t coffee-aggregator:ci . && docker run --rm coffee-aggregator:ci list-sites` |
 | `diff-summary` | Classifies the pull request's files against the merge base into the job summary | `git diff --name-status $(git merge-base origin/main HEAD)` |
+
+Every job that resolves dependencies first runs the local composite action
+[`.github/actions/contracts-auth`](../.github/actions/contracts-auth/action.yml).
+`coffee-contracts` is a git dependency on a tag and that repository is private
+while this one is public, so the workflow token — scoped to this repository
+alone — cannot fetch it. The action configures git with the `CONTRACTS_TOKEN`
+secret when it is set and does nothing when it is not; the `image` job passes
+the same token to `docker build` as a BuildKit secret, because the daemon does
+not inherit the runner's git config. **Until `CONTRACTS_TOKEN` exists every one
+of those jobs fails at `uv sync`.** Making `coffee-contracts` public removes the
+need for all of it.
 
 Notes:
 

@@ -63,6 +63,46 @@ services:
     mem_reservation: 128m
     oom_score_adj: 600
 
+  # The one long-running piece of this stack: it drains the `outbox` table the
+  # crawl fills and publishes each row to the broker, which lives in another
+  # compose stack on the external `events` network. Same image as the crawler,
+  # a different command — the publisher is the crawler's code, not a second
+  # service to build and version.
+  #
+  # It is not behind a profile: `docker compose up -d` is expected to leave it
+  # running, because the crawl ends at 05-something and the events it queued
+  # have to go out whether or not anyone is watching.
+  publisher:
+    build:
+      context: ..
+    image: coffee-aggregator:local
+    container_name: coffee-publisher
+    restart: unless-stopped
+    command: ["publish"]
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://coffee:${POSTGRES_PASSWORD:?}@db:5432/coffee
+      NATS_URL: ${NATS_URL:-nats://events:4222}
+      TZ: ${TZ:-Europe/Prague}
+    # It joins two networks: `default` to reach the database by name, and the
+    # external `events` network to reach the broker by name.
+    networks:
+      - default
+      - events
+    # It reads rows and writes messages, nothing else.
+    read_only: true
+    tmpfs:
+      - /tmp
+    # A batch of 500 JSON payloads at a time and one connection to each side.
+    mem_limit: 256m
+    mem_reservation: 64m
+    # Ahead of the crawl in the queue, behind the database: a killed publisher
+    # loses nothing — the rows are still unpublished and the next start sends
+    # them — but it is the only thing keeping the consumers current.
+    oom_score_adj: 500
+
   # The table browser, in place of the one a hosted provider would have given
   # you. It joins two networks: `default` to reach the database by name, and the
   # external `proxy` network so nginx-proxy-manager — which lives in another

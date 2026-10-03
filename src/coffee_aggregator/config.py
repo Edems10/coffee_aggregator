@@ -51,6 +51,12 @@ DSN_HINT = (
     "— see docker-compose.yml (or pass --dsn)"
 )
 
+NATS_URL_VARIABLE = "NATS_URL"
+#: Where the publisher looks for the broker. ``events`` is the broker's service
+#: name on the docker network of the same name, which is also what it is called
+#: on the server; a laptop points this at localhost instead.
+DEFAULT_NATS_URL = "nats://events:4222"
+
 
 class ConfigError(Exception):
     """Raised when a required setting is missing or cannot be parsed."""
@@ -230,6 +236,7 @@ class Settings:
         fx_cache: Where the file-backed EUR/CZK rate store lives; unset means
             ``<cache_dir>/fx_rates.json``, or the same file under
             ``~/.cache/coffee-aggregator`` when no cache directory is configured.
+        nats_url: Where the outbox publisher reaches the broker.
     """
 
     database_url: str | None = None
@@ -251,6 +258,7 @@ class Settings:
     crawl_delays: dict[str, float] = field(default_factory=lambda: dict(KNOWN_CRAWL_DELAYS))
     cache_dir: Path | None = None
     fx_cache: Path | None = None
+    nats_url: str = DEFAULT_NATS_URL
 
     @classmethod
     def from_env(cls) -> Settings:
@@ -294,6 +302,7 @@ class Settings:
             | parse_crawl_delays(os.environ.get(CRAWL_DELAYS_VARIABLE, "")),
             cache_dir=Path(cache_raw) if cache_raw else None,
             fx_cache=Path(fx_cache_raw) if fx_cache_raw else None,
+            nats_url=os.environ.get(NATS_URL_VARIABLE, "").strip() or DEFAULT_NATS_URL,
         )
 
     def fx_cache_path(self) -> Path:

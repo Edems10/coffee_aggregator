@@ -56,6 +56,14 @@ networks:                 # at the bottom of that file, if it has no networks: y
     external: true
 ```
 
+The publisher needs a second shared network, for the same reason and in the
+same shape: the broker lives in its own compose stack, and `coffee-publisher`
+reaches it by service name. Create it once too:
+
+```bash
+docker network create events
+```
+
 Bring the database up and build the crawler image. The build reads only four
 paths from the repo, because `.dockerignore` is an allowlist:
 
@@ -73,6 +81,42 @@ sudo docker compose --env-file /etc/coffee-aggregator/env run --rm crawler \
     crawl --site kafista --sink postgres
 sudo docker compose --env-file /etc/coffee-aggregator/env run --rm crawler runs
 ```
+
+## The publisher
+
+`coffee-publisher` is the only long-running thing in this stack besides the
+database and the table browser. It runs the same image as the crawler with a
+different command, drains the `outbox` table the crawl fills and publishes each
+row to the broker on the `events` network. `docker compose up -d` starts it; it
+is not behind a profile, because the crawl ends in the small hours and what it
+queued has to go out whether or not anyone is watching.
+
+```bash
+sudo docker compose --env-file /etc/coffee-aggregator/env logs -f publisher
+```
+
+Nothing is lost when it is down: the rows stay unpublished, and the next start
+sends them in order. If a consumer's store has to be rebuilt from nothing, or
+the broker's stream was re-created, re-seed it from the catalogue:
+
+```bash
+sudo docker compose --env-file /etc/coffee-aggregator/env run --rm \
+    crawler republish --all
+```
+
+### A note on the contracts repository
+
+The image's build resolves `coffee-contracts` from git, and that repository is
+private. Until it is public the build needs a credential, which is passed as a
+BuildKit secret and never lands in a layer:
+
+```bash
+docker build --secret id=github_token,env=GITHUB_TOKEN -t coffee-aggregator:local ..
+```
+
+`update.sh` does not pass one, so a server that has to build against the
+private repository needs either a token in its git config or that repository
+made public.
 
 ## The table browser
 

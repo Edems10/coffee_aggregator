@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from datetime import UTC, date, datetime
+from decimal import Decimal
 from pathlib import Path
 from typing import TYPE_CHECKING
 
@@ -147,3 +148,42 @@ def is_disabled(site_id: str) -> bool:
 
     config = tomllib.loads((CONFIG_DIR / f"{site_id}.toml").read_text("utf-8"))
     return bool(config.get("disabled"))
+
+
+def delisted_row(
+    site: str = "demo",
+    external_id: str = "9",
+    **overrides: object,
+) -> tuple[object, ...]:
+    """Build a row shaped like the one DELIST_SQL hands back.
+
+    Numerics arrive from psycopg as Decimal and the jsonb columns as lists, so
+    the fixture uses those types rather than the ones the contract wants: the
+    coercion between them is the thing worth regressing against.
+    """
+    from coffee_aggregator.sinks.outbox import STATE_FIELDS  # noqa: PLC0415  (test helper)
+
+    values: dict[str, object] = dict.fromkeys(STATE_FIELDS)
+    values |= {
+        "site": site,
+        "external_id": external_id,
+        "observed_at": datetime(2026, 9, 12, 10, 0, tzinfo=UTC),
+        "name": "Kuba Serrano Superior",
+        "url": f"https://example.sk/detail/{external_id}",
+        "roaster": "Demo Roastery",
+        "origin_country": "CU",
+        "process_method": "washed",
+        "roast_level": "medium",
+        "roast_profile": "omni",
+        "variety": ["Typica"],
+        "flavor_notes": ["kakao"],
+        "sca_score": Decimal("84.5"),
+        "weight_g": 200,
+        "price": Decimal("9.99"),
+        "currency": "EUR",
+        "price_per_kg_eur": Decimal("49.95"),
+        "available": False,
+        "delisted_at": datetime(2026, 10, 3, 5, 0, tzinfo=UTC),
+    }
+    values |= overrides
+    return tuple(values[name] for name in STATE_FIELDS)
