@@ -17,7 +17,6 @@ from coffee_aggregator.reporting.finding import (
     split,
     window,
 )
-from coffee_aggregator.reporting.page import document
 
 if TYPE_CHECKING:
     from collections.abc import Mapping, Sequence
@@ -56,8 +55,6 @@ def render(
         return _markdown(found, day=day, history_days=history_days)
     if fmt == "json":
         return _json(found)
-    if fmt == "html":
-        return document(found, day=day, history_days=history_days)
     message = f"unknown report format {fmt!r}; expected one of {', '.join(FORMATS)}"
     raise ValueError(message)
 

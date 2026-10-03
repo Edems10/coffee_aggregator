@@ -96,33 +96,6 @@ services:
     mem_reservation: 32m
     oom_score_adj: 400
 
-  # The morning report as a page. nginx-proxy-manager forwards to a host and a
-  # port, it does not serve a directory, so serving the file the nightly run
-  # writes takes a web server of its own — the same shape as pgweb.
-  #
-  # The published port binds to 127.0.0.1 by default, which means the host and
-  # nothing else. Set REPORT_BIND to a Tailscale address to read it from another
-  # machine on the tailnet without putting it on the LAN, or leave it alone and
-  # point an nginx-proxy-manager host at `coffee-report:80` over the shared
-  # proxy network for a real hostname and a certificate.
-  report:
-    image: nginx:alpine
-    container_name: coffee-report
-    restart: unless-stopped
-    environment:
-      TZ: ${TZ:-Europe/Prague}
-    volumes:
-      # Read-only: the page is written by the nightly run, never by this server.
-      - ${REPORT_DIR:-/var/www/coffee}:/usr/share/nginx/html:ro
-    ports:
-      - "${REPORT_BIND:-127.0.0.1}:${REPORT_PORT:-8088}:80"
-    networks:
-      - default
-      - proxy
-    mem_limit: 32m
-    mem_reservation: 8m
-    oom_score_adj: 500
-
 volumes:
   pgdata:
 
