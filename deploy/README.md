@@ -42,6 +42,20 @@ another compose stack, so the two need one shared network. Create it once:
 docker network create proxy
 ```
 
+Create the catalogue network the same way, once:
+
+```bash
+docker network create catalogue
+```
+
+Anything that reads the database from another stack — Grafana, a one-off
+`psql` container — joins `catalogue` rather than `coffee-aggregator_default`.
+The default network's name is derived from this directory, so a reader that
+joins it is coupled to the directory being called `coffee-aggregator`, and
+`docker compose down` here fails while that reader holds an endpoint on a
+network this stack owns. A named external network belongs to neither stack,
+which is the point.
+
 Then add that network to the proxy in `/opt/stacks/services/compose.yml`:
 
 ```yaml
